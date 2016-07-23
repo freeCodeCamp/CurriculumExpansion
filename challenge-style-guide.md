@@ -24,7 +24,7 @@ We have JavaScript events that track how long it takes for campers to solve chal
 
 Each challenge should teach exactly one concept, and that concept should be apparent from the challenge's name. 
 
-We should err on the side of repeating concepts.
+We can reinforce previously covered concepts through repetition and variations - for example, introducing h1 elements in one challenge, then h3 elements a few challenges later.
 
 Our goal is to have thousands of 2-minute challenges. These can flow together and reiterate previously-covered concepts.
 
@@ -46,7 +46,7 @@ Here are some example challenge names:
 
 Challenges should have the minimum number of tests necessary to verify that a camper understands a concept.
 
-Our goal is not to cover every corner case, nor is it to teach the camper best practices. Our goal is to communicate the single point that the challenge is trying to teach.
+Our goal is to communicate the single point that the challenge is trying to teach, and test that they have understood that point.
 
 ## Writing instructions
 
