@@ -8,7 +8,7 @@ Free Code Camp is expanding its challenges to better prepare campers for our pro
 Yes.
 
 #### When will these new challenges go live?    
-We are aiming for September 1.
+We are aiming for September 16.
 
 #### What percentage of the current challenges will remain?    
 Almost 100% of the old challenges will remain. We are just expanding them.
