@@ -64,6 +64,6 @@ Designing interactive coding challenges is hard. It would be so much easier to w
 
 We want campers to achieve a flow state. We want them to build momentum and blast through our curriculum with as few snags as possible. We want them to go into the projects with confidence and a wide exposure to programming concepts.
 
-Creating these challenges requires immense creativity and attention to detail. But you'll have plenty of help. You have support from a whole team of contributors, whom you can bounce ideas off of and demo your challenges to. Stay active in the [curriculum development room](https://gitter.im/freecodecamp/curriculumdevelopment) and ask lots of questions.
+Creating these challenges requires immense creativity and attention to detail. But you'll have plenty of help. You have support from a whole team of contributors, whom you can bounce ideas off of and demo your challenges to. Stay active in the [contributors room](https://gitter.im/freecodecamp/contributors) and ask lots of questions.
 
 With your help, we can design an interactive coding curriculum that will help millions of people learn to code for years to come.
