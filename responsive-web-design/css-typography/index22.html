@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Nutrition Label</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+  </head>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+    }
+
+    .label {
+      border: 2px solid black;
+      width: 270px;
+      margin: 20px auto;
+      padding: 0 7px;
+    }
+
+    h1 {
+      font-weight: 800;
+      text-align: center;
+      margin: -4px 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .divider {
+      border-bottom: 1px solid #888989;
+      margin: 2px 0;
+    }
+  </style>
+  <body>
+    <div class="label">
+      <h1>Nutrition Facts</h1>
+      <div class="divider"></div>
+      <p>8 servings per container</p>
+      <p>Serving size 2/3 cup (55g)</p>
+    </div>
+  </body>
+</html>
+
+<!-- The letters in the h1 feel a bit cramped. Increase the spacing between each letter by adding the `letter-spacing` property with the value `0.15px` to the h1 CSS rule. -->
