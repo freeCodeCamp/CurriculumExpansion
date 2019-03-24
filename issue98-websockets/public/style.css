@@ -1,0 +1,83 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  background-color: #e2f9b8;
+  overflow: hidden;
+}
+
+.chat_container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 3fr 70px;
+  height: 100vh;
+  max-width: 100%;
+  grid-template-areas:
+    "sidebar chat_list"
+    "sidebar chat_list"
+    "sidebar chat_form";
+}
+
+#chat-form {
+  grid-area: chat_form;
+  display: flex;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: #006400;
+  display: grid;
+  grid-template-rows: 70px 4fr 70px;
+  grid-template-areas:
+    "avatar"
+    "contacts"
+    "logo";
+}
+
+#chat-history {
+  grid-area: chat_list;
+  background-color: #e2f9b8;
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+}
+
+#avatar {
+  grid-area: avatar;
+}
+
+#contact-list {
+  grid-area: contacts;
+}
+
+#logo-container {
+  grid-area: logo;
+  padding: 10px;
+}
+
+#logo,
+#avatar-icon {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+#msg-input {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 90%;
+  font-size: 14px;
+  margin: 10px;
+  resize: none;
+}
+#submit-button {
+  font-size: 12px;
+  color: #006400;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  background-color: #e2f9b8;
+  font-weight: bold;
+}

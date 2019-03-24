@@ -6,28 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Socket.io Chat</title>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></link>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form action="#">
+    <div class="chat_container">
+      <aside id="sidebar">
+        <div id="avatar">
+          <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+        </div>
 
+        <div id="contact-list"></div>
 
-        <input id="msg_input" type="text">
-        <button type="submit">Send</button>
+        <div id="logo-container">
+          <img
+            id="logo"
+            src="./assets/freeCodeCamp.png"
+            alt="freeCodeCamp logo"
+          />
+        </div>
+      </aside>
 
+      <div id="chat-history">
+        <ul></ul>
+      </div>
 
+      <form id="chat-form" action="#">
+        <textarea
+          id="msg-input"
+          rows="3"
+          placeholder="Type your message"
+        ></textarea>
+        <button id="submit-button">Send</button>
+      </form>
+    </div>
 
-    </form>
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
 
     <script>
-        const socket = io("https://localhost:3000")
+      const socket = io.connect("https://localhost:8080");
 
-        socket.on("message", msg => {
-
-        });
+      socket.on("message", msg => {});
     </script>
   </body>
 </html>
