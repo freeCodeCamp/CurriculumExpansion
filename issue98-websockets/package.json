@@ -1,0 +1,24 @@
+{
+  "name": "issue98-websockets",
+  "version": "1.0.0",
+  "description": "Building a chat using WebSockets",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picolloo/CurriculumExpansion.git"
+  },
+  "author": "Lucas Picollo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/picolloo/CurriculumExpansion/issues"
+  },
+  "homepage": "https://github.com/picolloo/CurriculumExpansion#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
