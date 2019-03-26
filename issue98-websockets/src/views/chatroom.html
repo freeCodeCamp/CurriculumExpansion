@@ -30,7 +30,7 @@
         <ul></ul>
       </div>
 
-      <form id="chat-form" action="#">
+      <form id="chat-form" action="#" onsubmit="sendMessage()">
         <textarea
           id="msg-input"
           rows="3"
@@ -40,12 +40,16 @@
       </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
     <script>
-      const socket = io.connect("https://localhost:8080");
+      const socket = io.connect("http://localhost:3000");
 
       socket.on("message", msg => {});
+
+      sendMessage = () => {
+        socket.emit("message", )
+      }
     </script>
   </body>
 </html>

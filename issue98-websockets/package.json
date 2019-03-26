@@ -2,10 +2,9 @@
   "name": "issue98-websockets",
   "version": "1.0.0",
   "description": "Building a chat using WebSockets",
-  "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
