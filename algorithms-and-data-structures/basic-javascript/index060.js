@@ -4,4 +4,4 @@ let gold = 50;
 let currentWeapon = 0;
 let fighting;
 
-// Declare variables named monsterHealth and inventory without intializing them.
+// Declare variables named `monsterHealth` and `inventory` without intialiazing them.
