@@ -1,19 +1,19 @@
 function setIoEvents(io) {
+  io.of("/chatroom").on("connection", socket => {
+    socket.on("join", roomId => {
+      socket.emit("userListUpdate");
 
-
-    io.on("connection", socket => {
-        io.emit("user_connected");
-
-        socket.on("message", (from, msg) => {
-            console.log("I received a private message by ", from, " saying ", msg);
-        });
-
-        socket.on("user_disconnect", function () {
-            io.broadcast.emit("user_disconnect");
-        });
+      socket.join(roomId);
     });
 
+    socket.on("user_disconnect", () => {
+      io.broadcast.emit("user_disconnect");
+    });
 
+    socket.on("newMessage", (roomId, msg) => {
+      socket.broadcast.to(roomId).emit("addMessage", msg);
+    });
+  });
 }
 
 module.exports = function(app) {
