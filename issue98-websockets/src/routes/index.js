@@ -21,7 +21,8 @@ router.get("/rooms", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/rooms.html"));
 });
 
-router.get("/rooms:roomId", (req, res) => {
+router.get("/rooms/:id", (req, res) => {
+  const roomId = req.params.id;
   res.sendFile(path.join(__dirname, "../views/chatroom.html"));
 });
 
