@@ -6,6 +6,6 @@ let fighting;
 let monsterHealth;
 let inventory;
 
-/* Now set the inventory to equal the string "stick".
+// Now set the inventory to equal the string "stick". Strings must be surrounded with double quotes `"`, single quotes `'`, or backticks `` ` `` .
 Strings must be surrounded with double quotes `"`, single quotes `'`, or backticks `` ` `` .
 */
