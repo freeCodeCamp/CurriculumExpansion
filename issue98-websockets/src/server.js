@@ -15,8 +15,8 @@ app.use(express.static("public"));
 app.use("/", routes);
 
 app.use((req, res, next) => {
-  res.status(404).sendFile(process.cwd() + "/src/views/404.html");
-  //   res.status(404).sendFile(__dirname + "/views/404.html");
+  // res.status(404).sendFile(process.cwd() + "/src/views/404.html");
+  res.status(404).sendFile(__dirname + "/views/404.html");
 });
 
 server.listen(process.env.PORT || 3000);
