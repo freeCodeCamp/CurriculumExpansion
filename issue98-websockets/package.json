@@ -19,7 +19,6 @@
   "homepage": "https://github.com/picolloo/CurriculumExpansion#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "nodemon": "^1.18.10",
     "socket.io": "^2.2.0"
   }
 }
