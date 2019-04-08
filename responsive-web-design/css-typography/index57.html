@@ -6,12 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
   </head>
   <style>
-    html {
+    * {
       box-sizing: border-box;
-    }
-
-    *, *:before, *:after {
-      box-sizing: inherit;
     }
 
     body {
@@ -108,7 +104,7 @@
 <!--
 All of the nutrients in this section of the nutrition label are followed by a divider.
 To make things easier, create a new CSS rule that targets all the paragraph elements in the "daily-value" div and sets their bottom border to "1px solid #888989".
-Here's an example that targets all the spans in div with the class name "container" and changes the top border:
+Here's an example that targets all the `spans` within the `div` with the class name "container" and adds a green top border:
 ```
 .container span {
   border-top: 1px solid green;

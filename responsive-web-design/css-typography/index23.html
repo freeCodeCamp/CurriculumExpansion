@@ -6,12 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
   </head>
   <style>
-    html {
+    * {
       box-sizing: border-box;
-    }
-
-    *, *:before, *:after {
-      box-sizing: inherit;
     }
 
     body {
@@ -53,8 +49,9 @@
 </html>
 
 <!--
-Nutrition labels have a lot of bold text to draw attention to important elements.
-Rather than target each bold element with specific CSS, it's easier to create modular CSS that you can use anywhere.
-Add the class "bold" to the second p element that reads "Serving size 2/3 cup (55g)". 
+A key principle in programming is DRY, or "Don't Repeat Yourself".
+Nutrition labels have a lot of bold text to draw attention to important information.
+Rather than target each element that needs to be bold with specific CSS, it's easier to create modular CSS that you can use anywhere.
+Add the class "bold" to the second `p` element that reads "Serving size 2/3 cup (55g)".
 -->
 
