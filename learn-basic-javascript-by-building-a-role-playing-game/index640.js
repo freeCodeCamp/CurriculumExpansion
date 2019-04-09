@@ -174,7 +174,7 @@ function goFight() {
 	monsterHealthText.innerText = monsterHealth;
 }
 
-/* At the end of that line, add a random number between one and the value of `xp`. Here is the formula to get a random number between `min` and `max`: `Math.floor(Math.random() * (max - min + 1) + min`. 
+/* At the end of that line, add a random number between one and the value of `xp`. Here is the formula to get a random number between 1 and 5: `Math.floor(Math.random() * 5) + 1`.
 */
 
 function attack() {

@@ -193,7 +193,7 @@ function goFight() {
 	monsterHealthText.innerText = monsterHealth;
 }
 
-/* In the `attack` function, move the line `monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));` into an `if` expression. For the condition, put the function call `isMonsterHit()`. Here is an example of an `if` expression with a function call as the condition:
+/* In the `attack` function, move the line `monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;` into an `if` expression. For the condition, put the function call `isMonsterHit()`. Here is an example of an `if` expression with a function call as the condition:
 ```
 if (isTrue()) {
 	console.log("It's true!");
@@ -205,7 +205,7 @@ function attack() {
 	text.innerText = "The " + monsters[fighting].name + " attacks.";
 	text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
 	health -= getMonsterAttackValue(monsters[fighting].level);
-	monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));
+	monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
 	healthText.innerText = health;
 	monsterHealthText.innerText = monsterHealth;
 	if (health <= 0) {
