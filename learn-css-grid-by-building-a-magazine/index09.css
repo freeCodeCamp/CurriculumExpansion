@@ -1,0 +1,44 @@
+.magazine {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "author author title title text-4 text-4"
+    "social social title title text-4 text-4"
+    "text-1 text-1 text-2 text-2 text-4 text-4"
+    "text-1 text-1 quote-1 quote-1 text-4 text-4"
+    "text-1 text-1 text-3 text-3 text-4 text-4";
+  grid-column-gap: 1em;
+  /* the grid-row-gap is used to add spacing between the columns, use it to add 0.5em of space between each row of the grid */
+}
+
+.author {
+  grid-area: author;
+}
+
+.social {
+  grid-area: social;
+}
+
+.title {
+  grid-area: title;
+}
+
+.text-1 {
+  grid-area: text-1;
+}
+
+.text-2 {
+  grid-area: text-2;
+}
+
+.text-3 {
+  grid-area: text-3;
+}
+
+.text-4 {
+  grid-area: text-4;
+}
+
+.quote-1 {
+  grid-area: quote-1;
+}
