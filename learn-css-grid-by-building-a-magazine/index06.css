@@ -1,0 +1,40 @@
+.magazine {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* The grid-area property is used to give a selector a name in the grid. Its usage is as follows:
+grid-area: <name>;
+Some empty selectors have been declared below, give each the grid-area corresponding to their selector name, one has been done for you */
+
+.author {
+  grid-area: author;
+}
+
+.social {
+
+}
+
+.title {
+
+}
+
+.text-1 {
+
+}
+
+.text-2 {
+
+}
+
+.quote-1 {
+
+}
+
+.text-3 {
+
+}
+
+.text-4 {
+  
+}
