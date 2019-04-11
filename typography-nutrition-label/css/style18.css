@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+h1 {
+  font-weight: 800;
+  text-align: center;
+  margin: -4px 0;
+}
+
+/*
+Decrease the spacing between your `<h1>` and `<p>` elements by creating a new CSS rule.
+The rule should target all `<p>` elements and set their margins to 0.
+*/

@@ -1,0 +1,9 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* 
+Use borders sparingly to group and prioritize content.
+Create a new CSS rule with the `.label` selector and set the `border` property to `2px solid black;`.
+*/

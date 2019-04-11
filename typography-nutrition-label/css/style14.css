@@ -1,0 +1,23 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+/*
+If you inspect the label using your browser's developer tools, you'll see that it's actually 288 pixels wide instead of 270.
+By default, your browser includes the dimensions of the border and padding when calculating the label's width (2px + 7px + 270px + 7px + 2px) or height.
+An easy way to fix this is to use the universal `*` selector to target all elements on the page and set their `box-sizing` to `border-box`.
+Add the following to the top of your CSS file, above the `body` rule:
+```
+* {
+  box-sizing: border-box;
+}
+```
+*/
