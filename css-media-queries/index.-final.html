@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Piano</title>
+</head>
+<style>
+    html {
+        box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    .logo {
+        position: absolute;
+        margin-top: -70px;
+        width: 200px;
+    }
+
+
+    #piano {
+        background-color: #00471b;
+        width: 992px;
+        height: 290px;
+        margin: auto;
+        padding: 90px 20px 0 20px;
+        border-radius: 10px;
+    }
+
+    .keys {
+        background-color: #040404;
+        width: 950px;
+        height: 180px;
+        padding-left: 2px;
+        overflow: hidden; 
+    }
+
+    .key {
+        background-color: white;
+        position: relative;
+        width: 41px;
+        height: 175px;
+        margin: 2px;
+        float: left;
+        border-radius: 0 0 3px 3px;
+    }
+
+    .key.black--key {
+        z-index: 2;
+    }
+
+    .key.black--key:after {
+        content: "";
+        position: absolute;
+        left: -18px;
+        width: 32px;
+        height: 100px;
+        background-color: #1d1e22;
+        display: block;
+        border-radius: 0 0 3px 3px;
+    }
+
+
+    /* Media queries */
+
+    /* small then 600px devices */
+    @media only screen and (max-width: 768px) {
+
+
+        #piano {
+            width: 355px;
+        }
+
+        .keys {
+            width: 318px;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+    }
+
+
+    /* Medium devices */
+    @media only screen and (min-width: 768px) {
+
+        #piano {
+            width: 675px;
+            margin:  80px auto;
+            
+        }
+
+        .keys {
+            width: 633px;
+        }
+
+    }
+
+    /* Large devices */
+    @media screen and (min-width: 1200px) {
+
+        #piano {
+            width: 992px;
+            margin:  80px auto;
+            
+        }
+
+        .keys {
+            width: 948px;
+        }
+
+    }
+</style>
+<body>
+        <div id="piano">
+            <img class="logo" src="freeCodeCamp.svg" alt="freeCodeCamp logo" >
+            <div class="keys">
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+                <div class="key black--key"></div>
+            </div>
+        </div>
+</body>
+</html>
