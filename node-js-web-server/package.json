@@ -1,0 +1,9 @@
+{
+  "name": "fcc-web-server",
+  "version": "1.0.0",
+  "description": "fcc-web-server",
+  "main": "index.js",
+  "repository": "git@github.com:padunk/fcc-web-server.git",
+  "author": "padunk",
+  "license": "MIT"
+}
