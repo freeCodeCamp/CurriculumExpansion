@@ -2,6 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   /* The repeat() function allows you to reduce repetition like above. It is used in the following format:
-  repeat(no of times, value to be repeated)
+  repeat(number of times, value to be repeated)
   Use the repeat() function to reduce repetition in the above declaration */
 }
