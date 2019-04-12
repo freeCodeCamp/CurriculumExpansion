@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="theme-color" content="#000000" />
+   </head>
+   <body>
+      <header><h1>My First Web Server</h1></header>
+      <nav>
+         <h3>Simple Navigation Bar</h3>
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/about">About</a></li>
+         </ul>
+      </nav>
+      <main>
+         <section id="about">
+            <h2>Connect With Me</h2>
+            <form action="/about" method="POST">
+               <label for="userName">Your Name: </label>
+               <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  placeholder="John Doe"
+               />
+               <br />
+               <label for="userEmail">Your Email: </label>
+               <input
+                  type="email"
+                  name="userEmail"
+                  id="userEmail"
+                  placeholder="johndoe@xyz.com"
+               />
+               <br />
+               <label for="userComment">Comments: </label>
+               <textarea
+                  name="userComment"
+                  id="userComment"
+                  placeholder="Hi, your site is amazing"
+               ></textarea>
+               <br />
+               <input type="submit" value="Submit" name="submitButton" />
+            </form>
+         </section>
+      </main>
+   </body>
+</html>
