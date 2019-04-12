@@ -3,10 +3,10 @@
   grid-template-columns: repeat(6, 1fr);
   /* The grid-template-areas is used to declare the layout depending on grid-area of elements. The first row of the layout has been done below,
   make the changes to the property to:
-  Add a second row such that the first two columns belong to the element declared with the grid area of social, the next 2 with title and the last 2 with text-4
-  Add a third row such that the first two columns belong to the element declared with the grid area of text-1, the next 2 with text-2 and the last 2 with text-4
-  Add a fourth row such that the first two columns belong to the element declared with the grid area of text-1, the next 2 with quote-1 and the last 2 with text-4
-  Add a fifth row such that the first two columns belong to the element declared with the grid area of text-1, the next 2 with text-3 and the last 2 with text-4*/
+  Add a second row such that the first two columns belong to the element declared with the grid area of social, the next two with title and the last two with text-4
+  Add a third row such that the first two columns belong to the element declared with the grid area of text-1, the next two with text-2 and the last two with text-4
+  Add a fourth row such that the first two columns belong to the element declared with the grid area of text-1, the next two with quote-1 and the last two with text-4
+  Add a fifth row such that the first two columns belong to the element declared with the grid area of text-1, the next two with text-3 and the last two with text-4*/
   grid-template-areas:
     "author author title title text-4 text-4";
 }
