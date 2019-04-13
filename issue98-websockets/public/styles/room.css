@@ -2,16 +2,33 @@ body,
 html {
   padding: 0;
   margin: 0;
-  background-color: #e2f9b8;
   overflow: hidden;
 }
 
+.navbar {
+  background-color: #0a0a2e;
+  padding: 10px 0;
+  height: 20px;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e2040;
+}
+
 .chat_container {
+  border-radius: 1em;
+  height: 85vh;
+  width: 100%;
+  max-width: 80vw;
+
   display: grid;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 1fr 3fr 70px;
-  height: 100vh;
-  max-width: 100%;
   grid-template-areas:
     "sidebar chat_list"
     "sidebar chat_list"
@@ -27,11 +44,10 @@ html {
   grid-area: sidebar;
   background-color: #006400;
   display: grid;
-  grid-template-rows: 70px 4fr 70px;
+  grid-template-rows: 70px 4fr;
   grid-template-areas:
     "avatar"
-    "contacts"
-    "logo";
+    "contacts";
 }
 
 #chat-history {
