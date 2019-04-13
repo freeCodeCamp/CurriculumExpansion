@@ -9,35 +9,33 @@
     <link rel="stylesheet" href="/styles/room.css" />
   </head>
   <body onload="app()">
-    <div class="chat_container">
-      <aside id="sidebar">
-        <div id="avatar">
-          <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+    <nav class="navbar">
+      <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+    </nav>
+
+    <div class="container">
+      <div class="chat_container">
+        <aside id="sidebar">
+          <div id="avatar">
+            <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+          </div>
+
+          <div id="contact-list"></div>
+        </aside>
+
+        <div id="chat-history">
+          <ul></ul>
         </div>
 
-        <div id="contact-list"></div>
-
-        <div id="logo-container">
-          <img
-            id="logo"
-            src="./assets/freeCodeCamp.png"
-            alt="freeCodeCamp logo"
-          />
-        </div>
-      </aside>
-
-      <div id="chat-history">
-        <ul></ul>
+        <form id="chat-form" action="#" onsubmit="sendMessage()">
+          <textarea
+            id="msg-input"
+            rows="3"
+            placeholder="Type your message"
+          ></textarea>
+          <button id="submit-button">Send</button>
+        </form>
       </div>
-
-      <form id="chat-form" action="#" onsubmit="sendMessage()">
-        <textarea
-          id="msg-input"
-          rows="3"
-          placeholder="Type your message"
-        ></textarea>
-        <button id="submit-button">Send</button>
-      </form>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
