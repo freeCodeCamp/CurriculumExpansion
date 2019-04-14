@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "build": "webpack scss/style.scss --output _temp.js && rm _temp.js",
+    "watch": "nodemon --exec \"npm run build\" --watch scss -e scss"
+  }
+}
