@@ -5,7 +5,7 @@ var currentWeapon = 0;
 
 /*
 We've been declaring variables with the 'var' keyword.
-This makes a variable available everywhere.
-But it's better to scope variable as narrowly as possible.
-Change every 'var' in the code to 'let' so that the variables have local scope instead of global scope.
+However, in modern JavaScript, it's better to use 'const' or 'let' instead, because they fix a number of unusual behaviors with 'var' that make it difficult to reason about.
+'const' signals that a variable can only be assigned once, and 'let' signals that we want to reassign it.
+Because we will be changing these values as the game progressive, let's use 'let' for all of them.
 */
