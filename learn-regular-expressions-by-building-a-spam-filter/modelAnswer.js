@@ -28,6 +28,12 @@ const makeRegex = str => {
 
 const blacklistRegexps = spamPhrases.map(phrase => makeRegex(phrase));
 
+const isSpam = msg => {
+  const spacesCondensed = condenseSpaces(msg);
+
+  return blacklistRegexps.some(re => re.test(spacesCondensed));
+};
+
 /*
 blacklistRegexps:
 
