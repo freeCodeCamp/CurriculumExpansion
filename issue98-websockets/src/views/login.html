@@ -7,19 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="./rooms" id="register-form" method="POST">
-      <input type="text" id="username-input" required />
+    <form
+      action="./room"
+      id="register-form"
+      method="POST"
+      onsubmit="submitForm()"
+      enctype="multipart/form-data"
+    >
+      <label for="username">User</label>
+      <input name="username" type="text" id="username-input" required />
       <button type="submit">Create</button>
     </form>
 
     <script src="/js/main.js"></script>
-    <script>
-      const validateRegister = () => {
-        window.localStorage.setItem(
-          "username",
-          document.getElementById("username-input").value
-        );
-      };
+    <script>(function(){app.login();})();
     </script>
   </body>
 </html>

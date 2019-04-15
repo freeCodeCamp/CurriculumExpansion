@@ -7,8 +7,8 @@ html {
 
 .navbar {
   background-color: #0a0a2e;
-  padding: 10px 0;
-  height: 20px;
+  padding: 10px 0px;
+  height: 1em;
 }
 
 .container {
@@ -38,11 +38,14 @@ html {
 #chat-form {
   grid-area: chat_form;
   display: flex;
+  align-items: center;
+  border-right: 1px solid #0a0a2e;
+  border-bottom: 1px solid #0a0a2e;
 }
 
 #sidebar {
   grid-area: sidebar;
-  background-color: #006400;
+  background-color: #0a0a2e;
   display: grid;
   grid-template-rows: 70px 4fr;
   grid-template-areas:
@@ -52,10 +55,10 @@ html {
 
 #chat-history {
   grid-area: chat_list;
-  background-color: #e2f9b8;
+  background-color: #d4d4da;
   padding: 30px 30px 20px;
-  border-bottom: 2px solid white;
-  overflow-y: scroll;
+  border-bottom: 2px solid #d4d4da;
+  overflow-y: auto;
 }
 
 #avatar {
@@ -82,7 +85,6 @@ html {
 #msg-input {
   border-radius: 3px;
   border: none;
-  color: white;
   width: 90%;
   font-size: 14px;
   margin: 10px;
@@ -90,10 +92,12 @@ html {
 }
 #submit-button {
   font-size: 12px;
-  color: #006400;
+  color: #d4d4da;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  background-color: #e2f9b8;
+  background-color: #323251;
   font-weight: bold;
+  height: 30px;
+  border-radius: 2em;
 }
