@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/styles/room.css" />
   </head>
-  <body onload="app()">
+  <body>
     <nav class="navbar">
       <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
     </nav>
@@ -27,7 +27,7 @@
           <ul></ul>
         </div>
 
-        <form id="chat-form" action="#" onsubmit="sendMessage()">
+        <form id="chat-form" action="#">
           <textarea
             id="msg-input"
             rows="3"
@@ -40,5 +40,10 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/main.js"></script>
+    <script>
+      (function() {
+        app.chat();
+      })();
+    </script>
   </body>
 </html>

@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
-router.use("/room", (req, res) => {
+router.post("/room", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/chatroom.html"));
 });
 
