@@ -4,8 +4,5 @@ var gold = 50;
 var currentWeapon = 0;
 
 /*
-We've been declaring variables with the 'var' keyword.
-This makes a variable available everywhere.
-But it's better to scope variable as narrowly as possible.
-Change every 'var' in the code to 'let' so that the variables have local scope instead of global scope.
+We've been declaring variables with the `var` keyword. However, in modern JavaScript, it's better to use `let` instead of `var` because it fixes a number of unusual behaviors with 'var' that make it difficult to reason about. Change every `var` to `let`.
 */
