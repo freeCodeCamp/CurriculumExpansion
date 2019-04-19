@@ -1,0 +1,24 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+/* Now set `background-color` to "black". You should see something, but it is not yet done. */
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+
+}
+
+.cabin {
+
+}
+

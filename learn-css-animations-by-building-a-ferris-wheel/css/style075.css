@@ -1,0 +1,44 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  background-color: black;
+  transform-origin: 0% 0%;
+}
+
+.line:nth-of-type(2) {
+  transform: rotate(60deg);
+}
+.line:nth-of-type(3) {
+  transform: rotate(120deg);
+}
+.line:nth-of-type(4) {
+  transform: rotate(180deg);
+}
+.line:nth-of-type(5) {
+  transform: rotate(240deg);
+}
+.line:nth-of-type(6) {
+  transform: rotate(300deg);
+}
+
+/* Set `border` to "2px solid" and `background-color` to "red". */
+.cabin {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+
+}
+

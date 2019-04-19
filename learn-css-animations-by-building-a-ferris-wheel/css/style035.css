@@ -1,0 +1,22 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+/* To center the lines, set both `left` and `top` to "50%". */
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+
+}
+
+.cabin {
+
+}
+

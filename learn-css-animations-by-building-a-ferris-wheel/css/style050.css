@@ -1,0 +1,33 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  background-color: black;
+  transform-origin: 0% 0%;
+}
+
+/*
+Below the rule for `.line`, create a rule that selects just the second element with class `line`. Here is how to create a rule that selects the second element with the class `foobar`:
+```
+.foobar:nth-of-type(2) {
+
+}
+```
+*/
+
+.cabin {
+
+}
+
