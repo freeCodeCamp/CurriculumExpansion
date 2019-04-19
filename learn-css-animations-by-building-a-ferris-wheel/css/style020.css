@@ -1,0 +1,18 @@
+/* So the cabins don't get cut off, set `margin-left` to "50px". */
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  
+}
+
+.line {
+
+}
+
+.cabin {
+
+}
+

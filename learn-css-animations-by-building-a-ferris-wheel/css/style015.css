@@ -1,0 +1,17 @@
+/* To make the wheel into a circle, set `border-radius` to "50%". */
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+
+}
+
+.line {
+
+}
+
+.cabin {
+
+}
+

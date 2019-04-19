@@ -1,0 +1,29 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  background-color: black;
+  transform-origin: 0% 0%;
+}
+
+/* Rotate the 2nd line 60 degrees. For example, here is the declaration to rotate an element 40 degrees: `transform: rotate(40deg);`*/
+.line:nth-of-type(2) {
+
+}
+
+.cabin {
+
+}
+
