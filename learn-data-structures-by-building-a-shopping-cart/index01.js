@@ -1,9 +1,11 @@
 
 
 /* 
-A data structure is a building block that stores and organizes data that can be accessed.
+A data structure is a way to store and organize data in a program.
 
-We will use JavaScript class as our data sturcture to mimic functionalities of a shopping cart.
+Arrays and objects are both common data structures you'll use in JavaScript.
+
+We will use an object as our primary data sturcture to mimic functionalities of a shopping cart.
 
 First, we will need some data to work with. 
 
