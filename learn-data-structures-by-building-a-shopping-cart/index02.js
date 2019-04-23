@@ -7,7 +7,19 @@ const products = [];
 
   We will create our first item (object).
 
-  Give it a property names of id, name and price and assign them values of 0, 'Vanilla buttercream cupcake' and 2.99 in order.
+  There are few ways to create a JavaScript Object, the easiest way is to use object literal.
 
-  It's notable that there are other common properties that an item can have such as category and quantity. We will keep it simple for this project.
+  To create object literal, use curly brackets. 
+
+  Objects use key value pair separated by colons :. Object key is often called property. 
+  
+  For example, let's give an object a key of name and string value of Phillip. It will look like this. 
+  
+  const obj = {
+    name: "Phillip"
+  }
+
+  Let's start making our first product. Insert an object as the first item inside products array. You don't have to assign the object to anything.
+
+  Give it a key of name and corresponding value of Vanilla buttercream cupcake
 */

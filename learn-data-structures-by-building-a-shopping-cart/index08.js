@@ -38,8 +38,7 @@ we can loop through over the products array and see it contains any items that h
 
 If there is, then add the matching product to the items array.
 
-Make sure to use the keyword this when accessing the state. 
+We can use a forloop to accomplish such task. 
 
-Give it a shot. 
-
+Make sure to use the keyword this when accessing the items array since it's part of the state.
 */
