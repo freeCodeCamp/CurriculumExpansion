@@ -1,25 +1,3 @@
-body,
-html {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-.navbar {
-  background-color: #0a0a2e;
-  padding: 10px 0px;
-  height: 1em;
-}
-
-.container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e2040;
-}
-
 .chat_container {
   border-radius: 1em;
   height: 85vh;
@@ -72,14 +50,6 @@ html {
 #logo-container {
   grid-area: logo;
   padding: 10px;
-}
-
-#logo,
-#avatar-icon {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  margin-top: 10px;
 }
 
 #msg-input {

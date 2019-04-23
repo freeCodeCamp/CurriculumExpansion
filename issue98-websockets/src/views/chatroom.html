@@ -7,6 +7,7 @@
     <title>Socket.io Chat</title>
 
     <link rel="stylesheet" href="/styles/room.css" />
+    <link rel="stylesheet" href="/styles/common.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -37,6 +38,12 @@
         </form>
       </div>
     </div>
+
+    <template class="msg-component">
+      <div class="msg-box">
+        <p class="msg-content"></p>
+      </div>
+    </template>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/main.js"></script>
