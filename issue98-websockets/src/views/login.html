@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/styles/common.css" />
   </head>
   <body>
-    <form
-      action="./room"
-      id="register-form"
-      method="POST"
-      onsubmit="submitForm()"
-      enctype="multipart/form-data"
-    >
-      <label for="username">User</label>
-      <input name="username" type="text" id="username-input" required />
-      <button type="submit">Create</button>
-    </form>
+    <nav class="navbar">
+      <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+    </nav>
+
+    <div class="container">
+      <form
+        action="./room"
+        id="register-form"
+        method="POST"
+        onsubmit="submitForm()"
+        enctype="multipart/form-data"
+      >
+        <label for="username">User</label>
+        <input name="username" type="text" id="username-input" required />
+        <button type="submit">Create</button>
+      </form>
+    </div>
 
     <script src="/js/main.js"></script>
-    <script>(function(){app.login();})();
+    <script>
+      (function() {
+        app.login();
+      })();
     </script>
   </body>
 </html>
