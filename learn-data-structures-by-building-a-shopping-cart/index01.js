@@ -7,7 +7,13 @@ Arrays and objects are both common data structures you'll use in JavaScript.
 
 We will use an object as our primary data sturcture to mimic functionalities of a shopping cart.
 
-First, we will need some data to work with. 
+Before building our shopping cart though, we will first need some products that we can work with.
+
+Since there will be multiple products, we will use array as our datasturcture to hold them. 
+
+To declare an array, use brackets. For example:
+
+const array = [];
 
 Declare a new variable using 'const' keyword and name it 'products', then set it equal to an empty array;
 */
