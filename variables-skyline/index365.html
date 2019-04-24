@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>    
   <head>
@@ -56,9 +57,11 @@
       .bb1d {
         width: 100%;
         height: 70%;
+        background-color: var(--building-color1);
         background-image:
           linear-gradient(
-            var(--building-color1) 50%,
+            orange,
+            var(--building-color1),
             var(--window-color1)
           );
       }
@@ -168,5 +171,5 @@
 </html>
 
 <!--
-  Nest two new `div` elements within `bb2`, give them the classes of `bb2a` and `bb2b` in that order. These will be two sections for this building.
+  Since you are using the gradient now, remove the `background-color` property from `bb1d`.
 -->

@@ -8,14 +8,13 @@
         --building-color2: #66cc99;
         --building-color3: #cc6699;
         --building-color4: #538cc6;
-        --window-color1: black;
+        --window-color1: #bb99ff;
         --window-color2: #8cd9b3;
         --window-color3: #d98cb3;
         --window-color4: #8cb3d9;
       }
 
       * {
-        border: 1px solid black;
         box-sizing: border-box;
       }
 
@@ -45,6 +44,17 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+      }
+
+      .sky {
+        background-image: 
+          radial-gradient(
+            closest-corner circle at 15% 15%,
+            #ffcf33,
+            #ffcf33 20%,
+            #ffff66 21%,
+            #bbeeff 100%
+          );
       }
 
       /* BACKGROUND BUILDINGS - "bb" stands for "background building" */
@@ -229,32 +239,112 @@
         background-color: var(--building-color1);
       }
 
+      .fb3-window {
+        width: 25%;
+        height: 80%;
+        background-color: var(--window-color1);
+      }
+
       .fb4 {
         width: 8%;
         height: 45%;
-        background-color: var(--building-color1);
         position: relative;
         left: 10%;
       }
+
+      .fb4a {
+        border-top: 5vh solid transparent;
+        border-left: 8vw solid var(--building-color1);
+      }
+
+      .fb4b {
+        width: 100%;
+        height: 89%;
+        background-color: var(--building-color1);
+        display: flex;
+        flex-wrap: wrap;
+      }
       
+      .fb4-window {
+        width: 30%;
+        height: 10%;
+        border-radius: 50%;
+        background-color: var(--window-color1);
+        margin: 10%;
+      }
+
       .fb5 {
         width: 10%;
         height: 33%;
-        background-color: var(--building-color2);
+        background-color: var(--window-color2);
         position: relative;
         right: 10%;
+        background-image:
+          linear-gradient(
+            90deg,
+            var(--building-color2),
+            var(--building-color2) 12%,
+            transparent 12%,
+            transparent 44%,
+            var(--building-color2) 44%,
+            var(--building-color2) 56%,
+            transparent 56%,
+            transparent 88%,
+            var(--building-color2) 88%,
+            var(--building-color2)
+          ),
+          repeating-linear-gradient(
+            var(--building-color2),
+            var(--building-color2) 5%,
+            transparent 5%,
+            transparent 10%
+          );
       }
 
       .fb6 {
         width: 9%;
         height: 38%;
-        background-color: var(--building-color3);
+        background-color: var(--window-color3);
+        background-image:
+          repeating-linear-gradient(
+            90deg,
+            var(--building-color3),
+            var(--building-color3) 10%,
+            transparent 10%,
+            transparent 30%
+          ),
+          repeating-linear-gradient(
+            var(--building-color3),
+            var(--building-color3) 10%,
+            transparent 10%,
+            transparent 30%
+          );
+      }
+
+      @media (max-width: 1000px) {
+        :root {
+          --building-color1: #000;
+          --building-color2: #000;
+          --building-color3: #000;
+          --building-color4: #000;
+        }
+
+        .sky {
+          background-image: 
+            radial-gradient(
+              closest-corner circle at 15% 15%,
+              #ccc,
+              #ccc 20%,
+              #445 21%,
+              #223 100%
+            );
+        }
       }
     </style>
   </head>
 
   <body>
-    <div class="background-buildings">
+    <div class="background-buildings sky">
       <div></div>
       <div></div>
       <div class="bb1 building-wrap">
@@ -300,13 +390,27 @@
         </div>
       </div>
       <div></div>
-      <div class="fb3">
-        <div class="fb3a"></div>
+      <div class="fb3 building-wrap">
+        <div class="fb3a window-wrap">
+          <div class="fb3-window"></div>
+          <div class="fb3-window"></div>
+          <div class="fb3-window"></div>
+        </div>
         <div class="fb3b"></div>
         <div class="fb3a"></div>
         <div class="fb3b"></div>
       </div>
-      <div class="fb4"></div>
+      <div class="fb4">
+        <div class="fb4a"></div>
+        <div class="fb4b">
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+        </div>
+      </div>
       <div class="fb5"></div>
       <div class="fb6"></div>
       <div></div>
@@ -316,5 +420,5 @@
 </html>
 
 <!--
-  Add your `building-wrap` class to the `fb3` element to center the sections.
+  Lastly, in the `:root` selector of the media query, redefine all the `--window-color#` variables to use `#777`. When you're done, resize the window and watch it go from day to night. Variables are primarily used with colors, and that's how you used them here. But they can be given any value and used on any property. Your project looks great!
 -->
