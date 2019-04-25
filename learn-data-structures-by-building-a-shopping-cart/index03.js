@@ -23,16 +23,21 @@ const products = [
 
 /* 
 
-OK, We have filled up the rest of the products array with other items. Won't it be boring if the store had only one item?
+OK, We have actually filled up the rest of the products array with rest of the items to speed up the process.
 
 Now that our shelves are full, let's build our shopping cart with a JavaScript class.
 
-What are classes? It's container that makes it easier to define a number of methods to work with data and hold its current state.
+What are classes? It's container that makes it easy to define a number of methods to work with data and hold its current state.
 
-In our case, think of it as a factory that can produce many number of shopping carts. They will look the same and do the same things.
+In our case, think of it as a factory that can produce many number of shopping carts. 
 
-To create a class, use a keyword called 'class' followed by a name 'ShoppingCart', then give opening and closing curly brackets.
+They will look the same and do the same things. (unless given different parameters, which we won't cover in this lesson.)
 
-It's notable that there are other common properties that an item can have such as category and quantity. We will keep it simple for this project.
+To create a class, use a keyword called 'class' followed by a name then give opening and closing curly brackets. For ex.
 
+class myClass {
+
+}
+
+Declare a class called ShoppingCart.
 */
