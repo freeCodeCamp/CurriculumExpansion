@@ -34,17 +34,25 @@ class ShoppingCart {
 /*
   We have the method but how can we add an item using this method?
 
-  If we know an unique identity that only each item possesses, we can use that identity to pull that item inside our cart.
+  If we know unique identities that only each item possesses, we can use that identity to add that item to the cart.
 
-  We currently have three properties called id, name and price.
+  Each item currently has three properties called id, name and price. Let's figure out which key can be unique.
   
   Price is definitely not unique because different items can have the same price.
 
-  How about name? Maybe. However, what is there are items with the same name but can have different attributes like colors?
+  How about name? Maybe. However, what if there are items with the same name but can have different attributes like colors?
 
-  This is why we have ids. They are unique identifiers that only each item can have. Let's have addItem method take id as first parameter. 
+  This is why we have ids. They are unique identifiers that only each item can have. 
+  
+  Let's have addItem method take id as first parameter. 
 
-  We also need to tell the addItem method from where it should add an item. We currently have products array but what if our inventory grows and introduces different products in different arrays?
+  We also need to tell the addItem method from where which selection of items should add an item because there could be many in the future.
 
-  Make the addItem method take an array as the second parameter. Name it products.
+  Methods can take parameters by providing what they will be received as inside parameters. For ex.
+  
+  sayName (name) {
+  
+  }
+
+  Make the addItem method take id as the first parameter and products as the second parameter.
 */
