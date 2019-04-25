@@ -47,7 +47,7 @@
       }
 
       .sky {
-        background-image: 
+        background: 
           radial-gradient(
             closest-corner circle at 15% 15%,
             #ffcf33,
@@ -78,7 +78,7 @@
       .bb1d {
         width: 100%;
         height: 70%;
-        background-image:
+        background:
           linear-gradient(
             var(--building-color1) 50%,
             var(--window-color1)
@@ -87,7 +87,7 @@
 
       .bb1-window {
         height: 10%;
-        background-image:
+        background:
           linear-gradient(
             var(--building-color1),
             var(--window-color1)
@@ -108,7 +108,7 @@
       .bb2b {
         width: 100%;
         height: 100%;
-        background-image:
+        background:
           repeating-linear-gradient(
             var(--building-color2),
             var(--building-color2) 6%,
@@ -120,7 +120,7 @@
       .bb3 {
         width: 10%;
         height: 55%;
-        background-image:
+        background:
           repeating-linear-gradient(
             90deg,
             var(--building-color3),
@@ -180,7 +180,7 @@
         width: 100%;
         height: 80%;
         background-color: var(--window-color4);
-        background-image: 
+        background: 
           linear-gradient(
             var(--building-color4),
             var(--building-color4) 10%,
@@ -279,7 +279,7 @@
         background-color: var(--window-color2);
         position: relative;
         right: 10%;
-        background-image:
+        background:
           linear-gradient(
             90deg,
             var(--building-color2),
@@ -305,7 +305,7 @@
         width: 9%;
         height: 38%;
         background-color: var(--window-color3);
-        background-image:
+        background:
           repeating-linear-gradient(
             90deg,
             var(--building-color3),
@@ -323,7 +323,7 @@
 
       @media (max-width: 1000px) {
         .sky {
-          background-image: 
+          background: 
             radial-gradient(
               closest-corner circle at 15% 15%,
               #ccc,
@@ -413,5 +413,5 @@
 </html>
 
 <!--
-  Add a `:root` selector to the top of your media query. Redefine all the `--building-color#` variables to use the value `#000` there.
+  Add a `:root` selector to the top of your media query. Then redefine all four of the `--building-color` variables to use the value `#000` there.
 -->

@@ -57,7 +57,7 @@
       .bb1d {
         width: 100%;
         height: 70%;
-        background-image:
+        background:
           linear-gradient(
             var(--building-color1) 50%,
             var(--window-color1)
@@ -66,7 +66,7 @@
 
       .bb1-window {
         height: 10%;
-        background-image:
+        background:
           linear-gradient(
             var(--building-color1),
             var(--window-color1)
@@ -82,7 +82,7 @@
       .bb2b {
         width: 100%;
         height: 100%;
-        background-image:
+        background:
           repeating-linear-gradient(
             var(--building-color2),
             var(--building-color2) 6%,
@@ -184,15 +184,5 @@
 </html>
 
 <!--
-  In the next few steps, you are going to use some tricks with CSS borders to turn the `bb2a` section into a triangle. First, remove the `background-color` from `bb2`, then add these properties to `bb2a`:
-  ```
-    margin: auto;
-    width: 5vw;
-    height: 5vw;
-    border-top: 1vw solid #333;
-    border-bottom: 1vw solid #555;
-    border-left: 1vw solid #777;
-    border-right: 1vw solid #999;
-  ```
-  After you add these, you can see how a thick border on an element gives you some angles where two sides meet. You're going to use that bottom border as the top of the building.
+  In the next few steps, you are going to use some tricks with CSS borders to turn the `bb2a` section into a triangle. First, remove the `background-color` from `bb2` since you don't need it anymore.
 -->
