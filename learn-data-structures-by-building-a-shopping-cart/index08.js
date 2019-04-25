@@ -31,14 +31,20 @@ class ShoppingCart {
   }
 }
 
-/* 
-We have what we need.
+/*
+Now we will receive unique id and array of products inside addItem method.
 
-we can loop through over the products array and see it contains any items that have the same id we want to add.
+We can loop through the products array and check if a product contains the the id. 
 
-If there is, then add the matching product to the items array.
+If the id is found, let's store the entire product inside our items array we previously created.
 
-We can use a forloop to accomplish such task. 
+Straightforward way of doing this would be utilizing forloop. Here is the pseudocode.
 
-Make sure to use the keyword this when accessing the items array since it's part of the state.
+for(let i=0; i<arr.length; i++) {
+  if(current product has the id) {
+    push it inside our items array
+  }
+}
+
+Don't forget to use this infront of items array when you are pushing it!
 */
