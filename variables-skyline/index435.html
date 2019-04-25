@@ -10,8 +10,6 @@
         --building-color4: #538cc6;
         --window-color1: black;
         --window-color2: #8cd9b3;
-        --window-color3: #d98cb3;
-        --window-color4: #8cb3d9;
       }
 
       * {
@@ -35,22 +33,13 @@
         top: 0;
       }
       
-      .building-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .window-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-      }
-
       /* BACKGROUND BUILDINGS - "bb" stands for "background building" */
       .bb1 {
         width: 10%;
         height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .bb1a {
@@ -89,12 +78,6 @@
         height: 50%;
       }
 
-      .bb2a {
-        border-bottom: 5vh solid var(--building-color2);
-        border-left: 5vw solid transparent;
-        border-right: 5vw solid transparent;
-      }
-
       .bb2b {
         width: 100%;
         height: 100%;
@@ -110,42 +93,13 @@
       .bb3 {
         width: 10%;
         height: 55%;
-        background:
-          repeating-linear-gradient(
-            90deg,
-            var(--building-color3),
-            var(--building-color3),
-            var(--window-color3) 15%
-          );
+        background-color: var(--building-color3);
       }
 
       .bb4 {
         width: 11%;
         height: 58%;
-      }
-
-      .bb4a {
-        width: 3%;
-        height: 10%;
         background-color: var(--building-color4);
-      }
-
-      .bb4b {
-        width: 80%;
-        height: 5%;
-        background-color: var(--building-color4);
-      }
-  
-      .bb4c {
-        width: 100%;
-        height: 85%;
-        background-color: var(--building-color4);
-      }
-
-      .bb4-window {
-        width: 18%;
-        height: 90%;
-        background-color: var(--window-color4);
       }
 
       /* FOREGROUND BUILDINGS - "fb" stands for "foreground building" */
@@ -195,7 +149,7 @@
     <div class="background-buildings">
       <div></div>
       <div></div>
-      <div class="bb1 building-wrap">
+      <div class="bb1">
         <div class="bb1a bb1-window"></div>
         <div class="bb1b bb1-window"></div>
         <div class="bb1c bb1-window"></div>
@@ -207,16 +161,7 @@
       </div>
       <div class="bb3"></div>
       <div></div>
-      <div class="bb4 building-wrap">
-        <div class="bb4a"></div>
-        <div class="bb4b"></div>
-        <div class="bb4c window-wrap">
-          <div class="bb4-window"></div>
-          <div class="bb4-window"></div>
-          <div class="bb4-window"></div>
-          <div class="bb4-window"></div>
-        </div>
-      </div>
+      <div class="bb4"></div>
       <div></div>
       <div></div>
     </div>
@@ -238,5 +183,15 @@
 </html>
 
 <!--
-  Looks good! On to the foreground buildings! Turn the `fb1` building into three sections by nesting three new `div` elements within it. Give them the classes of `fb1a`, `fb1b` and `fb1c` in that order.
+  Add these properties to `bb2a`:
+  ```
+    margin: auto;
+    width: 5vw;
+    height: 5vw;
+    border-top: 1vw solid #333;
+    border-bottom: 1vw solid #555;
+    border-left: 1vw solid #777;
+    border-right: 1vw solid #999;
+  ```
+  After you add these, you can see how a thick border on an element gives you some angles where two sides meet. You're going to use that bottom border as the top of the building.
 -->
