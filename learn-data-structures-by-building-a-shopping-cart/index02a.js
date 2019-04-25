@@ -7,7 +7,7 @@ const products = [
 /*
 Good job. Now we have an cupcake in our store!
 
-But we need give it more information.
+But we need more information about our delicious cupcake, like its price if we are going to sell it.
 
 When you add more key value pairs to an object, you separate them with commas. For example:
 
