@@ -35,7 +35,7 @@ They will look the same and do the same things. (unless given different paramete
 
 To create a class, use a keyword called 'class' followed by a name then give opening and closing curly brackets. For ex.
 
-class myClass {
+class MyClass {
 
 }
 
