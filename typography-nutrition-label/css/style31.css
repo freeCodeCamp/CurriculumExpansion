@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -14,13 +17,13 @@ body {
   padding: 0 7px;
 }
 
+/* Change your `h1` rule to `header h1`. */
+
 h1 {
   text-align: center;
   margin: -4px 0;
   letter-spacing: 0.15px;
 }
-
-/* Then change your `h1` CSS rule to target "header h1". */
 
 p {
   margin: 0;

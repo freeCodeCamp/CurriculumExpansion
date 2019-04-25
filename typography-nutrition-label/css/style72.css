@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -74,6 +77,5 @@ p {
 }
 
 /* 
-Now create a CSS rule to target the new class, "dbl-indent".
-Have it set the left margin of the elements it selects to "2em".
+Create a rule targeting ".dbl-indent" and set the left margin of the elements it selects to "2em".
 */

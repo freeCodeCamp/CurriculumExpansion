@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -70,9 +73,8 @@ p {
 }
 
 /* 
-Use the `:not()` pseudo-class to prevent certain items from being selected.
-Modify the `.daily-value p` CSS rule so it only targets paragraphs in the "daily-value" `<div>` without the "no-divider" class name.
-Here's an example of a rule that changes the color of paragraphs in a `<div>` as long as they don't have the class "green":
+Modify the `.daily-value p` rule so it only targets paragraphs in the "daily-value" `<div>` without the "no-divider" class name.
+Here's an example that uses the `:not()` pseudo-class to change the color of paragraphs in a `<div>` as long as they don't have the class "green":
 ```
 div p:not(.green) {
   color: red;

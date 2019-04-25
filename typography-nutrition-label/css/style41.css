@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -51,5 +54,6 @@ p {
 }
 
 /* 
-Create a new CSS rule with the selector `.calories-info h1` and set the top and bottom margin to -5 pixels, and the left and right margin to -2 pixels.
+Create a new rule with the selector `.calories-info h1` and set the top and bottom margin to "-5px", and the left and right margin to "-2px".
 */
+

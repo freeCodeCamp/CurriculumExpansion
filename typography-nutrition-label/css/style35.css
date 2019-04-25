@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -37,14 +40,15 @@ p {
   float: right;
 }
 
-.md, .lg {
-  background-color: black;
-}
-
 /*
 Look closely and you'll see that there's still a 1 pixel gray border at the bottom of the large divider.
-Add `border: 0;` to your `.md, .lg` CSS rule to get rid of it.
+Set the `border` property of your `.md, .lg` rule to "0" to get rid of it.
 */
+
+.md, .lg {
+  background-color: black;
+
+}
 
 .lg {
   height: 10px;

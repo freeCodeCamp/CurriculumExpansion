@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -30,4 +33,5 @@ p {
   margin: 2px 0;
 }
 
-/* Create a new CSS rule with the `.bold` selector and set the `font-weight` property to `800`. */
+/* Create a new rule with with the `.bold` selector and set the `font-weight` property to "800". */
+

@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -77,10 +80,11 @@ p {
   border-bottom: 1px solid #888989;
 }
 
-/* Add a declaration to the "note" CSS rule that sets the `text-indent` property to -8 pixels. */
+/* In `.note`, set the `text-indent` property to "-8px". */
 
 .note {
   font-size: 0.6rem;
   margin: 5px 0;
   padding: 0 8px;
+
 }

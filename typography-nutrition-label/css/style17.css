@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -14,12 +17,13 @@ body {
   padding: 0 7px;
 }
 
+/*
+Fine-tune the placement of the `<h1>` element by adjusting its margin.
+Set the top and bottom margins to "-4px", and the left and right margins to "0".
+*/
+
 h1 {
   font-weight: 800;
   text-align: center;
-}
 
-/*
-Fine-tune the placement of your `<h1>` element by adjusting its margin.
-Set the top and bottom margins to -4 pixels, and the left and right margins to 0.
-*/
+}

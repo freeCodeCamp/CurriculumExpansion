@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -37,10 +40,8 @@ p {
   float: right;
 }
 
-/* 
-CSS rules that target multiple classes are a good way to prevent repetition.
-Eventually you'll have to create medium sized dividers, so create a CSS rule that targets both "md" and "lg" classes.
-The new rule should set the "background-color" to "black".
+/*
+Eventually you'll have to create medium sized dividers, so create a CSS rule that targets both `.md` and `.lg` classes and set the `background-color` to "black".
 Here's an example that sets the width of two different classes:
 ```
 .class-1, .class-2 {
@@ -48,6 +49,7 @@ Here's an example that sets the width of two different classes:
 }
 ```
 */
+
 
 .lg {
   height: 10px;

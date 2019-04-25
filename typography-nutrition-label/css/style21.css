@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -24,11 +27,11 @@ p {
   margin: 0;
 }
 
+/*
+Set the `margin` of the `divider` class to "2px 0" to increase the space above and below it by 2 pixels.
+*/
+
 .divider {
   border-bottom: 1px solid #888989;
-}
 
-/*
-Adjust the margin of the divider to increase the space above and below it.
-Add the `margin` property with the value `2px 0` to the `divider` rule.
-*/
+}

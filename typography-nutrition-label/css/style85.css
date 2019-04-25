@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -79,10 +82,11 @@ p {
 
 /*
 The text in this section should be left aligned, with the asterisk (*) character offset to the left.
-First, add a declaration to the "note" rule that sets the top and bottom padding to 0, and the left and right padding to 8 pixels.
+First, add a declaration to `.note` that sets the top and bottom padding to 0, and the left and right padding to 8 pixels.
 */
 
 .note {
   font-size: 0.6rem;
   margin: 5px 0;
+  
 }

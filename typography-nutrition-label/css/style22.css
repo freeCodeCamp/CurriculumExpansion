@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -14,10 +17,16 @@ body {
   padding: 0 7px;
 }
 
+/*
+The letters in the header element feel a bit cramped.
+Increase the spacing between each letter by adding the `letter-spacing` property with the value "0.15px" to the `h1` rule.
+*/
+
 h1 {
   font-weight: 800;
   text-align: center;
   margin: -4px 0;
+
 }
 
 p {
@@ -28,8 +37,3 @@ p {
   border-bottom: 1px solid #888989;
   margin: 2px 0;
 }
-
-/*
-The letters in the `<h1>` element feel a bit cramped.
-Increase the spacing between each letter by adding the `letter-spacing` property with the value `0.15px` to the `h1` CSS rule.
-*/

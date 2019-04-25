@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -52,11 +55,12 @@ p {
 
 /*
 The larger font size of the number "230" is causing it to overflow.
-In `.calories-info h1`, add `overflow: hidden` to prevent this.
+In `.calories-info h1`, set the `overflow` property to "hidden" to prevent this.
 */
 
 .calories-info h1 {
   margin: -5px -2px;
+  
 }
 
 .calories-info span {

@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -24,4 +27,5 @@ p {
   margin: 0;
 }
 
-/* Create a new CSS rule that targets the `divider` class and sets the `border-bottom` to `1px solid #888989`. */
+/* Create a new rule with the `.divider` selector and set the `border-bottom` property to "1px solid #888989". */
+

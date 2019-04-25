@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -66,11 +69,7 @@ p {
 }
 
 /*
-Create a new CSS rule using the `.indent` selector and sets its left margin to "1em".
-Here's an example that changes the right margins of all paragraph elements: 
-```
-p {
-  margin-right: 25px;
-}
-```
+Create a new rule using the `.indent` selector and sets the `margin-left` property to "1em".
+`em` is a commonly used relative unit, and `1em` is equal to the size of the parent element.
+Since the `font-size` of the "daily-value" `<div>` is 16 pixels, `1em` is also 16 pixels.
 */

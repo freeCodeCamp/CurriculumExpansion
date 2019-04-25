@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -46,5 +49,8 @@ p {
   height: 10px;
 }
 
-
-/* Create a CSS rule that targets `sm-text` and set its `font-size` to `0.85rem`. */
+/*
+Create a rule that targets `.sm-text` and set the `font-size` to "0.85rem".
+`rem` stands for "root `em`", and is equal to the root `html` element's font size.
+In this case, "0.85rem" is about 13.6 pixels.
+*/

@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -57,9 +60,10 @@ p {
 
 /*
 Typography is often more art than science -- you'll have to play with things like alignment until it feels right.
-Set the top margin of `.calories-info span` to -7 pixels.
+Set the `margin-top` of your `.calories-info span` rule to "-7px".
 */
 
 .calories-info span {
   font-size: 1.2em;
+
 }

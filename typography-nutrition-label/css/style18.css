@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -21,6 +24,5 @@ h1 {
 }
 
 /*
-Decrease the spacing between your `<h1>` and `<p>` elements by creating a new CSS rule.
-The rule should target all `<p>` elements and set their margins to 0.
+To decrease the spacing between your header and paragraph elements, create a new rule using the `p` selector and set the `margin` property to "0".
 */

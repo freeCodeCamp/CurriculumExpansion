@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -21,7 +24,7 @@ h1 {
   letter-spacing: 0.15px;
 }
 
-/* Remove `font-weight: 800;` from the `h1` CSS rule. */
+/* Remove `font-weight: 800;` from the `h1` rule. */
 
 p {
   margin: 0;

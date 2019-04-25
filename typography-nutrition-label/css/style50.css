@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -24,7 +27,7 @@ p {
   margin: 0;
 }
 
-/* Then, add the `clear: right;` declaration to the `.divider` CSS rule to push the divider -- including any content that follows -- down past the right floated text. */
+/* Add `clear: right;` to the `.divider` rule to push the divider -- including any content that follows -- down past the right floated text. */
 
 .divider {
   border-bottom: 1px solid #888989;

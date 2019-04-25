@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -33,4 +36,5 @@ p {
   font-weight: 800;
 }
 
-/* Create a new modular CSS rule, "right", with the declaration "float: right;". */
+/* Create a new rule, `.right`, and set the `float` property to "right". */
+

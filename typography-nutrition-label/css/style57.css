@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -70,8 +73,8 @@ p {
 }
 
 /*
-All of the nutrients in this section of the nutrition label are followed by a divider.
-To make things easier, create a new CSS rule that targets all paragraph elements in the "daily-value" `<div>` and sets their bottom border to "1px solid #888989".
+Everything in this section of the nutrition label is followed by a divider.
+To make things easier, create a rule that targets all paragraphs in the "daily-value" `<div>` and sets their `border-bottom` to "1px solid #888989".
 Here's an example that targets all the `<spans>` within a `<div>` with the class name "container" and adds a green top border:
 ```
 .container span {

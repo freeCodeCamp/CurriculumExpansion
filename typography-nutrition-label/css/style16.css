@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
 }
 
 .label {
@@ -14,11 +17,12 @@ body {
   padding: 0 7px;
 }
 
-h1 {
-  font-weight: 800;
-}
-
 /*
 Centered text is also useful for establishing a hierarchy.
-Add the `text-align` property with the value `center` to your `<h1>` CSS rule.
+Add the `text-align` property with the value `center` to your `h1` rule.
 */
+
+h1 {
+  font-weight: 800;
+
+}
