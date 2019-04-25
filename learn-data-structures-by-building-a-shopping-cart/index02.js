@@ -1,25 +1,25 @@
 const products = [];
 
-/* 
-  An online store usually hold many products in their inventory. Each product should have special attributes that the store assigns to fill their needs.
+/*
+  Good job. 
 
-  Because a product has much information associated with it, we will store it as an object. 
+  We will be building an online pastry shop and each food has special attributes that the store assigns to organize their inventories.
 
-  We will create our first item (object).
+  Because a product has much information, more than a name, we will store it as an object. 
 
   There are few ways to create a JavaScript Object, the easiest way is to use object literal.
 
-  To create object literal, use curly brackets. 
+  To create object literal, we use curly brackets {}. 
 
-  Objects use key value pair separated by colons :. Object key is often called property. 
-  
-  For example, let's give an object a key of name and string value of Phillip. It will look like this. 
+  Objects use key value pairs separated by colons :. Key in a object is often called a property. For example, 
   
   const obj = {
     name: "Phillip"
   }
 
-  Let's start making our first product. Insert an object as the first item inside products array. You don't have to assign the object to anything.
+  This object has a key of name and string value of Phillip and is assigned to a variable called obj.
 
-  Give it a key of name and corresponding value of Vanilla buttercream cupcake
+  Let's start making our first product. Insert an object as the first item inside products array. You don't have to assign the object to variables.
+
+  Give the object a key called name and corresponding string of Vanilla buttercream cupcake
 */
