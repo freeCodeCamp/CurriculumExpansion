@@ -37,15 +37,19 @@ class ShoppingCart {
 }
 
 /*
-The class now contains some basic methods we can effectively use now.
+We said in the first lesson that classes resemble factories. We can make sure our factory works fine by making creating a copy/model off of it.
 
-We said that classes resemble factories. We need to make our copy of the shopping cart from the factory which will be an object.
+This copy will be an object, commonly called instance of the class it's made from. It will have access to the state and methods from the class.
 
-When we make this copy, we call it an instance of the class it's made from. Here is an example syntax.
+Here is an example syntax.
+
+class Person {
+  ...
+}
 
 const person = new Person();
 
-Notice the use of new keyword. This is creating an instance of Person class and assigning to a person variable.
+Notice the use of new keyword. It is needed to create an instance of Person class. Then we assign it to a person variable.
 
 Make an instance of ShoppingCart class and assign it to a variable called shoppingCart using const keyword.
 */
