@@ -33,7 +33,9 @@ class ShoppingCart {
 }
 
 /*
-We want to check if a product has been correctly added to the shopping cart.
+Isn't this better looking?
 
-Let's create a method called getItems which will return the current items array.
+Now, we want to test our method and check if a product has been correctly added to the shopping cart.
+
+Go head and create method called getItems which will return the items array.
 */
