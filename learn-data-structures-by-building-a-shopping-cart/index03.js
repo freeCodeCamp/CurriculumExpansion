@@ -23,17 +23,15 @@ const products = [
 
 /* 
 
-We have actually filled up the rest of the products array with rest of the items to speed up the process.
+We have filled up the rest of the products array to speed up the process.
 
 Now that our shelves are full, let's build our shopping cart with a JavaScript class.
 
-What are classes? It's container that makes it easy to define a number of methods to work with data and hold its current state.
+A class is a container that makes it easy to define a number of methods to work with data and hold its current state.
 
-To create a class, use a keyword called 'class'. For example:
+Declare a class called ShoppingCart. Use class keyword followed by its name. Here is a similar example:
 
-class MyClass {
+class Car {
 
 }
-
-Declare a class called ShoppingCart.
 */
