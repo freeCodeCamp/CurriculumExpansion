@@ -3,7 +3,7 @@
 /* 
 A data structure is a way to store and organize data in a program. 
 
-Arrays and objects are both common data structures you'll use in JavaScript. 
+Array is a type of data structure that can hold multiple values separated by commas.
 
 Declare a new variable using the 'const' keyword and name it 'products', then set it equal to an empty array. 
 
