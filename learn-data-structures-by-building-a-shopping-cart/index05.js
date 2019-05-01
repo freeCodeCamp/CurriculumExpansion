@@ -28,19 +28,13 @@ class ShoppingCart {
 }
 
 /*
-Inside the constructor is where we can initialize our state.
+We need a data storage to hold the items we buy from the store.
 
-What state do we need for our shopping cart?
+When we declare values inside our constructor, we attach 'this' keyword in front of them.
 
-First, we need some sort of storage place that can save the products we buy.
+Create an empty array and assign it to a variable called 'items' for example:
 
-To declare variables inside our constructor, we need to use this keyword.
+this.name = 'Phillip';
 
-In simple terms, this refers to the current object. The variables inside the constructor need to be bound to this. For ex.
-
-this.name = "Phillip";
-
-This value will then be readily and easily accessible in other methods inside the class. 
-
-Create an empty array and assign it to a variable called 'items'. This items array will hold the state of products in the cart.
+This value will then be readily accessible in other methods inside the class. 
 */
