@@ -9,8 +9,17 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-nav">
+    <header class="top-bar">
+      <a href="#main-content">Skip to main content</a>
+      <!--
+        An `href` starting with the hash symbol (`#`) links to an element with
+        the specified `id` on the page.
+
+        We don't yet have an element with id="main-content".
+
+        Add this id to the element with the class of the same name.
+      -->
+      <nav class="top-nav">
         <ul>
           <li>
             <a class="nav-link" href="#">Home</a>
@@ -22,11 +31,11 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <div class="outer">
-      <div class="secondary-nav">
+      <nav class="secondary-nav">
         <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
         <ul>
           <li>
@@ -55,7 +64,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div class="main-content">
         <p class="top-heading">Take our survey!</p>

@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>CodeHouse — Take Our Survey</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
-
     <header class="top-bar">
+      <a class="skip-nav-link" href="#main-content">Skip to main content</a>
       <nav class="top-nav">
         <ul>
           <li>
@@ -29,7 +28,7 @@
 
     <div class="outer">
       <nav class="secondary-nav">
-        <div><strong>Recent Events</strong></div>
+        <h1 class="secondary-nav-heading">Recent Events</h1>
         <ul>
           <li>
             <a href="#">
@@ -59,8 +58,8 @@
         </ul>
       </nav>
 
-      <main class="main-content">
-        <p class="h1">Take our survey!</p>
+      <main id="main-content" class="main-content">
+        <h1>Take our survey!</h1>
         <img alt="One of our students coding a Tic Tac Toe game" src="assets/code-coder-coding-34649.jpg" class="image">
         <form class="form">
 
@@ -79,30 +78,36 @@
           <div class="form-group">
             <label for="how-many" class="field-label">
               How many of our events have you attended in the past?
-            </label for="how-many">
+            </label>
             <input type="number" id="how-many" class="form-control">
           </div>
 
-          <div class="form-group">
-            <label for="start" class="field-label">
-              Start, stop, keep: what's one thing we should <em>start</em> doing?
-            </label for="start">
-            <input type="text" id="start" class="form-control">
-          </div>
+          <fieldset>
+            <legend class="field-label">
+              Start, stop, keep
+            </legend>
 
-          <div class="form-group">
-            <label for="stop" class="field-label">
-              What's one thing we should <em>stop</em> doing?
-            </label>
-            <input type="text" id="stop" class="form-control">
-          </div>
+            <div class="form-group">
+              <label for="start" class="field-label">
+                What’s one thing we should <em>start</em> doing?
+              </label>
+              <input type="text" id="start" class="form-control">
+            </div>
 
-          <div class="form-group">
-            <label for="keep" class="field-label">
-              What's one thing we should <em>keep</em> doing?
-            </label>
-            <input type="text" id="keep" class="form-control">
-          </div>
+            <div class="form-group">
+              <label for="stop" class="field-label">
+                What’s one thing we should <em>stop</em> doing?
+              </label>
+              <input type="text" id="stop" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="keep" class="field-label">
+                What’s one thing we should <em>keep</em> doing?
+              </label>
+              <input type="text" id="keep" class="form-control">
+            </div>
+          </fieldset>
 
           <div class="form-group">
             <label for="comments" class="field-label">
@@ -116,7 +121,7 @@
             <input type="text" class="form-control" id="email">
           </div>
 
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn">
             Submit
           </button>
         </form>

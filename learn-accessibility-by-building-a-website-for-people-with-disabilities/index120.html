@@ -9,8 +9,18 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-nav">
+    <header class="top-bar">
+      <a href="#main-content">Skip to main content</a>
+      <!--
+        We want to hide this link from non-keyboard users, because it isn't
+        relevant to them and may cause confusion.
+
+        We can do this by styling it as invisible
+
+        Give it the class "skip-nav-link". We'll use this as a hook to add some
+        special CSS styling.
+      -->
+      <nav class="top-nav">
         <ul>
           <li>
             <a class="nav-link" href="#">Home</a>
@@ -22,11 +32,11 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <div class="outer">
-      <div class="secondary-nav">
+      <nav class="secondary-nav">
         <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
         <ul>
           <li>
@@ -55,9 +65,9 @@
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <div class="main-content">
+      <div id="main-content" class="main-content">
         <p class="top-heading">Take our survey!</p>
         <img src="assets/code-coder-coding-34649.jpg" class="image">
         <div class="form">

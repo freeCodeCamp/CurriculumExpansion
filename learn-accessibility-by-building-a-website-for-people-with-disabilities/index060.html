@@ -9,8 +9,8 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-nav">
+    <header class="top-bar">
+      <nav class="top-nav">
         <ul>
           <li>
             <a class="nav-link" href="#">Home</a>
@@ -22,10 +22,15 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <div class="outer">
+      <!--
+        This element is purely presentational, so can leave it as a `div`.
+        Screen readers will ignore it, but we can still attach styles to it
+        using CSS.
+      -->
       <div class="secondary-nav">
         <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
         <ul>

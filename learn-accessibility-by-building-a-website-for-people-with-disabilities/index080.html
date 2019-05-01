@@ -9,8 +9,8 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-nav">
+    <header class="top-bar">
+      <nav class="top-nav">
         <ul>
           <li>
             <a class="nav-link" href="#">Home</a>
@@ -22,11 +22,27 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <div class="outer">
-      <div class="secondary-nav">
+      <nav class="secondary-nav">
+        <!--
+          We now have _two_ navigation elements, each containing multiple
+          links.
+
+          This can be annoying for keyboard-first or keyboard-only users, who
+          use the <kbd>Tab</kbd> key to select and interact with elements on
+          the page.
+
+          If they don't need to use the nav links, they still have to cycle
+          through each link in turn to get to the content relevant to them.
+
+          Let's add a "skip to main content" link.
+
+          Add an `a` tag after the start of the `header`, but before the start
+          of `.top-nav`.
+        -->
         <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
         <ul>
           <li>
@@ -55,7 +71,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div class="main-content">
         <p class="top-heading">Take our survey!</p>

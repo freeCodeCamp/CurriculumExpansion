@@ -10,6 +10,15 @@
 
   <body>
     <div class="top-bar">
+      <!--
+        Non-semantic HTML is worse for search-engine optimization (SEO), but
+        it's also bad for accessibility. Screen-reading software uses semantic
+        HTML to help blind and visually-impaired users navigate, but it can't
+        do that if non-semantic `div`s are used everywhere.
+
+        This "top-bar" functions as the header; replace the `div` with a
+        `header` element.
+      -->
       <div class="top-nav">
         <ul>
           <li>
