@@ -28,11 +28,11 @@ class ShoppingCart {
 }
 
 /*
-We need a data storage to hold the items we buy from the store.
+We need a storage place to hold the items we buy from the store.
 
 When we declare values inside our constructor, we attach 'this' keyword in front of them.
 
-Create an empty array and assign it to a variable called 'items' for example:
+Create an empty array and assign it to a variable called 'items' inside the constructor. for example:
 
 this.name = 'Phillip';
 
