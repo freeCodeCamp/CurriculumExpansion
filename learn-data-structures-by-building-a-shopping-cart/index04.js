@@ -28,19 +28,14 @@ class ShoppingCart {
 /*
 By convention, the first letter of class name is capital.
 
-Classes are capable of maintaining states and have a special function called constructor that takes care of this concern.
+Classes are capable of maintaining states and have a special function called constructor to initialize values.
 
-Constructor will automatically initialize a state of an instance created from the class.
+Declare a method(function inside class) called 'constructor' inside the ShoppingCart class. Here is an example:
 
-Let's create a constructor method inside the ShoppingCart class.
+class ShoppingCart {
+  sayHello() {
 
-A method is just a function inside the class.
-
-To declare a method inside class, you can simply give it a name, opening and closing parentheses to take in parameters then opening and closing curly brackets. For ex.
-
-sayHello() {
-
+  }
 }
 
-Declare a method called 'constructor' inside the ShoppingCart class.
 */
