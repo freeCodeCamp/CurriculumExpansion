@@ -13,12 +13,18 @@
   margin: 20px auto;
 }
 
+/*
+The corners of each rectangle are still too sharp.
+Round each corner of `one` by 9 pixels with `border-radius: 9px;`.
+*/
+
 .one {
   width: 425px;
   height: 150px;
   background-color: #efb762;
   margin: 20px auto 20px;
   box-shadow: 0 0 3px 3px #efb762;
+
 }
 
 .two {

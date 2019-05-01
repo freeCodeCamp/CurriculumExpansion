@@ -23,6 +23,10 @@
   transform: rotate(-0.6deg);
 }
 
+/* 
+Rotate `two` clockwise slightly by adding the `transform` property with the value "rotate(0.4deg)".
+*/
+
 .two {
   width: 475px;
   height: 200px;
@@ -30,6 +34,7 @@
   margin: 0 auto 20px;
   box-shadow: 0 0 3px 3px #8f0401;
   border-radius: 8px 10px;
+
 }
 
 .one, .two {

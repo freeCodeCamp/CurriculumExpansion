@@ -4,6 +4,12 @@
   background-color: #4d0f00;
 }
 
+/*
+The frame is much too wide.
+In `.frame`, set its `width` to 500 pixels.
+*/
+
 .frame {
   border: 50px solid black;
+  
 }

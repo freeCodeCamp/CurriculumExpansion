@@ -19,7 +19,10 @@
   margin: 20px auto;
 }
 
+/* Set the `background-color` of the `.two` "#8f0401". */
+
 .two {
   width: 475px;
   height: 200px;
+
 }

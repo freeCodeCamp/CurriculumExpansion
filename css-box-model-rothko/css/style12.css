@@ -11,7 +11,10 @@
   margin: 20px auto;
 }
 
+/* Set the `background-color` of `.one` to "#efb762". */
+
 .one {
   width: 425px;
   height: 150px;
+
 }

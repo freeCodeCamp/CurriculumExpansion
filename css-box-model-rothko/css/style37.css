@@ -13,6 +13,11 @@
   margin: 20px auto;
 }
 
+/* 
+Rotate each rectangle to give them more of an imperfect, hand-painted look.
+Use the following to rotate `one` counterclockwise -0.6 degrees: `transform: rotate(-0.6deg);`
+*/
+
 .one {
   width: 425px;
   height: 150px;

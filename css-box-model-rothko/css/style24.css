@@ -26,6 +26,9 @@
   margin: auto;
 }
 
+/* And set the `height` of `.three` to "28%". */
+
 .three {
   width: 91%;
+
 }

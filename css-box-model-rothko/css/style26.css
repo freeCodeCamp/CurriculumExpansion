@@ -26,6 +26,8 @@
   margin: auto;
 }
 
+/* Center the `three` `<div>` on the canvas by setting its `margin` to "auto". */
+
 .three {
   width: 91%;
   height: 28%;

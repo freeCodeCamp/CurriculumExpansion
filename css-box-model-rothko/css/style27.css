@@ -19,11 +19,18 @@
   margin: 20px auto 20px;
 }
 
+/*
+It's helpful to have your margins push in one direction.
+In this case, the bottom margin of the `one` `<div>` pushes `two` down 20 pixels.
+In `.two`, add `margin: 0 auto 20px;` to set its top margin to 0, center it horizontally, and its bottom margin is 20 pixels.
+*/
+
 .two {
   width: 475px;
   height: 200px;
   background-color: #8f0401;
   margin: auto;
+
 }
 
 .three {
