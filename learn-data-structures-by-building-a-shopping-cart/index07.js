@@ -32,15 +32,7 @@ class ShoppingCart {
 }
 
 /*
-  We have the method but how can we add an item using this method?
-
-  If we know unique identities that only each item possesses, we can use that identity to add that item to the cart.
-
-  Each item currently has three properties called id, name and price. Let's figure out which key can be unique.
-  
-  Price is definitely not unique because different items can have the same price.
-
-  How about name? Maybe. However, what if there are items with the same name but can have different attributes like colors?
+The easiest way to add an item to our cart is through an id. 
 
   This is why we have ids. They are unique identifiers that only each item can have. 
   
