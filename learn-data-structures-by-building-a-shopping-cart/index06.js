@@ -28,11 +28,9 @@ class ShoppingCart {
 }
 
 /*
-Good job! Now we have a place to store any items we buy.
-
-To manipulate states in class, we need to start creating other methods.
+To make actions such as adding and removing, we need to create multiple methods to handle them.
 
 Let's create a method called addItem that will help us start adding items to the cart.
 
-Declare a method addItem under the constructor function. Use the same syntax like constructor method.
+Declare a method 'addItem' under the constructor.
 */
