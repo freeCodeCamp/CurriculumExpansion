@@ -9,7 +9,7 @@ Our delicious vanilla buttercream cupcake needs more information for us to sell 
 
 Give our cupcake additional properties of "id" and "price". Match them with values 0 and 2.99 respectively.
 
-When you add more key value pairs to an object, you separate them with commas. Here is an example:
+Here is an example object with multiple entries.
 
 {
   name: "Phillip",
