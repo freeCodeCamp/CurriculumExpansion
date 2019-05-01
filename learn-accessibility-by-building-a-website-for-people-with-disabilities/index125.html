@@ -10,6 +10,7 @@
 
   <body>
     <header class="top-bar">
+      <a class="skip-nav-link" href="#main-content">Skip to main content</a>
       <nav class="top-nav">
         <ul>
           <li>
@@ -26,12 +27,7 @@
     </header>
 
     <div class="outer">
-      <!--
-        This element is purely presentational, so can leave it as a `div`.
-        Screen readers will ignore it, but we can still attach styles to it
-        using CSS.
-      -->
-      <div class="secondary-nav">
+      <nav class="secondary-nav">
         <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
         <ul>
           <li>
@@ -60,9 +56,9 @@
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <div class="main-content">
+      <div id="main-content" class="main-content">
         <p class="top-heading">Take our survey!</p>
         <img src="assets/code-coder-coding-34649.jpg" class="image">
         <div class="form">
