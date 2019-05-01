@@ -26,9 +26,9 @@ class ShoppingCart {
 }
 
 /*
-By convention, the first letter of class name is capital.
+By convention, the first letter of class name is a capital letter.
 
-Classes are capable of maintaining states and have a special function called constructor to initialize values.
+Classes have a special function called constructor that can initialize values for its state.
 
 Declare a method(function inside class) called 'constructor' inside the ShoppingCart class. Here is an example:
 
