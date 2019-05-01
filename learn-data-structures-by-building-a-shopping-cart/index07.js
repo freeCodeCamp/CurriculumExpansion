@@ -32,19 +32,15 @@ class ShoppingCart {
 }
 
 /*
-The easiest way to add an item to our cart is through an id. 
+The easiest way to add an item to our cart is through item's unique id. 
 
-  This is why we have ids. They are unique identifiers that only each item can have. 
-  
-  Let's have addItem method take id as first parameter. 
+Because their ids qre unique, we can easily identify what kind of items they are.
 
-  We also need to tell the addItem method from where which selection of items should add an item because there could be many in the future.
+We also need to know from which set of data we are adding the items. Currently we have only products array, but there could be more arrays with different items.
 
-  Methods can take parameters by providing what they will be received as inside parameters. For ex.
-  
-  sayName (name) {
-  
-  }
+Have our addItem method take 'id' as its first parameter and 'products' array as the 2nd parameter. Here is an example:
 
-  Make the addItem method take id as the first parameter and products as the second parameter.
+sayName (name, list) {
+
+}
 */
