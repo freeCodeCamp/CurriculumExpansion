@@ -28,9 +28,9 @@ class ShoppingCart {
 }
 
 /*
-To make actions such as adding and removing, we need to create multiple methods to handle them.
+To make operations such as adding and removing, we need to create appropriate methods to handle each action.
 
 Let's create a method called addItem that will help us start adding items to the cart.
 
-Declare a method 'addItem' under the constructor.
+Declare a method 'addItem'.
 */
