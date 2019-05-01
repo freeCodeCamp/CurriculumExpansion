@@ -11,8 +11,14 @@
   margin: 20px auto;
 }
 
+/*
+Use margins to position the `one` div on the canvas.
+Add the shorthand `margin: 20px auto;` to set the top and bottom margins to 20 pixels, and center it horizontally.
+*/
+
 .one {
   width: 425px;
   height: 150px;
   background-color: #efb762;
+
 }

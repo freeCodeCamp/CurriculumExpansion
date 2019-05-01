@@ -22,12 +22,17 @@
   border-radius: 9px;
 }
 
+/*
+Set the `border-radius` of `two` to "8px 10px". This will round its top-left and bottom-right corners by 8 pixels, and top-right and bottom-left corners by 10 pixels.
+*/
+
 .two {
   width: 475px;
   height: 200px;
   background-color: #8f0401;
   margin: 0 auto 20px;
   box-shadow: 0 0 3px 3px #8f0401;
+  
 }
 
 .one, .two {

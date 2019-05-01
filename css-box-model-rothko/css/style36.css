@@ -35,6 +35,11 @@
   filter: blur(1px);
 }
 
+/* 
+The `border-radius` property accepts up to four values to round the round the top-left, top-right, bottom-right, and bottom-left corners.
+Round the top-left corner of `three` by 30 pixels, the top-right by 25 pixels, the bottom-right by 60 pixels, and bottom-left by 12 pixels.
+*/
+
 .three {
   width: 91%;
   height: 28%;
@@ -42,4 +47,5 @@
   margin: auto;
   filter: blur(2px);
   box-shadow: 0 0 5px 5px #b20403;
+
 }

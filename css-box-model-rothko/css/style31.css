@@ -13,11 +13,17 @@
   margin: 20px auto;
 }
 
+/*
+The rectangles are too small and their edges don't have the soft quality of a painting.
+Increase the area and soften the edges of `.one` by setting its `box-shadow` to "0 0 3px 3px #efb762".
+*/
+
 .one {
   width: 425px;
   height: 150px;
   background-color: #efb762;
   margin: 20px auto 20px;
+  
 }
 
 .two {

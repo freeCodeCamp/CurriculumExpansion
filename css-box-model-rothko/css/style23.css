@@ -25,3 +25,8 @@
   background-color: #8f0401;
   margin: auto;
 }
+
+/*
+You don't always have to use pixels when sizing an element.
+Create a new rule, `.three`, and set its `width` to "91%".
+*/

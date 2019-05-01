@@ -26,7 +26,10 @@
   margin: auto;
 }
 
+/* Change the `background-color` of `.three` to "#b20403". */
+
 .three {
   width: 91%;
   height: 28%;
+  
 }

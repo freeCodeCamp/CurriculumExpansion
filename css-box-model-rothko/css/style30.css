@@ -31,9 +31,12 @@
   filter: blur(1px);
 }
 
+/* Increase the `blur` of `.three` by 2 pixels. */
+
 .three {
   width: 91%;
   height: 28%;
   background-color: #b20403;
   margin: auto;
+
 }

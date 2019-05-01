@@ -19,8 +19,11 @@
   margin: 20px auto;
 }
 
+/* Center the `two` `<div>` by setting its `margin` to `auto`. */
+
 .two {
   width: 475px;
   height: 200px;
   background-color: #8f0401;
+
 }

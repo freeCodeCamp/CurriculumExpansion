@@ -11,6 +11,9 @@
   margin: 20px auto;
 }
 
+/* Now set the `height` for `.one` to 150 pixels. */
+
 .one {
   width: 425px;
+
 }
