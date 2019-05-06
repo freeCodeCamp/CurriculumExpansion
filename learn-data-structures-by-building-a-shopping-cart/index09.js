@@ -33,9 +33,9 @@ class ShoppingCart {
 }
 
 /*
-Let's test our addItem method by creating print method.
+Let's test our addItem method by creating a method that prints out current contents of items array.
 
-Create a print method that returns the items array. For example:
+Create a getItems method that returns the items array. For example:
 
 ShowMe() {
   return this.items;
