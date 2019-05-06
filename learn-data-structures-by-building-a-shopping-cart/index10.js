@@ -37,7 +37,7 @@ class ShoppingCart {
 }
 
 /*
-We now need to create an instance or a copy off of our ShoppingCart class. 
+We now need to create an instance or a copy off of our ShoppingCart class. This instance will always be an object.
 
 This instance will have all the methods and the state to itself. Here is an example syntax:
 
