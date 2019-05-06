@@ -43,7 +43,7 @@ export class ShoppingCart {
   }
 
   removeItem(id) {
-    const index = this.items.findIndex(item => item.id === id);
+    const index = this.items.indexOf(id);
     this.items.splice(index, 1);
   }
 
