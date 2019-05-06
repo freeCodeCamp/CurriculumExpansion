@@ -54,7 +54,7 @@ console.log(shoppingCart.getItems());
 /*
 Let's create another method to help us check our state.
 
-Create a method called getCount that will return the number of items in the cart.
+Create a method called getCount that will return the number of items in the cart. For example:
 
 getLength() {
   return this.myArray.length;
