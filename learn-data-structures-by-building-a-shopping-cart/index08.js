@@ -32,19 +32,15 @@ class ShoppingCart {
 }
 
 /*
-Now we will receive unique id and array of products inside addItem method.
+Let's loop through the given products array and check if a product object contains the given id. 
 
-We can loop through the products array and check if a product contains the the id. 
+During the loop, If the id is found, push the object that contains the id to our items array.
 
-If the id is found, let's store the entire product inside our items array we previously created.
-
-Straightforward way of doing this would be utilizing forloop. Here is the pseudocode.
+Use a forloop to accomplish this. Here is an example code:
 
 for(let i=0; i<arr.length; i++) {
-  if(current product has the id) {
-    push it inside our items array
+  if(id === arr[i].id) {
+    this.myArray.push(arr[i]);
   }
 }
-
-Don't forget to use this infront of items array when you are pushing it!
 */
