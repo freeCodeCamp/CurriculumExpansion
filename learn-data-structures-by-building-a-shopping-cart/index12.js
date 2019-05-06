@@ -39,8 +39,7 @@ class ShoppingCart {
 const shoppingCart = new ShoppingCart();
 
 shoppingCart.addItem(2, products);
-console.log(shoppingCart.getItems());
-
+console.log(shoppingCart.getItems()); 
 /*
  [
    {  
