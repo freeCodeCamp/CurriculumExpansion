@@ -33,9 +33,11 @@ class ShoppingCart {
 }
 
 /*
-Isn't this better looking?
+Let's test our addItem method by creating print method.
 
-Now, we want to test our method and check if a product has been correctly added to the shopping cart.
+Create a print method that returns the items array. For example:
 
-Go head and create method called getItems which will return the items array.
+ShowMe() {
+  return this.items;
+}
 */
