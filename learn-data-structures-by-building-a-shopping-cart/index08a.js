@@ -28,29 +28,20 @@ class ShoppingCart {
 
   addItem(id, products) {
     for(let i=0; i<products.length; i++) {
-      if(products[i].id === id) {
+      if(id === products[i].id) {
         this.items.push(products[i]);
       }
     }
   }
-  
 }
 
-/*
-  Hopefully you have something like this.
-  
-  This code functions but can we make this better? This is where functional programming paradigm comes in.
-  
-  Using functional programming makes our code cleaner and more intuitive. It uses express verbiage to make it clear each bit of code accomplishes.
-  
-  JavaScript provides a lot of array methods that we can partake.
-  
-  One such helpful method is called find method. This will return the first item where provided condition satisfies. For ex.
-  
-  const numbers = [1, 5, 10, 15, 20];
-  const foundNumber = numbers.find((number) => number === 10);
-  
-  console.log(foundNumber); // 10
-  
-  Let's use the find method to loop through the array and achieve the same result.
+/*  
+This code functions but can we make this better? We could use built in method called find to make our code concise and easier to read.
+
+Find method returns the first item when a given condition satisfies. 
+
+Let's use the find method to achieve the same results we made. For ex.
+
+const match = arrr.find(item => item.name === name);
+myArr.push(match);
 */
