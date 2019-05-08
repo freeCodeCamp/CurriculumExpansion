@@ -82,7 +82,7 @@ const locations = [
 	{
 		name: "kill monster",
 		"button text": ["Go to town square", "Go to town square", "Go to town square"],
-		"button functions": [goTown, goTown, goTown],
+		"button functions": [goTown, goTown, easterEgg],
 		text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
 	},
 	{
@@ -140,7 +140,7 @@ function buyHealth() {
 		goldText.innerText = gold;
 		healthText.innerText = health;
 	} else {
-		text.innerText = "You do not have enough gold to buy health.";
+		text.innerText = "You do not have enough gold to buy health."
 	}
 }
 
@@ -155,10 +155,10 @@ function buyWeapon() {
 			inventory.push(newWeapon);
 			text.innerText += " In your inventory you have: " + inventory;
 		} else {
-			text.innerText = "You do not have enough gold to buy a weapon.";
+			text.innerText = "You do not have enough gold to buy a weapon."
 		}
 	} else {
-		text.innerText = "You already have the most powerful weapon!";
+		text.innerText = "You already have the most powerful weapon!"
 		button2.innerText = "Sell weapon for 15 gold";
 		button2.onclick = sellWeapon;
 	}
@@ -205,7 +205,7 @@ function attack() {
 	health -= getMonsterAttackValue(monsters[fighting].level);
 
 	if (isMonsterHit()) {
-		monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+		monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));
 	} else {
 		text.innerText += " You miss.";
 	}
@@ -277,6 +277,31 @@ function pickEight() {
  pick(8);
 }
 
-/* 
-Add a `pick` function with an argument named "guess".
+function pick(guess) {
+	let numbers = [];
+	while(numbers.length < 10) {
+		numbers.push(Math.floor(Math.random() * 11));
+	}
+
+	text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+
+	for (let i = 0; i < 10; i++) {
+		text.innerText += numbers[i] + "\n";
+	}
+
+	if (numbers.indexOf(guess) !== -1) {
+		text.innerText += "Right! You win 20 gold!"
+		gold += 20;
+		goldText.innerText = gold;
+	} else {
+		text.innerText += "Wrong! You lose 10 health!"
+		health -= 10;
+		healthText.innerText = health;
+		if (health <= 0) {
+			lose();
+		}
+	}
+}
+
+/* Congratulations! You are finished! Now try out the game.
 */

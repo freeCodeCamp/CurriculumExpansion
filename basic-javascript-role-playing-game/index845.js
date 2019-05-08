@@ -140,7 +140,7 @@ function buyHealth() {
 		goldText.innerText = gold;
 		healthText.innerText = health;
 	} else {
-		text.innerText = "You do not have enough gold to buy health.";
+		text.innerText = "You do not have enough gold to buy health."
 	}
 }
 
@@ -155,10 +155,10 @@ function buyWeapon() {
 			inventory.push(newWeapon);
 			text.innerText += " In your inventory you have: " + inventory;
 		} else {
-			text.innerText = "You do not have enough gold to buy a weapon.";
+			text.innerText = "You do not have enough gold to buy a weapon."
 		}
 	} else {
-		text.innerText = "You already have the most powerful weapon!";
+		text.innerText = "You already have the most powerful weapon!"
 		button2.innerText = "Sell weapon for 15 gold";
 		button2.onclick = sellWeapon;
 	}
@@ -205,7 +205,7 @@ function attack() {
 	health -= getMonsterAttackValue(monsters[fighting].level);
 
 	if (isMonsterHit()) {
-		monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+		monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));
 	} else {
 		text.innerText += " You miss.";
 	}
@@ -277,6 +277,18 @@ function pickEight() {
  pick(8);
 }
 
-/* 
-Add a `pick` function with an argument named "guess".
+function pick(guess) {
+	let numbers = [];
+}
+
+/* Inside `guess`, create a `while` loop to run the same code multiple times. The code inside the `while` loop should keep repeating while `numbers.length` is less than 10 and stop once that condition is no longer true. Here is an example of a while loop that repeats code inside the loop while `i` is less than five.
+```
+let ourArray = [];
+let i = 0;
+while(i < 5) {
+  ourArray.push(i);
+  i++;
+}
+// ourArray now equals [0,1,2,3,4]
+```
 */
