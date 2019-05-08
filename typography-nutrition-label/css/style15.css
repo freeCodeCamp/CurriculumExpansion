@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+/*
+Develop the hierarchy of your text by increasing the size or weight of its most important elements.
+Create a new rule with the `h1` selector and set `font-weight` to "800".
+*/
+

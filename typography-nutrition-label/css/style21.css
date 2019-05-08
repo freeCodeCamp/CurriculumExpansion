@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+h1 {
+  font-weight: 800;
+  text-align: center;
+  margin: -4px 0;
+}
+
+p {
+  margin: 0;
+}
+
+/*
+Set the `margin` of the `divider` class to "2px 0" to increase the space above and below it by 2 pixels.
+*/
+
+.divider {
+  border-bottom: 1px solid #888989;
+
+}

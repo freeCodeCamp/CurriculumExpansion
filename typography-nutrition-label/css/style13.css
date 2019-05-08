@@ -1,0 +1,19 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*
+Give the text in your label some horizontal separation from the border with padding.
+Like `margin`, the shorthand `padding` property takes up to four values.
+Set the `padding` of `.label` to "0 7px" to remove any padding on the top and bottom and add 7 pixels of padding on the left and right.
+*/
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+
+}

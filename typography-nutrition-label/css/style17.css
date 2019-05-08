@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+/*
+Fine-tune the placement of the `<h1>` element by adjusting its margin.
+Set the top and bottom margins to "-4px", and the left and right margins to "0".
+*/
+
+h1 {
+  font-weight: 800;
+  text-align: center;
+
+}

@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+  margin: 20px auto;
+  padding: 0 7px;
+}
+
+header h1 {
+  text-align: center;
+  margin: -4px 0;
+  letter-spacing: 0.15px;
+}
+
+p {
+  margin: 0;
+}
+
+.divider {
+  border-bottom: 1px solid #888989;
+  margin: 2px 0;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.right {
+  float: right;
+}
+
+/*
+Eventually you'll have to create medium sized dividers, so create a CSS rule that targets both `.md` and `.lg` classes and set the `background-color` to "black".
+Here's an example that sets the width of two different classes:
+```
+.class-1, .class-2 {
+  width: 20px;
+}
+```
+*/
+
+
+.lg {
+  height: 10px;
+}

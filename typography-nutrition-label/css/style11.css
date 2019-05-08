@@ -1,0 +1,17 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* 
+Good use of white space brings focus to the important elements of the page and helps guide the user's eyes through the text.
+Set the `width` property of `.label` to "270px".
+*/
+
+.label {
+  border: 2px solid black;
+
+}
