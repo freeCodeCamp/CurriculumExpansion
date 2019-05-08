@@ -140,7 +140,7 @@ function buyHealth() {
 		goldText.innerText = gold;
 		healthText.innerText = health;
 	} else {
-		text.innerText = "You do not have enough gold to buy health.";
+		text.innerText = "You do not have enough gold to buy health."
 	}
 }
 
@@ -155,10 +155,10 @@ function buyWeapon() {
 			inventory.push(newWeapon);
 			text.innerText += " In your inventory you have: " + inventory;
 		} else {
-			text.innerText = "You do not have enough gold to buy a weapon.";
+			text.innerText = "You do not have enough gold to buy a weapon."
 		}
 	} else {
-		text.innerText = "You already have the most powerful weapon!";
+		text.innerText = "You already have the most powerful weapon!"
 		button2.innerText = "Sell weapon for 15 gold";
 		button2.onclick = sellWeapon;
 	}
@@ -205,7 +205,7 @@ function attack() {
 	health -= getMonsterAttackValue(monsters[fighting].level);
 
 	if (isMonsterHit()) {
-		monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+		monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));
 	} else {
 		text.innerText += " You miss.";
 	}
@@ -277,6 +277,24 @@ function pickEight() {
  pick(8);
 }
 
-/* 
-Add a `pick` function with an argument named "guess".
+function pick(guess) {
+	let numbers = [];
+	while(numbers.length < 10) {
+		numbers.push(Math.floor(Math.random() * 11));
+	}
+
+	text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+
+	for (let i = 0; i < 10; i++) {
+		text.innerText += numbers[i] + "\n";
+	}
+
+	if (numbers.indexOf(guess) !== -1) {
+		text.innerText += "Right! You win 20 gold!"
+		gold += 20;
+		goldText.innerText = gold;
+	}
+}
+
+/* Add an `else` expression. Inside add "Wrong! You lose 10 health!" to the end of `text.innerText`. Also, subtract 10 from `health` and update `healthText.innerText`.
 */

@@ -140,7 +140,7 @@ function buyHealth() {
 		goldText.innerText = gold;
 		healthText.innerText = health;
 	} else {
-		text.innerText = "You do not have enough gold to buy health.";
+		text.innerText = "You do not have enough gold to buy health."
 	}
 }
 
@@ -155,10 +155,10 @@ function buyWeapon() {
 			inventory.push(newWeapon);
 			text.innerText += " In your inventory you have: " + inventory;
 		} else {
-			text.innerText = "You do not have enough gold to buy a weapon.";
+			text.innerText = "You do not have enough gold to buy a weapon."
 		}
 	} else {
-		text.innerText = "You already have the most powerful weapon!";
+		text.innerText = "You already have the most powerful weapon!"
 		button2.innerText = "Sell weapon for 15 gold";
 		button2.onclick = sellWeapon;
 	}
@@ -205,7 +205,7 @@ function attack() {
 	health -= getMonsterAttackValue(monsters[fighting].level);
 
 	if (isMonsterHit()) {
-		monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+		monsterHealth -= weapons[currentWeapon].power + Math.floor((Math.random() * (xp - 2) + 1));
 	} else {
 		text.innerText += " You miss.";
 	}
@@ -277,6 +277,23 @@ function pickEight() {
  pick(8);
 }
 
-/* 
-Add a `pick` function with an argument named "guess".
+function pick(guess) {
+	let numbers = [];
+	while(numbers.length < 10) {
+		numbers.push(Math.floor(Math.random() * 11));
+	}
+
+	text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+}
+
+/* A "for loop" runs "for" a specific number of times. For loops are declared with three optional expressions separated by semicolons: `for ([initialization]; [condition]; [final-expression])`. The initialization statement is executed one time only before the loop starts and is often used to define and setup the loop variable. The condition statement is evaluated at the beginning of every loop iteration. The loop will continue as long as it evaluates to true. The final-expression is executed at the end of each loop iteration. 
+
+At the end of the `pick` function, create a `for` loop. The initialization should be `let i = 0`. The condition should be `i < 10`. The final expression should be `i++`. Here's an example of a for loop:
+```
+let ourArray = [];
+for (let i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+// ourArray will now contain [0,1,2,3,4]
+```
 */
