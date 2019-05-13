@@ -53,8 +53,8 @@ class ShoppingCart {
 /*
 Create a method called applyDiscount. 
 
-This will take in amount as parameter and return the money that has been discounted. For ex:
+Take amount as parameter and return the discount amount using discount percentage. For ex:
 
-return DiscountAmount / 100 * money
+return discountPercentage / 100 * money
 
 */
