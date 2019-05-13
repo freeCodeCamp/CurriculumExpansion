@@ -47,26 +47,6 @@ export class ShoppingCart {
     this.items.splice(index, 1);
   }
 
-  updateItemQuantity(id, quantity) {
-    const selectedItems = this.items.filter(item => item.id === id);
-    const { length } = selectedItems;
-    const numberToUpdate = quantity - length;
-
-    if (numberToUpdate > 0) {
-      for (let i = 0; i < numberToUpdate; i++) {
-        this.items.push(selectedItems[0]);
-      }
-    } else if (numberToUpdate < 0) {
-      const rest = this.items.filter(item => item.id !== id);
-      selectedItems.length = selectedItems.length + numberToUpdate;
-      this.items = [...rest, ...selectedItems];
-    }
-  }
-
-  toTwoDecimal(amount) {
-    return parseFloat(amount).toFixed(2);
-  }
-
   applyDiscount(amount) {
     const discountAmount = toTwoDecimal(
       (this.discountPercentage / 100) * amount
@@ -95,6 +75,10 @@ export class ShoppingCart {
     this.items = [];
   }
 
+   toTwoDecimal(amount) {
+    return parseFloat(amount).toFixed(2);
+  }
+  
   setDiscountPercentage(percentage) {
     this.discountPercentage = percentage;
   }
