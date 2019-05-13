@@ -47,6 +47,10 @@ export class ShoppingCart {
     this.items.splice(index, 1);
   }
 
+  clearCart() {
+    this.items = [];
+  }
+  
   applyDiscount(amount) {
     const discountAmount = toTwoDecimal(
       (this.discountPercentage / 100) * amount
@@ -69,10 +73,6 @@ export class ShoppingCart {
 
     this.total = toTwoDecimal(subTotal - discount + tax);
     return this.total;
-  }
-
-  clearCart() {
-    this.items = [];
   }
 
    toTwoDecimal(amount) {
