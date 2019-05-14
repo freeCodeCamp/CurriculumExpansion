@@ -1,7 +1,5 @@
-// You will see:
-
-// Username: your username
-// Password: your password
+// Username: camper
+// Password: camper
 // Email: (this is public)
 
 // Enter your email and hit enter

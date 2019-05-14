@@ -1,5 +1,3 @@
-// You will see:
-
 /**
  * This utility will walk you through creating a package.json file.
  * It only covers the most common items, and tries to guess sensible defaults.
