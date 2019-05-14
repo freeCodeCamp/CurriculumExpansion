@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CodeHouse — Take Our Survey</title>
+    <link rel="stylesheet" href="css/style220.css">
+  </head>
+
+  <body>
+    <header class="top-bar">
+      <a class="skip-nav-link" href="#main-content">Skip to main content</a>
+      <nav class="top-nav">
+        <ul>
+          <li>
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">Events</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="outer">
+      <nav class="secondary-nav">
+        <h1 class="secondary-nav-heading">Recent Events</h1>
+        <ul>
+          <li>
+            <a href="#">
+              <time datetime="2019-04-04">Thu, 04 Apr 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-28">Thu, 28 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-21">Thu, 21 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-14">Thu, 14 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-07">Thu, 07 Mar 2019</time>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main id="main-content" class="main-content">
+        <h1 class="top-heading">Take our survey!</h1>
+        <img alt="One of our students coding a Tic Tac Toe game" src="assets/code-coder-coding-34649.jpg" class="image">
+        <!--
+          This form has a whole range of accessibility problems.
+
+          Change the surrounding `div` element to a semantic `form`.
+        -->
+        <div class="form">
+
+          <div class="form-group">
+            <span class="field-label">
+              Where did you find out about CodeHouse?
+            </span>
+            <br>
+            <input id="google" name="where" type="radio"> Google search
+            <input id="friend" name="where" type="radio"> Word of mouth
+            <input id="other1" name="where" type="radio"> Other (please specify)
+            <input id="other2" type="text" class="form-control other">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              How many of our events have you attended in the past?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              Start, stop, keep: what’s one thing we should <i>start</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              What’s one thing we should <i>stop</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              What’s one thing we should <i>keep</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              Any other comments?
+            </span>
+            <textarea class="form-control"></textarea>
+          </div>
+
+          <div class="form-group">
+            Sign up for our newsletter:
+            <input type="text" class="form-control" placeholder="Your email address">
+          </div>
+
+          <div class="btn">
+            Submit
+          </div>
+        </div>
+        <img src="assets/divider.png" class="divider">
+        Click <a href="#">here</a> for more info about our Coffee and Code events.
+      </main>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>
