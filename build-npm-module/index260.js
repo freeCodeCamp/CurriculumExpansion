@@ -1,4 +1,3 @@
-// You will see:
 // + @case-converter@1.0.0
 
 /**

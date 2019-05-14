@@ -1,5 +1,5 @@
 /**
- * In your new directory's package.json file, you will see following line:
+ * In your new directory's package.json file, there will be following line:
  * ```
  * "dependencies": {
  *   "case_converter": "1.0.0"

@@ -18,4 +18,5 @@ module.exports = {
 };
 
 // Now you have finished your case-coverter module. Let's publish it to NPM.
-// You should first go to npmjs.com to get an account.
+// Normally you would need to create your own account on npmjs.com.
+// But for now, just use this demo account: username: camper, password: camper

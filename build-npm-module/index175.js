@@ -9,6 +9,6 @@ const getSentenceCase = (str) => {
 };
 
 const properCaseArr = (str) => str.split(' ').map((word) => getSentenceCase(word));
-const getProperCase = (str) => properCaseArr.join(' ');
 
-// You should then use node.js `module.exports` to export these four functions so that users can import and use your package's function
+// Create getProperCase() function to join properCaseArr into spce separated sentence.
+
