@@ -1,27 +1,37 @@
 const products = [
   {
-    id: 0,
+    id: 1,
     name: "Vanilla buttercream cupcake",
     price: 2.99,
-  },
-  {
-    id: 1,
-    name: "French Macaroon",
-    price: 3.99,
+    category: "cupcake"
   },
   {
     id: 2,
-    name: "Fruit sprinkles cupcake",
+    name: "French Macaroon",
     price: 3.99,
+    category: "macaroon"
   },
   {
     id: 3,
+    name: "Fruit sprinkles cupcake",
+    price: 3.99,
+    category: "cupcake"
+  },
+  {
+    id: 4,
     name: "Pink flower cupcake",
     price: 5.99,
+    category: "cupcake"
+  },
+  {
+    id: 5,
+    name: "Chocolate pretzel",
+    price: 4.99,
+    category: "pretzel"
   }
 ];
 
-export class ShoppingCart {
+class ShoppingCart {
   constructor() {
     this.items = [];
     this.total = 0;
@@ -50,17 +60,13 @@ export class ShoppingCart {
   clearCart() {
     this.items = [];
   }
-  
+
   applyDiscount(amount) {
-    const discountAmount = toTwoDecimal(
-      (this.discountPercentage / 100) * amount
-    );
-    return discountAmount;
+    return parseFloat((this.discountPercentage / 100 * amount).toFixed(2))
   }
 
   calculateTaxes(amount) {
-    const tax = toTwoDecimal(amount * (this.taxRate / 100));
-    return tax;
+    return parseFloat((this.taxRate / 100 * amount).toFixed(2))
   }
 
   calculateTotal() {
@@ -71,14 +77,10 @@ export class ShoppingCart {
     const tax = this.calculateTaxes(subTotal);
     const discount = this.applyDiscount(subTotal);
 
-    this.total = toTwoDecimal(subTotal - discount + tax);
+    this.total = (subTotal - discount + tax);
     return this.total;
   }
 
-   toTwoDecimal(amount) {
-    return parseFloat(amount).toFixed(2);
-  }
-  
   setDiscountPercentage(percentage) {
     this.discountPercentage = percentage;
   }
