@@ -34,7 +34,6 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
-    this.total = 0;
     this.taxRate = 8.25;
     this.discountPercentage = 30;
   }
@@ -76,9 +75,8 @@ class ShoppingCart {
     );
     const tax = this.calculateTaxes(subTotal);
     const discount = this.applyDiscount(subTotal);
-
-    this.total = (subTotal - discount + tax);
-    return this.total;
+    const total = (subTotal - discount + tax);
+    return total;
   }
 
   setDiscountPercentage(percentage) {
