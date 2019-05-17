@@ -1,0 +1,24 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    background-color: #00471b;
+}
+
+/* 
+    Time to work on the `div` with the class selector of `keys`.
+    Below the `#piano` CSS rules, add the `.keys` class with
+    a `width` of `949px`.
+*/

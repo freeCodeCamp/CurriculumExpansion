@@ -8,23 +8,22 @@ html {
     box-sizing: inherit;
 }
 
+
 /* piano styles */
 #piano {
     width: 992px;
     height: 290px;
     margin: 80px auto;
     padding: 90px 20px 0 20px;
-    border-radius: 10px;
     background-color: #00471b;
-    position: relative;
 }
+
 
 .keys {
     width: 949px;
     height: 180px;
     padding-left: 2px;
     background-color: #040404;
-    overflow: hidden;
 }
 
 
@@ -35,7 +34,6 @@ html {
     margin: 2px;
     float: left;
     background-color: #ffffff;
-    border-radius: 0 0 3px 3px;
 }
 
 
@@ -54,40 +52,9 @@ html {
     width: 32px;
     height: 100px;
     background-color: #1d1e22;
-    display: block;
-    border-radius: 0 0 3px 3px;
 }
 
-
-/* media queries */
-
-/* devices smaller then 768px */
-@media only screen and (max-width: 768px) {
-
-    #piano {
-        width: 355px;
-    }
-
-    .keys {
-        width: 318px;
-    }
-
-    .logo {
-        width: 150px;
-    }
-
-}
-
-
-/* medium devices */
-@media only screen and (max-width: 1199px) and (min-width: 769px) {
-
-    #piano {
-        width: 675px;    
-    }
-
-    .keys {
-        width: 633px;
-    }
-
-}
+/* 
+    The `<img>` element needs it's parent to have a position set for a
+    oint of reference. Add a `position` of `relative` to the `#piano` id.
+*/

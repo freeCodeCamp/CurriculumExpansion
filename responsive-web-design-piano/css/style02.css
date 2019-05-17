@@ -1,0 +1,26 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* 
+    Let's start styling and giving form to the piano. Add the id
+    `#piano` below our reset css rules. Give it a 
+    `width` of `992px`.
+
+    Here is an example:
+
+    ```
+    ...
+        #guitar {
+            width: 600px;
+        }
+
+    ```
+*/

@@ -1,0 +1,30 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    background-color: #00471b;
+}
+
+
+.keys {
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+}
+
+/* 
+    Add `background-color` with a value of `#040404` for the `.keys` class
+    as well.
+*/

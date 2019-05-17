@@ -1,0 +1,18 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+/* 
+    Pseudo elements also need to be reset by using the `*` universal selector.
+    An asterisk (i.e. "*") is used to denote a CSS Universal Selector. An
+    asterisk can be followed by a selector. This is useful when you want to set
+    a style for of all the elements of an HTML page or for all of the elements
+    within an element of an HTML page. Pseudo-elements is a keyword added to a
+    selector that lets you style a specific part of the selected element(s).
+    `::before` creates a pseudo element that is the first child and `::after` 
+    creates a pseudo element that is the last child of the selected element.
+
+    Add the CSS rules like so `*, *::before, *:after`, with a property of `box-sizing` 
+    with the value of `inherit`.
+*/
