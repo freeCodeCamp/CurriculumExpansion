@@ -9,4 +9,9 @@ const ReviewSchema = new Schema({
   date: { type: Date, required: true },
 });
 
-module.exports = mongoose.model('Review', ReviewSchema);
+/*
+Finally, export the method to create a "Review" model. Here is an example of an export function to create a "SomeModel" model:
+```
+module.exports = mongoose.model('SomeModel', SomeModelSchema );
+```
+*/

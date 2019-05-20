@@ -9,4 +9,9 @@ const ReviewSchema = new Schema({
   date: { type: Date, required: true },
 });
 
-module.exports = mongoose.model('Review', ReviewSchema);
+module.exports = mongoose.model('SomeModel', SomeModelSchema );
+
+/*
+Great! Now it's time to use this model in the server.
+[DEVELOPER'S NOTE: Next task is in the file "server080.js"]
+*/

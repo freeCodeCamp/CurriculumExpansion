@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
 const mongoose = require('mongoose');
 
 const Review = require('./models/review');
@@ -9,9 +8,10 @@ const Review = require('./models/review');
 app.use(express.json());
 
 const uri = process.env.DB_URI;
-mongoose.connect(uri, { useNewUrlParser: true});
 
+mongoose.connect(uri, { useNewUrlParser: true});
 const db = mongoose.connection;
+
 db.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-app.post('/add', (req, res) => {
+app.post('add', (req, res) => {
   const movie_title = req.body.movie_title;
   const review = req.body.review;
   const stars = Number(req.body.stars);
@@ -46,25 +46,9 @@ app.get('/:id', (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-app.delete('/:id', (req, res) => {
-  Review.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Review deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-app.post('/update/:id', (req, res) => {
-  Review.findById(req.params.id)
-    .then(review => {
-      review.movie_title = req.body.movie_title;
-      review.review = req.body.review;
-      review.stars = Number(req.body.stars);
-      review.date = Date.parse(req.body.date);
-
-      review.save()
-        .then(() => res.json('Review updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+/* 
+Add another API endpoint. This one will be almost just like the endpoint you just added to retrieve a specific review, except this one will delete a specific review. Instead of `app.get`, use `app.delete`. Instead of `Review.findById`, use `Review.findByIdAndDelete`. The final difference is that inside the `.then` function, update the callback to `() => res.json('Review deleted.')`.
+*/
 
 app.listen(port, () => console.log(`Review server listening on port ${port}!`));
+
