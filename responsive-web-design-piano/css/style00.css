@@ -1,0 +1,20 @@
+
+
+
+/*
+    Before giving style or form to the piano, you must reset the
+    box model to ensure an element's specified width and height
+    aren't affected by padding or borders.
+
+    Create CSS rule that targets the `<html>` element. The CSS rule should contain
+    the 'box-sizing' property with the value `border-box`.
+
+    Here's an example of a CSS that targets all `<a>` elements and removes all
+    hyperlink underlines.
+
+    ```
+    a {
+        text-decoration: none;
+    }
+
+*/

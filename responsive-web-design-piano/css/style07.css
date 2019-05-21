@@ -1,0 +1,27 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    background-color: #00471b;
+}
+
+
+.keys {
+    width: 949px;
+}
+
+/* 
+    Set the `height` property of `.keys` to `180px`.
+*/

@@ -1,44 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Responsive Piano</title>
+    <title>Responsive Web Design Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<style>
-
-    html {
-        box-sizing: border-box;
-    }
-
-
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-
-
-    #piano {
-        width: 992px;
-        height: 290px;
-        margin: 80px auto;
-        padding: 90px 20px 0 20px;
-        background-color: #00471b;
-    }
-    
-    
-    .keys {
-        width: 949px;
-        height: 180px;
-        padding-left: 2px;
-        background-color: #040404;
-    }    
-
-</style>
-
 <body>
-
+    
     <div id="piano">
-
         <div class="keys">
             <div class="key"></div>
             <div class="key black--key"></div>
@@ -65,31 +34,7 @@
             <div class="key black--key"></div>
         </div>
     </div>
- 
+
 </body>
 </html>
 
-<!-- 
-    It's time set the style for all `key` selectors.
-    Add the `.key` selector below the `keys` selector.
-    Set `position` to  `relative`, `width` to `41px`,
-    `height` to `175px`, `margin` to `2px`, and `float` set to `left`. 
-    For the `background-color` give the value
-    of `#ffffff.  
-
-    The code should look like so:
-
-    ```
-    ...
-        .key {
-            position: relative;
-            width: 41px;
-            height: 175px;
-            margin: 2px;
-            float: left;
-            background-color: #ffffff;
-        }
-
-    </style>
-    ```
--->
