@@ -1,0 +1,46 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    padding: 90px 20px 0 20px;
+    background-color: #00471b;
+}
+
+
+.keys {
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+    background-color: #040404;
+}
+
+
+.key {
+    position: relative;
+    width: 41px;
+    height: 175px;
+    margin: 2px;
+    float: left;
+    background-color: #ffffff;
+}
+
+
+/* 
+    To create the black keys, we need to use a `pseudo element`; `::after`.
+    Below the `.key` rule, create a new rule using the
+    `.key.black--key::after` selector. In the new rule, add
+    `content` property with the value `""`.
+
+*/

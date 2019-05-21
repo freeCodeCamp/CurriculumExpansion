@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Responsive Piano</title>
+    <title>Responsive Web Design Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 
- <div id="piano">
-     <div class="keys"></div>
- </div>
- 
+<div id="piano">
+    <div class="keys">
+        <div class="key"></div>
+    </div>
+</div>
+
 </body>
 </html>
 
 <!-- 
     The piano will have 3 sets of 7 white keys and 5 black keys
-    to display its full width primary on large screens.
+    on large displays. You already have one key in this set, so
+    create six more `key` `<div>` elements just below it. 
 
-    Each set is call an Octave, which is the distance a note
-    and the next time that note repeats on the keyboard.
-    (source)[https://www.musikalessons.com/blog/2016/08/piano-keys-chart/]
-
-    Create 7 `<div>` elements with a `class` value of `key`. This class
-    class will give the base style for the white and black keys. 
-
-    The code should like so:
+    Here is an example:
 
     ```
-    <div id="piano">
-        <div class="keys">
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
+    <div id="guitar">
+        <div class="strings">
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
         </div>
     </div>
     ```

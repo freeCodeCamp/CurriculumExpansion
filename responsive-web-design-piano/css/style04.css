@@ -1,0 +1,22 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+}
+
+/* 
+    Give the piano a `margin` of `80px auto`, to set the margin
+    to 80 pixels on the top and bottom, and to center it horizontally.
+
+*/
