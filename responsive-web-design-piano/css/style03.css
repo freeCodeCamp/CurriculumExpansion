@@ -1,0 +1,19 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+}
+
+/* 
+    Add `height` of `290px` to the piano.
+*/
