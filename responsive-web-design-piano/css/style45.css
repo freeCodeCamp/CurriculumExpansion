@@ -55,6 +55,6 @@ html {
 }
 
 /* 
-    The `<img>` element needs its parent to have a position set as
+    The `<img>` element needs its parent to have a position set as a
     point of reference. In the `#piano` rule, set the `position` to `relative`.
 */
