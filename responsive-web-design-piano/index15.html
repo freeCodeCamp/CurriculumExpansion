@@ -1,91 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Responsive Web Design Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<style>
-
-    html {
-        box-sizing: border-box;
-    }
-
-
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-
-
-    #piano {
-        width: 992px;
-        height: 290px;
-        margin: 80px auto;
-        padding: 90px 20px 0 20px;
-        background-color: #00471b;
-    }
-    
-
-    .keys {
-        width: 949px;
-        height: 180px;
-        padding-left: 2px;
-        background-color: #040404;
-    }
-
-
-    .key {
-        position: relative;
-        width: 41px;
-        height: 175px;
-        margin: 2px;
-        float: left;
-        background-color: #ffffff;
-    }
-
-
-    .logo {
-        position: absolute;
-        margin-top: -70px;
-        width: 200px;
-    }
-
-    
-    /* pseudo elements */
-    
-    .key.black--key::after {
-        content: "";
-        position: absolute;
-        left: -18px;
-        width: 32px;
-        height: 100px;
-        background-color: #1d1e22;
-        display: block;
-    }
-
-</style>
-
 <body>
 
     <div id="piano">
-        <img class="logo" src="freeCodeCamp.svg" alt="FreeCodeCamp Logo" >
         <div class="keys">
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-
             <div class="key"></div>
             <div class="key black--key"></div>
             <div class="key black--key"></div>
@@ -95,56 +18,12 @@
             <div class="key black--key"></div>
         </div>
     </div>
- 
+
 </body>
 </html>
 
 <!-- 
-    Small touches of style can make a huge difference when making
-    the piano look better. Get rid of the sharp edges of the
-    piano and keys. Add to `#piano` the `border-radius` property
-    to `10px`, and for `.key` add `border-radius` to `0 0 3px 3px`.
-    Also, for `.black--key` pseudo element add `border-radius` to
-    `0 0 3px 3px`.
-
-    The code should look like so:
+    Copy the set of seven `key` `<div>` elements and paste one set
+    right below the first set.
     
-    ```
-    ...
-
-    #piano {
-        width: 992px;
-        height: 290px;
-        margin: 80px auto;
-        padding: 90px 20px 0 20px;
-        border-radius: 10px;
-        background-color: #00471b;
-    }
-
-    ...
-
-    .key {
-        position: relative;
-        width: 41px;
-        height: 175px;
-        margin: 2px;
-        float: left;
-        background-color: #ffffff;
-        border-radius: 0 0 3px 3px;
-    }
-
-    ...
-
-    .key.black--key::after {
-        content: "";
-        position: absolute;
-        left: -18px;
-        width: 32px;
-        height: 100px;
-        background-color: #1d1e22;
-        display: block;
-        border-radius: 0 0 3px 3px;
-    }    
-
-    ```
 -->
