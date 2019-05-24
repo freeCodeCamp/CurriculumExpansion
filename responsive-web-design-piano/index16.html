@@ -1,87 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Responsive Web Design Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<style>
-
-    html {
-        box-sizing: border-box;
-    }
-
-
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-
-
-    #piano {
-        width: 992px;
-        height: 290px;
-        margin: 80px auto;
-        padding: 90px 20px 0 20px;
-        border-radius: 10px;
-        background-color: #00471b;
-    }
-    
-
-    .keys {
-        width: 949px;
-        height: 180px;
-        padding-left: 2px;
-        background-color: #040404;
-    }
-
-
-    .key {
-        position: relative;
-        width: 41px;
-        height: 175px;
-        margin: 2px;
-        float: left;
-        background-color: #ffffff;
-        border-radius: 0 0 3px 3px;
-    }
-
-
-    .logo {
-        position: absolute;
-        margin-top: -70px;
-        width: 200px;
-    }
-
-    
-    /* pseudo elements */
-    
-    .key.black--key::after {
-        content: "";
-        position: absolute;
-        left: -18px;
-        width: 32px;
-        height: 100px;
-        background-color: #1d1e22;
-        display: block;
-        border-radius: 0 0 3px 3px;
-    }
-
-
-</style>
-
 <body>
 
     <div id="piano">
-        <img class="logo" src="freeCodeCamp.svg" alt="FreeCodeCamp Logo" >
         <div class="keys">
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-            <div class="key black--key"></div>
-
             <div class="key"></div>
             <div class="key black--key"></div>
             <div class="key black--key"></div>
@@ -99,42 +26,46 @@
             <div class="key black--key"></div>
         </div>
     </div>
- 
+
 </body>
 </html>
+
 <!-- 
-    Time to make the piano responsive by adding media queries. Media
-    queries uses the `@media` rule to include blocks of CSS properties
-    only if set screen condition is true. Start by adding below the pseudo
-    element CSS properties the following: `@media only screen and (max-width: 768px) {}`
-    This `@media` rule will target devices smaller then 768px. Adjust the `#piano`'s
-    size to fit in smaller screen devices by changing its `width` to `355px`. Also,
-    adjust the `.keys` `width` to `318px`. Finally adjust freeCodeCamp's `.logo`'s 
-    `width` to `150px`.
+    We need a third set of 7 `key` `<div>` elements to complete
+    a total of 21 `key` `<div>` elements. Copy one of the set of seven
+    `key` `<div>` elements and paste another set below.
 
-    The code should look like so:
+    Here is an example:
+
+    ```
+    <div id="guitar">
+        <div class="strings">
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+            <div class="string bronze-string"></div>
+        </div>
+    </div>
+
+    ```
     
-    ```
-    ...
-        /* media queries */
-
-        /* devices smaller then 768px */
-        @media only screen and (max-width: 768px) {
-
-            #piano {
-                width: 355px;
-            }
-
-            .keys {
-                width: 318px;
-            }
-
-            .logo {
-                width: 150px;
-            }
-
-        }
-
-    </style>
-    ```
 -->
