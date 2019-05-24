@@ -59,7 +59,7 @@ html {
 }
 
 /* 
-    Add a `@media` rule to include a block of CSS properties to apply
+    Add an `@media` rule to include a block of CSS properties to apply
     if the browser window width is 768px or smaller.
 
     Here is an example that applies if the browser window is 600px or smaller.

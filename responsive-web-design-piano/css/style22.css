@@ -17,16 +17,8 @@ html {
     Here is an example that targets `#guitar` and sets its width:
 
     ```
-    ...
         #guitar {
             width: 600px;
         }
-
-<<<<<<< HEAD
-/* 
-    The `<img>` element needs its parent to have a position set as
-    point of reference. In the `#piano` rule, set the `position` to `relative`.
-=======
     ```
->>>>>>> feat: Add more steps and rearrange files
 */
