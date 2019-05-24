@@ -10,28 +10,16 @@ html {
 
 
 /* 
-    Let's start styling and giving form to the piano. Create a
-    new rule using the `#piano` `id` selector and give it a
-    `width` of `992px`.
-<<<<<<< HEAD
+  Let's start styling and giving form to the piano. Create a
+  new rule using the `#piano` `id` selector and give it a
+  width` of `992px`.
 
-    Here is an example that targets `#guitar` and sets its width:
+  Here is an example that targets `#guitar` and sets its width:
 
-    ```
-        #guitar {
-            width: 600px;
-        }
-    ```
-=======
+  ```
+  #guitar {
+    width: 600px;
+  }
+  ```
 
-    Here is an example that targets `#guitar` and sets its width:
-
-    ```
-    ...
-        #guitar {
-            width: 600px;
-        }
-
-    ```
->>>>>>> feat: Add more steps and rearrange files
 */
