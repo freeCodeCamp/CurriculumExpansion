@@ -1,10 +1,15 @@
+const http = require("http");
+const socket_io = require("socket.io");
+const socket_session = require("express-socket.io-session");
+const db = require("../db/db");
+
 function setIoEvents(io) {
   io.of("/chatroom").on("connection", socket => {
-    socket.on("join", function() {
-      socket.emit("updateUserList");
-    });
+    // const userId = socket.handshake.session;
 
-    socket.on("user_disconnect", () => {
+    socket.emit("updateUserList", db.getUserList());
+
+    socket.on("disconnect", userId => {
       io.broadcast.emit("user_disconnect");
     });
 
@@ -14,9 +19,11 @@ function setIoEvents(io) {
   });
 }
 
-module.exports = function(app) {
-  const server = require("http").Server(app);
-  const io = require("socket.io")(server);
+module.exports = (app, session) => {
+  const server = http.Server(app);
+  const io = socket_io(server);
+
+  io.of("/chatroom").use(socket_session(session, { autosave: true }));
 
   setIoEvents(io);
 
