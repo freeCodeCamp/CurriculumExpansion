@@ -34,17 +34,6 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   );
 });
 
-app.get('/sell/:ticker/:shares', (req, res) => {
-  const ticker = req.params.ticker;
-  const shares = req.params.shares;
-  const total = shares * prices[ticker];
-  res.send(
-    `Transaction complete, you sold ${shares} shares of ${ticker} at $${
-      prices[ticker]
-    }/share for a total of $${total}.`
-  );
-});
+app.get('/sell/:ticker/:shares', (req, res) => {});
 
-app.get('/price/:ticker', (req, res) => {});
-
-// Inside the callback function, create a variable name `ticker` and assign it to the ticker parameter of the request.  This is similar to how you declared other `ticker` variables previously.
+// In the body of the callback function, create the `ticker`, `shares`, and `total` variables and assign them values similar to how they were created in the /buy route.

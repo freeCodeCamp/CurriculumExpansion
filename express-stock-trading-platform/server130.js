@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,7 +18,7 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 app.get('/buy/:ticker/:shares', (req, res) => {
@@ -29,7 +29,7 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -40,7 +40,7 @@ app.get('/sell/:ticker/:shares', (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -50,9 +50,6 @@ app.get('/price/:ticker', (req, res) => {
   if (!(ticker in prices)) {
     res.send('Error: the ticker you entered is invalid.');
   }
-
-  // 130. Now, let's add an 'else' statement to send a response saying 'The price of <stockTicker> is <tickerPrice>.'
-  else {
-    res.send(`The price of ${ticker} is $${prices[ticker]}.`);
-  }
 });
+
+// Now let's complete the conditional statement by adding a blank `else{}` statement for now.

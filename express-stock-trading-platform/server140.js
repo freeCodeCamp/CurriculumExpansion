@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,12 +18,10 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
-// 140.  Now let's go back to validation checking of the '/buy' and '/sell' routes.  Since we will be doing similar checks to make sure that the 'ticker' exists and the number of 'shares' are valid on both routes, we can extract the validation into a separate middleware function.  Let's insert a middleware function name 'checkTickerAndShares' in the '/buy' and '/sell' routes.  The middleware function should be inserted as the second('middle') argument after the route and before the callback function.
-
-app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/buy/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
   const total = shares * prices[ticker];
@@ -31,18 +29,18 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
-app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/sell/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
   const total = shares * prices[ticker];
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -55,3 +53,7 @@ app.get('/price/:ticker', (req, res) => {
     res.send(`The price of ${ticker} is $${prices[ticker]}.`);
   }
 });
+
+// Now let's go back to validation checking of the '/buy' and '/sell' routes.  Since we will be doing similar checks to make sure that the `ticker` exists and the number of `shares` are valid on both routes, we can extract the validation into a separate middleware function.
+// Insert a middleware function name 'checkTickerAndShares' in the '/buy' and '/sell' routes.  The middleware function should be inserted as the second ('middle') argument after the route and before the callback function, like this:
+//`app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {})`

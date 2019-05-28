@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,12 +18,11 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
-// 050.  Let create our /buy endpoint.
-// We want users to be able to make a purchase by sending the required information as part of the route.  For example, if they want to buy 20 shares of stock ABC, they would go to /buy/ABC/20
-// We specify route parameter in the path with ':', for example '/buy/:ticker'
-// Express allows us to access the :ticker route parameter in the callback with the 'params' object, like 'req.params.ticker'
-// Now create a .get() route that accepts a 'ticker' and 'shares' that the user want to buy.  You will also need to provide a callback to the .get() method as a second argument, for now, we'll simply provide '(req, res) => {}'
 app.get('/buy/:ticker/:shares', (req, res) => {});
+
+//Express allows us to access the :ticker route parameter in the callback with the 'params' object, like `req.params.ticker`.
+
+//Inside of the callback function body, create a variable called `ticker` (using `const`) and set it equal to `req.params.ticker`

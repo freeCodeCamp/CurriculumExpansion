@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,12 +18,12 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
-// 150.  Now we need to declare the checkTickerAndShares() function.  This middleware function will have access to and can modify the incoming 'req' and 'res' arguments before they are passed to the callback.  This function will take three arguments, 'req', 'res', and 'next'.
-// Create the function to take these three arguments and for now, leave the function body empty
-const checkTickerAndShares = (req, res, next) => {};
+// Now we need to declare the checkTickerAndShares() function.  This middleware function will have access to and can modify the incoming request (`req`) and outgoing response (`res`) arguments before they are passed to the callback.  This function will take three arguments, 'req', 'res', and 'next'.
+
+// Create the checkTickerAndShares() function to take these three arguments and for now, leave the function body empty.  Use arrow function notation.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
@@ -33,7 +33,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -44,7 +44,7 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 

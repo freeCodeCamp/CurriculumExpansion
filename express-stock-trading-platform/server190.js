@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,7 +18,7 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 const checkTickerAndShares = (req, res, next) => {
@@ -28,12 +28,8 @@ const checkTickerAndShares = (req, res, next) => {
     res.send('Error: the ticker you entered is invalid.');
   } else if (!parseInt(req.params.shares)) {
     res.send('Error: the number of shares submitted is invalid.');
-  }
-
-  // 190.  At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
-  // Add an 'else' statement and modify the shares params to ensure that it is a valid integer.  We can modify it with 'req.params.shares = parseInt(req.params.shares)'
-  else {
-    req.params.shares = parseInt(req.params.shares);
+  } else {
+    next();
   }
 };
 
@@ -45,7 +41,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -56,7 +52,7 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 

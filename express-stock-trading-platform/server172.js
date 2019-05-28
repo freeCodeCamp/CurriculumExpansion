@@ -26,13 +26,10 @@ const checkTickerAndShares = (req, res, next) => {
 
   if (!(req.params.ticker in prices)) {
     res.send('Error: the ticker you entered is invalid.');
-  } else if (!parseInt(req.params.shares)) {
-    res.send('Error: the number of shares submitted is invalid.');
-  }
+  } else if (){}
 };
 
-// At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
-// Add an `else {}` statement to the end of the conditional statement.
+// We can check to see if the number of shares is valid with the `parseInt()` function.  Inside the parenthesis, add the integer check: `parseInt(req.params.shares)`
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
