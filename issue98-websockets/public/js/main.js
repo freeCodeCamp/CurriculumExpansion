@@ -1,49 +1,62 @@
 "use strict";
 
 const app = {
-  chat: function() {
-    const socket = io("/chatroom");
+  chat: () => {
+    io("/chatroom").on("connect", socket => {
+      socket.on("updateUserList", userlist =>
+        app.helpers.updateUsersList(userlist)
+      );
 
-    socket.on("connect", function() {
-      socket.emit("join");
-
-      socket.on("updateUserList", function(users) {
-        app.helpers.updateUsersList(users);
+      socket.on("addMessage", message => {
+        app.helpers.addMessage(message, false);
       });
 
-      socket.on("addMessage", function(message) {
-        app.helpers.addMessage(message);
-      });
-    });
-
-    document.querySelector("#chat-form").addEventListener("submit", e => {
-      e.preventDefault();
-
-      const msg = document.querySelector("#msg-input").value;
-
-      if (msg) {
-        socket.emit("newMessage", msg);
-        app.helpers.addMessage(msg);
-      }
+      connectMessageInput(socket);
     });
   },
 
-  login: function() {},
+  login: () => {},
 
   helpers: {
-    updateUsersList: function(users) {},
+    updateUsersList: userlist => console.log(userlist),
 
-    addMessage: function(message) {
+    addMessage: (message, sended) => {
       const template = document.querySelector(".msg-component");
       const clone = document.importNode(template.content, true);
 
-      clone.querySelector(".msg-content").textContent = message;
+      const bubble = clone.querySelector(".msg-bubble");
 
-      const chat_history = document.querySelector("#chat-history");
+      bubble.className += sended ? " sended" : " received";
 
-      chat_history.appendChild(clone);
+      bubble.querySelector(".msg-name").textContent = "freeCodeCamp";
+      bubble.querySelector(".msg-content").textContent = message;
+
+      bubble.querySelector(
+        ".msg-timestamp"
+      ).textContent = this.getMessageTime();
+
+      document.querySelector("#chat-history").appendChild(clone);
 
       document.querySelector("#msg-input").value = "";
+    },
+
+    getMessageTime: () => {
+      const date = new Date();
+
+      return `${date.getHours()}:${date.getMinutes()}`;
     }
   }
+};
+
+const connectMessageInput = socket => {
+  document.querySelector("#chat-form").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const msg = document.querySelector("#msg-input").value;
+
+    if (msg) {
+      socket.emit("newMessage", msg);
+      app.helpers.addMessage(msg, true);
+    }
+  });
 };
