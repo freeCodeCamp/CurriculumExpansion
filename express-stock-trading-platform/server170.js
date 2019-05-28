@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('./node_modules/express');
 const app = express();
 
 app.listen(3000, function() {
@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,17 +18,18 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 const checkTickerAndShares = (req, res, next) => {
   req.params.ticker = req.params.ticker.toUpperCase();
 
-  // 170. Using an 'if' statement, check that if the ticker parameter does not exist, send the 'res' with the message 'Error: the ticker you entered is invalid.'
   if (!(req.params.ticker in prices)) {
     res.send('Error: the ticker you entered is invalid.');
   }
 };
+
+// Now we also need to check that the number of shares that the client sent is valid.  Add an `else if` statement after the `if` statement.  For now leave the body empty, like `else if () {}`.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
@@ -38,7 +39,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -49,7 +50,7 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 

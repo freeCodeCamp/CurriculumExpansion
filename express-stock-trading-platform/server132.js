@@ -1,4 +1,4 @@
-const express = require('./node_modules/express');
+const express = require('express');
 const app = express();
 
 app.listen(3000, function() {
@@ -21,20 +21,7 @@ const prices = {
   XYZ: 5.32
 };
 
-const checkTickerAndShares = (req, res, next) => {
-  req.params.ticker = req.params.ticker.toUpperCase();
-
-  if (!(req.params.ticker in prices)) {
-    res.send('Error: the ticker you entered is invalid.');
-  } else if (!parseInt(req.params.shares)) {
-    res.send('Error: the number of shares submitted is invalid.');
-  }
-};
-
-// At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
-// Add an `else {}` statement to the end of the conditional statement.
-
-app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/buy/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
   const total = shares * prices[ticker];
@@ -46,7 +33,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   );
 });
 
-app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/sell/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
   const total = shares * prices[ticker];
@@ -63,6 +50,9 @@ app.get('/price/:ticker', (req, res) => {
   if (!(ticker in prices)) {
     res.send('Error: the ticker you entered is invalid.');
   } else {
-    res.send(`The price of ${ticker} is $${prices[ticker]}.`);
   }
 });
+
+//Inside of the else statement, send a response saying 'The price of <stockTicker> is <tickerPrice>.'
+//Be sure to use template literal format and wrap any Javascript variable references with `${}`.
+//Also remember that you can access the ticker price with `prices[ticker]`, similar to how it was done in the '/sell/:ticker/:shares' route.

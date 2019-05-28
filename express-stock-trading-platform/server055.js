@@ -21,6 +21,8 @@ const prices = {
   XYZ: 5.32
 };
 
-// Let's create our /buy endpoint.
-// We want users to be able to make a purchase by sending the required information as part of the route.  For example, if they want to buy 20 shares of stock ABC, they would go to /buy/ABC/20
-// Start by defining a GET route to the `/buy` path.  This is similar to how you created `app.get('/hi')` previously.
+app.get('/buy/:ticker/:shares', (req, res) => {
+  const ticker = req.params.ticker;
+});
+
+//Similarly, create a variable name `shares` and set it equal to the shares parameter.

@@ -28,11 +28,19 @@ const checkTickerAndShares = (req, res, next) => {
     res.send('Error: the ticker you entered is invalid.');
   } else if (!parseInt(req.params.shares)) {
     res.send('Error: the number of shares submitted is invalid.');
+  } else {
   }
 };
 
 // At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
-// Add an `else {}` statement to the end of the conditional statement.
+
+//We are ready to proceed from this middleware to the callback function. The callback function will have the modifications to the 'req' object that we made in this middleware function, such as making the request ticker parameter all uppercase.
+
+// To indicate that we are ready to move on from this middleware function, we call the `next()` function.  If you recall, `next` was passed as the third argument in this middleware function.
+
+// Call the `next()` function inside of the `else` statement.
+
+// You can now test your middleware function by sending a invalid ticker or number of shares, this middleware should intervene and send back the appropriate error messages
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;

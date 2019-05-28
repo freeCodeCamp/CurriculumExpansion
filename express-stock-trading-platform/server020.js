@@ -1,10 +1,6 @@
 const express = require('express');
 const app = express();
 
-// 020. Instruct your app to listen for requests on port 3000, using the listen() function.  This function takes two arguments: the port number and a callback function.  For your callback function, simply console log 'Your app is listening on port 3000.' to confirm that your app is running.
+//Instruct your application to listen for requests on port 3000 by using `app.listen()`. Here's an example of an app that listens for requests on port 5000:
 
-// Now, if you run your file ('node server.js'), you should see the message 'Your app is listening on port 3000.' in your console.
-
-app.listen(3000, function() {
-  console.log('Your app is listening on port 3000.');
-});
+//`app.listen(5000);`

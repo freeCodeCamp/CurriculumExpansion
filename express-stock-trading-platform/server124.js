@@ -1,4 +1,4 @@
-const express = require('./node_modules/express');
+const express = require('express');
 const app = express();
 
 app.listen(3000, function() {
@@ -21,22 +21,10 @@ const prices = {
   XYZ: 5.32
 };
 
-const checkTickerAndShares = (req, res, next) => {
-  req.params.ticker = req.params.ticker.toUpperCase();
-
-  if (!(req.params.ticker in prices)) {
-    res.send('Error: the ticker you entered is invalid.');
-  } else if (!parseInt(req.params.shares)) {
-    res.send('Error: the number of shares submitted is invalid.');
-  }
-};
-
-// At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
-// Add an `else {}` statement to the end of the conditional statement.
-
-app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/buy/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
+
   const total = shares * prices[ticker];
 
   res.send(
@@ -46,7 +34,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   );
 });
 
-app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
+app.get('/sell/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
   const total = shares * prices[ticker];
@@ -60,9 +48,12 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
 app.get('/price/:ticker', (req, res) => {
   const ticker = req.params.ticker.toUpperCase();
 
-  if (!(ticker in prices)) {
-    res.send('Error: the ticker you entered is invalid.');
-  } else {
-    res.send(`The price of ${ticker} is $${prices[ticker]}.`);
+  if (ticker in prices) {
   }
 });
+
+// If the ticker doesn't exist, we want to send back a response saying that the ticker is invalid.
+
+// Thus we actually want to check if the `ticker` does NOT exist in the `prices` object, so we will need to update the `if` conditional test.  To negate a conditional test we insert the symbol `!` before the test.
+
+// Inside the parentheses, update the conditional test like `if(!(ticker in prices))`.

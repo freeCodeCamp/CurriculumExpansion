@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,13 +18,16 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 app.get('/buy/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
   const shares = req.params.shares;
 
-  // 070. Create a variable named 'total', which should be calculated as 'shares * price per share'.  You can determine the price per share from the 'prices' object we previously declared above
   const total = shares * prices[ticker];
 });
+
+// Now we send back a response confirming that the trade was made.
+
+// Start by calling the `res.send()` method, similar to the response that was sent previously in the `/hi` route.

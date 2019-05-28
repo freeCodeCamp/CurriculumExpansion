@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('./node_modules/express');
 const app = express();
 
 app.listen(3000, function() {
@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,27 +18,15 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 const checkTickerAndShares = (req, res, next) => {
   req.params.ticker = req.params.ticker.toUpperCase();
-
-  if (!(req.params.ticker in prices)) {
-    res.send('Error: the ticker you entered is invalid.');
-  } else if (!parseInt(req.params.shares)) {
-    res.send('Error: the number of shares submitted is invalid.');
-  } else {
-    req.params.shares = parseInt(req.params.shares);
-    // 200.  Now we indicate that we are done with our middleware function and are ready to move on to the next function (the callback from the main app.get() function).  To do this, we call the 'next()' function.
-
-    // Now the callback function will have the modifications to the 'req' object that we make in this middleware function
-
-    // You can now test your middleware function by sending a invalid ticker or number of shares, this middleware should intervene and send back the appropriate error messages
-
-    next();
-  }
 };
+
+// We also need to check if the ticker parameter exists.  This will be similar to the check you did in the `/price/:ticker` route.
+// Using an `if` statement, check that if the ticker parameter (`req.params.ticker`) does not exist in `prices`, send the `res` with the message 'Error: the ticker you entered is invalid.'
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
@@ -48,7 +36,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -59,7 +47,7 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 

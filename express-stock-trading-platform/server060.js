@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,11 +18,18 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 app.get('/buy/:ticker/:shares', (req, res) => {
-  // 070. Express allows us to access the :ticker route parameter in the callback with the 'params' object, like 'req.params.ticker'.  Create two variables name 'ticker' and 'shares', assign them the corresponding values from 'req'.
   const ticker = req.params.ticker;
   const shares = req.params.shares;
 });
+
+//Now we need determine the total amount of the purchase, which equals to 'shares * price per share'.
+
+//You can determine the price per share from the `prices` object we previously declared above.
+//For example, if we wanted the price for stock MNO, we would use `prices['MNO']
+//The exact stock that we need the price for is currently stored in the `ticker` variable.  To get the price for that, we would use `prices[ticker]`
+
+//Create a variable named 'total' and set it equal to `shares * prices[ticker]`.

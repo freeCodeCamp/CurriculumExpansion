@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,7 +18,7 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 app.get('/buy/:ticker/:shares', (req, res) => {
@@ -30,11 +30,9 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
-
-// 090.  Now, let's create the /sell endpoint, which is structured very similar to the /buy endpoint.  Copy the /buy route that you just created and modify it to a '/sell/:ticker/shares' route.  In the response, be sure to include the ticker, number of shares, price per share, and total amount.
 
 app.get('/sell/:ticker/:shares', (req, res) => {
   const ticker = req.params.ticker;
@@ -43,6 +41,8 @@ app.get('/sell/:ticker/:shares', (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
+
+// Let's create one more GET endpoint for users to query the price of a particular stock at `/price/:ticker`.  Remember that you will also need to provide a callback function to the .get() method as a second argument, for now, we'll simply provide `(req, res) => {}`
