@@ -25,15 +25,14 @@ http.createServer(function (request, response) {
     fs.readFile(filePath, function(error, content) {
         if (error) {
             fs.readFile('./public/404.html', function(error, content) {
-                response.writeHead(200, { 'Content-Type': contentType });
+                response.writeHead(404, { 'Content-Type': contentType });
                 response.end(content, 'utf-8');
             }); 
-        }
-        else {
+        } else {
             response.writeHead(200, { 'Content-Type': contentType });
             response.end(content, 'utf-8');
         }
     });
 
-}).listen(8125);
-console.log('Server running at http://127.0.0.1:8125/');
+}).listen(8080);
+console.log('Server running at http://localhost:8080');
