@@ -1,10 +1,8 @@
-
 const socket_session = require("express-socket.io-session");
 const db = require("../db/db");
 
 // All socket.io code to deal with events
 function setIoEvents(io) {
-
   io.of("/chatroom").on("connection", socket => {
     // const userId = socket.handshake.session;
 
@@ -23,17 +21,16 @@ function setIoEvents(io) {
   });
 }
 
-/** 
+/**
  *    Creates the socket.io connections
  */
 module.exports = (app, session) => {
-
   const http = require("http").Server(app);
-  const io = require("socket.io")(http);  
+  const io = require("socket.io")(http);
 
   io.of("/chatroom").use(socket_session(session, { autosave: true }));
 
   setIoEvents(io);
 
-  return io;
+  return http;
 };
