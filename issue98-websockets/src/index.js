@@ -18,8 +18,8 @@ const session = express_session({
 });
 
 // components
-const router = require("./routes")(session);
 const server = require("./socket")(app, session);
+const router = require("./routes")(session);
 
 // configs
 app.set("views", __dirname + "views");
