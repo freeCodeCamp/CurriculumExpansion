@@ -16,9 +16,7 @@ function setIoEvents(io) {
     });
 
     // Emitted when a message is sended
-    socket.on("newMessage", msg => {
-      socket.broadcast.emit("addMessage", msg);
-    });
+    socket.on("newMessage", msg => socket.broadcast.emit("newMessage", msg));
   });
 }
 
