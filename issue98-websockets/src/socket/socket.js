@@ -1,4 +1,3 @@
-const socket_session = require("express-socket.io-session");
 const db = require("../db/db");
 
 // All socket.io code to deal with events
@@ -11,7 +10,9 @@ function setIoEvents(io) {
 
     // Emitted when user left the chatroom
     socket.on("disconnect", userId => {
-      socket.broadcast.emit("user_disconnect");
+      db.removeUser(userId);
+
+      socket.broadcast.emit("updateUserList", db.getUserList());
     });
 
     // Emitted when a message is sended
@@ -27,6 +28,7 @@ function setIoEvents(io) {
 module.exports = (app, session) => {
   const http = require("http").Server(app);
   const io = require("socket.io")(http);
+  const socket_session = require("express-socket.io-session");
 
   io.of("/chatroom").use(socket_session(session, { autosave: true }));
 
