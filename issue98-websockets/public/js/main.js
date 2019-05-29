@@ -11,7 +11,7 @@ const app = {
         app.helpers.updateUsersList(userlist)
       );
 
-      // Whenere a message is send
+      // Emitted whenever a message is received
       socket.on("newMessage", message => {
         app.helpers.addMessage(message, false);
       });
@@ -23,13 +23,15 @@ const app = {
   login: () => {},
 
   helpers: {
-    updateUsersList: userlist => console.log(userlist),
+    updateUsersList: userlist => {
+      console.log(userlist);
+    },
 
     addMessage: (message, sended) => {
-      const chat_message = createMessageComponent(message, sended);
+      const chat_message = app.helpers.createMessageComponent(message, sended);
 
-      appendMessageHistory(chat_message);
-      clearMessageInput();
+      app.helpers.appendMessageHistory(chat_message);
+      app.helpers.clearMessageInput();
     },
 
     createMessageComponent: (message, sended) => {
@@ -48,7 +50,7 @@ const app = {
 
       bubble.querySelector(
         ".msg-timestamp"
-      ).textContent = this.getMessageTime();
+      ).textContent = app.helpers.getMessageTime();
 
       return bubble;
     },
