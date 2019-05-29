@@ -17,12 +17,13 @@ const session = express_session({
   saveUninitialized: false
 });
 
-// components
-const router = require("./routes/router")(session);
-const server = require("./socket/socket")(app, session);
-
 // configs
+app.use(session);
 app.set("views", __dirname + "views");
+
+// components
+const router = require("./routes/router")();
+const server = require("./socket/socket")(app, session);
 
 // middlewares
 app.use(express.static("public"));

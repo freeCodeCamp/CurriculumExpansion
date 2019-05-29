@@ -45,8 +45,7 @@ const applyRouter = () => {
   });
 };
 
-module.exports = session => {
-  router.use(session);
+module.exports = () => {
   applyRouter();
 
   return router;

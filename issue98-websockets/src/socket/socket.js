@@ -13,6 +13,8 @@ function setIoEvents(io) {
       db.removeUser(userId);
 
       socket.broadcast.emit("updateUserList", db.getUserList());
+
+      socket.broadcast.emit("userDisconnected", db.getUserName(userId));
     });
 
     // Emitted when a message is sended
@@ -34,3 +36,5 @@ module.exports = (app, session) => {
 
   return http;
 };
+
+const getUserName = userId => db.getUser(userId);
