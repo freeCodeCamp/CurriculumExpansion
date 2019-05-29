@@ -2,7 +2,7 @@
 
 const app = {
   chat: () => {
-    const socket = io("/chatroom", { transports: ["websocket"] });
+    const socket = io("/chatroom");
 
     // When socket conects
     socket.on("connect", () => {
@@ -77,8 +77,6 @@ const connectMessageInput = socket => {
     e.preventDefault();
 
     const msg = document.querySelector("#msg-input").value;
-
-    socket.handshake.session;
 
     if (msg) {
       socket.emit("newMessage", msg);

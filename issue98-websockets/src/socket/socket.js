@@ -14,7 +14,7 @@ function setIoEvents(io) {
 
       socket.broadcast.emit("updateUserList", db.getUserList());
 
-      socket.broadcast.emit("userDisconnected", db.getUserName(userId));
+      socket.broadcast.emit("userDisconnected", getUserName(userId));
     });
 
     // Emitted when a message is sended
