@@ -2,12 +2,10 @@
 
 const app = {
   chat: () => {
-
     const socket = io("/chatroom");
 
     // When socket conects
     socket.on("connect", () => {
-      
       // Update user list upon emitting updateUserList event
       socket.on("updateUserList", userlist =>
         app.helpers.updateUsersList(userlist)
@@ -28,9 +26,9 @@ const app = {
     updateUsersList: userlist => console.log(userlist),
 
     addMessage: (message, sended) => {
-      const message = createMessageComponent(message, sended) 
+      const chat_message = createMessageComponent(message, sended);
 
-      appendMessageHistory(message);
+      appendMessageHistory(chat_message);
       clearMessageInput();
     },
 
@@ -48,14 +46,17 @@ const app = {
       bubble.querySelector(".msg-name").textContent = "freeCodeCamp";
       bubble.querySelector(".msg-content").textContent = message;
 
-      bubble.querySelector(".msg-timestamp").textContent = this.getMessageTime();
+      bubble.querySelector(
+        ".msg-timestamp"
+      ).textContent = this.getMessageTime();
 
       return bubble;
     },
 
-    appendMessageHistory: message => document.querySelector("#chat-history").appendChild(message),
-      
-    clearMessageInput: () => document.querySelector("#msg-input").value = "",       
+    appendMessageHistory: message =>
+      document.querySelector("#chat-history").appendChild(message),
+
+    clearMessageInput: () => (document.querySelector("#msg-input").value = ""),
 
     getMessageTime: () => {
       const date = new Date();
