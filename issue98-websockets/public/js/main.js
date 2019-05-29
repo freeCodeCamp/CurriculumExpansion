@@ -2,12 +2,19 @@
 
 const app = {
   chat: () => {
-    io("/chatroom").on("connect", socket => {
+
+    const socket = io("/chatroom");
+
+    // When socket conects
+    socket.on("connect", () => {
+      
+      // Update user list upon emitting updateUserList event
       socket.on("updateUserList", userlist =>
         app.helpers.updateUsersList(userlist)
       );
 
-      socket.on("addMessage", message => {
+      // Whenere a message is send
+      socket.on("newMessage", message => {
         app.helpers.addMessage(message, false);
       });
 
@@ -21,9 +28,19 @@ const app = {
     updateUsersList: userlist => console.log(userlist),
 
     addMessage: (message, sended) => {
+      const message = createMessageComponent(message, sended) 
+
+      appendMessageHistory(message);
+      clearMessageInput();
+    },
+
+    createMessageComponent: (message, sended) => {
       const template = document.querySelector(".msg-component");
+
+      // Load the message template to the DOM
       const clone = document.importNode(template.content, true);
 
+      // Create a copy of the message component
       const bubble = clone.querySelector(".msg-bubble");
 
       bubble.className += sended ? " sended" : " received";
@@ -31,14 +48,14 @@ const app = {
       bubble.querySelector(".msg-name").textContent = "freeCodeCamp";
       bubble.querySelector(".msg-content").textContent = message;
 
-      bubble.querySelector(
-        ".msg-timestamp"
-      ).textContent = this.getMessageTime();
+      bubble.querySelector(".msg-timestamp").textContent = this.getMessageTime();
 
-      document.querySelector("#chat-history").appendChild(clone);
-
-      document.querySelector("#msg-input").value = "";
+      return bubble;
     },
+
+    appendMessageHistory: message => document.querySelector("#chat-history").appendChild(message),
+      
+    clearMessageInput: () => document.querySelector("#msg-input").value = "",       
 
     getMessageTime: () => {
       const date = new Date();
