@@ -16,6 +16,10 @@ const app = {
         app.helpers.addMessage(message, false);
       });
 
+      socket.on("userDisconnected", userName => {
+        // TODO user disconnected warning
+      });
+
       connectMessageInput(socket);
     });
   },
@@ -73,6 +77,8 @@ const connectMessageInput = socket => {
     e.preventDefault();
 
     const msg = document.querySelector("#msg-input").value;
+
+    socket.handshake.session;
 
     if (msg) {
       socket.emit("newMessage", msg);
