@@ -64,5 +64,5 @@ function updateCount() {
 }
 
 /* 
-Now you will fix the error on line 22. It is good that the variables were created using `const` or the console would not have told us about this error. The assignment operator is used (`=`) instead of the strict equality (`===`) operator. Always use `==` or `===` when checking if two items are equal.
+Now you will fix the error on line 32. It is good that the variables were created using `const` or the console would not have told us about this error. The assignment operator is used (`=`) instead of the strict equality (`===`) operator. Always use `==` or `===` when checking if two items are equal.
 */
