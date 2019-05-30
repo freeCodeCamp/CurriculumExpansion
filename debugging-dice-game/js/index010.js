@@ -64,9 +64,9 @@ function updateCount() {
 }
 
 /* 
-The browser's JavaScript console is invaluable in debugging runtime and semantic errors. The messages in the console often tell right where the error is. If you run this code, the console says "Uncaught TypeError: Assignment to constant variable." and even shows the error is on line 22.
+The browser's JavaScript console is invaluable in debugging runtime and semantic errors. The messages in the console often tell you right where the error is. If you run this code, the console says "Uncaught TypeError: Assignment to constant variable." and even shows the error is on line 32.
 
-Line 22 is in the `rollDice` function. That function should only be called if the player clicks the 'rollDice' button. So before you fix the error on line 22, you need to figure out why line 22 is even being run.
+Line 32 is in the `rollDice` function. That function should only be called if the player clicks the 'rollDice' button. So before you fix the error on line 32, you need to figure out why line 32 is even being run.
 
 In lines 12 and 13, functions are assigned to `onclick` events for the two buttons on the page. When parentheses are on the end of a function name, the function is called immediately. Since we just want to assign the function to the `onclick` events, remove the parentheses on the end of each function name.
 */
