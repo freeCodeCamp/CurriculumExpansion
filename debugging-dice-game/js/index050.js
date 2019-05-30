@@ -64,9 +64,9 @@ function updateCount() {
 }
 
 /* 
-Now when you click the "Roll Dice" button, the console shows an error on line 63: "Uncaught TypeError: Cannot set property 'innerText' of null". 
+Now when you click the "Roll Dice" button, the console shows an error on line 62: "Uncaught TypeError: Cannot set property 'innerText' of null". 
 
-Work backwards again. Why is `element` null? The first element that is used is 0. Is there an element with id 0 in the HTML? 
+Work backwards again. Why is `element` null? The first element that is used is 0. Is there an element with the `id` 0 in the HTML? 
 
-The code uses array indexes that correspond to the total number rolled on the dice. The smallest number that can be rolled on two die is 2. So the ids start at 2, In the `for` loop on line 60, update the variable initiation to start at 2 instead of 0. 
+The code uses array indexes that correspond to the total number rolled on the dice. The smallest number that can be rolled on two die is 2, so the IDs start at 2. In the `for` loop on line 59, update the variable initiation to start at 2 instead of 0.
 */
