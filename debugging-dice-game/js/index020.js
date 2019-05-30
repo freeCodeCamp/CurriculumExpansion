@@ -67,7 +67,7 @@ function updateCount() {
 No errors in the console. Great! Click 'Roll Dice' and see if the program works.
 
 Now the console shows "Uncaught TypeError: Cannot read property 'style' of null" on line 43.
-Let's work backwards. Why is `element` undefined. There must not be an element with the id of `total`. What is `total`, anyway? 
+Let's work backwards. Why is `element` undefined? There must not be an element with the id of `total`. What is `total`, anyway? 
 
 The `console.log()` method, which "prints" the output of what's within its parentheses to the console, can be very helpful when debugging.
 
