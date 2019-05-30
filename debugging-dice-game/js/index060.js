@@ -64,7 +64,7 @@ function updateCount() {
 }
 
 /* 
-Huh? The console shows the same error on line 63 when you click "Roll Dice": "Uncaught TypeError: Cannot set property 'innerText' of null". Didn't you just fix that?
+Huh? The console shows the same error on line 62 when you click "Roll Dice": "Uncaught TypeError: Cannot set property 'innerText' of null". Didn't you just fix that?
 
 The `rollCount` array has a length of 13 and the for loop repeats while i <= 13. But since array indexes start at 0, the 13th item in the array has an index of 12. Change `i <= 13` to `i < 13`.
 */
