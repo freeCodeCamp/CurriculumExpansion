@@ -32,13 +32,10 @@ class ShoppingCart {
 }
 
 /*
-The easiest way to add an item to our cart is through item's unique id. 
-
-Because their ids qre unique, we can easily identify what kind of items they are.
-
-We also need to know from which set of data we are adding the items. Currently we have only products array, but there could be more arrays with different items.
-
-Have our addItem method take 'id' as its first parameter and 'products' array as the 2nd parameter. Here is an example:
+The easiest way to add an item to our cart is through item's unique id.
+Because their ids are unique, we can easily identify what kind of items they are.
+Have our addItem method take id as its first parameter and the products array as the second parameter.
+Here's a function that takes two parameters, name and list:
 
 sayName (name, list) {
 
