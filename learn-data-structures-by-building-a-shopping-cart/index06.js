@@ -28,9 +28,17 @@ class ShoppingCart {
 }
 
 /*
-To make operations such as adding and removing, we need to create appropriate methods to handle each action.
+To do things like add and remove items from our shopping cart, we need to create appropriate methods to handle each action.
+Declare a method called addItem.
+For example, here is a method to handle honking a horn:
 
-Let's create a method called addItem that will help us start adding items to the cart.
-
-Declare a method 'addItem'.
+class Car {
+  constructor() {
+    this.make = 'Hyundai';
+  }
+  
+  honkHorn() {
+  
+  }
+}
 */
