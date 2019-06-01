@@ -80,10 +80,9 @@ html {
 
 
 /* 
-    You might have noticed the keys collapses when the piano's
-    width is adjusted to a smaller browser window then 768px. To take
-    care of this issue add to the `.keys` rule a `overflow` to `hidden`.
-    This property will hide any element that is pushed out of `.keys`
-    set `width`.
+    You might have noticed the keys collapse when the browser window
+    is smaller than 768px. To take care of this issue, set `overflow` to `hidden`
+    in the `.keys` rule. This property will hide any element that is pushed outside
+    the set `width` of `.keys`.
 
 */
