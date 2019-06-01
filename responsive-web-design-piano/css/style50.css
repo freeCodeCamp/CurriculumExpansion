@@ -69,7 +69,7 @@ html {
 
 /* 
     Inside the curly braces of the `@media` rule add a
-    CSS rule to apply for the `#piano`. Give the piano a
+    CSS rule targeting `#piano`. Give the piano a
     `width` of `355px`. 
 
 */
