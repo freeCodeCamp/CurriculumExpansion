@@ -1,0 +1,74 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    padding: 90px 20px 0 20px;
+    background-color: #00471b;
+    position: relative;
+    border-radius: 10px;
+}
+
+
+.keys {
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+    background-color: #040404;
+}
+
+
+.key {
+    position: relative;
+    width: 41px;
+    height: 175px;
+    margin: 2px;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 0 0 3px 3px;
+}
+
+
+.logo {
+    width: 200px;
+    position: absolute;
+    top: 23px;
+}
+
+
+/* pseudo elements */
+.key.black--key::after {
+    content: "";
+    position: absolute;
+    left: -18px;
+    width: 32px;
+    height: 100px;
+    background-color: #1d1e22;
+    border-radius: 0 0 3px 3px;
+}
+
+/* 
+    Add an `@media` rule to include a block of CSS properties to apply
+    if the browser window width is 768px or smaller.
+
+    Here is an example that applies if the browser window is 600px or smaller.
+    
+    ```
+
+        @media only screen and (max-width: 600px) {
+            ...
+        }
+
+    ```
+*/

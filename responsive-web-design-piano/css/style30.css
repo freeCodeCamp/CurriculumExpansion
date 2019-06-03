@@ -1,0 +1,32 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/* piano styles */
+#piano {
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    background-color: #00471b;
+}
+
+
+.keys {
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+    background-color: #040404;
+}
+
+/* 
+    To adjust the `keys` `<div>` position, add some padding to the `#piano` rule.
+    Add the `padding` property with the values of `90px` for the top, `20px` for
+    the right, `0` for the bottom, and `20px` for the left.
+*/
