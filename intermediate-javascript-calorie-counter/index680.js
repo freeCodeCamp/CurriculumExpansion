@@ -68,16 +68,18 @@ const clearOutput = () => {
 };
 
 const clearForm = () => {
-  const foodInputs = Array.from(document.getElementsByClassName('food-control'));
+  const foodInputs = Array.from(
+    document.getElementsByClassName('food-control')
+  );
 
-  foodInputs.map();
+  foodInputs.forEach();
 };
 
 /*
-Recall how we need to provide a function to `map()`. 
 
-This function will take each input item, in our case we'll call it `input`, as an argument.  Inside the function body, we need to call the `remove()` method. 
+We need to provide a callback function in the parentheses of `forEach()`.
 
-In between the parentheses of the .map() function, enter `input => input.remove()`.
+This function will take each input item, in our case we'll call it `input`, as an argument.  Then inside the function body, we need to call the `remove()` method. 
 
+In between the parentheses of the `.forEach()` function, enter `input => input.remove()`.
 */

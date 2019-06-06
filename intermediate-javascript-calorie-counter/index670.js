@@ -68,11 +68,13 @@ const clearOutput = () => {
 };
 
 const clearForm = () => {
-  const foodInputs = Array.from(document.getElementsByClassName('food-control'));
+  const foodInputs = Array.from(
+    document.getElementsByClassName('food-control')
+  );
 };
 
 /*
-We need a way to iterate through all the `foodInputs` items by using the `map()` function.
+To remove the items `foodInputs` array, we will iterate through them by using the `forEach()` function.
 
-Enter `foodInputs.map()`
+Enter `foodInputs.forEach()`
 */

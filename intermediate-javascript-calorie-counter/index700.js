@@ -68,14 +68,18 @@ const clearOutput = () => {
 };
 
 const clearForm = () => {
-  const foodInputs = Array.from(document.getElementsByClassName('food-control'));
+  const foodInputs = Array.from(
+    document.getElementsByClassName('food-control')
+  );
 
-  foodInputs.map(input => input.remove());
+  foodInputs.forEach(input => input.remove());
 
-  const calInputs = Array.from(document.getElementsByClassName('extra-cal-control'));
+  const calInputs = Array.from(
+    document.getElementsByClassName('extra-cal-control')
+  );
 };
 
 /*
-Similar to how you mapped through the `foodInputs` elements to remove each input, map through the elements in `calInputs` and remove them.
+Similar to how you removed each `foodInputs` elements, use the `forEach()` function to remove each `calInputs` element.
 
 */

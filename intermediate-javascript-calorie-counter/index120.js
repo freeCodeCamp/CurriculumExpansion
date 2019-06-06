@@ -8,9 +8,10 @@ function calculate(e) {
   // console.log(meal.value);
 }
 /*
-We need a way to iterate through all the `meal` items in the `total` array and extract the values that the user entered.
+We need a way to iterate through all the `meal` items in the `total` array and return the values that the user entered as an array.
+
 The `map()` method allows us to do exactly that.
 
-Delete the lines 6 and 7.
-Chain the `.map()` method to the end of your `Array.from()` method.
+Delete `const meal = total[0];` and chain the `.map()` method to the end of your `Array.from()` method.
+Here's an example of `.map()` chained to an array: `[3, 2, 1].map()`
 */

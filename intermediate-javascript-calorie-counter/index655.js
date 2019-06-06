@@ -68,11 +68,5 @@ const clearOutput = () => {
 };
 
 /*
-Create a variable named `clearForm` and set it equal to a function using arrow function notation, like
-
-`const myFunction = () => {}`
-
-which is similar to
-
-`function myFunction () {}`
+Create a variable named `clearForm` and set it equal to a blank arrow function like you did with `clearOutput`.
 */

@@ -68,17 +68,21 @@ const clearOutput = () => {
 };
 
 const clearForm = () => {
-  const foodInputs = Array.from(document.getElementsByClassName('food-control'));
+  const foodInputs = Array.from(
+    document.getElementsByClassName('food-control')
+  );
 
-  foodInputs.map(input => input.remove());
+  foodInputs.forEach(input => input.remove());
 
-  const calInputs = Array.from(document.getElementsByClassName('extra-cal-control'));
+  const calInputs = Array.from(
+    document.getElementsByClassName('extra-cal-control')
+  );
 
-  calInputs.map(input => input.remove());
+  calInputs.forEach(input => input.remove());
 };
 
 /*
-Now it's time to clear the other calories that may have been entered for Breakfast, Lunch, and Dinner, this can be achieved by calling the `reset()` method on the form.
+Finally it's time to clear the other calories that may have been entered for Breakfast, Lunch, and Dinner, this can be achieved by calling the `reset()` method on the form.
 
 Reset the document element with the id of `calorie-form`.
 

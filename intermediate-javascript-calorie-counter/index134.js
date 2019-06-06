@@ -5,10 +5,12 @@ function calculate(e) {
 
   const total = Array.from(document.getElementsByClassName('cal-control')).map(
     function(meal) {
-      return Number(meal.value);
+      return meal.value;
     }
   );
+
+  // console.log(total);
 }
 /*
-Now let's simplify the function by refactoring it to use arrow functions.  As an example, `function(x) {return x*x} can be refactored as `x => x*x`.
+Since eventually we'll be adding all of the meal calories in the `total` array, explicitly convert `meal.value` into a number by wrapping it in the `Number()` function.
 */
