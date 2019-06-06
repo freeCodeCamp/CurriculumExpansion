@@ -21,17 +21,13 @@ function calculate(e) {
   );
 }
 /*
-The data that we currently pass to `createTextNode()` is
-`Math.abs(difference) + ' Calorie ' + surplusOrDeficit`
+The data that we currently pass to `createTextNode()` is `Math.abs(difference) + ' Calorie ' + surplusOrDeficit`
 
 Some people consider this a little cumbersome and prefer to use template literals instead.  
 
 Template literals are enclosed in backticks (`/`/``), and JavaScript expressions and variables can be embedded by enclosing them in `${}`.
 
-For example, if you have a variable named `firstName` and want to log a string that greets the person and tells them what date is it, you would write the template literal as:
-`console.log(`Hello ${firstName}, today is ${Date.now()}`)`
-instead of
-`console.log('Hello ' + firstName + ', today is ' + Date.now())`
+For example, `console.log(`Hello ${firstName}, today is ${Date.now()}`)` is the same as writing `console.log('Hello ' + firstName + ', today is ' + Date.now())`.
 
 Convert the data inside of `createTextNode()` to be a template literal.
 */

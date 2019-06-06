@@ -8,13 +8,7 @@ function calculate(e) {
     .reduce();
 }
 /*
-The reduce method takes a callback function as well as an optional initial value, its function signature is as follows:
-
-`Array.reduce(callbackFunction[, initialValue])`
-
-Note that the square brackets `[]` around `initialValue` indicates that it's an optional parameter.
-
-The `callbackFunction` reducer itself takes 2 arguments, an accumulator and a current value:
+The `reduce()` method takes a callback function with at least two arguments, an accumulator and a current value:
 
 `function(accumulator, currentValue) { /*code to run*\/}`
 

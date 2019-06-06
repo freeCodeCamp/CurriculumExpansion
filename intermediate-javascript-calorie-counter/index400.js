@@ -30,9 +30,7 @@ function calculate(e) {
   const recommendedText = document.createTextNode();
 }
 /*
-We want the `recommendedText` to say something like "XX Calories Recommended".
-
-The "XX" is the `maxCalories` variable that was previously created.
+We want the `recommendedText` to say "XX Calories Recommended" where "XX" is the `maxCalories` variable that was previously created.
 
 Update text of `recommendedText` to use the `maxCalories` variable in a template literal along with the text "Calories Recommended".
 

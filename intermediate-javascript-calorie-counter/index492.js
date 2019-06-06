@@ -15,7 +15,7 @@ function calculate(e) {
   const output = document.getElementById('output');
 
   const result = document.createElement('h3');
-
+  result.className = 'green-text';
   const resultText = document.createTextNode(
     `${Math.abs(difference)} Calorie ${surplusOrDeficit}`
   );
@@ -35,12 +35,17 @@ function calculate(e) {
   output.appendChild(recommended);
 
   const consumed = document.createElement('h4');
+  consumed.innerHTML = `${total} Consumed Calories`;
+  output.appendChild(consumed);
+
+  output.setAttribute('class', 'bordered-class');
+  output.style.backgroundColor = '#FFF9C4';
+
+  document.getElementById('add');
 }
 /*
-Another way that we can set the text of the `consumed` element is to set the `innerHTML` property.
+We want a function to run every time the user clicks the "Add Entry" button.
 
-For example:
-`consumed.innerHTML = /`Hello world/``
-
-Set the inner HTML of `consumed` to "XX Consumed Calories", where "XX" is the `total` variable that was previously created.  Use template literals.
+Chain the `onclick` property to the end of `document.getElementById('add')` and set it equal to a blank function: `function() {}`.
+`
 */

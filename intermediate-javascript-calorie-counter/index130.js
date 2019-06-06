@@ -9,16 +9,12 @@ function calculate(e) {
 }
 /*
 Now we need to provide a function to `map()` that will be performed on each item of the array.
-You function will take the original item, in our case we'll call it `meal`, and return the value of that item.  Similar to what we previously did:
 
+This function will take the original item as an argument, in our case we'll call it `meal`.  Inside the `.map()` parentheses, insert an empty function that takes `meal` as a parameter, like:
 ```
 function(meal){
-  return meal.value}
+}
 ```
 
-We can simplify the function further by using an arrow function:
-
-`meal => meal.value`
-
-Enter in the above function as an argument in between the parentheses of the .map() function.
+Enter in the above function as an argument in between the parentheses of the `.map()` function.
 */

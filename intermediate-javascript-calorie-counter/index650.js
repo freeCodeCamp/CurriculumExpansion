@@ -71,5 +71,5 @@ The `clearOutput` function is called when the user clicks the "Clear" button.
 
 It also need to be ran when the user clicks the  "Calculate" button.
 
-In the `calculate() function, right after `event.preventDefault()`, run the `clearOutput` function.
+In the `calculate()` function, right after `event.preventDefault()`, run the `clearOutput` function.
 */

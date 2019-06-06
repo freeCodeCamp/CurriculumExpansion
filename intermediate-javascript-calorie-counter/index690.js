@@ -68,9 +68,11 @@ const clearOutput = () => {
 };
 
 const clearForm = () => {
-  const foodInputs = Array.from(document.getElementsByClassName('food-control'));
+  const foodInputs = Array.from(
+    document.getElementsByClassName('food-control')
+  );
 
-  foodInputs.map(input => input.remove());
+  foodInputs.forEach(input => input.remove());
 };
 
 /*

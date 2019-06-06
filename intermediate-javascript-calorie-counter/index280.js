@@ -20,9 +20,9 @@ function calculate(e) {
 }
 /*
 
-Notice how if `total` is less than `maxCalories`, the `difference` is a negative number.
+Notice how if `total` is less than `maxCalories`, `difference` is a negative number.
 
 We want to show the absolute value of the difference so it displays "300" rather than "-300".
 
-So, wrap the `difference` in a `Math.abs()` function.
+Wrap the `difference` in a `Math.abs()` function.
 */

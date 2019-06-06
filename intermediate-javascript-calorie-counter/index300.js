@@ -21,7 +21,7 @@ function calculate(e) {
   );
 }
 /*
-Next we want to add the `Deficit` or `Surplus` text of "300 Calorie Deficit", we have this information in the `surplusOrDeficit` variable that we previously created.
+Next we want to add the text from the `surplusOrDeficit` variable that we previously created.
 
-Inside parentheses of .createTextNode() add `+ surplusOrDeficit`.
+Inside the parentheses of `.createTextNode()` add `+ surplusOrDeficit` after `Math.abs(difference) + ' Calorie '`.
 */

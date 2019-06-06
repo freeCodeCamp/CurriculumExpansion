@@ -62,11 +62,7 @@ document.getElementById('clear').onclick = function() {
 };
 
 /*
-Create a variable named `clearOutput` and set it equal to a function using arrow function notation, like
+Create a variable named `clearOutput` and set it equal to a blank arrow function: `const clearOutput = () => {}`
 
-`const myFunction = () => {}`
-
-which similar to
-
-`function myFunction () {}`
+This is similar to `function clearOutput () {}`
 */

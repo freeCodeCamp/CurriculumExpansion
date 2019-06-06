@@ -72,13 +72,13 @@ const clearForm = () => {
     document.getElementsByClassName('food-control')
   );
 
-  foodInputs.map(input => input.remove());
+  foodInputs.forEach(input => input.remove());
 
   const calInputs = Array.from(
     document.getElementsByClassName('extra-cal-control')
   );
 
-  calInputs.map(input => input.remove());
+  calInputs.forEach(input => input.remove());
 
   document.getElementById('calorie-form').reset();
 };
