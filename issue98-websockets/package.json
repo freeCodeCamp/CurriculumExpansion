@@ -12,6 +12,7 @@
     "express": "4.16.4",
     "express-session": "1.16.1",
     "express-socket.io-session": "1.3.5",
+    "socket-auth": "0.0.6",
     "socket.io": "2.2.0",
     "uuid": "3.3.2"
   },
