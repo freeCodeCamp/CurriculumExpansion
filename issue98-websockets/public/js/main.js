@@ -2,7 +2,9 @@
 
 const app = {
   chat: () => {
-    const socket = io("/chatroom");
+    const socket = io("/chatroom", {
+      autoConnect:false
+    });
 
     // When socket conects
     socket.on("connect", () => {
@@ -18,6 +20,7 @@ const app = {
 
       socket.on("userDisconnected", userName => {
         // TODO user disconnected warning
+        console.log(userName)
       });
 
       connectMessageInput(socket);
