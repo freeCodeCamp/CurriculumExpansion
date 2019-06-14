@@ -1,6 +1,7 @@
 const users = [];
 
-const nameAlreadyInserted = username => users.some(user => user.name === username);
+const nameAlreadyInserted = username =>
+  users.some(user => user.name === username);
 
 const getUserById = async id => users.find(user => user.id === id);
 
