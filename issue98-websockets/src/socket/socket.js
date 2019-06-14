@@ -1,4 +1,4 @@
-const socketAuth = require("socketio-auth")
+const socketAuth = require("socketio-auth");
 
 const db = require("../db/db");
 
@@ -27,43 +27,53 @@ function setIoEvents(io) {
   });
 }
 
-
+// Socket.io-auth
 const applyAuth = io => {
   socketAuth(io, {
     authenticate: async (socket, data, cb) => {
       const { token } = data;
 
-      console.log(token)
+      try {
+        const user = await verifyUser(token);
 
-      const user = await db.getUserByToken(token);
-
-      if (user){
-        socket.user = user;        
-        return cb(null, true);
+        if (user) {
+          socket.user = user;
+          return cb(null, true);
+        }
+      } catch (e) {
+        console.log("unauthirized");
+        return cb({ message: "UNAUTHORIZED" });
       }
-      console.log("unauthirized")
-      return cb({message: "UNAUTHORIZED"});
     }
-  })  
-}
+  });
+};
 
 /**
  *    Creates the socket.io connections
  */
-module.exports = (app) => {
+module.exports = app => {
   const http = require("http").Server(app);
   const io = require("socket.io")(http);
-  
 
   // const socket_session = require("express-socket.io-session");
 
   // io.of("/chatroom").use(socket_session(session, { autosave: true }));
-  
-  applyAuth(io)
+
+  applyAuth(io.of("/chatroom"));
 
   setIoEvents(io);
 
   return http;
 };
 
-const getUserName = userId => db.getUser(userId);
+async function verifyUser(token) {
+  return new Promise((resolve, reject) => {
+    const user = db.getUserByToken(token);
+
+    if (!user) {
+      return reject("USER_NOT_FOUND");
+    }
+
+    return resolve(user);
+  });
+}
