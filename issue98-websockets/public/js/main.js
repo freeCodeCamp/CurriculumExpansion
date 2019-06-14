@@ -8,23 +8,29 @@ const app = {
 
     // When socket conects
     socket.on("connect", () => {
-      // Update user list upon emitting updateUserList event
-      socket.on("updateUserList", userlist =>
-        app.helpers.updateUsersList(userlist)
-      );
+      socket.emit("authentication", {
+        token: socket.id
+      })
 
-      // Emitted whenever a message is received
-      socket.on("newMessage", message => {
-        app.helpers.addMessage(message, false);
-      });
+      // Update user list upon emitting updateUserList event
+      // socket.on("updateUserList", userlist =>
+      //   app.helpers.updateUsersList(userlist)
+      // );
+
+      // // Emitted whenever a message is received
+      // socket.on("newMessage", message => {
+      //   app.helpers.addMessage(message, false);
+      // });
 
       socket.on("userDisconnected", userName => {
         // TODO user disconnected warning
-        console.log(userName)
+        
       });
 
       connectMessageInput(socket);
     });
+
+    socket.open();
   },
 
   login: () => {},
