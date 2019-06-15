@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  color: #444444;
+  font-size: 18px;
+}
+
+form {
+  display: inline-block;
+  margin: 24px;
+}
+
+fieldset {
+  padding: 32px;
+}
+
+legend {
+  font-size: 24px;
+}
