@@ -4,7 +4,7 @@ function hashTheMessage(message) {
 }
 
 /*
-For our purpose, we need a way to represent `message` as a number. Lets add the ASCII value of characters to `hashValue`. 
+We need a way to represent `message` as a number. Lets add the ASCII value of characters to `hashValue`.
 
-Hint: You can use `charCodeAt(index)` function to find the ASCII value of character at `index`.
+Hint: You can use `charCodeAt(index)` to find the ASCII value of character at `index`.
 */

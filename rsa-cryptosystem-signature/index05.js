@@ -5,6 +5,8 @@ function hashTheMessage(message) {
   }
 }
 
-/* 
+/*
+Hash functions should always return the same hash value when same message is passed.
+
 Return `hashValue`.
 */
