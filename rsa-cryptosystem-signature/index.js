@@ -9,8 +9,8 @@ const generatedSignature = document.querySelector("#generated-signature");
 const receivedSignature = document.querySelector("#received-signature");
 const verificationStatus = document.querySelector("#verification-status");
 
-const firstPrime = 3;
-const secondPrime = 7;
+const firstPrime = 83;
+const secondPrime = 89;
 const N = firstPrime * secondPrime;
 const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
@@ -61,7 +61,9 @@ function generateSignature(hashValue, privateKey) {
 }
 
 function decryptSignature(digitalSignature) {
-  return Math.pow(digitalSignature, publicKey) % N;
+  return Number(
+    BigInt(BigInt(digitalSignature) ** BigInt(publicKey)) % BigInt(N)
+  );
 }
 
 signBtn.addEventListener("click", function() {
@@ -97,9 +99,9 @@ verifyBtn.addEventListener("click", function() {
 
   if (hashValue === decryptedSignature) {
     verificationStatus.innerText =
-      "Success! Signature is verified and Data is intact.";
+      "Success! Signature is verified and data is intact.";
   } else {
     verificationStatus.innerText =
-      "Failure! Looks like data has been modified.";
+      "Failure! Something is wrong with data or signature.";
   }
 });
