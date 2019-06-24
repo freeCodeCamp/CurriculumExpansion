@@ -2,5 +2,11 @@ const http = require('http');
 
 http.createServer()
 
-// createServer will have a function as its arguments.
-// write an anonymous function as createServer arguments.
+// Like many Node modules, `.createServer()` takes a callback function as an argument.
+// For example, `fs.readFile()` takes a callback function as its second argument:
+// ```
+// const fs = require('fs');
+// fs.readFile('file.txt', function() {
+// });
+// ```
+// Pass a callback function as the first argument of `.createServer()`.

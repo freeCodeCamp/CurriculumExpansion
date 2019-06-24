@@ -1,10 +1,14 @@
 const http = require('http');
 
-http.createServer(function () {
+http.createServer(function() {
    
 })
 
-// a function in arguments also known as callback.
-// you can put another arguments in this callback function.
-// createServer takes a function callback with `request` as its
-// first arguments and `response` as its second arguments.
+// The callback function in `http.createServer()` takes two arguments.
+// Pass `request` as the first argument and `response` as the second argument to the `http.createServer()` callback function.
+// For example, the callback function in `fs.readFile()` also takes two arguments:
+// ```
+// const fs = require('fs');
+// fs.readFile('file.txt', function(err, data) {
+// });
+// ```

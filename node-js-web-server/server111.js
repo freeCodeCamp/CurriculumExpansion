@@ -8,12 +8,8 @@ http.createServer(function(request, response) {
   if (filePath === './public/') {
     filePath = './public/index.html';
   }
-  // Use the String global function to make sure that the value of `extName` is a string.
-  // Here's an example:
-  // ```
-  // const magic = String(42);
-  // console.log(magic, typeof magic) // '42', 'string'.
-  // ```
-  const extName = path.extname(filePath);
+  // But there's a problem -- if a user visits `http://localhost:8080/aBoUt`, our server will try to return the file `./public/aBoUt` and fail since there is no file with that name.
+  // Chain the `.toLowerCase()` method to the String global function to prevent this from happening.
+  const extName = String(path.extname(filePath));
 }).listen(8080);
 console.log('Server is running at http://localhost:8080');

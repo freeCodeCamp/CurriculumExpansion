@@ -1,17 +1,16 @@
 const http = require('http');
 
-http.createServer(function (request, response) {
+http.createServer(function(request, response) {
    
 })
 
-// now you can start a server and listening for connections with
-// `.listen()` method and pass a port number.
-// you can do method chaining (chain functions) like the example below:
+// Now you can start listening for connections to the server by chaining the `.listen()` method to `http.createServer()`.
+// For example, this server listens for connections on port 3000:
 // ```
-// const sumBiggerThanFive = 
-// [3, 15, 1, 21, 6].filter(arr => arr > 5).reduce((a, b) => a + b, 0);
-// console.log(sumBiggerThanFive) // 42
+// const http = require('http');
+// 
+// http.createServer(function(request, response) {
+// 
+// }).listen(3000)
 // ```
-// the method chaining above can be done because `.filter` return an array
-// which can be executed by `.reduce` method.
-// do method chaining for `.listen()` method and passed `8080` as port number.
+// Chain the `.listen()` method to `http.createServer()` and have it listen for connections on port 8080.

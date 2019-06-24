@@ -1,13 +1,9 @@
 const http = require('http');
 
-http.createServer(function (request, response) {
+http.createServer(function(request, response) {
    
 }).listen(8080);
 
-// now you can run your server by typing `node server` in your terminal
-// console and accessed the server from your browser with this address:
-// `http://localhost:8080` or `http://127.0.0.1:8080`.
-// usually we write `console.log()` at the end of the code to let us know
-// that the server is already running.
-// write `console.log()` and write your own notification that the server
-// is running at port 8080.
+// While there's no way to run your server from this page, you could run it locally by saving it to a file called `server.js` and running `node server` from the same directory in your terminal.
+// However, if you did, there would be no way of knowing that your server is actually running.
+// At the bottom of the file, use `console.log()` to write your own notification that the server is running at port 8080.
