@@ -1,3 +1,6 @@
+const firstPrime = 3;
+let publicKey = 0;
+
 function hashTheMessage(message) {
   let hashValue = 0;
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
@@ -6,10 +9,16 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
+function generatePrivateKey() {}
+
 function generatePublicKey() {}
 
-/*
-The private key is only known to the user.
+function generateSignature() {}
 
-Create an empty function `generatePrivateKey()`.
+function decryptSignature() {}
+
+/*
+Create a constant `secondPrime` and set it to 2.
+
+
 */

@@ -7,9 +7,9 @@ function hashTheMessage(message) {
 }
 
 /*
-In Caesar's cipher project, one key was used for both encryption and decryption. This is known as Symmetric key cryptography.
+In the "Caesar's Cipher" project, the values of letters were shifted by 13 places. The number 13 is called a key. It was used for both encryption and decryption. This is known as Symmetric key cryptography.
 
-In Asymmetric key cryptography, there are two keys or a key pair - public and private. Public key is open to all and private key is known to sender only.
+In Asymmetric key cryptography, each user has two different keys - public and private. The public key can be shared with everyone.
 
-Create two functions `generatePrivateKey()` and `generatePublicKey()`.
+Create an empty function `generatePublicKey()`.
 */

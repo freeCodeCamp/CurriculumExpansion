@@ -1,3 +1,7 @@
+const firstPrime = 3;
+const secondPrime = 2;
+let publicKey = 0;
+
 function hashTheMessage(message) {
   let hashValue = 0;
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
@@ -10,8 +14,11 @@ function generatePrivateKey() {}
 
 function generatePublicKey() {}
 
-/*
-If `publicKey` is used for encryption then only the `privateKey` can decrypt and vice-versa. Therefore, they are referred to as key pairs. 
+function generateSignature() {}
 
-Create a variable `publicKey` and set it to 0.
+function decryptSignature() {}
+
+/*
+Create a constant `N` and set it as `firstPrime * secondPrime`.
+`N` will be a part of both private and public key.
 */

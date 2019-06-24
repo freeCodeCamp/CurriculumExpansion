@@ -1,5 +1,3 @@
-"use strict";
-
 const signBtn = document.querySelector("#sign-btn");
 const transmitBtn = document.querySelector("#transmit-btn");
 const verifyBtn = document.querySelector("#verify-btn");
@@ -9,8 +7,8 @@ const generatedSignature = document.querySelector("#generated-signature");
 const receivedSignature = document.querySelector("#received-signature");
 const verificationStatus = document.querySelector("#verification-status");
 
-const firstPrime = 2;
-const secondPrime = 5;
+const firstPrime = 3;
+const secondPrime = 2;
 const N = firstPrime * secondPrime;
 const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
