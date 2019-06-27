@@ -15,11 +15,15 @@ function hashTheMessage(message) {
 function isCoPrime(smallerNum, largerNum) {
   for (let i = 2; i <= smallerNum; ++i) {
     if (smallerNum % i === 0 && largerNum % i === 0) {
+      return false;
     }
   }
+  return true;
 }
 
-function generatePrivateKey() {}
+function generatePrivateKey() {
+  for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {}
+}
 
 function generatePublicKey() {}
 
@@ -28,7 +32,12 @@ function generateSignature() {}
 function decryptSignature() {}
 
 /*
-Continuing with our example of 12 and 9. We observe, 3 divides both the numbers. Thus, they are not coprime.
+`Φ(N) or phi of N` outputs number of integers upto `N` that are coprime with `N`.
 
-Return `false` if `i` divides both `smallerNum` and `largerNum` evenly.
+Let's find `Φ(10)`: Here `N = 10`. 
+(1, 10) (3, 10) (7, 10) (9, 10) are coprimes with `N` upto `N`.
+So, coprimes of 10 upto 10 are 1, 3, 7 and 9. 
+Hence, `Φ(10)` = 4. 
+
+Set `phiOfN` to 4.
 */

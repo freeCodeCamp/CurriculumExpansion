@@ -7,8 +7,8 @@ const generatedSignature = document.querySelector("#generated-signature");
 const receivedSignature = document.querySelector("#received-signature");
 const verificationStatus = document.querySelector("#verification-status");
 
-const firstPrime = 3;
-const secondPrime = 2;
+const firstPrime = 2;
+const secondPrime = 5;
 const N = firstPrime * secondPrime;
 const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
@@ -31,9 +31,9 @@ function isCoPrime(smallerNum, largerNum) {
 }
 
 function generatePrivateKey() {
-  for (let i = 2; i < phiOfN; ++i) {
-    if (isCoPrime(i, N) && isCoPrime(i, phiOfN)) {
-      return i;
+  for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
+    if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
+      return privateKey;
     }
   }
 
@@ -42,7 +42,6 @@ function generatePrivateKey() {
 }
 
 function generatePublicKey(privateKey) {
-  publicKey = 1;
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
       return;
@@ -51,7 +50,6 @@ function generatePublicKey(privateKey) {
   }
 
   console.log("Public key can't be generated.");
-  publicKey = 0;
 }
 
 function generateSignature(hashValue, privateKey) {

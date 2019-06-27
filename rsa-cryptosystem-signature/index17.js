@@ -1,7 +1,7 @@
-const firstPrime = 3;
-const secondPrime = 2;
+const firstPrime = 2;
+const secondPrime = 5;
 const N = firstPrime * secondPrime;
-const phiOfN = 2;
+const phiOfN = 0;
 let publicKey = 0;
 
 function hashTheMessage(message) {
@@ -12,6 +12,10 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
+function isCoPrime(smallerNum, largerNum) {
+  for (let i = 2; i <= smallerNum; ++i) {}
+}
+
 function generatePrivateKey() {}
 
 function generatePublicKey() {}
@@ -20,11 +24,9 @@ function generateSignature() {}
 
 function decryptSignature() {}
 
-/* 
-Let's find `Φ(7)`: 1, 2, 3, 4, 5 and 6 don't share any common factor other than 1 with 7. 
-So, `Φ(7) = 6 i.e. 7 - 1`.
+/*
+If any integer till the `smallerNum` divide both the numbers then they are not coprime.
 
-We conclude, for every prime number `Φ(prime) = prime - 1`.
-
-Set `phiOfN` to `(firstPrime - 1)`.
+Use a conditional to check if `i` divides both `smallerNum` and `largerNum` evenly.
+Hint: `smallerNum % i === 0` returns true if `smallerNum` is divisble by `i` else false.
 */

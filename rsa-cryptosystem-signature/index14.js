@@ -20,9 +20,9 @@ function generateSignature() {}
 function decryptSignature() {}
 
 /*
-Given, `N = 6` it's easy to find the prime factors 3 and 2. But in reality, `N` is around 600 digits long making it almost impossible to find the prime factors.
+Private key must be between 1 and `Φ(N)` i.e. 1 < privateKey < `Φ(N)`.
 
-Note: Developers don't implement RSA and hash functions themselves for production use. They use secure and tested libraries created by expert Cryptographers. Our program is insecure and is only meant for teaching purposes.
+`Φ(N)` pronounced as phi of N is called Euler's totient function. It outputs number of integers upto `N` that are coprime with `N`.
 
-Create a constant `phiOfN`.
+Create a constant `phiOfN` and set it to 0.
 */

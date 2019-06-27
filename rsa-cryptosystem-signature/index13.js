@@ -1,5 +1,5 @@
-const firstPrime = 3;
-const secondPrime = 2;
+const firstPrime = 2;
+const secondPrime = 5;
 let publicKey = 0;
 
 function hashTheMessage(message) {

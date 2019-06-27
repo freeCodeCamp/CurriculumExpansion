@@ -1,5 +1,5 @@
-const firstPrime = 3;
-const secondPrime = 2;
+const firstPrime = 2;
+const secondPrime = 5;
 const N = firstPrime * secondPrime;
 const phiOfN = 0;
 let publicKey = 0;
@@ -12,6 +12,8 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
+function isCoPrime(smallerNum, largerNum) {}
+
 function generatePrivateKey() {}
 
 function generatePublicKey() {}
@@ -20,10 +22,10 @@ function generateSignature() {}
 
 function decryptSignature() {}
 
-/* 
-Let's find `Φ(6)`: 1, 2, 3 and 6 are factors of 6. 4 shares a common factor of 2 with 6. 5 don't share any common factor with 6.
+/*
+To check if two integers are coprime, we start with 2 and check till the smaller of two integers.
 
-So, 1 and 5 don't share any common factor other than 1 with 6. Hence, `Φ(6) = 2`
+For e.g. to check if 12 and 9 are coprime, we start from 2 and check till 9 because any integer greater than 9 won't divide 9 evenly.
 
-Set `phiOfN` to 2.
+Create a `for` loop to iterate from 2 to `smallerNum` (including `smallerNum`).
 */

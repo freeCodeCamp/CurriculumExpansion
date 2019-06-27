@@ -1,7 +1,7 @@
 const firstPrime = 2;
 const secondPrime = 5;
 const N = firstPrime * secondPrime;
-const phiOfN = 0;
+const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
 
 function hashTheMessage(message) {
@@ -15,11 +15,15 @@ function hashTheMessage(message) {
 function isCoPrime(smallerNum, largerNum) {
   for (let i = 2; i <= smallerNum; ++i) {
     if (smallerNum % i === 0 && largerNum % i === 0) {
+      return false;
     }
   }
+  return true;
 }
 
-function generatePrivateKey() {}
+function generatePrivateKey() {
+  for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {}
+}
 
 function generatePublicKey() {}
 
@@ -28,7 +32,9 @@ function generateSignature() {}
 function decryptSignature() {}
 
 /*
-Continuing with our example of 12 and 9. We observe, 3 divides both the numbers. Thus, they are not coprime.
+Private key has two constraints:
+- It must be greater than 1 and less than Φ(N).
+- It must be coprime with N and Φ(N).
 
-Return `false` if `i` divides both `smallerNum` and `largerNum` evenly.
+Implement a conditional to check coprimality of `privateKey` with `N` and `phiOfN` using `isCoPrime` function.
 */

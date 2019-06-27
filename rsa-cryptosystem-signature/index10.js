@@ -15,7 +15,10 @@ function generatePublicKey() {}
 function generateSignature() {}
 
 /* 
-Bob decrypts the received signature with Alice's public key which results in original hash value of data and hashes the received data. If both hash values are equal then the sender is confirmed to be Alice.
+Alice sends the signature along with the original data to Bob. Bob decrypts the received signature with Alice's public key and hashes the received data.
 
-Create a empty function `decryptSignature()`.
+If the hash value of the received data and the decrypted signature match then the signature is authentic and data is intact.
+
+Create an empty function `decryptSignature()`.
+Tip: Go back to previous challenge, read it once more and come back. You'll get the idea. 
 */
