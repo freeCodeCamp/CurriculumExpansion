@@ -5,5 +5,5 @@ Digital signature is a way to verify the authenticity and integrity of documents
 
 First, we hash our message, which is a method to transform a document into a fixed-size value.
 
-Create a hash function `hashTheMessage()` with `message` as a parameter.
+Create a function `hashTheMessage()` with `message` as a parameter. Functions which hash the data are called hash functions.
 */

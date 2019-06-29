@@ -1,12 +1,3 @@
-const signBtn = document.querySelector("#sign-btn");
-const transmitBtn = document.querySelector("#transmit-btn");
-const verifyBtn = document.querySelector("#verify-btn");
-const messageBox = document.querySelector("#message-to-be-sent");
-const receivedMessageBox = document.querySelector("#received-message");
-const generatedSignature = document.querySelector("#generated-signature");
-const receivedSignature = document.querySelector("#received-signature");
-const verificationStatus = document.querySelector("#verification-status");
-
 const firstPrime = 2;
 const secondPrime = 5;
 const N = firstPrime * secondPrime;
@@ -18,7 +9,7 @@ function hashTheMessage(message) {
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
     hashValue += message.charCodeAt(i);
   }
-  return hashValue % N === 0 ? 1 : hashValue % N;
+  return hashValue % N;
 }
 
 function isCoPrime(smallerNum, largerNum) {
@@ -57,47 +48,25 @@ function generateSignature(hashValue, privateKey) {
 }
 
 function decryptSignature(digitalSignature) {
-  return Number(
-    BigInt(BigInt(digitalSignature) ** BigInt(publicKey)) % BigInt(N)
-  );
+  return Math.pow(digitalSignature, publicKey) % N;
 }
 
-signBtn.addEventListener("click", function() {
-  let hashValue = hashTheMessage(messageBox.value);
-  let privateKey = generatePrivateKey();
+function sendMsgToBob(message) {
+  const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
+  const hashValue = hashTheMessage(message);
+  const generatedSignature = generateSignature(hashValue, privateKey);
+  sendAndVerify(generatedSignature, message);
+}
 
-  generatedSignature.innerText = generateSignature(
-    hashValue,
-    privateKey
-  ).toString();
-
-  transmitBtn.disabled = false;
-});
-
-messageBox.addEventListener("input", function() {
-  generatedSignature.innerText = "none";
-  transmitBtn.disabled = true;
-});
-
-transmitBtn.addEventListener("click", function() {
-  receivedMessageBox.value = messageBox.value;
-  receivedSignature.innerText = generatedSignature.textContent;
-  verificationStatus.innerText = "";
-  verifyBtn.disabled = false;
-});
-
-verifyBtn.addEventListener("click", function() {
-  let hashValue = hashTheMessage(receivedMessageBox.value);
-  let decryptedSignature = decryptSignature(
-    parseInt(receivedSignature.textContent)
-  );
-
+function sendAndVerify(digitalSignature, message) {
+  const hashValue = hashTheMessage(message);
+  const decryptedSignature = decryptSignature(digitalSignature);
   if (hashValue === decryptedSignature) {
-    verificationStatus.innerText =
-      "Success! Signature is verified and data is intact.";
+    console.log("Success! Data is intact and signature is verified.");
   } else {
-    verificationStatus.innerText =
-      "Failure! Something is wrong with data or signature.";
+    console.log("Failure! There's something wrong with data or signature.");
   }
-});
+}
+
+sendMsgToBob("Hey Bob, I'm Alice here. Bob, Buy 300 shares of TSLA!");

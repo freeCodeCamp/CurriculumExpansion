@@ -1,58 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>freeCodeCamp Cryptography Lesson - Digital Signature System</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RSA Digital Signature System</title>
   </head>
   <body>
-    <form>
-      <fieldset>
-        <legend>Alice's workspace</legend>
-        <label for="message-to-be-sent">Enter message:</label>
-        <br />
-        <textarea id="message-to-be-sent" rows="20" cols="48">
-Hi Bob,
-
-This is a secret message.
-          
-We will buy around a thousand shares of GOOGL tomorrow. So, be ready with some cash ;)
-          
-I also have plans to invest in India's real estate market. It's one of the fastest growing economies in the world and will benefit our portfolio.
-          
-Remember to verify my signature before you act on my words.
-          
-Your business partner,
-Alice</textarea
-        >
-        <p>Signature is <strong id="generated-signature">none</strong></p>
-        <button type="button" id="sign-btn">
-          Generate Signature
-        </button>
-        <button type="button" id="transmit-btn" disabled>
-          Transmit Data and Signature
-        </button>
-      </fieldset>
-    </form>
-
-    <form>
-      <fieldset>
-        <legend>Bob's workspace</legend>
-        <label for="received-message">Message received from Alice:</label>
-        <br />
-        <textarea id="received-message" rows="20" cols="48"></textarea>
-        <p>
-          Signature of received document is
-          <strong id="received-signature">none</strong>
-        </p>
-        <p id="verification-status"></p>
-        <button type="button" id="verify-btn" disabled>
-          Verify Signature
-        </button>
-      </fieldset>
-    </form>
-
     <script src="index.js"></script>
   </body>
 </html>

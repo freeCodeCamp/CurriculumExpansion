@@ -32,6 +32,12 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+Public key must fulfil the condition: `(publicKey * privateKey) mod phiOfN = 1`
+
+Use a conditional to check for the above mentioned condition inside the loop.
+*/
+
 function generatePublicKey(privateKey) {
   while (privateKey) {}
 }
@@ -39,9 +45,3 @@ function generatePublicKey(privateKey) {
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-Public key must fulfil the condition: `(publicKey * privateKey) mod phiOfN = 1`
-
-Use a conditional to check for the above mentioned condition inside the loop.
-*/

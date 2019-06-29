@@ -32,6 +32,12 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+We need to increment `publicKey` on every iteration to test the conditions.
+
+Increment `publicKey` on every iteration of loop.
+*/
+
 function generatePublicKey(privateKey) {
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
@@ -42,9 +48,3 @@ function generatePublicKey(privateKey) {
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-We need to increment `publicKey` on every iteration to check the conditions.
-
-Increment `publicKey` on every iteration of loop.
-*/

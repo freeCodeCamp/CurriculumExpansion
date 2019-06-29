@@ -4,6 +4,13 @@ const N = firstPrime * secondPrime;
 const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
 
+/*
+Hash value should be less than `N` for encryption and decryption to properly work.
+
+Make sure the function `hashTheMessage` always return hash value less than `N`.
+Hint: You can use `%` operator to achieve this.
+*/
+
 function hashTheMessage(message) {
   let hashValue = 0;
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
@@ -43,12 +50,16 @@ function generatePublicKey(privateKey) {
   console.log("Public key can't be generated.");
 }
 
-/*
-Alice encrypts the hash value of data with his private key which we call signature. Thus, to generate signature we need to access hash value of data and Alice's private key.
+function generateSignature(hashValue, privateKey) {
+  return Math.pow(hashValue, privateKey) % N;
+}
 
-Provide parameters for hash value and private key in `generateSignature()` function.
-*/
+function decryptSignature(digitalSignature) {
+  return Math.pow(digitalSignature, publicKey) % N;
+}
 
-function generateSignature() {}
-
-function decryptSignature() {}
+function sendMsgToBob(message) {
+  const privateKey = generatePrivateKey();
+  generatePublicKey(privateKey);
+  const hashValue = hashTheMessage(message);
+}

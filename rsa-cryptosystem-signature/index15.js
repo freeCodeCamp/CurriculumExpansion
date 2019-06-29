@@ -12,14 +12,6 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
-function generatePrivateKey() {}
-
-function generatePublicKey() {}
-
-function generateSignature() {}
-
-function decryptSignature() {}
-
 /*
 Two integers are coprime if the only positive integer that divides both of them simultaneously is 1.
 
@@ -28,3 +20,11 @@ E.g. 10 and 7 are coprime.
 
 Create an empty function `isCoPrime` with two integer parameters.
 */
+
+function generatePrivateKey() {}
+
+function generatePublicKey() {}
+
+function generateSignature() {}
+
+function decryptSignature() {}

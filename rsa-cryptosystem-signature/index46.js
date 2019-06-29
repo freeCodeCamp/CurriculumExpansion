@@ -9,7 +9,7 @@ function hashTheMessage(message) {
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
     hashValue += message.charCodeAt(i);
   }
-  return hashValue;
+  return hashValue % N;
 }
 
 function isCoPrime(smallerNum, largerNum) {
@@ -43,12 +43,25 @@ function generatePublicKey(privateKey) {
   console.log("Public key can't be generated.");
 }
 
-/*
-Alice encrypts the hash value of data with his private key which we call signature. Thus, to generate signature we need to access hash value of data and Alice's private key.
+function generateSignature(hashValue, privateKey) {
+  return Math.pow(hashValue, privateKey) % N;
+}
 
-Provide parameters for hash value and private key in `generateSignature()` function.
+function decryptSignature(digitalSignature) {
+  return Math.pow(digitalSignature, publicKey) % N;
+}
+
+function sendMsgToBob(message) {
+  const privateKey = generatePrivateKey();
+  generatePublicKey(privateKey);
+  const hashValue = hashTheMessage(message);
+  const generatedSignature = generateSignature(hashValue, privateKey);
+}
+
+/*
+Bob receives the data and signature. To verify the signature he first hashes the data through the same hash function which Alice used.
+
+Hash the received message using `hashTheMessage` function and store the returned value in a constant.
 */
 
-function generateSignature() {}
-
-function decryptSignature() {}
+function sendAndVerify(digitalSignature, message) {}

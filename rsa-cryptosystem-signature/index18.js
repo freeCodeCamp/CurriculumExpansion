@@ -12,6 +12,12 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
+/*
+Continuing with our example of 12 and 9. We observe, 3 divide both the numbers evenly. Thus, they are not coprime.
+
+Return `false` if `i` divides both `smallerNum` and `largerNum` evenly.
+*/
+
 function isCoPrime(smallerNum, largerNum) {
   for (let i = 2; i <= smallerNum; ++i) {
     if (smallerNum % i === 0 && largerNum % i === 0) {
@@ -26,9 +32,3 @@ function generatePublicKey() {}
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-Continuing with our example of 12 and 9. We observe, 3 divides both the numbers. Thus, they are not coprime.
-
-Return `false` if `i` divides both `smallerNum` and `largerNum` evenly.
-*/

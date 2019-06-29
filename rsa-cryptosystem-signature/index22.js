@@ -1,6 +1,16 @@
 const firstPrime = 2;
 const secondPrime = 5;
 const N = firstPrime * secondPrime;
+
+/*
+Let's find `Φ(7)`: Coprimes with 7 upto 7 will be: 1, 2, 3, 4, 5 and 6. Hence, `Φ(7)` = 6.
+
+In general, `Φ(prime) = prime - 1`.
+You should try finding phi of a random prime to check whether the above formula is true or not.
+
+Set `phiOfN` to `firstPrime - 1`.
+*/
+
 const phiOfN = 4;
 let publicKey = 0;
 
@@ -30,12 +40,3 @@ function generatePublicKey() {}
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-Let's find `Φ(7)`: Coprimes with 7 upto 7 will be: 1, 2, 3, 4, 5 and 6. Hence, `Φ(7)` = 6.
-
-In general, `Φ(prime) = prime - 1`.
-To verify, you should find Φ(11) or phi of any prime.
-
-Set `phiOfN` to `firstPrime - 1`.
-*/

@@ -21,10 +21,6 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-Also, return 0 to indicate failure.
-*/
-
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
@@ -33,10 +29,28 @@ function generatePrivateKey() {
   }
 
   console.log("Private key can't be generated.");
+  return 0;
 }
 
-function generatePublicKey() {}
+function generatePublicKey(privateKey) {
+  while (privateKey) {
+    if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
+      return;
+    }
+    ++publicKey;
+  }
 
-function generateSignature() {}
+  console.log("Public key can't be generated.");
+}
+
+/*
+To encrypt data using RSA we use a mathematical equation: `encryptedData = (Data ^ privateKey) % N`.
+
+We need to encrypt `hashValue`. So, our `Data` is `hashValue`.
+
+Return `(hashValue ^ privateKey) % N` using `Math.pow`.
+*/
+
+function generateSignature(hashValue, privateKey) {}
 
 function decryptSignature() {}

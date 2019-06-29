@@ -32,15 +32,15 @@ function generatePrivateKey() {
   return 0;
 }
 
-function generatePublicKey(privateKey) {}
-
-function generateSignature() {}
-
-function decryptSignature() {}
-
 /*
 If we have successfully generated the private key then there must exist a corresponding public key.
 
 Create an infinite while loop in `generatePublicKey` function that iterates when `privateKey` is valid 
 i.e. when `privateKey > 0`.
 */
+
+function generatePublicKey(privateKey) {}
+
+function generateSignature() {}
+
+function decryptSignature() {}

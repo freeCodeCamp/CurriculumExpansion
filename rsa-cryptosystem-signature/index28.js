@@ -32,14 +32,14 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+Public key is mathematically related to private key.
+
+Provide a parameter in `generatePublicKey()` function for private key.
+*/
+
 function generatePublicKey() {}
 
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-Public key is mathematically related to private key.
-
-Accept `privateKey` as a parameter in `generatePublicKey()` function.
-*/

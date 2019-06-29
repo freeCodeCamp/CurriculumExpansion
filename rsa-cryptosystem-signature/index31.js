@@ -32,6 +32,14 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+Public key has two constraints:
+1. It must fulfil the condition: `(publicKey * privateKey) mod phiOfN = 1`.
+2. It should not be same as private key. 
+
+Use `&&` operator in the conditional to check for the second constraint.
+*/
+
 function generatePublicKey(privateKey) {
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1) {
@@ -42,11 +50,3 @@ function generatePublicKey(privateKey) {
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-Public key has two constraints:
-- It must fulfil the condition: `(publicKey * privateKey) mod phiOfN = 1`.
-- It should not be same as private key. 
-
-Use `&&` operator to check for the second constraint.
-*/

@@ -9,7 +9,7 @@ function hashTheMessage(message) {
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
     hashValue += message.charCodeAt(i);
   }
-  return hashValue;
+  return hashValue % N;
 }
 
 function isCoPrime(smallerNum, largerNum) {
@@ -43,12 +43,29 @@ function generatePublicKey(privateKey) {
   console.log("Public key can't be generated.");
 }
 
-/*
-Alice encrypts the hash value of data with his private key which we call signature. Thus, to generate signature we need to access hash value of data and Alice's private key.
+function generateSignature(hashValue, privateKey) {
+  return Math.pow(hashValue, privateKey) % N;
+}
 
-Provide parameters for hash value and private key in `generateSignature()` function.
+function decryptSignature(digitalSignature) {
+  return Math.pow(digitalSignature, publicKey) % N;
+}
+
+function sendMsgToBob(message) {
+  const privateKey = generatePrivateKey();
+  generatePublicKey(privateKey);
+  const hashValue = hashTheMessage(message);
+  const generatedSignature = generateSignature(hashValue, privateKey);
+}
+
+/*
+If you remember, Alice hashed the message then he encrypted the hash value which we called signature.
+
+Now, when we decrypt the signature or decrypt the encrypted hash value, we should get the original hash value of data. Makes sense?
+
+Decrypt the received signature using `decryptSignature` function and store the returned value in a constant.
 */
 
-function generateSignature() {}
-
-function decryptSignature() {}
+function sendAndVerify(digitalSignature, message) {
+  const hashValue = hashTheMessage(message);
+}

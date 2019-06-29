@@ -21,10 +21,6 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-Also, return 0 to indicate failure.
-*/
-
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
@@ -33,10 +29,30 @@ function generatePrivateKey() {
   }
 
   console.log("Private key can't be generated.");
+  return 0;
 }
 
-function generatePublicKey() {}
+function generatePublicKey(privateKey) {
+  while (privateKey) {
+    if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
+      return;
+    }
+    ++publicKey;
+  }
 
-function generateSignature() {}
+  console.log("Public key can't be generated.");
+}
+
+function generateSignature(hashValue, privateKey) {
+  return Math.pow(hashValue, privateKey) % N;
+}
+
+/*
+Alice attaches the signature to data and sends it to Bob. Bob decrypts the received signature with Alice's public key. 
+
+`publicKey` being a global variable, we have access to it. So, our function only need access to signature to decrypt it.
+
+Provide a parameter for signature in `decryptSignature()` function.
+*/
 
 function decryptSignature() {}

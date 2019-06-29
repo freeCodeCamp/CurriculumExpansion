@@ -21,6 +21,10 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
+/*
+If the possible values of privateKey is not found to be coprime with `N` and `phiOfN` then log an error message.
+*/
+
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
@@ -34,7 +38,3 @@ function generatePublicKey() {}
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-If the possible values of privateKey is not found to be coprime with `N` and `phiOfN` then log an error message.
-*/

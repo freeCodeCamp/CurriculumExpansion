@@ -32,6 +32,12 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+If both the conditions are true then we can stop the execution of loop as we have found a mathematically related public key. 
+
+If both the conditions are true then terminate the function using `return;`.
+*/
+
 function generatePublicKey(privateKey) {
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
@@ -43,9 +49,3 @@ function generatePublicKey(privateKey) {
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-If both the conditions are true then we can stop the execution of loop as we have found the mathematically related public key.
-
-Stop executing the loop if both conditions are true.
-*/

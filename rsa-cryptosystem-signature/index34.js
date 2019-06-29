@@ -32,6 +32,12 @@ function generatePrivateKey() {
   return 0;
 }
 
+/*
+If private key isn't successfully generated i.e. when `privateKey = 0` then there can't be a valid public key.
+
+Log an error message when `privateKey = 0`.
+*/
+
 function generatePublicKey(privateKey) {
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
@@ -44,9 +50,3 @@ function generatePublicKey(privateKey) {
 function generateSignature() {}
 
 function decryptSignature() {}
-
-/*
-If private key isn't successfully generated i.e. when `privateKey = 0` then there can't be a valid public key.
-
-Log an error message when `privateKey = 0`.
-*/
