@@ -1,0 +1,9 @@
+.article {
+  text-align: justify;
+  font-size: 1.3em;
+  padding: 2em 2em 2em 2em;
+}
+
+#message {
+  display: none;
+}

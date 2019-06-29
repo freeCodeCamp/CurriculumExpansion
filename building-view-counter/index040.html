@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+    Now we see that the span tag is not displayed.
+
+    Next, when we display the view count, we will need to access the <span>
+    tag from js code to modify it to show the count along with the text. 
+    With the current code, we will have to get the whole text in the <span>
+    tag and then append it with the count, instead it would be easier if we
+    can just populate a field straight away
+    
+    To do this add another <span> tag inside the <span> tag and give it an
+    id "viewCount"
+ -->
+<html lang="en">
+<head>
+    <title>What's Ajax?</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>What's Ajax?</h1>
+    <p class="article">
+        AJAX stands for Asynchronous JavaScript And XML. In a nutshell, it is the use of the XMLHttpRequest object to
+        communicate with servers. It can send and receive information in various formats, including JSON, XML, HTML
+        and text files. AJAX’s most appealing characteristic is its "asynchronous" nature, which means it can
+        communicate with the server, exchange data, and update the page without having to refresh the page. <br> <br>
+
+        The two major features of AJAX allow you to do the following: <br> <br>
+
+        1. Make requests to the server without reloading the page <br>
+        2. Receive and work with data from the server <br> <br>
+
+        Read more about getting started with Ajax <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started">here</a> <br> <br>
+
+        <span id="message">Number of times this page was viewed: </span>
+    </p>
+</body>
+</html>
