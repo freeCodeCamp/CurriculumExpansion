@@ -1,0 +1,41 @@
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+  overflow: hidden;
+}
+
+.frame {
+  border: 50px solid black;
+  width: 500px;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+.one {
+  width: 425px;
+  height: 150px;
+  background-color: #efb762;
+  margin: 20px auto 20px;
+}
+
+/*
+It's helpful to have your margins push in one direction.
+In this case, the bottom margin of the `one` `<div>` pushes `two` down 20 pixels.
+In `.two`, add `margin: 0 auto 20px;` to set its top margin to 0, center it horizontally, and its bottom margin is 20 pixels.
+*/
+
+.two {
+  width: 475px;
+  height: 200px;
+  background-color: #8f0401;
+  margin: auto;
+
+}
+
+.three {
+  width: 91%;
+  height: 28%;
+  background-color: #b20403;
+  margin: auto;
+}

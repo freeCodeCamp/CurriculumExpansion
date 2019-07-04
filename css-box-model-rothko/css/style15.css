@@ -1,0 +1,25 @@
+/*
+Adding 1 pixel of padding to the top, bottom, left, and right of the canvas changed its dimensions to 502 pixels x 602 pixels.
+Replace `padding: 1px;` with `overflow: hidden;` to change the canvas back to its original dimensions.
+*/
+
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+  padding: 1px;
+}
+
+.frame {
+  border: 50px solid black;
+  width: 500px;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+.one {
+  width: 425px;
+  height: 150px;
+  background-color: #efb762;
+  margin: 20px auto;
+}

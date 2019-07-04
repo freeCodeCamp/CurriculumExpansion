@@ -1,0 +1,10 @@
+header {
+    background: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+img {
+    width: 300px;
+    border-radius: 5px;
+}

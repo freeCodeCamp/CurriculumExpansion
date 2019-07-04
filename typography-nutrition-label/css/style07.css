@@ -1,0 +1,8 @@
+/* 
+An easy way to improve the readability of your text is to set the root font size somewhere between 14 and 25 pixels.
+Create a new rule using the `html` selector and set the `font-size` property to "16px".
+*/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}

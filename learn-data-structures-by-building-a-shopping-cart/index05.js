@@ -28,6 +28,7 @@ class ShoppingCart {
 }
 
 /*
+<<<<<<< HEAD
 We need a storage place to hold the items we buy from the store.
 
 When we declare values inside our constructor, we attach 'this' keyword in front of them.
@@ -37,4 +38,10 @@ Create an empty array and assign it to a variable called 'items' inside the cons
 this.name = 'Phillip';
 
 This value will then be readily accessible in other methods inside the class. 
+=======
+When we declare values inside our constructor, we attach the 'this' keyword in front of them.
+Then the values will be available everywhere within the class.
+Create an empty array and assign it to a variable called 'items' inside the constructor.
+For example, this.make = 'Hyundai';
+>>>>>>> 5bb18320f087b3ad3338d9516e0cee7c80458662
 */

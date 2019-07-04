@@ -1,0 +1,19 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+/* Now you will create the spokes, or lines. Set the position of the `line` class to "absolute". */
+.line {
+
+}
+
+.cabin {
+
+}
+

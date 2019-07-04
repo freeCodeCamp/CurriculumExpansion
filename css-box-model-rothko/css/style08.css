@@ -1,0 +1,18 @@
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+}
+
+
+/*
+Use margins to adjust the spacing outside of an element.
+Add the `margin` property to `.frame` and set it to "20px auto" to move the frame down 20 pixels and center it horizontally on the page.
+*/
+
+.frame {
+  border: 50px solid black;
+  width: 500px;
+  padding: 50px;
+
+}

@@ -1,0 +1,24 @@
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+}
+
+.frame {
+  border: 50px solid black;
+  width: 500px;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+/*
+Use margins to position the `one` div on the canvas.
+Add the shorthand `margin: 20px auto;` to set the top and bottom margins to 20 pixels, and center it horizontally.
+*/
+
+.one {
+  width: 425px;
+  height: 150px;
+  background-color: #efb762;
+
+}

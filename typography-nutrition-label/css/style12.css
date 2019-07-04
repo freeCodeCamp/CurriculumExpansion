@@ -1,0 +1,19 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* 
+The `margin` property takes up to four values, and is shorthand for `margin-top`, `margin-right`, `margin-bottom`, and `margin-left`.
+It's common to use `margin` with two values to set the top/bottom and left/right margins of an element.
+Set the `margin` of `.label` to "20px auto" to add a 20 pixel margin to the top and bottom of the label and center it horizontally.
+*/
+
+.label {
+  border: 2px solid black;
+  width: 270px;
+
+}

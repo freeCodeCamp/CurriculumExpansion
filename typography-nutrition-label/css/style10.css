@@ -1,0 +1,12 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* 
+Use borders sparingly to group and prioritize content.
+Create a rule with the `.label` selector and set the `border` property to "2px solid black".
+*/

@@ -1,0 +1,25 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+/* Soon you will rotate the lines to the correct position. First, set `transform-origin` to "0% 0%" so the center of the rotation is in the top left corner of the shape. */
+.line {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  background-color: black;
+
+}
+
+.cabin {
+
+}
+

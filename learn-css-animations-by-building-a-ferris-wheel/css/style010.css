@@ -1,0 +1,16 @@
+/* Now set `border` to "2px solid black". You should be able to see something. */
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+
+}
+
+.line {
+
+}
+
+.cabin {
+
+}
+

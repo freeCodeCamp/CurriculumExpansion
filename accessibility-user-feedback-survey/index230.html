@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CodeHouse — Take Our Survey</title>
+    <link rel="stylesheet" href="css/style220.css">
+  </head>
+
+  <body>
+    <header class="top-bar">
+      <a class="skip-nav-link" href="#main-content">Skip to main content</a>
+      <nav class="top-nav">
+        <ul>
+          <li>
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">Events</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="outer">
+      <nav class="secondary-nav">
+        <!--
+          Here, we're using `strong` incorrectly. The `strong` tag "indicates
+          that its contents have strong importance, seriousness, or urgency".
+          Instead, fix the `div` so that it's a top-level heading (h1), then
+          remove the `strong` tag.
+        -->
+        <div class="secondary-nav-heading"><strong>Recent Events</strong></div>
+        <ul>
+          <li>
+            <a href="#">
+              Thu, 04 Apr 2019
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Thu, 28 Mar 2019
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Thu, 21 Mar 2019
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Thu, 14 Mar 2019
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Thu, 07 Mar 2019
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="main-content" class="main-content">
+        <p class="top-heading">Take our survey!</p>
+        <img src="assets/code-coder-coding-34649.jpg" class="image">
+        <div class="form">
+
+          <div class="form-group">
+            <span class="field-label">
+              Where did you find out about CodeHouse?
+            </span>
+            <br>
+            <input id="google" name="where" type="radio"> Google search
+            <input id="friend" name="where" type="radio"> Word of mouth
+            <input id="other1" name="where" type="radio"> Other (please specify)
+            <input id="other2" type="text" class="form-control other">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              How many of our events have you attended in the past?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              Start, stop, keep: what’s one thing we should <i>start</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              What’s one thing we should <i>stop</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              What’s one thing we should <i>keep</i> doing?
+            </span>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">
+              Any other comments?
+            </span>
+            <textarea class="form-control"></textarea>
+          </div>
+
+          <div class="form-group">
+            Sign up for our newsletter:
+            <input type="text" class="form-control" placeholder="Your email address">
+          </div>
+
+          <div class="btn">
+            Submit
+          </div>
+        </div>
+        <img src="assets/divider.png" class="divider">
+        Click <a href="#">here</a> for more info about our Coffee and Code events.
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

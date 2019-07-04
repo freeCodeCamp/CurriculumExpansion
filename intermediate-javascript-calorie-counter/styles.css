@@ -1,0 +1,93 @@
+body {
+  background: gray;
+  font-family: 'Segoe UI', Arial;
+}
+
+.container {
+  margin: 30px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.center {
+  text-align: center;
+}
+
+h4,
+h3 {
+  margin: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 120px 300px;
+  grid-row-gap: 5px;
+  align-items: center;
+}
+
+button {
+  border-radius: 4px;
+  background-color: white;
+  font-family: 'Segoe UI', Arial;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.btn-solid {
+  background-color: rgb(40, 167, 69);
+  color: white;
+  border: 1px solid rgb(40, 167, 69);
+}
+
+.btn-outline {
+  color: rgb(40, 167, 69);
+  border: 1px solid rgb(40, 167, 69);
+}
+
+.btn-add {
+  background-color: rgb(21, 101, 192);
+  color: white;
+  border: 1px solid rgb(21, 101, 192);
+  display: block;
+}
+
+.green-text {
+  color: rgb(40, 167, 69);
+}
+input.cal-control {
+  margin: 5px;
+  border-radius: 5px;
+  height: 20px;
+  border: 1px solid rgb(160, 160, 160);
+  padding: 5px;
+  width: 80px;
+}
+
+input.food-control {
+  margin: 5px 0px;
+  border-radius: 5px;
+  height: 20px;
+  border: 1px solid rgb(160, 160, 160);
+  padding: 5px;
+  width: 80px;
+}
+
+#output {
+  margin: 0px 20px 0px 20px;
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.bordered-class {
+  border: 2px solid rgb(21, 101, 192);
+  border-radius: 5px;
+}

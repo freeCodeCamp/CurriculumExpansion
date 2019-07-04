@@ -1,0 +1,20 @@
+.wheel {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  
+}
+
+/*  Set `width` to "50%" so that the line stretches the radius of the circle. Set `height` to "2px". */
+.line {
+  position: absolute;
+
+}
+
+.cabin {
+
+}
+

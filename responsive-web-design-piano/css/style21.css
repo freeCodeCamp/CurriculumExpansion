@@ -1,0 +1,13 @@
+/* box model reset */
+html {
+    box-sizing: border-box;
+}
+
+/* 
+    Pseudo elements also need to be reset by using the `*` universal selector.
+    Pseudo-elements are special keywords that follow a selector that let you
+    style a specific part of the selected element.
+
+    Add a CSS rule with the selector `*, *::before, *:after`, and set `box-sizing` 
+    to `inherit`.
+*/

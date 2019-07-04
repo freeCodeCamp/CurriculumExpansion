@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CodeHouse — Take Our Survey</title>
+    <link rel="stylesheet" href="css/style220.css">
+  </head>
+
+  <body>
+    <header class="top-bar">
+      <a class="skip-nav-link" href="#main-content">Skip to main content</a>
+      <nav class="top-nav">
+        <ul>
+          <li>
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">Events</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="outer">
+      <nav class="secondary-nav">
+        <h1 class="secondary-nav-heading">Recent Events</h1>
+        <ul>
+          <li>
+            <a href="#">
+              <time datetime="2019-04-04">Thu, 04 Apr 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-28">Thu, 28 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-21">Thu, 21 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-14">Thu, 14 Mar 2019</time>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <time datetime="2019-03-07">Thu, 07 Mar 2019</time>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main id="main-content" class="main-content">
+        <h1 class="top-heading">Take our survey!</h1>
+        <img alt="One of our students coding a Tic Tac Toe game" src="assets/code-coder-coding-34649.jpg" class="image">
+        <form class="form">
+
+          <div class="form-group">
+            <fieldset>
+              <legend class="field-label">
+                Where did you find out about CodeHouse?
+              </legend>
+              <input id="google" name="where" type="radio"> <label for="google">Google search</label>
+              <input id="friend" name="where" type="radio"> <label for="friend">Word of mouth</label>
+              <input id="other1" name="where" type="radio"> <label id="other-label" for="other1">Other (please specify)</label>
+              <input aria-labelledby="other-label" id="other2" type="text" class="form-control other">
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <label for="how-many" class="field-label">
+              How many of our events have you attended in the past?
+            </label>
+            <input type="number" id="how-many" class="form-control">
+          </div>
+
+          <fieldset>
+            <legend>
+              Start, stop, keep
+            </legend>
+
+            <div class="form-group">
+              <label for="start" class="field-label">
+                <!--
+                  The `i` element is often used to make text italic, but it is
+                  not the correct element to use here.
+
+                  The `i` element represents "text that is set off from the
+                  normal prose, such a foreign word, fictional character
+                  thoughts, or when the text refers to the definition of a word
+                  instead of representing its semantic meaning".
+
+                  Instead, the correct element is `em`, which "represents stress emphasis of its contents".
+
+                  Replace the following 3 `i` tags with `em` tags.
+                -->
+                What’s one thing we should <i>start</i> doing?
+              </label>
+              <input type="text" id="start" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="stop" class="field-label">
+                What’s one thing we should <i>stop</i> doing?
+              </label>
+              <input type="text" id="stop" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="keep" class="field-label">
+                What’s one thing we should <i>keep</i> doing?
+              </label>
+              <input type="text" id="keep" class="form-control">
+            </div>
+          </fieldset>
+
+          <div class="form-group">
+            <span class="field-label">
+              Any other comments?
+            </span>
+            <textarea class="form-control"></textarea>
+          </div>
+
+          <div class="form-group">
+            Sign up for our newsletter:
+            <input type="text" class="form-control" placeholder="Your email address">
+          </div>
+
+          <div class="btn">
+            Submit
+          </div>
+        </form>
+        <img src="assets/divider.png" class="divider">
+        Click <a href="#">here</a> for more info about our Coffee and Code events.
+      </main>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

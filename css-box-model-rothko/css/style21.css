@@ -1,0 +1,32 @@
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+  overflow: hidden;
+}
+
+.frame {
+  border: 50px solid black;
+  width: 500px;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+/*
+Use margins to adjust the spacing between `one` and `two`.
+Change the `margin` of `.one` to "20px auto 20px" so the top margin is 20 pixels, it's centered horizontally, and the bottom margin is 20 pixels.
+*/
+
+.one {
+  width: 425px;
+  height: 150px;
+  background-color: #efb762;
+  margin: 20px auto;
+}
+
+.two {
+  width: 475px;
+  height: 200px;
+  background-color: #8f0401;
+  margin: auto;
+}

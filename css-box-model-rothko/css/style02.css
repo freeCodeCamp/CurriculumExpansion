@@ -1,0 +1,8 @@
+/*
+Add the `height` property with the value "600px" to your `.canvas` rule.
+*/
+
+.canvas {
+  width: 500px;
+
+}
