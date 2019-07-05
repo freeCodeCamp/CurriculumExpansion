@@ -55,11 +55,11 @@ class ShoppingCart {
 }
 
 /*
+toFixed method inadvertently converts a number into a string.
+
 Let's log out the number to see what we see now. 
 
-toFixed method converts a number into a string.
-
-It is working as expected, or is it? if you look at the type of the number that was returned, it's actually a string.
-
-
+const shoppingCart = new ShoppingCart();
+console.log(shoppingCart.applyDiscount(2.99))
+console.log(typeof shoppingCart.applyDiscount(2.99))
 */

@@ -57,11 +57,11 @@ class ShoppingCart {
 }
 
 /*
-Now create a function called calculateTaxes.
+Now create a function called calculateTaxes that takes amount as a parameter and returns the tax due.
 
-It will take amount as its only parameter and return its taxed amount.
+The formula is the same as the previous applyDiscount function.
 
-The formula is the same as the previous applyDiscount function. You will take the tax rate, divide it by 100 then multiply by the provided amount.
+Take the tax rate, divide it by 100 then multiply by the provided amount.
 
-Then do the rounding up to 2 decimal point and convert it back to type number.
+Then round up to 2 decimal points and convert it back to number before returning.
 */

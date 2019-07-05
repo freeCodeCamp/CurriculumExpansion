@@ -56,10 +56,10 @@ class ShoppingCart {
 
 /*
 
-We should also handle tax.
+We should also handle sales tax.
 
-Tax rates vary by each state so we will use texas rate of 8.25%. 
+Taxes vary from state to state, so let's use Texas's rate of 8.25%.
 
-Create a new state called taxRate in our constructor function and assign 8.25 to it.
+Create a new variable called taxRate in the constructor function and assign 8.25 to it.
 
 */

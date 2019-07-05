@@ -55,15 +55,13 @@ class ShoppingCart {
 }
 
 /*
-Notice that the returned amount of appliyDiscount function has a lot of numbers after the decimal.
+Notice that the discount money has more than 2 numbers after the decimal point.
 
-This is very common pheonomenon when working arthimatic operations with float numbers in JavaScript.
+This is common to see when working arthimatic operations with float numbers in JavaScript.
 
 There is in-built method called toFixed that can help us. 
 
 The method takes in a parameter which you can specify the number of decimal points. It will round up the number as well.
 
-Let's attach toFixed() to the returned discount amount. Pass in 2.
-
-This will convert the number type to string.
+Let's attach toFixed() to the returned discount. Pass in 2.
 */
