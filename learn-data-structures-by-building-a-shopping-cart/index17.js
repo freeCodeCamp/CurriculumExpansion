@@ -57,13 +57,13 @@ class ShoppingCart {
 /*
 Notice that the returned amount of appliyDiscount function has a lot of numbers after the decimal.
 
-This is very common pheonomenon when working with float numbers in JavaScript.
+This is very common pheonomenon when working arthimatic operations with float numbers in JavaScript.
 
-You can use toFixed() method to round your number to the given decimal place. This will convert the number type to string though.
+There is in-built method called toFixed that can help us. 
 
-Use parseFloat() method to convert the string back to number. For ex:
+The method takes in a parameter which you can specify the number of decimal points. It will round up the number as well.
 
-parseFloat(2.3999999999.toFixed(2))
+Let's attach toFixed() to the returned discount amount. Pass in 2.
 
-Ensure the returned value of applyDiscount's decimal number if fixed to 2 decimal numbers.
+This will convert the number type to string.
 */

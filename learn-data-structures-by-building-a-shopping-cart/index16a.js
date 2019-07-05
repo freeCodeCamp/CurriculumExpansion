@@ -24,6 +24,7 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
+    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -47,11 +48,13 @@ class ShoppingCart {
   clearCart() {
     this.items = [];
   }
+
+  applyDiscount(amount) {
+  }
 }
 
 /*
-It's Mother's Day and our store wants to discount all of our products.
-In the constructor, make a new variable called discountPercentage and assign it the number 30 as in 30 percent.
-Remember to use this.
+Inside the applyDiscount function, calculate the discount amount using discount percentage we previously declared. For ex:
 
+discountPercentage / 100 * amount
 */

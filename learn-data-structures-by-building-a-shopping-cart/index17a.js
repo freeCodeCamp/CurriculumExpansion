@@ -24,6 +24,7 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
+    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -47,11 +48,18 @@ class ShoppingCart {
   clearCart() {
     this.items = [];
   }
+  
+  applyDiscount(amount) {
+    return (this.discountPercentage / 100 * amount).toFixed(2);
+  }
 }
 
 /*
-It's Mother's Day and our store wants to discount all of our products.
-In the constructor, make a new variable called discountPercentage and assign it the number 30 as in 30 percent.
-Remember to use this.
+Let's log out the number to see what we see now. 
+
+toFixed method converts a number into a string.
+
+It is working as expected, or is it? if you look at the type of the number that was returned, it's actually a string.
+
 
 */
