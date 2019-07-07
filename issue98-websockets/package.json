@@ -1,24 +1,19 @@
 {
-  "name": "picolloos-websocket-project",
+  "name": "fcc-websocket-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chat project made to FreeCodeCamp's Curriculum.",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js localhost 8080",
-    "dev": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "body-parser": "1.19.0",
     "express": "4.16.4",
     "express-session": "1.16.1",
-    "express-socket.io-session": "1.3.5",
     "socket-auth": "0.0.6",
     "socket.io": "2.2.0",
     "socketio-auth": "^0.1.1",
     "uuid": "3.3.2"
-  },
-  "devDependencies": {
-    "nodemon": "1.18.4"
   },
   "keywords": []
 }
