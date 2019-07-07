@@ -13,14 +13,14 @@ const app = {
       })
 
       // Update user list upon emitting updateUserList event
-      // socket.on("updateUserList", userlist =>
-      //   app.helpers.updateUsersList(userlist)
-      // );
+      socket.on("updateUserList", userlist =>
+        app.helpers.updateUsersList(userlist)
+      );
 
       // // Emitted whenever a message is received
-      // socket.on("newMessage", message => {
-      //   app.helpers.addMessage(message, false);
-      // });
+      socket.on("newMessage", message => {
+        app.helpers.addMessage(message, false);
+      });
 
       socket.on("userDisconnected", userName => {
         // TODO user disconnected warning
