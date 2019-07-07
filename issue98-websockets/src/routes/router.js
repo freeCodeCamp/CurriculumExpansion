@@ -8,35 +8,28 @@ const db                = require("../db/db");
 
 
 const redirectLogin = (req, res, next) => {
-  // req.session.userId ? next() : res.redirect("/");
-  next();
+  !req.session.userId ? res.redirect("/") : next();
 };
+
 const redirectRoom = (req, res, next) => {
-  // req.session.userId ? res.redirect("/room") : next();
-  next();
+  req.session.userId ? res.redirect("/room") : next();    
 };
 
 // Home page
-router.get("/", (req, res) => {    
+router.get("/", redirectRoom, (req, res) => {    
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
-// 
-// router.get("/room", redirectLogin, (req, res) => {
-//   res.sendFile(path.join(__dirname, "../views/chatroom.html"));
-// });
-
-router.post("/room", (req, res) => {
-  // const { username } = req.body;
-  // const userId = uuid();
+router.post("/",  (req, res) => {    
   
+});
 
-  // if (db.addUser({ id: userId, username })) {
-  //   // req.session.userId = userId;
-   return res.sendFile(path.join(__dirname, "../views/chatroom.html"));
-  // }
+router.get("/room", redirectLogin, (req, res) => { 
 
-  // TODO username already in use warning
+});
+
+router.post("/room", (req, res) => { 
+  return res.sendFile(path.join(__dirname, "../views/chatroom.html"));
 });
 
 

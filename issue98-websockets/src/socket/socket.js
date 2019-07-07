@@ -1,5 +1,3 @@
-const socketAuth = require("socketio-auth");
-
 const db = require("../db/db");
 
 // All socket.io code to deal with events
@@ -9,19 +7,13 @@ function setIoEvents(io) {
     .on("connection", socket => {
 
       socket.on("join", () => {
-        if (socket.request.session.passaport = null) {
-          return;
-        }
-
         // Send the userlist to be uppdated in screen
         socket.emit("updateUserList", db.getUserList());        
 
-      })
-
-      console.log(`Socket ${socket.id} connected.`);
+      })      
 
       // Emitted when a message is sended
-      // socket.on("newMessage", msg => socket.broadcast.emit("newMessage", msg));
+      socket.on("newMessage", msg => socket.broadcast.emit("newMessage", msg));
 
       socket.on("disconnect", userId => {
         console.log(`Socket ${socket.id} disconnected.`);
@@ -35,6 +27,24 @@ function setIoEvents(io) {
     
     ;
 }
+
+/**
+ *    Creates the socket.io connections
+ */
+module.exports = app => {
+
+  const http = require("http").Server(app);
+  const io = require("socket.io")(http);  
+
+  // Apply socket signals to the user's socket
+  setIoEvents(io);
+
+  return http;
+};
+
+
+
+
 
 // Socket.io-auth
 // const applyAuth = io => {
@@ -56,7 +66,7 @@ function setIoEvents(io) {
 //     }
 //   });
 // };
-// Dummy user verification 
+// // Dummy user verification 
 // async function verifyUser(token) {
 //   return new Promise(async (resolve, reject) => {
       
@@ -69,24 +79,3 @@ function setIoEvents(io) {
 //     return resolve(user);  
 //   });
 // }
-
-/**
- *    Creates the socket.io connections
- */
-module.exports = app => {
-
-  const http = require("http").Server(app);
-  const io = require("socket.io")(http);
-  
-  // Gives socket access to session
-  io.use((socket, next) => {
-    require("../session/session")(socket.request, {}, next)
-  })
-
-  // Apply socket signals to the user's socket
-  setIoEvents(io);
-
-  return http;
-};
-
-

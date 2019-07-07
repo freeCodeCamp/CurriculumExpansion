@@ -7,6 +7,7 @@ const bodyparser          = require("body-parser");
 // components
 const ioServer            = require("./socket/socket")(app);
 const router              = require("./routes/router");
+const session             = require("./session/session")
 // const auth                = require("./auth/auth")
 
 const { PORT = 3000 } = process.env;
@@ -16,7 +17,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views"));
 
-// app.use(session);
+app.use(session);
 app.use("/", router);
 
 app.use((req, res, next) => {
