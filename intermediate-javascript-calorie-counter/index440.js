@@ -42,5 +42,5 @@ Another way that we can set the text of the `consumed` element is to set the `in
 For example:
 `consumed.innerHTML = /`Hello world/``
 
-Set the inner HTML of `consumed` to say something like "XX Consumed Calories".  For the "XX", you will replace it with the `total` variable that was previously created.  Use template literals.
+Set the inner HTML of `consumed` to "XX Consumed Calories", where "XX" is the `total` variable that was previously created.  Use template literals.
 */

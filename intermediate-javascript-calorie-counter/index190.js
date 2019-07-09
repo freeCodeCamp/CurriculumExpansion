@@ -5,8 +5,6 @@ function calculate(e) {
   const total = Array.from(document.getElementsByClassName('cal-control'))
     .map(input => Number(input.value))
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
-  // console.log(total);
 }
 /*
 Now that we have the `total` number of calories that the user entered.  We need to determine the maximum calories they should consume.

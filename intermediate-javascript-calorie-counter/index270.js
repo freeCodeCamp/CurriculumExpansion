@@ -19,10 +19,9 @@ function calculate(e) {
   const resultText = document.createTextNode();
 }
 /*
-We want the text to say something like "300 Calorie Deficit"
-
 We can now use the `difference` variable that we created above.
-Insert the `difference` variable inside the parentheses of .createTextNode()
 
-If you desire, try `console.log(resultText)` to see what text currently looks like.
+Insert the `difference` variable inside the parentheses of `.createTextNode()`
+
+If you want to see what the text currently looks like, try `console.log(resultText)`.
 */

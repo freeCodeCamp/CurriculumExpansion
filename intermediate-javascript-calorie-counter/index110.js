@@ -7,5 +7,6 @@ function calculate(e) {
   const meal = total[0];
 }
 /*
-Now enter in a number in the Breakfast input and then console log `meal.value`.  You'll notice that it displays what you entered.
+Now enter a number in the Breakfast input and log `meal.value` to the console.  
+You'll notice that it displays what you entered.
 */

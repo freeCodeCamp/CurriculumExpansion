@@ -19,7 +19,5 @@ function calculate(e) {
   const resultText = document.createTextNode(Math.abs(difference));
 }
 /*
-Next we want to add the `Calorie` text of "300 Calorie Deficit"
-
-Inside parentheses of .createTextNode() insert `+ ' Calorie ' ` after the `Math.abs(difference)`.
+Inside the parentheses of `.createTextNode()`, add `+ ' Calorie '` after `Math.abs(difference).difference)`.
 */

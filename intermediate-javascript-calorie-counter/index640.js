@@ -68,7 +68,5 @@ const clearOutput = () => {
 /*
 Now notice that if you click the "Clear" button, the `output` element is empty but it still has a border around it.  This is because we previously added the `bordered-class` class to this element.
 
-Now remove the `bordered-class` class, for example:
-  `document.getElementById('my-div').classList.remove('my-class')`
-
+Now remove the `bordered-class` class, for example:`document.getElementById('my-div').classList.remove('my-class')`
 */

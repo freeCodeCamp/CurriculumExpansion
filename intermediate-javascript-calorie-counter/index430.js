@@ -35,7 +35,7 @@ function calculate(e) {
   output.appendChild(recommended);
 }
 /*
-Similar to the `recommended` element.  We are going to create a `consumed` element that will display something like "XX Consumed Calories".
+Similar to the `recommended` element, we are going to create a `consumed` element that will display the amount of calories consumed.
 
 Create an `h4` element and assign it to a variable named `consumed`.
 */

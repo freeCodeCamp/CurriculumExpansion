@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('./node_modules/express');
 const app = express();
 
 app.listen(3000, function() {
@@ -6,7 +6,7 @@ app.listen(3000, function() {
 });
 
 app.get('/hi', (req, res) => {
-  res.send('Hi there!');
+  res.send('Hi there trader!');
 });
 
 const prices = {
@@ -18,7 +18,7 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32,
+  XYZ: 5.32
 };
 
 const checkTickerAndShares = (req, res, next) => {
@@ -26,13 +26,13 @@ const checkTickerAndShares = (req, res, next) => {
 
   if (!(req.params.ticker in prices)) {
     res.send('Error: the ticker you entered is invalid.');
-  }
-  // 180.  Now we also need to check that the number of shares that the client sent is valid, we can use the parseInt() function to do this.
-  // And an "else if" statement so that if the shares parameter cannot be parsed into an integer, you send a response saying 'Error: the number of shares submitted is invalid.'
-  else if (!parseInt(req.params.shares)) {
+  } else if (!parseInt(req.params.shares)) {
     res.send('Error: the number of shares submitted is invalid.');
   }
 };
+
+// At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
+// Add an `else {}` statement to the end of the conditional statement.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
@@ -42,7 +42,7 @@ app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you purchased ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 
@@ -53,7 +53,7 @@ app.get('/sell/:ticker/:shares', checkTickerAndShares, (req, res) => {
   res.send(
     `Transaction complete, you sold ${shares} shares of ${ticker} at $${
       prices[ticker]
-    }/share for a total of $${total}.`,
+    }/share for a total of $${total}.`
   );
 });
 

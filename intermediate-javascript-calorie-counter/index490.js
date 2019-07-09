@@ -42,6 +42,10 @@ function calculate(e) {
   output.style.backgroundColor = '#FFF9C4';
 }
 /*
+When the user clicks the "Add Entry" button, they should be provided with additional text inputs to enter in a food name and calorie amount.
+In the HTML document, notice that the "Add Entry" button has the `id` attribute `add`: `<button type="button" class="btn-add" id="add">`
+Get a reference to the `document` element with the ID `add`.
+
 When the user clicks the "Add Entry" button, they should be provided with additional text inputs to enter in a food name and calorie amount.  These will be included in the the `calculate()` function.
 
 In the HTML document, notice that the "Add Entry" button has the `id` attribute `add`: `<button type="button" class="btn-add" id="add">`

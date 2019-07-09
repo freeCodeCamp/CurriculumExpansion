@@ -10,12 +10,10 @@ function calculate(e) {
     });
 }
 /*
-The reduce method takes a callback function as well as an optional initial value, its function signature is as follows:
-
-`Array.reduce(callbackFunction[, initialValue])`
-
-Note that the square brackets `[]` around `initialValue` indicates that it's an optional parameter.
-
-Provide the initial value of `0` as the second argument to the `reduce()` function.  Be sure to add a comma (,) between the first and second argument.
-
+Provide the number zero as the initial value of the reduce() function.
+Here is an example of a reduce function with an empty object as its initial value:
+```
+arr.reduce((accumulator, currentValue) => 
+  {/*code to run});
+```
 */
