@@ -18,8 +18,4 @@ git repository:
 keywords:
 */
 
-
-/*
-You can set keywords for your npm module that will show on your package's npm page.
-Hit enter for now.
-*/
+/* You can set keywords for your npm module that will show on your package's npm page. For now, hit enter. */

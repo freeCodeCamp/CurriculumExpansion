@@ -10,4 +10,4 @@ const getSentenceCase = (str) => {
 
 const getProperCase = (str) => {};
 
-// First we can split the input string by space, and call our `getSentenceCase` on each word, store the result array in a local variable called `properCaseArr`.
+// First we can split the input string by space, and call our getSentenceCase on each word, store the result array in a local variable called properCaseArr.

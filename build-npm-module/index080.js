@@ -17,7 +17,4 @@ test command:
 git repository:
 */
 
-/* 
-You can set a remote Git repository for the module.
-Hit enter again.
-*/
+/* You can set a remote Git repository for the module. Hit enter again. */

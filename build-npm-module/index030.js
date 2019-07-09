@@ -12,7 +12,5 @@ Press ^C at any time to quit.
 package name: (case_converter)
 */
 
-/* 
-Here you can enter the name of your package.
-By default, `npm init` uses the directory name as the package name, so just hit enter.
-*/
+/* Test description about the package name. Here you can enter the name of your package.
+   By default, npm init uses the directory name as the package name, so just hit enter. */

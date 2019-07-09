@@ -15,9 +15,5 @@ description: This is a package used to covert string to specific case.
 entry point: (index.js)
 */
 
-
-/* 
-This is the file name of your npm package's entry point.
-Though it's `index.js` by default, it can be any JavaScript file.
-For now, just hit enter 
-*/
+/* This is the file name of your npm package's entry point. Though it's index.js by default, it can be any JavaScript file.
+ * For now, just hit enter */

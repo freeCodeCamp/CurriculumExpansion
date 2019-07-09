@@ -1,4 +1,2 @@
-/*
-Now let's publish your package to the npm repository.
-Run npm publish.`
-*/
+// Now let's publish your package to the npm repository.
+// Run npm publish.`

@@ -3,7 +3,7 @@
  *
  * This will be the description and instruction file for your package. It will show on your module's npm home page.
  *
- * Normally, you should write a brief introduction of your npm module, how to download, install and run it and declare your license.
+ * Normally, you should write a brief intrduction of your npm module, how to download, install and run it and declare your license.
  * In most case, this is a markdown file.
  */
 
