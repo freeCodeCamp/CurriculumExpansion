@@ -2,15 +2,12 @@
 
 const app = {
   chat: () => {
-    const socket = io("/chatroom", {
-      autoConnect:false
-    });
+    const socket = io("/chatroom");
 
     // When socket conects
     socket.on("connect", () => {
-      socket.emit("authentication", {
-        token: socket.id
-      })
+
+      socket.emit("join");
 
       // Update user list upon emitting updateUserList event
       socket.on("updateUserList", userlist =>
@@ -18,8 +15,8 @@ const app = {
       );
 
       // // Emitted whenever a message is received
-      socket.on("newMessage", message => {
-        app.helpers.addMessage(message, false);
+      socket.on("newMessage", (username, message) => {
+        app.helpers.addMessage(username, message, false);
       });
 
       socket.on("userDisconnected", userName => {
@@ -29,25 +26,21 @@ const app = {
 
       connectMessageInput(socket);
     });
-
-    socket.open();
   },
-
-  login: () => {},
 
   helpers: {
     updateUsersList: userlist => {
       console.log(userlist);
     },
 
-    addMessage: (message, sended) => {
-      const chat_message = app.helpers.createMessageComponent(message, sended);
+    addMessage: (username, message, sended) => {
+      const chat_message = app.helpers.createMessageComponent(username, message, sended);
 
       app.helpers.appendMessageHistory(chat_message);
       app.helpers.clearMessageInput();
     },
 
-    createMessageComponent: (message, sended) => {
+    createMessageComponent: (username, message, sended) => {
       const template = document.querySelector(".msg-component");
 
       // Load the message template to the DOM
@@ -58,7 +51,7 @@ const app = {
 
       bubble.className += sended ? " sended" : " received";
 
-      bubble.querySelector(".msg-name").textContent = "freeCodeCamp";
+      bubble.querySelector(".msg-name").textContent = username;
       bubble.querySelector(".msg-content").textContent = message;
 
       bubble.querySelector(
@@ -88,10 +81,8 @@ const connectMessageInput = socket => {
     const msg = document.querySelector("#msg-input").value;
 
     if (msg) {
-      socket.emit("newMessage", msg);
-
-      console.log(msg);
-      app.helpers.addMessage(msg, true);
+      socket.emit("newMessage", msg);      
+      app.helpers.addMessage("test",msg, true);
     }
   });
 };

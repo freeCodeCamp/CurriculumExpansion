@@ -1,23 +1,30 @@
+const uuid = require("uuid")
+
 const users = [];
 
-const nameAlreadyInserted = username =>  users.some(user => user.name === username);
+// Checks if there is another user that already take this username
+const validateUsername = username =>  !users.some(user => user.name === username);
 
-const getUserById = async id => users.find(user => user.id === id);
+const getUserById = id => users.find(user => user.id === id);
 
-const addUser = ({ id, username }) => {
-  if (nameAlreadyInserted(username)) return false;
+// Stores the new user and return its ID
+const addUser = username => {  
+  const id = uuid()
+  users.push({ id, name: username });
 
-  users.push({ id, username });
-  return true;
+  return id  
 };
 
-const removeUser = id => users.filter(user => !user.id === id);
+// Removes a user by its ID
+const removeUser = id => users.filter(user => user.id !== id);
 
-const getUserList = () => users.map(user => user.username);
+// Get all stored users
+const getUserList = () => users.map(user => user.name);
 
 module.exports = {
   addUser,
   getUserById,
   removeUser,
-  getUserList
+  getUserList,
+  validateUsername
 };

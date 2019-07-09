@@ -5,10 +5,9 @@ const path                = require("path");
 const bodyparser          = require("body-parser");
 
 // components
-const ioServer            = require("./socket/socket")(app);
+const socket            = require("./socket/socket");
 const router              = require("./routes/router");
-const session             = require("./session/session")
-// const auth                = require("./auth/auth")
+const session             = require("./session/session");
 
 const { PORT = 3000 } = process.env;
 
@@ -18,7 +17,9 @@ app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views"));
 
 app.use(session);
+const ioServer = socket(app, session)
 app.use("/", router);
+
 
 app.use((req, res, next) => {
   return res.status(404).sendFile(__dirname + "/views/404.html");

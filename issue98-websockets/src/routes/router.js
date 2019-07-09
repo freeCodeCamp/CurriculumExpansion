@@ -20,16 +20,38 @@ router.get("/", redirectRoom, (req, res) => {
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
-router.post("/",  (req, res) => {    
-  
+router.post("/", redirectRoom, (req, res) => {    
+  const { username } = req.body;
+
+  if (db.validateUsername(username)) {
+    const id = db.addUser(username);
+    
+    req.session.userId = id;
+    return res.redirect("/room");
+  }
+
+  res.redirect("/");
 });
 
+// Chatroom page
 router.get("/room", redirectLogin, (req, res) => { 
-
+  return res.sendFile(path.join(__dirname, "../views/chatroom.html"));
 });
 
-router.post("/room", (req, res) => { 
-  return res.sendFile(path.join(__dirname, "../views/chatroom.html"));
+router.post("/logout", redirectLogin, (req, res) => { 
+  
+  // Removes the stored session
+  req.session.destroy(err => {
+    if (err) {
+      res.redirect("/room")
+    }
+
+    db.removeUser(req.session.userId)
+
+    res.clearCookie(req.session.cookie.name)
+    res.redirect("/")
+
+  });
 });
 
 
