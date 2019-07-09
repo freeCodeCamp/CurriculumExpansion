@@ -1,4 +1,6 @@
-// Username: camper
-// Password:
+/*
+Username: camper
+Password:
+*/
 
-// Enter your npm password and hit enter
+// Remember that camper is your password! Type that in and hit enter.
