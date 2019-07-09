@@ -1,5 +1,7 @@
-// Username: camper
-// Password: camper
-// Email: (this is public)
+/*
+Username: camper
+Password: camper
+Email: (this is public)
+*/
 
-// Enter your email and hit enter
+// Type in your email address and hit enter.

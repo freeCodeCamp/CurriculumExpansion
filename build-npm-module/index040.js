@@ -14,10 +14,10 @@
  */
 
 /**
- * Given a version number MAJOR.MINOR.PATCH, increment the:
- * MAJOR version when you make incompatible API changes,
- * MINOR version when you add functionality in a backwards-compatible manner, and
- * PATCH version when you make backwards-compatible bug fixes.
- *
- * For now, just hit enter.
+ * You can enter a version number for you package here.
+ * Version numbers are typically three numbers separated by a period, for example, 1.2.6.
+ * The first number is the major revision number for when significant changes are made.
+ * The second number represents minor changes like bug fixes or other minor features.
+ * The third number is for minor changes like small updates or bug fixes.
+ * npm init defaults to version 1.0.0, so just hit enter again.
  */
