@@ -82,7 +82,9 @@ const connectMessageInput = socket => {
 
     if (msg) {
       socket.emit("newMessage", msg);      
-      app.helpers.addMessage("test",msg, true);
+
+      const username = window.localStorage.getItem("fccChatUsername")
+      app.helpers.addMessage(username, msg, true);
     }
   });
 };
