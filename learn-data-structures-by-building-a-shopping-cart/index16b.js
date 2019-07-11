@@ -62,3 +62,4 @@ Go head and use this code below the class to see what the output is on the conso
 const shoppingCart = new ShoppingCart();
 console.log(shoppingCart.applyDiscount(2.99))
 */
+

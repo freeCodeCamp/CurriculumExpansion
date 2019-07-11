@@ -39,12 +39,13 @@ class ShoppingCart {
 const shoppingCart = new ShoppingCart();
 
 /*
-Let's test our addItem and getItems methods!
+Let's test our `addItem` and `getItems` methods!
 
-Call addItem methods from our shoppingCart. Pass in 2 as our id and the global products array as our products array.
+Call the `addItem` method from `shoppingCart`. Pass in 2 as our id and the global `products` array.
 
-Then call getItems method to see what's returned from the array. For ex:
-
+Then call the `getItems` method to see what's returned from the array. For example:
+```
 ourInstance.method(10, clothesArray);
 ourInstance.printItems();
+```
 */

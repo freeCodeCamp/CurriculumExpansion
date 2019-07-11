@@ -54,14 +54,13 @@ class ShoppingCart {
   applyDiscount(amount) {
     return parseFloat((this.discountPercentage / 100 * amount).toFixed(2));
   }
+
+  /*
+  Now create a method called `calculateTaxes` that takes `amount` as a parameter and returns the tax due.
+  The formula is the same as the previous `applyDiscount` function.
+  Take the tax rate, divide it by 100, then multiply by the provided amount.
+  Finally, round up to 2 decimal points and convert it back to number before returning.
+  */
+
+
 }
-
-/*
-Now create a function called calculateTaxes that takes amount as a parameter and returns the tax due.
-
-The formula is the same as the previous applyDiscount function.
-
-Take the tax rate, divide it by 100 then multiply by the provided amount.
-
-Then round up to 2 decimal points and convert it back to number before returning.
-*/
