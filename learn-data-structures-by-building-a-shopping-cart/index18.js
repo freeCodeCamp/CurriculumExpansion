@@ -25,6 +25,12 @@ class ShoppingCart {
   constructor() {
     this.items = [];
     this.discountPercentage = 30;
+    /*
+    We should also handle sales tax.
+    Taxes vary from state to state, so let's use Texas's rate of 8.25%.
+    Create a new variable called taxRate in the constructor function and assign 8.25 to it.
+    */
+    
   }
 
   addItem(id, products) {
@@ -53,13 +59,3 @@ class ShoppingCart {
     return parseFloat((this.discountPercentage / 100 * amount).toFixed(2));
   }
 }
-
-/*
-
-We should also handle tax.
-
-Tax rates vary by each state so we will use texas rate of 8.25%. 
-
-Create a new state called taxRate in our constructor function and assign 8.25 to it.
-
-*/

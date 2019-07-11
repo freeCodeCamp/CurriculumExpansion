@@ -24,6 +24,7 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
+    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -43,15 +44,24 @@ class ShoppingCart {
     const index = this.items.indexOf(id);
     this.items.splice(index, 1);
   }
-
-  /*
-  It would be convenient if we can also remove all items from the cart with a single method.
   
-  Create a method called `clearCart`, which will set the current items array to an empty array. For example:
-  ```
-  const items = [];
-  ```
-  */
-
-
+  clearCart() {
+    this.items = [];
+  }
+  
+  applyDiscount(amount) {
+    return (this.discountPercentage / 100 * amount).toFixed(2);
+  }
 }
+
+/*
+You will now see that the number has been rounded and its type is string!
+
+But we want to still work with numbers and there is another built-in method that you can call on string types to help us.
+
+The parseFloat() method converts the string back to number. Let's convert the string back to number. For ex:
+
+parseFloat("0.24")
+
+*/
+

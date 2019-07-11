@@ -24,6 +24,7 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
+    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -43,15 +44,22 @@ class ShoppingCart {
     const index = this.items.indexOf(id);
     this.items.splice(index, 1);
   }
-
-  /*
-  It would be convenient if we can also remove all items from the cart with a single method.
   
-  Create a method called `clearCart`, which will set the current items array to an empty array. For example:
-  ```
-  const items = [];
-  ```
-  */
-
-
+  clearCart() {
+    this.items = [];
+  }
+  
+  applyDiscount(amount) {
+    return this.discountPercentage / 100 * amount
+  }
 }
+
+/*
+Let's print to see the output of applyDiscount method!
+
+Go head and use this code below the class to see what the output is on the console
+
+const shoppingCart = new ShoppingCart();
+console.log(shoppingCart.applyDiscount(2.99))
+*/
+

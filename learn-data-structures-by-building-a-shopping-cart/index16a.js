@@ -24,6 +24,7 @@ const products = [
 class ShoppingCart {
   constructor() {
     this.items = [];
+    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -34,18 +35,27 @@ class ShoppingCart {
   getItems() {
     return this.items;
   }
+  
+  getCount() {
+    return this.items.length;
+  }
+  
+  removeItem(id) {
+    const index = this.items.indexOf(id);
+    this.items.splice(index, 1);
+  }
+  
+  clearCart() {
+    this.items = [];
+  }
+
+  applyDiscount(amount) {
+    /*
+    Inside the applyDiscount function, calculate the discount amount using discount percentage we previously declared. For ex:
+
+    discountPercentage / 100 * amount
+    */
+
+    
+  }
 }
-
-const shoppingCart = new ShoppingCart();
-
-/*
-Let's test our `addItem` and `getItems` methods!
-
-Call the `addItem` method from `shoppingCart`. Pass in 2 as our id and the global `products` array.
-
-Then call the `getItems` method to see what's returned from the array. For example:
-```
-ourInstance.method(10, clothesArray);
-ourInstance.printItems();
-```
-*/

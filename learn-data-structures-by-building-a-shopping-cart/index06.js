@@ -25,20 +25,23 @@ class ShoppingCart {
   constructor() {
     this.items = [];
   }
-}
 
-/*
-To do things like add and remove items from our shopping cart, we need to create appropriate methods to handle each action.
-Declare a method called addItem.
-For example, here is a method to handle honking a horn:
+  /*
+  To do things like add and remove items from our shopping cart, we need to create appropriate methods to handle each action.
+  Declare a method called `addItem`.
+  For example, here is a method to handle honking a horn:
+  ```
+  class Car {
+    constructor() {
+      this.make = 'Hyundai';
+    }
+    
+    honkHorn() {
+    
+    }
+  }
+  ```
+  */
 
-class Car {
-  constructor() {
-    this.make = 'Hyundai';
-  }
   
-  honkHorn() {
-  
-  }
 }
-*/
