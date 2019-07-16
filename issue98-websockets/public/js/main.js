@@ -1,9 +1,8 @@
 "use strict";
 
 const app = {
-  chat: () => {
-    const socket = io("/chatroom");
-
+  chat: () => {    
+    const socket = io("http://localhost:3000")
     // When socket conects
     socket.on("connect", () => {    
 
@@ -27,6 +26,8 @@ const app = {
 
   helpers: {
     updateUsersList: userlist => {
+      const userListComponent = document.querySelector("#user-list")
+      userListComponent.innerHTML = ""
 
       userlist.map(user => {
         const clone = app.helpers.createTemplateComponent(".user-component")
@@ -35,7 +36,7 @@ const app = {
       
         userItem.textContent = user;
 
-        document.querySelector("#user-list").appendChild(userItem)
+        userListComponent.appendChild(userItem)
 
       })
     },
@@ -98,9 +99,13 @@ const connectMessageInput = socket => {
     const msg = document.querySelector("#msg-input").value;
 
     if (msg) {
-      socket.emit("newMessage", msg);      
-
       const username = window.localStorage.getItem("fccChatUsername")
+
+      socket.emit("sendMessage", {
+        username,
+        msg        
+      });      
+
       app.helpers.addMessage(username, msg, true);
     }
   });
