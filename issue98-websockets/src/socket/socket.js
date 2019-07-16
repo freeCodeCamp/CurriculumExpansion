@@ -1,5 +1,4 @@
 const db = require("../db/db");
-const socketSession =  require('express-session-socket.io')
 
 // All socket.io code to deal with events
 function setIoEvents(io) {
@@ -7,10 +6,7 @@ function setIoEvents(io) {
   io.of("/chatroom")
     .on("connection", socket => {
 
-      socket.on("join", () => {
-        // Send the userlist to be uppdated in screen
-        socket.emit("updateUserList", db.getUserList());        
-      })      
+      io.of("/chatroom").emit("updateUserList", db.getUserList());      
 
       // Emitted when a message is sended
       socket.on("newMessage", msg =>  {
@@ -21,10 +17,8 @@ function setIoEvents(io) {
         socket.broadcast.emit("newMessage", user.name, msg)
       });
 
-      socket.on("disconnect", userId => {                 
+      socket.on("disconnect", () => {                 
         socket.broadcast.emit("updateUserList", db.getUserList());
-  
-        // socket.broadcast.emit("userDisconnected", getUserName(userId));
       });
     })
     

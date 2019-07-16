@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .chat_container {
   max-width: 500px;
   max-height: 580px;
@@ -116,4 +122,10 @@
 
 .received {
   margin-left: 5px;
+}
+
+.user-list-item {
+  color: white;
+  width: 80%;
+  display: block;
 }

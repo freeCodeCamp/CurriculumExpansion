@@ -5,9 +5,7 @@ const app = {
     const socket = io("/chatroom");
 
     // When socket conects
-    socket.on("connect", () => {
-
-      socket.emit("join");
+    socket.on("connect", () => {    
 
       // Update user list upon emitting updateUserList event
       socket.on("updateUserList", userlist =>
@@ -19,9 +17,8 @@ const app = {
         app.helpers.addMessage(username, message, false);
       });
 
-      socket.on("userDisconnected", userName => {
-        // TODO user disconnected warning
-        
+      socket.on("disconnect", userlist => {                
+        app.helpers.updateUsersList(userlist)        
       });
 
       connectMessageInput(socket);
@@ -30,8 +27,20 @@ const app = {
 
   helpers: {
     updateUsersList: userlist => {
-      console.log(userlist);
+
+      userlist.map(user => {
+        const clone = app.helpers.createTemplateComponent(".user-component")
+
+        const userItem = clone.querySelector(".user-list-item")
+      
+        userItem.textContent = user;
+
+        document.querySelector("#user-list").appendChild(userItem)
+
+      })
     },
+
+    clearUserList: () => document.querySelector("#user-list").innerHTML = "",
 
     addMessage: (username, message, sended) => {
       const chat_message = app.helpers.createMessageComponent(username, message, sended);
@@ -41,10 +50,8 @@ const app = {
     },
 
     createMessageComponent: (username, message, sended) => {
-      const template = document.querySelector(".msg-component");
-
-      // Load the message template to the DOM
-      const clone = document.importNode(template.content, true);
+      
+      const clone = app.helpers.createTemplateComponent(".msg-component")
 
       // Create a copy of the message component
       const bubble = clone.querySelector(".msg-bubble");
@@ -61,8 +68,8 @@ const app = {
       return bubble;
     },
 
-    appendMessageHistory: message =>
-      document.querySelector("#chat-history").appendChild(message),
+    // Insert a message in the chat history
+    appendMessageHistory: message => document.querySelector("#chat-history").appendChild(message),
 
     clearMessageInput: () => (document.querySelector("#msg-input").value = ""),
 
@@ -70,6 +77,16 @@ const app = {
       const date = new Date();
 
       return `${date.getHours()}:${date.getMinutes()}`;
+    },
+
+
+    createTemplateComponent: templateID => {
+      
+      // Get the template in the DOM
+      const template = document.querySelector(templateID);
+
+      // Load the message template to the DOM
+      return document.importNode(template.content, true);
     }
   }
 };

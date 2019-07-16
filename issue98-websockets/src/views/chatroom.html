@@ -22,11 +22,10 @@
             <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
           </div>
 
-          <div id="user-list"></div>
+          <ul id="user-list"></ul>
         </aside>
 
-        <div id="chat-history">
-          <ul></ul>
+        <div id="chat-history">          
         </div>
 
         <form id="chat-form" action="#">
@@ -49,11 +48,7 @@
 		</template>
 		
 		<template class="user-component">
-			<li>
-				<div>
-
-				</div>
-			</li>
+			<span class="user-list-item"></span>
 		</template>
 
     <script src="/socket.io/socket.io.js"></script>
