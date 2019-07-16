@@ -3,7 +3,6 @@
 const express           = require("express");
 const router            = express.Router();
 
-const path              = require("path");
 const db                = require("../db/db");
 
 
@@ -17,7 +16,7 @@ const redirectRoom = (req, res, next) => {
 
 // Home page
 router.get("/", redirectRoom, (req, res) => {    
-  res.sendFile(path.join(__dirname, "../views/login.html"));
+  res.render("login.html");
 });
 
 router.post("/", redirectRoom, (req, res) => {    
@@ -35,7 +34,7 @@ router.post("/", redirectRoom, (req, res) => {
 
 // Chatroom page
 router.get("/room", redirectLogin, (req, res) => { 
-  return res.sendFile(path.join(__dirname, "../views/chatroom.html"));
+  return res.render("chatroom.html");
 });
 
 router.post("/logout", redirectLogin, (req, res) => { 
@@ -53,6 +52,8 @@ router.post("/logout", redirectLogin, (req, res) => {
 
   });
 });
+
+
 
 
 module.exports =  router;
