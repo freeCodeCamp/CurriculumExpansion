@@ -27,7 +27,7 @@ const app = {
   helpers: {
     updateUsersList: userlist => {
       const userListComponent = document.querySelector("#user-list")
-      userListComponent.innerHTML = ""
+      app.helpers.clearComponent(userListComponent)      
 
       userlist.map(user => {
         const clone = app.helpers.createTemplateComponent(".user-component")
@@ -41,7 +41,7 @@ const app = {
       })
     },
 
-    clearUserList: () => document.querySelector("#user-list").innerHTML = "",
+    clearComponent: component => component.innerHTML = "",
 
     addMessage: (username, message, sended) => {
       const chat_message = app.helpers.createMessageComponent(username, message, sended);
@@ -72,7 +72,7 @@ const app = {
     // Insert a message in the chat history
     appendMessageHistory: message => document.querySelector("#chat-history").appendChild(message),
 
-    clearMessageInput: () => (document.querySelector("#msg-input").value = ""),
+    clearMessageInput: () => document.querySelector("#msg-input").value = "",
 
     getMessageTime: () => {
       const date = new Date();

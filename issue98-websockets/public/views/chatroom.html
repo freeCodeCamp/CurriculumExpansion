@@ -11,38 +11,44 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
-    </nav>
+    <header>
+      <nav class="navbar">
+        <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+      </nav>
+    </header>
 
-    <div class="container">
-      <div class="chat_container">
-        <aside id="sidebar">
-          <div id="avatar">
-            <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+    <main>
+      <div class="container">
+        <div class="chat_container">
+          <aside id="sidebar">
+            <div id="avatar">
+              <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+            </div>
+
+            <div class="users">
+              <ul id="user-list"></ul>
+            </div>
+          </aside>
+
+          <div id="chat-history">          
           </div>
 
-          <ul id="user-list"></ul>
-        </aside>
-
-        <div id="chat-history">          
+          <form id="chat-form" action="#">
+            <textarea
+              id="msg-input"
+              rows="3"
+              placeholder="Type your message"
+            ></textarea>
+            <button id="submit-button">Send</button>
+          </form>
         </div>
-
-        <form id="chat-form" action="#">
-          <textarea
-            id="msg-input"
-            rows="3"
-            placeholder="Type your message"
-          ></textarea>
-          <button id="submit-button">Send</button>
-        </form>
       </div>
-    </div>
+    </main>
 
     <template class="msg-component">
       <div class="msg-bubble">
-        <p class="msg-name"></p>
-        <p class="msg-content"></p>
+        <span class="msg-name"></span>
+        <span class="msg-content"></span>
         <span class="msg-timestamp"></span>
       </div>
 		</template>
