@@ -58,14 +58,17 @@ function sendMsgToBob(message) {
   const generatedSignature = generateSignature(hashValue, privateKey);
 }
 
-/*
-Log a failure message when the `hashValue` and `decryptedSignature` don't match since someone must have modified the data or maybe the signature was wrong.
-*/
-
 function sendAndVerify(digitalSignature, message) {
   const hashValue = hashTheMessage(message);
   const decryptedSignature = decryptSignature(digitalSignature);
   if (hashValue === decryptedSignature) {
     console.log("Success! Data is intact and signature is verified.");
   }
+  /*
+  There are two cases of failure.
+  First, when the original message is modified by a third party. The modified message will result in a different hash value than the original.
+  Second, when the signature is modified.
+
+  So log a failure message when the `hashValue` and `decryptedSignature` don't match.
+  */
 }

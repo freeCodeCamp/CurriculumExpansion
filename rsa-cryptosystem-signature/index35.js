@@ -44,9 +44,10 @@ function generatePublicKey(privateKey) {
 }
 
 /*
-Alice encrypts the hash value of data with his private key which we call signature. Thus, to generate signature we need to access hash value of data and Alice's private key.
+Alice then encrypts the hash value of the data with her private key.
+The encrypted value is known as a signature.
 
-Provide parameters for hash value and private key in `generateSignature()` function.
+To generate a signature, pass `hashValue` and `privateKey` as parameters to the `generateSignature()` function.
 */
 
 function generateSignature() {}

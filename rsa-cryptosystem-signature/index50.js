@@ -51,15 +51,14 @@ function decryptSignature(digitalSignature) {
   return Math.pow(digitalSignature, publicKey) % N;
 }
 
-/*
-Call `sendAndVerify` function in `sendMsgToBob` and provide the `generatedSignature` and `message` as an argument.
-*/
-
 function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
   const hashValue = hashTheMessage(message);
   const generatedSignature = generateSignature(hashValue, privateKey);
+  /*
+  Call `sendAndVerify()` function and provide the `generatedSignature` and `message` as an arguments.
+  */
 }
 
 function sendAndVerify(digitalSignature, message) {

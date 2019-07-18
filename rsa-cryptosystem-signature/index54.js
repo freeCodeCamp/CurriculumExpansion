@@ -55,17 +55,28 @@ function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
   const hashValue = hashTheMessage(message);
+  console.log("Original hash value =", hashValue);
   const generatedSignature = generateSignature(hashValue, privateKey);
+  sendAndVerify(generatedSignature, message);
 }
 
 function sendAndVerify(digitalSignature, message) {
+  message = message + "Z";
   const hashValue = hashTheMessage(message);
   /*
-  Do you remember that Alice's signature was the encrypted hash value of message?
+  We are aware that modified message should produce a different hash value.
+  
+  To see the new hash value, print `hashValue` on console.
+  Observe the outputs of `console.log`.
+  */
 
-  So when Bob decrypts the signature using Alice's public key, he should get the original hash value of the message.
-
-  Call the `decryptSignature()` function and pass it `digitalSignature` as an argument.
-  Store the returned value as a constant named `decryptedSignature`.
-*/
+  const decryptedSignature = decryptSignature(digitalSignature);
+  if (hashValue === decryptedSignature) {
+    console.log("Success! Data is intact and signature is verified.");
+  } else {
+    console.log("Failure! There's something wrong with data or signature.");
+  }
 }
+
+/* Don't change code below this line */
+sendMsgToBob("Hey Bob, I'm Alice here. Bob, Buy 300 shares of TSLA!");

@@ -5,7 +5,7 @@ We'll use the RSA asymmetric cryptographic algorithm to generate key pairs, to e
 
 RSA is based on the fact that finding prime factors of a large number is difficult.
 
-Create a constant `firstPrime` and set it to 2.
+Create a constant named `firstPrime` and set it to 2.
 */
 
 function hashTheMessage(message) {

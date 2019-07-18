@@ -21,16 +21,15 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-If the possible values of privateKey is not found to be coprime with `N` and `phiOfN` then log an error message.
-*/
-
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
       return privateKey;
     }
   }
+  /*
+  If the possible values of `privateKey` are not coprime with `N` and `phiOfN`, then log an error message to the console.
+  */
 }
 
 function generatePublicKey() {}

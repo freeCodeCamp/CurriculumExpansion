@@ -55,17 +55,32 @@ function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
   const hashValue = hashTheMessage(message);
+  console.log("Original hash value =", hashValue);
   const generatedSignature = generateSignature(hashValue, privateKey);
+  sendAndVerify(generatedSignature, message);
 }
 
 function sendAndVerify(digitalSignature, message) {
+  message = message + "Z";
   const hashValue = hashTheMessage(message);
-  /*
-  Do you remember that Alice's signature was the encrypted hash value of message?
-
-  So when Bob decrypts the signature using Alice's public key, he should get the original hash value of the message.
-
-  Call the `decryptSignature()` function and pass it `digitalSignature` as an argument.
-  Store the returned value as a constant named `decryptedSignature`.
-*/
+  console.log("New hash value =", hashValue);
+  const decryptedSignature = decryptSignature(digitalSignature);
+  if (hashValue === decryptedSignature) {
+    console.log("Success! Data is intact and signature is verified.");
+  } else {
+    console.log("Failure! There's something wrong with data or signature.");
+  }
 }
+
+sendMsgToBob("Hey Bob, I'm Alice here. Bob, Buy 300 shares of TSLA!");
+
+/*
+`console.log` tells us that the original hash value and the new hash value are same!
+When two different messages or data result in the same hash value, we call it a hash collision.
+Good hash functions have negligible chance of collision. 
+Our implementation is insecure and it was just to teach you the basics of hash functions.
+
+If you are working on a real app then you don't need to implement a hash function or RSA algorithm yourself. You should always use existing hash functions and cryptographic libraries like OpenSSL created by expert cryptographers.
+
+Happy coding <3 and stay secure!
+*/

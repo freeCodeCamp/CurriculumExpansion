@@ -15,10 +15,10 @@ function hashTheMessage(message) {
 /*
 Two integers are coprime if the only positive integer that divides both of them simultaneously is 1.
 
-E.g. 10 and 7 are coprime.
-2 and 5 divides 10 but not 7. Hence, they both are only divisible by 1.
+For example, 10 can be divided evenly by 2 and 5. But 7 can't be divided evenly by 2 and 5.
+10 and 7 both are only divisible by 1. Hence, 10 and 7 are coprime.
 
-Create an empty function `isCoPrime` with two integer parameters.
+Create an empty function named `isCoPrime` with `smallerNum` and `largerNum` as parameters.
 */
 
 function generatePrivateKey() {}

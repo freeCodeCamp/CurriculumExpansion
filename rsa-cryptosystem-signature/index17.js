@@ -12,15 +12,13 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
-/*
-If any integer till the `smallerNum` divide both the numbers then they are `not coprime`.
-    
-Use a conditional to check if `i` divides both `smallerNum` and `largerNum` evenly.
-Hint: `smallerNum % i === 0` returns true if `smallerNum` is divisble by `i` else false.
-*/
-
 function isCoPrime(smallerNum, largerNum) {
-  for (let i = 2; i <= smallerNum; ++i) {}
+  for (let i = 2; i <= smallerNum; ++i) {
+    /*
+    Use an `if` statement to check whether `smallerNum` and `largerNum` can be divided by `i` evenly. 
+    If `i` divide both the numbers evenly then they aren't coprime.
+    */
+  }
 }
 
 function generatePrivateKey() {}

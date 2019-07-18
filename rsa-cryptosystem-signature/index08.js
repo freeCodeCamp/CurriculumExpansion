@@ -1,7 +1,9 @@
 /*
-If `publicKey` is used for encryption then only the `privateKey` can decrypt it. Keep in mind that the vice-versa is also true. Therefore, they are referred to as key pairs. 
+If `publicKey` is used for encryption then only the matching `privateKey` can decrypt it. 
 
-Create a variable `publicKey` and set it to 0.
+Keep in mind that the opposite is also true. Therefore, they are referred to as key pairs. 
+
+Create a variable called `publicKey` and set it to 0.
 */
 
 function hashTheMessage(message) {

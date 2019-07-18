@@ -3,11 +3,12 @@ const secondPrime = 5;
 const N = firstPrime * secondPrime;
 
 /*
-`Φ(N) or phi of N` outputs number of integers upto `N` that are coprime with `N`.
+`Φ(N)` or phi of `N` outputs number of integers up to `N` that are coprime with `N`.
 
-Let's find `Φ(10)`: (1, 10) (3, 10) (7, 10) (9, 10) are coprimes with `N` upto `N`. Here `N = 10`
-So, coprimes of 10 upto 10 are 1, 3, 7 and 9. Number of coprimes of 10 upto 10 = 4. 
-Hence, `Φ(10)` = 4. 
+In our case, `N = 10`. 
+So, let's find `Φ(10)`:
+Coprimes of 10 upto 10 are 1, 3, 7 and 9. There are 4 coprimes of 10 upto 10. 
+So, `Φ(10)` = 4. 
 
 Set `phiOfN` to 4.
 */

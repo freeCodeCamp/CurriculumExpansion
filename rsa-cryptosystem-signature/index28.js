@@ -33,9 +33,9 @@ function generatePrivateKey() {
 }
 
 /*
-Public key is mathematically related to private key.
+Public key is mathematically related to a private key.
 
-Provide a parameter in `generatePublicKey()` function for private key.
+Provide `privateKey` as a parameter to the `generatePublicKey()` function.
 */
 
 function generatePublicKey() {}

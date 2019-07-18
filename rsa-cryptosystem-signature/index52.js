@@ -60,6 +60,12 @@ function sendMsgToBob(message) {
 }
 
 function sendAndVerify(digitalSignature, message) {
+  /*
+  If the `message` is modified by a third party, it'll produce a different hash value so we should get a failure message on the console.
+
+  Concatenate `message` with `Z` to modify it and then observe the output of `console.log`. 
+  */
+
   const hashValue = hashTheMessage(message);
   const decryptedSignature = decryptSignature(digitalSignature);
   if (hashValue === decryptedSignature) {
@@ -69,8 +75,5 @@ function sendAndVerify(digitalSignature, message) {
   }
 }
 
+/* Don't change code below this line */
 sendMsgToBob("Hey Bob, I'm Alice here. Bob, Buy 300 shares of TSLA!");
-
-/*
-Some more tests to go...
-*/

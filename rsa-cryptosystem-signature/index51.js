@@ -70,5 +70,7 @@ function sendAndVerify(digitalSignature, message) {
 }
 
 /*
-Call `sendMsgToBob` function and pass a super secret message as an argument. Observe the output of `console.log`.
+Call the `sendMsgToBob()` function and pass it a super secret message as a string.
+ 
+Observe the output of `console.log`.
 */

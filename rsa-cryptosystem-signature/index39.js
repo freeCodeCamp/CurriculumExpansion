@@ -52,7 +52,7 @@ function decryptSignature(digitalSignature) {
 }
 
 /*
-Now, Alice is ready to send his secret message to Bob!
+Now Alice is ready to send her secret message to Bob!
 
-Create an empty function `sendMsgToBob` with `message` as a parameter.
+Create an empty function called `sendMsgToBob` with message as a parameter.
 */

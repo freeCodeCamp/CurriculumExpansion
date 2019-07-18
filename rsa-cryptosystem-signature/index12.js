@@ -2,8 +2,8 @@ const firstPrime = 2;
 let publicKey = 0;
 
 /*
-Remember, prime numbers are only divisible by 1 and by the number itself.
-E.g. 2, 3, 5, 7, 11, etc.
+Prime numbers are only divisible by 1 and by the number itself. 
+The first few prime numbers are 2, 3, 5, 7, and 11.
 
 Create a constant `secondPrime` and set it to 5.
 */

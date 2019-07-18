@@ -19,9 +19,7 @@ function isCoPrime(smallerNum, largerNum) {
     }
   }
   /*
-  If we were to check coprimality of 12 and 7, then they both are only divisible by 1. Hence, they are coprime. 
-  
-  Return `true` if both the numbers are not divisible by any integer from 2 till `smallerNum`.
+  Return `true` if both the numbers are not divisible by any integer from 2 to `smallerNum`.
   */
 }
 

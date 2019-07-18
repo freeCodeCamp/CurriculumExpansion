@@ -21,13 +21,13 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-We know, private key must follow the condition: 1 < privateKey < `Φ(N)`.
+function generatePrivateKey() {
+  /*
+  We know that the private key must follow the condition: 1 < privateKey < `Φ(N)`.
   
-Create a `for` loop in `generatePrivateKey()` function to iterate from 2 to `phiOfN - 1`.
-*/
-
-function generatePrivateKey() {}
+  Create a `for` loop to iterate from 2 to `phiOfN - 1`.
+  */
+}
 
 function generatePublicKey() {}
 

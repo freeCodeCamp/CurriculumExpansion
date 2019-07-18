@@ -21,13 +21,12 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-If `privateKey` is coprime with `N` and `phiOfN` then return `privateKey`.
-*/
-
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
+      /*
+      If `privateKey` is coprime with `N` and `phiOfN` then return `privateKey`.
+      */
     }
   }
 }

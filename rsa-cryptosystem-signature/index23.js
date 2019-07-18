@@ -3,12 +3,13 @@ const secondPrime = 5;
 const N = firstPrime * secondPrime;
 
 /*
-`Φ` function is multiplicative which means Φ(A * B) = Φ(A) * Φ(B).
+`Φ` function is multiplicative which means `Φ(A * B) = Φ(A) * Φ(B)`.
 
-We can say, Φ(firstPrime * secondPrime) = Φ(firstPrime) * Φ(secondPrime).
-We know, `N = firstPrime * secondPrime`. So, Φ(N) = Φ(firstPrime) * Φ(secondPrime).
-We know, Φ(firstPrime) = firstPrime - 1 and Φ(secondPrime) = secondPrime - 1.
-Substituting above values we get,  Φ(N) = (firstPrime - 1) * (secondPrime - 1) 🎉.
+We can say, `Φ(firstPrime * secondPrime) = Φ(firstPrime) * Φ(secondPrime)`.
+We know, `N = firstPrime * secondPrime`. 
+So, `Φ(N) = Φ(firstPrime) * Φ(secondPrime)`.
+We also know, `Φ(firstPrime) = firstPrime - 1` and `Φ(secondPrime) = secondPrime - 1`.
+Substituting the above values we get `Φ(N) = (firstPrime - 1) * (secondPrime - 1)` 🎉.
 
 Set `phiOfN` to `(firstPrime - 1) * (secondPrime - 1)`.
 */

@@ -21,16 +21,18 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-Private key has two constraints:
-- It must be greater than 1 and less than Φ(N).
-- It must be coprime with N and Φ(N).
-
-Implement a conditional to check coprimality of `privateKey` with `N` and `phiOfN` using `isCoPrime` function.
-*/
-
 function generatePrivateKey() {
-  for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {}
+  for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
+    /*
+    Private keys have two constraints.
+    First, it must be greater than 1 and less than `Φ(N)`.
+    Second, it must be coprime with `N` and `Φ(N)`.
+
+    You already took care of the first constraint with the `for` loop.
+
+    Implement a conditional to check coprimality of `privateKey` with `N` and `phiOfN` using `isCoPrime` function.
+    */
+  }
 }
 
 function generatePublicKey() {}

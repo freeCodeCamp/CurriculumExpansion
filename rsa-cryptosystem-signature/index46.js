@@ -58,10 +58,11 @@ function sendMsgToBob(message) {
   const generatedSignature = generateSignature(hashValue, privateKey);
 }
 
-/*
-Bob receives the data and signature. To verify the signature he first hashes the data through the same hash function which Alice used.
+function sendAndVerify(digitalSignature, message) {
+  /*
+  Bob receives the data and signature.
+  To verify the signature he first needs to hash the received message with the same hash function Alice used.
 
-Hash the received message using `hashTheMessage` function and store the returned value in a constant.
-*/
-
-function sendAndVerify(digitalSignature, message) {}
+  Hash the received message and store the returned value in a constant named `hashValue`.
+  */
+}

@@ -32,15 +32,12 @@ function generatePrivateKey() {
   return 0;
 }
 
-/*
-If both the conditions are true then we can stop the execution of loop as we have found a mathematically related public key. 
-
-If both the conditions are true then terminate the function using `return;`.
-*/
-
 function generatePublicKey(privateKey) {
   while (privateKey) {
     if ((publicKey * privateKey) % phiOfN === 1 && privateKey !== publicKey) {
+      /*
+      If both the conditions of the `if` statement are true then terminate the function using `return;` as we have found a mathematically related public key.
+      */
     }
     ++publicKey;
   }

@@ -58,13 +58,13 @@ function sendMsgToBob(message) {
   const generatedSignature = generateSignature(hashValue, privateKey);
 }
 
-/*
-The decrypted signature is the hash value of the original data. If the hash value of recevied data and decrypted signature are equal then the signature is verified and data is intact.
-
-Check for the equality of `hashValue` and `decryptedSignature`. If they are equal then log a success message.
-*/
-
 function sendAndVerify(digitalSignature, message) {
   const hashValue = hashTheMessage(message);
   const decryptedSignature = decryptSignature(digitalSignature);
+  /*
+  If the hash value of received message and decrypted signature are equal then the message is intact and it is really from Alice.
+
+  Check for the equality of `hashValue` and `decryptedSignature`.
+  If they are equal then log a success message to the console.
+  */
 }

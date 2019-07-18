@@ -13,9 +13,9 @@ function generatePrivateKey() {}
 function generatePublicKey() {}
 
 /*
-Suppose Alice sends an encrypted message to Bob using a symmetric key. There's no way for Bob to verify if the sender is Alice. Since anyone with access to that key can send Bob the message and claim to be Alice.
+Suppose Alice sends an encrypted message to Bob using a symmetric key like the number 13 in `ROT13`. There's no way for Bob to verify that the sender is really Alice because anyone with access to that key can send Bob a message and claim to be Alice.
 
-Digital signature is the solution. Alice encrypts the hash value of data with his private key which we call signature.
+A digital signature solves this problem. By encrypting the hash value of the message with her private key Alice creates a unique signature.
 
-Create an empty function `generateSignature()`.
+Create an empty function called `generateSignature()`.
 */

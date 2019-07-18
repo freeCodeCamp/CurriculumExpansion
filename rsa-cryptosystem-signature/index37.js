@@ -48,11 +48,12 @@ function generateSignature(hashValue, privateKey) {
 }
 
 /*
-Alice attaches the signature to data and sends it to Bob. Bob decrypts the received signature with Alice's public key. 
+Alice will attach her signature to the message and send it to Bob. 
+Then Bob needs to decrypt the signature with Alice's public key.
+Since `publicKey` is a global variable, we have access to it everywhere. 
+So our decryption function only needs access to the signature to decrypt it.
 
-`publicKey` being a global variable, we have access to it. So, our function only need access to signature to decrypt it.
-
-Provide a parameter for signature in `decryptSignature()` function.
+Pass `digitalSignature` as a parameter to the `decryptSignature()` function.
 */
 
 function decryptSignature() {}

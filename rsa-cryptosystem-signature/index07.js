@@ -9,7 +9,7 @@ function hashTheMessage(message) {
 function generatePublicKey() {}
 
 /*
-The private key is only known to the user. It must be kept as a secret.
+However the private key must be kept secret.
 
 Create an empty function `generatePrivateKey()`.
 */

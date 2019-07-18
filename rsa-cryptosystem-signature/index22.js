@@ -3,12 +3,10 @@ const secondPrime = 5;
 const N = firstPrime * secondPrime;
 
 /*
-Let's find `Φ(7)`: Coprimes with 7 upto 7 will be: 1, 2, 3, 4, 5 and 6. Hence, `Φ(7)` = 6.
-
+The coprimes with 7 up to 7 are 1, 2, 3, 4, 5 and 6, or `Φ(7)` = 6.
 In general, `Φ(prime) = prime - 1`.
-You should try finding phi of a random prime to check whether the above formula is true or not.
 
-Set `phiOfN` to `firstPrime - 1`.
+Set `phiOfN` equal to `firstPrime - 1`.
 */
 
 const phiOfN = 4;

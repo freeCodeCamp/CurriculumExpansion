@@ -59,7 +59,8 @@ function sendMsgToBob(message) {
 }
 
 /*
-Alice encrypted the hash value of his message which generated the signature. Now, we can send the message along with signature to Bob.
+Alice encrypted the hash value of her message which generated her signature.
+Now, we can send the message along with signature to Bob.
 
-Create an empty function `sendAndVerify` and provide parameters for signature and message.
+Create an empty function called `sendAndVerify` and provide the parameters `digitalSignature` and `message`.
 */

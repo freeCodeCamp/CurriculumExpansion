@@ -51,14 +51,14 @@ function decryptSignature(digitalSignature) {
   return Math.pow(digitalSignature, publicKey) % N;
 }
 
-/*
-We have generated the key pairs and we have the right hash value. Let's generate the signature.
-
-Generate signature using `generateSignature` function and store the returned value in a constant.
-*/
-
 function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
   const hashValue = hashTheMessage(message);
+  /*
+  We now have a key pair and the right hash value.
+  
+  Call the `generateSignature()` function and pass it `hashValue` and `privateKey` as arguments.
+  Store the returned value as a constant named `generatedSignature`.
+  */
 }

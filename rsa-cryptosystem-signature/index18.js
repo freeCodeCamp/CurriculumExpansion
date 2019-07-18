@@ -12,15 +12,15 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
-/*
-Continuing with our example of 12 and 9. We observe, 3 divide both the numbers evenly. Thus, they are not coprime.
-
-Return `false` if `i` divides both `smallerNum` and `largerNum` evenly.
-*/
-
 function isCoPrime(smallerNum, largerNum) {
   for (let i = 2; i <= smallerNum; ++i) {
     if (smallerNum % i === 0 && largerNum % i === 0) {
+      /*
+      Going back to our example numbers 12 and 9, both can be divided by 3 evenly. 
+      Thus, they are not coprime.
+
+      Return `false` if `i` divide both `smallerNum` and `largerNum` evenly.
+      */
     }
   }
 }

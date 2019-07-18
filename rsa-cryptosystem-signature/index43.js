@@ -4,18 +4,14 @@ const N = firstPrime * secondPrime;
 const phiOfN = (firstPrime - 1) * (secondPrime - 1);
 let publicKey = 0;
 
-/*
-Hash value should be less than `N` for encryption and decryption to properly work.
-
-Make sure the function `hashTheMessage` always return hash value less than `N`.
-Hint: You can use `%` operator to achieve this.
-*/
-
 function hashTheMessage(message) {
   let hashValue = 0;
   for (let i = 0, msgLength = message.length; i < msgLength; ++i) {
     hashValue += message.charCodeAt(i);
   }
+  /*
+  Modify the return statement so that our hash function do not return values greater than or equal to `N` because RSA encryption and decryption work properly only when the hash value is less than `N`.
+  */
   return hashValue;
 }
 

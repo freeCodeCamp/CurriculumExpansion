@@ -32,14 +32,14 @@ function generatePrivateKey() {
   return 0;
 }
 
-/*
-Public key must fulfil the condition: `(publicKey * privateKey) mod phiOfN = 1`
-
-Use a conditional to check for the above mentioned condition inside the loop.
-*/
-
 function generatePublicKey(privateKey) {
-  while (privateKey) {}
+  while (privateKey) {
+    /*
+    The public key must fulfill the condition `(publicKey * privateKey) mod phiOfN = 1`.
+    
+    Use an `if` statement to check for the condition mentioned above.
+    */
+  }
 }
 
 function generateSignature() {}

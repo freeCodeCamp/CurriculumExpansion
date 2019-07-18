@@ -43,14 +43,13 @@ function generatePublicKey(privateKey) {
   console.log("Public key can't be generated.");
 }
 
-/*
-To encrypt data using RSA we use a mathematical equation: `encryptedData = (Data ^ privateKey) % N`.
+function generateSignature(hashValue, privateKey) {
+  /*
+  To encrypt data using RSA, we use the equation: `encryptedData = (Data ^ privateKey) % N`.
+  We need to encrypt `hashValue`, so our `Data` is `hashValue`.
 
-We need to encrypt `hashValue`. So, our `Data` is `hashValue`.
-
-Return `(hashValue ^ privateKey) % N` using `Math.pow`.
-*/
-
-function generateSignature(hashValue, privateKey) {}
+  Return `(hashValue ^ privateKey) % N` using `Math.pow`.
+  */
+}
 
 function decryptSignature() {}

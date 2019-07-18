@@ -51,11 +51,12 @@ function decryptSignature(digitalSignature) {
   return Math.pow(digitalSignature, publicKey) % N;
 }
 
-/*
-Alice keeps private key as a secret and shares the public key with the world. Now, hash the message using the hash function you created and store the returned value in a constant.
-*/
-
 function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
   generatePublicKey(privateKey);
+  /*
+  Call the `hashTheMessage()` function and pass it `message` as an argument.
+
+  Store the returned value as a constant named `hashValue`.
+  */
 }

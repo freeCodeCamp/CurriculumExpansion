@@ -21,10 +21,6 @@ function isCoPrime(smallerNum, largerNum) {
   return true;
 }
 
-/*
-Also, return 0 to indicate failure.
-*/
-
 function generatePrivateKey() {
   for (let privateKey = 2; privateKey < phiOfN; ++privateKey) {
     if (isCoPrime(privateKey, N) && isCoPrime(privateKey, phiOfN)) {
@@ -33,6 +29,9 @@ function generatePrivateKey() {
   }
 
   console.log("Private key can't be generated.");
+  /*
+  Also, return 0 to indicate failure.
+  */
 }
 
 function generatePublicKey() {}

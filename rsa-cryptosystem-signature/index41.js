@@ -51,10 +51,9 @@ function decryptSignature(digitalSignature) {
   return Math.pow(digitalSignature, publicKey) % N;
 }
 
-/*
-Now, generate public key using `generatePublicKey` function and pass `privateKey` as an argument.
-*/
-
 function sendMsgToBob(message) {
   const privateKey = generatePrivateKey();
+  /*
+  Generate a public key by calling the `generatePublicKey()` function and pass it `privateKey` as an argument.
+  */
 }

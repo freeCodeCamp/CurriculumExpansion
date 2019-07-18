@@ -14,11 +14,14 @@ function generatePublicKey() {}
 
 function generateSignature() {}
 
-/* 
-Alice sends the signature along with the original data to Bob. Bob decrypts the received signature with Alice's public key and hashes the received data.
+/*
+![Diagram of RSA digital signing process](RSA signing process diagram.png)
 
-If the hash value of the received data and the decrypted signature match then the signature is authentic and data is intact.
+Alice sends her unique signature along with the message to Bob.
+
+Bob then does two things -- first, he decrypts the signature using Alice's public key. Next, he uses Alice's hash function to generate a hash value of the received message.
+
+If the hash value of the received message and the decrypted signature match, then the data is intact and message is really from Alice.
 
 Create an empty function `decryptSignature()`.
-Tip: Go back to previous challenge, read it once more and come back. You'll get the idea. 
 */

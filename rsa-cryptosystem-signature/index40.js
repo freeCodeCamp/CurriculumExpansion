@@ -51,10 +51,10 @@ function decryptSignature(digitalSignature) {
   return Math.pow(digitalSignature, publicKey) % N;
 }
 
-/*
-Before Alice send his secret message. He needs to generate the key pairs then he hashes the data and encrypts the hash value to generate signature.
+function sendMsgToBob(message) {
+  /*
+  Before Alice send her secret message, she needs to generate the key pair.
 
-Help Alice generate his private key by using `generatePrivateKey()` function and store the returned value in a constant.
-*/
-
-function sendMsgToBob(message) {}
+  Create a constant called `privateKey` and set it equal to `generatePrivateKey()`.
+  */
+}

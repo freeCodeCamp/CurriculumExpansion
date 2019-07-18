@@ -12,15 +12,15 @@ function hashTheMessage(message) {
   return hashValue;
 }
 
-/*
-To check if two integers are coprime, we start with 2 and check till the smaller of two integers.
-  
-For e.g. to check if 12 and 9 are coprime, we start from 2 and check till 9 because any integer greater than 9 won't divide 9 evenly.
-  
-Create a `for` loop to iterate from 2 to `smallerNum` (including `smallerNum`).
-*/
+function isCoPrime(smallerNum, largerNum) {
+  /*
+  To check if two integers are coprime, we start with 2 and check up to the smaller number.
 
-function isCoPrime(smallerNum, largerNum) {}
+  For example, to check if 12 and 9 are coprime, start from 2 and check until 9 because any integer greater than 9 won't divide 9 evenly.
+  
+  Create a `for` loop to iterate from 2 up to and including `smallerNum`.
+  */
+}
 
 function generatePrivateKey() {}
 

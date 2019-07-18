@@ -47,13 +47,13 @@ function generateSignature(hashValue, privateKey) {
   return Math.pow(hashValue, privateKey) % N;
 }
 
-/*
-To decrypt data using RSA we use a mathematical equation similar to that of encryption: 
-`Data = (encryptedData ^ publicKey) % N`.
+function decryptSignature(digitalSignature) {
+  /*
+  To decrypt data using RSA we use a equation similar to that of encryption: 
+  `Data = (encryptedData ^ publicKey) % N`.
 
-Here, the encryptedData is `digitalSignature`.
+  Here, the `encryptedData` is `digitalSignature`.
 
-Return `(digitalSignature ^ publicKey) % N` using `Math.pow`.
-*/
-
-function decryptSignature(digitalSignature) {}
+  Return `(digitalSignature ^ publicKey) % N` using `Math.pow`.
+  */
+}
