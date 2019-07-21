@@ -30,14 +30,11 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   res.send();
 });
 
-// The response we send will be a string to confirm the trade.
+// The response we send will be a template literal string to confirm the trade.
 
-// The string response message will be a template literal string, which is enclosed in backticks `/``.
+// Template literal strings are enclosed in backticks `/``, and we can include variables by enclosing them in the following symbols: `${}`.
+// As an example, if we have a `name` and `age` variable, we can reference them in a template string like this:
 
-// If we want to refer to a variable within a template string, we would enclose the variable in the following symbols `${}`.
+//`res.send(`Hi ${name}! Are you really ${age} years old?`)`
 
-// As an example, if we want to send a response saying "You purchased <shares> shares." (where <shares> refers to the number shares being purchased, which is currently stored in the `shares` variable):
-
-//`res.send(`You purchased ${shares} shares.`)`
-
-// Inside of the `res.send()` method, insert a template literal string saying "Transaction complete, you purchased XX shares of YY", where XX refers to the number of shares(the `shares` variable) and YY refers to the ticker (the `ticker` variable).
+// Inside of the `res.send()` method, insert a template literal string saying "Transaction complete, you purchased XX shares of YY", where XX refers to the number of shares (the `shares` variable) and YY refers to the ticker (the `ticker` variable).

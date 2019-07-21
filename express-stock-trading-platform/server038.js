@@ -9,7 +9,7 @@ app.get('/hi', (req, res) => {
   res.send('Hi there trader!');
 });
 
-//Create a Javascript object name 'prices' consisting of the following key-value pairs of tickers and their prices:
+//Create a Javascript object named 'prices' consisting of the following key-value pairs of tickers and their prices:
 // {
 //   ABC: 48.83,
 //   DEF: 2.98,

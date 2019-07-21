@@ -34,5 +34,5 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   );
 });
 
-// Now, let's create the /sell endpoint, which is structured very similar to the /buy endpoint. Add the sell route as follows:
+// Now, let's create the `/sell` endpoint, which is structured very similar to the `/buy` endpoint. Add the sell route as follows:
 // `app.get('/sell/:ticker/:shares')`
