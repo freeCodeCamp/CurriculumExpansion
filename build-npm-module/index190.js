@@ -17,6 +17,8 @@ module.exports = {
   getProperCase
 };
 
-// Now you have finished your case-coverter module. Let's publish it to NPM.
-// Normally you would need to create your own account on npmjs.com.
-// But for now, just use this demo account: username: camper, password: camper
+/*
+Now that you have finished your case_converter module, let's publish it to the npm registry.
+Normally you would need to create your own account on npmjs.com.
+But for now, just use this demo account: username: camper, password: camper
+*/

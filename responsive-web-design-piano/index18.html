@@ -1,97 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Responsive Web Design Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet">
 </head>
-
-<style>
-
-    html {
-        box-sizing: border-box;
-    }
-
-
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-
-
-    #piano {
-        width: 992px;
-        height: 290px;
-        margin: 80px auto;
-        padding: 90px 20px 0 20px;
-        border-radius: 10px;
-        background-color: #00471b;
-    }
-    
-
-    .keys {
-        width: 949px;
-        height: 180px;
-        padding-left: 2px;
-        background-color: #040404;
-        overflow: hidden;
-    }
-
-
-    .key {
-        position: relative;
-        width: 41px;
-        height: 175px;
-        margin: 2px;
-        float: left;
-        background-color: #ffffff;
-        border-radius: 0 0 3px 3px;
-    }
-
-
-    .logo {
-        position: absolute;
-        margin-top: -70px;
-        width: 200px;
-    }
-
-    
-    /* pseudo elements */
-    
-    .key.black--key::after {
-        content: "";
-        position: absolute;
-        left: -18px;
-        width: 32px;
-        height: 100px;
-        background-color: #1d1e22;
-        display: block;
-        border-radius: 0 0 3px 3px;
-    }
-
-    /* media queries */
-
-    /* devices smaller then 768px */
-    @media only screen and (max-width: 768px) {
-
-        #piano {
-            width: 355px;
-        }
-
-        .keys {
-            width: 318px;
-        }
-
-        .logo {
-            width: 150px;
-        }
-
-    }
-
-</style>
-
 <body>
 
     <div id="piano">
-        <img class="logo" src="freeCodeCamp.svg" alt="FreeCodeCamp Logo" >
         <div class="keys">
             <div class="key"></div>
             <div class="key black--key"></div>
@@ -118,31 +35,12 @@
             <div class="key black--key"></div>
         </div>
     </div>
- 
+
 </body>
 </html>
+
 <!-- 
-    The following properties will apply for screen devices bigger then 769px and
-    smaller then 1199px. Add `@media only screen and (max-width: 769px) and (min-width: 769px) {}`.
-    Adjust the `#piano` `width` to `675px`, and the `.keys` class `width` to `633px`.
-
-    The code should look like so:
-    
-    ```
-    ...
-
-        /* medium screen devices */
-        @media only screen and (max-width: 1199px) and (min-width: 769px) {
-            
-            #piano {
-                width: 675px;
-            }
-
-            .keys {
-                width: 633px;
-            }
-        }
-
-    </style>
-    ```
+    Add the `href` attribute with the value of `style.css` to the `<link>` tag.
+    The `href` attribute specifies the location (URL) of the external resource,
+    the `style` sheet file.
 -->

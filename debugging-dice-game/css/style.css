@@ -1,0 +1,43 @@
+.container {
+	margin: 30px;
+	width: 400px;
+}
+
+.dice {
+	background-color: lightblue;
+	border: 1px solid black;
+	padding: 10px 15px;
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
+	border-radius: 5px;
+	display: inline;
+}
+
+.chart {
+  background-color: antiquewhite;
+}
+
+.bar {
+	display: inline-block;
+  font: 12px sans-serif;
+  text-align: right;
+  margin: 1px;
+  color: black;
+}
+
+.numbers {
+	display: inline-block;
+	text-align: center;
+	width: 20px;
+	background-color: yellow;
+	font-weight: bold;
+}
+
+#doubles {
+	font-weight: bold;
+}
+
+#status {
+	color: red;
+}
