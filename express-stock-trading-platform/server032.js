@@ -9,4 +9,4 @@ app.get('/hi');
 
 //Part of the beauty of Express is that it makes accessing incoming requests and sending outgoing responses quite simple. Pass a callback function as the second argument of `app.get()`. The callback function should itself accept two arguments: the incoming request (`req`), and the response (`res`) that you will send. Here's an example:
 
-// `// function (req, res) { // }); //`
+// `function(request, response) {}`

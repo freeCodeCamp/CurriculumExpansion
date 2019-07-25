@@ -24,4 +24,4 @@ const prices = {
 app.get('/buy');
 
 // We specify route parameter in the path with `:`, for example '/hi/:name' where `name` is the parameter.
-// Update the path of your `get` route to include a `ticker` route parameter.
+// Update the path of your `GET` route to include a `ticker` route parameter.

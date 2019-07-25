@@ -29,7 +29,7 @@ app.get('/buy/:ticker/:shares', (req, res) => {
 //Now we need calculate the total amount of the purchase.
 
 //You can determine the price per share from the `prices` object we previously declared above.
-//For example, if we wanted the price for stock MNO, we would use `prices['MNO']
-//To get the price for the stock we need, we would use `prices[ticker]`
+//For example, if we wanted the price for stock MNO, we would use `prices['MNO']`.
+//To get the price for the stock we need, we would use `prices[ticker]`.
 
 //Create a variable named 'total' and set it equal to `shares * prices[ticker]`.

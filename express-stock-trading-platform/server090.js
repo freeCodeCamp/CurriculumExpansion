@@ -45,4 +45,4 @@ app.get('/sell/:ticker/:shares', (req, res) => {
   );
 });
 
-// Let's create one more GET endpoint for users to query the price of a particular stock at `/price/:ticker`.  Remember that you will also need to provide a callback function to the .get() method as a second argument, for now, we'll simply provide `(req, res) => {}`
+// Let's create one more `GET` endpoint for users to query the price of a particular stock at `/price/:ticker`.  Remember that you will also need to provide a callback function to the `.get()` method as a second argument, for now, we'll simply provide `(req, res) => {}`

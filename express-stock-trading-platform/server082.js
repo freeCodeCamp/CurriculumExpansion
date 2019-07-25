@@ -36,5 +36,5 @@ app.get('/buy/:ticker/:shares', (req, res) => {
 
 app.get('/sell/:ticker/:shares');
 
-// Similar to the buy route that was created above.  Add an empty callback function as the second argument:
+// Similar to the buy route that was created above, add an empty callback function as the second argument:
 //`(req, res) => {}`
