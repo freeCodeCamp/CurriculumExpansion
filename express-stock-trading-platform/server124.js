@@ -56,4 +56,4 @@ app.get('/price/:ticker', (req, res) => {
 
 // Thus we actually want to check if the `ticker` does NOT exist in the `prices` object, so we will need to update the `if` conditional test.  To negate a conditional test we insert the symbol `!` before the test.
 
-// Inside the parentheses, update the conditional test like `if(!(ticker in prices))`.
+// Inside the parentheses, update the conditional test to `if(!(ticker in prices))`.

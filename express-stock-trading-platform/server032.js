@@ -7,11 +7,6 @@ app.listen(3000, function() {
 
 app.get('/hi');
 
-//The `app.get()` function actually takes two arguments, the second argument is a callback function that takes two other arguments itself: the first is the incoming request (`req`) and the second is the response (`res`) that you will send.  Part of the beauty of Express is that it makes accessing incoming requests and sending outgoing responses quite simple.  In the process, you can do your own processing in the callback function that you provide to Express.
+//Part of the beauty of Express is that it makes accessing incoming requests and sending outgoing responses quite simple. Pass a callback function as the second argument of `app.get()`. The callback function should itself accept two arguments: the incoming request (`req`), and the response (`res`) that you will send. Here's an example:
 
-//Add the following callback function as a second argument of `app.get()`:
-
-// ```
-// function (req, res) {
-// });
-// ```
+// `function(request, response) {}`

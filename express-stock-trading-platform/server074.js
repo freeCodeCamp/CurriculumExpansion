@@ -32,7 +32,7 @@ app.get('/buy/:ticker/:shares', (req, res) => {
 
 // Lets add on to the template string to include the price per share and the total amount.  Remember that we can access the price per share of the `prices` object with `prices[ticker]`.
 
-// Also remember that within a template string, we need to wrap any Javascript reference with `${}`.
+// Also remember that within a template string, we need to wrap any JavaScript reference with `${}`.
 
 // Modify the response so it says:
 // `Transaction complete, you purchased ${shares} shares of ${ticker} at $${prices[ticker]}/share for a total of $${total}.`

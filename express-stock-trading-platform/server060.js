@@ -26,10 +26,10 @@ app.get('/buy/:ticker/:shares', (req, res) => {
   const shares = req.params.shares;
 });
 
-//Now we need determine the total amount of the purchase, which equals to 'shares * price per share'.
+//Now we need calculate the total amount of the purchase.
 
 //You can determine the price per share from the `prices` object we previously declared above.
-//For example, if we wanted the price for stock MNO, we would use `prices['MNO']
-//The exact stock that we need the price for is currently stored in the `ticker` variable.  To get the price for that, we would use `prices[ticker]`
+//For example, if we wanted the price for stock MNO, we would use `prices['MNO']`.
+//To get the price for the stock we need, we would use `prices[ticker]`.
 
 //Create a variable named 'total' and set it equal to `shares * prices[ticker]`.
