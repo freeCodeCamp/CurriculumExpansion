@@ -48,13 +48,12 @@ class ShoppingCart {
   clearCart() {
     this.items = [];
   }
+
+  /*
+  Create a method called `applyDiscount`. 
+
+  Have it take `amount` as parameter.
+  */
+
+
 }
-
-/*
-Create a method called applyDiscount. 
-
-Take amount as parameter and return the discount amount using discount percentage. For ex:
-
-return discountPercentage / 100 * money
-
-*/

@@ -23,6 +23,6 @@ const prices = {
 
 app.get('/buy/:ticker');
 
-// We want users to be able to make a purchase by sending the required information as part of the route.  For example, if they want to buy 20 shares of stock ABC, they would go to /buy/ABC/20
+// We want users to be able to make a purchase by sending the required information as part of the route.  For example, if they want to buy 20 shares of stock ABC, they would go to `/buy/ABC/20`.
 
-// The route also needs a `shares` parameter, update the path of your `get` route to include it, like `/buy/:ticker/:shares`.
+// Routes can have multiple parameters, for example, `/hi/:name/:age`. Update the path of your `GET` route to include a `shares` parameter.

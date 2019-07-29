@@ -31,7 +31,7 @@ const checkTickerAndShares = (req, res, next) => {
   }
 };
 
-// At this point in the  code, we now know that the ticker is valid and that req.params.shares can be parsed into a valid integer.
+// At this point in the  code, we now know that the ticker is valid and that `req.params.shares` can be parsed into a valid integer.
 // Add an `else {}` statement to the end of the conditional statement.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {

@@ -50,20 +50,17 @@ class ShoppingCart {
   }
   
   applyDiscount(amount) {
+    /*
+    Notice that the discount money has more than 2 numbers after the decimal point.
+
+    This is common to see when working arthimatic operations with float numbers in JavaScript.
+
+    There is in-built method called toFixed that can help us. 
+
+    The method takes in a parameter which you can specify the number of decimal points. It will round up the number as well.
+
+    Let's attach toFixed() to the returned discount. Pass in 2.
+    */
     return this.discountPercentage / 100 * amount
   }
 }
-
-/*
-Notice that the returned amount of appliyDiscount function has a lot of numbers after the decimal.
-
-This is very common pheonomenon when working with float numbers in JavaScript.
-
-You can use toFixed() method to round your number to the given decimal place. This will convert the number type to string though.
-
-Use parseFloat() method to convert the string back to number. For ex:
-
-parseFloat(2.3999999999.toFixed(2))
-
-Ensure the returned value of applyDiscount's decimal number if fixed to 2 decimal numbers.
-*/

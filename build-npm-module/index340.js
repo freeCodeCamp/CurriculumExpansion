@@ -6,4 +6,4 @@ console.log(caseConverter.getLowerCase(str));
 console.log(caseConverter.getProperCase(str));
 console.log(caseConverter.getSentenceCase(str));
 
-// You had learnt how to create, publish and use an npm module! CONGRATULATIONS!
+// You've learned how to create, publish, and use an npm module! CONGRATULATIONS!

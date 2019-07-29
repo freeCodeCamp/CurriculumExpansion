@@ -43,12 +43,15 @@ class ShoppingCart {
     const index = this.items.indexOf(id);
     this.items.splice(index, 1);
   }
-}
 
-/*
+  /*
   It would be convenient if we can also remove all items from the cart with a single method.
   
-  Create a method called clearCart, which will set the current items array to an empty array. For ex:
-  
+  Create a method called `clearCart`, which will set the current items array to an empty array. For example:
+  ```
   const items = [];
-*/
+  ```
+  */
+
+
+}

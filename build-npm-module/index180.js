@@ -8,7 +8,9 @@ const getSentenceCase = (str) => {
   return lowerStr.charAt(0).toUpperCase() + lowerStr.slice(1)
 };
 
-const properCaseArr = (str) => str.split(' ').map((word) => getSentenceCase(word));
-const getProperCase = (str) => properCaseArr.join(' ');
+const getProperCase = (str) => {
+  const properCaseArr = (str) => str.split(' ').map((word) => getSentenceCase(word));
+};
 
-// You should then use node.js `module.exports` to export these four functions so that users can import and use your package's function
+// Call join on `properCaseArr` to convert the array to a string and return the result.
+

@@ -54,5 +54,5 @@ app.get('/price/:ticker', (req, res) => {
 });
 
 //Inside of the else statement, send a response saying 'The price of <stockTicker> is <tickerPrice>.'
-//Be sure to use template literal format and wrap any Javascript variable references with `${}`.
-//Also remember that you can access the ticker price with `prices[ticker]`, similar to how it was done in the '/sell/:ticker/:shares' route.
+//Be sure to use template literal format and wrap any JavaScript variable references with `${}`.
+//Also remember that you can access the ticker price with `prices[ticker]`, similar to how it was done in the `/sell/:ticker/:shares` route.

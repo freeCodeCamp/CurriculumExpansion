@@ -21,9 +21,9 @@ const prices = {
   XYZ: 5.32
 };
 
-// Now we need to declare the checkTickerAndShares() function.  This middleware function will have access to and can modify the incoming request (`req`) and outgoing response (`res`) arguments before they are passed to the callback.  This function will take three arguments, 'req', 'res', and 'next'.
+// Now we need to declare the `checkTickerAndShares()` function.  This middleware function will have access to and can modify the incoming request (`req`) and outgoing response (`res`) arguments before they are passed to the callback.  This function will take three arguments, `req`, `res`, and `next`.
 
-// Create the checkTickerAndShares() function to take these three arguments and for now, leave the function body empty.  Use arrow function notation.
+// Create the `checkTickerAndShares()` function to take these three arguments and for now, leave the function body empty.  Use arrow function notation.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;
