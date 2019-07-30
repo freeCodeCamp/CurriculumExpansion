@@ -1,6 +1,9 @@
-const margin = 70,
+const svgMargin = 60,
   svgWidth = 700,
-  svgHeight = 500;
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
 
 const lineGraph = d3.select('.dashboard')
   .append('svg')
@@ -9,8 +12,8 @@ const lineGraph = d3.select('.dashboard')
 
 const yScale = d3.scaleLinear()
   .domain([0, 5000])
-  .range([svgHeight - margin, margin]);
+  .range([svgHeight - svgMargin, svgMargin]);
 
 /*
-  Create a new `const` variable named `xScale` and set the value to another linear scale like you did before.
+  Create a new `const` variable named `xScale` use it to create another linear scale like you did for the y-scale.
 */

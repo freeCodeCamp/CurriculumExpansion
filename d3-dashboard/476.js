@@ -106,7 +106,45 @@ const rightDashboard = d3.select('.dashboard')
   .append('div');
 
 const pieGraph = rightDashboard.append('svg')
+  .attr('width', 200)
+  .attr('height', 200)
+
+const pieArc = d3.arc()
+  .outerRadius(100)
+  .innerRadius(0);
+
+const pieColors = d3.scaleOrdinal()  
+  .domain(data[8].followers)
+  .range([twitterColor, tumblrColor, instagramColor]);
+
+const pie = d3.pie()
+  .value(d => d.value);
+  
+const pieGraphData = pieGraph.selectAll('pieSlices')
+  .data(pie(d3.entries(data[8].followers)))
+  .enter()
+  .append('g')
+  .attr('transform', 'translate(100, 100)');
+
+pieGraphData.append('path')
+  .attr('d', pieArc)
+  .attr('fill', d => pieColors(d.data.key))
+  .attr('stroke', 'white')
+  .attr('stroke-width', 2);
+
+pieGraphData.selectAll('pieSliceText')
+  .data(pie(d3.entries(data[8].followers)))
+  .enter()
+  .append('text')
+  .text(d => {
+
+  })
 
 /*
-  Add two `attr` functions that set the `width` to `200` and the `height` to `200` of the `svg`.
+  In the function you just created, create a `const` variable named `values`. Use the `d3.values` function to get the values of the 2020 followers and set the result to your `values` variable. Here's how to get the values:
+
+```
+d3.values(data[8].followers)
+```
+
 */

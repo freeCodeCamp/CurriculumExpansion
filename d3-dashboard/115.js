@@ -1,6 +1,9 @@
-const margin = 70,
+const svgMargin = 60,
   svgWidth = 700,
-  svgHeight = 500;
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
 
 const lineGraph = d3.select('.dashboard')
   .append('svg')
@@ -9,11 +12,11 @@ const lineGraph = d3.select('.dashboard')
 
 const yScale = d3.scaleLinear()
   .domain([0, 5000])
-  .range([svgHeight - margin, margin]);
+  .range([svgHeight - svgMargin, svgMargin]);
 
 const xScale = d3.scaleLinear()
-  .domain([2011, 2019])
+  .domain([2012, 2020])
 
 /*
-  The `range` for this scale will go from the left of your graph to the right. Add the `range` function, and pass it an array with the values: `margin` and `svgWidth - margin`. For some clarity, the margin will be where labels and axes go, which is why the margin area is not included in the range.
+  The `range` for this scale will go from the left of your graph to the right. Add the `range` function, and pass it an array with the values: `margin` and `svgWidth - margin`.
 */

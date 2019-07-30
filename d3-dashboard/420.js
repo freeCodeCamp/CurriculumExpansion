@@ -1,6 +1,9 @@
-const margin = 70,
+const svgMargin = 60,
   svgWidth = 700,
-  svgHeight = 500;
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
 
 const lineGraph = d3.select('.dashboard')
   .append('svg')
@@ -9,33 +12,32 @@ const lineGraph = d3.select('.dashboard')
 
 const yScale = d3.scaleLinear()
   .domain([0, 5000])
-  .range([svgHeight - margin, margin]);
+  .range([svgHeight - svgMargin, svgMargin]);
 
 const xScale = d3.scaleLinear()
-  .domain([2011, 2019])
-  .range([margin, svgWidth - margin]);
+  .domain([2012, 2020])
+  .range([svgMargin, svgWidth - svgMargin]);
 
 const yAxis = d3.axisLeft(yScale)
   .ticks(6, '~s');
-  
+
 const xAxis = d3.axisBottom(xScale)
   .tickFormat(d3.format(''))
   .tickPadding(10);
 
 lineGraph.append('g')
   .call(yAxis)
-  .attr('transform', `translate(${margin}, 0)`)
+  .attr('transform', `translate(${svgMargin}, 0)`)
   .style('font', '10px verdana');
 
 lineGraph.append('g')
   .call(xAxis)
-  .attr('transform', `translate(0, ${svgHeight - margin})`)
+  .attr('transform', `translate(0, ${svgHeight - svgMargin})`)
   .selectAll('text')
-  .attr('class', 'x-axis-label')
   .style('transform', 'translate(-12px, 0) rotate(-50deg)')
   .style('text-anchor', 'end')
   .style('cursor', 'pointer')
-  .style('font', '10px verdana');
+  .style('font', '10px verdana')
 
 const twitterLine = d3.line()
   .x(d => xScale(d.year))
@@ -43,8 +45,8 @@ const twitterLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', twitterLine(data))
-  .attr('stroke', '#7cd9d1')
-  .attr('stroke-width', '3')
+  .attr('stroke', twitterColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
 const tumblrLine = d3.line()
@@ -53,8 +55,8 @@ const tumblrLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', tumblrLine(data))
-  .attr('stroke', '#f6dd71')
-  .attr('stroke-width', '3')
+  .attr('stroke', tumblrColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
 const instagramLine = d3.line()
@@ -63,8 +65,8 @@ const instagramLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', instagramLine(data))
-  .attr('stroke', '#fd9b98')
-  .attr('stroke-width', '3')
+  .attr('stroke', instagramColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
   
 lineGraph.selectAll('twitter-circles')
@@ -75,7 +77,7 @@ lineGraph.selectAll('twitter-circles')
   .attr('cy', d => yScale(d.followers.twitter))
   .attr('r', 6)
   .attr('fill', 'white')
-  .attr('stroke', '#7cd9d1')
+  .attr('stroke', twitterColor)
   .style('cursor', 'pointer')
 
 lineGraph.selectAll('tumblr-circles')
@@ -86,7 +88,7 @@ lineGraph.selectAll('tumblr-circles')
   .attr('cy', d => yScale(d.followers.tumblr))
   .attr('r', 6)
   .attr('fill', 'white')
-  .attr('stroke', '#f6dd71')
+  .attr('stroke', tumblrColor)
   .style('cursor', 'pointer')
 
 lineGraph.selectAll('instagram-circles')
@@ -97,7 +99,7 @@ lineGraph.selectAll('instagram-circles')
   .attr('cy', d => yScale(d.followers.instagram))
   .attr('r', 6)
   .attr('fill', 'white')
-  .attr('stroke', '#fd9b98')
+  .attr('stroke', instagramColor)
   .style('cursor', 'pointer')
 
 const rightDashboard = d3.select('.dashboard')
@@ -113,7 +115,7 @@ const pieArc = d3.arc()
 
 const pieColors = d3.scaleOrdinal()  
   .domain(data[8].followers)
-  .range(['#00fff6', '#f6dd71', '#fd9b98']);
+  .range([twitterColor, tumblrColor, instagramColor]);
 
 const pie = d3.pie()
   .value(d => d.value);
@@ -121,9 +123,21 @@ const pie = d3.pie()
 const pieGraphData = pieGraph.selectAll('pieSlices')
 
 /*
-  Add the `data` function to the selection. You want to pass in your `pie` function with an array of the key/value pairs for the 2019 followers. `d3.entries` will build that array for you. Here's how that looks:
+  Add the `data` function to the selection. You want to pass it your `pie` function with an array of key/value objects for the 2020 followers. `d3.entries` will build that array for you. Here's how that looks:
+
 ```
 .data(pie(d3.entries(data[8].followers)))
 ```
-  Passing the array of the key/value pairs to `pie`, it will use the `value` to calculate the pie slices because that's what you are returning in the `value` function of the `pie` variable that you created.
+
+  The array that the `d3.entries` function builds looks like this:
+
+```
+[
+  { key: 'twitter', value: 2845 },
+  { key: 'tumblr', value: 2040 },
+  { key: 'instagram', value: 4801 }
+]
+```
+
+  If you go back up and look where you created your `pie` variable, you can see that it is returning the `value`. It is getting the value from this array.
 */

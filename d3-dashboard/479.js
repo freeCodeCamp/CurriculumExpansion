@@ -106,7 +106,47 @@ const rightDashboard = d3.select('.dashboard')
   .append('div');
 
 const pieGraph = rightDashboard.append('svg')
+  .attr('width', 200)
+  .attr('height', 200)
+
+const pieArc = d3.arc()
+  .outerRadius(100)
+  .innerRadius(0);
+
+const pieColors = d3.scaleOrdinal()  
+  .domain(data[8].followers)
+  .range([twitterColor, tumblrColor, instagramColor]);
+
+const pie = d3.pie()
+  .value(d => d.value);
+  
+const pieGraphData = pieGraph.selectAll('pieSlices')
+  .data(pie(d3.entries(data[8].followers)))
+  .enter()
+  .append('g')
+  .attr('transform', 'translate(100, 100)');
+
+pieGraphData.append('path')
+  .attr('d', pieArc)
+  .attr('fill', d => pieColors(d.data.key))
+  .attr('stroke', 'white')
+  .attr('stroke-width', 2);
+
+pieGraphData.selectAll('pieSliceText')
+  .data(pie(d3.entries(data[8].followers)))
+  .enter()
+  .append('text')
+  .text(d => {
+    const values = d3.values(data[8].followers);
+    const sum = d3.sum(values);
+    const percent = d.data.value/sum;
+  })
 
 /*
-  Add two `attr` functions that set the `width` to `200` and the `height` to `200` of the `svg`.
+  Your `percent` value is a number less than one. You will need to multiply it by 100, round of the decimals, and add a `%` sign. Use a template literal to return this to the `text` function:
+
+```
+${Math.round(percent*100)}%
+```
+
 */

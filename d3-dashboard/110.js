@@ -1,6 +1,9 @@
-const margin = 70,
+const svgMargin = 60,
   svgWidth = 700,
-  svgHeight = 500;
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
 
 const lineGraph = d3.select('.dashboard')
   .append('svg')
@@ -9,10 +12,10 @@ const lineGraph = d3.select('.dashboard')
 
 const yScale = d3.scaleLinear()
   .domain([0, 5000])
-  .range([svgHeight - margin, margin]);
+  .range([svgHeight - svgMargin, svgMargin]);
 
 const xScale = d3.scaleLinear()
 
 /*
-  The "year" values of your data set will be used for the x-scale. Chain the `domain` function to `xScale` and pass it an array with `2011` and `2019` as values, since those are the years of the sample data.
+  The "year" values of your data set will be used for the x-scale. Chain the `domain` function to `xScale` and pass it an array with `2012` and `2020` as values since those are the years of the sample data.
 */

@@ -1,6 +1,9 @@
-const margin = 70,
+const svgMargin = 60,
   svgWidth = 700,
-  svgHeight = 500;
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
 
 const lineGraph = d3.select('.dashboard')
   .append('svg')
@@ -9,33 +12,32 @@ const lineGraph = d3.select('.dashboard')
 
 const yScale = d3.scaleLinear()
   .domain([0, 5000])
-  .range([svgHeight - margin, margin]);
+  .range([svgHeight - svgMargin, svgMargin]);
 
 const xScale = d3.scaleLinear()
-  .domain([2011, 2019])
-  .range([margin, svgWidth - margin]);
+  .domain([2012, 2020])
+  .range([svgMargin, svgWidth - svgMargin]);
 
 const yAxis = d3.axisLeft(yScale)
   .ticks(6, '~s');
-  
+
 const xAxis = d3.axisBottom(xScale)
   .tickFormat(d3.format(''))
   .tickPadding(10);
 
 lineGraph.append('g')
   .call(yAxis)
-  .attr('transform', `translate(${margin}, 0)`)
+  .attr('transform', `translate(${svgMargin}, 0)`)
   .style('font', '10px verdana');
 
 lineGraph.append('g')
   .call(xAxis)
-  .attr('transform', `translate(0, ${svgHeight - margin})`)
+  .attr('transform', `translate(0, ${svgHeight - svgMargin})`)
   .selectAll('text')
-  .attr('class', 'x-axis-label')
   .style('transform', 'translate(-12px, 0) rotate(-50deg)')
   .style('text-anchor', 'end')
   .style('cursor', 'pointer')
-  .style('font', '10px verdana');
+  .style('font', '10px verdana')
 
 const twitterLine = d3.line()
   .x(d => xScale(d.year))
@@ -43,8 +45,8 @@ const twitterLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', twitterLine(data))
-  .attr('stroke', '#7cd9d1')
-  .attr('stroke-width', '3')
+  .attr('stroke', twitterColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
 const tumblrLine = d3.line()
@@ -53,8 +55,8 @@ const tumblrLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', tumblrLine(data))
-  .attr('stroke', '#f6dd71')
-  .attr('stroke-width', '3')
+  .attr('stroke', tumblrColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
 const instagramLine = d3.line()
@@ -63,8 +65,8 @@ const instagramLine = d3.line()
 
 lineGraph.append('path')
   .attr('d', instagramLine(data))
-  .attr('stroke', '#fd9b98')
-  .attr('stroke-width', '3')
+  .attr('stroke', instagramColor)
+  .attr('stroke-width', 3)
   .attr('fill', 'transparent');
   
 lineGraph.selectAll('twitter-circles')
@@ -75,7 +77,7 @@ lineGraph.selectAll('twitter-circles')
   .attr('cy', d => yScale(d.followers.twitter))
   .attr('r', 6)
   .attr('fill', 'white')
-  .attr('stroke', '#7cd9d1')
+  .attr('stroke', twitterColor)
   .style('cursor', 'pointer')
 
 lineGraph.selectAll('tumblr-circles')
@@ -86,7 +88,7 @@ lineGraph.selectAll('tumblr-circles')
   .attr('cy', d => yScale(d.followers.tumblr))
   .attr('r', 6)
   .attr('fill', 'white')
-  .attr('stroke', '#f6dd71')
+  .attr('stroke', tumblrColor)
 
 /*
   Set the `cursor` to `pointer` using the `style` function.
