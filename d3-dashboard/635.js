@@ -1,6 +1,6 @@
 function drawDashboard(year) {
   d3.select('.dashboard').html('');
-  const selectedData = data.filter(y => y.year === year);
+  const index = data.findIndex(d => d.year === year)
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -121,14 +121,14 @@ function drawDashboard(year) {
     .innerRadius(0);
 
   const pieColors = d3.scaleOrdinal()  
-    .domain(data[8].followers)
+    .domain(data[index].followers)
     .range([twitterColor, tumblrColor, instagramColor]);
 
   const pie = d3.pie()
     .value(d => d.value);
     
   const pieGraphData = pieGraph.selectAll('pieSlices')
-    .data(pie(d3.entries(data[8].followers)))
+    .data(pie(d3.entries(data[index].followers)))
     .enter()
     .append('g')
     .attr('transform', 'translate(100, 100)');
@@ -140,10 +140,10 @@ function drawDashboard(year) {
     .attr('stroke-width', 2);
 
   pieGraphData.selectAll('pieSliceText')
-    .data(pie(d3.entries(data[8].followers)))
+    .data(pie(d3.entries(data[index].followers)))
     .enter()
     .append('text')
-    .text(d => `${Math.round(d.data.value/d3.sum(d3.values(data[8].followers))*100)}%`)
+    .text(d => `${Math.round(d.data.value/d3.sum(d3.values(data[index].followers))*100)}%`)
     .attr('transform', d => `translate(${pieArc.centroid(d)})`)
     .style('text-anchor', 'middle')
     .style('font', '10px verdana');
@@ -165,7 +165,7 @@ function drawDashboard(year) {
 
   const legendRows = legend.append('tbody')
     .selectAll('tr')
-    .data(d3.entries(data[8].followers))
+    .data(d3.entries(data[index].followers))
     .enter()
     .append('tr');
 
@@ -188,5 +188,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
- add mouseover to twittercircles
+  Change text to bold for current year
 */

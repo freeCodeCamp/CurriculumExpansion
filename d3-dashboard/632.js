@@ -1,5 +1,4 @@
 function drawDashboard(year) {
-  d3.select('.dashboard').html('');
   const index = data.findIndex(d => d.year === year)
 
   const svgMargin = 60,
@@ -41,7 +40,7 @@ function drawDashboard(year) {
     .style('transform', 'translate(-12px, 0) rotate(-50deg)')
     .style('text-anchor', 'end')
     .style('cursor', 'pointer')
-    .style('font', d => d === year ? 'bold 10px verdana' : '10px verdana')
+    .style('font', '10px verdana')
     .on('mouseover', d => drawDashboard(d));
 
   const twitterLine = d3.line()
@@ -188,5 +187,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  add mouseover to twittercircles
+  empty element
 */

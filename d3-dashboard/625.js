@@ -1,5 +1,5 @@
 function drawDashboard(year) {
-  const index = data.findIndex(d => d.year === year)  // try and find a d3 method for this and a better variable name
+  const index = data.findIndex(d => d.year === year)
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -186,5 +186,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-change all data[8] to data[index]
+change all data[8] to data[index] - there are 5 spots
 */
