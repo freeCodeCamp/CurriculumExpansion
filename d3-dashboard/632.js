@@ -1,5 +1,5 @@
 function drawDashboard(year) {
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -187,5 +187,12 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  empty element
+  There's a problem, each time you call the function it adds more elements to the container. So at the very top of the function, if you simply empty all the elements out of the container, it will redraw them where they need to be.
+
+  At the top of the function, use the `d3.select` function to select the `.dashboard` element and chain the `html` function to it with an empty string as it parameter. It should look like this:
+
+```
+d3.select('.dashboard').html('');
+```
+
 */

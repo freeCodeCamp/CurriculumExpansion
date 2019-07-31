@@ -1,5 +1,5 @@
 function drawDashboard(year) {
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -186,5 +186,12 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-change all data[8] to data[index] - there are 5 spots
+  There are five places in the file where you use `data[8]` to set data to the 2020 year. Change all five of them to `data[index]` so you can pass in any year to the function to change the year that is displayed.
+
+  The five spots are:
+  1. The `domain` for `pieColors`
+  2. The `data` for `pieGraphData`
+  3. The `data` for your `pieSliceText`
+  4. The `text` for your `pieSliceText`
+  5. The `data` for your `legendRows`
 */

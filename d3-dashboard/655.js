@@ -1,6 +1,6 @@
 function drawDashboard(year) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -191,5 +191,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  change fill of tumblr and instagram
+  Change the `fill` of the `tumblr-circles` and `instagram-circles` to use their respective color variables when `d.year` equals `year`, leave it `white` when they don't.
 */

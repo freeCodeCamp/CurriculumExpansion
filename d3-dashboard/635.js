@@ -1,6 +1,6 @@
 function drawDashboard(year) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -188,5 +188,9 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  Change text to bold for current year
+  Now, when you hover a label, it looks like it should and you can see the data for the different years.
+
+  Go back to where you created the `text` elements for the x-axis labels again and change the font to `bold 10px verdana` for the currently displayed year.
+
+  To do this, create a `d` function in the `font` value argument and return the above sting if `d` equals `year`, if not, return the string that is currently in the value spot. It's easiest to use a ternary operator for this.
 */

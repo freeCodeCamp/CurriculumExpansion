@@ -1,6 +1,6 @@
 function drawDashboard(year) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -188,5 +188,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  add mouseover to twittercircles
+  Create another `mouseover` event for when you hover one of the `twitter-circles`. It will look like the other `mouseover` event you created except the `drawDashboard` function will take `d.year` instead of `d`.
 */

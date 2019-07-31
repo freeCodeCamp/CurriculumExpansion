@@ -184,5 +184,7 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  create index variable.
+  At the top of the function create a new `const` named `index`. You are going to use it to find the item in the `data` array with the year that is passed in to the function. Set the `index` variable equal to `data.findIndex(d => d.year === year)`.
+
+  So now you can use `data[index]` to get that item in the array with the passed in year.
 */

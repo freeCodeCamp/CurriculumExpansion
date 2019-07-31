@@ -1,6 +1,6 @@
 function drawDashboard(year) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
     svgWidth = 700,
@@ -189,5 +189,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
- add mouseover to tumblr and instagram
+  Add a `mouseover` event to the `tumblr-circles` and `instagram-circles` in the same way that you did for the `twitter-circles`.
 */

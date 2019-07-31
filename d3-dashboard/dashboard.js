@@ -3,7 +3,7 @@
 
 function drawDashboard(year) {
   d3.select('.dashboard').html('');                       // maybe try and find a better method for this
-  const index = data.findIndex(d => d.year === year)
+  const index = data.findIndex(d => d.year === year);
   
   const svgMargin = 60,
     svgWidth = 700,
