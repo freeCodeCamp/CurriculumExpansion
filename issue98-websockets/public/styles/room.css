@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chat_container {
+  max-width: 500px;
+  max-height: 580px;
+  width: 100%;
+  height: 100%;  
+  padding: 10px 30px 20px;
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+  grid-template-rows: 1fr 3fr 70px;
+  grid-template-areas:
+    "sidebar chat_list"
+    "sidebar chat_list"
+    "sidebar chat_form";
+}
+
+#chat-form {
+  grid-area: chat_form;
+  display: flex;
+  align-items: center;
+  border: 1px solid #0a0a2e;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: #0a0a2e;
+  display: grid;
+  grid-template-rows: 70px 4fr;
+  grid-template-areas:
+    "avatar"
+    "contacts";
+}
+
+#avatar {
+  grid-area: avatar;
+  margin-top: 1em;
+  object-fit: contain;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  height: 80%;  
+}
+
+#user-list {
+  margin-top: 2em;
+  grid-area: contacts;
+}
+
+#logo-container {
+  grid-area: logo;
+  padding: 10px;
+}
+
+#msg-input {
+  width: 100%;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 1em;
+  font-size: 12px;
+  margin: 10px;
+  resize: none;
+}
+#submit-button {
+  font-size: 12px;
+  color: #d4d4da;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  background-color: #323251;
+  font-weight: bold;
+  height: 30px;
+  border-radius: 1em;
+  margin: 5px;
+  padding: 3px;
+}
+
+#chat-history {
+  grid-area: chat_list;
+  background-color: #f5f6f7;
+  border-bottom: 2px solid #d4d4da;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.msg-bubble {
+  width: 200px;
+  height: auto;
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #b2b2b2;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+
+.msg-name {
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0 0 4px;
+  color: #3498db;
+  display: block;
+}
+
+.msg-content {
+  font-size: 12px;
+  color: #2b2b2b;
+}
+
+.msg-timestamp {
+  font-size: 11px;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.sended {
+  float: right;
+  margin-right: 5px;
+}
+
+.received {
+  margin-left: 5px;
+}
+
+.user-list-item {
+  color: white;
+  width: 80%;
+  display: block;
+}

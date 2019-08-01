@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+
+	<link rel="stylesheet" href="styles/login.css" />
+	<link rel="stylesheet" href="styles/common.css" />
+</head>
+
+<body>
+	<nav class="navbar">
+		<img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+	</nav>
+
+	<div class="container">
+
+		<div class="form-container">
+			<form action="/" id="register-form" method="post" onsubmit="storeUsername()">
+				<input id="username-input" type="text" name="username" placeholder="Username" required />
+				<input id="submit-input" type="submit" value="Submit">
+			</form>
+		</div>
+
+	</div>
+
+	<script>
+		function storeUsername() {
+			const username = document.querySelector("#username-input").value
+			window.localStorage.setItem("fccChatUsername", username)			
+		}
+	</script>
+</body>
+</html>

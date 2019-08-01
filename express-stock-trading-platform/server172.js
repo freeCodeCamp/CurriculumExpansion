@@ -29,7 +29,7 @@ const checkTickerAndShares = (req, res, next) => {
   } else if (){}
 };
 
-// We can check to see if the number of shares is valid with the `parseInt()` function.  Inside the parenthesis, add the integer check: `parseInt(req.params.shares)`
+// We can check to see if the number of shares is valid with the `parseInt()` function.  Inside the parenthesis, add the integer check: `parseInt(req.params.shares)`.
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {
   const ticker = req.params.ticker;

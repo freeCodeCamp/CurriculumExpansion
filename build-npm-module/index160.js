@@ -2,5 +2,11 @@ const getUpperCase = (str) => str.toUpperCase();
 
 const getLowerCase = (str) => str.toLowerCase();
 
-// Create a `getSentenceCase()` function which take a string variable `str` and return sentence case of this string.
-// This means you covert the first character to upper case and other to lower case.
+const getSentenceCase = (str) => {
+  /*
+  Sentence case means only the first character of the first word is uppercase, and all other characters are lowercase.
+  So let's first convert all the characters to lowercase using our `getLowerCase()` function.
+  Use a local variable `lowerStr` to store the lowercase string.
+  */
+
+};

@@ -23,6 +23,6 @@ const prices = {
 
 app.get('/buy/:ticker/:shares', (req, res) => {});
 
-//Express allows us to access the :ticker route parameter in the callback with the 'params' object, like `req.params.ticker`.
+//Express allows us to access the `:ticker` route parameter in the callback with the `params` object, like `req.params.ticker`.
 
 //Inside of the callback function body, create a variable called `ticker` (using `const`) and set it equal to `req.params.ticker`

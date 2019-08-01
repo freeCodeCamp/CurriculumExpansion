@@ -23,6 +23,6 @@ const prices = {
 
 app.get('/buy/:ticker/:shares');
 
-// For the second argument of the `get` route, pass it the following empty callback function: `(req, res) => {}`
+// For the second argument of the `GET` route, pass it the following empty callback function: `(req, res) => {}`.
 
-// Remember that this arrow function format is similar to `function(req,res){}`
+// Remember that this arrow function format is similar to `function(req, res) {}`.
