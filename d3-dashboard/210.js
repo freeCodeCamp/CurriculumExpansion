@@ -54,4 +54,6 @@ const tumblrLine = d3.line()
 
 /*
   Set the `y` values for the `tumblrLine` like you did for the `twitterLine`, except use `d.followers.tumblr` instead of `d.followers.twitter`.
+
+  So you can see now that the `x` values for each line will be the same, but the `y` values will use the data from the different platforms.
 */

@@ -45,7 +45,7 @@ const twitterLine = d3.line()
 /*
   Add the `y` function to the line and pass it the function `d => yScale(d.followers.twitter)` similar to how you did for the `x` values.
 
-  When you pass the `data` array to `twitterLine`, it will basically go through each object in the array and set the `x` and `y` values using these functions. If you were to log `d` to the console, you would see each object from the array. So `d.year` will be the `year` from each object.
+  This will use the `followers.twitter` value to set the `y` value for each item.
 
-  These functions use implicit returns; but if you were to add curly brackets and a return statement, you could put any functionality in there that you want, including `console.log` statements that can be useful for debugging.
+  These `d` functions use implicit returns; but if you add curly brackets and a return statement, you can put any functionality in there that you want, including `console.log` statements that can be useful for debugging.
 */

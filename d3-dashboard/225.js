@@ -57,5 +57,5 @@ lineGraph.append('path')
   .attr('d', tumblrLine(data))
 
 /*
-  Add three `attr` functions to the `path`; one to set the `stroke` to your `tumblrColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`.
+  Add three `attr` functions to the selection; one to set the `stroke` to your `tumblrColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`.
 */
