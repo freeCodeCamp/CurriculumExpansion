@@ -48,10 +48,12 @@ class ShoppingCart {
   clearCart() {
     this.items = [];
   }
+
+  /*
+  Create a method called `applyDiscount`. 
+
+  Have it take `amount` as parameter.
+  */
+
+
 }
-
-/*
-Create a method called applyDiscount. 
-
-Have it take 'amount' as parameter.
-*/

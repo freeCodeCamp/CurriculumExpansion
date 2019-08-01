@@ -27,20 +27,19 @@ class ShoppingCart {
   }
 
   addItem(id, products) {
+    /*
+    Let's loop through the given products array and check if a product object contains the given id. 
+
+    During the loop, if the id is found, push the object that contains the id to our items array.
+
+    Use a `for` loop to accomplish this. Here is an example:
+
+    for(let i = 0; i < arr.length; i++) {
+      if(id === arr[i].id) {
+        this.myArray.push(arr[i]);
+      }
+    }
+    */
 
   }
 }
-
-/*
-Let's loop through the given products array and check if a product object contains the given id. 
-
-During the loop, If the id is found, push the object that contains the id to our items array.
-
-Use a forloop to accomplish this. Here is an example code:
-
-for(let i=0; i<arr.length; i++) {
-  if(id === arr[i].id) {
-    this.myArray.push(arr[i]);
-  }
-}
-*/
