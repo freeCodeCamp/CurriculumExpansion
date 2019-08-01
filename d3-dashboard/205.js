@@ -52,5 +52,5 @@ lineGraph.append('path')
 const tumblrLine = d3.line()
 
 /*
-  Set the `x` values for `tumblrLine` in the exact same way that you set them for `twitterLine`.
+  Set the `x` values for `tumblrLine` using a `d` function in the exact same way that you set them for `twitterLine`.
 */
