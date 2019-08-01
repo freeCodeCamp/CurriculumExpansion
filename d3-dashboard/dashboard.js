@@ -1,8 +1,5 @@
-// two comment slashes means instructions haven't been written
-/// three comment slashes means it has instructions but the code isn't finalized
-
 function drawDashboard(year) {
-  d3.select('.dashboard').html('');                       // maybe try and find a better method for this
+  d3.select('.dashboard').html('');
   const index = data.findIndex(d => d.year === year);
   
   const svgMargin = 60,
