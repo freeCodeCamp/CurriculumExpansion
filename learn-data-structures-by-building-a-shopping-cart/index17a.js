@@ -55,11 +55,10 @@ class ShoppingCart {
 }
 
 /*
-toFixed method inadvertently converts a number into a string.
-
-Let's log out the number to see what we see now. 
+One thing to keep in mind is that the toFixed() method converts numbers into strings.
+Let's log a discounted price to the console and check the output:
 
 const shoppingCart = new ShoppingCart();
-console.log(shoppingCart.applyDiscount(2.99))
-console.log(typeof shoppingCart.applyDiscount(2.99))
+console.log(shoppingCart.applyDiscount(2.99));
+console.log(typeof shoppingCart.applyDiscount(2.99));
 */
