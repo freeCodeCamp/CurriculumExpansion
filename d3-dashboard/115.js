@@ -18,5 +18,5 @@ const xScale = d3.scaleLinear()
   .domain([2012, 2020])
 
 /*
-  The `range` for this scale will go from the left of your graph to the right. Add the `range` function, and pass it an array with the values: `margin` and `svgWidth - margin`.
+  The `range` for this scale will go from the left of your graph to the right. Add the `range` function, and pass it an array with the values: `svgMargin` and `svgWidth - svgMargin`.
 */

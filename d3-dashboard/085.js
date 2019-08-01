@@ -19,7 +19,7 @@ const variableName = d3.select('element')
   .attr('attribute', 'value')
 ```
 
-  Chain the `attr` function to the `svg` that sets the `width` as the `svgWidth` variable you created earlier.
+  Chain the `attr` function that sets the `width` as the `svgWidth` variable you created earlier.
 
-  When using your variable as the value, you do not need to put it in any kind of quotations.
+  When using a variable as a value, you do not need to put it in any kind of quotations.
 */

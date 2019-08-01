@@ -75,5 +75,5 @@ lineGraph.selectAll('twitter-circles')
 /*
   Next, add the `enter` function like this: `.enter()`. The `enter` function identifies elements that need to be added when the `data` array is longer than the selection array. This is why you want the `selectAll` to return an empty array.
   
-  In this case, the `twitter-circles` selection has a length of 0, and the `data` array has a length of 9. So 9 elements will be added when you use `append` in the next step.
+  In this case, the `twitter-circles` selection has a length of 0, and the `data` array has a length of 9. So nine elements will be added when you use `append` in the next step.
 */

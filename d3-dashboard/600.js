@@ -174,5 +174,5 @@ legendRows.append('td')
   .attr('align', 'left');
 
 /*
-  The title looks a little misaligned. Go back to the `legendTitle` area and set the `position` to `relative` and the `left` to `20px` using the `style` function.
+  The title looks a little misaligned. Go back to the `legendTitle` area and set the `position` to `relative` and the `left` to `20px` using `style` functions.
 */

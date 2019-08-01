@@ -169,7 +169,7 @@ function drawDashboard(year) {
   const legendTitle = legend.append('thead')
     .append('tr')
     .append('th')
-    .text(`${data[index].year} followers`)
+    .text(`${year} followers`)
     .attr('colspan', 3)
     .style('position', 'relative')
     .style('left', '20px');

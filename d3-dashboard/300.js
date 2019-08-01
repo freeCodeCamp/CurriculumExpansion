@@ -80,5 +80,5 @@ lineGraph.selectAll('twitter-circles')
   .attr('stroke', twitterColor)
 
 /*
-  Use the `style` function to set the `cursor` to `pointer`. This style added throughout the project will be for a little visual indicator on hover events you will add later.
+  Use the `style` function to set the `cursor` to `pointer`. This style added on the different elements will a visual indicator for hover events you will add later.
 */

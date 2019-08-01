@@ -38,5 +38,5 @@ lineGraph.append('g')
   .style('font', '10px verdana');
 
 /*
-  Now go to where you create the `xAxis` variable and chain a `tickFormat` function; pass it `d3.format('')`. This will remove the commas in the year labels of the x-axis.
+  Now go to where you created the `xAxis` variable and chain a `tickFormat` function to it; pass it `d3.format('')`. This will remove the commas in the year labels of the x-axis.
 */

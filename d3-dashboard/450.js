@@ -130,5 +130,5 @@ pieGraphData.append('path')
   .attr('d', pieArc)
 
 /*
-  Back to the bottom, where you appended the `path` for the chart, set the `fill` attribute to the function `d => pieColors(d.data.key)`. This will send the key (platform) of each data point to the `pieColors` function and return the range value that key is mapped to.
+  Back at the bottom, where you appended the `path` for the chart, set the `fill` attribute to the function `d => pieColors(d.data.key)`. This will send the key (platform) of each data point to the `pieColors` function and return the range value that key is mapped to.
 */

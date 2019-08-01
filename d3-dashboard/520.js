@@ -152,5 +152,5 @@ const legendTitle = legend.append('thead')
   .text('2020 followers')
 
 /*
-  Your table is going to have three columns, one for the platform name, one for the color it is using on your dashboard, and a third to display the number of followers. So you want the title to take up all three columns. Set the `colspan` attribute of the `legendTitle` to `3` to make it span all three columns.
+  Your table is going to have three columns, one for the platform name, one for the color it is using on your dashboard, and a third to display the number of followers. So you want the title to take up all three columns. Set the `colspan` attribute to `3` so it spans all three columns.
 */

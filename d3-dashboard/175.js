@@ -49,5 +49,6 @@ const twitterLine = d3.line()
   .x(d => xScale(d.year))
 ```
 
-  This will grab the `year` for each data point and give it an `x` value based on the `xScale` you created earlier.
+  You will be passing your `data` array to this line function, where it will go through each item and create an `x` value based on the year (`d.year`) and the `xScale` using this `d` function.
+
 */

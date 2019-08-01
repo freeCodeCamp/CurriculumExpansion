@@ -142,5 +142,5 @@ pieGraphData.selectAll('pieSliceText')
   })
 
 /*
-  The next thing you want to do is add all those values together. `d3.sum` will add the values of an array together. Create a new variable named `sum` and set it equal to `d3.sum(values)`.
+  The next thing you want to do is add all those values together. `d3.sum` will add the values of an array together. Create a new `const` named `sum` and set it equal to `d3.sum(values)`.
 */

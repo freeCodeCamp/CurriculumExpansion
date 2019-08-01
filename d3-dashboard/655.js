@@ -191,5 +191,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  Change the `fill` of the `tumblr-circles` and `instagram-circles` to use their respective color variables when `d.year` equals `year`, leave it `white` when they don't.
+  Change the `fill` of the `tumblr-circles` and `instagram-circles` to use a `d` function that returns their respective colors variables when `d.year` equals `year`, leave it `white` when they don't.
 */

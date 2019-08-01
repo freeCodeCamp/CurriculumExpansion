@@ -186,11 +186,11 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  Create a `mouseover` event for your x-axis lables. Go back up to where you created them and chain the `on` function at the bottom. Pass it the string `mouseover` and give it a value of a `d` function that call the `drawDashboard` function with `d` as the argument. It will look like this:
+  Create a `mouseover` event for your x-axis lables. Go back up to where you created them and chain the `on` function at the bottom. Pass it the string `mouseover` and give it a value of a `d` function that calls the `drawDashboard` function with `d` as the argument. It will look like this:
 
 ```
 .on('mouseover', d => drawDashboard(d))
 ```
 
-So now, when you hover a label, the function will be called with the year that is being hovered.
+  So now, when you hover a label, the function will be called with the year that is being hovered.
 */

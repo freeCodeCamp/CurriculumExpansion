@@ -76,5 +76,5 @@ lineGraph.selectAll('twitter-circles')
   .attr('cx', d => xScale(d.year))
   
 /*
-  Use the `attr` function to set the `cy` to the function `d => yScale(d.followers.twitter)`.
+  Use `attr` to set the `cy` to `d => yScale(d.followers.twitter)`.
 */

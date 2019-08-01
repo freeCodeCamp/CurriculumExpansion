@@ -31,5 +31,5 @@ lineGraph.append('g')
   .call(xAxis)
 
 /*
-  Again, the axis has the right size and labels, but this one just needs to be moved down. Use the `attr` function to set the `transform` to `translate(0, ${svgHeight - svgMargin})`. Be sure to use a template literal for the value again.
+  The axis has the right size and labels, but needs to be moved down. Use the `attr` function to set the `transform` to `translate(0, ${svgHeight - svgMargin})`. Be sure to use a template literal for the value again.
 */

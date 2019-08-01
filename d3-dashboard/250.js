@@ -66,5 +66,5 @@ const instagramLine = d3.line()
 lineGraph.append('path')
 
 /*
-  On the new `path`, set the `d` attribute to `instagramLine(data)` using the `attr` function.
+  Set the `d` attribute to `instagramLine(data)`.
 */

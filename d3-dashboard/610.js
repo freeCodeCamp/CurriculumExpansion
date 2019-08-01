@@ -178,5 +178,5 @@ legendRows.append('td')
   .attr('align', 'left');
 
 /*
-  Now go back up to where you created the `pieGraph` variable and add a `position` of `relative` and a `left` of `20px` using the `style` function. 
+  Finally, go back up to where you created the `pieGraph` variable and add a `position` of `relative` and a `left` of `20px` using `style` functions.
 */

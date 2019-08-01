@@ -47,5 +47,5 @@ lineGraph.append('path')
   .attr('d', twitterLine(data))
 
 /*
-  Add three more `attr` functions to the `path`; one to set the `stroke` to your `twitterColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`. This will make your line pretty.
+  Add three more `attr` functions to the `path`; one to set the `stroke` to your `twitterColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`.
 */

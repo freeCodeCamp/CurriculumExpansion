@@ -74,5 +74,5 @@ lineGraph.selectAll('twitter-circles')
   .enter()
 
 /*
-  Add `.append('circle')` below the `enter` function. This will add a `circle` element for each item that the `data` array is longer than the selection array.
+  Add `.append('circle')` below the `enter` function. This will add the nine `circle` elements.
 */

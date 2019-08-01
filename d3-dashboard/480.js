@@ -144,7 +144,7 @@ pieGraphData.selectAll('pieSliceText')
   })
 
 /*
-  The text elements are stacked on top of each other, you need to use the `pieArc` function you create to tell them where to go. Add an `attr` function after the `text` function to set `transform` to this template literal: `d => `translate(${pieArc.centroid(d)})`
+  The text elements are stacked on top of each other, you need to use the `pieArc` function you create to tell them where to go. Add an `attr` function after the `text` function to set `transform` to a `d` function that returns this template literal: `translate(${pieArc.centroid(d)})`
 
   This will use the `centroid` function of the `d3.pie` api to move the text towards the middle of each slice.
 */

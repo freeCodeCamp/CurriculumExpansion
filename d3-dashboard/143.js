@@ -33,5 +33,5 @@ lineGraph.append('g')
   .selectAll('text')
 
 /*
-  I want the labels to be rotated slightly so they look a little better. Use the `style` function to set the `transform` to `translate(-12px, 0) rotate(-50deg)`. This will put them at an angle.
+  I want the `text` elements to be rotated slightly. Use the `style` function to set the `transform` to `translate(-12px, 0) rotate(-50deg)`. This will put them at an angle.
 */

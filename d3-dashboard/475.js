@@ -138,7 +138,7 @@ pieGraphData.selectAll('pieSliceText')
   .append('text')
 
 /*
-  Chain a `text` function to set the text of each pie slice to a percentage. Set the value to an arrow function with `d` as the parameter and leave the function empty. It should look like this:
+  Chain a `text` function to set the text of each pie slice to a percentage. Set the value to a `d` function with curly brackets and leave the function empty. It should look like this:
 
 ```
 .text(d => {

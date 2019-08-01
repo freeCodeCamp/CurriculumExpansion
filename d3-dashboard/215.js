@@ -54,5 +54,5 @@ const tumblrLine = d3.line()
   .y(d => yScale(d.followers.tumblr));
 
 /*
-  On a new line, `append` a new `path` element to the `lineGraph` variable. You guessed it, this one will be for displaying the `tumblrLine`.
+  On a new line, `append` a `path` element to the `lineGraph` variable. This one will be for displaying the `tumblrLine`.
 */

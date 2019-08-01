@@ -17,5 +17,5 @@ const yScale = d3.scaleLinear()
 const xScale = d3.scaleLinear()
 
 /*
-  The "year" values of your data set will be used for the x-scale. Chain the `domain` function to `xScale` and pass it an array with `2012` and `2020` as values since those are the years of the sample data.
+  The "year" values of your data will be used for the x-scale. Chain the `domain` function to `xScale` and pass it an array with `2012` and `2020` as values since those are the years of the data.
 */

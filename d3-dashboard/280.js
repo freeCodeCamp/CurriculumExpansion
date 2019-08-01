@@ -75,5 +75,5 @@ lineGraph.selectAll('twitter-circles')
   .append('circle')
 
 /*
-  Each circle needs a `cx`(x) and `cy`(y) attribute so it knows where to display on the `svg`. Use the `attr` function to set the `cx` to `d => xScale(d.year)`. This is the same as you did before, it passes the year of each piece of data to the `xScale` function to figure out `cx` value.
+  Each circle needs a `cx` and `cy` attribute so it knows where to display on the `svg`. Use the `attr` function to set the `cx` to `d => xScale(d.year)`. This is the same as you did before, it passes the year of each piece of data to the `xScale` function to figure out the `cx` value.
 */

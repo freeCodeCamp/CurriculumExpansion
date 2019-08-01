@@ -192,5 +192,5 @@ drawDashboard(2020);
 
   Go back to where you created the `text` elements for the x-axis labels again and change the font to `bold 10px verdana` for the currently displayed year.
 
-  To do this, create a `d` function in the `font` value argument and return the above sting if `d` equals `year`, if not, return the string that is currently in the value spot. It's easiest to use a ternary operator for this.
+  To do this, create a `d` function in the `font` value argument and return the above sting if `d` equals `year`, if not, return the string that is currently there. It's easiest to use a ternary operator for this.
 */

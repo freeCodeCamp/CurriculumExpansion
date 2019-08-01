@@ -96,5 +96,5 @@ lineGraph.selectAll('instagram-circles')
   .enter()
   .append('circle')
 /*
-  Set the `cx` and `cy` attributes for this selection. Pass in the same functions to them that you used for the other two set of circles, use `d.followers.instagram` this time for the `cy` return value.
+  Set the `cx` and `cy` attributes for this selection. Pass in the same functions to them that you used for the other two sets of circles, use `d.followers.instagram` this time for the `cy` return value.
 */

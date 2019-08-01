@@ -25,5 +25,5 @@ const xAxis = d3.axisBottom(xScale)
 lineGraph.append('g')
 
 /*
-  `call` is another function to use with selections. Chain the `call` function to the `g` selection and pass your `yAxis` variable to the function. 
+  `call` is another function to use with selections. Chain a `call` function to the selection and pass your `yAxis` variable to it. 
 */

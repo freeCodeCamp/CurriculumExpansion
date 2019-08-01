@@ -10,5 +10,5 @@ const lineGraph = d3.select('.dashboard')
   .attr('width', svgWidth)
 
 /*
-  Chain another `attr` function to the `svg`; use it to set the `height` as the `svgHeight` variable you created earlier.
+  Chain another `attr` function; use it to set the `height` as the `svgHeight` variable you created.
 */

@@ -139,5 +139,5 @@ const pieGraphData = pieGraph.selectAll('pieSlices')
 ]
 ```
 
-  If you go back up and look where you created your `pie` variable, you can see that it is returning the `value`. It is getting the value from this array.
+  This is where the `value` comes from in your `pie` variable.
 */

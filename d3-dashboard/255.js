@@ -67,5 +67,5 @@ lineGraph.append('path')
   .attr('d', instagramLine(data))
 
 /*
-  Add three `attr` functions to the `path`; one to set the `stroke` to your `instagramColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`.
+  Set these attributes: `stroke` to your `instagramColor` variable, `stroke-width` to `3`, and `fill` to `transparent`.
 */

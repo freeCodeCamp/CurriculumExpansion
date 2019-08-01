@@ -141,7 +141,7 @@ pieGraphData.selectAll('pieSliceText')
   })
 
 /*
-  In the function you just created, create a `const` variable named `values`. Use the `d3.values` function to get the values of the 2020 followers and set the result to your `values` variable. Here's how to get the values:
+  In the function you just created, create a `const` named `values`. Use the `d3.values` function to get the values of the 2020 followers and set the result to your `values` variable. Here's how to get the values:
 
 ```
 d3.values(data[8].followers)

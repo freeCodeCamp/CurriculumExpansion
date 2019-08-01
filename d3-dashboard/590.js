@@ -172,5 +172,5 @@ legendRows.append('td')
 legendRows.append('td')
 
 /*
-  Set the `text` to an arrow function that returns the `value` (`d.value`) of the parameter.
+  Set the `text` to a `d` function that returns `d.value`.
 */

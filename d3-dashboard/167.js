@@ -39,5 +39,5 @@ lineGraph.append('g')
   .style('font', '10px verdana');
   
 /*
-  Add a `tickPadding` function to the `xAxis` and pass it `10`. This will add a little padding to the ticks.
+  Chain a `tickPadding` function to the `xAxis` and pass it `10`. This will add a little padding to the ticks.
 */

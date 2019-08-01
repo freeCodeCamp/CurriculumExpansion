@@ -15,5 +15,5 @@ const yScale = d3.scaleLinear()
   .range([svgHeight - svgMargin, svgMargin]);
 
 /*
-  Create a new `const` variable named `xScale` use it to create another linear scale like you did for the y-scale.
+  Create a new `const` named `xScale` use it to create another linear scale like you did for the y-scale. This will be the horizontal or "x" axis.
 */

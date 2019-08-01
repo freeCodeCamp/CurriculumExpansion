@@ -1,4 +1,5 @@
 function drawDashboard(year) {
+  d3.select('.dashboard').html('');
   const index = data.findIndex(d => d.year === year);
 
   const svgMargin = 60,
@@ -40,7 +41,7 @@ function drawDashboard(year) {
     .style('transform', 'translate(-12px, 0) rotate(-50deg)')
     .style('text-anchor', 'end')
     .style('cursor', 'pointer')
-    .style('font', '10px verdana')
+    .style('font', d => d === year ? 'bold 10px verdana' : '10px verdana')
     .on('mouseover', d => drawDashboard(d));
 
   const twitterLine = d3.line()
@@ -80,9 +81,10 @@ function drawDashboard(year) {
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.twitter))
     .attr('r', 6)
-    .attr('fill', 'white')
+    .attr('fill', d => d.year === year ? twitterColor : 'white')
     .attr('stroke', twitterColor)
     .style('cursor', 'pointer')
+    .on('mouseover', d => drawDashboard(d.year));
 
   lineGraph.selectAll('tumblr-circles')
     .data(data)
@@ -91,9 +93,10 @@ function drawDashboard(year) {
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.tumblr))
     .attr('r', 6)
-    .attr('fill', 'white')
+    .attr('fill', d => d.year === year ? tumblrColor : 'white')
     .attr('stroke', tumblrColor)
     .style('cursor', 'pointer')
+    .on('mouseover', d => drawDashboard(d.year));
 
   lineGraph.selectAll('instagram-circles')
     .data(data)
@@ -102,9 +105,10 @@ function drawDashboard(year) {
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.instagram))
     .attr('r', 6)
-    .attr('fill', 'white')
+    .attr('fill', d => d.year === year ? instagramColor : 'white')
     .attr('stroke', instagramColor)
     .style('cursor', 'pointer')
+    .on('mouseover', d => drawDashboard(d.year));
 
   const rightDashboard = d3.select('.dashboard')
     .append('div');
@@ -187,12 +191,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  There's a problem, each time you call the function it adds more elements to the container. At the very top of the function, if you simply empty all the elements out of the container, it will redraw them where they need to be.
-
-  At the top of the function, use the `d3.select` function to select the `.dashboard` element and chain the `html` function to it with an empty string as it parameter. It should look like this:
-
-```
-d3.select('.dashboard').html('');
-```
-
+  Change the `text` of the `legendTitle` to this string literal `${year} followers`. That' it, your dashboard is finished!
 */

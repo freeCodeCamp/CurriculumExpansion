@@ -76,5 +76,5 @@ lineGraph.append('path')
 lineGraph.selectAll('twitter-circles')
 ```
 
-`twitter-circles` elements obviously don't exist and this selection will return an empty array, but it's needed. For now, you can just think of this name as a reference, similar to a variable name, so you know what data you are working with.
+  `twitter-circles` don't exist and this selection will return an empty array, but it's needed. For now, you can just think of this name as a reference, similar to a variable name, so you know what data you are working with.
 */

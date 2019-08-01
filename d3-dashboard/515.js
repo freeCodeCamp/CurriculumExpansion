@@ -151,5 +151,5 @@ const legendTitle = legend.append('thead')
   .append('th')
 
 /*
-  Use the `text` function to set the text of the cells to `2020 followers`.
+  Use the `text` function to set the text of the selection to `2020 followers`.
 */

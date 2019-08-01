@@ -113,5 +113,5 @@ const pieArc = d3.arc()
   .outerRadius(100)
 
 /*
-  Chain the function `innerRadius(0)` to the arc. This will make the pie chart fill all the way to the center and not make a doughnut shaped chart.
+  Chain the function `innerRadius(0)` to the arc. This is set to zero to make a traditional pie chart, you would use a larger number to create a doughnut chart.
 */

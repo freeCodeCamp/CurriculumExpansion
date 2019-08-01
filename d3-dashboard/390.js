@@ -114,7 +114,7 @@ const pieArc = d3.arc()
   .innerRadius(0);
 
 /*
-  The pie chart needs a scale to set the colors. Create a new `const` variable named `pieColors` and set it equal to `d3.scaleOrdinal()`. An ordinal scale is for a set of data that will have exactly one item in the range specifically for it, and there will be no in between points.
+  The pie chart needs a scale to set the colors. Create a new `const` named `pieColors` and set it equal to `d3.scaleOrdinal()`. An ordinal scale is for a set of data that will have exactly one item in the range specifically for it.
   
   In this case, each platform of followers you have will map directly to a single color.
 */

@@ -50,5 +50,5 @@ lineGraph.append('path')
   .attr('fill', 'transparent');
 
 /*
-  On a new line, create a new `const` variable named `tumblrLine` and set it equal to `d3.line()`.
+  On a new line, create a new `const` named `tumblrLine` and set it equal to `d3.line()`.
 */

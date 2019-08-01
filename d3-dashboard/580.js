@@ -169,5 +169,5 @@ legendRows.append('td')
   .style('height', '16px')
 
 /*
-  Using the `style` function again, set the `background-color` to the function `d => pieColors(d.key)`. This will pass the `key` to `pieColor` and return the color. So the `twitter` key will return `twitterColor`.
+  Using the `style` function again, set the `background-color` to a `d` function that returns `pieColors(d.key)`. This will pass the `key` to `pieColor` and return the color. So `twitter` will return `twitterColor`.
 */

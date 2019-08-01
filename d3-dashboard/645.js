@@ -189,5 +189,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  Similar to how you made the text bold for the label of the displayed year; change the `fill` of the `twitter-circles` to use the `twitterColor` when `d.year` equals `year`, and leave it `white` if it doesn't.
+  Similar to how you made the text bold for the label of the displayed year; change the `fill` of the `twitter-circles` to use a `d` function that returns the `twitterColor` when `d.year` equals `year`, and leave it `white` if it doesn't.
 */
