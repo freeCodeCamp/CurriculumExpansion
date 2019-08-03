@@ -56,8 +56,9 @@ class ShoppingCart {
 
 /*
 As you can see, the number has been rounded to two decimal places and its type is "string"!
-We still want to work with numbers, so use the built-in parseFloat() method to convert the string back to a number.
+We still want to work with numbers, so use the built-in `parseFloat()` method to convert the string back to a number.
 For example:
-
+```
 console.log(parseFloat((1 / 3).toFixed(2))); // 0.33
+```
 */

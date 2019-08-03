@@ -51,9 +51,12 @@ class ShoppingCart {
 
   applyDiscount(amount) {
     /*
-    Inside the applyDiscount function, calculate the discount amount using discount percentage we previously declared. For ex:
-
+    Inside the `applyDiscount` function, calculate the discount by using the discount percentage we previously declared. 
+    
+    For example:
+    ```
     discountPercentage / 100 * amount
+    ```
     */
 
     

@@ -65,9 +65,9 @@ class ShoppingCart {
 
 /*
   
-Inside the applyDiscount function, calculate and return the discount by using the discountPercentage we previously declared.
+Inside the `applyDiscount` function, calculate and return the discount by using the `discountPercentage` we previously declared.
 
-You can use the formula discountPercentage / 100 * amount.
+You can use the formula `discountPercentage / 100 * amount`.
 
-Don't forget to use the return and this keywords!
+Don't forget to use the `return` and `this` keywords!
 */

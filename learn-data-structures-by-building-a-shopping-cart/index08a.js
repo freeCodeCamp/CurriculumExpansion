@@ -29,11 +29,13 @@ class ShoppingCart {
   addItem(id, products) {
     for(let i = 0; i < products.length; i++) {
       /*  
-      This code functions but can we make this better? We could use built in method called `find` to make our code concise and easier to read.
+      This code functions but can we make this better? We could use built in method called `find` to make our code more concise and easier to read.
 
       The `find` method returns the first item when a given condition is satisfied. 
 
-      Let's use the `find` method to achieve the same results we made. For example:
+      Create a variable called `item`, and set it equal to the item returned by the `find` method.
+      
+      For example:
       ```
       const match = arr.find(item => item.name === name);
       myArr.push(match);

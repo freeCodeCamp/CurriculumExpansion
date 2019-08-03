@@ -32,7 +32,7 @@ class ShoppingCart {
   }
 
   /*
-  Now create a getItems method that returns the items array.
+  Now create a `getItems` method that returns the `items` array.
   For example:
   ```
   showMe() {
