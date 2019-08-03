@@ -87,15 +87,18 @@ class ShoppingCart {
 }
 
 /*
-The grand finale! We will create a function called calculateTotal and finish it halfway.
+The grand finale! We will create a function called `calculateTotal` and finish it halfway.
 
-Inside the calculateTotal function, create a const called subTotal. 
+Inside the `calculateTotal` function, create a variable called `subTotal`. 
 
 Then go through the items list in the state using built in reduce method to add up price property in each item object.
 
-Assign the sum into subTotal. For ex:
+Assign the sum to `subTotal`.
 
+For example:
+```
 const sum = list.reduce((accumulator, currentValue) => {
   return accumulator + currentValue.price;
-}, 0)
+}, 0);
+```
 */

@@ -55,7 +55,7 @@ class ShoppingCart {
   }
   
   calculateTaxes(amount) {
-    return parseFloat(this.taxRate / 100 * amount).toFixed(2));
+    return parseFloat((this.taxRate / 100 * amount).toFixed(2));
   }
   
   setDiscountPercentage(percentage) {
@@ -65,11 +65,9 @@ class ShoppingCart {
 
 /*
   
-Let's create a method to check the new discountPercentage when its value has changed.
-  
-Create a method called getDiscountPercentage that returns the current discountPercentage of our shopping cart. For ex:
+Inside the `applyDiscount` function, calculate and return the discount by using the `discountPercentage` we previously declared.
 
-getPersonName() {
-  return this.name;
-}
+You can use the formula `discountPercentage / 100 * amount`.
+
+Don't forget to use the `return` and `this` keywords!
 */

@@ -28,7 +28,7 @@ class ShoppingCart {
     /*
     We should also handle sales tax.
     Taxes vary from state to state, so let's use Texas's rate of 8.25%.
-    Create a new variable called taxRate in the constructor function and assign 8.25 to it.
+    Create a new variable called `taxRate` in the constructor function and assign 8.25 to it.
     */
     
   }

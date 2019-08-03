@@ -55,11 +55,9 @@ class ShoppingCart {
 }
 
 /*
-Let's print to see the output of applyDiscount method!
-
-Go head and use this code below the class to see what the output is on the console
-
+Let's print to the console to see the output of the `applyDiscount` method:
+```
 const shoppingCart = new ShoppingCart();
-console.log(shoppingCart.applyDiscount(2.99))
+console.log(shoppingCart.applyDiscount(2.99));
+```
 */
-

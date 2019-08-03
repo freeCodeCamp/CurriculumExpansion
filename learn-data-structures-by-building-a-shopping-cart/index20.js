@@ -60,14 +60,15 @@ class ShoppingCart {
 }
 
 /*
-What if we are no longer doing a promotional discount or change from 30% to 15% instead?
+What if we are no longer doing a promotional discount, or change from 30% to 15% instead?
 
 Instead of directly reassigning new values to our state, it's better to make separate functions to reassign the values.
 
-Create a method called setDiscountPercentage that will take discountPercentage as parameter and assign that value to discountPercentage inside the state. For ex:
-
+Create a method called `setDiscountPercentage` that will take `discountPercentage` as parameter and assign that value to `discountPercentage` inside the state. For ex:
+```
 changeValue(money) {
   this.money = money;
 }
+```
 
 */

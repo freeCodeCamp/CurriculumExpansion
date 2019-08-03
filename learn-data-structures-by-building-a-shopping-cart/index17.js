@@ -50,17 +50,20 @@ class ShoppingCart {
   }
   
   applyDiscount(amount) {
-    /*
-    Notice that the discount money has more than 2 numbers after the decimal point.
-
-    This is common to see when working arthimatic operations with float numbers in JavaScript.
-
-    There is in-built method called toFixed that can help us. 
-
-    The method takes in a parameter which you can specify the number of decimal points. It will round up the number as well.
-
-    Let's attach toFixed() to the returned discount. Pass in 2.
-    */
     return this.discountPercentage / 100 * amount
   }
 }
+
+/*
+Notice that the expected discount has more than 2 numbers after the decimal point.
+
+This is common to see when working with numbers in JavaScript.
+
+There is in-built method called `toFixed()` that can help us.
+
+This method takes a number as a parameter for the amount of digits that you want to appear after the decimal point.
+
+It will also round up the number if necessary.
+
+Wrap the formula in parentheses and chain `toFixed(2)` to the end of it.
+*/

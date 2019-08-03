@@ -35,33 +35,30 @@ class ShoppingCart {
   getItems() {
     return this.items;
   }
-  
+
   getCount() {
     return this.items.length;
   }
-  
+
   removeItem(id) {
     const index = this.items.indexOf(id);
     this.items.splice(index, 1);
   }
-  
+
   clearCart() {
     this.items = [];
   }
-  
+
   applyDiscount(amount) {
-    return (this.discountPercentage / 100 * amount).toFixed(2);
+    return ((this.discountPercentage / 100) * amount).toFixed(2);
   }
 }
 
 /*
-You will now see that the number has been rounded and its type is string!
-
-But we want to still work with numbers and there is another built-in method that you can call on string types to help us.
-
-The parseFloat() method converts the string back to number. Let's convert the string back to number. For ex:
-
-parseFloat("0.24")
-
+As you can see, the number has been rounded to two decimal places and its type is "string"!
+We still want to work with numbers, so use the built-in `parseFloat()` method to convert the string back to a number.
+For example:
+```
+console.log(parseFloat((1 / 3).toFixed(2))); // 0.33
+```
 */
-
