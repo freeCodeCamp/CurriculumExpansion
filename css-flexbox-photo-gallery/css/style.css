@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    background: rgb(235, 231, 231);
+  }
+  
+  .header {
+    text-align: center;
+    padding: 32px;
+    background: rgb(224, 221, 221);
+  }
