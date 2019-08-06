@@ -27,29 +27,31 @@ This color should be your chosen light-brown */
 
 /* Step 2-2 - Create the background color of the background wall overlapping the body
 This color should be your chosen dark-brown
-+ style this div with a width of 100%, a height of 60%, a position absolute, 
++ Style this div with a width of 100%, a height of 60%, a position absolute, 
 0 from the top and from the left and a z-index -1
 */
 
 #back-wall {
+    background-color: #8B4513; /* dark-brown */
+
     width: 100%;
     height: 60%;
-    background-color: #8B4513; /* dark-brown */
-    
+
     position: absolute;
     top: 0;
     left: 0;
-    
+
     z-index: -1;
 }
 
-/* Step 3 - Create a div that will contain all the characters. It should be centered horizontally */
+/* Step 3 - Create a div that will contain all the characters.
+It should be centered horizontally */
 
 .characters {
     max-width: 1750px;
     height: 100vh;
-    margin: auto;
     position: relative;
+    margin: auto;
 }
 
 /* Step 4 - Add the off-white musician on the left with a rectangle as the body and a triangle as the hat + eyes on a black background + gray instrument + tan table
