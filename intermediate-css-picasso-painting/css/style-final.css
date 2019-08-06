@@ -16,8 +16,11 @@ gray: rgb(167, 162, 117);
 */
 
 body {
+
+    /* Step 2 - Add the background colors */
   
-    /* Step 2-1 - Define your background color of the floor in the body */
+    /* Step 2-1 - In the CSS file, define your background color of the floor in the body element
+    This color should be your chosen light-brown */
      
       background-color: rgb(184, 132, 46); /* light-brown */
    }
