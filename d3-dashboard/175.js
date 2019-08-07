@@ -49,7 +49,7 @@ const twitterLine = d3.line()
   .x(d => xScale(d.year))
 ```
 
-  This is the first place you will see a "`d` function". These are common throughout d3 to set data and that is how I will refer to them throughout this project.
+  This is the first place you will see a "`d` function". These are common throughout D3 to set data and that is how I will refer to them throughout this project.
 
   You will be passing your `data` array to this line function, where it will go through each item(`d`) and create an `x` value based on the year(`d.year`) and the `xScale` using this `d` function. This should become more clear as you progress through the project.
 */

@@ -176,5 +176,5 @@ legendRows.append('td')
   .attr('align', 'left');
 
 /*
-  The lengend and pie graph look a little off as well. Go back up to where you created the `lengend` varaiable and add a `position` of `relative` and a `top` of `30px` using `style` functions.
+  The legend and pie graph look a little off as well. Go back up to where you created the `legend` variable and add a `position` of `relative` and a `top` of `30px` using `style` functions.
 */

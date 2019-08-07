@@ -26,7 +26,7 @@ lineGraph.append('g')
   .call(yAxis)
 
 /*
-  After all that work, something is finally displayed on the graph... it's just a line, but it's something. Really, it's the y-axis, and the numbers are just hidded on the left.
+  After all that work, something is finally displayed on the graph... it's just a line, but it's something. Really, it's the y-axis, and the numbers are just hidden on the left.
   
   Move the axis your `margin` to the right by chaining an `attr` function to the selection. Use it to set the `transform` to `translate(${svgMargin}, 0)`. Use a template literal (backticks) to set the value.
 */

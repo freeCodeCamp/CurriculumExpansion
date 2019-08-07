@@ -44,5 +44,5 @@ const twitterLine = d3.line()
   .y(d => yScale(d.followers.twitter));
 
 /*
-  The first line is created, now you need to display it. On a new line, `append` a `path` to your `lineGraph` variable, similar to how you appeneded the `g` before.
+  The first line is created, now you need to display it. On a new line, `append` a `path` to your `lineGraph` variable, similar to how you appended the `g` before.
 */

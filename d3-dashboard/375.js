@@ -110,5 +110,5 @@ const pieGraph = rightDashboard.append('svg')
   .attr('height', 200)
 
 /*
-  Add a new `const` named `pieArc` and set it equal to `d3.arc()`. This will be used to create the angles for the lines of the pie chart using the `d3` arc generator.
+  Add a new `const` named `pieArc` and set it equal to `d3.arc()`. This will be used to create the angles for the lines of the pie chart using the D3 arc generator.
 */

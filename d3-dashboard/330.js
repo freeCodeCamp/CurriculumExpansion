@@ -92,5 +92,5 @@ lineGraph.selectAll('tumblr-circles')
   .style('cursor', 'pointer')
 
 /*
-  On a new line, add another `selectAll` function to your `lineGraph` variable and pass it the string: `instagram-circles`. These will be circles for the instagram line.
+  On a new line, add another `selectAll` function to your `lineGraph` variable and pass it the string: `instagram-circles`. These will be circles for the Instagram line.
 */

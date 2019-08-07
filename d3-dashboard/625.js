@@ -186,7 +186,7 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  There are five places in the file where you use `data[8]` to set data to the 2020 year. Change all five of them to `data[index]` so you can pass in any year to the function to change the year that is displayed.
+  There are five places in the file where you used `data[8]` to set data to the year 2020. Change all five of them to `data[index]` so you can pass in any year to the function to change the year that is displayed.
 
   The five spots are:
   1. The `domain` for `pieColors`

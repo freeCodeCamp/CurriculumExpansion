@@ -60,5 +60,5 @@ lineGraph.append('path')
   .attr('fill', 'transparent');
 
 /*
-  Only one more line to add for the instagram followers. On a new line, create a new `const` named `instagramLine` and set it equal to `d3.line()`.
+  Only one more line to add for the Instagram followers. On a new line, create a new `const` named `instagramLine` and set it equal to `d3.line()`.
 */

@@ -165,5 +165,5 @@ legendRows.append('td')
 legendRows.append('td')
 
 /*
-  Set the `align` attribute to `center`
+  Set the `align` attribute to `center`.
 */

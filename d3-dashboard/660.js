@@ -191,5 +191,5 @@ function drawDashboard(year) {
 drawDashboard(2020);
 
 /*
-  Change the `text` of the `legendTitle` to this string literal `${year} followers`. That' it, your dashboard is finished!
+  Change the `text` of the `legendTitle` to this string literal `${year} followers`. That's it, your dashboard is finished!
 */
