@@ -1,0 +1,42 @@
+const svgMargin = 60,
+  svgWidth = 700,
+  svgHeight = 500,
+  twitterColor = '#7cd9d1',
+  tumblrColor = '#f6dd71',
+  instagramColor = '#fd9b98';
+
+const lineGraph = d3.select('.dashboard')
+  .append('svg')
+  .attr('width', svgWidth)
+  .attr('height', svgHeight);
+
+const yScale = d3.scaleLinear()
+  .domain([0, 5000])
+  .range([svgHeight - svgMargin, svgMargin]);
+
+const xScale = d3.scaleLinear()
+  .domain([2012, 2020])
+  .range([svgMargin, svgWidth - svgMargin]);
+
+const yAxis = d3.axisLeft(yScale)
+  .ticks(6, '~s');
+
+const xAxis = d3.axisBottom(xScale)
+
+lineGraph.append('g')
+  .call(yAxis)
+  .attr('transform', `translate(${svgMargin}, 0)`)
+  .style('font', '10px verdana');
+
+lineGraph.append('g')
+  .call(xAxis)
+  .attr('transform', `translate(0, ${svgHeight - svgMargin})`)
+  .selectAll('text')
+  .style('transform', 'translate(-12px, 0) rotate(-50deg)')
+  .style('text-anchor', 'end')
+  .style('cursor', 'pointer')
+  .style('font', '10px verdana');
+
+/*
+  Now go to where you created the `xAxis` variable and chain a `tickFormat` function to it; pass it `d3.format('')`. This will remove the commas in the year labels of the x-axis.
+*/
