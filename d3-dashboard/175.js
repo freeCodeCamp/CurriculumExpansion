@@ -41,15 +41,16 @@ lineGraph.append('g')
 
 const twitterLine = d3.line()
 
-/*
-  The line needs `x` and `y` values for each point of data. Chain `x` to the line and pass it the function: `d => xScale(d.year)`. Here's how that will look:
 
-```
-const twitterLine = d3.line()
-  .x(d => xScale(d.year))
-```
+  /*
+    The line needs `x` and `y` values for each point of data. Chain `x` to the line and pass it a "`d` function". Here's how that will look:
 
-  This is the first place you will see a "`d` function". These are common throughout D3 to set data and that is how I will refer to them throughout this project.
+    ```
+    const twitterLine = d3.line()
+      .x(d => d.year)
+    ```
 
-  You will be passing your `data` array to this line function, where it will go through each item(`d`) and create an `x` value based on the year(`d.year`) and the `xScale` using this `d` function. This should become more clear as you progress through the project.
-*/
+    You will be passing your `data` array to this line function, where it will go through each item(`d`) and create an `x` value equal to the year(`d.year`).
+
+    This is the first place you will see a "`d` function". These are common in D3 to set data and that is how I will refer to them throughout this project.
+  */

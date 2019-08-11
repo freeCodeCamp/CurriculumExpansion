@@ -111,7 +111,8 @@ const pieGraph = rightDashboard.append('svg')
 
 const pieArc = d3.arc()
   .outerRadius(100)
+  
 
-/*
-  Chain the function `innerRadius(0)` to the arc. This is set to zero to make a traditional pie chart, you would use a larger number to create a doughnut chart.
-*/
+  /*
+    Chain the function `innerRadius(0)` to the arc. This is set to zero to make a traditional pie chart, you would use a larger number to create a doughnut chart.
+  */

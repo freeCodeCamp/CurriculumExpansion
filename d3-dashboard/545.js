@@ -158,6 +158,8 @@ const legendRows = legend.append('tbody')
   .enter()
   .append('tr');
 
-/*
-  On a new line, `append` a `td` to your `legendRows`. `td` is for an individual cell in the row of the table.
-*/
+
+
+  /*
+    On a new line, `append` a `td` to your `legendRows`. `td` is for an individual cell in the row of the table.
+  */

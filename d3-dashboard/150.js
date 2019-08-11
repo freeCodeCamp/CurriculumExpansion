@@ -20,6 +20,13 @@ const xScale = d3.scaleLinear()
 
 const yAxis = d3.axisLeft(yScale)
 
+
+  /*
+    There are a number of functions to work with how the "ticks" or axis labels are displayed; one of them is `ticks`. Chain a `ticks` function to your `yAxis` variable and pass it `6, '~s'`.
+
+    The `6` will set the number of ticks used to 6, and the `~s` will make the labels display the number of thousands followed by a `k`. For example, `4000` will become `4k`.
+  */
+
 const xAxis = d3.axisBottom(xScale)
 
 lineGraph.append('g')
@@ -35,9 +42,3 @@ lineGraph.append('g')
   .style('text-anchor', 'end')
   .style('cursor', 'pointer')
   .style('font', '10px verdana');
-
-/*
-  There a number of functions to work with how the "ticks" or axis labels are displayed; one of them is `ticks`. Go back up to where you created the `yAxis` variable and chain a `ticks` function to your `yAxis` variable and pass it `6, '~s'`.
-
-  The `6` will set the number of ticks used to 6, and the `~s` will make the labels display the number of thousands followed by a `k`. For example, `4000` will become `4k`.
-*/

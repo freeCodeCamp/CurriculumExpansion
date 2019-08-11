@@ -156,6 +156,7 @@ const legendRows = legend.append('tbody')
   .selectAll('tr')
   .data(d3.entries(data[8].followers))
 
-/*
-  Add the `enter` and `append` function to the selection. Pass the string `tr` to the `append` function.
-*/
+
+  /*
+    Add the `enter` and `append` function to the selection. Pass the string `tr` to the `append` function.
+  */

@@ -1,10 +1,16 @@
 function drawDashboard(year) {
-
+  const index;
 
   /*
-    At the top of the function create a new `const` named `index`. You are going to use it to find the item in the `data` array with the year that is the same as the one passed to the function.
-  */
+    Use JavaScript's `findIndex` function to set your `index` variable to the index of the item in the `data` array where the year is the same as the year passed to your `drawDashboard` function. Here's an example:
 
+  ```
+  array.findIndex(d => return the year here)
+  ```
+
+    After this, you can use `data[index]` to get that item in the array.
+  */
+  
   const svgMargin = 60,
     svgWidth = 700,
     svgHeight = 500,
@@ -188,3 +194,4 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
+  

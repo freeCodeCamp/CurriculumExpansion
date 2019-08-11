@@ -34,6 +34,7 @@ lineGraph.append('g')
   .style('transform', 'translate(-12px, 0) rotate(-50deg)')
   .style('text-anchor', 'end')
 
-/*
-  Add two more `style` functions; one to set the `cursor` to `pointer`, and another to set the `font` to `10px verdana`.
-*/
+  
+  /*
+    Add two more `style` functions; one to set the `cursor` to `pointer`, and another to set the `font` to `10px verdana`.
+  */

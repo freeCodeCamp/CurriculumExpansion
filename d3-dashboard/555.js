@@ -161,6 +161,7 @@ const legendRows = legend.append('tbody')
 legendRows.append('td')  
   .text(d => d.key)
 
-/*
-  This is the first column of your table. Set the `align` attribute to `right` to align the text to the right of each cell.
-*/
+
+  /*
+    This is the first column of your table. Set the `align` attribute to `right` to align the text to the right of each cell.
+  */

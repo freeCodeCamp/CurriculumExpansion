@@ -130,6 +130,7 @@ pieGraphData.append('path')
   .attr('d', pieArc)
   .attr('fill', d => pieColors(d.data.key))
 
-/*
-  Next, set the `stroke` attribute to `white` and the `stroke-width` attribute to `2`.
-*/
+
+  /*
+    Next, set the `stroke` attribute to `white` and the `stroke-width` attribute to `2`.
+  */

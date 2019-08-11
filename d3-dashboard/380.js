@@ -111,6 +111,7 @@ const pieGraph = rightDashboard.append('svg')
 
 const pieArc = d3.arc()
 
-/*
-  Chain the function `outerRadius(100)` to the arc. This will set the outer radius of the pie chart to 100.
-*/
+
+  /*
+    Chain the function `outerRadius(100)` to the arc. This will set the outer radius of the pie chart to 100.
+  */

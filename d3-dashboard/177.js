@@ -40,13 +40,10 @@ lineGraph.append('g')
   .style('font', '10px verdana');
 
 const twitterLine = d3.line()
-  .x(d => xScale(d.year))
-  .y(d => yScale(d.followers.twitter));
-
-lineGraph.append('path')
-  .attr('d', twitterLine(data))
-  
+  .x(d => d.year)
 
   /*
-    Add three more `attr` functions to the `path`; one to set the `stroke` to your `twitterColor` variable, another to set the `stroke-width` to `3`, and a third to set the `fill` to `transparent`.
+    The problem here is that the `svg` is only 700 wide, so setting the `x` values to the year will put them off the chart. You need to pass each year to the `xScale` and it will create `x` values based on your scale.
+
+    In the "`d` function", return the `xScale` function and pass it the year you already added.
   */

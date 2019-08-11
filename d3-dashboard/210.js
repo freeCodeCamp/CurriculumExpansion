@@ -51,9 +51,10 @@ lineGraph.append('path')
 
 const tumblrLine = d3.line()
   .x(d => xScale(d.year))
+  
 
-/*
-  Set the `y` values for the `tumblrLine` like you did for the `twitterLine`, except use `d.followers.tumblr` instead of `d.followers.twitter`.
+  /*
+    Set the `y` values for the `tumblrLine` by using a "`d` function" that returns your Tumblr followers for each data point.
 
-  So you can see that the `x` values for each line will be the same, but the `y` values will use the data from the different platforms.
-*/
+    So you can see that the `x` values for each line will be the same, but the `y` values will use the data from the different platforms.
+  */

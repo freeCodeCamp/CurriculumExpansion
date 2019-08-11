@@ -102,8 +102,46 @@ lineGraph.selectAll('instagram-circles')
   .attr('stroke', instagramColor)
   .style('cursor', 'pointer')
 
+const rightDashboard = d3.select('.dashboard')
+  .append('div');
 
+const pieGraph = rightDashboard.append('svg')
+  .attr('width', 200)
+  .attr('height', 200)
+
+const pieArc = d3.arc()
+  .outerRadius(100)
+  .innerRadius(0);
+
+const pieColors = d3.scaleOrdinal()  
+  .domain(data[8].followers)
+  .range([twitterColor, tumblrColor, instagramColor]);
+
+const pie = d3.pie()
+  .value(d => d.value);
   
-/*
-  The line graph is looking good. Next, you are going to add a `div` to put the pie graph and legend in. Create a new `const` variable named `rightDashboard` and set equal to `d3.select('.dashboard')`.
-*/
+const pieGraphData = pieGraph.selectAll('pieSlices')
+  .data(pie([]))
+
+
+  /*
+    You want the array passed to `pie` to be an array of key/value objects for the 2020 followers. `d3.entries` will build that array for you. Here's how that looks:
+
+    ```
+    d3.entries(data[8].followers))
+    ```
+
+    The array that the `d3.entries` function builds looks like this:
+
+    ```
+    [
+      { key: 'twitter', value: 2845 },
+      { key: 'tumblr', value: 2040 },
+      { key: 'instagram', value: 4801 }
+    ]
+    ```
+
+    This is where the `value` comes from in your `pie` variable.
+    
+    Add the `d3.entries` function as your `pie` argument. Use it to create the above array.
+  */

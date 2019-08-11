@@ -109,6 +109,11 @@ const pieGraph = rightDashboard.append('svg')
   .attr('width', 200)
   .attr('height', 200)
 
+
+  /*
+    Finally, on your `pieGraph` variable, add a `position` of `relative` and a `left` of `20px` using `style` functions.
+  */
+
 const pieArc = d3.arc()
   .outerRadius(100)
   .innerRadius(0);
@@ -176,7 +181,3 @@ legendRows.append('td')
 legendRows.append('td')
   .text(d => d.value)
   .attr('align', 'left');
-
-/*
-  Finally, go back up to where you created the `pieGraph` variable and add a `position` of `relative` and a `left` of `20px` using `style` functions.
-*/

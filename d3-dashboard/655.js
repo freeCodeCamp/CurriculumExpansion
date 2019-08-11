@@ -106,6 +106,11 @@ function drawDashboard(year) {
     .attr('cy', d => yScale(d.followers.instagram))
     .attr('r', 6)
     .attr('fill', 'white')
+
+    /*
+      Change the `fill` of the `tumblr-circles` and `instagram-circles` to use a "`d` function" that returns their respective colors variables when `d.year` equals `year`, leave it `white` when they don't.
+    */
+
     .attr('stroke', instagramColor)
     .style('cursor', 'pointer')
     .on('mouseover', d => drawDashboard(d.year));
@@ -189,7 +194,3 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
-
-/*
-  Change the `fill` of the `tumblr-circles` and `instagram-circles` to use a `d` function that returns their respective colors variables when `d.year` equals `year`, leave it `white` when they don't.
-*/

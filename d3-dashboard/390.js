@@ -113,6 +113,8 @@ const pieArc = d3.arc()
   .outerRadius(100)
   .innerRadius(0);
 
+
+  
 /*
   The pie chart needs a scale to set the colors. Create a new `const` named `pieColors` and set it equal to `d3.scaleOrdinal()`. An ordinal scale is for a set of data that will have exactly one item in the range specifically for it.
   

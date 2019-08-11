@@ -154,6 +154,7 @@ const legendTitle = legend.append('thead')
 
 const legendRows = legend.append('tbody')
 
-/*
-  Add a `selectAll` function to the selection and pass it the string `tr`.
-*/
+
+  /*
+    Add a `selectAll` function to the selection and pass it the string `tr`.
+  */

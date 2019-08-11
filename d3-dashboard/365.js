@@ -105,6 +105,8 @@ lineGraph.selectAll('instagram-circles')
 const rightDashboard = d3.select('.dashboard')
   .append('div');
 
+  
+
 /*
   Create a new `const` variable named `pieGraph` and set it equal to `rightDashboard.append('svg')`. This will be another `svg` element for the pie graph.
 */

@@ -107,6 +107,7 @@ const rightDashboard = d3.select('.dashboard')
 
 const pieGraph = rightDashboard.append('svg')
 
-/*
-  Add two `attr` functions that set the `width` to `200` and the `height` to `200` of the `svg`.
-*/
+
+  /*
+    Add two `attr` functions that set the `width` to `200` and the `height` to `200` of the `svg`.
+  */

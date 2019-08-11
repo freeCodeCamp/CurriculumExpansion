@@ -55,6 +55,7 @@ const tumblrLine = d3.line()
 
 lineGraph.append('path')
 
-/*
-  For the new `path`, set the `d` attribute to `tumblrLine(data)` using the `attr` function.
-*/
+
+  /*
+    For the new `path`, set the `d` attribute to `tumblrLine(data)` using the `attr` function.
+  */

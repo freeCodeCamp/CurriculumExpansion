@@ -71,6 +71,7 @@ lineGraph.append('path')
   
 lineGraph.selectAll('twitter-circles')  
 
-/*
-  Add the `data` function to your selection and pass it the data variable like this: `.data(data)`.
-*/
+
+  /*
+    Add the `data` function to your selection and pass it the data variable like this: `.data(data)`.
+  */

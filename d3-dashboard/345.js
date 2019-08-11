@@ -98,6 +98,7 @@ lineGraph.selectAll('instagram-circles')
   .attr('cx', d => xScale(d.year))
   .attr('cy', d => yScale(d.followers.instagram))
   
-/*
-  Use the `attr` function to set the `r` to `6`, the `fill` to `white`, and the `stroke` to your `instagramColor` variable.
-*/
+  
+  /*
+    Use the `attr` function to set the `r` to `6`, the `fill` to `white`, and the `stroke` to your `instagramColor` variable.
+  */

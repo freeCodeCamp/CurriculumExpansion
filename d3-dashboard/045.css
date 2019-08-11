@@ -7,8 +7,11 @@ body {
   height: 500px;
   background-color: white;
   box-shadow: 5px 5px 5px 5px #888;
+
+
+  /*
+    Center the dashboard container by adding a `margin` of `auto` to it.
+  */
 }
 
-/*
-  Center the dashboard container by adding a `margin` of `auto` to it.
-*/
+

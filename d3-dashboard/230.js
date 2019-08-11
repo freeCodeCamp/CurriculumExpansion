@@ -59,6 +59,8 @@ lineGraph.append('path')
   .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
+
+  
 /*
   Only one more line to add for the Instagram followers. On a new line, create a new `const` named `instagramLine` and set it equal to `d3.line()`.
 */

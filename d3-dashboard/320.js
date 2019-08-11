@@ -87,6 +87,7 @@ lineGraph.selectAll('tumblr-circles')
   .attr('cx', d => xScale(d.year))
   .attr('cy', d => yScale(d.followers.tumblr))
 
-/*
-  Use the `attr` function to set the `r` to `6`, the `fill` to `white`, and the `stroke` to your `tumblrColor` variable.
-*/
+  
+  /*
+    Use the `attr` function to set the `r` to `6`, the `fill` to `white`, and the `stroke` to your `tumblrColor` variable.
+  */

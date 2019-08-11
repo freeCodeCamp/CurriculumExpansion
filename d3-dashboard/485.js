@@ -138,7 +138,8 @@ pieGraphData.selectAll('pieSliceText')
   .append('text')
   .text(d => `${Math.round(d.data.value/d3.sum(d3.values(data[8].followers))*100)}%`)
   .attr('transform', d => `translate(${pieArc.centroid(d)})`)
+
   
-/*
-  Change the `style` of the text to give it a `text-anchor` of `middle` and a `font` of `10px verdana`.
-*/
+  /*
+    Change the `style` of the text to give it a `text-anchor` of `middle` and a `font` of `10px verdana`.
+  */

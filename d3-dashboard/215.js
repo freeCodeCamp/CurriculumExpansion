@@ -53,6 +53,8 @@ const tumblrLine = d3.line()
   .x(d => xScale(d.year))
   .y(d => yScale(d.followers.tumblr));
 
+
+  
 /*
   On a new line, `append` a `path` element to the `lineGraph` variable. This one will be for displaying the `tumblrLine`.
 */

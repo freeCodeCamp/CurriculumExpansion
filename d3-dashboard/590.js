@@ -171,6 +171,7 @@ legendRows.append('td')
 
 legendRows.append('td')
 
-/*
-  Set the `text` to a `d` function that returns `d.value`.
-*/
+
+  /*
+    Set the `text` to a "`d` function" that returns `d.value`.
+  */

@@ -1,5 +1,10 @@
 body {
   background-color: #ccc;
+
+
+  /*
+    Move the container down a little by adding a `margin` of `100px 10px` to the `body` element.
+  */
 }
 
 .dashboard {
@@ -9,7 +14,3 @@ body {
   box-shadow: 5px 5px 5px 5px #888;
   margin: auto;
 }
-
-/*
-  Move the container down a little by adding a `margin` of `100px 10px` to the `body` element.
-*/

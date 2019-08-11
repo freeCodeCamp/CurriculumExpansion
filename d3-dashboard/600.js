@@ -152,6 +152,11 @@ const legendTitle = legend.append('thead')
   .text('2020 followers')
   .attr('colspan', 3)
 
+
+  /*
+    The title looks a little misaligned. On your `legendTitle` variable, set the `position` to `relative` and the `left` to `20px` using `style` functions.
+  */
+
 const legendRows = legend.append('tbody')
   .selectAll('tr')
   .data(d3.entries(data[8].followers))
@@ -172,7 +177,3 @@ legendRows.append('td')
 legendRows.append('td')
   .text(d => d.value)
   .attr('align', 'left');
-
-/*
-  The title looks a little misaligned. Go back to the `legendTitle` area and set the `position` to `relative` and the `left` to `20px` using `style` functions.
-*/

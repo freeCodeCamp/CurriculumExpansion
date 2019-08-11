@@ -101,6 +101,7 @@ lineGraph.selectAll('instagram-circles')
   .attr('fill', 'white')
   .attr('stroke', instagramColor)
 
-/*
-  Set the `cursor` to `pointer` using the `style` function.
-*/
+  
+  /*
+    Set the `cursor` to `pointer` using the `style` function.
+  */

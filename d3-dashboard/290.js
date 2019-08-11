@@ -75,7 +75,8 @@ lineGraph.selectAll('twitter-circles')
   .append('circle')
   .attr('cx', d => xScale(d.year))
   .attr('cy', d => yScale(d.followers.twitter))
+  
 
-/*
-  Circles also need an `r` (radius) attribute. Use the `attr` function to set the `r` to `6`.
-*/
+  /*
+    Circles also need an `r` (radius) attribute. Use the `attr` function to set the `r` to `6`.
+  */

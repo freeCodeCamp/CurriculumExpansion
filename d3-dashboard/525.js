@@ -152,6 +152,8 @@ const legendTitle = legend.append('thead')
   .text('2020 followers')
   .attr('colspan', 3)
 
+  
+
 /*
   Create a new `const` named `legendRows` and use it to `append` a `tbody` element to your `legend` variable. The `tbody` is for the rest of the content of the table.
 */

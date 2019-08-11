@@ -18,6 +18,8 @@ const xScale = d3.scaleLinear()
   .domain([2012, 2020])
   .range([svgMargin, svgWidth - svgMargin]);
 
+  
+
 /*
   Now that you have some scales, you can create some axes using those scales. Create a new `const` named `yAxis` and set it equal to `d3.axisLeft(yScale)`. This will create an axis for the left of the graph; it uses the information from the `yScale` variable to build the axis.
 */

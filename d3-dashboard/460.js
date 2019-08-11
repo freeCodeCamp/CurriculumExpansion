@@ -132,6 +132,8 @@ pieGraphData.append('path')
   .attr('stroke', 'white')
   .attr('stroke-width', 2);
 
+
+  
 /*
   Now you are going to add some labels to the pie chart. On a new line type `pieGraphData.selectAll('pieSliceText')`.
 */

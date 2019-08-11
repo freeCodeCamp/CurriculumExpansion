@@ -90,6 +90,7 @@ lineGraph.selectAll('tumblr-circles')
   .attr('fill', 'white')
   .attr('stroke', tumblrColor)
 
-/*
-  Set the `cursor` to `pointer` using the `style` function.
-*/
+  
+  /*
+    Set the `cursor` to `pointer` using the `style` function.
+  */
