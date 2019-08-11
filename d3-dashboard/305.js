@@ -80,6 +80,8 @@ lineGraph.selectAll('twitter-circles')
   .attr('stroke', twitterColor)
   .style('cursor', 'pointer')
 
+  
+
 /*
   On a new line, use the `selectAll` function on your `lineGraph` variable again and pass it the string `tumblr-circles`.
 */

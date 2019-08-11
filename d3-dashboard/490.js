@@ -141,6 +141,8 @@ pieGraphData.selectAll('pieSliceText')
   .style('text-anchor', 'middle')
   .style('font', '10px verdana');
 
+
+  
 /*
   The last component you are going to add it a legend to display the name of each platform and the number of followers for the year. Create a new `const` named `legend` and use it to `append` a `table` to your `rightDashboard` variable. This looks similar to the code where you created your `pieGraph` variable.
 */

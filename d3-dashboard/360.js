@@ -104,6 +104,7 @@ lineGraph.selectAll('instagram-circles')
 
 const rightDashboard = d3.select('.dashboard')
 
-/*
-  Use `append` to add a `div` element to the selection.
-*/
+
+  /*
+    Use `append` to add a `div` element to the selection.
+  */

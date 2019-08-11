@@ -69,12 +69,10 @@ lineGraph.append('path')
   .attr('stroke-width', 3)
   .attr('fill', 'transparent');
   
-/*
-  The lines look a little plain, the next series of code additions will add circles to each point on each line. First is the twitter line. On a new line, use the `selectAll` function on your `lineGraph` and pass it the string `twitter-circles`. Here's how that looks:
 
-```
-lineGraph.selectAll('twitter-circles')
-```
+  
+/*
+  The lines look a little plain, the next series of code additions will add circles to each point on each line. First is the Twitter line. On a new line, chain the `selectAll` function to `lineGraph` and pass it the string `twitter-circles`.
 
   `twitter-circles` don't exist and this selection will return an empty array, but it's needed. For now, you can just think of this name as a reference, similar to a variable name, so you know what data you are working with.
 */

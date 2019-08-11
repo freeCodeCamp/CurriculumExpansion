@@ -117,6 +117,8 @@ const pieColors = d3.scaleOrdinal()
   .domain(data[8].followers)
   .range([twitterColor, tumblrColor, instagramColor]);
 
+
+  
 /*
   Create a new `const` named `pie` and set it equal to `d3.pie()`. This is the D3 pie chart generator.
 */

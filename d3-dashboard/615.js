@@ -179,8 +179,10 @@ legendRows.append('td')
   .text(d => d.value)
   .attr('align', 'left');
 
+
+
 /*
   The dashboard is looking pretty good, but it is stuck on displaying only the data from 2020. Next you will make it so you can see the data from whatever year you want.
 
-  Wrap all the code in this file in a function named `drawDashboard` and give it a parameter named `year`. At the bottom, call the function you created and pass it `2020`.
+  Wrap all the code in this file in a function named `drawDashboard` and give it a parameter named `year`. Then, at the bottom, call the function you created and pass it `2020`.
 */

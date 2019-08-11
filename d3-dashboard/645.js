@@ -82,6 +82,11 @@ function drawDashboard(year) {
     .attr('cy', d => yScale(d.followers.twitter))
     .attr('r', 6)
     .attr('fill', 'white')
+
+    /*
+      Similar to how you made the text bold for the label of the displayed year; change the `fill` of the `twitter-circles` to use a `d` function that returns the `twitterColor` when `d.year` equals `year`, and leave it `white` if it doesn't.
+    */
+   
     .attr('stroke', twitterColor)
     .style('cursor', 'pointer')
     .on('mouseover', d => drawDashboard(d.year));
@@ -187,7 +192,3 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
-
-/*
-  Similar to how you made the text bold for the label of the displayed year; change the `fill` of the `twitter-circles` to use a `d` function that returns the `twitterColor` when `d.year` equals `year`, and leave it `white` if it doesn't.
-*/

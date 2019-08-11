@@ -41,11 +41,12 @@ lineGraph.append('g')
 
 const twitterLine = d3.line()
   .x(d => xScale(d.year))
+  
 
-/*
-  Add the `y` function to the line and pass it the function `d => yScale(d.followers.twitter)` similar to how you did for the `x` values.
+  /*
+    Add the `y` function to the line and pass it a "`d` function" that returns your `yScale` with `d.followers.twitter` as its argument.
 
-  This will use the `followers.twitter` value to set the `y` value for each item.
+    This is similar to how you set the `x` values; it will use the values of your Twitter followers to set the `y` value for each item.
 
-  These `d` functions use implicit returns; but if you add curly brackets and a return statement, you can put any functionality in there that you want, including `console.log` statements that can be useful for debugging.
-*/
+    These "`d` functions" use implicit returns; but if you add curly brackets and a return statement, you can put any functionality in there that you want, including `console.log` statements that can be useful for debugging.
+  */

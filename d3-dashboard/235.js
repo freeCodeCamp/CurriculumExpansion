@@ -61,6 +61,7 @@ lineGraph.append('path')
 
 const instagramLine = d3.line()  
 
+
 /*
-  Set the `x` values for the `instagramLine` in the exact same way that you set them for `twitterLine` and `tumblrLine`.
+  Set the `x` values for the `instagramLine`. Use a "`d` function" to return the `value` of each data point.
 */

@@ -155,6 +155,7 @@ const legendTitle = legend.append('thead')
 const legendRows = legend.append('tbody')
   .selectAll('tr')
 
-/*
-  Use the `data` function to set the data for the rows to an array of your followers. To get the array use `d3.entries(data[8].followers)`. Remember, this will create an array of key/value pairs of your followers.
-*/
+
+  /*
+    Use the `data` function to set the data for the rows to an array of your followers. To get the array use `d3.entries(data[8].followers)`. Remember, this will create an array of key/value pairs of your followers.
+  */

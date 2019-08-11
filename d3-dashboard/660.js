@@ -162,6 +162,11 @@ function drawDashboard(year) {
     .append('tr')
     .append('th')
     .text('2020 followers')
+
+    /*
+      Change the `text` of the `legendTitle` to this string literal `${year} followers`. That's it, your dashboard is finished!
+    */
+
     .attr('colspan', 3)
     .style('position', 'relative')
     .style('left', '20px');
@@ -189,7 +194,3 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
-
-/*
-  Change the `text` of the `legendTitle` to this string literal `${year} followers`. That's it, your dashboard is finished!
-*/

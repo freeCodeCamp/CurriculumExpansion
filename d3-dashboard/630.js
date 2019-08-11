@@ -42,6 +42,17 @@ function drawDashboard(year) {
     .style('cursor', 'pointer')
     .style('font', '10px verdana')
 
+
+    /*
+      Create a `mouseover` event for your x-axis labels. Chain the `on` function to them and pass it the string `mouseover` and give it a value of a "`d` function" that calls the `drawDashboard` function with `d` as the argument. It will look like this:
+
+      ```
+      .on('mouseover', d => drawDashboard(d))
+      ```
+
+      So now, when you hover a label, the function will be called with the year that is being hovered.
+    */
+
   const twitterLine = d3.line()
     .x(d => xScale(d.year))
     .y(d => yScale(d.followers.twitter));
@@ -184,13 +195,3 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
-
-/*
-  Create a `mouseover` event for your x-axis labels. Go back up to where you created them and chain the `on` function at the bottom. Pass it the string `mouseover` and give it a value of a `d` function that calls the `drawDashboard` function with `d` as the argument. It will look like this:
-
-```
-.on('mouseover', d => drawDashboard(d))
-```
-
-  So now, when you hover a label, the function will be called with the year that is being hovered.
-*/

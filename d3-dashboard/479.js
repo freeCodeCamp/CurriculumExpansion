@@ -140,13 +140,14 @@ pieGraphData.selectAll('pieSliceText')
     const values = d3.values(data[8].followers);
     const sum = d3.sum(values);
     const percent = d.data.value/sum;
+
+
+    /*
+      Your `percent` value is a number less than one. You will need to multiply it by 100, round of the decimals, and add a `%` sign. Use a template literal to return this to the `text` function:
+
+      ```
+      ${Math.round(percent*100)}%
+      ```
+
+    */
   })
-
-/*
-  Your `percent` value is a number less than one. You will need to multiply it by 100, round of the decimals, and add a `%` sign. Use a template literal to return this to the `text` function:
-
-```
-${Math.round(percent*100)}%
-```
-
-*/

@@ -76,7 +76,8 @@ lineGraph.selectAll('twitter-circles')
   .attr('cx', d => xScale(d.year))
   .attr('cy', d => yScale(d.followers.twitter))
   .attr('r', 6)
+  
 
-/*
-  Set two more attributes; the `fill` to `white` and the `stroke` to your `twitterColor` variable.
-*/
+  /*
+    Set two more attributes; the `fill` to `white` and the `stroke` to your `twitterColor` variable.
+  */

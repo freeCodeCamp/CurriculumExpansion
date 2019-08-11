@@ -10,6 +10,8 @@ const lineGraph = d3.select('.dashboard')
   .attr('width', svgWidth)
   .attr('height', svgHeight);
 
+
+  
 /*
   Your line graph needs some scales so it knows how to translate the data into visual distances.
   

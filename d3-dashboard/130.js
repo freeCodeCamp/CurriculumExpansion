@@ -22,6 +22,8 @@ const yAxis = d3.axisLeft(yScale)
 
 const xAxis = d3.axisBottom(xScale)
 
+
+
 /*
   On a new line, append a new `g` element to your `lineGraph` variable. `lineGraph.append('g')` will do that for you. This will add a `g` to your `svg` and be for displaying the y-axis.
 */

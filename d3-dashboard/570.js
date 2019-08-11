@@ -165,6 +165,7 @@ legendRows.append('td')
 legendRows.append('td')
   .attr('align', 'center')
 
-/*
-  Append a `div` element to the selection.
-*/
+
+  /*
+    Append a `div` element to the selection.
+  */

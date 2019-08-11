@@ -45,6 +45,7 @@ const twitterLine = d3.line()
 
 lineGraph.append('path')
 
-/*
-  Tell the path what data to use. Add an `attr` function and set the `d` to `twitterLine(data)`. This will the build the path out of the data using the `twitterLine` function you created.
-*/
+
+  /*
+    Tell the path what data to use. Add an `attr` function and set the `d` to `twitterLine(data)`. This will the build the path out of the data using the `twitterLine` function you created.
+  */

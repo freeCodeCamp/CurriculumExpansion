@@ -115,6 +115,7 @@ const pieArc = d3.arc()
 
 const pieColors = d3.scaleOrdinal()  
 
-/*
-  Use the `domain` function on the scale and pass it the value `data[8].followers`. This will be an array of the data from 2020 that contains three items, one for each platform.
-*/
+
+  /*
+    Use the `domain` function on the scale and pass it the value `data[8].followers`. This will be an array of the data from 2020 that contains three items, one for each platform.
+  */

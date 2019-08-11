@@ -29,6 +29,7 @@ lineGraph.append('g')
 
 lineGraph.append('g')
 
-/*
-  Use the `call` function on the selection and pass it the `xAxis` variable this time.
-*/
+
+  /*
+    Use the `call` function on the selection and pass it the `xAxis` variable this time.
+  */

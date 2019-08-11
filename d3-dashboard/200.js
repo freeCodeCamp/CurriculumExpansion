@@ -49,6 +49,8 @@ lineGraph.append('path')
   .attr('stroke-width', 3)
   .attr('fill', 'transparent');
 
+
+  
 /*
   On a new line, create a new `const` named `tumblrLine` and set it equal to `d3.line()`.
 */

@@ -123,6 +123,7 @@ const pie = d3.pie()
 const pieGraphData = pieGraph.selectAll('pieSlices')
   .data(pie(d3.entries(data[8].followers)))
 
-/*
-  Add the `enter` function to the current selection.
-*/
+
+  /*
+    Add the `enter` function to the current selection.
+  */

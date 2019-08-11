@@ -33,6 +33,7 @@ lineGraph.append('g')
   .selectAll('text')
   .style('transform', 'translate(-12px, 0) rotate(-50deg)')
 
-/*
-  Use another `style` function to set the `text-anchor` to `end`. This will change the spot that each text element rotates around to the `end` of the element so they will align better.
-*/
+  
+  /*
+    Use another `style` function to set the `text-anchor` to `end`. This will change the spot that each text element rotates around to the `end` of the element so they will align better.
+  */

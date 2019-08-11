@@ -166,6 +166,7 @@ legendRows.append('td')
   .attr('align', 'center')
   .append('div')
 
-/*
-  Set the `width` to `16px` and the `height` to `16px` using the `style` function.
-*/
+
+  /*
+    Set the `width` to `16px` and the `height` to `16px` using the `style` function.
+  */

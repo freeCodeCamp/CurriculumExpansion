@@ -172,6 +172,7 @@ legendRows.append('td')
 legendRows.append('td')
   .text(d => d.value)
 
-/*
-  Set the `align` attribute to `left` for this column.
-*/
+
+  /*
+    Set the `align` attribute to `left` for this column.
+  */

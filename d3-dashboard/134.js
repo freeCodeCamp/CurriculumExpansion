@@ -27,6 +27,8 @@ lineGraph.append('g')
   .attr('transform', `translate(${svgMargin}, 0)`)
   .style('font', '10px verdana');
 
+
+  
 /*
   On a new line, append another `g` element to your `lineGraph` variable like you did before. This one will be for the x-axis.
 */

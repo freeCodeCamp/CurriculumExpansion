@@ -122,22 +122,7 @@ const pie = d3.pie()
   
 const pieGraphData = pieGraph.selectAll('pieSlices')
 
-/*
-  Add the `data` function to the selection. You want to pass it your `pie` function with an array of key/value objects for the 2020 followers. `d3.entries` will build that array for you. Here's how that looks:
 
-```
-.data(pie(d3.entries(data[8].followers)))
-```
-
-  The array that the `d3.entries` function builds looks like this:
-
-```
-[
-  { key: 'twitter', value: 2845 },
-  { key: 'tumblr', value: 2040 },
-  { key: 'instagram', value: 4801 }
-]
-```
-
-  This is where the `value` comes from in your `pie` variable.
-*/
+  /*
+    Add the `data` function to the selection. Pass it your `pie` function with an empty array for now. The next step will get the correct array to put there.
+  */

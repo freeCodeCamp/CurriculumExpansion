@@ -124,6 +124,7 @@ const pieGraphData = pieGraph.selectAll('pieSlices')
   .data(pie(d3.entries(data[8].followers)))
   .enter()
 
-/*
-  Use the `append` function to add a `g` element for each point of data.
-*/
+
+  /*
+    Use the `append` function to add a `g` element for each point of data.
+  */

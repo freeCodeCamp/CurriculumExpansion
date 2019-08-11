@@ -145,6 +145,7 @@ const legend = rightDashboard.append('table')
   .attr('width', 200)
   .attr('height', 120)
 
-/*
-  Change the `style` of the `table` to have a `font` of `12px verdana`.
-*/
+
+  /*
+    Change the `style` of the `table` to have a `font` of `12px verdana`.
+  */

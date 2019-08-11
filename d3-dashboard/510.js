@@ -148,6 +148,7 @@ const legend = rightDashboard.append('table')
 
 const legendTitle = legend.append('thead')
 
-/*
-  `append` a `tr` element to the selection and then append a `th` element right after it. `tr` is for defining a row of the table, and `th` is for defining the header cells of the table.
-*/
+
+  /*
+    `append` a `tr` element to the selection and then append a `th` element right after it. `tr` is for defining a row of the table, and `th` is for defining the header cells of the table.
+  */

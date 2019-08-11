@@ -146,6 +146,11 @@ const legend = rightDashboard.append('table')
   .attr('height', 120)
   .style('font', '12px verdana')
 
+
+  /*
+    The legend and pie graph look a little off as well. On your `legend` variable, add a `position` of `relative` and a `top` of `30px` using `style` functions.
+  */
+
 const legendTitle = legend.append('thead')
   .append('tr')
   .append('th')
@@ -174,7 +179,3 @@ legendRows.append('td')
 legendRows.append('td')
   .text(d => d.value)
   .attr('align', 'left');
-
-/*
-  The legend and pie graph look a little off as well. Go back up to where you created the `legend` variable and add a `position` of `relative` and a `top` of `30px` using `style` functions.
-*/

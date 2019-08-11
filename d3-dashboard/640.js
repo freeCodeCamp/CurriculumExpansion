@@ -85,6 +85,10 @@ function drawDashboard(year) {
     .attr('stroke', twitterColor)
     .style('cursor', 'pointer')
 
+    /*
+      Create another `mouseover` event for when you hover one of the `twitter-circles`. It will look like the other `mouseover` event you created except the `drawDashboard` function will take `d.year` instead of `d`.
+    */
+
   lineGraph.selectAll('tumblr-circles')
     .data(data)
     .enter()
@@ -186,7 +190,3 @@ function drawDashboard(year) {
 }
 
 drawDashboard(2020);
-
-/*
-  Create another `mouseover` event for when you hover one of the `twitter-circles`. It will look like the other `mouseover` event you created except the `drawDashboard` function will take `d.year` instead of `d`.
-*/

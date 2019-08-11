@@ -119,6 +119,8 @@ const pieColors = d3.scaleOrdinal()
 
 const pie = d3.pie()
   .value(d => d.value);
+
+  
   
 /*
   Create a new `const` named `pieGraphData` and set the value equal to `pieGraph.selectAll('pieSlices')`. This is similar to the circles you created earlier.

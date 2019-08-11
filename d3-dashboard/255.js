@@ -66,6 +66,7 @@ const instagramLine = d3.line()
 lineGraph.append('path')
   .attr('d', instagramLine(data))
 
-/*
-  Set these attributes: `stroke` to your `instagramColor` variable, `stroke-width` to `3`, and `fill` to `transparent`.
-*/
+  
+  /*
+    Set these attributes: `stroke` to your `instagramColor` variable, `stroke-width` to `3`, and `fill` to `transparent`.
+  */

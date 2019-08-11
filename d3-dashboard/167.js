@@ -24,6 +24,11 @@ const yAxis = d3.axisLeft(yScale)
 const xAxis = d3.axisBottom(xScale)
   .tickFormat(d3.format(''))
 
+  
+  /*
+    Chain a `tickPadding` function to the `xAxis` and pass it `10`. This will add a little padding to the ticks.
+  */
+
 lineGraph.append('g')
   .call(yAxis)
   .attr('transform', `translate(${svgMargin}, 0)`)
@@ -38,6 +43,3 @@ lineGraph.append('g')
   .style('cursor', 'pointer')
   .style('font', '10px verdana');
   
-/*
-  Chain a `tickPadding` function to the `xAxis` and pass it `10`. This will add a little padding to the ticks.
-*/

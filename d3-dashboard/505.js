@@ -146,6 +146,8 @@ const legend = rightDashboard.append('table')
   .attr('height', 120)
   .style('font', '12px verdana')
 
+  
+
 /*
   Create a new `const` named `legendTitle` and use it to `append` a `thead` to your `legend` variable. `thead` is for use with the HTML table element and is for the top row of the table.
 */

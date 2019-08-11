@@ -61,7 +61,8 @@ lineGraph.append('path')
 
 const instagramLine = d3.line()
   .x(d => xScale(d.year))
-    
-/*
-  Set the `y` values for the `instagramLine` like you did for the other two, except use `d.followers.instagram` this time.
-*/
+
+
+  /*
+    Set the `y` values for the `instagramLine`. Use a "`d` function" to return the value of your Instagram followers for each data point.
+  */

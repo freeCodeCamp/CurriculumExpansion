@@ -64,6 +64,7 @@ const instagramLine = d3.line()
   .y(d => yScale(d.followers.instagram));
 
 
+  
 /*
   On a new line, `append` another `path` element to your `lineGraph`, like you did for the other two lines.
 */

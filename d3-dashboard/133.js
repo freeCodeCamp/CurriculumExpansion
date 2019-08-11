@@ -25,7 +25,8 @@ const xAxis = d3.axisBottom(xScale)
 lineGraph.append('g')
   .call(yAxis)
   .attr('transform', `translate(${svgMargin}, 0)`)
+  
 
-/*
-  `style` is a function similar to `attr` but is more for setting CSS styles rather than element attributes. Add a `style` function to the selection that sets the `font` to `10px verdana`.
-*/
+  /*
+    `style` is a function similar to `attr` but is more for setting CSS styles rather than element attributes. Add a `style` function to the selection that sets the `font` to `10px verdana`.
+  */

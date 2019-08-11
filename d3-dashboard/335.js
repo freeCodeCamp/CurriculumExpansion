@@ -93,6 +93,7 @@ lineGraph.selectAll('tumblr-circles')
 
 lineGraph.selectAll('instagram-circles')
 
-/*
-  Add the same `data`, `enter`, and `append` functions here that you added for the other two, passing in the same arguments and in the same order.
-*/
+
+  /*
+    Add the same `data`, `enter`, and `append` functions here that you added for the other two, passing in the same arguments and in the same order.
+  */

@@ -143,6 +143,7 @@ pieGraphData.selectAll('pieSliceText')
 
 const legend = rightDashboard.append('table')
 
-/*
-  Set the `attributes` of the table to have a `width` of `200` and a `height` of `120`.
-*/
+
+  /*
+    Set the `attributes` of the table to have a `width` of `200` and a `height` of `120`.
+  */

@@ -116,6 +116,7 @@ const pieArc = d3.arc()
 const pieColors = d3.scaleOrdinal()  
   .domain(data[8].followers)
 
-/*
-  Since the domain has three items, the range also needs to have three items. If it had less, the values would repeat, putting the same color on the pie chart multiple times. Add the `range` function to the scale and pass it this array: `[twitterColor, tumblrColor, instagramColor]`.
-*/
+  
+  /*
+    Since the domain has three items, the range also needs to have three items. If it had less, the values would repeat, putting the same color on the pie chart multiple times. Add the `range` function to the scale and pass it this array: `[twitterColor, tumblrColor, instagramColor]`.
+  */

@@ -169,6 +169,8 @@ legendRows.append('td')
   .style('height', '16px')
   .style('background-color', d => pieColors(d.key))
 
+
+
 /*
   On a new line, append another `td` to the `legendRows` variable for the last column.
 */

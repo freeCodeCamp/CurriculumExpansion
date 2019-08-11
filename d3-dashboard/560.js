@@ -162,6 +162,8 @@ legendRows.append('td')
   .text(d => d.key)
   .attr('align', 'right');
 
-/*
-  On a new line, append another `td` element to your `legendRows` variable. This will be for colored squares in the center column.
-*/
+
+
+  /*
+    On a new line, append another `td` element to your `legendRows` variable. This will be for colored squares in the center column.
+  */

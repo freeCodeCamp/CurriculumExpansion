@@ -158,8 +158,9 @@ const legendRows = legend.append('tbody')
   .enter()
   .append('tr');
 
-legendRows.append('td')  
+legendRows.append('td')
 
-/*
-  Set the `text` of the `td` to the `key` of each data point using a `d` function to return `d.key`.
-*/
+
+  /*
+    Set the `text` of the `td` to the `key` of each data point using a `d` function to return `d.key`.
+  */

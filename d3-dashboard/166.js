@@ -23,6 +23,11 @@ const yAxis = d3.axisLeft(yScale)
 
 const xAxis = d3.axisBottom(xScale)
 
+
+  /*
+    Chain a `tickFormat` function to your `xAxis` variable and pass it `d3.format('')`. This will remove the commas in the year labels of the x-axis.
+  */
+
 lineGraph.append('g')
   .call(yAxis)
   .attr('transform', `translate(${svgMargin}, 0)`)
@@ -37,6 +42,4 @@ lineGraph.append('g')
   .style('cursor', 'pointer')
   .style('font', '10px verdana');
 
-/*
-  Now go to where you created the `xAxis` variable and chain a `tickFormat` function to it; pass it `d3.format('')`. This will remove the commas in the year labels of the x-axis.
-*/
+

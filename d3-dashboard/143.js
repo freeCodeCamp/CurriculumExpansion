@@ -31,7 +31,8 @@ lineGraph.append('g')
   .call(xAxis)
   .attr('transform', `translate(0, ${svgHeight - svgMargin})`)
   .selectAll('text')
+  
 
-/*
-  I want the `text` elements to be rotated slightly. Use the `style` function to set the `transform` to `translate(-12px, 0) rotate(-50deg)`. This will put them at an angle.
-*/
+  /*
+    I want the `text` elements to be rotated slightly. Use the `style` function to set the `transform` to `translate(-12px, 0) rotate(-50deg)`. This will put them at an angle.
+  */

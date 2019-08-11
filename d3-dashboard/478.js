@@ -139,8 +139,9 @@ pieGraphData.selectAll('pieSliceText')
   .text(d => {
     const values = d3.values(data[8].followers);
     const sum = d3.sum(values);
-  })
 
-/*
-  Create another variable named `percent` and set it equal to `d.data.value` divided by your `sum` variable.
-*/
+
+    /*
+      Create another variable named `percent` and set it equal to `d.data.value` divided by your `sum` variable.
+    */
+  })

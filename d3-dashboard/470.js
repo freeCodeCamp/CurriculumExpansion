@@ -135,6 +135,7 @@ pieGraphData.append('path')
 pieGraphData.selectAll('pieSliceText')
   .data(pie(d3.entries(data[8].followers)))
 
-/*
-  Add the `enter` and `append` functions in that order. Add `text` elements with the `append`.
-*/
+
+  /*
+    Add the `enter` and `append` functions in that order. Add `text` elements with the `append`.
+  */

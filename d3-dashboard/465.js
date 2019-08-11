@@ -134,6 +134,7 @@ pieGraphData.append('path')
 
 pieGraphData.selectAll('pieSliceText')
 
-/*
-  The data for the labels will be the same as for the slices themselves. Add the `data` function and pass the same `pie(d3.entries(data[8].followers))` value that you gave the `pieSlices` data.
-*/
+
+  /*
+    The data for the labels will be the same as for the slices themselves. Add the `data` function and pass the same `pie(d3.entries(data[8].followers))` value that you gave the `pieSlices` data.
+  */
