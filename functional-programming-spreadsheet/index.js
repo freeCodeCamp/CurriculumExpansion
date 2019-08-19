@@ -30,7 +30,7 @@ window.onload = () => {
 
 const update = event => {
   const element = event.target;
-  const value = element.value;
+  const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(value.substring(1), element.id);
   }
@@ -49,17 +49,17 @@ const infixEval = (str, regex) =>
   );
 
 const highPrecedence = str => {
-  const regex = /([0-9.]+) *([*\/]) *([0-9.]+)/;
+  const regex = /([0-9.]+)([*\/])([0-9.]+)/;
   const str2 = infixEval(str, regex);
   return str === str2 ? str : highPrecedence(str2);
 };
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
-  const infix = /([0-9.]+) *([+-]) *([0-9.]+)/;
+  const infix = /([0-9.]+)([+-])([0-9.]+)/;
   const str2 = infixEval(noHigh, infix);
   const regex = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
-  const toNumberList = args => args.split(/, ?/).map(parseFloat);
+  const toNumberList = args => args.split(",").map(parseFloat);
   const applyFunction = (fn, args) =>
     spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
   const str3 = str2.replace(
