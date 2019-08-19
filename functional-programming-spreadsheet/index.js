@@ -112,5 +112,6 @@ const spreadsheetFunctions = {
   increment: nums => nums.map(x => x + 1),
   even: nums => nums.filter(isEven),
   dropone: arr => arr.slice(1),
+  random: ([x, y]) => Math.floor(Math.random() * y + x),
   firsttwo: arr => arr.slice(0, 2)
 };
