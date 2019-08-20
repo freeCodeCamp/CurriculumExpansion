@@ -16,7 +16,7 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-const spreasheetFunctions = {
+const spreadsheetFunctions = {
   "": x => x
 };
 
@@ -31,5 +31,5 @@ const applyFn = str => {
 /*
 Define a new function ``applyFunction` (inside `applyFn`).
 It should take two arguments: `fn` and `args`.
-Then it would get the function from `spreasheetFunctions` indexed by `fn.toLowerCase()` and apply `toNumberList(args)` to it.
+Then it would get the function from `spreadsheetFunctions` indexed by `fn.toLowerCase()` and apply `toNumberList(args)` to it.
 */

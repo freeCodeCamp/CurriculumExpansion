@@ -17,6 +17,6 @@ const highPrecedence = str => {
 };
 
 /*
-Define an object `spreasheetFunctions`, with a single key - an empty string (`""`).
+Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
 The corresponding value should be a function which returns its argument unchanged.
 */

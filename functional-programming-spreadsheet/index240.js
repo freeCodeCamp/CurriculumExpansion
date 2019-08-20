@@ -16,7 +16,7 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-const spreasheetFunctions = {
+const spreadsheetFunctions = {
   "": x => x
 };
 
@@ -27,12 +27,12 @@ const applyFn = str => {
   const regex = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
   const toNumberList = args => args.split(",").map(parseFloat);
   const applyFunction = (fn, args) =>
-    spreasheetFunctions[fn.toLowerCase()](toNumberList(args));
+    spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
   return str2.replace(regex, "");
 }
 
 /*
 The `hasOwnProperty` method checks if a key exists in an object.
-So `spreasheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
-Replace the `""` in the last line with a function, that takes 3 arguments and returns whether the second argument `toLowerCase()` exists in `spreasheetFunctions`.
+So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
+Replace the `""` in the last line with a function, that takes 3 arguments and returns whether the second argument `toLowerCase()` exists in `spreadsheetFunctions`.
 */

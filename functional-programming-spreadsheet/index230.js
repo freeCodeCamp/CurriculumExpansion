@@ -16,7 +16,7 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-const spreasheetFunctions = {
+const spreadsheetFunctions = {
   "": x => x
 };
 
@@ -27,7 +27,7 @@ const applyFn = str => {
   const regex = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
   const toNumberList = args => args.split(",").map(parseFloat);
   const applyFunction = (fn, args) =>
-    spreasheetFunctions[fn.toLowerCase()](toNumberList(args));
+    spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
 }
 
 /*

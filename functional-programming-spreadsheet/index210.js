@@ -16,7 +16,7 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-const spreasheetFunctions = {
+const spreadsheetFunctions = {
   "": x => x
 };
 
