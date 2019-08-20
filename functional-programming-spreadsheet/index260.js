@@ -33,7 +33,10 @@ const applyFn = str => {
     (match, fn, args) =>
       spreasheetFunctions.hasOwnProperty(fn.toLowerCase()) ? applyFunction(fn, args) : match
   );
-}
+};
 
 /*
+Now define a function `range` which takes `start` and `end`.
+It should set `arr` to `[start]` (using `const`) and then use the `push` method to add `end` to it.
+Finally, it should return `arr`.
 */
