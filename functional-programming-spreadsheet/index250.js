@@ -7,7 +7,7 @@ const infixToFunction = {
 
 const infixEval = (str, regex) =>
   str.replace(regex, (_, arg1, fn, arg2) =>
-    infixToFunction[fn](parseFloat(arg1), parseFloat(arg2)) 
+    infixToFunction[fn](parseFloat(arg1), parseFloat(arg2))
   );
 
 const highPrecedence = str => {
@@ -29,7 +29,7 @@ const applyFn = str => {
   const applyFunction = (fn, args) =>
     spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
   return str2.replace(
-    regex, 
+    regex,
     (match, fn, args) =>
       spreadsheetFunctions.hasOwnProperty(fn.toLowerCase())
   );
