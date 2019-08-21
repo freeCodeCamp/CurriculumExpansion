@@ -18,5 +18,5 @@ const highPrecedence = str => {
 
 /*
 Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
-The corresponding value should be a function which returns its argument unchanged.
+The corresponding value should be the function `x => x`.
 */
