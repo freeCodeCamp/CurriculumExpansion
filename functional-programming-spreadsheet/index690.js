@@ -18,7 +18,7 @@ const highPrecedence = str => {
 
 const spreadsheetFunctions = {
   "": x => x,
-  random: [x, y] => Math.floor(Math.random() * y + x)
+  random: ([x, y]) => Math.floor(Math.random() * y + x)
 };
 
 /*
