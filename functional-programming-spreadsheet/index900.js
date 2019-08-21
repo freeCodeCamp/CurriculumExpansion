@@ -24,7 +24,7 @@ const spreadsheetFunctions = {
   "": x => x,
   random: ([x, y]) => Math.floor(Math.random() * y + x),
   increment: nums => nums.map(x => x + 1),
-  firsttwo = arr => arr.slice(0, 2),
+  firsttwo: arr => arr.slice(0, 2),
   lasttwo = arr => arr.slice(-2),
   even: nums => nums.filter(isEven),
   sum,
