@@ -11,9 +11,11 @@ const infixEval = (str, regex) =>
   );
 
 const highPrecedence = str => {
+  const regex = /([0-9.]+)([*\/])([0-9.]+)/;
   return str;
 };
 
 /*
-In `highPrecedence`, define `regex` to be `/([0-9.]+)([*\/])([0-9.]+)/`.
+Now, assign the result of calling `infixEval` with `str` and `regex` to `str2`.
+Return `str2`.
 */
