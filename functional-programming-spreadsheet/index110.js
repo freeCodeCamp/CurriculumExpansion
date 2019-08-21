@@ -8,6 +8,5 @@ const infixToFunction = {
 const infixEval = (str, regex) => str.replace(regex, infixToFunction["+"]);
 
 /*
-Now use a 4 argument anonymous function as the second argument to `replace`.
-It takes the function from `infixToFunction` indexed by its third argument, and passes `parseFloat` of its second and fourth argument to that function.
+Replace the second argument of `str.replace` with an anonymous function, which takes `match`, `arg1`, `fn`, and `arg2`, and returns `infixToFunction["+"]`.
 */
