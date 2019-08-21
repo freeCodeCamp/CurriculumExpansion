@@ -11,6 +11,9 @@ const infixEval = (str, regex) =>
   );
 
 /*
-When defining an arrow function with a single argument, the parentheses can be omitted.
+When defining an arrow function with a single argument, the parentheses can be omitted:
+```
+const greeting = name => `Hello ${name}!`;
+```
 Define a function `highPrecedence` which takes a single argument `str` and returns it.
 */
