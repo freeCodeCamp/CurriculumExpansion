@@ -20,6 +20,12 @@ const spreadsheetFunctions = {
   "": x => x
 };
 
+const applyFn = str => {
+  const noHigh = highPrecedence(str);
+  const infix = /([0-9.]+)([+-])([0-9.]+)/;
+  const str2 = infixEval(noHigh, infix);
+}
+
 /*
-Define a function `applyFn` which takes an argument `str`.
+Set `regex` to `/([a-z]*)\(([0-9., ]*)\)(?!.*\()/i` in `applyFn`.
 */

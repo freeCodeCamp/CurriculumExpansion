@@ -20,6 +20,10 @@ const spreadsheetFunctions = {
   "": x => x
 };
 
+const applyFn = str => {
+
+}
+
 /*
-Define a function `applyFn` which takes an argument `str`.
+Set `noHigh` to `highPrecedence(str)` in `applyFn`.
 */

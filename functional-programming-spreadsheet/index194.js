@@ -20,6 +20,10 @@ const spreadsheetFunctions = {
   "": x => x
 };
 
+const applyFn = str => {
+  const noHigh = highPrecedence(str);
+}
+
 /*
-Define a function `applyFn` which takes an argument `str`.
+Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/` in `applyFn`.
 */
