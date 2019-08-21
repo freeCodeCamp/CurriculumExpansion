@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -100,3 +92,10 @@ const update = event => {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+
+/*
+Unfortunately, impure functions are necessary - if you don't use them, the application won't perform any I/O so won't do anything.
+But we have an impure function that could be pure - `evalFormula`.
+It calls `document.getElementById(c + n).value`, but this value can change, even if the arguments don't.
+Change these calls to `""` - the function is now pure but doesn't work.
+/*

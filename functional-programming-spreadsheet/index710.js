@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -100,3 +92,12 @@ const update = event => {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+
+// console.log(spreadsheetFunctions["random"](1, 1000) === spreadsheetFunctions["random"](1, 1000))
+
+/*
+This is (probably) false, so `random` is certainly impure.
+The second property of pure functions is that they perform no side effects (which are state and I/O modifications).
+If you call a function without assigning the result to a variable, and it does something, then it's an impure function.
+Call `window.onload()` in `update`.
+/*

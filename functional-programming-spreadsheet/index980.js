@@ -16,18 +16,35 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-const spreadsheetFunctions = {
-  "": x => x
-};
+const isEven = num => num % 2 === 0;
+const sum = nums => nums.reduce((a, x) => a + x);
+const average = nums => sum(nums) / nums.length;
 
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
+const median = nums => {
+  const sorted = nums.slice().sort((x, y) => x - y);
+  const length = sorted.length;
+  const middle = sorted.length / 2 - 1;
+  return isEven(length)
+    ? average([sorted[middle], sorted[middle + 1]])
+    : sorted[middle + 0.5];
+}; 
+
+const spreadsheetFunctions = {
+  "": x => x,
+  random: ([x, y]) => Math.floor(Math.random() * y + x),
+  increment: nums => nums.map(x => x + 1),
+  firsttwo = arr => arr.slice(0, 2),
+  lasttwo = arr => arr.slice(-2),
+  even: nums => nums.filter(isEven),
+  sum,
+  average,
+  median,
+  has2: arr => arr.includes(2),
+  nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), []),
+  range: arr => range(...arr),
+  someeven: arr => arr.some(isEven),
+  everyeven: arr => arr.every(isEven)
+};
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -44,18 +61,25 @@ const applyFn = str => {
   );
 };
 
-const range = (start, end) =>
-  start > end ? [] : [start].concat(range(start + 1, end));
+const range = (start, end) => Array(end - start + 1).fill(start);
+
+/*
+The function in the `map` method can actually take a second argument: the index of the element.
+This is why you need an arrow function in `charRange` - if you don't, then the index will be passed to `String.fromCharCode` as the second argument, leading to unexpected results.
+However, it is safe for functions like `parseFloat` which take only one argument (but not for `parseInt`).
+Use this form of `map` to add its index to every element in the array in `range`.
+*/
 
 const charRange = (start, end) =>
   range(start.charCodeAt(0), end.charCodeAt(0)).map(x =>
     String.fromCharCode(x)
   );
 
-const evalFormula = x => {
+const evalFormula = (x, cells) => {
+  const idToText = id => cells.find(cell => cell.id === id).value;
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
-  const elemValue = n => c => document.getElementById(c + n).value;
+  const elemValue = n => c => idToText(c + n);
   const addChars = c1 => c2 => n => charRange(c1, c2).map(elemValue(n));
   const varRangeExpanded = x.replace(rangeRegex, (_, c1, n1, c2, n2) =>
     rangeFromString(n1, n2).map(addChars(c1)(c2))
@@ -63,12 +87,12 @@ const evalFormula = x => {
   const varRegex = /[A-J][1-9][0-9]?/gi;
   const varExpanded = varRangeExpanded.replace(
     varRegex,
-    match => document.getElementById(match.toUpperCase()).value
+    match => idToText(match.toUpperCase())
   );
   const functionExpanded = applyFn(varExpanded);
   return functionExpanded === x
     ? functionExpanded
-    : evalFormula(functionExpanded);
+    : evalFormula(functionExpanded, cells);
 };
 
 window.onload = () => {
@@ -97,6 +121,9 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(
+      value.substring(1),
+      Array.from(document.getElementById("container").children)
+    );
   }
 };

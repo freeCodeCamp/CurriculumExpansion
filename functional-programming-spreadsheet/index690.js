@@ -17,16 +17,13 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
 
 /*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
+Change the `random` function so that it returns `Math.floor(Math.random() * y + x)`.
+It now returns a random number within a range.
 */
 
 const applyFn = str => {
@@ -100,3 +97,4 @@ const update = event => {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+

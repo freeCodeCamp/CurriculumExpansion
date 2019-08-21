@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -52,10 +44,10 @@ const charRange = (start, end) =>
     String.fromCharCode(x)
   );
 
-const evalFormula = x => {
+const evalFormula = (x, cells) => {
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
-  const elemValue = n => c => document.getElementById(c + n).value;
+  const elemValue = n => c => ""
   const addChars = c1 => c2 => n => charRange(c1, c2).map(elemValue(n));
   const varRangeExpanded = x.replace(rangeRegex, (_, c1, n1, c2, n2) =>
     rangeFromString(n1, n2).map(addChars(c1)(c2))
@@ -63,12 +55,12 @@ const evalFormula = x => {
   const varRegex = /[A-J][1-9][0-9]?/gi;
   const varExpanded = varRangeExpanded.replace(
     varRegex,
-    match => document.getElementById(match.toUpperCase()).value
+    match => ""
   );
   const functionExpanded = applyFn(varExpanded);
   return functionExpanded === x
     ? functionExpanded
-    : evalFormula(functionExpanded);
+    : evalFormula(functionExpanded, cells);
 };
 
 window.onload = () => {
@@ -97,6 +89,14 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(
+      value.substring(1),
+      Array.from(document.getElementById("container").children)
+    );
   }
 };
+
+/*
+The `find` function returns the first element of an array that satisfies the function passed to it.
+Add a function `idToText` to `evalFormula`, which takes a single argument and returns the first element of `cells` equal to the argument. 
+/*

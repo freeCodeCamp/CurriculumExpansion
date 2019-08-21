@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: ([x, y]) => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -52,10 +44,11 @@ const charRange = (start, end) =>
     String.fromCharCode(x)
   );
 
-const evalFormula = x => {
+const evalFormula = (x, cells) => {
+  const idToText = id => cells.find(cell => cell.id === id).value;
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
-  const elemValue = n => c => document.getElementById(c + n).value;
+  const elemValue = n => c => idToText(c + n);
   const addChars = c1 => c2 => n => charRange(c1, c2).map(elemValue(n));
   const varRangeExpanded = x.replace(rangeRegex, (_, c1, n1, c2, n2) =>
     rangeFromString(n1, n2).map(addChars(c1)(c2))
@@ -63,12 +56,12 @@ const evalFormula = x => {
   const varRegex = /[A-J][1-9][0-9]?/gi;
   const varExpanded = varRangeExpanded.replace(
     varRegex,
-    match => document.getElementById(match.toUpperCase()).value
+    match => idToText(match.toUpperCase())
   );
   const functionExpanded = applyFn(varExpanded);
   return functionExpanded === x
     ? functionExpanded
-    : evalFormula(functionExpanded);
+    : evalFormula(functionExpanded, cells);
 };
 
 window.onload = () => {
@@ -97,6 +90,14 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(
+      value.substring(1),
+      Array.from(document.getElementById("container").children)
+    );
   }
 };
+
+/*
+`evalFormula` is now pure, as it now has no external dependencies, and as before, performs no side effects.
+Now define a new function, `increment` inside `spreadsheetFunctions`, which takes a list as argument and uses `map` to increment each value by 1.
+*/

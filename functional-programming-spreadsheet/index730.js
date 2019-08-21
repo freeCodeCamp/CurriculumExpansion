@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -94,9 +86,15 @@ window.onload = () => {
 };
 
 const update = event => {
+  // highPrecedence("2*2");
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+
+/*
+Obviously, this was ignored, as all `highPrecedence` does is return a value and this value is ignored.
+Now compare `highPrecedence("2*2")` with `highPrecedence("2*2")`, and `console.log` the result.
+/*

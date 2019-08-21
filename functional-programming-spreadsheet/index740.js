@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -94,9 +86,16 @@ window.onload = () => {
 };
 
 const update = event => {
+  console.log(highPrecedence("2*2") === highPrecedence("2*2"));
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+
+/*
+This is true, so `highPrecedence` might be a pure function.
+If you inspect it, you can see that it indeed performs no I/O and doesn't use functions like `Math.random()` - so it's pure.
+Remove the `console.log` statement.
+/*

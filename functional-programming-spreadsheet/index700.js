@@ -17,17 +17,9 @@ const highPrecedence = str => {
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": x => x,
+  random: [x, y] => Math.floor(Math.random() * y + x)
 };
-
-/*
-The array destructuring syntax can be used to extract values from arrays:
-```
-const [x, y] = [1, 2]; // in variables
-const fn = ([x, y]) => x + y // in functions
-```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -100,3 +92,13 @@ const update = event => {
     element.value = evalFormula(value.substring(1), element.id);
   }
 };
+
+/*
+In functional programming, we strive to use a type of functions called pure functions as much as possible.
+The first properties of these functions is that they always return the same value for the same arguments.
+You can check if this is the case by comparing a call to a function with another call (with the same arguments):
+```
+console.log(f(2) === f(2)); // always true for pure functions
+```
+Use this technique to check if the `random` function in `spreadsheetFunctions` is pure.
+/*
