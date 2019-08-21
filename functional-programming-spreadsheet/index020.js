@@ -1,5 +1,6 @@
 const infixToFunction = {};
 
 /*
-Now define a function `add` which takes two arguments and returns their sum.
+Now define an empty function `add` using the `function` keyword.
+It should accept two parameters, `x` and `y`.
 */
