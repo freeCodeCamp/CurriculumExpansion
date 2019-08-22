@@ -38,8 +38,8 @@ const applyFn = str => {
 const range = (start, end) =>
   start > end ? [] : [start].concat(range(start + 1, end));
 
-const charRange = (start, end) => start;
+const charRange = (start, end) => range(start, end);
 
 /*
-Make `charRange` return `range(start, end)`.
+Use the `charCodeAt(0)` method on `start` and `end` in `charRange`, like this: `start.charCodeAt(0)`.
 */
