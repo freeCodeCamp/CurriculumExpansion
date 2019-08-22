@@ -41,5 +41,5 @@ const range = (start, end) => {
 }
 
 /*
-Replace the call to `arr` with its definition and remove the definition.
+Replace the call to `arr` in `arr.concat([end])` with `[start]` and remove the `arr` variable and its definition.
 */
