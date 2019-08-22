@@ -28,9 +28,11 @@ const applyFn = str => {
   const toNumberList = args => args.split(",").map(parseFloat);
   const applyFunction = (fn, args) =>
     spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
-  return str2.replace(regex, "");
+  return str2.replace(regex, (match, fn, args) => spreadsheetFunctions);
 }
 
 /*
-Replace the `""` in the last line with a function, which takes `match`, `fn` and `args` as arguments and returns `spreadsheetFunctions`.
+The `hasOwnProperty` method checks if a key exists in an object.
+So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
+Replace the `spreadsheetFunctions` in the last line with a use of `hasOwnProperty` that checks if the key `fn.toLowerCase()` exists in `spreadsheetFunctions`.
 */
