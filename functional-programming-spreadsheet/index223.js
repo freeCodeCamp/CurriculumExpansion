@@ -26,9 +26,9 @@ const applyFn = str => {
   const str2 = infixEval(noHigh, infix);
   const regex = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
   const toNumberList = args => args.split(",").map(parseFloat);
+  const applyFunction = (fn, args) => spreadsheetFunctions;
 }
 
 /*
-Define a new function `applyFunction` (inside `applyFn`).
-It should take two arguments: `fn` and `args`, and should return `spreadsheetFunctions`.
+Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.toLowerCase()` to get a specific function from `spreadsheetFunctions`.
 */

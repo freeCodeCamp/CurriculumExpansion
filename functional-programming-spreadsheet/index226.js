@@ -26,9 +26,9 @@ const applyFn = str => {
   const str2 = infixEval(noHigh, infix);
   const regex = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
   const toNumberList = args => args.split(",").map(parseFloat);
+  const applyFunction = (fn, args) => spreadsheetFunctions[fn.toLowerCase()];
 }
 
 /*
-Define a new function `applyFunction` (inside `applyFn`).
-It should take two arguments: `fn` and `args`, and should return `spreadsheetFunctions`.
+Apply `toNumberList(args)` to `spreadsheetFunctions[fn.toLowerCase()]`.
 */
