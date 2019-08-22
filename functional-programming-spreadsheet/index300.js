@@ -40,5 +40,5 @@ const range = (start, end) => {
 }
 
 /*
-Use the ternary operator to return `[]` if `start > end` and the existing code otherwise.
+Use the ternary operator to return `[]` if `start > end` and `[start].concat([end])` otherwise.
 */
