@@ -39,5 +39,6 @@ const range = (start, end) =>
   start > end ? [] : [start].concat(range(start + 1, end));
 
 /*
-Define a function `charRange` which takes two arguments and returns the first one.
+Define a function `charRange` which takes `start` and `end` as arguments.
+It should return `start`.
 */
