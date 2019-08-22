@@ -38,8 +38,8 @@ const applyFn = str => {
 const range = (start, end) =>
   start > end ? [] : [start].concat(range(start + 1, end));
 
-const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0));
+const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0)).map(x => x);
 
 /*
-Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` as the argument.
+Now, pass `x` to `String.fromCharCode` in the arrow function.
 */
