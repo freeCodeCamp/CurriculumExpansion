@@ -14,5 +14,5 @@ function(x) {
   return x
 }
 ```
-Make the function `add` anonymous and remove the `addVar` definition (as `add` isn't defined anymore ).
+Make the function `add` anonymous and remove the `addVar` definition (as `add` isn't defined anymore).
 */
