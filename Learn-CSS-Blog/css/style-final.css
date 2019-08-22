@@ -70,7 +70,7 @@ ul {
 
 
 
-.img {
+.profile-pic {
     display: block;
     border-radius: 100%;
 }
@@ -154,7 +154,7 @@ header {
 }
 
 
-.about-img {
+.about-pic {
     width: 200px;
     margin: auto;
 }
@@ -166,30 +166,7 @@ header {
 }
 
 
-/* PROJECTS */
-.odd .project-img {
-    float: right;
-}
-
-
-.odd .project-text {
-    padding-right: 40px;
-    float: left;
-}
-
-.even .project-img {
-    float: left;
-}
-
-
-.even .project-text {
-    padding-left: 40px;
-    float: right;
-}
-
-
-
-/* blog */
+/* Blog */
 .date {
     font-size: 0.9em;
     text-transform: uppercase;
@@ -250,7 +227,7 @@ a {
 }
 
 
-.footer-bio-img {
+.footer-bio-pic {
     width: 100px;
     float: left;
     margin-right: 30px;
