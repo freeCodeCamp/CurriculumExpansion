@@ -14,5 +14,5 @@ function(x) {
   return x
 }
 ```
-Use this syntax to assign the function `add` to `addVar` without defining `add` first.
+Make the function `add` anonymous and remove the `addVar` definition (as `add` isn't defined anymore ).
 */
