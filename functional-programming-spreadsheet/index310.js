@@ -40,8 +40,5 @@ const range = (start, end) => {
 }
 
 /*
-Replace `[end]` with a recursive call to `range` which would result in it working as expected:
-```
-range(1, 5) = [1, 2, 3, 4, 5]
-```
+Replace `[end]` with a recursive call to `range`: `[start].concat(range(start + 1, end))`
 */
