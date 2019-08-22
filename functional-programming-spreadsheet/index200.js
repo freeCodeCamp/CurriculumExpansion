@@ -28,6 +28,9 @@ const applyFn = str => {
 }
 
 /*
-The `split` method returns an array of strings from a larger string by using its argument to determine where to make each split.
+The `split` method returns an array of strings from a larger string by using its argument to determine where to make each split:
+```
+"a b c".split(" ") === ["a", "b", "c"];
+```
 Add a function `toNumberList` (inside `applyFn`) which takes an argument `args` and splits it by commas.
 */
