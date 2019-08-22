@@ -40,5 +40,5 @@ const range = (start, end) => {
 }
 
 /*
-Remove the curly brackets and `return` keyword from `range`.
+Remove the curly braces and `return` keyword from `range`.
 */

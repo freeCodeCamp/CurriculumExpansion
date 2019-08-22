@@ -54,5 +54,5 @@ const evalFormula = x => {
 };
 
 /*
-Now, remove the curly brackets and return statement.
+Now, remove the curly braces and return statement.
 */
