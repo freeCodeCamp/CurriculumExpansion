@@ -35,6 +35,10 @@ const applyFn = str => {
   );
 };
 
+const range = (start, end) => {
+
+}
+
 /*
-Now define an empty function `range` which takes `start` and `end` as arguments.
+`range` should set `arr` to `[start]` and should then return `arr`.
 */

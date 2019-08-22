@@ -35,6 +35,11 @@ const applyFn = str => {
   );
 };
 
+const range = (start, end) => {
+  const arr = [start];
+  return arr;
+}
+
 /*
-Now define an empty function `range` which takes `start` and `end` as arguments.
+After declaring `arr`, but before returning it, `range` should use the `push` method to add `end` onto `arr`.
 */
