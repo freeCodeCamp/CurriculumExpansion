@@ -26,18 +26,19 @@ class ShoppingCart {
     this.items = [];
   }
 
+  /*
+  The easiest way to add an item to our cart is through item's unique id.
+  Because their ids are unique, we can easily identify what kind of items they are.
+  Have our `addItem` method take `id` as its first parameter and the `products` array as the second parameter.
+  Here's a function that takes two parameters, `name` and `list`:
+  ```
+  sayName (name, list) {
+
+  }
+  ```
+  */
+
   addItem() {
 
   }
 }
-
-/*
-The easiest way to add an item to our cart is through item's unique id.
-Because their ids are unique, we can easily identify what kind of items they are.
-Have our addItem method take id as its first parameter and the products array as the second parameter.
-Here's a function that takes two parameters, name and list:
-
-sayName (name, list) {
-
-}
-*/

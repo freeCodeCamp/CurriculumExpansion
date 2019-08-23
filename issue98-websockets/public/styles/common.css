@@ -1,0 +1,28 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #0a0a2e;  
+  height: 2em;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e2040;
+}
+
+#logo,
+#avatar-icon {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}

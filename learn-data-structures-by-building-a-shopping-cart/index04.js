@@ -22,20 +22,18 @@ const products = [
 ];
 
 class ShoppingCart {
-
-}
-
-/*
-By convention, the first letter of class name is a capital letter.
-
-Classes have a special function called constructor that can initialize values for its state.
-
-Declare a method(function inside class) called 'constructor' inside the ShoppingCart class. Here is an example:
-
-class ShoppingCart {
-  sayHello() {
-
+  /*
+  Classes have a special method -- or function inside of a class -- called `constructor` that sets up each new object that's created with the class blueprint.
+  Declare a `constructor` method inside the `ShoppingCart` class.
+  Here is an example:
+  ```
+  class Car {
+    constructor() {
+    
+    }
   }
-}
+  ```
+  */
 
-*/
+  
+}

@@ -11,9 +11,9 @@
  * Press ^C at any time to quit.
  * package name: (case-converter)
  * version: (1.0.0)
- * description: This is a pacakge used to covert string to specific case.
+ * description: This is a package used to covert string to specific case.
  * entry point: (index.js)
  * test command:
  */
 
-/* You can set test command here -- For now, just hit enter */
+/* You can set a test command here. Hit enter for now. */

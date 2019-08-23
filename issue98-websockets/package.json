@@ -1,0 +1,24 @@
+{
+  "name": "fcc-websocket-project",
+  "version": "1.0.0",
+  "description": "Chat project made to FreeCodeCamp's Curriculum.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "ejs": "^2.6.2",
+    "express": "4.16.4",
+    "express-session": "1.16.1",
+    "socket.io": "2.2.0",
+    "uuid": "3.3.2"
+  },
+  "keywords": [
+    "chat",
+    "socket.io",
+    "freeCodeCamp",
+    "node.js",
+    "javascript"
+  ]
+}

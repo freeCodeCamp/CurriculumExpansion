@@ -36,4 +36,4 @@ app.get('/buy/:ticker/:shares', (req, res) => {
 
 app.get('/sell/:ticker/:shares', (req, res) => {});
 
-// In the body of the callback function, create the `ticker`, `shares`, and `total` variables and assign them values similar to how they were created in the /buy route.
+// In the body of the callback function, create the `ticker`, `shares`, and `total` variables and assign them values similar to how they were created in the `/buy` route.

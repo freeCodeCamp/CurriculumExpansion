@@ -1,3 +1,3 @@
 // Username:
 
-// Enter your npm user name and hit enter
+// Type in camper as your username and hit enter.

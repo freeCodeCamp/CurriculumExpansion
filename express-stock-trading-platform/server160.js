@@ -23,7 +23,7 @@ const prices = {
 
 const checkTickerAndShares = (req, res, next) => {};
 
-// As previously mentioned, the user may send the ticker route parameter in lowercase, uppercase, or a combination of both.  To be consistent with the tickers in the `prices` object, we need to modify the ticker route parameter to be all uppercase using the `toUpperCase()` method.
+// As previously mentioned, the user may send the ticker route parameter in lowercase, uppercase, or a combination of both.
 // Modify the 'req.params.ticker' so that it is all in uppercase, like `req.params.ticker = req.params.ticker.toUpperCase()`
 
 app.get('/buy/:ticker/:shares', checkTickerAndShares, (req, res) => {

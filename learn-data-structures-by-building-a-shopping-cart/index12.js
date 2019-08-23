@@ -34,29 +34,34 @@ class ShoppingCart {
   getItems() {
     return this.items;
   }
+
+  /*
+  [
+    {  
+      id: 2,
+      name: "Fruit sprinkles cupcake",
+      price: 3.99
+    } 
+  ]
+  */
+
+
+  /*
+  Let's create another method to help us check our state.
+
+  Create a method called `getCount` that will return the number of items in the cart. For example:
+  ```
+  getLength() {
+    return this.myArray.length;
+  }
+  ```
+  */
+
+  
 }
 
 const shoppingCart = new ShoppingCart();
 
 shoppingCart.addItem(2, products);
 console.log(shoppingCart.getItems()); 
-/*
- [
-   {  
-     id: 2,
-     name: "Fruit sprinkles cupcake",
-     price: 3.99
-   } 
- ]
-*/
 
-
-/*
-Let's create another method to help us check our state.
-
-Create a method called getCount that will return the number of items in the cart. For example:
-
-getLength() {
-  return this.myArray.length;
-}
-*/

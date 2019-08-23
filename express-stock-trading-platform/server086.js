@@ -43,4 +43,4 @@ app.get('/sell/:ticker/:shares', (req, res) => {
 // Send a response using template strings saying:
 // `Transaction complete, you sold ___ shares of ___ at $___/share for a total of $___.`
 
-// Replace the ___ blanks with the appropriate Javascript variables and be sure to wrap them with `${}`.  Refer to the template string in the /buy route as an example.
+// Replace the ___ blanks with the appropriate JavaScript variables and be sure to wrap them with `${}`.

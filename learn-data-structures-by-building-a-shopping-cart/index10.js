@@ -37,16 +37,11 @@ class ShoppingCart {
 }
 
 /*
-We now need to create an instance or a copy off of our ShoppingCart class. This instance will always be an object.
-
-This instance will have all the methods and the state to itself. Here is an example syntax:
-
-class Person {
-  ...
-}
-const person = new Person();
-
-You need to use the 'new' keyweord to make an instance. 
-
-Make an instance of ShoppingCart class and assign it to a variable called shoppingCart using const keyword.
+We now need to create an instance or a copy of our `ShoppingCart` class.
+This instance will be an object and have all of the methods and data defined in the class available to it.
+To make an instance of a class, use the `new` keyword.
+For example, `const car = new Car();`
+Make an instance of the `ShoppingCart` class and assign it to a variable called `shoppingCart`.
 */
+
+

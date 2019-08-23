@@ -30,14 +30,16 @@ class ShoppingCart {
     const item = products.find(item => item.id === id);
     this.items.push(item);
   }
+
+  /*
+  Now create a getItems method that returns the items array.
+  For example:
+  ```
+  showMe() {
+    return this.items;
+  }
+  ```
+  */
+
+
 }
-
-/*
-Let's test our addItem method by creating a method that prints out current contents of items array.
-
-Create a getItems method that returns the items array. For example:
-
-ShowMe() {
-  return this.items;
-}
-*/

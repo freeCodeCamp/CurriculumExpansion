@@ -38,17 +38,21 @@ class ShoppingCart {
   getCount() {
     return this.items.length;
   }
+
+  /*
+  Let's create a `removeItem` method that will take `id` its unique parameter.
+
+  We will go through our items array to see if we have any matching ids first.
+
+  We can use the built in `indexOf` method to find the index number of the match, then use the `splice` method to remove the matched product.
+
+  Here is an example:
+
+  ```
+  const index = arr.indexOf(id);
+  myArr.splice(index, 1);
+  ```
+  */
+
+
 }
-
-/*
-Let's create removeItem method that will take id its unique parameter.
-
-We will go through our items array to see if we have any matching ids first.
-
-We can use built in indexOf method method to find index number of the match, then use the splice built in method to remove the matched product.
-
-Here is an example:
-
-const index = arr.indexOf(id);
-myArr.splice(index, 1);
-*/

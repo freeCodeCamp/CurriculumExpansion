@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Socket.io Chat</title>
+
+    <link rel="stylesheet" href="/styles/room.css" />
+    <link rel="stylesheet" href="/styles/common.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="chat_container">
+          <aside id="sidebar">
+            <div id="avatar">
+              <img id="avatar-icon" src="./assets/user.png" alt="user logo" />
+            </div>
+
+            <div class="users">
+              <ul id="user-list"></ul>
+            </div>
+          </aside>
+
+          <div id="chat-history">          
+          </div>
+
+          <form id="chat-form" action="#">
+            <textarea
+              id="msg-input"
+              rows="3"
+              placeholder="Type your message"
+            ></textarea>
+            <button id="submit-button">Send</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <template class="msg-component">
+      <div class="msg-bubble">
+        <span class="msg-name"></span>
+        <span class="msg-content"></span>
+        <span class="msg-timestamp"></span>
+      </div>
+		</template>
+		
+		<template class="user-component">
+			<span class="user-list-item"></span>
+		</template>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      (function() {
+        app.chat();
+      })();
+    </script>
+  </body>
+</html>
