@@ -46,8 +46,12 @@ const charRange = (start, end) =>
 const evalFormula = x => {
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
+  const elemValue = n => {
+    return n;
+  };
 };
 
 /*
-Now define a function `elemValue`, which takes an argument `n` and returns `n`.
+Inside `elemValue`, define `fn` to be a function which takes `c` as argument and returns `document.getElementById(c + n).value`.
+Return `fn` instead of `n`.
 */
