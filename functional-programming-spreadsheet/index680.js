@@ -97,6 +97,6 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.slice(1), element.id);
+    element.value = evalFormula(value.slice(1));
   }
 };
