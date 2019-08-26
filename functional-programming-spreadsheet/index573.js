@@ -65,8 +65,11 @@ const evalFormula = x => {
 window.onload = () => {
   const container = document.getElementById("container");
   const letters = charRange("A", "J");
+  const createLabel = name => {
+  
+  };
 };
 
 /*
-Now define a function `createLabel` which takes an argument `name` and has an empty body.
+Inside `createLabel`, assign `document.createElement("div")` to `label`.
 */
