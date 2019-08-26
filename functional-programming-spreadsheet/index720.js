@@ -95,5 +95,5 @@ const update = event => {
 };
 
 /*
-Now try calling `highPrecedence` without assigning it to a variable in `update`.
+Now try calling `highPrecedence` and pass it the string `"2*2"` without assigning it to a variable in `update`.
 /*
