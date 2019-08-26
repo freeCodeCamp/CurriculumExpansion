@@ -45,9 +45,9 @@ const charRange = (start, end) =>
 
 const evalFormula = x => {
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
-
+  const rangeFromString = (n1, n2) => range(n1, n2);
 };
 
 /*
-Define a function `rangeFromString` in `evalFormula` which takes `n1` and `n2` as arguments and returns `n1`.
+As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)` and `parseInt(n2)`.
 */
