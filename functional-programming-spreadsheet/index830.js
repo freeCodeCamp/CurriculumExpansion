@@ -24,7 +24,7 @@ const spreadsheetFunctions = {
 
 /*
 The `slice` method can also work on arrays.
-Add a method `firsttwo` to `spreadsheetFunctions` which uses `slice` to return the first two elements of the array passed to it.
+Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument and uses `slice` to return the first two elements of `arr`.
 */
 
 const applyFn = str => {
