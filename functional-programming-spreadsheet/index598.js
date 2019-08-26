@@ -72,8 +72,10 @@ window.onload = () => {
   };
   const letters = charRange("A", "J");
   letters.forEach(createLabel);
+  range(1, 99).forEach(createLabel);
 };
 
 /*
-Add `range(1, 99)` to `window.onload` (the result will be discarded for now).
+Replace `createLabel` with an arrow function with a block body.
+This would allow us to add more statements.
 */
