@@ -32,5 +32,5 @@ const applyFn = str => {
 }
 
 /*
-Replace the `""` in the last line with a function, which takes `match`, `fn` and `args` as arguments and returns `spreadsheetFunctions`.
+Replace the `""` in `str2.replace(regex, "")` with a function which takes `match`, `fn` and `args` as arguments and returns `spreadsheetFunctions`.
 */
