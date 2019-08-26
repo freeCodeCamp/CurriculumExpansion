@@ -64,10 +64,10 @@ const evalFormula = x => {
 
 window.onload = () => {
   const container = document.getElementById("container");
-  const letters = charRange("A", "J");
   const createLabel = name => {
   
   };
+  const letters = charRange("A", "J");
 };
 
 /*
