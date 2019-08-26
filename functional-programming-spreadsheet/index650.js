@@ -91,8 +91,8 @@ const update = event => {
 };
 
 /*
-The `substring` method takes two arguments.
+The `slice` method takes two arguments.
 It extracts characters from the string from the index specified by the first argument up to (but not including) the second argument.
 The index starts at 0.
-Use the `substring` method to log the first two letters of `value` to the console.
+Use the `slice` method to log the first two letters of `value` to the console.
 */

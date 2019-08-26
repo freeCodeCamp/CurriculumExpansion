@@ -88,10 +88,10 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    console.log(value.substring(1));
+    console.log(value.slice(1));
   }
 };
 
 /*
-Now change the if statement to set `element.value` to the result of passing `value.substring(1)` and `element.id` to `evalFormula`.
+Now change the if statement to set `element.value` to the result of passing `value.slice(1)` and `element.id` to `evalFormula`.
 */
