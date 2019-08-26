@@ -43,11 +43,11 @@ const range = (start, end) => {
 
 /*
 This is still valid because we're modifying `arr` in place instead of reassigning to it (which is   invalid with the `const` keyword).
-But it still modifies state, and we don't want to do that if we're using functional programming.
-The `concat` method returns a new array instead of modifying:
+But doing this still modifies state, and we don't want to do that in functional programming.
+The `concat` method returns a new array instead of modifying an existing one:
 ```
-[1,2,3].concat(4) = [1, 2, 3, 4]
-[1,2,3].concat(4, 5) = [1, 2, 3, 4, 5]
+[1,2,3].concat(4); // [1, 2, 3, 4]
+[1,2,3].concat(4, 5); // [1, 2, 3, 4, 5]
 ```
-Use it instead of `push` to return the result of adding `end` to `arr`.
+Use `concat` instead of `push` to return the result of adding `end` to `arr`.
 */
