@@ -44,7 +44,7 @@ const charRange = (start, end) =>
     String.fromCharCode(x)
   );
 
-const evalFormula = x => {
+const evalFormula = (x, cells) => {
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""
@@ -94,8 +94,5 @@ const update = event => {
 };
 
 /*
-To make this function pure, instead of depending on application state implicitly, we can pass it down explicitly as an argument.
-Add an argument `cells` to `evalFormula`.
-When calling `evalFormula`, pass in `Array.from(document.getElementById("container").children)` as the `cells` argument.
-Don't forget to update the recursive call in `evalFormula`, passing in the same `cells` as the second argument.
+When calling `evalFormula`, pass in `Array.from(document.getElementById("container").children)` as the second argument.
 /*
