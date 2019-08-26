@@ -45,8 +45,10 @@ const charRange = (start, end) =>
   );
 
 const evalFormula = (x, cells) => {
+  const idToText = id => cells;
   /*
-  Add a function `idToText` to `evalFormula`, which takes the argument `id` and returns `cells`.
+  The `find` method returns the first element of an array that satisfies the function passed to it.
+  Chain `find` onto `cells` and pass it `cell => cell === id`.
   */
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
