@@ -55,6 +55,6 @@ const evalFormula = x => {
 };
 
 /*
-Use the `map` method in `varRangeExpanded` passing `addChars(c1)(c2)` as an argument.
+Chain the `map` method to `rangeFromString(n1, n2)` and pass it `addChars(c1)(c2)` as an argument.
 This returns an `addChars` function, which has `c1` and `c2` (the characters) preset, and only needs a number (`n`) to be passed to it (which we get from the `rangeFromString` array).
 */
