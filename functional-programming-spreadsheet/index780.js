@@ -46,6 +46,9 @@ const charRange = (start, end) =>
 
 const evalFormula = (x, cells) => {
   const idToText = id => cells.find(cell => cell === id);
+  /*
+  In `idToText`, use the `id` property of `cell` to make sure the argument is equal to the cell's id rather than the cell itself.
+  */
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""
@@ -96,7 +99,3 @@ const update = event => {
     );
   }
 };
-
-/*
-In `idToText`, use the `id` property of `cell` to make sure the argument is equal to the cell's id rather than the cell itself.
-*/
