@@ -61,6 +61,9 @@ const evalFormula = (x, cells) => {
   return functionExpanded === x
     ? functionExpanded
     : evalFormula(functionExpanded);
+  /*
+  Update the recursive call to `evalFormula` by passing in `cells` as the second argument.
+  */
 };
 
 window.onload = () => {
@@ -89,10 +92,9 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.slice(1));
+    element.value = evalFormula(
+      value.slice(1),
+      Array.from(documet.getElementById("container").children)
+    );
   }
 };
-
-/*
-When calling `evalFormula`, pass in `Array.from(document.getElementById("container").children)` as the second argument.
-/*
