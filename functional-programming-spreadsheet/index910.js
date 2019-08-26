@@ -39,8 +39,7 @@ const spreadsheetFunctions = {
 /*
 The `sort` method sorts an array alphabetically:
 ```
-["B", "C", "A"].sort() === ["A", "B", "C"] 
-// again, you can't actually compare objects like this, and arrays are objects.
+["B", "C", "A"].sort(); // ["A", "B", "C"]
 ```
 Assign the sorted `nums` to `sorted` in `median`.
 */

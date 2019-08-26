@@ -31,7 +31,7 @@ const applyFn = str => {
 /*
 The `map` method takes a function and for each element of an array, it passes the element to the function and replace the element with the return value:
 ```
-[1, 2, 3].map(x => x + 1) = [2, 3, 4]
+[1, 2, 3].map(x => x + 1); // [2, 3, 4]
 ```
 In `toNumberList`, chain the `map` method to `args.split(",")` and pass it `parseFloat` to parse each element of the array into a number.
 */

@@ -27,9 +27,9 @@ const spreadsheetFunctions = {
 /*
 The `%` operator returns the remainder:
 ```
-4 % 3 = 1
-5 % 3 = 2
-6 % 3 = 0
+4 % 3; // 1
+5 % 3; // 2
+6 % 3; // 0
 ```
 Add an `isEven` function (to the global scope) which returns whether the number passed to it is even.
 */
