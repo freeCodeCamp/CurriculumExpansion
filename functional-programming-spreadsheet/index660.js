@@ -94,6 +94,6 @@ const update = event => {
 
 /*
 You don't have to specify the second argument in `substring`.
-If you don't, then `substring` will extract from the first argument to the end.
+If you don't, then `substring` will extract from the first argument to the end of the string.
 Change the call to `substring` to log all characters except the first instead.
 */
