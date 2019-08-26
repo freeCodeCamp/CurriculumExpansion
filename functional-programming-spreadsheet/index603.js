@@ -74,9 +74,12 @@ window.onload = () => {
   letters.forEach(createLabel);
   range(1, 99).forEach(x => {
     createLabel(x);
+    letters.forEach(y => {
+    
+    });
   });
 };
 
 /*
-Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
+Assign `document.createElement("input")` to `input`.
 */

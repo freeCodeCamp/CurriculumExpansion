@@ -74,9 +74,18 @@ window.onload = () => {
   letters.forEach(createLabel);
   range(1, 99).forEach(x => {
     createLabel(x);
+    letters.forEach(y => {
+      const input = document.createElement("input"); 
+    });
   });
 };
 
 /*
-Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
+Add the following code:
+```
+input.type = "text";
+input.id = y + x;
+input.onchange = update;
+container.appendChild(input);
+```
 */
