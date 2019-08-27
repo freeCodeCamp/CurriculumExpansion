@@ -94,16 +94,9 @@ class ShoppingCart {
 }
 
 /*
-Now that we have subTotal, let's pass it as parameters to our applyDiscount and calculateTaxes methods we created before.
+  Now that we have subTotal, we can use to retrieve other factors to finally calculate total.
 
-store the results to tax and discount variables respectively using const keywords.
+  Let's use calculateTaxes method we previously made. Pass in subTotal as a parameter. 
 
-Then calculate the total by subtracting discount from subTotal and adding tax to subTotal. Assign the result to total using const keyword.
-
-Return total. For ex:
-
-const result1 = function1(money);
-const result2 = function2(money);
-const sum = result - result1 + result2;
-return sum;
+  Assign the result to a variable called tax.
 */
