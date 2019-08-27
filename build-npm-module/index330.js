@@ -6,6 +6,6 @@ console.log(caseConverter.getLowerCase(str));
 console.log(caseConverter.getProperCase(str));
 
 /*
-Finally, let's try your `getSentenceCase()` function. Convert `str` to sentence case and print it to the console.
-You should see `Hello free code camp!`.
+Finally, convert `str` to sentence case and print it to the console.
+You should see `Hell free code camp!`.
 */

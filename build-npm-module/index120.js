@@ -11,7 +11,7 @@ save it as a dependency in the package.json file.
 Press ^C at any time to quit.
 package name: (case-converter)
 version: (1.0.0)
-description: This is a package used to covert string to specific case.
+description: This package is used to covert strings to a specific case.
 entry point: (index.js)
 test command:
 git repository:
@@ -22,15 +22,15 @@ license: (ISC) MIT
   {
     "name": "case-converter",
     "version": "1.0.0",
-    "description": "This is a package used to covert string to specific case.",
+    "description": "This package is used to covert strings to a specific case.",
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "Your name",
+    "author": "Camper",
     "license": "MIT"
   }
 Is this ok? (yes)
 */
 
-/* Hit enter. */
+// Hit enter to confirm.

@@ -12,5 +12,5 @@ const getProperCase = (str) => {
   const properCaseArr = (str) => str.split(' ').map((word) => getSentenceCase(word));
 };
 
-// Call join on `properCaseArr` to convert the array to a string and return the result.
+// Call the `join()` method on `properCaseArr` to convert the array into a string and return the result.
 

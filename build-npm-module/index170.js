@@ -9,7 +9,7 @@ const getSentenceCase = (str) => {
 };
 
 /*
-Create `getProperCase()` function which take a string variable `str` and return proper case of this string.
-This means you have to convert every word's first character to upper case and other characters to lower case.
-Again, let's first create an empty `getProperCase()` function.
+Now let's work on a function that returns a proper case string.
+Proper case means that the first character of every word is uppercase and the rest are lowercase.
+Create an empty `getProperCase()` function that takes `str` as a parameter.
 */

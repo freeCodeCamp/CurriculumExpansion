@@ -5,6 +5,6 @@ console.log(caseConverter.getUpperCase(str));
 console.log(caseConverter.getLowerCase(str));
 
 /*
-Now let's try your `getProperCase()` function. Convert `str` to proper case and print it to the console.
+This time, convert `str` to proper case and log it to the console.
 You should see `Hello Free Code Camp!`.
 */

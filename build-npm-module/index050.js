@@ -14,7 +14,7 @@ version: (1.0.0)
 description:
 */
 
-/*
-You can enter a description for your npm module.
-Write 'This is a package is used to covert strings to a specific case.', and hit enter.
-*/
+/**
+ * You can enter a description for your npm module.
+ * Write 'This package is used to covert strings to a specific case.', and hit enter.
+ */

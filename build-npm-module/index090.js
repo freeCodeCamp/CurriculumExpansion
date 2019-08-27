@@ -11,15 +11,14 @@ save it as a dependency in the package.json file.
 Press ^C at any time to quit.
 package name: (case-converter)
 version: (1.0.0)
-description: This is a package used to covert string to specific case.
+description: This package is used to covert strings to a specific case.
 entry point: (index.js)
 test command:
 git repository:
 keywords:
 */
 
-
 /*
-You can set keywords for your npm module that will show on your package's npm page.
+You can set keywords that will help people discover your package when you publish it to the npm registry.
 Hit enter for now.
 */

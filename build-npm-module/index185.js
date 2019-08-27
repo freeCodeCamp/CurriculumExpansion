@@ -14,4 +14,13 @@ const getProperCase = (str) => {
   return properCaseArr.join(' ');
 };
 
-// You should then use node.js `module.exports` to export these four functions so that users can import and use your package's function
+/*
+Use `module.exports` to export your four functions so that users can import and use them after installing your npm package.
+For example:
+```
+module.exports = {
+  getArrLength,
+  sumArr
+};
+```
+*/
