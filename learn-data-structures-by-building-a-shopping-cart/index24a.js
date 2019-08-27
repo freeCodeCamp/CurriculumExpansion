@@ -95,8 +95,6 @@ const products = [
   }
   
   /*
-  Next, use the applyDiscount method. Pass in subTotal as a parameter.
-
-  Store the result to a variable called discount.
+  Next, use the `applyDiscount` method. Pass in `subTotal` as a parameter and store the result to a variable called `discount`.
   */
   

@@ -93,11 +93,11 @@ const products = [
   /*
   Let's go through each item in the cart and add them up.
 
-  We will use a built-in method array method called reduce and assign the result to the subTotal variable.
+  We will use a built-in method array method called `reduce` and assign the result to the `subTotal` variable.
   
-  The reduce method takes in a callback function. The first argument holds the value that we track. The second argument holds the current value that loop is going through. 
+  The `reduce` method takes in a callback function. The first argument holds the value that we track. The second argument holds the current value that loop is going through. 
 
-  Go head and use the reduce method to loop over the cart and assign its total to subTotal variable.
+  Go ahead and use the `reduce` method to loop over the cart and assign its `total` to the `subTotal` variable.
 
   For example:
 

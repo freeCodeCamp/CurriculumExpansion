@@ -98,8 +98,8 @@ const products = [
   /*
   At last, let's calculate the total and return it.
 
-  Create a variable called total. The total is subTotal - discount + tax.
+  Create a variable called `total`. Use this formula to calculate the total: subTotal - discount + tax.
 
-  Return the total on the next line.
+  Return the `total` on the next line.
   */
   

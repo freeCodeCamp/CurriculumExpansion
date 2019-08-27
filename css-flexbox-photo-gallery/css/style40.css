@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    background: rgb(235, 231, 231);
+  }
+  
+  .header {
+    text-align: center;
+    padding: 32px;
+    background: rgb(224, 221, 221);
+  }
+
+
+
+  /* 
+  Change the flex-direction to row
+  */
+
+  /* Style the gallery container */
+  #gallery {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap;
+    padding: 0 4px;
+    justify-content: center;
+    align-items: center; */
+  }
+  
+  /* Style images  */
+  #gallery img {
+    width: 200px;
+    height: 200px;
+    /* margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 10px;
+    object-fit: cover; */
+  }

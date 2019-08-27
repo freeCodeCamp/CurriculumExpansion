@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+    <html lang="en" dir="auto">
+
+        <head>
+            <meta charset="utf-8">
+
+            <title>freeCodeCamp Curriculum - Learn intermediate CSS by building a Picasso painting</title>
+
+            <!-- Link to Fontawesome icons -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+            <!-- Link to stylesheet -->
+            <link href="css/style-final.css" rel="stylesheet" type="text/css" media="screen">
+        </head>
+
+        <body>
+
+            <!--
+            Introduction
+            In this module, we will create a simplified version of "Three musicians" painting by 
+            Picasso (beware there is a collage version with the same name, but we're interested in 
+            the painting version, see link: https://www.pablopicasso.org/three-musicians.jsp) 
+            using HTML and CSS.
+
+            Take a good long look at the painting. You may also want to print it and keep it next
+            to you will you work on this module.
+
+            Along the way, we will learn about CSS colors (hex, RGB, webcolors...), positionning, 
+            z-index, divs's shapes (squares, rectangles, circles and triangles), ids and classes, 
+            and more.
+            We will also use some Fontawesome icons.
+            -->
+
+            <!--
+            Step 1 - Choose the 10 colors you need mixing hex colors, rgb colors and web colors
+
+            Note: if you already know about CSS variables, you may be tempted to use them but we won't in
+            this module
+
+            2 brown colors for the background
+            1 off-white color for character on the left
+            2 orange & yellow colors for character in the middle
+            1 false black color for character on the right
+            1 blue color averlapping the 3 characters
+            3 colors for brown (dark tan & light tan) and gray details
+
+            You can check our choice od colors in the associated css file.
+            -->
+
+            <!-- Step 2 - Add the background colors -->
+
+            <!-- Step 2-1 - In the CSS file, define your background color of the floor in the body element -->
+
+            <!-- Step 2-2 - Create the background color of the background wall overlapping the body 
+            In the HTML file, create a div with the id "back-wall" 
+            In the CSS file, define the color of this div + add some styling -->
+
+            <div id="back-wall"></div>
+
+            <!-- Step 3 - Create a div that will contain all the characters.
+            It should be centered horizontally -->
+
+            <div class="characters">
+
+                <!-- Step 4 - Add the off-white musician on the left with a rectangle as the body 
+                    and a triangle as the hat 
+                    + eyes on a black background 
+                    + gray instrument with black dots
+                    + tan table
+                See at the bottom of CSS file for eyes classes -->
+
+                <div id="offwhite-character">
+                    <div id="white-hat"></div>
+                    <div id="black-mask">
+                        <div class="eyes left"></div>
+                        <div class="eyes right"></div>
+                    </div>
+                    <div id="gray-instrument">
+                        <div class="black-dot"></div>
+                        <div class="black-dot"></div>
+                        <div class="black-dot"></div>
+                        <div class="black-dot"></div>
+                        <div class="black-dot"></div>
+                    </div>
+                    <div id="tan-table"></div>
+                </div>
+
+                <!-- Step 5 - Add the black character on the right with a rectangle as the body 
+                    and a triangle as the hat 
+                    + the gray mask 
+                    + the white paper and the music notes
+                See bottom of the CSS file for Fontawesome icons style -->
+
+                <div id="black-character">
+                    <div id="black-hat"></div>
+                    <div id="gray-mask">
+                        <div class="eyes left"></div>
+                        <div class="eyes right"></div>
+                    </div>
+                    <div id="white-paper">
+                        <i class="fas fa-music"></i>
+                        <i class="fas fa-music"></i>
+                        <i class="fas fa-music"></i>
+                        <i class="fas fa-music"></i>
+                    </div>
+                </div>
+
+                <!-- Step 6 - Add the blue shawl overlapping the characters -->
+
+                <div class="blue" id="blue-left"></div>
+                <div class="blue" id="blue-right"></div>
+
+                <!-- Step 7 - Add the orange/yellow character overlapping the blue shawl + eyes + black round hat + guitar + guitar neck -->
+
+                <div id="orange-character">
+                    <div id="black-round-hat"></div>
+                    <div id="eyes-div">
+                        <div class="eyes left"></div>
+                        <div class="eyes right"></div>
+                    </div>
+
+                    <div id="triangles">
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div id="guitar">
+                        <div class="guitar" id="guitar-left">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="guitar" id="guitar-right">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div id="guitar-neck"></div>
+                    </div>
+                </div>
+            </div>
+
+        </body>
+
+        <!-- Admire what you've just done and congratulate yourself :-D -->

@@ -1,0 +1,15 @@
+body {
+  background-color: #ccc;
+}
+
+.dashboard {
+  width: 980px;
+  height: 500px;
+
+
+  /*
+    Give the `dashboard` class a `background-color` of `white` and a `box-shadow` of `5px 5px 5px 5px #888`.
+  */
+}
+
+

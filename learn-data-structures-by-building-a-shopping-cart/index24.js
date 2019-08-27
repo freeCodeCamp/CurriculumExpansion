@@ -94,9 +94,7 @@ class ShoppingCart {
 }
 
 /*
-  Now that we have subTotal, we can use to retrieve other factors to finally calculate total.
+  Now that we have `subTotal`, we can use it to retrieve other factors to finally calculate the total price.
 
-  Let's use calculateTaxes method we previously made. Pass in subTotal as a parameter. 
-
-  Assign the result to a variable called tax.
+  Let's use the `calculateTaxes` method we previously made. Pass in `subTotal` as a parameter and assign the result to a variable called `tax`.
 */
