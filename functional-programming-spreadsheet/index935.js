@@ -24,10 +24,12 @@ const median = nums => {
   const sorted = nums.slice().sort((x, y) => x - y);
   const length = sorted.length;
   const middle = sorted.length / 2 - 1;
+  return isEven(length);
 }; 
 
 /*
-Add a return statement to `median` so that it returns `isEven(length)`.
+Use the ternary operator to return `average([sorted[middle], sorted[middle + 1]])` if `length` is even, and `sorted[middle + 0.5]` otherwise.
+Note that the `middle` variable is close to the middle but is not actually the middle.
 */
 
 const spreadsheetFunctions = {
