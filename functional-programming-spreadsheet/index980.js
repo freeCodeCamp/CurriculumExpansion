@@ -67,7 +67,7 @@ const range = (start, end) => Array(end - start + 1).fill(start);
 The function in the `map` method can actually take a second argument: the index of the element.
 This is why you need an arrow function in `charRange` - if you don't, then the index will be passed to `String.fromCharCode` as the second argument, leading to unexpected results.
 However, it is safe for functions like `parseFloat` which take only one argument (but not for `parseInt`).
-Use this form of `map` to add its index to every element in the array in `range`.
+Chain `.map((x, i) => x + i)` to `.fill(start)` to add its index to every element in the array in `range`.
 */
 
 const charRange = (start, end) =>
