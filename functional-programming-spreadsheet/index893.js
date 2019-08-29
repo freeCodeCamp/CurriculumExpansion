@@ -17,6 +17,7 @@ const highPrecedence = str => {
 };
 
 const isEven = num => num % 2 === 0;
+const sum = nums => nums.reduce((a, x) => a + x);
 
 const spreadsheetFunctions = {
   "": x => x,
@@ -25,7 +26,6 @@ const spreadsheetFunctions = {
   firsttwo: arr => arr.slice(0, 2),
   lastttwo: arr => arr.slice(-2),
   even: nums => nums.filter(isEven),
-  sum: nums => nums.reduce((a, x) => a + x),
   has2: arr => arr.includes(2),
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), [])
 };
