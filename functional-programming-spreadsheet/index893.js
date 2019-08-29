@@ -31,14 +31,8 @@ const spreadsheetFunctions = {
 };
 
 /*
-ES6 introduced a shorthand object literal syntax:
-```
-const a = 10;
-const myObject = { a };
-console.log(myObject); // { a: 10 }
-```
-First, move `sum` outside of `spreadsheetFunctions`.
-`sum` should be a function expression similar to `isEven`.
+Now use the shorthand syntax to reference `sum` inside of `spreadsheetFunctions`.
+This both adds it to the functions you can use in the spreadsheet, and allows you to use it throughout your program.
 */
 
 const applyFn = str => {
