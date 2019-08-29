@@ -39,7 +39,7 @@ const spreadsheetFunctions = {
 };
 
 /*
-Now define two variable - `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
+Now define two variable: `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
 */
 
 const applyFn = str => {
