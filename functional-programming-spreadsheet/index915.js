@@ -40,9 +40,13 @@ const spreadsheetFunctions = {
 
 /*
 But our function takes an array of numbers, not strings.
-Luckily, you can pass a function `fn` as argument to sort.
-If `fn(a, b) < 0` then `a` will be added before `b`.
-Use this to sort `nums` in ascending order instead.
+Luckily, you can pass a function `fn` as argument to sort:
+```
+[2, 9, 10, 15].sort((a, b) => b - a); // [10, 9, 5, 2]
+```
+If `b - a` is less than 0, then `a` will be placed before `b`.
+As a result, this sorts the array in descending order.
+Use `sort` to sort `nums` in ascending order.
 */
 
 const applyFn = str => {
