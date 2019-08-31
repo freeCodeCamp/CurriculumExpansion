@@ -20,3 +20,6 @@ app.use(helmet(helmetConfig));
 // If you wanted to include Bootstrap for example. You would add `'maxcdn.bootstrapcdn.com'` to the src.
 
 // Now we have helmet all set up and our site is much more secure.
+
+// Our server is going to be receiving a post request from a form on the front-end.
+// Configure the server to use `express.urlencoded` and `express.json`

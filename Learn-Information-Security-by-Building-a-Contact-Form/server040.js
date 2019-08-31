@@ -8,7 +8,7 @@ app.use(helmet.dnsPrefetchControl());
 // Using a helmet security package is done like above.
 
 // This package will handle DNS Prefetch Control.
-// disables browser from DNS prefetching by disabling 'X-DNS-Prefetch-Control' header
+// It disables browsers from DNS prefetching by disabling 'X-DNS-Prefetch-Control' header
 // Sets "X-DNS-Prefetch-Control: off".
 
 // Use another helmet security package `hidePoweredBy`
