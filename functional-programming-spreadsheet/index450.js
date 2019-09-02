@@ -53,9 +53,9 @@ const evalFormula = x => {
 };
 
 /*
-Use `map` on the `charRange` in `addChars`, passing an arrow function with `elemValue` as the argument.
 You call curried functions like this:
 ```
 const result = add(1)(2);
 ```
+Use `map` on the `charRange` in `addChars`, passing in `x => elemValue(n)(x)` as the argument.
 */

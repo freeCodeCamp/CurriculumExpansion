@@ -27,9 +27,9 @@ const spreadsheetFunctions = {
 /*
 The `%` operator returns the remainder:
 ```
-4 % 3 = 1
-5 % 3 = 2
-6 % 3 = 0
+4 % 3; // 1
+5 % 3; // 2
+6 % 3; // 0
 ```
 Add an `isEven` function (to the global scope) which returns whether the number passed to it is even.
 */
@@ -104,7 +104,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

@@ -78,13 +78,5 @@ window.onload = () => {
 };
 
 /*
-Use another `forEach` on `letters` inside the range `forEach`, passing in a function with argument `y` and the following body:
-```
-const input = document.createElement("input");
-input.type = "text";
-input.id = y + x;
-input.onchange = update;
-container.appendChild(input);
-```
-Notice that we can use a variable from the outer `forEach` (`x`) thanks to lexical scoping.
+Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
 */

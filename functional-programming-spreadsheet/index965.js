@@ -67,7 +67,7 @@ const range = (start, end) =>
 /*
 We've used recursion in `range`, but recursion can have performance issues in JavaScript.
 If performance is an issue, you should try to use a higher order function like `reduce`, and if you can't do that, you'll probably have to use a for/while loop.
-Whilst we don't expect the user to enter particularly large numbers, so performance shouldn't be an issue, we're going to refactor `range` as an exercise.
+While we don't expect the user to enter particularly large numbers so that performance is an issue, we're going to refactor `range` as an exercise.
 Replace the body of `range` with `start`.
 */
 
@@ -123,7 +123,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

@@ -39,7 +39,7 @@ const spreadsheetFunctions = {
 };
 
 /*
-Now define two variable - `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
+Now define two variable: `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
 */
 
 const applyFn = str => {
@@ -112,7 +112,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

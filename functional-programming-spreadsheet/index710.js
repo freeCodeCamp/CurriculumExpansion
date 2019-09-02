@@ -89,7 +89,7 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(value.slice(1));
   }
 };
 
@@ -97,7 +97,7 @@ const update = event => {
 
 /*
 This is (probably) false, so `random` is certainly impure.
-The second property of pure functions is that they perform no side effects (which are state and I/O modifications).
+The second property of pure functions is that they perform no side effects, which are state and I/O modifications.
 If you call a function without assigning the result to a variable, and it does something, then it's an impure function.
 Call `window.onload()` in `update`.
 /*

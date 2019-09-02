@@ -88,12 +88,12 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    console.log(value.substring(0, 2));
+    console.log(value.slice(0, 2));
   }
 };
 
 /*
-You don't have to specify the second argument in `substring`.
-If you don't, then `substring` will extract from the first argument to the end.
-Change the call to `substring` to log all characters except the first instead.
+You don't have to specify the second argument in `slice`.
+If you don't, then `slice` will extract from the first argument to the end of the string.
+Change the call to `slice` to log all characters except the first instead.
 */

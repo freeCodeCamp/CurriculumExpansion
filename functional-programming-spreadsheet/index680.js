@@ -26,7 +26,7 @@ The array destructuring syntax can be used to extract values from arrays:
 const [x, y] = [1, 2]; // in variables
 const fn = ([x, y]) => x + y // in functions
 ```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes an array of two elements and returns the first one.
+Use this syntax to define a function `random` in `spreadsheetFunctions` which takes the array `[x, y]` and returns `x`.
 */
 
 const applyFn = str => {
@@ -97,6 +97,6 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(value.slice(1));
   }
 };

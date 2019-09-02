@@ -58,6 +58,9 @@ const evalFormula = (x, cells) => {
     varRegex,
     match => ""
   );
+  /*
+  Change the empty string in `varExpanded` to the result of calling `idToText` with `match.toUpperCase()`.
+  */
   const functionExpanded = applyFn(varExpanded);
   return functionExpanded === x
     ? functionExpanded
@@ -91,12 +94,8 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }
 };
-
-/*
-In `evalFormula`, change the empty string in `varExpanded` to the result of calling `idToText` with `match.toUpperCase()`.
-*/

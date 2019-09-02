@@ -26,6 +26,10 @@ const median = nums => {
   const middle = sorted.length / 2 - 1;
 }; 
 
+/*
+Add a return statement to `median` so that it returns `isEven(length)`.
+*/
+
 const spreadsheetFunctions = {
   "": x => x,
   random: ([x, y]) => Math.floor(Math.random() * y + x),
@@ -39,11 +43,6 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), []),
   range: arr => range(...arr)
 };
-
-/*
-Finally, add a return statement, so that `median` returns the `average` of its two middle items if `length` `isEven`, and returns the middle item if it's not.
-Note that the `middle` variable is close to the middle but is not actually the middle.
-*/
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
@@ -115,7 +114,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

@@ -68,11 +68,5 @@ window.onload = () => {
 };
 
 /*
-Now create a function `createLabel` inside `window.onload` which takes an argument `name` and has the following body:
-```
-const label = document.createElement("div");
-label.className = "label";
-label.textContent = name
-container.appendChild(label);
-```
+Now define a function `createLabel` which takes an argument `name` and has an empty body.
 */

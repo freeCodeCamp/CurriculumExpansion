@@ -45,6 +45,9 @@ const charRange = (start, end) =>
   );
 
 const evalFormula = (x, cells) => {
+  /*
+  Add a function `idToText` to `evalFormula`, which takes the argument `id` and returns `cells`.
+  */
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""
@@ -90,13 +93,8 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }
 };
-
-/*
-The `find` function returns the first element of an array that satisfies the function passed to it.
-Add a function `idToText` to `evalFormula`, which takes a single argument and returns the first element of `cells` equal to the argument. 
-/*

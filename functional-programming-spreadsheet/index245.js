@@ -34,5 +34,5 @@ const applyFn = str => {
 /*
 The `hasOwnProperty` method checks if a key exists in an object.
 So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
-Replace the `spreadsheetFunctions` in the last line with a use of `hasOwnProperty` that checks if the key `fn.toLowerCase()` exists in `spreadsheetFunctions`.
+Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase()` key exists in `spreadsheetFunctions`.
 */

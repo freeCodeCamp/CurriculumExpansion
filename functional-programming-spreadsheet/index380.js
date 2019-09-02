@@ -49,6 +49,5 @@ const evalFormula = x => {
 };
 
 /*
-Now define a function `elemValue`, which takes an argument `n` and returns a function.
-The function it returns should take an argument `c` and return `document.getElementById(c + n).value`.
+Now define a function `elemValue`, which takes an argument `n` and returns `n`.
 */

@@ -53,5 +53,5 @@ const evalFormula = x => {
 };
 
 /*
-Replace the `""` in `varRangeExpanded` with a five argument function, which return `rangeFromString` applied to the third and fifth argument.
+Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1`, `n1`, `c2` and `n2` as arguments, and returns `n1`.
 */

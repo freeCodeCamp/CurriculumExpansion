@@ -90,10 +90,10 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1), element.id);
+    element.value = evalFormula(value.slice(1));
   }
 };
 
 /*
-Now try calling `highPrecedence` without assigning it to a variable in `update`.
+Now try calling `highPrecedence` and pass it the string `"2*2"` without assigning it to a variable in `update`.
 /*

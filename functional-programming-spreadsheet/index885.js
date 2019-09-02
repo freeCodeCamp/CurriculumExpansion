@@ -33,11 +33,11 @@ const spreadsheetFunctions = {
 The `reduce` method can take a second argument (in addition to the function), specifying the initial accumulator value.
 In this case, the current value starts from index 0 rather than index 1.
 ```
-[1, [1, 2, 3], [3, 4, 5]].reduce((a, x) => a.concat(x), []) === [1, 1, 2, 3, 3, 4, 5]
+[1, [1, 2, 3], [3, 4, 5]].reduce((a, x) => a.concat(x), []); // [1, 1, 2, 3, 3, 4, 5]
 // without the second argument, it first tries 1.concat([1, 2, 3]), but 1 is not an array
 // now it first tries [].concat(1) which works 
 ```
-Use this syntax and the `includes` method to add a function `nodups` to `spreadsheetFunctions` which returns the array with duplicates removed.
+Add a function `nodups` to `spreadsheetFunctions`, with the value `arr => arr.reduce((a, x) => a.includes(x), [])`
 */
 
 const applyFn = str => {
@@ -110,7 +110,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

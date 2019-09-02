@@ -89,13 +89,11 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
-    element.value = evalFormula(value.substring(1);
+    element.value = evalFormula(value.slice(1));
   }
 };
 
 /*
 To make this function pure, instead of depending on application state implicitly, we can pass it down explicitly as an argument.
 Add an argument `cells` to `evalFormula`.
-When calling `evalFormula`, pass in `Array.from(document.getElementById("container").children)` as the `cells` argument.
-Don't forget to update the recursive call in `evalFormula`, passing in the same `cells` as the second argument.
 /*

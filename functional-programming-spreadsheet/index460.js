@@ -54,5 +54,6 @@ const evalFormula = x => {
 
 /*
 However, you don't need an arrow function.
-As `elemValue(n)` is a function, you can pass it in directly.
+As `elemValue(n)` is a function, you can pass it to `map` directly.
+Change `x => elemValue(n)(x)` to `elemValue(n)`.
 */

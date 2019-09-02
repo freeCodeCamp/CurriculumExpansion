@@ -24,7 +24,10 @@ const spreadsheetFunctions = {
 };
 
 /*
-You can also pass in a negative argument to `slice` to specify that index from the end.
+You can also pass in a negative argument to `slice` to specify that index from the end:
+```
+[2, 4, 6, 8, 10].slice(-3); // [6, 8, 10]
+```
 Use a negative index to add a function `lasttwo` which returns the last two elements of an array.
 */
 
@@ -98,7 +101,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

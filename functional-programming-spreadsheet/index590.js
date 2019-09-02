@@ -75,5 +75,5 @@ window.onload = () => {
 };
 
 /*
-Now use the `range` function combined with `forEach` and `createLabel` to create a label for each number from 1 to 99.
+Add `range(1, 99)` to `window.onload` (the result will be discarded for now).
 */

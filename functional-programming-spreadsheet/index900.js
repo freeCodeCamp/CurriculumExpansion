@@ -38,7 +38,7 @@ The spread operator allow you to pass multiple arguments instead of an array:
 ```
 const arr = [1, 2, 3];
 const sum3 = (a, b, c) => a + b + c;
-sum3(...arr) === 6;
+sum3(...arr); // 6
 ```
 Use the spread operator to add `range` to `spreadsheetFunctions`.
 */
@@ -113,7 +113,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

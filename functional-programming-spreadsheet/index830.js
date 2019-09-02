@@ -23,8 +23,8 @@ const spreadsheetFunctions = {
 };
 
 /*
-The `slice` method works in the same way as `substring` but on arrays instead of strings.
-Add a method `firsttwo` to `spreadsheetFunctions` which uses `slice` to return the first two elements of the array passed to it.
+The `slice` method can also work on arrays.
+Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument and uses `slice` to return the first two elements of `arr`.
 */
 
 const applyFn = str => {
@@ -97,7 +97,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }

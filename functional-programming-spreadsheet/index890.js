@@ -33,11 +33,12 @@ const spreadsheetFunctions = {
 /*
 ES6 introduced a shorthand object literal syntax:
 ```
-const a = 10
-{ a: a } === { a } // this doesn't actually work because you can't compare object using ===
+const a = 10;
+const myObject = { a };
+console.log(myObject); // { a: 10 }
 ```
-Now extract `sum` to outside of `spreadsheetFunctions`, but still reference it inside `spreadsheetFunctions`.
-This both adds it to the functions you can use in the spreadsheet, and allows you to use it in your program.
+First, move `sum` outside of `spreadsheetFunctions`.
+`sum` should be a function expression similar to `isEven`.
 */
 
 const applyFn = str => {
@@ -110,7 +111,7 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value[0] === "=") {
     element.value = evalFormula(
-      value.substring(1),
+      value.slice(1),
       Array.from(document.getElementById("container").children)
     );
   }
