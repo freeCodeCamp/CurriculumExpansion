@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `hasOwnProperty` method checks if a key exists in an object.
+So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
+Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase()` key exists in `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

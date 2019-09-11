@@ -5,6 +5,15 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+When defining an arrow function with a single argument, the parentheses can be omitted:
+```
+const greeting = name => `Hello !`;
+```
+Define a function `highPrecedence` which takes a single argument `str` and returns it.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

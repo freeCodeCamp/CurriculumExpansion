@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Note that `applyFunction` can access `toNumberList` from outside of itself.
+This is called lexical scoping - inner functions can access variables from outer functions.
+Now return `str2.replace(regex, "")`
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

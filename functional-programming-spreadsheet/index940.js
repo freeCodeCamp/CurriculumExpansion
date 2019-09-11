@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now add `median` to `spreadsheetFunctions`, just like you added `sum` and `average`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

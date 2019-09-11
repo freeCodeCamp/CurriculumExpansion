@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Apply `toNumberList(args)` to `spreadsheetFunctions[fn.toLowerCase()]`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

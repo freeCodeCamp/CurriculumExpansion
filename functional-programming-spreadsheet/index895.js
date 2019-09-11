@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `length` property returns the length of an array.
+Use this property with the `sum` function to define an `average` function.
+As with `sum`, add this function to both the global scope and to `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

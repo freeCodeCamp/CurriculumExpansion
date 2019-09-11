@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `Array` function takes an argument `x` and creates an array of size `x` filled with `undefined`.
+Create an array of `undefined` with size `end - start + 1` in `range`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

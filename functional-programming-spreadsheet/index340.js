@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Make `charRange` return `range(start, end)`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

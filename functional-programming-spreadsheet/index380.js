@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now define a function `elemValue`, which takes an argument `n` and returns `n`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

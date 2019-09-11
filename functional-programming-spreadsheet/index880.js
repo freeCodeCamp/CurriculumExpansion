@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `includes` method checks if an element is in an array.
+Add a `has2` function to `spreadsheetFunctions` which checks if the input has the number 2 in it.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

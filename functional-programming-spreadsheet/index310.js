@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Replace `[end]` with a recursive call to `range`: `[start].concat(range(start + 1, end))`
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

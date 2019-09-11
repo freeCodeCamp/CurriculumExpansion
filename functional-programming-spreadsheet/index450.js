@@ -5,6 +5,15 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+You call curried functions like this:
+```
+const result = add(1)(2);
+```
+Use `map` on the `charRange` in `addChars`, passing in `x => elemValue(n)(x)` as the argument.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

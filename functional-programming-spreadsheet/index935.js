@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Use the ternary operator to return `average([sorted[middle], sorted[middle + 1]])` if `length` is even, and `sorted[middle + 0.5]` otherwise.
+Note that the `middle` variable is close to the middle but is not actually the middle.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

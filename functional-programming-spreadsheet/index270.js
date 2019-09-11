@@ -5,6 +5,18 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+This is still valid because we're modifying `arr` in place instead of reassigning to it (which is   invalid with the `const` keyword).
+But doing this still modifies state, and we don't want to do that in functional programming.
+The `concat` method returns a new array instead of modifying an existing one:
+```
+[1,2,3].concat(4); // [1, 2, 3, 4]
+[1,2,3].concat(4, 5); // [1, 2, 3, 4, 5]
+```
+Use `concat` instead of `push` to return the result of adding `end` to `arr`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

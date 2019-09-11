@@ -5,6 +5,16 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Add the following code to `createLabel`:
+```
+label.className = "label";
+label.textContent = name;
+container.appendChild(label);
+```
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

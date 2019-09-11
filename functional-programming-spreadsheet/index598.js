@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Replace `createLabel` with an arrow function with a block body.
+This would allow us to add more statements.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

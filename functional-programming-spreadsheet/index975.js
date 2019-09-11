@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `fill` method takes an argument and replaces all elements of the array with that argument.
+Use it on the array in `range` to replace everything with `start`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `every` method checks if all elements of an array satisfy the provided testing function.
+Use it to add an `everyeven` function to `spreadsheetFunctions` which checks if all values passed in are even`spreadsheetFunctions` which checks if all values passed in are even.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

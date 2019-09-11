@@ -5,6 +5,18 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+ES6 introduced a shorthand object literal syntax:
+```
+const a = 10;
+const myObject = { a };
+console.log(myObject); // { a: 10 }
+```
+First, move `sum` outside of `spreadsheetFunctions`.
+`sum` should be a function expression similar to `isEven`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)` and `parseInt(n2)`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

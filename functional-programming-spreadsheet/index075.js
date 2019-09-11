@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Remove the now redundant `addVar` definition. 
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y
 };

@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now return the sum of `x` and `y` using the `return` keyword.
+</section>
+
 const infixToFunction = {};
 
 function add(x, y) {

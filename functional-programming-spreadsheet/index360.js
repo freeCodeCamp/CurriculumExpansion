@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Create a new function `evalFormula` which takes a single argument, `x`.
+Set `/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi` to a variable named `rangeRegex`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+In `window.onload`, asssign `document.getElementById("container")` to `container`.
+Also assign `charRange("A", "J")` to `letters`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

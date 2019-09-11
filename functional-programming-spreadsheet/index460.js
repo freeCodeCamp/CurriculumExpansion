@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+However, you don't need an arrow function.
+As `elemValue(n)` is a function, you can pass it to `map` directly.
+Change `x => elemValue(n)(x)` to `elemValue(n)`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

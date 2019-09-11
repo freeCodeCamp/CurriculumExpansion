@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now set `value` to `element.value.replace(/s/g, "")`.
+This removes all whitespace from `element` so that we can ignore it.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

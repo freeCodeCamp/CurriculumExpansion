@@ -5,6 +5,16 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The array destructuring syntax can be used to extract values from arrays:
+```
+const [x, y] = [1, 2]; // in variables
+const fn = ([x, y]) => x + y // in functions
+```
+Use this syntax to define a function `random` in `spreadsheetFunctions` which takes the array `[x, y]` and returns `x`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

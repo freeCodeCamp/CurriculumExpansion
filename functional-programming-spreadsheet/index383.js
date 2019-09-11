@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Inside `elemValue`, define `fn` to be a function which takes `c` as argument and returns `document.getElementById(c + n).value`.
+Return `fn` instead of `n`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

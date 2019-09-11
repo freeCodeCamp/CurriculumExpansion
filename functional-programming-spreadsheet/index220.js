@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Define a new function `applyFunction` (inside `applyFn`).
+It should take two arguments: `fn` and `args`, and should return `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

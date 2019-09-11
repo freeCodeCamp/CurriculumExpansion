@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Congragulations!
+You've finished this spreadsheet. Try inputing something like `=sum(range(1, 10))` into the spreadsheetFunctions.
+The function names are not case sensitive.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1`, `n1`, `c2` and `n2` as arguments, and returns `n1`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

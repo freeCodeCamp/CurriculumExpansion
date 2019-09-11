@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `some` method checks if any element of the array satisfies the provided testing function.
+Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passed in are even.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

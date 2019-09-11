@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+To make this function pure, instead of depending on application state implicitly, we can pass it down explicitly as an argument.
+Add an argument `cells` to `evalFormula`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

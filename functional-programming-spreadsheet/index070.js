@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
+</section>
+
 const infixToFunction = {
   "+": addVar
 };

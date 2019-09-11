@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `includes` method works on a string and checks if the argument is its substring.
+Add an empty if statement to `update` which executes if `element.id` is not a substring of `value`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.toLowerCase()` to get a specific function from `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

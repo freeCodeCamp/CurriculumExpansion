@@ -5,6 +5,17 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Add the following code:
+```
+input.type = "text";
+input.id = y + x;
+input.onchange = update;
+container.appendChild(input);
+```
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

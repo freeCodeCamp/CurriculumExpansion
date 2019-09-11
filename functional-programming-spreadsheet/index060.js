@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Add the key `+` to `infixToFunction` and assign it the value `addVar`.
+</section>
+
 const infixToFunction = {};
 
 const addVar = (x, y) => x + y;

@@ -5,6 +5,14 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Unfortunately, impure functions are necessary - if you don't use them, the application won't perform any I/O so won't do anything.
+But we have an impure function that could be pure - `evalFormula`.
+It calls `document.getElementById(c + n).value`, but this value can change, even if the arguments don't.
+Change these calls to `""` - the function is now pure but doesn't work.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

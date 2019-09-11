@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Replace the body of `addChars`, so that instead of adding the arguments, it returns a `charRange` between the first two arguments: `c1 => c2 => n => charRange(c1, c2)`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

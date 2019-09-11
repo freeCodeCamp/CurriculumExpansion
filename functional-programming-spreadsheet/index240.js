@@ -5,6 +5,11 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Replace the `""` in `str2.replace(regex, "")` with a function which takes `match`, `fn` and `args` as arguments and returns `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,14 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+We've used recursion in `range`, but recursion can have performance issues in JavaScript.
+If performance is an issue, you should try to use a higher order function like `reduce`, and if you can't do that, you'll probably have to use a for/while loop.
+While we don't expect the user to enter particularly large numbers so that performance is an issue, we're going to refactor `range` as an exercise.
+Replace the body of `range` with `start`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

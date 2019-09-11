@@ -5,6 +5,14 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+This is (probably) false, so `random` is certainly impure.
+The second property of pure functions is that they perform no side effects, which are state and I/O modifications.
+If you call a function without assigning the result to a variable, and it does something, then it's an impure function.
+Call `window.onload()` in `update`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

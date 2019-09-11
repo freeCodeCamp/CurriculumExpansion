@@ -5,6 +5,15 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+You can define arrow functions without arguments:
+```
+const two = () => 2;
+```
+Define an empty arrow function without arguments and assign it to `window.onload`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

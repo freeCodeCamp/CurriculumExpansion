@@ -5,6 +5,18 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Arrow functions can have multiple statements:
+```
+const fn = (x, y) => {
+  const result = x + y;
+  return result; // explicit return statement required
+};
+```
+Use this syntax for the `highPrecedence` function.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

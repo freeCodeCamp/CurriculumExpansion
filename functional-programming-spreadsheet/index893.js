@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Now use the shorthand syntax to reference `sum` inside of `spreadsheetFunctions`.
+This both adds it to the functions you can use in the spreadsheet, and allows you to use it throughout your program.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

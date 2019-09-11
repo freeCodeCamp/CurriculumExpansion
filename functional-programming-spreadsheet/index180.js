@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
+The corresponding value should be the function `x => x`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

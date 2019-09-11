@@ -5,6 +5,17 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The spread operator allow you to pass multiple arguments instead of an array:
+```
+const arr = [1, 2, 3];
+const sum3 = (a, b, c) => a + b + c;
+sum3(...arr); // 6
+```
+Use the spread operator to add `range` to `spreadsheetFunctions`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

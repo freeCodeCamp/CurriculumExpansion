@@ -5,6 +5,13 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+Remove the `fn` declaration and return statement.
+Set `varRangeExpanded` to the result of using the `replace` method on `x`, with `rangeRegex` as the first argument and `""` as the second argument.
+Then, return it.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

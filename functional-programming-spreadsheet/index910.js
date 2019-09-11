@@ -5,6 +5,15 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `sort` method sorts an array alphabetically:
+```
+["B", "C", "A"].sort(); // ["A", "B", "C"]
+```
+Assign the sorted `nums` to `sorted` in `median`.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

@@ -5,6 +5,12 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `forEach` method takes a function and calls it with each element of the array.
+Chain `forEach` to `letters` and pass it the `createLabel` function to create a label for each of the letters.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

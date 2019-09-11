@@ -5,6 +5,14 @@ challengeType: 1
 isRequired: true
 ---
 
+## Description
+<section id='description'>
+The `slice` method takes two arguments.
+It extracts characters from the string from the index specified by the first argument up to (but not including) the second argument.
+The index starts at 0.
+Use the `slice` method to log the first two letters of `value` to the console.
+</section>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
