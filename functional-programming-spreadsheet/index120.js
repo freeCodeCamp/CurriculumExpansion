@@ -21,3 +21,4 @@ const infixEval = (str, regex) =>
 The `match` variable is currently unused, which can lead to unused variable warnings in some linters.
 To fix this, prefix or replace it with an underscore (`_`) - both ways signal to the reader and linter that you're aware you don't need this.
 Note that a single underscore can only be used once in a function and may conflict with some libraries (Lodash, Undrescore.js).
+*/
