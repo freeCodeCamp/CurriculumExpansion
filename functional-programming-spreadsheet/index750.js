@@ -105,4 +105,4 @@ Unfortunately, impure functions are necessary - if you don't use them, the appli
 But we have an impure function that could be pure - `evalFormula`.
 It calls `document.getElementById(c + n).value`, but this value can change, even if the arguments don't.
 Change these calls to `""` - the function is now pure but doesn't work.
-/*
+*/

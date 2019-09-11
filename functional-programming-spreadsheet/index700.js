@@ -108,4 +108,4 @@ You can check if this is the case by comparing a call to a function with another
 console.log(f(2) === f(2)); // always true for pure functions
 ```
 Use this technique to check if the `random` function in `spreadsheetFunctions` is pure by passing in the following array: `[1, 1000]`.
-/*
+*/

@@ -103,4 +103,4 @@ const update = event => {
 /*
 To make this function pure, instead of depending on application state implicitly, we can pass it down explicitly as an argument.
 Add an argument `cells` to `evalFormula`.
-/*
+*/
