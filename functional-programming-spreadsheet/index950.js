@@ -57,10 +57,7 @@ const spreadsheetFunctions = {
   range: arr => range(...arr)
 };
 
-/*
-The `some` method checks if any element of the array satisfies the provided testing function.
-Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passed in are even.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

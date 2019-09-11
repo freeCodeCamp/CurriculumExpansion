@@ -34,10 +34,7 @@ const spreadsheetFunctions = {
   random: ([x, y]) => x
 };
 
-/*
-Change the `random` function so that it returns `Math.floor(Math.random() * y + x)`.
-It now returns a random number within a range.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

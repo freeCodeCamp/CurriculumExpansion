@@ -78,10 +78,4 @@ const evalFormula = x => {
     : evalFormula(functionExpanded);
 };
 
-/*
-You can define arrow functions without arguments:
-```
-const two = () => 2;
-```
-Define an empty arrow function without arguments and assign it to `window.onload`.
-*/
+

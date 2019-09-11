@@ -65,7 +65,4 @@ const evalFormula = x => {
   };
 };
 
-/*
-Now define `fn` to be elemValue("1").
-As `elemValue` returns a function, `fn` is also a function.
-*/
+

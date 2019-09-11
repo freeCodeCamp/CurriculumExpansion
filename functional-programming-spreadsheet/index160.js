@@ -34,12 +34,4 @@ const highPrecedence = str => {
   return str2;
 };
 
-/*
-The ternary opertor has the following syntax:
-```
-const result = condition ? valueIfTrue : valueIfFalse;
-const result = 1 === 1 ? 1 : 0; // 1
-const result = 9 > 10 ? "Yes" : "No"; // "No"
-```
-Use this opertor to return `str` if `str === str2`, and an empty string (`""`) otherwise.
-*/
+

@@ -70,9 +70,7 @@ const evalFormula = (x, cells) => {
     varRegex,
     match => ""
   );
-  /*
-  Change the empty string in `varExpanded` to the result of calling `idToText` with `match.toUpperCase()`.
-  */
+  
   const functionExpanded = applyFn(varExpanded);
   return functionExpanded === x
     ? functionExpanded

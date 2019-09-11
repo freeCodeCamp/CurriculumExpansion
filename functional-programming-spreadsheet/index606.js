@@ -98,12 +98,4 @@ window.onload = () => {
   });
 };
 
-/*
-Add the following code:
-```
-input.type = "text";
-input.id = y + x;
-input.onchange = update;
-container.appendChild(input);
-```
-*/
+

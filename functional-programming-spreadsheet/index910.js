@@ -52,13 +52,7 @@ const spreadsheetFunctions = {
   range: arr => range(...arr)
 };
 
-/*
-The `sort` method sorts an array alphabetically:
-```
-["B", "C", "A"].sort(); // ["A", "B", "C"]
-```
-Assign the sorted `nums` to `sorted` in `median`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

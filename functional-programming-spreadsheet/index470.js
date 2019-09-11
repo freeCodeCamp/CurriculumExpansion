@@ -66,8 +66,4 @@ const evalFormula = x => {
   return fn("A")
 };
 
-/*
-Remove the `fn` declaration and return statement.
-Set `varRangeExpanded` to the result of using the `replace` method on `x`, with `rangeRegex` as the first argument and `""` as the second argument.
-Then, return it.
-*/
+

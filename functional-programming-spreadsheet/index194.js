@@ -36,6 +36,4 @@ const applyFn = str => {
   const noHigh = highPrecedence(str);
 }
 
-/*
-Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/` in `applyFn`.
-*/
+

@@ -74,8 +74,4 @@ const evalFormula = x => {
   return functionExpanded;
 };
 
-/*
-`evalFormula` should return the value passed to it if this value remained unchanged.
-Otherwise, it should call itself with the latest value.
-Use the ternary operator in the last line of `evalFormula` to return `functionExpanded` if `x === functionExpanded` and `evalFormula(functionExpanded)` otherwise.
-*/
+

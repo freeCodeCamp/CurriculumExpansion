@@ -65,6 +65,4 @@ const evalFormula = x => {
   return fn("A")
 };
 
-/*
-Now, remove the curly braces and return statement.
-*/
+

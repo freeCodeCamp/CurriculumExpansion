@@ -28,7 +28,4 @@ const highPrecedence = str => {
   return str;
 };
 
-/*
-Now, assign the result of calling `infixEval` with `str` and `regex` to `str2`.
-Return `str2`.
-*/
+

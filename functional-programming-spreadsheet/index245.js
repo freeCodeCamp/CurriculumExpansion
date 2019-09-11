@@ -45,8 +45,4 @@ const applyFn = str => {
   return str2.replace(regex, (match, fn, args) => spreadsheetFunctions);
 }
 
-/*
-The `hasOwnProperty` method checks if a key exists in an object.
-So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
-Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase()` key exists in `spreadsheetFunctions`.
-*/
+

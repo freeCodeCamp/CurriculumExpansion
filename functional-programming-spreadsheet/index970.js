@@ -76,10 +76,7 @@ const applyFn = str => {
 
 const range = (start, end) => start
 
-/*
-The `Array` function takes an argument `x` and creates an array of size `x` filled with `undefined`.
-Create an array of `undefined` with size `end - start + 1` in `range`.
-*/
+
 
 const charRange = (start, end) =>
   range(start.charCodeAt(0), end.charCodeAt(0)).map(x =>

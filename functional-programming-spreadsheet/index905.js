@@ -46,9 +46,7 @@ const spreadsheetFunctions = {
   range: arr => range(...arr)
 };
 
-/*
-Now define a `median` function which takes an argument `nums` (in the global scope).
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

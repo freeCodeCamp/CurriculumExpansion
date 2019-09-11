@@ -68,6 +68,4 @@ const evalFormula = x => {
   return varExpanded;
 };
 
-/*
-Replace the `""` in `varExpanded` with `match => document.getElementById(match.toUpperCase()).value`.
-*/
+

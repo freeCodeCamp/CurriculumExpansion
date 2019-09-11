@@ -86,7 +86,4 @@ window.onload = () => {
   const letters = charRange("A", "J");
 };
 
-/*
-The `forEach` method takes a function and calls it with each element of the array.
-Chain `forEach` to `letters` and pass it the `createLabel` function to create a label for each of the letters.
-*/
+

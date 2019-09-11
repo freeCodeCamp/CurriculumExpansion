@@ -60,6 +60,4 @@ const evalFormula = x => {
   const rangeFromString = (n1, n2) => range(n1, n2);
 };
 
-/*
-As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)` and `parseInt(n2)`.
-*/
+

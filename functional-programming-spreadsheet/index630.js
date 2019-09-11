@@ -102,7 +102,4 @@ const update = event => {
   const value = element.value.replace(/\s/g, "");
 };
 
-/*
-The `includes` method works on a string and checks if the argument is its substring.
-Add an empty if statement to `update` which executes if `element.id` is not a substring of `value`.
-*/
+

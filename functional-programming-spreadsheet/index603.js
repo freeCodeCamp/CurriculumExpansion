@@ -92,6 +92,4 @@ window.onload = () => {
   });
 };
 
-/*
-Assign `document.createElement("input")` to `input`.
-*/
+

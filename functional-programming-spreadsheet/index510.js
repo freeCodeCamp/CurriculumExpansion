@@ -68,8 +68,4 @@ const evalFormula = x => {
   return varRangeExpanded;
 };
 
-/*
-Set `varRegex` to `/[A-J][1-9][0-9]?/gi`.
-Then set `varExpanded` to the result of replacing `varRegex` with an empty string in `varRangeExpanded`.
-Return `varExpanded`.
-*/
+

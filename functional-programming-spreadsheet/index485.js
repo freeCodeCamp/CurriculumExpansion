@@ -66,6 +66,4 @@ const evalFormula = x => {
   return varRangeExpanded;
 };
 
-/*
-Replace the `n1` return value in `varRangeExpanded` with `rangeFromString(n1, n2)`.
-*/
+

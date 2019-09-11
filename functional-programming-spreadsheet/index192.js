@@ -36,6 +36,4 @@ const applyFn = str => {
 
 }
 
-/*
-Set `noHigh` to `highPrecedence(str)` in `applyFn`.
-*/
+

@@ -41,7 +41,4 @@ const applyFn = str => {
   const toNumberList = args => args.split(",").map(parseFloat);
 }
 
-/*
-Define a new function `applyFunction` (inside `applyFn`).
-It should take two arguments: `fn` and `args`, and should return `spreadsheetFunctions`.
-*/
+

@@ -51,6 +51,4 @@ const range = (start, end) => {
   return start > end ? [] : [start].concat(range(start + 1, end));
 }
 
-/*
-Remove the curly braces and `return` keyword from `range`.
-*/
+

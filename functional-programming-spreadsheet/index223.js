@@ -41,6 +41,4 @@ const applyFn = str => {
   const applyFunction = (fn, args) => spreadsheetFunctions;
 }
 
-/*
-Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.toLowerCase()` to get a specific function from `spreadsheetFunctions`.
-*/
+

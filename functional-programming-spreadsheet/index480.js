@@ -64,6 +64,4 @@ const evalFormula = x => {
   return varRangeExpanded;
 };
 
-/*
-Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1`, `n1`, `c2` and `n2` as arguments, and returns `n1`.
-*/
+

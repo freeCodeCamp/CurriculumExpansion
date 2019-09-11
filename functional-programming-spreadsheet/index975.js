@@ -76,10 +76,7 @@ const applyFn = str => {
 
 const range = (start, end) => Array(end - start + 1);
 
-/*
-The `fill` method takes an argument and replaces all elements of the array with that argument.
-Use it on the array in `range` to replace everything with `start`.
-*/
+
 
 const charRange = (start, end) =>
   range(start.charCodeAt(0), end.charCodeAt(0)).map(x =>

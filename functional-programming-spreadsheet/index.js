@@ -63,11 +63,7 @@ const applyFn = str => {
 
 const range = (start, end) => Array(end - start + 1).fill(start).map((x, i) => x + i);
 
-/*
-Congragulations!
-You've finished this spreadsheet. Try inputing something like `=sum(range(1, 10))` into the spreadsheetFunctions.
-The function names are not case sensitive.
-*/
+
 
 const charRange = (start, end) =>
   range(start.charCodeAt(0), end.charCodeAt(0)).map(x =>

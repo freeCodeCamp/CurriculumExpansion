@@ -87,6 +87,4 @@ window.onload = () => {
   range(1, 99);
 };
 
-/*
-Chain `forEach` onto `range(1, 99)`, passing in `createLabel` as an argument.
-*/
+

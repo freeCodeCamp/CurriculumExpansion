@@ -68,10 +68,4 @@ const evalFormula = x => {
   return fn("A")
 };
 
-/*
-You can add more arguments by simply adding another arrow with another argument name:
-```
-const manyArguments = a => b => c => d => [a, b, c, d]
-```
-Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 + c2 + n`.
-*/
+

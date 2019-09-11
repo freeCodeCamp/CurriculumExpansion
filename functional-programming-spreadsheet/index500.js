@@ -67,7 +67,4 @@ const evalFormula = x => {
   return varRangeExpanded;
 };
 
-/*
-The function in `varRangeExpanded` contains an unused argument.
-Replace or prefix it with an underscore.
-*/
+

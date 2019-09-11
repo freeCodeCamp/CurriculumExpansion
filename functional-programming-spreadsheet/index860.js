@@ -42,13 +42,7 @@ const spreadsheetFunctions = {
   lastttwo: arr => arr.slice(-2)
 };
 
-/*
-The `filter` method keeps only the elements of an array that satisfy the function passed to it:
-```
-[1, 10, 8, 3, 4, 5].filter(x > 3); // [10, 8, 4, 5]
-```
-Use `filter` to add a function called `even` to `spreadsheetFunctions`, which returns all the even elements of an array, `nums`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

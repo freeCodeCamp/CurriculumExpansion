@@ -52,6 +52,4 @@ const range = (start, end) => {
   return arr;
 }
 
-/*
-After declaring `arr`, but before returning it, `range` should use the `push` method to add `end` onto `arr`.
-*/
+

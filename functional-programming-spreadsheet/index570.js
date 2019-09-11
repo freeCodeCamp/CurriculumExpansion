@@ -79,6 +79,4 @@ window.onload = () => {
   const letters = charRange("A", "J");
 };
 
-/*
-Now define a function `createLabel` which takes an argument `name` and has an empty body.
-*/
+

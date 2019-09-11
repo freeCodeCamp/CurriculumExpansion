@@ -32,6 +32,4 @@ const spreadsheetFunctions = {
   "": x => x
 };
 
-/*
-Define a function `applyFn` which takes an argument `str`.
-*/
+

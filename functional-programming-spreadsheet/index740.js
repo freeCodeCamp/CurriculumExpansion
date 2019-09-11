@@ -108,8 +108,4 @@ const update = event => {
   }
 };
 
-/*
-This is true, so `highPrecedence` might be a pure function.
-If you inspect it, you can see that it indeed performs no I/O and doesn't use functions like `Math.random()` - so it's pure.
-Remove the `console.log` statement.
-*/
+

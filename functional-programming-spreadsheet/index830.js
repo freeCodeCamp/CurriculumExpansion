@@ -35,10 +35,7 @@ const spreadsheetFunctions = {
   increment: nums => nums.map(x => x + 1)
 };
 
-/*
-The `slice` method can also work on arrays.
-Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument and uses `slice` to return the first two elements of `arr`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

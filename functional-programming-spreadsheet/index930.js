@@ -38,9 +38,7 @@ const median = nums => {
   const middle = sorted.length / 2 - 1;
 }; 
 
-/*
-Add a return statement to `median` so that it returns `isEven(length)`.
-*/
+
 
 const spreadsheetFunctions = {
   "": x => x,

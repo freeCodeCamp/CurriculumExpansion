@@ -39,13 +39,7 @@ const spreadsheetFunctions = {
   firsttwo: arr => arr.slice(0, 2)
 };
 
-/*
-You can also pass in a negative argument to `slice` to specify that index from the end:
-```
-[2, 4, 6, 8, 10].slice(-3); // [6, 8, 10]
-```
-Use a negative index to add a function `lasttwo` which returns the last two elements of an array.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

@@ -47,6 +47,4 @@ const applyFn = str => {
   );
 };
 
-/*
-Now define an empty function `range` which takes `start` and `end` as arguments.
-*/
+

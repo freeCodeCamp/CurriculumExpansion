@@ -49,16 +49,7 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), [])
 };
 
-/*
-ES6 introduced a shorthand object literal syntax:
-```
-const a = 10;
-const myObject = { a };
-console.log(myObject); // { a: 10 }
-```
-First, move `sum` outside of `spreadsheetFunctions`.
-`sum` should be a function expression similar to `isEven`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

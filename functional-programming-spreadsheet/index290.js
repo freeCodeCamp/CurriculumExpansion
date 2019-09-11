@@ -52,6 +52,4 @@ const range = (start, end) => {
   return arr.concat([end]);
 }
 
-/*
-Replace the call to `arr` in `arr.concat([end])` with `[start]` and remove the `arr` variable and its definition.
-*/
+

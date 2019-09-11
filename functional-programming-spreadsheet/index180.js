@@ -29,7 +29,4 @@ const highPrecedence = str => {
   return str === str2 ? str : highPrecedence(str2);
 };
 
-/*
-Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
-The corresponding value should be the function `x => x`.
-*/
+

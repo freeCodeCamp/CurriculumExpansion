@@ -47,6 +47,4 @@ const applyFn = str => {
   );
 }
 
-/*
-Now use the ternary operator in the last line to return `applyFunction(fn, args)` if the statement is true, and `match` otherwise.
-*/
+

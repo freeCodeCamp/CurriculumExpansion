@@ -64,7 +64,4 @@ const evalFormula = x => {
   };
 };
 
-/*
-Inside `elemValue`, define `fn` to be a function which takes `c` as argument and returns `document.getElementById(c + n).value`.
-Return `fn` instead of `n`.
-*/
+

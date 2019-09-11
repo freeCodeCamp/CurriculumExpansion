@@ -65,6 +65,4 @@ const evalFormula = x => {
   const fn = elemValue("1");
 };
 
-/*
-Finally, return `fn("A")`.
-*/
+

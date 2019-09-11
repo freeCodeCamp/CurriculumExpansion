@@ -51,6 +51,4 @@ const range = (start, end) => {
   return [start].concat([end]);
 }
 
-/*
-Use the ternary operator to return `[]` if `start > end` and `[start].concat([end])` otherwise.
-*/
+

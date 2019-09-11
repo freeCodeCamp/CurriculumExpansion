@@ -58,9 +58,7 @@ const charRange = (start, end) =>
 
 const evalFormula = (x, cells) => {
   const idToText = id => cells.find(cell => cell.id === id);
-  /*
-  Use the `value` property on the result of `idToText` to return the text inside the cell, rather than the cell itself.
-  */
+  
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""

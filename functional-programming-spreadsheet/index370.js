@@ -60,6 +60,4 @@ const evalFormula = x => {
 
 };
 
-/*
-Define a function `rangeFromString` in `evalFormula` which takes `n1` and `n2` as arguments and returns `n1`.
-*/
+

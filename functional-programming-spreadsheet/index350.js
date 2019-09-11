@@ -52,6 +52,4 @@ const range = (start, end) =>
 
 const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0));
 
-/*
-Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` as the argument.
-*/
+

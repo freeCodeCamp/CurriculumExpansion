@@ -102,6 +102,4 @@ const update = event => {
   if (!value.includes(element.id)) {}
 };
 
-/*
-Add another condition to the if statement so that it only executes if the first character of `value` is `=`.
-*/
+

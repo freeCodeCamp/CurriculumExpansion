@@ -44,8 +44,4 @@ const applyFn = str => {
     spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
 }
 
-/*
-Note that `applyFunction` can access `toNumberList` from outside of itself.
-This is called lexical scoping - inner functions can access variables from outer functions.
-Now return `str2.replace(regex, "")`
-*/
+

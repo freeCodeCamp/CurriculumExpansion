@@ -82,6 +82,4 @@ window.onload = () => {
   const letters = charRange("A", "J");
 };
 
-/*
-Inside `createLabel`, assign `document.createElement("div")` to `label`.
-*/
+

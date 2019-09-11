@@ -41,10 +41,7 @@ const spreadsheetFunctions = {
   sum: nums => nums.reduce((a, x) => a + x)
 };
 
-/*
-The `includes` method checks if an element is in an array.
-Add a `has2` function to `spreadsheetFunctions` which checks if the input has the number 2 in it.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

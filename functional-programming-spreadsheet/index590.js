@@ -86,6 +86,4 @@ window.onload = () => {
   letters.forEach(createLabel);
 };
 
-/*
-Add `range(1, 99)` to `window.onload` (the result will be discarded for now).
-*/
+

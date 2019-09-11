@@ -89,6 +89,4 @@ window.onload = () => {
   });
 };
 
-/*
-Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
-*/
+

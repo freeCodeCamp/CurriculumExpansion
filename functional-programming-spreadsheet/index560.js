@@ -77,7 +77,4 @@ const evalFormula = x => {
 
 window.onload = () => { };
 
-/*
-In `window.onload`, asssign `document.getElementById("container")` to `container`.
-Also assign `charRange("A", "J")` to `letters`.
-*/
+

@@ -40,10 +40,7 @@ const median = nums => {
   return isEven(length);
 }; 
 
-/*
-Use the ternary operator to return `average([sorted[middle], sorted[middle + 1]])` if `length` is even, and `sorted[middle + 0.5]` otherwise.
-Note that the `middle` variable is close to the middle but is not actually the middle.
-*/
+
 
 const spreadsheetFunctions = {
   "": x => x,

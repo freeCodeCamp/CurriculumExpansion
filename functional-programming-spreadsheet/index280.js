@@ -57,11 +57,4 @@ const range = (start, end) => {
   return arr.concat(end);
 }
 
-/*
-The `concat` method can also accept arrays:
-```
-[1,2,3].concat([4, 5]); // [1, 2, 3, 4, 5]
-[1,2,3].concat([4, 5], [6, 7]); // [1, 2, 3, 4, 5, 6, 7]
-```
-Use this form of concat by passing an array with just `end` to it: `arr.concat([end])`.
-*/
+

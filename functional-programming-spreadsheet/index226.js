@@ -41,6 +41,4 @@ const applyFn = str => {
   const applyFunction = (fn, args) => spreadsheetFunctions[fn.toLowerCase()];
 }
 
-/*
-Apply `toNumberList(args)` to `spreadsheetFunctions[fn.toLowerCase()]`.
-*/
+

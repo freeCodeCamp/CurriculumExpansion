@@ -51,6 +51,4 @@ const range = (start, end) => {
 
 }
 
-/*
-`range` should set `arr` to `[start]` and should then return `arr`.
-*/
+

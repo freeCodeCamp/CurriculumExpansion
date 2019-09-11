@@ -52,6 +52,4 @@ const range = (start, end) =>
 
 const charRange = (start, end) => range(start, end);
 
-/*
-Use the `charCodeAt(0)` method on `start` and `end` in `charRange`, like this: `start.charCodeAt(0)`.
-*/
+

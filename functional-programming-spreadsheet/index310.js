@@ -51,6 +51,4 @@ const range = (start, end) => {
   return start > end ? [] : [start].concat([end]);
 }
 
-/*
-Replace `[end]` with a recursive call to `range`: `[start].concat(range(start + 1, end))`
-*/
+

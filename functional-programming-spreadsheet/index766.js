@@ -73,9 +73,7 @@ const evalFormula = (x, cells) => {
   return functionExpanded === x
     ? functionExpanded
     : evalFormula(functionExpanded);
-  /*
-  Update the recursive call to `evalFormula` by passing in `cells` as the second argument.
-  */
+  
 };
 
 window.onload = () => {

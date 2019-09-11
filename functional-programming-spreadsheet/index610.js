@@ -96,6 +96,4 @@ window.onload = () => {
   });
 };
 
-/*
-Define a function called `update` which takes `event` as argument and sets `element` to `event.target`.
-*/
+

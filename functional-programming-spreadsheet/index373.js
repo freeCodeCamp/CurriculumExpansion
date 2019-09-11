@@ -60,6 +60,4 @@ const evalFormula = x => {
   const rangeFromString = (n1, n2) => n1;
 };
 
-/*
-Replace the `n1` return value in `rangeFromString` with `range(n1, n2)`.
-*/
+

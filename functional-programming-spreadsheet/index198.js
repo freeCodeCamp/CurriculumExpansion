@@ -38,6 +38,4 @@ const applyFn = str => {
   const str2 = infixEval(noHigh, infix);
 }
 
-/*
-Set `regex` to `/([a-z]*)\(([0-9., ]*)\)(?!.*\()/i` in `applyFn`.
-*/
+

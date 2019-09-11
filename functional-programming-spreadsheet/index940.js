@@ -55,9 +55,7 @@ const spreadsheetFunctions = {
   range: arr => range(...arr)
 };
 
-/*
-Now add `median` to `spreadsheetFunctions`, just like you added `sum` and `average`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

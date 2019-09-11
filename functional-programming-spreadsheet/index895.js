@@ -45,11 +45,7 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), [])
 };
 
-/*
-The `length` property returns the length of an array.
-Use this property with the `sum` function to define an `average` function.
-As with `sum`, add this function to both the global scope and to `spreadsheetFunctions`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

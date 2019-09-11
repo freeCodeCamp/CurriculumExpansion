@@ -105,6 +105,4 @@ const update = event => {
   }
 };
 
-/*
-When calling `evalFormula`, pass in `Array.from(document.getElementById("container").children)` as the `cells` argument.
-*/
+

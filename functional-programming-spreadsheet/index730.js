@@ -107,7 +107,4 @@ const update = event => {
   }
 };
 
-/*
-Obviously, this was ignored, as all `highPrecedence` does is return a value and this value is ignored.
-Now compare `highPrecedence("2*2")` with `highPrecedence("2*2")`, and `console.log` the result.
-*/
+

@@ -104,6 +104,4 @@ const update = event => {
   }
 };
 
-/*
-Now change the if statement to set `element.value` to the result of passing `value.slice(1)` and `element.id` to `evalFormula`.
-*/
+

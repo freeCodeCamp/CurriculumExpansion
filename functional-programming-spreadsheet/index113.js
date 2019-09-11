@@ -23,7 +23,4 @@ const infixEval = (str, regex) =>
     infixToFunction["+"]
   );
 
-/*
-Change the `"+"` in the call to `infixToFunction` to `fn`.
-`fn` is the operator that the user inputs (`+`, `-`, `*` or `/`) - we use `infixToFunction` to get the function that corresponds to it.
-*/
+

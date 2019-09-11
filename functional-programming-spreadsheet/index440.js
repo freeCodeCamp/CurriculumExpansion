@@ -64,6 +64,4 @@ const evalFormula = x => {
   return fn("A")
 };
 
-/*
-Replace the body of `addChars`, so that instead of adding the arguments, it returns a `charRange` between the first two arguments: `c1 => c2 => n => charRange(c1, c2)`.
-*/
+

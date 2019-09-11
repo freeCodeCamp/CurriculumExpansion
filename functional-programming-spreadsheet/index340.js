@@ -52,6 +52,4 @@ const range = (start, end) =>
 
 const charRange = (start, end) => start;
 
-/*
-Make `charRange` return `range(start, end)`.
-*/
+

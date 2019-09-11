@@ -34,10 +34,7 @@ const spreadsheetFunctions = {
   random: ([x, y]) => Math.floor(Math.random() * y + x)
 };
 
-/*
-`evalFormula` is now pure, as it now has no external dependencies, and as before, performs no side effects.
-Now define a new function, `increment` inside `spreadsheetFunctions`, which takes `nums` as argument and uses `map` to increment each value of `nums` by 1.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

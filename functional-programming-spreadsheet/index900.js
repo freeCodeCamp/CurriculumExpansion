@@ -51,15 +51,7 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), [])
 };
 
-/*
-The spread operator allow you to pass multiple arguments instead of an array:
-```
-const arr = [1, 2, 3];
-const sum3 = (a, b, c) => a + b + c;
-sum3(...arr); // 6
-```
-Use the spread operator to add `range` to `spreadsheetFunctions`.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

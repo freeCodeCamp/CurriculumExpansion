@@ -42,9 +42,7 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x), [])
 };
 
-/*
-Use the ternary operator in `nodups` to return `a` if `a.includes(x)` and `a.concat(x)` otherwise.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

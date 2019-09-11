@@ -37,6 +37,4 @@ const applyFn = str => {
   const infix = /([0-9.]+)([+-])([0-9.]+)/;
 }
 
-/*
-Set `str2` to `infixEval(noHigh, infix)`.
-*/
+

@@ -16,6 +16,4 @@ const infixToFunction = {
 
 const addVar = (x, y) => x + y;
 
-/*
-Remove the now redundant `addVar` definition. 
-*/
+

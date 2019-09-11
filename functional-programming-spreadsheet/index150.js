@@ -26,6 +26,4 @@ const highPrecedence = str => {
   return str;
 };
 
-/*
-In `highPrecedence`, define `regex` to be `/([0-9.]+)([*\/])([0-9.]+)/`.
-*/
+

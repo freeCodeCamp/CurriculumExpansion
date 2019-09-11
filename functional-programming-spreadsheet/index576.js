@@ -87,11 +87,4 @@ window.onload = () => {
   const letters = charRange("A", "J");
 };
 
-/*
-Add the following code to `createLabel`:
-```
-label.className = "label";
-label.textContent = name;
-container.appendChild(label);
-```
-*/
+

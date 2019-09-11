@@ -52,11 +52,7 @@ const spreadsheetFunctions = {
   range: arr => range(...arr)
 };
 
-/*
-Unfortunately, `sort` not only returns a new array, but also modifies the existing one.
-So our function also modifies the array passed to it - it is impure.
-You can fix this by adding `.slice()` between `nums` and `sort` - this creates a new array, that is equivalent to `nums`, but is immediately discarded, so it doesn't matter if it changes.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

@@ -88,7 +88,4 @@ window.onload = () => {
   range(1, 99).forEach(createLabel);
 };
 
-/*
-Replace `createLabel` with an arrow function with a block body.
-This would allow us to add more statements.
-*/
+

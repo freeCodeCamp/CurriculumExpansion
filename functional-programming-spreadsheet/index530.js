@@ -72,7 +72,4 @@ const evalFormula = x => {
   return varExpanded;
 };
 
-/*
-Set `functionExpanded to `applyFn(varExpanded)` in `evalFormula`.
-Return `functionExpanded`.
-*/
+

@@ -101,7 +101,4 @@ const update = event => {
   const element = event.target;
 };
 
-/*
-Now set `value` to `element.value.replace(/\s/g, "")`.
-This removes all whitespace from `element` so that we can ignore it.
-*/
+

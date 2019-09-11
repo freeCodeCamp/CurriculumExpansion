@@ -64,7 +64,4 @@ const evalFormula = x => {
   return fn("A")
 };
 
-/*
-You also don't need the parentheses in `elemValue` - it's parsed this way automatically.
-Remove them.
-*/
+

@@ -43,10 +43,7 @@ const spreadsheetFunctions = {
   nodups: arr => arr.reduce((a, x) => a.includes(x) ? a : a.concat(x), [])
 };
 
-/*
-Now use the shorthand syntax to reference `sum` inside of `spreadsheetFunctions`.
-This both adds it to the functions you can use in the spreadsheet, and allows you to use it throughout your program.
-*/
+
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);
