@@ -1,3 +1,10 @@
+---
+id: 5d792532b07918c3a5904913
+title: Step 5
+challengeType: 1
+isRequired: true
+---
+
 const infixToFunction = {};
 
 function add(x, y) {

@@ -1,3 +1,10 @@
+---
+id: 5d792534f0eda837510e9192
+title: Step 38
+challengeType: 1
+isRequired: true
+---
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,

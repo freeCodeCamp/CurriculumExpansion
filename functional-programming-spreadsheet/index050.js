@@ -1,3 +1,10 @@
+---
+id: 5d7925337954ed57a565a135
+title: Step 7
+challengeType: 1
+isRequired: true
+---
+
 const infixToFunction = {};
 
 const addVar = function(x, y) {

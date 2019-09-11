@@ -1,3 +1,10 @@
+---
+id: 5d79253297c0ebb149ea9fed
+title: Step 1
+challengeType: 1
+isRequired: true
+---
+
 /*
 In functional programming, we prefer immutable values over mutable values.
 Mutable values (declared with `var` or `let`) can lead to unexpected behaviors and bugs.
