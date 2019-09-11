@@ -11,6 +11,24 @@ Now define `fn` to be elemValue("1").
 As `elemValue` returns a function, `fn` is also a function.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -66,3 +84,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

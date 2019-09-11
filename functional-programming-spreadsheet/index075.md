@@ -10,6 +10,24 @@ isRequired: true
 Remove the now redundant `addVar` definition. 
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y
 };
@@ -17,3 +35,7 @@ const infixToFunction = {
 const addVar = (x, y) => x + y;
 
 
+</script>
+```
+
+</div>

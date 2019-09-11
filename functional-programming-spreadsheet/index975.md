@@ -11,6 +11,24 @@ The `fill` method takes an argument and replaces all elements of the array with 
 Use it on the array in `range` to replace everything with `start`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -135,3 +153,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

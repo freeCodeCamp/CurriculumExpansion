@@ -14,6 +14,24 @@ The `map` method takes a function and for each element of an array, it passes th
 In `toNumberList`, chain the `map` method to `args.split(",")` and pass it `parseFloat` to parse each element of the array into a number.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -45,3 +63,7 @@ const applyFn = str => {
 }
 
 
+</script>
+```
+
+</div>

@@ -12,6 +12,24 @@ This is called lexical scoping - inner functions can access variables from outer
 Now return `str2.replace(regex, "")`
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -45,3 +63,7 @@ const applyFn = str => {
 }
 
 
+</script>
+```
+
+</div>

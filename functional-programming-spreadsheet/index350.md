@@ -10,6 +10,24 @@ isRequired: true
 Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` as the argument.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -53,3 +71,7 @@ const range = (start, end) =>
 const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0));
 
 
+</script>
+```
+
+</div>

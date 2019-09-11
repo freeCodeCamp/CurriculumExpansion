@@ -10,6 +10,24 @@ isRequired: true
 Now define a function `createLabel` which takes an argument `name` and has an empty body.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -80,3 +98,7 @@ window.onload = () => {
 };
 
 
+</script>
+```
+
+</div>

@@ -13,6 +13,24 @@ If you call a function without assigning the result to a variable, and it does s
 Call `window.onload()` in `update`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -111,3 +129,7 @@ const update = event => {
 // console.log(spreadsheetFunctions["random"](1, 1000) === spreadsheetFunctions["random"](1, 1000))
 
 
+</script>
+```
+
+</div>

@@ -11,6 +11,24 @@ The technique we just used is called currying - instead of taking multiple argum
 Define a new curried function, `addChars`, and set it equal to `c1 => c2 => c1 + c2`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -66,3 +84,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

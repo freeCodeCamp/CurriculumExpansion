@@ -15,6 +15,24 @@ The `concat` method can also accept arrays:
 Use this form of concat by passing an array with just `end` to it: `arr.concat([end])`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -58,3 +76,7 @@ const range = (start, end) => {
 }
 
 
+</script>
+```
+
+</div>

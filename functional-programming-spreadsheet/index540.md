@@ -12,6 +12,24 @@ Otherwise, it should call itself with the latest value.
 Use the ternary operator in the last line of `evalFormula` to return `functionExpanded` if `x === functionExpanded` and `evalFormula(functionExpanded)` otherwise.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -75,3 +93,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

@@ -10,6 +10,24 @@ isRequired: true
   Change the empty string in `varExpanded` to the result of calling `idToText` with `match.toUpperCase()`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -109,3 +127,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

@@ -11,6 +11,24 @@ The function in `varRangeExpanded` contains an unused argument.
 Replace or prefix it with an underscore.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -68,3 +86,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

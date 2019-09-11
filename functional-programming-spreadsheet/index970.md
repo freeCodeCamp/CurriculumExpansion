@@ -11,6 +11,24 @@ The `Array` function takes an argument `x` and creates an array of size `x` fill
 Create an array of `undefined` with size `end - start + 1` in `range`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -135,3 +153,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

@@ -11,6 +11,24 @@ To make this function pure, instead of depending on application state implicitly
 Add an argument `cells` to `evalFormula`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -107,3 +125,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

@@ -12,6 +12,24 @@ Then set `varExpanded` to the result of replacing `varRegex` with an empty strin
 Return `varExpanded`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -69,3 +87,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

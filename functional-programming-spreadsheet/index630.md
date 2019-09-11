@@ -11,6 +11,24 @@ The `includes` method works on a string and checks if the argument is its substr
 Add an empty if statement to `update` which executes if `element.id` is not a substring of `value`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -103,3 +121,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

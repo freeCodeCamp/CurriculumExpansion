@@ -10,6 +10,24 @@ isRequired: true
   In `idToText`, use the `id` property of `cell` to make sure the argument is equal to the cell's id rather than the cell itself.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -109,3 +127,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

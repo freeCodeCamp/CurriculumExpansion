@@ -10,8 +10,30 @@ isRequired: true
 Add the key `+` to `infixToFunction` and assign it the value `addVar`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 const addVar = (x, y) => x + y;
 
 
+</script>
+```
+
+</div>

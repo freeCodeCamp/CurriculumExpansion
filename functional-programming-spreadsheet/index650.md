@@ -13,6 +13,24 @@ The index starts at 0.
 Use the `slice` method to log the first two letters of `value` to the console.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -106,3 +124,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

@@ -10,6 +10,24 @@ isRequired: true
 Now, pass `x` to `String.fromCharCode` in the arrow function.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -53,3 +71,7 @@ const range = (start, end) =>
 const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0)).map(x => x);
 
 
+</script>
+```
+
+</div>

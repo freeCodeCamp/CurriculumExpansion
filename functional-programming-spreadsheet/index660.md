@@ -12,6 +12,24 @@ If you don't, then `slice` will extract from the first argument to the end of th
 Change the call to `slice` to log all characters except the first instead.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -107,3 +125,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

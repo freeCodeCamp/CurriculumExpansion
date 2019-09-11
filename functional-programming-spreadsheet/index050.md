@@ -15,6 +15,24 @@ const fn = (x, y) => x;
 Note that the value is returned implicitly.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 const addVar = function(x, y) {
@@ -22,3 +40,7 @@ const addVar = function(x, y) {
 };
 
 
+</script>
+```
+
+</div>

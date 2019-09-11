@@ -12,6 +12,24 @@ This means that they can be used like any other values - for example, they can b
 Assign `add` to a new variable `addVar`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 function add(x, y) {
@@ -19,3 +37,7 @@ function add(x, y) {
 }
 
 
+</script>
+```
+
+</div>

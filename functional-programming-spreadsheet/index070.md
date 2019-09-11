@@ -10,6 +10,24 @@ isRequired: true
 In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": addVar
 };
@@ -17,3 +35,7 @@ const infixToFunction = {
 const addVar = (x, y) => x + y;
 
 
+</script>
+```
+
+</div>

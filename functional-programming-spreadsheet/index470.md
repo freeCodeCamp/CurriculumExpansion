@@ -12,6 +12,24 @@ Set `varRangeExpanded` to the result of using the `replace` method on `x`, with 
 Then, return it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -67,3 +85,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

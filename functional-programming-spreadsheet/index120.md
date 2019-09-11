@@ -12,6 +12,24 @@ To fix this, prefix or replace it with an underscore (`_`) - both ways signal to
 Note that a single underscore can only be used once in a function and may conflict with some libraries (Lodash, Undrescore.js).
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -25,3 +43,7 @@ const infixEval = (str, regex) =>
   );
 
 
+</script>
+```
+
+</div>

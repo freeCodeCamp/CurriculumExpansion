@@ -12,6 +12,24 @@ So our function also modifies the array passed to it - it is impure.
 You can fix this by adding `.slice()` between `nums` and `sort` - this creates a new array, that is equivalent to `nums`, but is immediately discarded, so it doesn't matter if it changes.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -129,3 +147,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

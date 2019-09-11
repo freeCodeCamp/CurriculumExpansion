@@ -10,6 +10,24 @@ isRequired: true
 Set `regex` to `/([a-z]*)(([0-9., ]*))(?!.*()/i` in `applyFn`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -39,3 +57,7 @@ const applyFn = str => {
 }
 
 
+</script>
+```
+
+</div>

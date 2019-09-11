@@ -10,6 +10,24 @@ isRequired: true
 Replace the call to `arr` in `arr.concat([end])` with `[start]` and remove the `arr` variable and its definition.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -53,3 +71,7 @@ const range = (start, end) => {
 }
 
 
+</script>
+```
+
+</div>

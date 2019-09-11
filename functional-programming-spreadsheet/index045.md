@@ -16,6 +16,24 @@ const fn = function(x) {
 Assignn the anonymous function to the variable `addVar`. 
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 function(x, y) {
@@ -23,3 +41,7 @@ function(x, y) {
 }
 
 
+</script>
+```
+
+</div>

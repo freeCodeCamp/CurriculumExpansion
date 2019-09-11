@@ -14,6 +14,24 @@ The `filter` method keeps only the elements of an array that satisfy the functio
 Use `filter` to add a function called `even` to `spreadsheetFunctions`, which returns all the even elements of an array, `nums`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -119,3 +137,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

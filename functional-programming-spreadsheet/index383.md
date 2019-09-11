@@ -11,6 +11,24 @@ Inside `elemValue`, define `fn` to be a function which takes `c` as argument and
 Return `fn` instead of `n`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -65,3 +83,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

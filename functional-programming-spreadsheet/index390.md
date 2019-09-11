@@ -12,6 +12,24 @@ However, this works because of closures - functions have access to all variables
 Remove the variable `fn` and its definition, and replace `return fn` with `return c => document.getElementById(c + n).value`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -69,3 +87,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

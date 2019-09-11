@@ -10,6 +10,24 @@ isRequired: true
 Now define two variable: `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -127,3 +145,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

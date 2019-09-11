@@ -11,6 +11,24 @@ Chain the `map` method to `rangeFromString(n1, n2)` and pass it `addChars(c1)(c2
 This returns an `addChars` function, which has `c1` and `c2` (the characters) preset, and only needs a number (`n`) to be passed to it (which we get from the `rangeFromString` array).
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -68,3 +86,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

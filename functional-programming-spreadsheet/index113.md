@@ -11,6 +11,24 @@ Change the `"+"` in the call to `infixToFunction` to `fn`.
 `fn` is the operator that the user inputs (`+`, `-`, `*` or `/`) - we use `infixToFunction` to get the function that corresponds to it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -24,3 +42,7 @@ const infixEval = (str, regex) =>
   );
 
 
+</script>
+```
+
+</div>

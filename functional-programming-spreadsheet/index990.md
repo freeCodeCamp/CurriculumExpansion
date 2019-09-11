@@ -12,6 +12,24 @@ You've finished this spreadsheet. Try inputing something like `=sum(range(1, 10)
 The function names are not case sensitive.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -136,3 +154,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

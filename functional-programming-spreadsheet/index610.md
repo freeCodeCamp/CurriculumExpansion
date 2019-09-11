@@ -10,6 +10,24 @@ isRequired: true
 Define a function called `update` which takes `event` as argument and sets `element` to `event.target`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -97,3 +115,7 @@ window.onload = () => {
 };
 
 
+</script>
+```
+
+</div>

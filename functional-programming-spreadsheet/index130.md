@@ -14,6 +14,24 @@ const greeting = name => `Hello !`;
 Define a function `highPrecedence` which takes a single argument `str` and returns it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -27,3 +45,7 @@ const infixEval = (str, regex) =>
   );
 
 
+</script>
+```
+
+</div>

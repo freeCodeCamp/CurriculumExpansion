@@ -11,6 +11,24 @@ Create a new function `evalFormula` which takes a single argument, `x`.
 Set `/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi` to a variable named `rangeRegex`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -57,3 +75,7 @@ const charRange = (start, end) =>
   );
 
 
+</script>
+```
+
+</div>

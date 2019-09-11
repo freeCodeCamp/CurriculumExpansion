@@ -10,6 +10,24 @@ isRequired: true
 `range` should set `arr` to `[start]` and should then return `arr`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -52,3 +70,7 @@ const range = (start, end) => {
 }
 
 
+</script>
+```
+
+</div>

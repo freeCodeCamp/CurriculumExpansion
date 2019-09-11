@@ -10,6 +10,24 @@ isRequired: true
   Add a function `idToText` to `evalFormula`, which takes the argument `id` and returns `cells`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -108,3 +126,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

@@ -16,6 +16,24 @@ container.appendChild(input);
 ```
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -99,3 +117,7 @@ window.onload = () => {
 };
 
 
+</script>
+```
+
+</div>

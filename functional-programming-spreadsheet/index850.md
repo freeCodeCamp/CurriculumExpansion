@@ -16,6 +16,24 @@ The `%` operator returns the remainder:
 Add an `isEven` function (to the global scope) which returns whether the number passed to it is even.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -119,3 +137,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

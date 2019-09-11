@@ -11,6 +11,24 @@ Define a function `charRange` which takes `start` and `end` as arguments.
 It should return `start`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -52,3 +70,7 @@ const range = (start, end) =>
   start > end ? [] : [start].concat(range(start + 1, end));
 
 
+</script>
+```
+
+</div>

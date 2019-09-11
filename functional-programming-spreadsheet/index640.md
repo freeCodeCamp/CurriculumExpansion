@@ -10,6 +10,24 @@ isRequired: true
 Add another condition to the if statement so that it only executes if the first character of `value` is `=`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -103,3 +121,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

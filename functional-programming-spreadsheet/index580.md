@@ -11,6 +11,24 @@ The `forEach` method takes a function and calls it with each element of the arra
 Chain `forEach` to `letters` and pass it the `createLabel` function to create a label for each of the letters.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -87,3 +105,7 @@ window.onload = () => {
 };
 
 
+</script>
+```
+
+</div>

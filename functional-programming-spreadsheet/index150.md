@@ -10,6 +10,24 @@ isRequired: true
 In `highPrecedence`, define `regex` to be `/([0-9.]+)([*/])([0-9.]+)/`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -27,3 +45,7 @@ const highPrecedence = str => {
 };
 
 
+</script>
+```
+
+</div>

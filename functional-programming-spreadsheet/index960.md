@@ -11,6 +11,24 @@ The `every` method checks if all elements of an array satisfy the provided testi
 Use it to add an `everyeven` function to `spreadsheetFunctions` which checks if all values passed in are even`spreadsheetFunctions` which checks if all values passed in are even.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -135,3 +153,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

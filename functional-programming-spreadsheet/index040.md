@@ -17,6 +17,24 @@ function(x) {
 Make the function `add` anonymous and remove the `addVar` definition (as `add` isn't defined anymore).
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 function add(x, y) {
@@ -26,3 +44,7 @@ function add(x, y) {
 const addVar = add;
 
 
+</script>
+```
+
+</div>

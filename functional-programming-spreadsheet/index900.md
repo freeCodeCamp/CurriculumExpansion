@@ -16,6 +16,24 @@ sum3(...arr); // 6
 Use the spread operator to add `range` to `spreadsheetFunctions`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -128,3 +146,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

@@ -11,6 +11,24 @@ The `some` method checks if any element of the array satisfies the provided test
 Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passed in are even.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -134,3 +152,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

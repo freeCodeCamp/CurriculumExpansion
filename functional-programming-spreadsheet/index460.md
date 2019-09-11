@@ -12,6 +12,24 @@ As `elemValue(n)` is a function, you can pass it to `map` directly.
 Change `x => elemValue(n)(x)` to `elemValue(n)`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -67,3 +85,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

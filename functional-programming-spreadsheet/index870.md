@@ -17,6 +17,24 @@ For example, here'how to multiply all the value in an array:
 Using `reduce`, add a function `sum` to `spreadsheetFunctions`, which sums all values in the array passed to it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -123,3 +141,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

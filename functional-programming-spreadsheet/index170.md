@@ -12,6 +12,24 @@ We often use it instead of while/for loops, as loops usually involve mutable sta
 Replace the empty string in `highPrecedence` with a call to `highPrecedence` with `str2` as argument.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -31,3 +49,7 @@ const highPrecedence = str => {
 };
 
 
+</script>
+```
+
+</div>

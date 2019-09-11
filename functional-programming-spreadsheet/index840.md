@@ -14,6 +14,24 @@ You can also pass in a negative argument to `slice` to specify that index from t
 Use a negative index to add a function `lasttwo` which returns the last two elements of an array.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -116,3 +134,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

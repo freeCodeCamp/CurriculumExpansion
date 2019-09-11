@@ -10,6 +10,24 @@ isRequired: true
 Now change the if statement to set `element.value` to the result of passing `value.slice(1)` and `element.id` to `evalFormula`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -105,3 +123,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

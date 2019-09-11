@@ -16,6 +16,24 @@ const result = 9 > 10 ? "Yes" : "No"; // "No"
 Use this opertor to return `str` if `str === str2`, and an empty string (`""`) otherwise.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -35,3 +53,7 @@ const highPrecedence = str => {
 };
 
 
+</script>
+```
+
+</div>

@@ -14,6 +14,24 @@ const manyArguments = a => b => c => d => [a, b, c, d]
 Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 + c2 + n`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -69,3 +87,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

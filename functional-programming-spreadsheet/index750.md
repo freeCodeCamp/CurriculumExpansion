@@ -13,6 +13,24 @@ It calls `document.getElementById(c + n).value`, but this value can change, even
 Change these calls to `""` - the function is now pure but doesn't work.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -109,3 +127,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

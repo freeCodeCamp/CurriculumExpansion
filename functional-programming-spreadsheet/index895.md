@@ -12,6 +12,24 @@ Use this property with the `sum` function to define an `average` function.
 As with `sum`, add this function to both the global scope and to `spreadsheetFunctions`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -122,3 +140,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

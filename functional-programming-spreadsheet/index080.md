@@ -10,8 +10,30 @@ isRequired: true
 Add similar definitions for `-`, `*` and `/` in `infixToFunction`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y
 };
 
 
+</script>
+```
+
+</div>

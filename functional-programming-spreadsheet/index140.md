@@ -17,6 +17,24 @@ const fn = (x, y) => {
 Use this syntax for the `highPrecedence` function.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -32,3 +50,7 @@ const infixEval = (str, regex) =>
 const highPrecedence = str => str;
 
 
+</script>
+```
+
+</div>

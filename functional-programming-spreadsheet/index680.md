@@ -15,6 +15,24 @@ const fn = ([x, y]) => x + y // in functions
 Use this syntax to define a function `random` in `spreadsheetFunctions` which takes the array `[x, y]` and returns `x`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -110,3 +128,7 @@ const update = event => {
     element.value = evalFormula(value.slice(1));
   }
 };
+</script>
+```
+
+</div>

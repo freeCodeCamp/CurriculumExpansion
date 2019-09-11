@@ -10,6 +10,24 @@ isRequired: true
   Use the `value` property on the result of `idToText` to return the text inside the cell, rather than the cell itself.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -109,3 +127,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

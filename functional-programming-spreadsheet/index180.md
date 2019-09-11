@@ -11,6 +11,24 @@ Define an object `spreadsheetFunctions`, with a single key - an empty string (`"
 The corresponding value should be the function `x => x`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -30,3 +48,7 @@ const highPrecedence = str => {
 };
 
 
+</script>
+```
+
+</div>

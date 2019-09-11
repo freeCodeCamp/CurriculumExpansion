@@ -11,6 +11,24 @@ Now set `value` to `element.value.replace(/s/g, "")`.
 This removes all whitespace from `element` so that we can ignore it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -102,3 +120,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

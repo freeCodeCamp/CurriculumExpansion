@@ -10,6 +10,24 @@ isRequired: true
 Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -90,3 +108,7 @@ window.onload = () => {
 };
 
 
+</script>
+```
+
+</div>

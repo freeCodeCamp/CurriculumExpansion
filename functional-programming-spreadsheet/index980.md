@@ -13,6 +13,24 @@ However, it is safe for functions like `parseFloat` which take only one argument
 Chain `.map((x, i) => x + i)` to `.fill(start)` to add its index to every element in the array in `range`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -137,3 +155,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

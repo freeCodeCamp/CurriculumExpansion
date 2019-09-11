@@ -11,6 +11,28 @@ Now define an empty function `add` using the `function` keyword.
 It should accept two parameters, `x` and `y`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 
+</script>
+```
+
+</div>

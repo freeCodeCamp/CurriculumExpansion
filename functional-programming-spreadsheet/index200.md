@@ -14,6 +14,24 @@ The `split` method returns an array of strings from a larger string by using its
 Add a function `toNumberList` (inside `applyFn`) which takes an argument `args` and splits it by commas.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -44,3 +62,7 @@ const applyFn = str => {
 }
 
 
+</script>
+```
+
+</div>

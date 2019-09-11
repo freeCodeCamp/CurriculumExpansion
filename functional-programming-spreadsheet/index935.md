@@ -11,6 +11,24 @@ Use the ternary operator to return `average([sorted[middle], sorted[middle + 1]]
 Note that the `middle` variable is close to the middle but is not actually the middle.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -131,3 +149,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

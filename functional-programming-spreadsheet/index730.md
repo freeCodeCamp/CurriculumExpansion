@@ -11,6 +11,24 @@ Obviously, this was ignored, as all `highPrecedence` does is return a value and 
 Now compare `highPrecedence("2*2")` with `highPrecedence("2*2")`, and `console.log` the result.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -108,3 +126,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

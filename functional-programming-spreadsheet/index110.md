@@ -10,6 +10,24 @@ isRequired: true
 Replace the second argument of `str.replace` with an anonymous function, which takes `match`, `arg1`, `fn`, and `arg2`, and returns `infixToFunction["+"]`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -20,3 +38,7 @@ const infixToFunction = {
 const infixEval = (str, regex) => str.replace(regex, infixToFunction["+"]);
 
 
+</script>
+```
+
+</div>

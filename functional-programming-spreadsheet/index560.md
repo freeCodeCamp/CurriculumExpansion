@@ -11,6 +11,24 @@ In `window.onload`, asssign `document.getElementById("container")` to `container
 Also assign `charRange("A", "J")` to `letters`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -78,3 +96,7 @@ const evalFormula = x => {
 window.onload = () => { };
 
 
+</script>
+```
+
+</div>

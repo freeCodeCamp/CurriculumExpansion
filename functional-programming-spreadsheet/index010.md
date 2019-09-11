@@ -13,4 +13,26 @@ Values declared with `const` cannot be reassigned, which makes using them easier
 Start by creating an empty `infixToFunction` object using `const`.
 </section>
 
+## Instructions
+<section id='instructions'>
 
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
+
+</script>
+```
+
+</div>

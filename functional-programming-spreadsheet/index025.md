@@ -10,6 +10,24 @@ isRequired: true
 Now return the sum of `x` and `y` using the `return` keyword.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {};
 
 function add(x, y) {
@@ -17,3 +35,7 @@ function add(x, y) {
 }
 
 
+</script>
+```
+
+</div>

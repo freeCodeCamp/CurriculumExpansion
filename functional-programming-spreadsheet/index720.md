@@ -10,6 +10,24 @@ isRequired: true
 Now try calling `highPrecedence` and pass it the string `"2*2"` without assigning it to a variable in `update`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -107,3 +125,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

@@ -10,6 +10,24 @@ isRequired: true
 Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1`, `n1`, `c2` and `n2` as arguments, and returns `n1`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -65,3 +83,7 @@ const evalFormula = x => {
 };
 
 
+</script>
+```
+
+</div>

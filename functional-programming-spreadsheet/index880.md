@@ -11,6 +11,24 @@ The `includes` method checks if an element is in an array.
 Add a `has2` function to `spreadsheetFunctions` which checks if the input has the number 2 in it.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -118,3 +136,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>

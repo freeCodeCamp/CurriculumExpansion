@@ -16,6 +16,24 @@ console.log(f(2) === f(2)); // always true for pure functions
 Use this technique to check if the `random` function in `spreadsheetFunctions` is pure by passing in the following array: `[1, 1000]`.
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -112,3 +130,7 @@ const update = event => {
 };
 
 
+</script>
+```
+
+</div>

@@ -17,6 +17,24 @@ In this case, the current value starts from index 0 rather than index 1.
 Add a function `nodups` to `spreadsheetFunctions`, with the value `arr => arr.reduce((a, x) => a.includes(x), [])`
 </section>
 
+## Instructions
+<section id='instructions'>
+
+</section>
+
+## Tests
+<section id='tests'>
+
+</section>
+
+## Challenge Seed
+<section id='challengeSeed'>
+
+<div id='html-seed'>
+
+```html
+<script>
+
 const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
@@ -125,3 +143,7 @@ const update = event => {
     );
   }
 };
+</script>
+```
+
+</div>
