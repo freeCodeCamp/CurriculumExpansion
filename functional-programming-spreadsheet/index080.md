@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add similar definitions for `-`, `*` and `/` in `infixToFunction`.
+Add similar definitions for <code>-</code>, <code>*</code> and <code>/</code> in <code>infixToFunction</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Add similar definitions for `-`, `*` and `/` in `infixToFunction`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add similar definitions for <code>-</code>, <code>*</code> and <code>/</code> in <code>infixToFunction</code>.
+    testString: assert(infixToFunction["-"](10, 2) === 8 && infixToFunction["*"](10, 10) === 100 && infixToFunction["/"](100, 10) === 10);
+
+```
 
 </section>
 

@@ -9,12 +9,14 @@ isRequired: true
 <section id='description'>
 Anonymous functions are functions without names - they are used only once and then forgotten.
 The syntax is the same as for normal functions but without the name:
-```
+
+```js
 function(x) {
   return x
 }
 ```
-Make the function `add` anonymous and remove the `addVar` definition (as `add` isn't defined anymore).
+
+Make the function <code>add</code> anonymous and remove the <code>addVar</code> definition (as <code>add</code> isn't defined anymore).
 </section>
 
 ## Instructions
@@ -24,6 +26,13 @@ Make the function `add` anonymous and remove the `addVar` definition (as `add` i
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace <code>add</code> with an equivalent anonymous function.
+    testString: assert(/function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
+
+```
 
 </section>
 

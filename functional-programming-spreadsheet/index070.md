@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
+In <code>infixToFunction</code>, replace <code>addVar</code> with <code>(x, y) => x + y</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: In <code>infixToFunction</code>, replace <code>addVar</code> with <code>(x, y) => x + y</code>.
+    testString: assert(/+["']\s*:\s*\(\s*x\s*,\s*y\s*\)\s*=>\s*x\s*\+\s*y/.test(code));
+
+```
 
 </section>
 

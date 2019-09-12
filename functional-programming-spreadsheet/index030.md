@@ -9,7 +9,7 @@ isRequired: true
 <section id='description'>
 In JavaScript, functions are first class.
 This means that they can be used like any other values - for example, they can be assigned to variables.
-Assign `add` to a new variable `addVar`.
+Assign <code>add</code> to a new variable <code>addVar</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Assign `add` to a new variable `addVar`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Assign <code>add</code> to a new variable <code>addVar</code>.
+    testString: assert(/const\s+addVar\s*=\s*add/.test(code));
+
+```
 
 </section>
 

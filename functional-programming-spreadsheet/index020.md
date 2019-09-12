@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define an empty function `add` using the `function` keyword.
-It should accept two parameters, `x` and `y`.
+Now define an empty function <code>add</code> using the <code>function</code> keyword.
+It should accept two parameters, <code>x</code> and <code>y</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ It should accept two parameters, `x` and `y`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Create a function, <code>add</code>, with parameters <code>x</code> and <code>y</code>.
+    testString: assert(/function\s+add\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*\}/.test(code));
+
+```
 
 </section>
 

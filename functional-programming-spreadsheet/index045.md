@@ -8,12 +8,14 @@ isRequired: true
 ## Description
 <section id='description'>
 You can also assign anonymous functions to variables:
-```
+
+```js
 const fn = function(x) {
   return x;
 }
 ```
-Assignn the anonymous function to the variable `addVar`. 
+
+Assign the anonymous function to the variable <code>addVar</code>. 
 </section>
 
 ## Instructions
@@ -23,6 +25,13 @@ Assignn the anonymous function to the variable `addVar`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Assign the anonymous function to the variable <code>addVar</code>. 
+    testString: assert(/const\s+addVar\s*=\s*function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
+
+```
 
 </section>
 

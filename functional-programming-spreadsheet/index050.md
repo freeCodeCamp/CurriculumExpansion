@@ -8,10 +8,12 @@ isRequired: true
 ## Description
 <section id='description'>
 This is possible because the anonymous function has been immediately assigned to a value - this is effectively the same as using a named function.
-Rewrite the above using ES6's arrow syntax:
-```
+Rewrite <code>addVar</code> using ES6's arrow syntax:
+
+```js
 const fn = (x, y) => x;
 ```
+
 Note that the value is returned implicitly.
 </section>
 
@@ -22,6 +24,13 @@ Note that the value is returned implicitly.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Rewrite <code>addVar</code> using ES6's arrow syntax.
+    testString: assert(/const\s+addVar\s*=\s*\(\s*x\s*,\s*y\s*\)\s*=>\s*x\s*\+\s*y/.test(code));
+
+```
 
 </section>
 

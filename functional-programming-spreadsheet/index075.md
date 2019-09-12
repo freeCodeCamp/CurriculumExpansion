@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Remove the now redundant `addVar` definition. 
+Remove the now redundant <code>addVar</code> definition. 
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Remove the now redundant `addVar` definition.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Remove the now redundant <code>addVar</code> definition. 
+    testString: assert(typeof addVar === "undefined");
+
+```
 
 </section>
 
