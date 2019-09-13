@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Change the `"+"` in the call to `infixToFunction` to `fn`.
-`fn` is the operator that the user inputs (`+`, `-`, `*` or `/`) - we use `infixToFunction` to get the function that corresponds to it.
+Change the <code>"+"</code> in the call to <code>infixToFunction</code> to <code>fn</code>.
+<code>fn</code> is the operator that the user inputs (<code>+</code>, <code>-</code>, <code>*</code> or <code>/</code>) - we use <code>infixToFunction</code> to get the function that corresponds to it.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Change the `"+"` in the call to `infixToFunction` to `fn`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change the <code>"+"</code> in the call to <code>infixToFunction</code> to <code>fn</code>.
+    testString: assert(code.replace(/\s/g, "").includes('str.replace(regex,(match,arg1,fn,arg2)=>infixToFunction[fn])'));
+
+```
 
 </section>
 

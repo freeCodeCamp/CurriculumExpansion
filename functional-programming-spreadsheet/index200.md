@@ -7,11 +7,14 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `split` method returns an array of strings from a larger string by using its argument to determine where to make each split:
-```
+The <code>split</code> method returns an array of strings from a larger string by using its argument to determine where to make each split:
+
+```js
 "a b c".split(" "); // ["a", "b", "c"];
 ```
-Add a function `toNumberList` (inside `applyFn`) which takes an argument `args` and splits it by commas.
+
+Add a function <code>toNumberList</code> (inside <code>applyFn</code>) which takes an argument <code>args</code> and splits it by commas.
+Return <code>toNumberList</code>.
 </section>
 
 ## Instructions
@@ -21,6 +24,13 @@ Add a function `toNumberList` (inside `applyFn`) which takes an argument `args` 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Return <code>toNumberList</code>.
+    testString: assert(applyFn("")("0,1,2").every((x, i) => x == i));
+
+```
 
 </section>
 

@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
-The corresponding value should be the function `x => x`.
+Define an object <code>spreadsheetFunctions</code>, with a single key - an empty string (<code>""</code>).
+The corresponding value should be the function <code>x => x</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ The corresponding value should be the function `x => x`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define the object with the key. 
+    testString: assert(spreadsheetFunctions[""]("x") === "x");
+
+```
 
 </section>
 

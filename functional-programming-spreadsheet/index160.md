@@ -7,13 +7,15 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The ternary opertor has the following syntax:
-```
+The ternary operator has the following syntax:
+
+```js
 const result = condition ? valueIfTrue : valueIfFalse;
 const result = 1 === 1 ? 1 : 0; // 1
 const result = 9 > 10 ? "Yes" : "No"; // "No"
 ```
-Use this opertor to return `str` if `str === str2`, and an empty string (`""`) otherwise.
+
+Use this operator to return <code>str</code> if <code>str === str2</code>, and an empty string (<code>""</code>) otherwise.
 </section>
 
 ## Instructions
@@ -23,6 +25,13 @@ Use this opertor to return `str` if `str === str2`, and an empty string (`""`) o
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the ternary operator to return <code>str</code> if <code>str === str2</code>, and an empty string (<code>""</code>) otherwise.
+    testString: assert(highPrecedence("2*2") === "" && highPrecedence("2+2") === "2+2" && code.includes("?"));
+
+```
 
 </section>
 

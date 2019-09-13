@@ -8,10 +8,12 @@ isRequired: true
 ## Description
 <section id='description'>
 When defining an arrow function with a single argument, the parentheses can be omitted:
-```
+
+```js
 const greeting = name => `Hello !`;
 ```
-Define a function `highPrecedence` which takes a single argument `str` and returns it.
+
+Define a function <code>highPrecedence</code> which takes a single argument <code>str</code> and returns it.
 </section>
 
 ## Instructions
@@ -21,6 +23,13 @@ Define a function `highPrecedence` which takes a single argument `str` and retur
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define a function, <code>highPrecedence</code>.
+    testString: assert(highPrecedence("a") === "a");
+
+```
 
 </section>
 

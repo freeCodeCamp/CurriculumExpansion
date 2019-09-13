@@ -7,7 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define a function `applyFn` which takes an argument `str`.
+Define an empty function <code>applyFn</code> which takes an argument <code>str</code>.
+Use the curly brace syntax with an anonymous function.
+Do not wrap parentheses around the parameter.
 </section>
 
 ## Instructions
@@ -17,6 +19,13 @@ Define a function `applyFn` which takes an argument `str`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define an empty function <code>applyFn</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{}"));
+
+```
 
 </section>
 

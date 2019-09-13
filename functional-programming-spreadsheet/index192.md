@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set `noHigh` to `highPrecedence(str)` in `applyFn`.
+Set <code>noHigh</code> to <code>highPrecedence(str)</code> in <code>applyFn</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Set `noHigh` to `highPrecedence(str)` in `applyFn`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Set <code>noHigh</code> to <code>highPrecedence(str)</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str)"));
+
+```
 
 </section>
 

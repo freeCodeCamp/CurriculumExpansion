@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-`arg1` and `arg2` are the numbers inputed by the user in a string such as "1+3".
-Pass `parseFloat(arg1)` and `parseFloat(arg2)` as the arguments to `infixToFunction[fn]` (remember `infixToFunction[fn]` is a function).
+<code>arg1</code> and <code>arg2</code> are the numbers inputed by the user in a string such as "1+3".
+Pass <code>parseFloat(arg1)</code> and <code>parseFloat(arg2)</code> as the arguments to <code>infixToFunction[fn]</code> (remember <code>infixToFunction[fn]</code> is a function).
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Pass `parseFloat(arg1)` and `parseFloat(arg2)` as the arguments to `infixToFunct
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Pass <code>parseFloat(arg1)</code> and <code>parseFloat(arg2)</code> as the arguments to <code>infixToFunction[fn]</code>.
+    testString: const regex = /([0-9.]+)([+-\/*])([0-9.]+)/; assert(infixEval("23+35", regex) === "58" && infixEval("100-20", regex) === "80" && infixEval("10*10", regex) === "100" && infixEval("120/6", regex) === "20");
+
+```
 
 </section>
 

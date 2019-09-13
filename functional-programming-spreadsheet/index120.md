@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `match` variable is currently unused, which can lead to unused variable warnings in some linters.
-To fix this, prefix or replace it with an underscore (`_`) - both ways signal to the reader and linter that you're aware you don't need this.
+The <code>match</code> parameter is currently unused, which can lead to unused variable warnings in some linters.
+To fix this, prefix or replace it with an underscore (<code>_</code>) - both ways signal to the reader and linter that you're aware you don't need this.
 Note that a single underscore can only be used once in a function and may conflict with some libraries (Lodash, Undrescore.js).
 </section>
 
@@ -19,6 +19,13 @@ Note that a single underscore can only be used once in a function and may confli
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Prefix or replace <code>match</code> with an underscore.
+    testString: assert(code.replace(/\s/g, "").includes("str.replace(regex,(_"));
+
+```
 
 </section>
 

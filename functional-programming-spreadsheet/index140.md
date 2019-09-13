@@ -8,17 +8,26 @@ isRequired: true
 ## Description
 <section id='description'>
 Arrow functions can have multiple statements:
-```
+
+```js
 const fn = (x, y) => {
   const result = x + y;
   return result; // explicit return statement required
 };
 ```
-Use this syntax for the `highPrecedence` function.
+
+Use this syntax for the <code>highPrecedence</code> function.
 </section>
 
 ## Instructions
 <section id='instructions'>
+
+```yml
+tests:
+  - text: Use the curly brace syntax in <code>highPrecedence</code>.
+    testString: assert(code.replace(/\s/g, "").includes("highPrecedence=str=>{returnstr"));
+
+```
 
 </section>
 
@@ -44,8 +53,7 @@ const infixToFunction = {
 
 const infixEval = (str, regex) =>
   str.replace(regex, (_, arg1, fn, arg2) =>
-    infixToFunction[fn](parseFloat(arg1), parseFloat(arg2))
-  );
+    infixToFunction[fn](parseFloat(arg1), parseFloat(arg2)));
 
 const highPrecedence = str => str;
 

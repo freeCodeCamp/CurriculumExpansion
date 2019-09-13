@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now, assign the result of calling `infixEval` with `str` and `regex` to `str2`.
-Return `str2`.
+Now, assign the result of calling <code>infixEval</code> with <code>str</code> and <code>regex</code> to <code>str2</code>.
+Return <code>str2</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Return `str2`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Return <code>str2</code>.
+    testString: assert(highPrecedence("7*6") === "42" && highPrecedence("50/25") === "2");
+
+```
 
 </section>
 

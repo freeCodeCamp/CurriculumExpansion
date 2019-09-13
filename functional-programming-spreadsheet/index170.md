@@ -9,7 +9,7 @@ isRequired: true
 <section id='description'>
 Recursion is when a function calls itself.
 We often use it instead of while/for loops, as loops usually involve mutable state.
-Replace the empty string in `highPrecedence` with a call to `highPrecedence` with `str2` as argument.
+Replace the empty string in <code>highPrecedence</code> with a call to <code>highPrecedence</code> with <code>str2</code> as argument.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Replace the empty string in `highPrecedence` with a call to `highPrecedence` wit
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace the empty string in <code>highPrecedence</code> with a call to <code>highPrecedence</code> with <code>str2</code> as argument.
+    testString: assert(highPrecedence("2*2*2") === "8" && highPrecedence("2*2") === "4" && highPrecedence("2+2") === "2+2");
+
+```
 
 </section>
 
