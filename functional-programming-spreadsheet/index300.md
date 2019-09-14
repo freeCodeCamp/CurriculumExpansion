@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use the ternary operator to return `[]` if `start > end` and `[start].concat([end])` otherwise.
+Use the ternary operator to return <code>[]</code> if <code>start > end</code> and <code>[start].concat([end])</code> otherwise.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Use the ternary operator to return `[]` if `start > end` and `[start].concat([en
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the ternary operator.
+    testString: assert(JSON.stringify(range(3, 2)) === "[]" && JSON.stringify(range(1, 3)) === "[1,3]");
+
+```
 
 </section>
 

@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Note that `applyFunction` can access `toNumberList` from outside of itself.
+Note that <code>applyFunction</code> can access <code>toNumberList</code> from outside of itself.
 This is called lexical scoping - inner functions can access variables from outer functions.
-Now return `str2.replace(regex, "")`
+Now return <code>str2.replace(regex, "")</code> at the end of <code>applyFn</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Now return `str2.replace(regex, "")`
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Return <code>str2.replace(regex, "")</code>.
+    testString: assert(applyFn("2*2fn(1, 2, 3.3)") === "4");
+
+```
 
 </section>
 

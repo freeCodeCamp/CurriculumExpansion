@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-`range` should set `arr` to `[start]` and should then return `arr`.
+<code>range</code> should set <code>arr</code> to <code>[start]</code> and should then return <code>arr</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define and return <code>arr</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constarr=[start]") && JSON.stringify(range(1)) === "[1]");
+
+```
 
 </section>
 

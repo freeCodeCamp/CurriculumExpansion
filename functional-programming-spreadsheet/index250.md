@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now use the ternary operator in the last line to return `applyFunction(fn, args)` if the statement is true, and `match` otherwise.
+Now use the ternary operator in the last line to return <code>applyFunction(fn, args)</code> if the statement is true, and <code>match</code> otherwise.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now use the ternary operator in the last line to return `applyFunction(fn, args)
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the ternary operator.
+    testString: assert(applyFn("2+2*2") === "6" && applyFn("(2+2)*2") === "4*2"); 
+
+```
 
 </section>
 

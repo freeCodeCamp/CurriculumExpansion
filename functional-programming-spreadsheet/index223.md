@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.toLowerCase()` to get a specific function from `spreadsheetFunctions`.
+Now, instead of returning <code>spreadsheetFunctions</code>, use bracket notation and <code>fn.toLowerCase()</code> to get a specific function from <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.t
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use bracket notation.
+    testString: assert(code.replace(/\s/g, "").includes('constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix);constregex=/([a-z]*)(([0-9., ]*))(?!.*()/i;consttoNumberList=args=>args.split(",").map(parseFloat);constapplyFunction=(fn,args)=>spreadsheetFunctions[fn.toLowerCase()]'));
+
+```
 
 </section>
 

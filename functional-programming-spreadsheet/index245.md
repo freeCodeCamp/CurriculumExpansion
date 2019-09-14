@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `hasOwnProperty` method checks if a key exists in an object.
-So `spreadsheetFunctions.hasOwnProperty("")` would return `true`, but replacing `""` with anything else would make it return `false`.
-Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase()` key exists in `spreadsheetFunctions`.
+The <code>hasOwnProperty</code> method checks if a key exists in an object.
+So <code>spreadsheetFunctions.hasOwnProperty("")</code> would return <code>true</code>, but replacing <code>""</code> with anything else would make it return <code>false</code>.
+Chain <code>hasOwnProperty</code> to <code>spreadsheetFunctions</code> to check if the <code>fn.toLowerCase()</code> key exists in <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Chain <code>hasOwnProperty</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(code.replace(/\s/g, "").includes("returnstr2.replace(regex,(match,fn,args)=>spreadsheetFunctions.hasOwnProperty(fn.toLowerCase()))"));
+
+```
 
 </section>
 

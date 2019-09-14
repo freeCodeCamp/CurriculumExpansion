@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define a new function `applyFunction` (inside `applyFn`).
-It should take two arguments: `fn` and `args`, and should return `spreadsheetFunctions`.
+Define a new function <code>applyFunction</code> (inside <code>applyFn</code>).
+It should take two arguments: <code>fn</code> and <code>args</code>, and should return <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ It should take two arguments: `fn` and `args`, and should return `spreadsheetFun
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>applyFunction</code>.
+    testString: assert(code.replace(/\s/g, "").includes('constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix);constregex=/([a-z]*)(([0-9., ]*))(?!.*()/i;consttoNumberList=args=>args.split(",").map(parseFloat);constapplyFunction=(fn,args)=>spreadsheetFunctions'));
+
+```
 
 </section>
 

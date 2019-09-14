@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the `""` in `str2.replace(regex, "")` with a function which takes `match`, `fn` and `args` as arguments and returns `spreadsheetFunctions`.
+Replace the <code>""</code> in <code>str2.replace(regex, "")</code> with a function which takes <code>match</code>, <code>fn</code> and <code>args</code> as arguments and returns <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Replace the `""` in `str2.replace(regex, "")` with a function which takes `match
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace the <code>""</code> with the function.
+    testString: assert(code.replace(/\s/g, "").includes("returnstr2.replace(regex,(match,fn,args)=>spreadsheetFunctions)"));
+
+```
 
 </section>
 

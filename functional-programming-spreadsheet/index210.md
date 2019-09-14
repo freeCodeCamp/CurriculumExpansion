@@ -7,11 +7,13 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `map` method takes a function and for each element of an array, it passes the element to the function and replace the element with the return value:
-```
+The <code>map</code> method takes a function and for each element of an array, it passes the element to the function and replace the element with the return value:
+
+```js
 [1, 2, 3].map(x => x + 1); // [2, 3, 4]
 ```
-In `toNumberList`, chain the `map` method to `args.split(",")` and pass it `parseFloat` to parse each element of the array into a number.
+
+In <code>toNumberList</code>, chain the <code>map</code> method to <code>args.split(",")</code> and pass it <code>parseFloat</code> to parse each element of the array into a number.
 </section>
 
 ## Instructions
@@ -21,6 +23,13 @@ In `toNumberList`, chain the `map` method to `args.split(",")` and pass it `pars
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use <code>map</code> with <code>parseFloat</code>.
+    testString: assert(applyfn("")("0,1,2").every((x, i) => x === i) && code.includes("map"));
+
+```
 
 </section>
 
