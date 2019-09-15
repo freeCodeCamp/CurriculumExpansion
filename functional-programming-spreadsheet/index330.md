@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define a function `charRange` which takes `start` and `end` as arguments.
-It should return `start`.
+Define a function <code>charRange</code> which takes <code>start</code> and <code>end</code> as arguments.
+It should return <code>start</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ It should return `start`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  text: Define <code>charRange</code>.
+  testString: assert(code.replace(/\s/g).includes("constcharRange=(start,end)=>start"));
+
+```
 
 </section>
 

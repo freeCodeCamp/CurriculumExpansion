@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)` and `parseInt(n2)`.
+As <code>n1</code> and <code>n2</code> are actually strings, replace <code>n1</code> and <code>n2</code> with <code>parseInt(n1)</code> and <code>parseInt(n2)</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)`
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use <code>parseInt</code> on the strings.
+    testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>range\(parseInt\(n1\),parseInt\(n2\)\)/.test(code.replace(/\s/g, "")));  
+
+```
 
 </section>
 

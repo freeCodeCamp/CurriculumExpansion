@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the `n1` return value in `rangeFromString` with `range(n1, n2)`.
+Replace the <code>n1</code> return value in <code>rangeFromString</code> with <code>range(n1, n2)</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Replace the `n1` return value in `rangeFromString` with `range(n1, n2)`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change return value.
+    testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>range\(n1,n2\)/.test(code.replace(/\s/g, "")));  
+
+```
 
 </section>
 

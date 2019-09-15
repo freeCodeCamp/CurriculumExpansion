@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` as the argument.
+Chain <code>map</code> onto <code>range(start.charCodeAt(0), end.charCodeAt(0))</code>, with <code>x => x</code> as the argument.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Chain <code>map</code>.
+    testString: assert(code.replace(/\s/g, "").includes("range(start.charCodeAt(0),end.charCodeAt(0)).map(x=>x)"));
+
+```
 
 </section>
 

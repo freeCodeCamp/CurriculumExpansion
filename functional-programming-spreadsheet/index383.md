@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Inside `elemValue`, define `fn` to be a function which takes `c` as argument and returns `document.getElementById(c + n).value`.
-Return `fn` instead of `n`.
+Inside <code>elemValue</code>, define <code>fn</code> to be a function which takes <code>c</code> as argument and returns <code>document.getElementById(c + n).value</code>.
+Return <code>fn</code> instead of <code>n</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Return `fn` instead of `n`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>fn</code> in <code>elemValue</code>.
+    testString: assert(/elemValue.*constfn=\(?c\)?=>document\.getElementById\(c+n\)\.value;?returnfn;?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

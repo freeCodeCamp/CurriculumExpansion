@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Remove the curly braces and `return` keyword from `range`.
+Remove the curly braces and <code>return<code> keyword from <code>range<code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,11 @@ Remove the curly braces and `return` keyword from `range`.
 ## Tests
 <section id='tests'>
 
+```yml
+tests:
+  - text: Remove the curly braces and <code>return<code> keyword from <code>range<code>.
+    testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>start>end?[]:[start].concat(range(start+1,end))"));
+```
 </section>
 
 ## Challenge Seed

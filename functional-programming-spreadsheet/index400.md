@@ -18,6 +18,13 @@ Now, remove the curly braces and return statement.
 ## Tests
 <section id='tests'>
 
+```yml
+tests:
+  - text: Remove the <code>fn</code> definition.
+    testString: assert(/constelemValue=n=>\(?c=>document\.getElementById\(c+n\)\.value/.test(code.replace(/\s/g, "")));
+
+```
+
 </section>
 
 ## Challenge Seed

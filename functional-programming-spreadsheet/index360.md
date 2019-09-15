@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Create a new function `evalFormula` which takes a single argument, `x`.
-Set `/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi` to a variable named `rangeRegex`.
+Create a new function <code>evalFormula</code> which takes a single argument, <code>x</code>.
+Set <code>/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi</code> to a variable named <code>rangeRegex</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Set `/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi` to a variable named `rangeRe
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add <code>evalFormula</code> as described.
+    testString: assert(code.replace(/\s/g, "").includes("constevalFormula=x=>{constrangeRegex=/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi"));
+
+```
 
 </section>
 

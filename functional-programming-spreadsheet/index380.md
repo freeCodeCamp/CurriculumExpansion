@@ -7,7 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define a function `elemValue`, which takes an argument `n` and returns `n`.
+Now define a function <code>elemValue</code>, which takes an argument <code>n</code> and returns <code>n</code>.
+Use the curly brace arrow function syntax.
 </section>
 
 ## Instructions
@@ -17,6 +18,13 @@ Now define a function `elemValue`, which takes an argument `n` and returns `n`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>elemValue</code>.
+    testString: assert(/evalFormula.*constelemValue=n=>\{returnn;?\}/.test(code.replace(/\s/g, "")));  
+
+```
 
 </section>
 
