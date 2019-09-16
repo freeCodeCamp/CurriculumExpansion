@@ -8,8 +8,8 @@ isRequired: true
 ## Description
 <section id='description'>
 However, you don't need an arrow function.
-As `elemValue(n)` is a function, you can pass it to `map` directly.
-Change `x => elemValue(n)(x)` to `elemValue(n)`.
+As <code>elemValue(n)</code> is a function, you can pass it to <code>map</code> directly.
+Change <code>x => elemValue(n)(x)</code> to <code>elemValue(n)</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Change `x => elemValue(n)(x)` to `elemValue(n)`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change the return value of <code>addChars</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>charRange(c1,c2).map(elemValue(n))"));
+
+```
 
 </section>
 

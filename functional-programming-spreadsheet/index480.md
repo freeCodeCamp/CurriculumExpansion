@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1`, `n1`, `c2` and `n2` as arguments, and returns `n1`.
+Replace the <code>""</code> in <code>varRangeExpanded</code> with a function, which takes <code>match</code>, <code>c1</code>, <code>n1</code>, <code>c2</code> and <code>n2</code> as arguments, and returns <code>n1</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace <code>""</code> with the function described.
+    testString: assert(code.replace(/\s/g, "").includes('constvarRangeExpanded=x.replace(rangeRegex,(match,c1,n1,c2,n2)=>n1)'));
+
+```
 
 </section>
 

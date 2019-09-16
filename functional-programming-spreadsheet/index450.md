@@ -8,10 +8,13 @@ isRequired: true
 ## Description
 <section id='description'>
 You call curried functions like this:
-```
+
+```js
 const result = add(1)(2);
 ```
-Use `map` on the `charRange` in `addChars`, passing in `x => elemValue(n)(x)` as the argument.
+
+Use <code>map</code> on the <code>charRange</code> in <code>addChars</code>, passing in <code>x => elemValue(n)(x)</code> as the argument.
+
 </section>
 
 ## Instructions
@@ -21,6 +24,13 @@ Use `map` on the `charRange` in `addChars`, passing in `x => elemValue(n)(x)` as
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change the return value of <code>addChars</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>charRange(c1,c2).map(x=>elemValue(n)(x))"));
+
+```
 
 </section>
 

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the body of `addChars`, so that instead of adding the arguments, it returns a `charRange` between the first two arguments: `c1 => c2 => n => charRange(c1, c2)`.
+Replace the body of <code>addChars</code>, so that instead of adding the arguments, it returns a <code>charRange</code> between the first two arguments: <code>c1 => c2 => n => charRange(c1, c2)</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Replace the body of `addChars`, so that instead of adding the arguments, it retu
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change the return value of <code>addChars</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>charRange(c1,c2)"));
+
+```
 
 </section>
 

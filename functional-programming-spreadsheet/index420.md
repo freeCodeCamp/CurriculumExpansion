@@ -8,7 +8,7 @@ isRequired: true
 ## Description
 <section id='description'>
 The technique we just used is called currying - instead of taking multiple arguments, a function takes a single argument and return another function, which also takes a single argument.
-Define a new curried function, `addChars`, and set it equal to `c1 => c2 => c1 + c2`.
+Define a new curried function, <code>addChars</code>, and set it equal to <code>c1 => c2 => c1 + c2</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Define a new curried function, `addChars`, and set it equal to `c1 => c2 => c1 +
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define a curried function, <code>addChars</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>c1+c2"));
+
+```
 
 </section>
 

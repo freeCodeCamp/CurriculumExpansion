@@ -8,10 +8,12 @@ isRequired: true
 ## Description
 <section id='description'>
 You can add more arguments by simply adding another arrow with another argument name:
-```
+
+```js
 const manyArguments = a => b => c => d => [a, b, c, d]
 ```
-Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 + c2 + n`.
+
+Add another argument to <code>addChars</code> and add it to the sum: <code>c1 => c2 => n => c1 + c2 + n</code>.
 </section>
 
 ## Instructions
@@ -21,6 +23,13 @@ Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 +
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define a curried function, <code>addChars</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>c1+c2+n"));
+
+```
 
 </section>
 

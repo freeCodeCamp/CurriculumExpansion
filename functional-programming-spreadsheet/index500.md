@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The function in `varRangeExpanded` contains an unused argument.
+The function in <code>varRangeExpanded</code> contains an unused argument.
 Replace or prefix it with an underscore.
 </section>
 
@@ -18,6 +18,13 @@ Replace or prefix it with an underscore.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace or prefix an unused argument with an underscore.
+    testString: assert(code.replace(/\s/g, "").includes("constvarRangeExpanded=x.replace(rangeRegex,(_"));
+
+```
 
 </section>
 

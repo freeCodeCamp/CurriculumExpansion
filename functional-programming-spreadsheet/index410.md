@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-You also don't need the parentheses in `elemValue` - it's parsed this way automatically.
+You also don't need the parentheses in <code>elemValue</code> - it's parsed this way automatically.
 Remove them.
 </section>
 
@@ -18,6 +18,13 @@ Remove them.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Remove the parentheses.
+    testString: assert(/constelemValue=n=>c=>document\.getElementById\(c+n\)\.value/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

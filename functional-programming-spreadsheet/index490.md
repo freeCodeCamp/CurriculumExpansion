@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Chain the `map` method to `rangeFromString(n1, n2)` and pass it `addChars(c1)(c2)` as an argument.
-This returns an `addChars` function, which has `c1` and `c2` (the characters) preset, and only needs a number (`n`) to be passed to it (which we get from the `rangeFromString` array).
+Chain the <code>map</code> method to <code>rangeFromString(n1, n2)</code> and pass it <code>addChars(c1)(c2)</code> as an argument.
+This returns an <code>addChars</code> function, which has <code>c1</code> and <code>c2</code> (the characters) preset, and only needs a number (<code>n</code>) to be passed to it (which we get from the <code>rangeFromString</code> array).
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ This returns an `addChars` function, which has `c1` and `c2` (the characters) pr
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace <code>""</code> with the function described.
+    testString: assert(code.replace(/\s/g, "").includes('constvarRangeExpanded=x.replace(rangeRegex,(match,c1,n1,c2,n2)=>rangeFromString(n1,n2).map(addChars(c1)(c2)))'));
+
+```
 
 </section>
 
