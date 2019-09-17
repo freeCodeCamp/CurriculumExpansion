@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the `""` in `varExpanded` with `match => document.getElementById(match.toUpperCase()).value`.
+Replace the <code>""</code> in <code>varExpanded</code> with <code>match => document.getElementById(match.toUpperCase()).value</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Replace the `""` in `varExpanded` with `match => document.getElementById(match.t
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Replace <code>""</code> with a function as described.
+    testString: assert(code.replace(/\s/g, "").includes("constvarExpanded=varRangeExpanded.replace(varRegex,match=>document.getElementById(match.toUpperCase()).value)");
+
+```
 
 </section>
 

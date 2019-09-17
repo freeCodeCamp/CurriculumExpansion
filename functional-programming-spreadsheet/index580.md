@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `forEach` method takes a function and calls it with each element of the array.
-Chain `forEach` to `letters` and pass it the `createLabel` function to create a label for each of the letters.
+The <code>forEach</code> method takes a function and calls it with each element of the array.
+Chain <code>forEach</code> to <code>letters</code> and pass it the <code>createLabel</code> function to create a label for each of the letters.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Chain `forEach` to `letters` and pass it the `createLabel` function to create a 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use <code>forEach</code> on <code>letters</code>.
+    testString: assert(code.replace(/\s/g, "").includes("letters.forEach(createLabel)"))
+
+```
 
 </section>
 

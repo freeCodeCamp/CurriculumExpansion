@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Chain `forEach` onto `range(1, 99)`, passing in `createLabel` as an argument.
+Chain <code>forEach</code> onto <code>range(1, 99)</code>, passing in <code>createLabel</code> as an argument.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Chain `forEach` onto `range(1, 99)`, passing in `createLabel` as an argument.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Chain <code>forEach</code> onto the range.
+    testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(createLabel\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

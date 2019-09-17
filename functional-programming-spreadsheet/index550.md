@@ -8,14 +8,23 @@ isRequired: true
 ## Description
 <section id='description'>
 You can define arrow functions without arguments:
-```
+
+```js
 const two = () => 2;
 ```
-Define an empty arrow function without arguments and assign it to `window.onload`.
+
+Define an empty arrow function without arguments and assign it to <code>window.onload</code>.
 </section>
 
 ## Instructions
 <section id='instructions'>
+
+```yml
+tests:
+  - text: Define an empty arrow function without arguments and assign it to <code>window.onload</code>.
+    testString: assert(code.replace(/\s/g, "").includes("window.onload=()=>"));
+
+```
 
 </section>
 

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add `range(1, 99)` to `window.onload` (the result will be discarded for now).
+Add <code>range(1, 99)</code> to the end of <code>window.onload</code> (the result will be discarded for now).
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Add `range(1, 99)` to `window.onload` (the result will be discarded for now).
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Call <code>range(1, 99)</code>
+    testString: assert(/window\.onload[\s\S]*range\(1,99\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

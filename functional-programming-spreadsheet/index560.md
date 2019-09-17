@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-In `window.onload`, asssign `document.getElementById("container")` to `container`.
-Also assign `charRange("A", "J")` to `letters`.
+In <code>window.onload</code>, asssign <code>document.getElementById("container")</code> to <code>container</code>.
+Also assign <code>charRange("A", "J")</code> to <code>letters</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Also assign `charRange("A", "J")` to `letters`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+test:
+  - text: Define <code>container</code> and <code>letters</code>.
+    testString: assert(/window\.onload=\(\)=>\{constcontainer=document\.getElementById\(["']container["']\);?constletters=charRange(["']A["'], ["']J["']);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

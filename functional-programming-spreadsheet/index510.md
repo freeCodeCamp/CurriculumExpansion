@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set `varRegex` to `/[A-J][1-9][0-9]?/gi`.
-Then set `varExpanded` to the result of replacing `varRegex` with an empty string in `varRangeExpanded`.
-Return `varExpanded`.
+Set <code>varRegex</code> to <code>/[A-J][1-9][0-9]?/gi</code>.
+Then set <code>varExpanded</code> to the result of replacing <code>varRegex</code> with an empty string in <code>varRangeExpanded</code>.
+Return <code>varExpanded</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ Return `varExpanded`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add and return <code>varExpanded</code>.
+    testString: assert(code.includes("varRegex") && code.includes("varExpanded") && evalFormula("aC12bc") === "abc");
+
+```
 
 </section>
 

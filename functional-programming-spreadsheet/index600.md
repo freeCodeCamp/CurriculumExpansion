@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use the `forEach` method on `letters`, passing in a function with argument `x` and an empty body.
+Inside the <code>range</code> <code>forEach</code>, use the <code>forEach</code> method on <code>letters</code>, passing in a function with argument <code>x</code> and an empty body.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Use the `forEach` method on `letters`, passing in a function with argument `x` a
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the <code>forEach</code> method on <code>letters</code>
+    testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(\(?x\)?=>\{createLabel\(x\);?letters\.forEach\(\(?x\)?=>\{\}\);?\}\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

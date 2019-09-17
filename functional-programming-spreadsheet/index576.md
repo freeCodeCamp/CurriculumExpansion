@@ -7,12 +7,14 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add the following code to `createLabel`:
-```
+Add the following code to <code>createLabel</code>:
+
+```js
 label.className = "label";
 label.textContent = name;
 container.appendChild(label);
 ```
+
 </section>
 
 ## Instructions
@@ -22,6 +24,13 @@ container.appendChild(label);
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the code given.
+    testString: assert(/window\.onload[\s\S]*constcreateLabel=\(?name\)?=>\{constlabel=document\.createElement\(["']div["']\);?label\.className=["']label["'];?label\.textContent=name;?container\.appendChild\(label\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

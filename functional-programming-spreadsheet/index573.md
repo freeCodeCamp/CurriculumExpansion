@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Inside `createLabel`, assign `document.createElement("div")` to `label`.
+Inside <code>createLabel</code>, assign <code>document.createElement("div")</code> to <code>label</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Inside `createLabel`, assign `document.createElement("div")` to `label`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>label</code>.
+    testString: assert(/window\.onload[\s\S]*constcreateLabel=\(?name\)?=>\{constlabel=document\.createElement\(["']div["']\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 
