@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `includes` method works on a string and checks if the argument is its substring.
-Add an empty if statement to `update` which executes if `element.id` is not a substring of `value`.
+The <code>includes</code> method works on a string and checks if the argument is its substring.
+Add an empty if statement to <code>update</code> which executes if <code>element.id</code> is **not** a substring of <code>value</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Add an empty if statement to `update` which executes if `element.id` is not a su
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the if statement with <code>includes</code>.
+    testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?\)\{\}\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

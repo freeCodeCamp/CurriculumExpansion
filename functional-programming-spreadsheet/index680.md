@@ -8,11 +8,13 @@ isRequired: true
 ## Description
 <section id='description'>
 The array destructuring syntax can be used to extract values from arrays:
-```
+
+```js
 const [x, y] = [1, 2]; // in variables
 const fn = ([x, y]) => x + y // in functions
 ```
-Use this syntax to define a function `random` in `spreadsheetFunctions` which takes the array `[x, y]` and returns `x`.
+
+Use this syntax to define a function <code>random</code> in <code>spreadsheetFunctions</code> which takes the array <code>[x, y]</code> and returns <code>x</code>.
 </section>
 
 ## Instructions
@@ -22,6 +24,13 @@ Use this syntax to define a function `random` in `spreadsheetFunctions` which ta
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>random</code> in <code>spreadsheetFunctions</code>.
+    testString: assert(/["']?random["']?:\(\[x,y\]\)=>x/.test(code.replace(/\s/g, "")) && spreadsheetFunctions["random"]([1, 2]) === 1);
+
+```
 
 </section>
 

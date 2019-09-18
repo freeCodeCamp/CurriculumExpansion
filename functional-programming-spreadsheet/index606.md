@@ -7,13 +7,15 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add the following code:
-```
+Add the following code to <code>letters.forEach</code>:
+
+```js
 input.type = "text";
 input.id = y + x;
 input.onchange = update;
 container.appendChild(input);
 ```
+
 </section>
 
 ## Instructions
@@ -23,6 +25,13 @@ container.appendChild(input);
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the given code.
+    testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(\(?x\)?=>\{createLabel\(x\);?letters\.forEach\(\(?x\)?=>\{constinput=document\.createElement\(["']input["']\);?input\.type=["']text["'];?input\.id=y+x;?input\.onchange=update;?container\.appendChild\(input\);?\}\);?\}\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

@@ -10,10 +10,12 @@ isRequired: true
 In functional programming, we strive to use a type of function called "pure functions" as much as possible.
 The first property of pure functions is that they always return the same value for the same arguments.
 You can check if this is the case by comparing a call to a function with another call (with the same arguments):
-```
+
+```js
 console.log(f(2) === f(2)); // always true for pure functions
 ```
-Use this technique to check if the `random` function in `spreadsheetFunctions` is pure by passing in the following array: `[1, 1000]`.
+
+Use this technique to check if the <code>random</code> function in <code>spreadsheetFunctions</code> is pure by passing in the following array: <code>[1, 1000]</code>.
 </section>
 
 ## Instructions
@@ -24,6 +26,10 @@ Use this technique to check if the `random` function in `spreadsheetFunctions` i
 ## Tests
 <section id='tests'>
 
+```yml
+tests:
+  - text: Check the purity of <code>random</code>
+    testString: assert(/(spreadsheetFunctions\[["']random["']\]\(1,1000\))===\1/.test(code.replace(/\s/g, "")));
 </section>
 
 ## Challenge Seed

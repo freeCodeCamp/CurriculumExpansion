@@ -7,7 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add another condition to the if statement so that it only executes if the first character of `value` is `=`.
+Add another condition to the if statement so that it only executes if the first character of <code>value</code> is <code>=</code>.
+Do this by adding <code>&& value[0] === "="</code> to the if statement.
 </section>
 
 ## Instructions
@@ -17,6 +18,13 @@ Add another condition to the if statement so that it only executes if the first 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the if statement with <code>includes</code>.
+    testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?&&value\[0\]===["']=["']\)\{\}\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

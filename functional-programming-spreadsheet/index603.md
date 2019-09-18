@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Assign `document.createElement("input")` to `input`.
+Inside <code>letters.forEach</code>, assign <code>document.createElement("input")</code> to <code>input</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Assign `document.createElement("input")` to `input`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the <code>document.createElement</code> code.
+    testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(\(?x\)?=>\{createLabel\(x\);?letters\.forEach\(\(?x\)?=>\{constinput=document\.createElement\(["']input["']\);?\}\);?\}\);?\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

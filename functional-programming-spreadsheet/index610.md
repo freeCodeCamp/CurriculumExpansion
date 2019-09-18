@@ -7,7 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define a function called `update` which takes `event` as argument and sets `element` to `event.target`.
+In the global scope, define a function called <code>update</code> which takes <code>event</code> as argument.
+It should define a variable, <code>element</code>, setting it to <code>event.target</code>.
 </section>
 
 ## Instructions
@@ -17,6 +18,13 @@ Define a function called `update` which takes `event` as argument and sets `elem
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>update</code>.
+    testString: assert(/constupdate=\(?event\)?=>\{?constelement=event\.target;?\}?/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

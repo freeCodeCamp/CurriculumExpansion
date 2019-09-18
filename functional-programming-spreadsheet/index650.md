@@ -7,10 +7,10 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `slice` method takes two arguments.
+The <code>slice</code> method takes two arguments.
 It extracts characters from the string from the index specified by the first argument up to (but not including) the second argument.
 The index starts at 0.
-Use the `slice` method to log the first two letters of `value` to the console.
+Use the <code>slice</code> method to log the first two letters of <code>value</code> to the console.
 </section>
 
 ## Instructions
@@ -20,6 +20,13 @@ Use the `slice` method to log the first two letters of `value` to the console.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Log the first two letters of <code>value</code> to the console.
+    testString: assert(code.replace(/\s/g, "").includes("console.log(value.slice(0,2))"));
+
+```
 
 </section>
 

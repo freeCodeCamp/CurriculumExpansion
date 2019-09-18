@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Change the `random` function so that it returns `Math.floor(Math.random() * y + x)`.
+Change the <code>random</code> function so that it returns <code>Math.floor(Math.random() * y + x)</code>.
 It now returns a random number within a range.
 </section>
 
@@ -18,6 +18,13 @@ It now returns a random number within a range.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change <code>random</code> to work correctly.
+    testString: assert(/["']?random["']?:\(\[x,y\]\)=>Math\.floor\(Math\.random\(\)\*y\+x\)/.test(code.replace(/\s/g, "")) && spreadsheetFunctions["random"]([1, 1]) === 1);
+
+```
 
 </section>
 

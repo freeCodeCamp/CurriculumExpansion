@@ -7,7 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now change the if statement to set `element.value` to the result of passing `value.slice(1)` and `element.id` to `evalFormula`.
+Now change the if statement to set <code>element.value</code> to the result of passing <code>value.slice(1)</code> to <code>evalFormula</code>.
+There is no need to use <code>const</code> because we're modifying <code>element.value</code>, not declaring it.
 </section>
 
 ## Instructions
@@ -17,6 +18,13 @@ Now change the if statement to set `element.value` to the result of passing `val
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the if statement with <code>includes</code>.
+    testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?&&value\[0\]===["']=["']\)\{element\.value=evalFormula\(value\.slice\(1\)\);?\}\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 
