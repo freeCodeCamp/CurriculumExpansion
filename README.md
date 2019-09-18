@@ -1,10 +1,14 @@
-This repository is for discussing new curricula for freeCodeCamp.
+![freeCodeCamp.org Social Banner](https://s3.amazonaws.com/freecodecamp/wide-social-banner.png)
+
+# freeCodeCamp.org's upcoming Curriculum
+
+> ### This repository is for discussing new curricula for freeCodeCamp.org
 
 ### Where can I read more about the new curriculum?	
 You can read all about it in [Quincy's announcement](https://www.freecodecamp.org/forum/t/help-us-build-version-7-0-of-the-freecodecamp-curriculum/263546).	
 
 ### How can I contribute?	
-There are many ways to contribute. Check out the [CurriculumExpansion](https://github.com/freeCodeCamp/CurriculumExpansion) repository. The projects are listed as [issues](https://github.com/freeCodeCamp/CurriculumExpansion/issues) where you can join in on the discussion about each one. Projects with a [help wanted](https://github.com/freeCodeCamp/CurriculumExpansion/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) tag are unclaimed, so leave a comment in that issue and mention @scissorsneedfoodtoo if you'd like to work on one. We'll also need help reviewing projects that have been broken down into steps and submitted as [pull requests](https://github.com/freeCodeCamp/CurriculumExpansion/pulls).	
+There are many ways to contribute. Check out the [CurriculumExpansion](https://github.com/freeCodeCamp/CurriculumExpansion) repository. The projects are listed as [issues](https://github.com/freeCodeCamp/CurriculumExpansion/issues) where you can join in on the discussion about each one. Projects with a [help wanted](https://github.com/freeCodeCamp/CurriculumExpansion/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) tag are unclaimed, so leave a comment in that issue and mention [`@scissorsneedfoodtoo`](https://github.com/scissorsneedfoodtoo) if you'd like to work on one. We'll also need help reviewing projects that have been broken down into steps and submitted as [pull requests](https://github.com/freeCodeCamp/CurriculumExpansion/pulls).	
 
 ### Will the UI change?	
 Yes, the goal is to move to a single column layout that resembles an actual code editor. You can read more about it in [freeCodeCamp Redesign: Command Line Chic](https://www.freecodecamp.org/forum/t/freecodecamp-redesign-command-line-chic/267917). Since the editor will take up the majority of the screen, things like the HTML preview, console output, and the current test you're working on will appear contextually between lines of code. Here's a rough example of what that might look like: ![faqs-popout-example](https://user-images.githubusercontent.com/2051070/56576362-1c76e600-6603-11e9-9655-5870a68bbb0f.gif)	
