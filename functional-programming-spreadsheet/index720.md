@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now try calling `highPrecedence` and pass it the string `"2*2"` without assigning it to a variable in `update`.
+Now try calling <code>highPrecedence</code> and pass it the string <code>"2*2"</code> without assigning it to a variable in <code>update<code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now try calling `highPrecedence` and pass it the string `"2*2"` without assignin
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Call <code>highPrecedence("2*2")</code> in <code>update</code>.
+    testString: assert(/update=\(?event\)?=>\{.*highPrecedence\((['"])2*2\1\).*\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

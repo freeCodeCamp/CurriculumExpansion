@@ -8,9 +8,9 @@ isRequired: true
 ## Description
 <section id='description'>
 Unfortunately, impure functions are necessary - if you don't use them, the application won't perform any I/O so won't do anything.
-But we have an impure function that could be pure - `evalFormula`.
-It calls `document.getElementById(c + n).value`, but this value can change, even if the arguments don't.
-Change these calls to `""` - the function is now pure but doesn't work.
+But we have an impure function that could be pure - <code>evalFormula</code>.
+It calls <code>document.getElementById(c + n).value</code>, but this value can change, even if the arguments don't.
+Change these calls to <code>""</code> - the function is now pure but doesn't work.
 </section>
 
 ## Instructions
@@ -20,6 +20,13 @@ Change these calls to `""` - the function is now pure but doesn't work.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Make <code>evalFormula</code> pure (but disfunctional).
+    testString: const nos = code.replace(/\s/g, ""); assert(nos.includes('elemValue=n=>c=>""') && nos.includes('match=>""'))
+
+```
 
 </section>
 

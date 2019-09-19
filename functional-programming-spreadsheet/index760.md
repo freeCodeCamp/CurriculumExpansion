@@ -8,7 +8,7 @@ isRequired: true
 ## Description
 <section id='description'>
 To make this function pure, instead of depending on application state implicitly, we can pass it down explicitly as an argument.
-Add an argument `cells` to `evalFormula`.
+Add an argument <code>cells</code> to <code>evalFormula</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Add an argument `cells` to `evalFormula`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add an argument <code>cells</code> to <code>evalFormula</code>.
+    testString: assert(code.replace(/\s/g, "").includes("evalFormula=(x,cells)=>{"));
+
+```
 
 </section>
 

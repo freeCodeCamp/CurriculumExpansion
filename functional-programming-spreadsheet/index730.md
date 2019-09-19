@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Obviously, this was ignored, as all `highPrecedence` does is return a value and this value is ignored.
-Now compare `highPrecedence("2*2")` with `highPrecedence("2*2")`, and `console.log` the result.
+Obviously, this was ignored, as all <code>highPrecedence</code> does is return a value and this value is ignored.
+Now compare <code>highPrecedence("2*2")</code> with <code>highPrecedence("2*2")</code>, and <code>console.log<code> the result.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Now compare `highPrecedence("2*2")` with `highPrecedence("2*2")`, and `console.l
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Compare <code>highPrecedence("2*2")</code> with itself in <code>update</code>.
+    testString: assert(/update=\(?event\)?=>\{.*console\.log\((highPrecedence\(['"]2*2['"]\))===\1\).*\}/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  The `find` method returns the first element of an array that satisfies the function passed to it.
-  Chain `find` onto `cells` and pass it `cell => cell === id`.
+The <code>find</code> method returns the first element of an array that satisfies the function passed to it.
+Chain <code>find</code> onto <code>cells</code> and pass it <code>cell => cell === id</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Chain <code>find</code> onto <code>cells</code>.
+    testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell===id\)/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

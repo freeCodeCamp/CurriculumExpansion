@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  Use the `value` property on the result of `idToText` to return the text inside the cell, rather than the cell itself.
+Use the <code>value</code> property on the result of <code>idToText</code> to return the text inside the cell, rather than the cell itself.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Chain the <code>value</code> property onto <code>idToText</code>.
+    testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)\.value/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 
@@ -76,7 +83,6 @@ const charRange = (start, end) =>
 
 const evalFormula = (x, cells) => {
   const idToText = id => cells.find(cell => cell.id === id);
-  
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""

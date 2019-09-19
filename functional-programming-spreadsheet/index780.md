@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  In `idToText`, use the `id` property of `cell` to make sure the argument is equal to the cell's id rather than the cell itself.
+In <code>idToText</code>, use the <code>id</code> property of <code>cell</code> to make sure the argument is equal to the cell's id rather than the cell itself.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the <code>id</code> property of <code>cell</code>.
+    testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 
@@ -76,7 +83,6 @@ const charRange = (start, end) =>
 
 const evalFormula = (x, cells) => {
   const idToText = id => cells.find(cell => cell === id);
-  
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""

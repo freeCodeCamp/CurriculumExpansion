@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  Add a function `idToText` to `evalFormula`, which takes the argument `id` and returns `cells`.
+Add a function <code>idToText</code> to <code>evalFormula</code>, which takes the argument <code>id</code> and returns <code>cells</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add a function <code>idToText</code> to <code>evalFormula</code>. 
+    testString: assert(/constidToText=\(?id\)?=>cells/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

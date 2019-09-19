@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  Change the empty string in `elemValue` to the result of calling `idToText` with `c + n`.
+Change the empty string in <code>elemValue</code> to the result of calling <code>idToText</code> with <code>c + n</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ isRequired: true
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Call <code>idToText(c + n)</code> in <code>elemValue</code>.
+    testString: assert(code.replace(/\s/g, "").includes("elemValue=n=>c=>idToText(c+n)"));
+
+```
 
 </section>
 
@@ -79,7 +86,6 @@ const evalFormula = (x, cells) => {
   const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
   const rangeFromString = (n1, n2) => range(parseInt(n1), parseInt(n2));
   const elemValue = n => c => ""
-  
   const addChars = c1 => c2 => n => charRange(c1, c2).map(elemValue(n));
   const varRangeExpanded = x.replace(rangeRegex, (_, c1, n1, c2, n2) =>
     rangeFromString(n1, n2).map(addChars(c1)(c2))
