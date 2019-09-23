@@ -7,11 +7,13 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `filter` method keeps only the elements of an array that satisfy the function passed to it:
-```
+The <code>filter</code> method keeps only the elements of an array that satisfy the function passed to it:
+
+```js
 [1, 10, 8, 3, 4, 5].filter(x > 3); // [10, 8, 4, 5]
 ```
-Use `filter` to add a function called `even` to `spreadsheetFunctions`, which returns all the even elements of an array, `nums`.
+
+Use <code>filter</code> to add a function called <code>even</code> to <code>spreadsheetFunctions</code>, which returns all the even elements of an array, <code>nums</code>.
 </section>
 
 ## Instructions
@@ -21,6 +23,13 @@ Use `filter` to add a function called `even` to `spreadsheetFunctions`, which re
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the <code>even</code> function to <code>spreadsheetFunctions</code>.
+    testString: assert(JSON.stringify(even([2,3,5,6,9,4])) === "[2,6,4]" && code.includes("filter"));
+
+```
 
 </section>
 

@@ -8,13 +8,15 @@ isRequired: true
 ## Description
 <section id='description'>
 ES6 introduced a shorthand object literal syntax:
-```
+
+```js
 const a = 10;
 const myObject = { a };
 console.log(myObject); // { a: 10 }
 ```
-First, move `sum` outside of `spreadsheetFunctions`.
-`sum` should be a function expression similar to `isEven`.
+
+First, move <code>sum</code> outside of <code>spreadsheetFunctions</code>.
+<code>sum</code> should be a function expression similar to <code>isEven</code>.
 </section>
 
 ## Instructions
@@ -24,6 +26,11 @@ First, move `sum` outside of `spreadsheetFunctions`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Move <code>sum</code> to the global scope.
+    testString: assert(sum([1,2,3]) === 6);
 
 </section>
 

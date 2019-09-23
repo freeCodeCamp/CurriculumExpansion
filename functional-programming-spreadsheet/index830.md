@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `slice` method can also work on arrays.
-Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument and uses `slice` to return the first two elements of `arr`.
+The <code>slice</code> method can also work on arrays.
+Add a method <code>firsttwo</code> to <code>spreadsheetFunctions</code> which takes <code>arr</code> as argument and uses <code>slice</code> to return the first two elements of <code>arr</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add <code>firsttwo</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(JSON.stringify(spreadsheetFunctions.firsttwo([2, 6, 1, 4, 3])) === "[2,6]");
+
+```
 
 </section>
 

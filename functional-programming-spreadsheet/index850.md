@@ -7,13 +7,15 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `%` operator returns the remainder:
-```
+The <code>%</code> operator returns the remainder:
+
+```js
 4 % 3; // 1
 5 % 3; // 2
 6 % 3; // 0
 ```
-Add an `isEven` function (to the global scope) which returns whether the number passed to it is even.
+
+Add an <code>isEven</code> function (to the global scope) which returns whether the number passed to it is even.
 </section>
 
 ## Instructions
@@ -23,6 +25,13 @@ Add an `isEven` function (to the global scope) which returns whether the number 
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the <code>isEven</code> function to global scope.
+    testString: assert(isEven(20) && !isEven(31));
+
+```
 
 </section>
 

@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-`evalFormula` is now pure, as it now has no external dependencies, and as before, performs no side effects.
-Now define a new function, `increment` inside `spreadsheetFunctions`, which takes `nums` as argument and uses `map` to increment each value of `nums` by 1.
+<code>evalFormula</code> is now pure, as it now has no external dependencies, and as before, performs no side effects.
+Now define a new function, <code>increment</code> inside <code>spreadsheetFunctions</code>, which takes <code>nums</code> as argument and uses <code>map</code> to increment each value of <code>nums</code> by 1.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Now define a new function, `increment` inside `spreadsheetFunctions`, which take
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>increment</code> inside <code>spreadsheetFunctions</code>.
+    testString: assert(JSON.stringify(spreadsheetFunctions.increment([1, 5, 3])) === "[2,6,4]");
+
+```
 
 </section>
 
@@ -51,8 +58,6 @@ const spreadsheetFunctions = {
   "": x => x,
   random: ([x, y]) => Math.floor(Math.random() * y + x)
 };
-
-
 
 const applyFn = str => {
   const noHigh = highPrecedence(str);

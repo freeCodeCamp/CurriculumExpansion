@@ -8,12 +8,14 @@ isRequired: true
 ## Description
 <section id='description'>
 The spread operator allow you to pass multiple arguments instead of an array:
-```
+
+```js
 const arr = [1, 2, 3];
 const sum3 = (a, b, c) => a + b + c;
 sum3(...arr); // 6
 ```
-Use the spread operator to add `range` to `spreadsheetFunctions`.
+
+Use the spread operator to add <code>range</code> to <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -23,6 +25,13 @@ Use the spread operator to add `range` to `spreadsheetFunctions`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the spread operator to add <code>range</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(JSON.stringify(spreadsheetFunctions.range(1, 5)) === "[1,2,3,4,5]" && code.includes("..."));
+
+```
 
 </section>
 

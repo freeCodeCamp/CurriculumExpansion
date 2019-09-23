@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now use the shorthand syntax to reference `sum` inside of `spreadsheetFunctions`.
+Now use the shorthand syntax to reference <code>sum</code> inside of <code>spreadsheetFunctions</code>.
 This both adds it to the functions you can use in the spreadsheet, and allows you to use it throughout your program.
 </section>
 
@@ -18,6 +18,13 @@ This both adds it to the functions you can use in the spreadsheet, and allows yo
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Reference <code>sum</code> in <code>spreadsheetFunctions</code>.
+    testString: assert(/[{,]sum[,}]/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

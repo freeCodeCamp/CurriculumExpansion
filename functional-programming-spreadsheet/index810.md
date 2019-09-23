@@ -7,16 +7,24 @@ isRequired: true
 
 ## Description
 <section id='description'>
-  Change the empty string in `varExpanded` to the result of calling `idToText` with `match.toUpperCase()`.
+Change the empty string in <code>varExpanded</code> to the result of calling <code>idToText</code> with <code>match.toUpperCase()</code>.
 </section>
 
 ## Instructions
 <section id='instructions'>
 
+
 </section>
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Change the empty string in <code>varExpanded</code>.
+    testString: assert(code.replace(/\s/g, "").includes("match=>idToText(match.toUpperCase())"))
+
+```
 
 </section>
 

@@ -7,14 +7,16 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `reduce` method takes a function which an accumulator and the current value.
+The <code>reduce</code> method takes a function which an accumulator and the current value.
 The accumulator is initially set to the value at index 0.
-The `reduce` method then goes through each element of the array after that, passing in the element as the current value and the result of the last call as the accumulator.
+The <code>reduce</code> method then goes through each element of the array after that, passing in the element as the current value and the result of the last call as the accumulator.
 For example, here'how to multiply all the value in an array:
+
 ```
 [2, 3, 4].reduce((a, x) => a * x); // 24
 ```
-Using `reduce`, add a function `sum` to `spreadsheetFunctions`, which sums all values in the array passed to it.
+
+Using <code>reduce</code>, add a function <code>sum</code> to <code>spreadsheetFunctions</code>, which sums all values in the array passed to it.
 </section>
 
 ## Instructions
@@ -24,6 +26,13 @@ Using `reduce`, add a function `sum` to `spreadsheetFunctions`, which sums all v
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add <code>sum</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(spreadsheetFunctions.sum([10,5,1,3]) === 19 && code.includes("reduce"));
+
+```
 
 </section>
 

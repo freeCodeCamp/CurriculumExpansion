@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `includes` method checks if an element is in an array.
-Add a `has2` function to `spreadsheetFunctions` which checks if the input has the number 2 in it.
+The <code>includes</code> method checks if an element is in an array.
+Add a <code>has2</code> function to <code>spreadsheetFunctions</code> which checks if the inputted array has the number 2 in it.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Add a `has2` function to `spreadsheetFunctions` which checks if the input has th
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add <code>has2</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(spreadsheetFunctions.has2([2,3,5]) && !spreadsheetFunctions.has2([1,3,10]));
+
+```
 
 </section>
 

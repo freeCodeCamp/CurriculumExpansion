@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `length` property returns the length of an array.
-Use this property with the `sum` function to define an `average` function.
-As with `sum`, add this function to both the global scope and to `spreadsheetFunctions`.
+The <code>length</code> property returns the length of an array.
+Use this property with the <code>sum</code> function to define an <code>average</code> function.
+As with <code>sum</code>, add this function to both the global scope and to <code>spreadsheetFunctions</code>.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ As with `sum`, add this function to both the global scope and to `spreadsheetFun
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add the <code>average</code> function.
+    testString: assert(average([1, 5, 12]) === 6 && spreadsheetFunctions.average([1, 20, 3, 8]) === 8);
+
+```
 
 </section>
 
