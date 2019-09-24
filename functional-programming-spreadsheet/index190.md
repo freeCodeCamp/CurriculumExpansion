@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define an empty function <code>applyFn</code> which takes an argument <code>str</code>.
+Define an empty function `applyFn` which takes an argument `str`.
 Use the curly brace syntax with an anonymous function.
 Do not wrap parentheses around the parameter.
 </section>
@@ -22,7 +22,7 @@ Do not wrap parentheses around the parameter.
 
 ```yml
 tests:
-  - text: Define an empty function <code>applyFn</code>.
+  - text: Define an empty function `applyFn`.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{}"));
 
 ```

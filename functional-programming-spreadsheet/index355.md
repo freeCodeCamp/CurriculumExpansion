@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now, pass <code>x</code> to <code>String.fromCharCode</code> in the arrow function.
+Now, pass `x` to `String.fromCharCode` in the arrow function.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Now, pass <code>x</code> to <code>String.fromCharCode</code> in the arrow functi
 
 ```yml
 tests:
-  - text: Pass <code>x</code> to <code>String.fromCharCode</code> 
+  - text: Pass `x` to `String.fromCharCode` 
     testString: assert(JSON.stringify(charRange("A", "C")) === '["A","B","C"]');
 
 ```

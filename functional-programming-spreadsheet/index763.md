@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-When calling <code>evalFormula</code> in <code>update</code>, pass in <code>Array.from(document.getElementById("container").children)</code> as the <code>cells</code> argument.
+When calling `evalFormula` in `update`, pass in `Array.from(document.getElementById("container").children)` as the `cells` argument.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ When calling <code>evalFormula</code> in <code>update</code>, pass in <code>Arra
 
 ```yml
 tests:
-  - text: Pass in a second argument when calling <code>evalFormula</code>.
+  - text: Pass in a second argument when calling `evalFormula`.
     testString: assert(code.replace(/\s/g, "").includes('evalFormula(value.slice(1),Array.from(document.getElementById("container").children))'));
 
 ```

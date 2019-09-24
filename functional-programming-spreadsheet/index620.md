@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now set <code>value</code> to <code>element.value.replace(/\s/g, "")</code>.
-This removes all whitespace from <code>element</code> so that we can ignore it.
+Now set `value` to `element.value.replace(/\s/g, "")`.
+This removes all whitespace from `element` so that we can ignore it.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ This removes all whitespace from <code>element</code> so that we can ignore it.
 
 ```yml
 tests:
-  - text: Define <code>value</code> in <code>update</code>.
+  - text: Define `value` in `update`.
     testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

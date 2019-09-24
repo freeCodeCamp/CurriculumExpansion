@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Make <code>charRange</code> return <code>range(start, end)</code>.
+Make `charRange` return `range(start, end)`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Make <code>charRange</code> return <code>range(start, end)</code>.
 
 ```yml
 tests:
-  - text: Make <code>charRange</code> return <code>range(start, end)</code>.
+  - text: Make `charRange` return `range(start, end)`.
     testString: assert(JSON.stringify(charRange(1,5)) === "[1,2,3,4,5]");
 
 ```

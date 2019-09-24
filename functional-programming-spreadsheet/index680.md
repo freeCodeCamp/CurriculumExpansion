@@ -14,7 +14,7 @@ const [x, y] = [1, 2]; // in variables
 const fn = ([x, y]) => x + y // in functions
 ```
 
-Use this syntax to define a function <code>random</code> in <code>spreadsheetFunctions</code> which takes the array <code>[x, y]</code> and returns <code>x</code>.
+Use this syntax to define a function `random` in `spreadsheetFunctions` which takes the array `[x, y]` and returns `x`.
 </section>
 
 ## Instructions
@@ -27,7 +27,7 @@ Use this syntax to define a function <code>random</code> in <code>spreadsheetFun
 
 ```yml
 tests:
-  - text: Define <code>random</code> in <code>spreadsheetFunctions</code>.
+  - text: Define `random` in `spreadsheetFunctions`.
     testString: assert(/["']?random["']?:\(\[x,y\]\)=>x/.test(code.replace(/\s/g, "")) && spreadsheetFunctions["random"]([1, 2]) === 1);
 
 ```

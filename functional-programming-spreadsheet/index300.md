@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use the ternary operator to return <code>[]</code> if <code>start > end</code> and <code>[start].concat([end])</code> otherwise.
+Use the ternary operator to return `[]` if `start > end` and `[start].concat([end])` otherwise.
 </section>
 
 ## Instructions

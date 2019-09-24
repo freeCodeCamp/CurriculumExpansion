@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define <code>fn</code> to be <code>elemValue("1")</code> (inside <code>evalFormula</code> but outside <code>elemValue</code>).
-As <code>elemValue</code> returns a function, <code>fn</code> is also a function.
+Now define `fn` to be `elemValue("1")` (inside `evalFormula` but outside `elemValue`).
+As `elemValue` returns a function, `fn` is also a function.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ As <code>elemValue</code> returns a function, <code>fn</code> is also a function
 
 ```yml
 tests:
-  - text: Define <code>fn</code>.
+  - text: Define `fn`.
     testString: assert(/elemValue.*constfn=elemValue\(['"]1['"]\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -8,9 +8,9 @@ isRequired: true
 ## Description
 <section id='description'>
 In functional programming, we prefer immutable values over mutable values.
-Mutable values (declared with <code>var</code> or <code>let</code>) can lead to unexpected behaviors and bugs.
-Values declared with <code>const</code> cannot be reassigned, which makes using them easier because you don't have to keep track of their values.
-Start by creating an empty <code>infixToFunction</code> object using <code>const</code>.
+Mutable values (declared with `var` or `let`) can lead to unexpected behaviors and bugs.
+Values declared with `const` cannot be reassigned, which makes using them easier because you don't have to keep track of their values.
+Start by creating an empty `infixToFunction` object using `const`.
 </section>
 
 ## Instructions
@@ -23,7 +23,7 @@ Start by creating an empty <code>infixToFunction</code> object using <code>const
 
 ```yml
 tests:
-  - text: Create empty <code>infixToFunction</code> object using <code>const</code>.
+  - text: Create empty `infixToFunction` object using `const`.
     testString: assert(/const\s+infixToFunction\s*=\s*\{\s*\}/.test(code));
 
 ```

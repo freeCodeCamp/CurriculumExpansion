@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add the following code to <code>letters.forEach</code>:
+Add the following code to `letters.forEach`:
 
 ```js
 input.type = "text";

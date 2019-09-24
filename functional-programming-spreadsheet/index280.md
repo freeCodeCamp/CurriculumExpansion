@@ -7,14 +7,14 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The <code>concat</code> method can also accept arrays:
+The `concat` method can also accept arrays:
 
 ```js
 [1,2,3].concat([4, 5]); // [1, 2, 3, 4, 5]
 [1,2,3].concat([4, 5], [6, 7]); // [1, 2, 3, 4, 5, 6, 7]
 ```
 
-Use this form of <code>concat</code> by passing an array with just <code>end</code> to it: <code>arr.concat([end])</code>.
+Use this form of `concat` by passing an array with just `end` to it: `arr.concat([end])`.
 </section>
 
 ## Instructions
@@ -27,7 +27,7 @@ Use this form of <code>concat</code> by passing an array with just <code>end</co
 
 ```yml
 tests:
-  - text: Pass an array to <code>concat</code> instead of a value.
+  - text: Pass an array to `concat` instead of a value.
     testString: assert(code.replace(/\s/g, "").includes("returnarr.concat([end])"));
 
 ```

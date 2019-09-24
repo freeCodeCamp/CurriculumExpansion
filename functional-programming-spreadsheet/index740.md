@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-This is true, so <code>highPrecedence</code> might be a pure function.
-If you inspect it, you can see that it indeed performs no I/O and doesn't use functions like <code>Math.random()</code> - so it's pure.
-Remove the <code>console.log</code> statement.
+This is true, so `highPrecedence` might be a pure function.
+If you inspect it, you can see that it indeed performs no I/O and doesn't use functions like `Math.random()` - so it's pure.
+Remove the `console.log` statement.
 </section>
 
 ## Instructions
@@ -22,7 +22,7 @@ Remove the <code>console.log</code> statement.
 
 ```yml
 tests:
-  - text: Compare <code>highPrecedence("2*2")</code> with itself in <code>update</code>.
+  - text: Compare `highPrecedence("2*2")` with itself in `update`.
     testString: assert(!/update=\(?event\)?=>\{.*console\.log\((highPrecedence\(['"]2*2['"]\))===\1\).*\}/.test(code.replace(/\s/g, "")));
 
 ```

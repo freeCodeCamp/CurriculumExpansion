@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Change the empty string in <code>elemValue</code> to the result of calling <code>idToText</code> with <code>c + n</code>.
+Change the empty string in `elemValue` to the result of calling `idToText` with `c + n`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Change the empty string in <code>elemValue</code> to the result of calling <code
 
 ```yml
 tests:
-  - text: Call <code>idToText(c + n)</code> in <code>elemValue</code>.
+  - text: Call `idToText(c + n)` in `elemValue`.
     testString: assert(code.replace(/\s/g, "").includes("elemValue=n=>c=>idToText(c+n)"));
 
 ```

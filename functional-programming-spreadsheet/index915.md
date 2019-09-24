@@ -8,15 +8,15 @@ isRequired: true
 ## Description
 <section id='description'>
 But our function takes an array of numbers, not strings.
-Luckily, you can pass a function <code>fn</code> as argument to sort:
+Luckily, you can pass a function `fn` as argument to sort:
 
 ```js
 [2, 9, 10, 15].sort((a, b) => b - a); // [10, 9, 5, 2]
 ```
 
-If <code>b - a</code> is less than 0, then <code>a</code> will be placed before <code>b</code>.
+If `b - a` is less than 0, then `a` will be placed before `b`.
 As a result, this sorts the array in descending order.
-Use <code>sort</code> to sort <code>nums</code> in ascending order.
+Use `sort` to sort `nums` in ascending order.
 </section>
 
 ## Instructions
@@ -29,7 +29,7 @@ Use <code>sort</code> to sort <code>nums</code> in ascending order.
 
 ```yml
 tests:
-  - text: Sort <code>nums</code> in ascending order.
+  - text: Sort `nums` in ascending order.
     testString: assert(/constmedian=nums=>\{constsorted=nums\.sort\(\((.+),(.+)\)=>\1-\2\)/.test(code.replace(/\s/g, "")));
 
 ```

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define a function <code>elemValue</code>, which takes an argument <code>n</code> and returns <code>n</code>.
+Now define a function `elemValue`, which takes an argument `n` and returns `n`.
 Use the curly brace arrow function syntax.
 </section>
 
@@ -21,7 +21,7 @@ Use the curly brace arrow function syntax.
 
 ```yml
 tests:
-  - text: Define <code>elemValue</code>.
+  - text: Define `elemValue`.
     testString: assert(/evalFormula.*constelemValue=n=>\{returnn;?\}/.test(code.replace(/\s/g, "")));  
 
 ```

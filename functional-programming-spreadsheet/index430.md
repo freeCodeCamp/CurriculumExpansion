@@ -13,7 +13,7 @@ You can add more arguments by simply adding another arrow with another argument 
 const manyArguments = a => b => c => d => [a, b, c, d]
 ```
 
-Add another argument to <code>addChars</code> and add it to the sum: <code>c1 => c2 => n => c1 + c2 + n</code>.
+Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 + c2 + n`.
 </section>
 
 ## Instructions
@@ -26,7 +26,7 @@ Add another argument to <code>addChars</code> and add it to the sum: <code>c1 =>
 
 ```yml
 tests:
-  - text: Define a curried function, <code>addChars</code>.
+  - text: Define a curried function, `addChars`.
     testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>c1+c2+n"));
 
 ```

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use the <code>value</code> property on the result of <code>idToText</code> to return the text inside the cell, rather than the cell itself.
+Use the `value` property on the result of `idToText` to return the text inside the cell, rather than the cell itself.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Use the <code>value</code> property on the result of <code>idToText</code> to re
 
 ```yml
 tests:
-  - text: Chain the <code>value</code> property onto <code>idToText</code>.
+  - text: Chain the `value` property onto `idToText`.
     testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)\.value/.test(code.replace(/\s/g, "")));
 
 ```

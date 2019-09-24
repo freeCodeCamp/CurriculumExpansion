@@ -7,13 +7,13 @@ isRequired: true
 
 ## Description
 <section id='description'>
-You can also pass in a negative argument to <code>slice</code> to specify that index from the end:
+You can also pass in a negative argument to `slice` to specify that index from the end:
 
 ```js
 [2, 4, 6, 8, 10].slice(-3); // [6, 8, 10]
 ```
 
-Use a negative index to add a function <code>lasttwo</code> which returns the last two elements of an array.
+Use a negative index to add a function `lasttwo` which returns the last two elements of an array.
 </section>
 
 ## Instructions
@@ -26,7 +26,7 @@ Use a negative index to add a function <code>lasttwo</code> which returns the la
 
 ```yml
 tests:
-  - text: Add <code>lasttwo</code> to <code>spreadsheetFunctions</code>.
+  - text: Add `lasttwo` to `spreadsheetFunctions`.
     testString: assert(JSON.stringify(spreadsheetFunctions.lasttwo([2, 6, 1, 4, 3])) === "[4,3]");
 
 ```

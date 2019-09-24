@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The <code>Array</code> function takes an argument <code>x</code> and creates an array of size <code>x</code> filled with <code>undefined</code>.
-Make <code>range</code> return an array of <code>undefined</code> with size <code>end - start + 1</code>.
+The `Array` function takes an argument `x` and creates an array of size `x` filled with `undefined`.
+Make `range` return an array of `undefined` with size `end - start + 1`.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ Make <code>range</code> return an array of <code>undefined</code> with size <cod
 
 ```yml
 tests:
-  - text: Make <code>range</code> return an array of <code>undefined</code> with the sprecified size.
+  - text: Make `range` return an array of `undefined` with the sprecified size.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1)"));
 
 ```

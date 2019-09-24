@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-<code>evalFormula</code> should return the value passed to it if this value remained unchanged.
+`evalFormula` should return the value passed to it if this value remained unchanged.
 Otherwise, it should call itself with the latest value.
-Use the ternary operator in the last line of <code>evalFormula</code> to return <code>functionExpanded</code> if <code>x === functionExpanded</code> and <code>evalFormula(functionExpanded)</code> otherwise.
+Use the ternary operator in the last line of `evalFormula` to return `functionExpanded` if `x === functionExpanded` and `evalFormula(functionExpanded)` otherwise.
 </section>
 
 ## Instructions

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-In <code>idToText</code>, use the <code>id</code> property of <code>cell</code> to make sure the argument is equal to the cell's id rather than the cell itself.
+In `idToText`, use the `id` property of `cell` to make sure the argument is equal to the cell's id rather than the cell itself.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ In <code>idToText</code>, use the <code>id</code> property of <code>cell</code> 
 
 ```yml
 tests:
-  - text: Use the <code>id</code> property of <code>cell</code>.
+  - text: Use the `id` property of `cell`.
     testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)/.test(code.replace(/\s/g, "")));
 
 ```

@@ -13,7 +13,7 @@ You can define arrow functions without arguments:
 const two = () => 2;
 ```
 
-Define an empty arrow function without arguments and assign it to <code>window.onload</code>.
+Define an empty arrow function without arguments and assign it to `window.onload`.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ Define an empty arrow function without arguments and assign it to <code>window.o
 
 ```yml
 tests:
-  - text: Define an empty arrow function without arguments and assign it to <code>window.onload</code>.
+  - text: Define an empty arrow function without arguments and assign it to `window.onload`.
     testString: assert(code.replace(/\s/g, "").includes("window.onload=()=>"));
 
 ```

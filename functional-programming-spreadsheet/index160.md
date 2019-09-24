@@ -15,7 +15,7 @@ const result = 1 === 1 ? 1 : 0; // 1
 const result = 9 > 10 ? "Yes" : "No"; // "No"
 ```
 
-Use this operator to return <code>str</code> if <code>str === str2</code>, and an empty string (<code>""</code>) otherwise.
+Use this operator to return `str` if `str === str2`, and an empty string (`""`) otherwise.
 </section>
 
 ## Instructions
@@ -28,7 +28,7 @@ Use this operator to return <code>str</code> if <code>str === str2</code>, and a
 
 ```yml
 tests:
-  - text: Use the ternary operator to return <code>str</code> if <code>str === str2</code>, and an empty string (<code>""</code>) otherwise.
+  - text: Use the ternary operator to return `str` if `str === str2`, and an empty string (`""`) otherwise.
     testString: assert(highPrecedence("2*2") === "" && highPrecedence("2+2") === "2+2" && code.includes("?"));
 
 ```

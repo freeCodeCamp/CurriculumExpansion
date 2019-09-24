@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace <code>createLabel</code> with an arrow function with a block body.
+Replace `createLabel` with an arrow function with a block body.
 This would allow us to add more statements.
-The arrow function should take an argument <code>x</code>, and call <code>createLabel(x)</code>.
+The arrow function should take an argument `x`, and call `createLabel(x)`.
 </section>
 
 ## Instructions

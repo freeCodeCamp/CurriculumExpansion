@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The <code>every</code> method checks if all elements of an array satisfy the provided testing function.
-Use it to add an <code>everyeven</code> function to <code>spreadsheetFunctions</code> which checks if all values passed in are even<code>spreadsheetFunctions</code> which checks if all values passed in are even.
+The `every` method checks if all elements of an array satisfy the provided testing function.
+Use it to add an `everyeven` function to `spreadsheetFunctions` which checks if all values passed in are even`spreadsheetFunctions` which checks if all values passed in are even.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ Use it to add an <code>everyeven</code> function to <code>spreadsheetFunctions</
 
 ```yml
 tests:
-  - text:  Define <code>everyeven</code> in <code>spreadsheetFunctions</code>.
+  - text:  Define `everyeven` in `spreadsheetFunctions`.
     testString: assert(spreadsheetFunctions.everyeven([2, 6, 4, 0, 20]) && !spreadsheetFunctions.everyeven([10, 0, 9, 2]) && code.includes(".every"));
 
 ```

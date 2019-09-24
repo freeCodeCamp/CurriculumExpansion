@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add the key <code>+</code> to <code>infixToFunction</code> and assign it the value <code>addVar</code>.
+Add the key `+` to `infixToFunction` and assign it the value `addVar`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Add the key <code>+</code> to <code>infixToFunction</code> and assign it the val
 
 ```yml
 tests:
-  - text: Add the key <code>+</code> to <code>infixToFunction</code> and assign it the value <code>addVar</code>.
+  - text: Add the key `+` to `infixToFunction` and assign it the value `addVar`.
     testString: assert(infixToFunction["+"].toString() === addVar.toString());
 
 ```

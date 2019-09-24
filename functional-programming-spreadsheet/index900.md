@@ -15,7 +15,7 @@ const sum3 = (a, b, c) => a + b + c;
 sum3(...arr); // 6
 ```
 
-Use the spread operator to add <code>range</code> to <code>spreadsheetFunctions</code>.
+Use the spread operator to add `range` to `spreadsheetFunctions`.
 </section>
 
 ## Instructions
@@ -28,7 +28,7 @@ Use the spread operator to add <code>range</code> to <code>spreadsheetFunctions<
 
 ```yml
 tests:
-  - text: Use the spread operator to add <code>range</code> to <code>spreadsheetFunctions</code>.
+  - text: Use the spread operator to add `range` to `spreadsheetFunctions`.
     testString: assert(JSON.stringify(spreadsheetFunctions.range(1, 5)) === "[1,2,3,4,5]" && code.includes("..."));
 
 ```

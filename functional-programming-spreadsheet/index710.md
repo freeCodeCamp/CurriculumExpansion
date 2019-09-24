@@ -7,10 +7,10 @@ isRequired: true
 
 ## Description
 <section id='description'>
-This is (probably) false, so <code>random</code> is certainly impure.
+This is (probably) false, so `random` is certainly impure.
 The second property of pure functions is that they perform no side effects, which are state and I/O modifications.
 If you call a function without assigning the result to a variable, and it does something, then it's an impure function.
-Call <code>window.onload()</code> in <code>update</code>.
+Call `window.onload()` in `update`.
 </section>
 
 ## Instructions
@@ -23,7 +23,7 @@ Call <code>window.onload()</code> in <code>update</code>.
 
 ```yml
 tests:
-  - text: Call <code>window.onload()</code> in <code>update</code>.
+  - text: Call `window.onload()` in `update`.
     testString: assert(/update=\(?event\)?=>\{.*window\.onload\(\).*\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the call to <code>arr</code> in <code>arr.concat([end])</code> with <code>[start]</code> and remove the <code>arr</code> variable and its definition.
+Replace the call to `arr` in `arr.concat([end])` with `[start]` and remove the `arr` variable and its definition.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Replace the call to <code>arr</code> in <code>arr.concat([end])</code> with <cod
 
 ```yml
 tests:
-  text: Remove <code>arr</code>.
+  text: Remove `arr`.
   testString: assert(!(code.includes("arr")) && code.replace(/\s/g, "").includes("[start].concat([end])")); 
 
 ```

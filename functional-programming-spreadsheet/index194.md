@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set <code>infix</code> to <code>/([0-9.]+)([+-])([0-9.]+)/</code> in <code>applyFn</code>.
+Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/` in `applyFn`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Set <code>infix</code> to <code>/([0-9.]+)([+-])([0-9.]+)/</code> in <code>apply
 
 ```yml
 tests:
-  - text: Set <code>infix</code> to <code>/([0-9.]+)([+-])([0-9.]+)/</code>.
+  - text: Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/`.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/"));
 
 ```

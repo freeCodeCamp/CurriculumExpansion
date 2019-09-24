@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-You might think that this wouldn't work because <code>fn</code> wouldn't have access to <code>n</code> after <code>elemValue</code> has finished executing.
+You might think that this wouldn't work because `fn` wouldn't have access to `n` after `elemValue` has finished executing.
 However, this works because of closures - functions have access to all variables declared at their time of creation.
-Inside <code>elemValue</code>, remove the variable <code>fn</code> and its definition, and replace <code>return fn</code> with <code>return c => document.getElementById(c + n).value</code>.
+Inside `elemValue`, remove the variable `fn` and its definition, and replace `return fn` with `return c => document.getElementById(c + n).value`.
 </section>
 
 ## Instructions
@@ -22,7 +22,7 @@ Inside <code>elemValue</code>, remove the variable <code>fn</code> and its defin
 
 ```yml
 tests:
-  - text: Remove the <code>fn</code> definition.
+  - text: Remove the `fn` definition.
     testString: assert(code.replace(/\s/g, "").includes("constelemValue=n=>{returnc=>document.getElementById(c+n).value"));
 
 ```

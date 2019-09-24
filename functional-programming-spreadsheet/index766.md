@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Update the recursive call to <code>evalFormula</code> by passing in <code>cells</code> as the second argument.
+Update the recursive call to `evalFormula` by passing in `cells` as the second argument.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Update the recursive call to <code>evalFormula</code> by passing in <code>cells<
 
 ```yml
 tests:
-  - text: Pass in <code>cells</code> as the second argument in the recursive call.
+  - text: Pass in `cells` as the second argument in the recursive call.
     testString: assert(code.replace(/\s/g, "").includes("evalFormula(functionExpanded,cells)"));
 
 ```

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-After declaring <code>arr</code>, but before returning it, <code>range</code> should use the <code>push</code> method to add <code>end</code> onto <code>arr</code>.
+After declaring `arr`, but before returning it, `range` should use the `push` method to add `end` onto `arr`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ After declaring <code>arr</code>, but before returning it, <code>range</code> sh
 
 ```yml
 tests:
-  - text: Use the <code>push</code> method.
+  - text: Use the `push` method.
     testString: assert(JSON.stringify(range(1, 2)) === "[1,2]" && code.includes("push"));
 
 ```

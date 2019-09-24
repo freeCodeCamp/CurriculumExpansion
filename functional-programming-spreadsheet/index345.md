@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use the <code>charCodeAt(0)</code> method on <code>start</code> and <code>end</code> in <code>charRange</code>, like this: <code>start.charCodeAt(0)</code>.
+Use the `charCodeAt(0)` method on `start` and `end` in `charRange`, like this: `start.charCodeAt(0)`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Use the <code>charCodeAt(0)</code> method on <code>start</code> and <code>end</c
 
 ```yml
 tests:
-  - text: Use the <code>charCodeAt(0)</code> method.
+  - text: Use the `charCodeAt(0)` method.
     testString: assert(JSON.stringify(charRange("A", "C")) === "[65,66,67]");
 
 ```

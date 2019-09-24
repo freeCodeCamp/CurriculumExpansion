@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Finally, return <code>fn("A")</code>.
+Finally, return `fn("A")`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Finally, return <code>fn("A")</code>.
 
 ```yml
 tests:
-  - text: Return <code>fn("A")</code>.
+  - text: Return `fn("A")`.
     testString: assert(/elemValue.*constfn=elemValue\(['"]1['"]\);?returnfn\(['"]A['"]\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -15,8 +15,8 @@ const myObject = { a };
 console.log(myObject); // { a: 10 }
 ```
 
-First, move <code>sum</code> outside of <code>spreadsheetFunctions</code>.
-<code>sum</code> should be a function expression similar to <code>isEven</code>.
+First, move `sum` outside of `spreadsheetFunctions`.
+`sum` should be a function expression similar to `isEven`.
 </section>
 
 ## Instructions
@@ -29,7 +29,7 @@ First, move <code>sum</code> outside of <code>spreadsheetFunctions</code>.
 
 ```yml
 tests:
-  - text: Move <code>sum</code> to the global scope.
+  - text: Move `sum` to the global scope.
     testString: assert(sum([1,2,3]) === 6);
 
 </section>

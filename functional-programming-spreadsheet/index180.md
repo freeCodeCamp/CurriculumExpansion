@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define an object <code>spreadsheetFunctions</code>, with a single key - an empty string (<code>""</code>).
-The corresponding value should be the function <code>x => x</code>.
+Define an object `spreadsheetFunctions`, with a single key - an empty string (`""`).
+The corresponding value should be the function `x => x`.
 </section>
 
 ## Instructions

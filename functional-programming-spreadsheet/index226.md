@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Apply <code>toNumberList(args)</code> to <code>spreadsheetFunctions[fn.toLowerCase()]</code>.
+Apply `toNumberList(args)` to `spreadsheetFunctions[fn.toLowerCase()]`.
 </section>
 
 ## Instructions

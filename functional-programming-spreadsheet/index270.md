@@ -7,16 +7,16 @@ isRequired: true
 
 ## Description
 <section id='description'>
-This is still valid because we're modifying <code>arr</code> in place instead of reassigning to it (which is invalid with the <code>const</code> keyword).
+This is still valid because we're modifying `arr` in place instead of reassigning to it (which is invalid with the `const` keyword).
 But doing this still modifies state, and we don't want to do that in functional programming.
-The <code>concat</code> method returns a new array instead of modifying an existing one:
+The `concat` method returns a new array instead of modifying an existing one:
 
 ```js
 [1,2,3].concat(4); // [1, 2, 3, 4]
 [1,2,3].concat(4, 5); // [1, 2, 3, 4, 5]
 ```
 
-Use <code>concat</code> instead of <code>push</code> to return the result of adding <code>end</code> to <code>arr</code>.
+Use `concat` instead of `push` to return the result of adding `end` to `arr`.
 </section>
 
 ## Instructions
@@ -29,7 +29,7 @@ Use <code>concat</code> instead of <code>push</code> to return the result of add
 
 ```yml
 tests:
-  - text: Use <code>concat</code> instead of <code>push</code>.
+  - text: Use `concat` instead of `push`.
     testString: assert(JSON.stringify(range(1,2)) === "[1,2]" && code.includes("concat") && !(code.includes("push")));
 
 ```

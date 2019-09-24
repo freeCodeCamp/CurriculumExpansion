@@ -15,7 +15,7 @@ const fn = function(x) {
 }
 ```
 
-Assign the anonymous function to the variable <code>addVar</code>. 
+Assign the anonymous function to the variable `addVar`. 
 </section>
 
 ## Instructions
@@ -28,7 +28,7 @@ Assign the anonymous function to the variable <code>addVar</code>.
 
 ```yml
 tests:
-  - text: Assign the anonymous function to the variable <code>addVar</code>. 
+  - text: Assign the anonymous function to the variable `addVar`. 
     testString: assert(/const\s+addVar\s*=\s*function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
 
 ```

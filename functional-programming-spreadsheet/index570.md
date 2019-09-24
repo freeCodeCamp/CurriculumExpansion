@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define a function <code>createLabel</code> which takes an argument <code>name</code> and has an empty body.
+Now define a function `createLabel` which takes an argument `name` and has an empty body.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Now define a function <code>createLabel</code> which takes an argument <code>nam
 
 ```yml
 tests:
-  - text: Define <code>createLabel</code>.
+  - text: Define `createLabel`.
     testString: assert(/window\.onload[\s\S]*constcreateLabel=\(?name\)?=>\{\}/.test(code.replace(/\s/g, "")));
 
 ```

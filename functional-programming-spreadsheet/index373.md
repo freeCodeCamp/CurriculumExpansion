@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the <code>n1</code> return value in <code>rangeFromString</code> with <code>range(n1, n2)</code>.
+Replace the `n1` return value in `rangeFromString` with `range(n1, n2)`.
 </section>
 
 ## Instructions

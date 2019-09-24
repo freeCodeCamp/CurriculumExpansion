@@ -13,7 +13,7 @@ You call curried functions like this:
 const result = add(1)(2);
 ```
 
-Use <code>map</code> on the <code>charRange</code> in <code>addChars</code>, passing in <code>x => elemValue(n)(x)</code> as the argument.
+Use `map` on the `charRange` in `addChars`, passing in `x => elemValue(n)(x)` as the argument.
 
 </section>
 
@@ -27,7 +27,7 @@ Use <code>map</code> on the <code>charRange</code> in <code>addChars</code>, pas
 
 ```yml
 tests:
-  - text: Change the return value of <code>addChars</code>.
+  - text: Change the return value of `addChars`.
     testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>charRange(c1,c2).map(x=>elemValue(n)(x))"));
 
 ```

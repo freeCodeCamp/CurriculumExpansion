@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add the following code to <code>createLabel</code>:
+Add the following code to `createLabel`:
 
 ```js
 label.className = "label";

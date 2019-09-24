@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now return the sum of <code>x</code> and <code>y</code> using the <code>return</code> keyword.
+Now return the sum of `x` and `y` using the `return` keyword.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Now return the sum of <code>x</code> and <code>y</code> using the <code>return</
 
 ```yml
 tests:
-  - text: Return <code>x + y</code>.
+  - text: Return `x + y`.
     testString: assert(add(1, 2) === 3 && add(100, 2000) === 2100);
 
 ```

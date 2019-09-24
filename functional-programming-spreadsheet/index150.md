@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-In <code>highPrecedence</code>, define <code>regex</code> to be <code>/([0-9.]+)([*/])([0-9.]+)/</code>.
+In `highPrecedence`, define `regex` to be `/([0-9.]+)([*/])([0-9.]+)/`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ In <code>highPrecedence</code>, define <code>regex</code> to be <code>/([0-9.]+)
 
 ```yml
 tests:
-  - text: Define <code>regex</code> to be <code>/([0-9.]+)([*/])([0-9.]+)/</code>.
+  - text: Define `regex` to be `/([0-9.]+)([*/])([0-9.]+)/`.
     testString: assert(code.replace(/\s/g, "").includes("regex=/([0-9.]+)([*/])([0-9.]+)/"));
 
 ```

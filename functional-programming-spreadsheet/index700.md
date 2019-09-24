@@ -15,7 +15,7 @@ You can check if this is the case by comparing a call to a function with another
 console.log(f(2) === f(2)); // always true for pure functions
 ```
 
-Use this technique to check if the <code>random</code> function in <code>spreadsheetFunctions</code> is pure by passing in the following array: <code>[1, 1000]</code>.
+Use this technique to check if the `random` function in `spreadsheetFunctions` is pure by passing in the following array: `[1, 1000]`.
 </section>
 
 ## Instructions
@@ -28,7 +28,7 @@ Use this technique to check if the <code>random</code> function in <code>spreads
 
 ```yml
 tests:
-  - text: Check the purity of <code>random</code>
+  - text: Check the purity of `random`
     testString: assert(/(spreadsheetFunctions\[["']random["']\]\(1,1000\))===\1/.test(code.replace(/\s/g, "")));
 </section>
 

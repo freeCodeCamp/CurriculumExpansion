@@ -13,7 +13,7 @@ When defining an arrow function with a single argument, the parentheses can be o
 const greeting = name => `Hello !`;
 ```
 
-Define a function <code>highPrecedence</code> which takes a single argument <code>str</code> and returns it.
+Define a function `highPrecedence` which takes a single argument `str` and returns it.
 </section>
 
 ## Instructions
@@ -26,7 +26,7 @@ Define a function <code>highPrecedence</code> which takes a single argument <cod
 
 ```yml
 tests:
-  - text: Define a function, <code>highPrecedence</code>.
+  - text: Define a function, `highPrecedence`.
     testString: assert(highPrecedence("a") === "a");
 
 ```

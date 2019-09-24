@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set <code>str2</code> to <code>infixEval(noHigh, infix)</code>.
+Set `str2` to `infixEval(noHigh, infix)`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Set <code>str2</code> to <code>infixEval(noHigh, infix)</code>.
 
 ```yml
 tests:
-  - text: Set <code>infix</code> to <code>/([0-9.]+)([+-])([0-9.]+)/</code>.
+  - text: Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/`.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix)"));
 
 ```

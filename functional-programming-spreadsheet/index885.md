@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The <code>reduce</code> method can take a second argument (in addition to the function), specifying the initial accumulator value.
+The `reduce` method can take a second argument (in addition to the function), specifying the initial accumulator value.
 In this case, the current value starts from index 0 rather than index 1.
 
 ```js
@@ -16,7 +16,7 @@ In this case, the current value starts from index 0 rather than index 1.
 // now it first tries [].concat(1) which works 
 ```
 
-Add a function <code>nodups</code> to <code>spreadsheetFunctions</code>, with the value <code>arr => arr.reduce((a, x) => a.includes(x), [])</code>.
+Add a function `nodups` to `spreadsheetFunctions`, with the value `arr => arr.reduce((a, x) => a.includes(x), [])`.
 </section>
 
 ## Instructions
@@ -24,7 +24,7 @@ Add a function <code>nodups</code> to <code>spreadsheetFunctions</code>, with th
 
 ```yml
 tests:
-  - text: Add <code>nodups</code> to <code>spreadsheetFunctions</code>.
+  - text: Add `nodups` to `spreadsheetFunctions`.
     testString: assert(spreadsheetFunctions.nodups.toString().replace(/\s/g, "") === "arr=>arr.reduce((a,x)=>a.includes(x),[])");
 
 ```

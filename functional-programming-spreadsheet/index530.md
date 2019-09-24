@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set <code>functionExpanded</code> to <code>applyFn(varExpanded)</code> in <code>evalFormula</code>.
-Return <code>functionExpanded</code>.
+Set `functionExpanded` to `applyFn(varExpanded)` in `evalFormula`.
+Return `functionExpanded`.
 </section>
 
 ## Instructions
@@ -21,7 +21,7 @@ Return <code>functionExpanded</code>.
 
 ```yml
 tests:
-  - text: Define and return <code>functionExpanded</code>.
+  - text: Define and return `functionExpanded`.
     testString: assert(code.includes("functionExpanded") && applyFn("2+2") === "4");
 ```
 

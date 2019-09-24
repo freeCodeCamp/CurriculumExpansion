@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-<code>replace</code> is a higher order function because it can take a function as argument (higher order functions can also return functions).
-Pass the <code>+</code> function from <code>infixToFunction</code> to the <code>replace</code> method as the second argument.
-This is how you would pass the <code>-</code> function:
+`replace` is a higher order function because it can take a function as argument (higher order functions can also return functions).
+Pass the `+` function from `infixToFunction` to the `replace` method as the second argument.
+This is how you would pass the `-` function:
 
 ```js
 str.replace(regex, infixToFunction["-"])
@@ -27,7 +27,7 @@ str.replace(regex, infixToFunction["-"])
 
 ```yml
 tests:
-  - text: Pass the <code>+</code> function from <code>infixToFunction</code> to the <code>replace</code> method as the second argument.
+  - text: Pass the `+` function from `infixToFunction` to the `replace` method as the second argument.
     testString: assert(infixEval("ab", /(a)b/) === "aba");
 
 ```

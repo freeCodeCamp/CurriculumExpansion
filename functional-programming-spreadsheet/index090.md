@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Use arrow function syntax to define a function <code>infixEval</code> which takes <code>str</code> and <code>regex</code> as arguments and returns <code>str.replace(regex, "")</code>.
+Use arrow function syntax to define a function `infixEval` which takes `str` and `regex` as arguments and returns `str.replace(regex, "")`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Use arrow function syntax to define a function <code>infixEval</code> which take
 
 ```yml
 tests:
-  - text: Use arrow function syntax to define a function <code>infixEval</code> which takes <code>str</code> and <code>regex</code> as arguments and returns <code>str.replace(regex, "")</code>.
+  - text: Use arrow function syntax to define a function `infixEval` which takes `str` and `regex` as arguments and returns `str.replace(regex, "")`.
     testString: assert(/const\s+infixEval\s*=\s*\(\s*str\s*,\s*regex\s*\)\s*=>\s*str\.replace\s*\(\s*regex\s*,\s*['"]{2}\s*\)/.test(code));
 
 ```

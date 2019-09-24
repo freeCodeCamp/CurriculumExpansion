@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Define a function <code>rangeFromString</code> in <code>evalFormula</code> which takes <code>n1</code> and <code>n2</code> as arguments and returns <code>n1</code>.
+Define a function `rangeFromString` in `evalFormula` which takes `n1` and `n2` as arguments and returns `n1`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Define a function <code>rangeFromString</code> in <code>evalFormula</code> which
 
 ```yml
 tests:
-  - text: Define <code>rangeFromString</code>.
+  - text: Define `rangeFromString`.
     testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>n1/.test(code.replace(/\s/g, "")));  
 
 ```

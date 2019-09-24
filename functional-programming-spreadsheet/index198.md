@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Set <code>regex</code> to <code>/([a-z]*)(([0-9., ]*))(?!.*()/i</code> in <code>applyFn</code>.
+Set `regex` to `/([a-z]*)(([0-9., ]*))(?!.*()/i` in `applyFn`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Set <code>regex</code> to <code>/([a-z]*)(([0-9., ]*))(?!.*()/i</code> in <code>
 
 ```yml
 tests:
-  - text: Set <code>regex</code> to <code>/([a-z]*)(([0-9., ]*))(?!.*()/i</code> in <code>applyFn</code>.
+  - text: Set `regex` to `/([a-z]*)(([0-9., ]*))(?!.*()/i` in `applyFn`.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix);constregex=/([a-z]*)(([0-9., ]*))(?!.*()/i"));
 
 ```

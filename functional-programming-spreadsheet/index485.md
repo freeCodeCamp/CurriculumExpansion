@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the <code>n1</code> return value in <code>varRangeExpanded</code> with <code>rangeFromString(n1, n2)</code>.
+Replace the `n1` return value in `varRangeExpanded` with `rangeFromString(n1, n2)`.
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Replace the <code>n1</code> return value in <code>varRangeExpanded</code> with <
 
 ```yml
 tests:
-  - text: Replace <code>""</code> with the function described.
+  - text: Replace `""` with the function described.
     testString: assert(code.replace(/\s/g, "").includes('constvarRangeExpanded=x.replace(rangeRegex,(match,c1,n1,c2,n2)=>rangeFromString(n1,n2))'));
 
 ```

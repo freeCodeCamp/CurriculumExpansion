@@ -20,7 +20,7 @@ Now, remove the curly braces and return statement.
 
 ```yml
 tests:
-  - text: Remove the <code>fn</code> definition.
+  - text: Remove the `fn` definition.
     testString: assert(/constelemValue=n=>\(?c=>document\.getElementById\(c+n\)\.value/.test(code.replace(/\s/g, "")));
 
 ```

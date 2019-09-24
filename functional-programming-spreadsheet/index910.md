@@ -7,13 +7,13 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The <code>sort</code> method sorts an array alphabetically:
+The `sort` method sorts an array alphabetically:
 
 ```js
 ["B", "C", "A"].sort(); // ["A", "B", "C"]
 ```
 
-Assign the sorted <code>nums</code> to <code>sorted</code> in <code>median</code>.
+Assign the sorted `nums` to `sorted` in `median`.
 </section>
 
 ## Instructions
@@ -26,7 +26,7 @@ Assign the sorted <code>nums</code> to <code>sorted</code> in <code>median</code
 
 ```yml
 tests:
-  - text: Assign the sorted <code>nums</code> to <code>sorted</code> in <code>median</code>.
+  - text: Assign the sorted `nums` to `sorted` in `median`.
     testString: assert(code.replace(/\s/g, "").includes("constmedian=nums=>{constsorted=nums.sort()"));
 
 ```

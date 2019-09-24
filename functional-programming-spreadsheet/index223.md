@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now, instead of returning <code>spreadsheetFunctions</code>, use bracket notation and <code>fn.toLowerCase()</code> to get a specific function from <code>spreadsheetFunctions</code>.
+Now, instead of returning `spreadsheetFunctions`, use bracket notation and `fn.toLowerCase()` to get a specific function from `spreadsheetFunctions`.
 </section>
 
 ## Instructions

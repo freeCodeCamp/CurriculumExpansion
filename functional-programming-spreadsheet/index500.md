@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The function in <code>varRangeExpanded</code> contains an unused argument.
+The function in `varRangeExpanded` contains an unused argument.
 Replace or prefix it with an underscore.
 </section>
 

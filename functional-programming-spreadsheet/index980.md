@@ -7,10 +7,10 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The function in the <code>map</code> method can actually take a second argument: the index of the element.
-This is why you need an arrow function in <code>charRange</code> - if you don't use one, then the index will be passed to <code>String.fromCharCode</code> as the second argument, leading to unexpected results.
-However, it is safe for functions like <code>parseFloat</code> which take only one argument (but not for <code>parseInt</code>).
-Chain <code>.map((x, i) => x + i)</code> to <code>.fill(start)</code> to add its index to every element in the array in <code>range</code>.
+The function in the `map` method can actually take a second argument: the index of the element.
+This is why you need an arrow function in `charRange` - if you don't use one, then the index will be passed to `String.fromCharCode` as the second argument, leading to unexpected results.
+However, it is safe for functions like `parseFloat` which take only one argument (but not for `parseInt`).
+Chain `.map((x, i) => x + i)` to `.fill(start)` to add its index to every element in the array in `range`.
 </section>
 
 ## Instructions
@@ -23,7 +23,7 @@ Chain <code>.map((x, i) => x + i)</code> to <code>.fill(start)</code> to add its
 
 ```yml
 tests:
-  - text: Chain the two argument form of <code>map</code> onto <code>range</code>.
+  - text: Chain the two argument form of `map` onto `range`.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1).fill(start).map((x,i)=>x+i)"));
 
 ```

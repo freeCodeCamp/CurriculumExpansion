@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace <code>[end]</code> with a recursive call to <code>range</code>: <code>[start].concat(range(start + 1, end))</code>
+Replace `[end]` with a recursive call to `range`: `[start].concat(range(start + 1, end))`
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Replace <code>[end]</code> with a recursive call to <code>range</code>: <code>[s
 
 ```yml
 tests:
-  - text: Make <code>range</code> work correctly.
+  - text: Make `range` work correctly.
     testString: assert(JSON.stringify(range(1, 5)) === "[1,2,3,4,5]");
 
 ```

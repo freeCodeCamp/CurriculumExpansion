@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Remove the <code>fn</code> declaration and return statement.
-Set <code>varRangeExpanded</code> to the result of using the <code>replace</code> method on <code>x</code>, with <code>rangeRegex</code> as the first argument and <code>""</code> as the second argument.
+Remove the `fn` declaration and return statement.
+Set `varRangeExpanded` to the result of using the `replace` method on `x`, with `rangeRegex` as the first argument and `""` as the second argument.
 Then, return it.
 </section>
 
@@ -22,7 +22,7 @@ Then, return it.
 
 ```yml
 tests:
-  - text: Define and return <code>varRangeExpanded</code>.
+  - text: Define and return `varRangeExpanded`.
     testString: assert(!(code.includes("const fn")) && code.includes("varRangeExpanded") && evalFormula("A1:J133") === "3");
 
 ```

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Replace the second argument of <code>str.replace</code> with an anonymous function, which takes <code>match</code>, <code>arg1</code>, <code>fn</code>, and <code>arg2</code>, and returns <code>infixToFunction["+"]</code>.
+Replace the second argument of `str.replace` with an anonymous function, which takes `match`, `arg1`, `fn`, and `arg2`, and returns `infixToFunction["+"]`.
 </section>
 
 ## Instructions

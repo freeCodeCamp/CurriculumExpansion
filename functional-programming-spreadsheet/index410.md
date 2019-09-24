@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-You also don't need the parentheses in <code>elemValue</code> - it's parsed this way automatically.
+You also don't need the parentheses in `elemValue` - it's parsed this way automatically.
 Remove them.
 </section>
 

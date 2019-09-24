@@ -16,7 +16,7 @@ const fn = (x, y) => {
 };
 ```
 
-Use this syntax for the <code>highPrecedence</code> function.
+Use this syntax for the `highPrecedence` function.
 </section>
 
 ## Instructions
@@ -24,7 +24,7 @@ Use this syntax for the <code>highPrecedence</code> function.
 
 ```yml
 tests:
-  - text: Use the curly brace syntax in <code>highPrecedence</code>.
+  - text: Use the curly brace syntax in `highPrecedence`.
     testString: assert(code.replace(/\s/g, "").includes("highPrecedence=str=>{returnstr"));
 
 ```

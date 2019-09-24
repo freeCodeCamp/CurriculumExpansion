@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define an empty function <code>range</code> which takes <code>start</code> and <code>end</code> as arguments (define it in the global scope).
+Now define an empty function `range` which takes `start` and `end` as arguments (define it in the global scope).
 </section>
 
 ## Instructions
@@ -20,7 +20,7 @@ Now define an empty function <code>range</code> which takes <code>start</code> a
 
 ```yml
 tests:
-  - text: Define a new function, <code>range</code>.
+  - text: Define a new function, `range`.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>"));
 
 ```
