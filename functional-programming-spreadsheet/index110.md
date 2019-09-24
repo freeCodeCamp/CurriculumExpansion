@@ -20,7 +20,7 @@ Replace the second argument of `str.replace` with an anonymous function, which t
 
 ```yml
 tests:
-  - text: Add the anonymous function.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes('str.replace(regex,(match,arg1,fn,arg2)=>infixToFunction["+"])'));
 
 ```

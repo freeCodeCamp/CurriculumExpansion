@@ -21,7 +21,7 @@ Define a new curried function, `addChars`, and set it equal to `c1 => c2 => c1 +
 
 ```yml
 tests:
-  - text: Define a curried function, `addChars`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>c1+c2"));
 
 ```

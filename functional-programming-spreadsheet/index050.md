@@ -27,7 +27,7 @@ Note that the value is returned implicitly.
 
 ```yml
 tests:
-  - text: Rewrite `addVar` using ES6's arrow syntax.
+  - text: See description above for instructions.
     testString: assert(/const\s+addVar\s*=\s*\(\s*x\s*,\s*y\s*\)\s*=>\s*x\s*\+\s*y/.test(code));
 
 ```

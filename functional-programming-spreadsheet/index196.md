@@ -20,7 +20,7 @@ Set `str2` to `infixEval(noHigh, infix)`.
 
 ```yml
 tests:
-  - text: Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix)"));
 
 ```

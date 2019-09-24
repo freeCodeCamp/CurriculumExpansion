@@ -26,7 +26,7 @@ In `toNumberList`, chain the `map` method to `args.split(",")` and pass it `pars
 
 ```yml
 tests:
-  - text: Use `map` with `parseFloat`.
+  - text: See description above for instructions.
     testString: assert(applyfn("")("0,1,2").every((x, i) => x === i) && code.includes("map"));
 
 ```

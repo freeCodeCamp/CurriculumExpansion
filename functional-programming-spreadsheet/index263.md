@@ -20,7 +20,7 @@ isRequired: true
 
 ```yml
 tests:
-  - text: Define and return `arr`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constarr=[start]") && JSON.stringify(range(1)) === "[1]");
 
 ```

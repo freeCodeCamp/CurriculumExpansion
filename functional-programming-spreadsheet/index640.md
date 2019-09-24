@@ -21,7 +21,7 @@ Do this by adding `&& value[0] === "="` to the if statement.
 
 ```yml
 tests:
-  - text: Add the if statement with `includes`.
+  - text: See description above for instructions.
     testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?&&value\[0\]===["']=["']\)\{\}\}/.test(code.replace(/\s/g, "")));
 
 ```

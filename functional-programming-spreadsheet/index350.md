@@ -20,7 +20,7 @@ Chain `map` onto `range(start.charCodeAt(0), end.charCodeAt(0))`, with `x => x` 
 
 ```yml
 tests:
-  - text: Chain `map`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("range(start.charCodeAt(0),end.charCodeAt(0)).map(x=>x)"));
 
 ```

@@ -20,7 +20,7 @@ Replace the call to `arr` in `arr.concat([end])` with `[start]` and remove the `
 
 ```yml
 tests:
-  text: Remove `arr`.
+  text: See description above for instructions.
   testString: assert(!(code.includes("arr")) && code.replace(/\s/g, "").includes("[start].concat([end])")); 
 
 ```

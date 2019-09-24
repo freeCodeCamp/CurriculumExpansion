@@ -21,7 +21,7 @@ It should return `start`.
 
 ```yml
 tests:
-  text: Define `charRange`.
+  text: See description above for instructions.
   testString: assert(code.replace(/\s/g).includes("constcharRange=(start,end)=>start"));
 
 ```

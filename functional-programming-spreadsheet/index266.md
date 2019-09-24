@@ -20,7 +20,7 @@ After declaring `arr`, but before returning it, `range` should use the `push` me
 
 ```yml
 tests:
-  - text: Use the `push` method.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(range(1, 2)) === "[1,2]" && code.includes("push"));
 
 ```

@@ -26,7 +26,7 @@ Assign the sorted `nums` to `sorted` in `median`.
 
 ```yml
 tests:
-  - text: Assign the sorted `nums` to `sorted` in `median`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constmedian=nums=>{constsorted=nums.sort()"));
 
 ```

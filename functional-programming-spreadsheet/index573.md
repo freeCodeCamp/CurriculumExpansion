@@ -20,7 +20,7 @@ Inside `createLabel`, assign `document.createElement("div")` to `label`.
 
 ```yml
 tests:
-  - text: Define `label`.
+  - text: See description above for instructions.
     testString: assert(/window\.onload[\s\S]*constcreateLabel=\(?name\)?=>\{constlabel=document\.createElement\(["']div["']\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

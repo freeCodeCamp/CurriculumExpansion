@@ -29,7 +29,7 @@ Using `reduce`, add a function `sum` to `spreadsheetFunctions`, which sums all v
 
 ```yml
 tests:
-  - text: Add `sum` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.sum([10,5,1,3]) === 19 && code.includes("reduce"));
 
 ```

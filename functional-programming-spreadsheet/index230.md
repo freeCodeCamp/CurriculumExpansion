@@ -22,7 +22,7 @@ Now return `str2.replace(regex, "")` at the end of `applyFn`.
 
 ```yml
 tests:
-  - text: Return `str2.replace(regex, "")`.
+  - text: See description above for instructions.
     testString: assert(applyFn("2*2fn(1, 2, 3.3)") === "4");
 
 ```

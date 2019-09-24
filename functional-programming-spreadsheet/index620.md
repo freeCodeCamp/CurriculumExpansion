@@ -21,7 +21,7 @@ This removes all whitespace from `element` so that we can ignore it.
 
 ```yml
 tests:
-  - text: Define `value` in `update`.
+  - text: See description above for instructions.
     testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

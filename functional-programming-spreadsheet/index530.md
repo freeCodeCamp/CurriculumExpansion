@@ -21,7 +21,7 @@ Return `functionExpanded`.
 
 ```yml
 tests:
-  - text: Define and return `functionExpanded`.
+  - text: See description above for instructions.
     testString: assert(code.includes("functionExpanded") && applyFn("2+2") === "4");
 ```
 

@@ -21,7 +21,7 @@ It should define a variable, `element`, setting it to `event.target`.
 
 ```yml
 tests:
-  - text: Define `update`.
+  - text: See description above for instructions.
     testString: assert(/constupdate=\(?event\)?=>\{?constelement=event\.target;?\}?/.test(code.replace(/\s/g, "")));
 
 ```

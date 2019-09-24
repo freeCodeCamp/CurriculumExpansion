@@ -27,7 +27,7 @@ str.replace(regex, infixToFunction["-"])
 
 ```yml
 tests:
-  - text: Pass the `+` function from `infixToFunction` to the `replace` method as the second argument.
+  - text: See description above for instructions.
     testString: assert(infixEval("ab", /(a)b/) === "aba");
 
 ```

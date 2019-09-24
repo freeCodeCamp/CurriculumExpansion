@@ -21,7 +21,7 @@ Replace or prefix it with an underscore.
 
 ```yml
 tests:
-  - text: Replace or prefix an unused argument with an underscore.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constvarRangeExpanded=x.replace(rangeRegex,(_"));
 
 ```

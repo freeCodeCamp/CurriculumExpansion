@@ -24,7 +24,7 @@ Use this syntax for the `highPrecedence` function.
 
 ```yml
 tests:
-  - text: Use the curly brace syntax in `highPrecedence`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("highPrecedence=str=>{returnstr"));
 
 ```

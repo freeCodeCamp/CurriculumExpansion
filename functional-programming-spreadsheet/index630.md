@@ -21,7 +21,7 @@ Add an empty if statement to `update` which executes if `element.id` is **not** 
 
 ```yml
 tests:
-  - text: Add the if statement with `includes`.
+  - text: See description above for instructions.
     testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?\)\{\}\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -20,7 +20,7 @@ Define a function `rangeFromString` in `evalFormula` which takes `n1` and `n2` a
 
 ```yml
 tests:
-  - text: Define `rangeFromString`.
+  - text: See description above for instructions.
     testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>n1/.test(code.replace(/\s/g, "")));  
 
 ```

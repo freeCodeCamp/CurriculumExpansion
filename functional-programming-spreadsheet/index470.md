@@ -22,7 +22,7 @@ Then, return it.
 
 ```yml
 tests:
-  - text: Define and return `varRangeExpanded`.
+  - text: See description above for instructions.
     testString: assert(!(code.includes("const fn")) && code.includes("varRangeExpanded") && evalFormula("A1:J133") === "3");
 
 ```

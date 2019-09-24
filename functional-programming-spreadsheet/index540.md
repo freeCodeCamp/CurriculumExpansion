@@ -22,7 +22,7 @@ Use the ternary operator in the last line of `evalFormula` to return `functionEx
 
 ```yml
 tests:
-  - text: Use recursion as described.
+  - text: See description above for instructions.
     testString: assert(evalFormula("(2+2)*2") === "8")
 
 ```

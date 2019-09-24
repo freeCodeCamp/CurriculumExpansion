@@ -28,7 +28,7 @@ Use this technique to check if the `random` function in `spreadsheetFunctions` i
 
 ```yml
 tests:
-  - text: Check the purity of `random`
+  - text: See description above for instructions.
     testString: assert(/(spreadsheetFunctions\[["']random["']\]\(1,1000\))===\1/.test(code.replace(/\s/g, "")));
 </section>
 

@@ -20,7 +20,7 @@ Remove the now redundant `addVar` definition.
 
 ```yml
 tests:
-  - text: Remove the now redundant `addVar` definition. 
+  - text: See description above for instructions.
     testString: assert(typeof addVar === "undefined");
 
 ```

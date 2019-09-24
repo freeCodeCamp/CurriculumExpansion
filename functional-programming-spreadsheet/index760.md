@@ -21,7 +21,7 @@ Add an argument `cells` to `evalFormula`.
 
 ```yml
 tests:
-  - text: Add an argument `cells` to `evalFormula`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("evalFormula=(x,cells)=>{"));
 
 ```

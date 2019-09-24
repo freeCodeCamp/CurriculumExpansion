@@ -21,7 +21,7 @@ Chain `forEach` to `letters` and pass it the `createLabel` function to create a 
 
 ```yml
 tests:
-  - text: Use `forEach` on `letters`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("letters.forEach(createLabel)"))
 
 ```

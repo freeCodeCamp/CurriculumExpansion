@@ -21,7 +21,7 @@ As `elemValue` returns a function, `fn` is also a function.
 
 ```yml
 tests:
-  - text: Define `fn`.
+  - text: See description above for instructions.
     testString: assert(/elemValue.*constfn=elemValue\(['"]1['"]\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

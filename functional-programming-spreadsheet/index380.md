@@ -21,7 +21,7 @@ Use the curly brace arrow function syntax.
 
 ```yml
 tests:
-  - text: Define `elemValue`.
+  - text: See description above for instructions.
     testString: assert(/evalFormula.*constelemValue=n=>\{returnn;?\}/.test(code.replace(/\s/g, "")));  
 
 ```

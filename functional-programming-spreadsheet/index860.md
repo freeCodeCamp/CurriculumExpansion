@@ -26,7 +26,7 @@ Use `filter` to add a function called `even` to `spreadsheetFunctions`, which re
 
 ```yml
 tests:
-  - text: Add the `even` function to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(even([2,3,5,6,9,4])) === "[2,6,4]" && code.includes("filter"));
 
 ```

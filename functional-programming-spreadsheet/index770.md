@@ -20,7 +20,7 @@ Add a function `idToText` to `evalFormula`, which takes the argument `id` and re
 
 ```yml
 tests:
-  - text: Add a function `idToText` to `evalFormula`. 
+  - text: See description above for instructions.
     testString: assert(/constidToText=\(?id\)?=>cells/.test(code.replace(/\s/g, "")));
 
 ```

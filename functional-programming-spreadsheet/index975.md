@@ -21,7 +21,7 @@ Use it on the array in `range` to replace everything with `start`.
 
 ```yml
 tests:
-  - text: Use the `fill` method in `range`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1).fill(start)"));
 
 ```

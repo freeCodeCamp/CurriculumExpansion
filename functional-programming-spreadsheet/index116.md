@@ -21,7 +21,7 @@ Pass `parseFloat(arg1)` and `parseFloat(arg2)` as the arguments to `infixToFunct
 
 ```yml
 tests:
-  - text: Pass `parseFloat(arg1)` and `parseFloat(arg2)` as the arguments to `infixToFunction[fn]`.
+  - text: See description above for instructions.
     testString: const regex = /([0-9.]+)([+-\/*])([0-9.]+)/; assert(infixEval("23+35", regex) === "58" && infixEval("100-20", regex) === "80" && infixEval("10*10", regex) === "100" && infixEval("120/6", regex) === "20");
 
 ```

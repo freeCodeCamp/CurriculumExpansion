@@ -20,7 +20,7 @@ Set `noHigh` to `highPrecedence(str)` in `applyFn`.
 
 ```yml
 tests:
-  - text: Set `noHigh` to `highPrecedence(str)`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str)"));
 
 ```

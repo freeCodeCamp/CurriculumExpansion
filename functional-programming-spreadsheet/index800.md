@@ -20,7 +20,7 @@ Change the empty string in `elemValue` to the result of calling `idToText` with 
 
 ```yml
 tests:
-  - text: Call `idToText(c + n)` in `elemValue`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("elemValue=n=>c=>idToText(c+n)"));
 
 ```

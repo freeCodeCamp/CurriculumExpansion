@@ -23,7 +23,7 @@ Chain `.map((x, i) => x + i)` to `.fill(start)` to add its index to every elemen
 
 ```yml
 tests:
-  - text: Chain the two argument form of `map` onto `range`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1).fill(start).map((x,i)=>x+i)"));
 
 ```

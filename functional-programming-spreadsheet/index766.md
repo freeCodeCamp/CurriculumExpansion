@@ -20,7 +20,7 @@ Update the recursive call to `evalFormula` by passing in `cells` as the second a
 
 ```yml
 tests:
-  - text: Pass in `cells` as the second argument in the recursive call.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("evalFormula(functionExpanded,cells)"));
 
 ```

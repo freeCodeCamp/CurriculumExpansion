@@ -20,7 +20,7 @@ Now return the sum of `x` and `y` using the `return` keyword.
 
 ```yml
 tests:
-  - text: Return `x + y`.
+  - text: See description above for instructions.
     testString: assert(add(1, 2) === 3 && add(100, 2000) === 2100);
 
 ```

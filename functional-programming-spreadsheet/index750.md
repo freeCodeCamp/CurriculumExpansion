@@ -23,7 +23,7 @@ Change these calls to `""` - the function is now pure but doesn't work.
 
 ```yml
 tests:
-  - text: Make `evalFormula` pure (but disfunctional).
+  - text: See description above for instructions.
     testString: const nos = code.replace(/\s/g, ""); assert(nos.includes('elemValue=n=>c=>""') && nos.includes('match=>""'))
 
 ```

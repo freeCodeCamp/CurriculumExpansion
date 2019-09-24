@@ -20,7 +20,7 @@ Add similar definitions for `-`, `*` and `/` in `infixToFunction`.
 
 ```yml
 tests:
-  - text: Add similar definitions for `-`, `*` and `/` in `infixToFunction`.
+  - text: See description above for instructions.
     testString: assert(infixToFunction["-"](10, 2) === 8 && infixToFunction["*"](10, 10) === 100 && infixToFunction["/"](100, 10) === 10);
 
 ```

@@ -21,7 +21,7 @@ It now returns a random number within a range.
 
 ```yml
 tests:
-  - text: Change `random` to work correctly.
+  - text: See description above for instructions.
     testString: assert(/["']?random["']?:\(\[x,y\]\)=>Math\.floor\(Math\.random\(\)\*y\+x\)/.test(code.replace(/\s/g, "")) && spreadsheetFunctions["random"]([1, 1]) === 1);
 
 ```

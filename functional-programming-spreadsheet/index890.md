@@ -29,7 +29,7 @@ First, move `sum` outside of `spreadsheetFunctions`.
 
 ```yml
 tests:
-  - text: Move `sum` to the global scope.
+  - text: See description above for instructions.
     testString: assert(sum([1,2,3]) === 6);
 
 </section>

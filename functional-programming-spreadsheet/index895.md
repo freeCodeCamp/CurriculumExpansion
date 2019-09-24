@@ -22,7 +22,7 @@ As with `sum`, add this function to both the global scope and to `spreadsheetFun
 
 ```yml
 tests:
-  - text: Add the `average` function.
+  - text: See description above for instructions.
     testString: assert(average([1, 5, 12]) === 6 && spreadsheetFunctions.average([1, 20, 3, 8]) === 8);
 
 ```

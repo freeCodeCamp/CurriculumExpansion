@@ -20,7 +20,7 @@ When calling `evalFormula` in `update`, pass in `Array.from(document.getElementB
 
 ```yml
 tests:
-  - text: Pass in a second argument when calling `evalFormula`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes('evalFormula(value.slice(1),Array.from(document.getElementById("container").children))'));
 
 ```

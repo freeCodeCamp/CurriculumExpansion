@@ -21,7 +21,7 @@ Change the empty string in `varExpanded` to the result of calling `idToText` wit
 
 ```yml
 tests:
-  - text: Change the empty string in `varExpanded`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("match=>idToText(match.toUpperCase())"))
 
 ```

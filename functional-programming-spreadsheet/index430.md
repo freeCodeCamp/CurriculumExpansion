@@ -26,7 +26,7 @@ Add another argument to `addChars` and add it to the sum: `c1 => c2 => n => c1 +
 
 ```yml
 tests:
-  - text: Define a curried function, `addChars`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>c1+c2+n"));
 
 ```

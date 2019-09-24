@@ -20,7 +20,7 @@ As `n1` and `n2` are actually strings, replace `n1` and `n2` with `parseInt(n1)`
 
 ```yml
 tests:
-  - text: Use `parseInt` on the strings.
+  - text: See description above for instructions.
     testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>range\(parseInt\(n1\),parseInt\(n2\)\)/.test(code.replace(/\s/g, "")));  
 
 ```

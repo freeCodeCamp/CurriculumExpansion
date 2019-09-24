@@ -21,7 +21,7 @@ Add a method `firsttwo` to `spreadsheetFunctions` which takes `arr` as argument 
 
 ```yml
 tests:
-  - text: Add `firsttwo` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(spreadsheetFunctions.firsttwo([2, 6, 1, 4, 3])) === "[2,6]");
 
 ```

@@ -20,7 +20,7 @@ Add `range(1, 99)` to the end of `window.onload` (the result will be discarded f
 
 ```yml
 tests:
-  - text: Call `range(1, 99)`
+  - text: See description above for instructions.
     testString: assert(/window\.onload[\s\S]*range\(1,99\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

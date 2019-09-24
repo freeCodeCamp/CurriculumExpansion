@@ -29,7 +29,7 @@ Make the function `add` anonymous and remove the `addVar` definition (as `add` i
 
 ```yml
 tests:
-  - text: Replace `add` with an equivalent anonymous function.
+  - text: See description above for instructions.
     testString: assert(/function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
 
 ```

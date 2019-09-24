@@ -28,7 +28,7 @@ Use the spread operator to add `range` to `spreadsheetFunctions`.
 
 ```yml
 tests:
-  - text: Use the spread operator to add `range` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(spreadsheetFunctions.range(1, 5)) === "[1,2,3,4,5]" && code.includes("..."));
 
 ```

@@ -20,7 +20,7 @@ Now define a `median` function which takes an argument `nums` (in the global sco
 
 ```yml
 tests:
-  - text: Define `median` in the global scope.
+  - text: See description above for instructions.
     testString: assert(/constmedian=\(?nums\)?=>/.test(code.replace(/\s/g, "")));
 
 ```

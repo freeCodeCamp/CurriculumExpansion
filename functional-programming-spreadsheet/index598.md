@@ -22,7 +22,7 @@ The arrow function should take an argument `x`, and call `createLabel(x)`.
 
 ```yml
 tests:
-  - text: Use an arrow function with a block body.
+  - text: See description above for instructions.
     testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(\(?x\)?=>\{createLabel\(x\);?\}\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

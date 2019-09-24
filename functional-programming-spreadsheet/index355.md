@@ -20,7 +20,7 @@ Now, pass `x` to `String.fromCharCode` in the arrow function.
 
 ```yml
 tests:
-  - text: Pass `x` to `String.fromCharCode` 
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(charRange("A", "C")) === '["A","B","C"]');
 
 ```

@@ -29,7 +29,7 @@ Use `sort` to sort `nums` in ascending order.
 
 ```yml
 tests:
-  - text: Sort `nums` in ascending order.
+  - text: See description above for instructions.
     testString: assert(/constmedian=nums=>\{constsorted=nums\.sort\(\((.+),(.+)\)=>\1-\2\)/.test(code.replace(/\s/g, "")));
 
 ```

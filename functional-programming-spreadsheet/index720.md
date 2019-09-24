@@ -20,7 +20,7 @@ Now try calling `highPrecedence` and pass it the string `"2*2"` without assignin
 
 ```yml
 tests:
-  - text: Call `highPrecedence("2*2")` in `update`.
+  - text: See description above for instructions.
     testString: assert(/update=\(?event\)?=>\{.*highPrecedence\((['"])2*2\1\).*\}/.test(code.replace(/\s/g, "")));
 
 ```

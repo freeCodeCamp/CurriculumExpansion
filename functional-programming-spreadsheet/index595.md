@@ -20,7 +20,7 @@ Chain `forEach` onto `range(1, 99)`, passing in `createLabel` as an argument.
 
 ```yml
 tests:
-  - text: Chain `forEach` onto the range.
+  - text: See description above for instructions.
     testString: assert(/window\.onload[\s\S]*range\(1,99\)\.forEach\(createLabel\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -22,7 +22,7 @@ Note that a single underscore can only be used once in a function and may confli
 
 ```yml
 tests:
-  - text: Prefix or replace `match` with an underscore.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("str.replace(regex,(_"));
 
 ```

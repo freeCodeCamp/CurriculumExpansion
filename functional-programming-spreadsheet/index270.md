@@ -29,7 +29,7 @@ Use `concat` instead of `push` to return the result of adding `end` to `arr`.
 
 ```yml
 tests:
-  - text: Use `concat` instead of `push`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(range(1,2)) === "[1,2]" && code.includes("concat") && !(code.includes("push")));
 
 ```

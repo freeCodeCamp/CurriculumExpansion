@@ -21,7 +21,7 @@ It should accept two parameters, `x` and `y`.
 
 ```yml
 tests:
-  - text: Create a function, `add`, with parameters `x` and `y`.
+  - text: See description above for instructions.
     testString: assert(/function\s+add\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*\}/.test(code));
 
 ```

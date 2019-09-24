@@ -20,7 +20,7 @@ Set `regex` to `/([a-z]*)(([0-9., ]*))(?!.*()/i` in `applyFn`.
 
 ```yml
 tests:
-  - text: Set `regex` to `/([a-z]*)(([0-9., ]*))(?!.*()/i` in `applyFn`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{constnoHigh=highPrecedence(str);constinfix=/([0-9.]+)([+-])([0-9.]+)/;conststr2=infixEval(noHigh,infix);constregex=/([a-z]*)(([0-9., ]*))(?!.*()/i"));
 
 ```

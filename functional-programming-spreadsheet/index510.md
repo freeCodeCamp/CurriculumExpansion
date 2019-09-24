@@ -22,7 +22,7 @@ Return `varExpanded`.
 
 ```yml
 tests:
-  - text: Add and return `varExpanded`.
+  - text: See description above for instructions.
     testString: assert(code.includes("varRegex") && code.includes("varExpanded") && evalFormula("aC12bc") === "abc");
 
 ```

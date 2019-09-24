@@ -20,7 +20,7 @@ Add a return statement to `median` so that it returns `isEven(length)`.
 
 ```yml
 tests:
-  - text: Add a return statement to `median` so that it returns `isEven(length)`.
+  - text: See description above for instructions.
     testString: assert(median([1,2,3,4]) && !median([1,2,3]));
 
 ```

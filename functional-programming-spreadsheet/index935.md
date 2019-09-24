@@ -21,7 +21,7 @@ Note that the `middle` variable is close to the middle but is not actually the m
 
 ```yml
 tests:
-  - text: Finish the median function.
+  - text: See description above for instructions.
     testString: assert(median([1, 20, 3]) === 3 && median([27, 7, 20, 10]) === 15);
 
 ```

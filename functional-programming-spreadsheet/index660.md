@@ -22,7 +22,7 @@ Change the call to `slice` to log all characters except the first instead.
 
 ```yml
 tests:
-  - text: Log all letters of `value` except the first to the console.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("console.log(value.slice(1))"));
 
 ```

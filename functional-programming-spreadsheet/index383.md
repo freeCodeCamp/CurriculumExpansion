@@ -21,7 +21,7 @@ Return `fn` instead of `n`.
 
 ```yml
 tests:
-  - text: Define `fn` in `elemValue`.
+  - text: See description above for instructions.
     testString: assert(/elemValue.*constfn=\(?c\)?=>document\.getElementById\(c+n\)\.value;?returnfn;?\}/.test(code.replace(/\s/g, "")));
 
 ```

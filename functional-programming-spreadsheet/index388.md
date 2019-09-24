@@ -20,7 +20,7 @@ Finally, return `fn("A")`.
 
 ```yml
 tests:
-  - text: Return `fn("A")`.
+  - text: See description above for instructions.
     testString: assert(/elemValue.*constfn=elemValue\(['"]1['"]\);?returnfn\(['"]A['"]\);?\}/.test(code.replace(/\s/g, "")));
 
 ```

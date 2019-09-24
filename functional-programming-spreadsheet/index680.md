@@ -27,7 +27,7 @@ Use this syntax to define a function `random` in `spreadsheetFunctions` which ta
 
 ```yml
 tests:
-  - text: Define `random` in `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(/["']?random["']?:\(\[x,y\]\)=>x/.test(code.replace(/\s/g, "")) && spreadsheetFunctions["random"]([1, 2]) === 1);
 
 ```

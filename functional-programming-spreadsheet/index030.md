@@ -22,7 +22,7 @@ Assign `add` to a new variable `addVar`.
 
 ```yml
 tests:
-  - text: Assign `add` to a new variable `addVar`.
+  - text: See description above for instructions.
     testString: assert(/const\s+addVar\s*=\s*add/.test(code));
 
 ```

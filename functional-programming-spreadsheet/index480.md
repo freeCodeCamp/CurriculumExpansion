@@ -20,7 +20,7 @@ Replace the `""` in `varRangeExpanded` with a function, which takes `match`, `c1
 
 ```yml
 tests:
-  - text: Replace `""` with the function described.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes('constvarRangeExpanded=x.replace(rangeRegex,(match,c1,n1,c2,n2)=>n1)'));
 
 ```

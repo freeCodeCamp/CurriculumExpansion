@@ -23,7 +23,7 @@ Start by creating an empty `infixToFunction` object using `const`.
 
 ```yml
 tests:
-  - text: Create empty `infixToFunction` object using `const`.
+  - text: See description above for instructions.
     testString: assert(/const\s+infixToFunction\s*=\s*\{\s*\}/.test(code));
 
 ```

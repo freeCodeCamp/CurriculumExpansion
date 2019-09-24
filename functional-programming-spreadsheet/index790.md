@@ -20,7 +20,7 @@ Use the `value` property on the result of `idToText` to return the text inside t
 
 ```yml
 tests:
-  - text: Chain the `value` property onto `idToText`.
+  - text: See description above for instructions.
     testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)\.value/.test(code.replace(/\s/g, "")));
 
 ```

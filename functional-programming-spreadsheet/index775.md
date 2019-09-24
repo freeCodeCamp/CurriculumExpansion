@@ -21,7 +21,7 @@ Chain `find` onto `cells` and pass it `cell => cell === id`.
 
 ```yml
 tests:
-  - text: Chain `find` onto `cells`.
+  - text: See description above for instructions.
     testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell===id\)/.test(code.replace(/\s/g, "")));
 
 ```

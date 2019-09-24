@@ -22,7 +22,7 @@ Chain `hasOwnProperty` to `spreadsheetFunctions` to check if the `fn.toLowerCase
 
 ```yml
 tests:
-  - text: Chain `hasOwnProperty` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("returnstr2.replace(regex,(match,fn,args)=>spreadsheetFunctions.hasOwnProperty(fn.toLowerCase()))"));
 
 ```

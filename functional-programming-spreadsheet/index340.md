@@ -20,7 +20,7 @@ Make `charRange` return `range(start, end)`.
 
 ```yml
 tests:
-  - text: Make `charRange` return `range(start, end)`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(charRange(1,5)) === "[1,2,3,4,5]");
 
 ```

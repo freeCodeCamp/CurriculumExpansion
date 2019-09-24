@@ -22,7 +22,7 @@ Replace the empty string in `highPrecedence` with a call to `highPrecedence` wit
 
 ```yml
 tests:
-  - text: Replace the empty string in `highPrecedence` with a call to `highPrecedence` with `str2` as argument.
+  - text: See description above for instructions.
     testString: assert(highPrecedence("2*2*2") === "8" && highPrecedence("2*2") === "4" && highPrecedence("2+2") === "2+2");
 
 ```

@@ -22,7 +22,7 @@ Remove the `console.log` statement.
 
 ```yml
 tests:
-  - text: Compare `highPrecedence("2*2")` with itself in `update`.
+  - text: See description above for instructions.
     testString: assert(!/update=\(?event\)?=>\{.*console\.log\((highPrecedence\(['"]2*2['"]\))===\1\).*\}/.test(code.replace(/\s/g, "")));
 
 ```

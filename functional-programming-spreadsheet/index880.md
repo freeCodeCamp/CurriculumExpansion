@@ -21,7 +21,7 @@ Add a `has2` function to `spreadsheetFunctions` which checks if the inputted arr
 
 ```yml
 tests:
-  - text: Add `has2` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.has2([2,3,5]) && !spreadsheetFunctions.has2([1,3,10]));
 
 ```

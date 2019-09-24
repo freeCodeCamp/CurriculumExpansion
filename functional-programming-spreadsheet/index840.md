@@ -26,7 +26,7 @@ Use a negative index to add a function `lasttwo` which returns the last two elem
 
 ```yml
 tests:
-  - text: Add `lasttwo` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(spreadsheetFunctions.lasttwo([2, 6, 1, 4, 3])) === "[4,3]");
 
 ```

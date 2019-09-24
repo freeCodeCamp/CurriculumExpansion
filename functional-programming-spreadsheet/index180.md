@@ -21,7 +21,7 @@ The corresponding value should be the function `x => x`.
 
 ```yml
 tests:
-  - text: Define the object with the key. 
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions[""]("x") === "x");
 
 ```

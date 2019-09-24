@@ -22,7 +22,7 @@ Do not wrap parentheses around the parameter.
 
 ```yml
 tests:
-  - text: Define an empty function `applyFn`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constapplyFn=str=>{}"));
 
 ```

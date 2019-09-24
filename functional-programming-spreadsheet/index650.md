@@ -23,7 +23,7 @@ Use the `slice` method to log the first two letters of `value` to the console.
 
 ```yml
 tests:
-  - text: Log the first two letters of `value` to the console.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("console.log(value.slice(0,2))"));
 
 ```

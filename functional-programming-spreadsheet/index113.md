@@ -21,7 +21,7 @@ Change the `"+"` in the call to `infixToFunction` to `fn`.
 
 ```yml
 tests:
-  - text: Change the `"+"` in the call to `infixToFunction` to `fn`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes('str.replace(regex,(match,arg1,fn,arg2)=>infixToFunction[fn])'));
 
 ```

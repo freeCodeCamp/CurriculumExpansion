@@ -21,7 +21,7 @@ Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passe
 
 ```yml
 tests:
-  - text:  Define `someeven` in `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.someeven([1, 5, 4, 3]) && !spreadsheetFunctions.someeven([3, 5, 9]) && code.includes(".some"));
 
 ```

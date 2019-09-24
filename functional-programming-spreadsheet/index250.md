@@ -20,7 +20,7 @@ Now use the ternary operator in the last line to return `applyFunction(fn, args)
 
 ```yml
 tests:
-  - text: Use the ternary operator.
+  - text: See description above for instructions.
     testString: assert(applyFn("2+2*2") === "6" && applyFn("(2+2)*2") === "4*2"); 
 
 ```

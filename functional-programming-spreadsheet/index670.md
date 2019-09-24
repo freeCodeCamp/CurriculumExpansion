@@ -21,7 +21,7 @@ There is no need to use `const` because we're modifying `element.value`, not dec
 
 ```yml
 tests:
-  - text: Add the if statement with `includes`.
+  - text: See description above for instructions.
     testString: assert(/constupdate=\(?event\)?=>\{constelement=event\.target;?constvalue=element\.value\.replace\(\/\\s\/g,["']{2}\);?if\(!\(?value\.includes\(element\.id\)\)?&&value\[0\]===["']=["']\)\{element\.value=evalFormula\(value\.slice\(1\)\);?\}\}/.test(code.replace(/\s/g, "")));
 
 ```

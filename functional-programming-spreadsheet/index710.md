@@ -23,7 +23,7 @@ Call `window.onload()` in `update`.
 
 ```yml
 tests:
-  - text: Call `window.onload()` in `update`.
+  - text: See description above for instructions.
     testString: assert(/update=\(?event\)?=>\{.*window\.onload\(\).*\}/.test(code.replace(/\s/g, "")));
 
 ```

@@ -21,7 +21,7 @@ Return `str2`.
 
 ```yml
 tests:
-  - text: Return `str2`.
+  - text: See description above for instructions.
     testString: assert(highPrecedence("7*6") === "42" && highPrecedence("50/25") === "2");
 
 ```

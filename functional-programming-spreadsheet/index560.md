@@ -21,7 +21,7 @@ Also assign `charRange("A", "J")` to `letters`.
 
 ```yml
 test:
-  - text: Define `container` and `letters`.
+  - text: See description above for instructions.
     testString: assert(/window\.onload=\(\)=>\{constcontainer=document\.getElementById\(["']container["']\);?constletters=charRange(["']A["'], ["']J["']);?\}/.test(code.replace(/\s/g, "")));
 
 ```

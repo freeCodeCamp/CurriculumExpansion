@@ -24,7 +24,7 @@ Add a function `nodups` to `spreadsheetFunctions`, with the value `arr => arr.re
 
 ```yml
 tests:
-  - text: Add `nodups` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.nodups.toString().replace(/\s/g, "") === "arr=>arr.reduce((a,x)=>a.includes(x),[])");
 
 ```

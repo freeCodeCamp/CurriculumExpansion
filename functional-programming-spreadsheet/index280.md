@@ -27,7 +27,7 @@ Use this form of `concat` by passing an array with just `end` to it: `arr.concat
 
 ```yml
 tests:
-  - text: Pass an array to `concat` instead of a value.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("returnarr.concat([end])"));
 
 ```

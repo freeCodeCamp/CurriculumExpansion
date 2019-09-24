@@ -20,7 +20,7 @@ Replace `[end]` with a recursive call to `range`: `[start].concat(range(start + 
 
 ```yml
 tests:
-  - text: Make `range` work correctly.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(range(1, 5)) === "[1,2,3,4,5]");
 
 ```

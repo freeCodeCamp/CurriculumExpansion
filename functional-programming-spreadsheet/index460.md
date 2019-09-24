@@ -22,7 +22,7 @@ Change `x => elemValue(n)(x)` to `elemValue(n)`.
 
 ```yml
 tests:
-  - text: Change the return value of `addChars`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constaddChars=c1=>c2=>n=>charRange(c1,c2).map(elemValue(n))"));
 
 ```

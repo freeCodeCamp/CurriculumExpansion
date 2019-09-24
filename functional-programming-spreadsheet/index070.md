@@ -20,7 +20,7 @@ In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
 
 ```yml
 tests:
-  - text: In `infixToFunction`, replace `addVar` with `(x, y) => x + y`.
+  - text: See description above for instructions.
     testString: assert(/+["']\s*:\s*\(\s*x\s*,\s*y\s*\)\s*=>\s*x\s*\+\s*y/.test(code));
 
 ```

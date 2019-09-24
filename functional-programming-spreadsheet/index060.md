@@ -20,7 +20,7 @@ Add the key `+` to `infixToFunction` and assign it the value `addVar`.
 
 ```yml
 tests:
-  - text: Add the key `+` to `infixToFunction` and assign it the value `addVar`.
+  - text: See description above for instructions.
     testString: assert(infixToFunction["+"].toString() === addVar.toString());
 
 ```

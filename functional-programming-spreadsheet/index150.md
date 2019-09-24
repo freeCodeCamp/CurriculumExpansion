@@ -20,7 +20,7 @@ In `highPrecedence`, define `regex` to be `/([0-9.]+)([*/])([0-9.]+)/`.
 
 ```yml
 tests:
-  - text: Define `regex` to be `/([0-9.]+)([*/])([0-9.]+)/`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("regex=/([0-9.]+)([*/])([0-9.]+)/"));
 
 ```

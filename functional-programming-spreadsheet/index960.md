@@ -21,7 +21,7 @@ Use it to add an `everyeven` function to `spreadsheetFunctions` which checks if 
 
 ```yml
 tests:
-  - text:  Define `everyeven` in `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.everyeven([2, 6, 4, 0, 20]) && !spreadsheetFunctions.everyeven([10, 0, 9, 2]) && code.includes(".every"));
 
 ```

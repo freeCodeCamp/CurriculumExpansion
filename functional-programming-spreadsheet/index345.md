@@ -20,7 +20,7 @@ Use the `charCodeAt(0)` method on `start` and `end` in `charRange`, like this: `
 
 ```yml
 tests:
-  - text: Use the `charCodeAt(0)` method.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(charRange("A", "C")) === "[65,66,67]");
 
 ```

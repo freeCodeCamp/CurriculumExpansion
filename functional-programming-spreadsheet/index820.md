@@ -21,7 +21,7 @@ Now define a new function, `increment` inside `spreadsheetFunctions`, which take
 
 ```yml
 tests:
-  - text: Define `increment` inside `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(spreadsheetFunctions.increment([1, 5, 3])) === "[2,6,4]");
 
 ```

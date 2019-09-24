@@ -21,7 +21,7 @@ This both adds it to the functions you can use in the spreadsheet, and allows yo
 
 ```yml
 tests:
-  - text: Reference `sum` in `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(/[{,]sum[,}]/.test(code.replace(/\s/g, "")));
 
 ```

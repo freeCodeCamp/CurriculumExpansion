@@ -20,7 +20,7 @@ Replace the `n1` return value in `rangeFromString` with `range(n1, n2)`.
 
 ```yml
 tests:
-  - text: Change return value.
+  - text: See description above for instructions.
     testString: assert(/evalFormula.*constrangeFromString=\(n1,n2\)=>range\(n1,n2\)/.test(code.replace(/\s/g, "")));  
 
 ```

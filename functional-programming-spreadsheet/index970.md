@@ -21,7 +21,7 @@ Make `range` return an array of `undefined` with size `end - start + 1`.
 
 ```yml
 tests:
-  - text: Make `range` return an array of `undefined` with the sprecified size.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1)"));
 
 ```

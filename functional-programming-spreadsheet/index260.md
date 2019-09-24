@@ -20,7 +20,7 @@ Now define an empty function `range` which takes `start` and `end` as arguments 
 
 ```yml
 tests:
-  - text: Define a new function, `range`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>"));
 
 ```

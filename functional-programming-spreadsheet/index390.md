@@ -22,7 +22,7 @@ Inside `elemValue`, remove the variable `fn` and its definition, and replace `re
 
 ```yml
 tests:
-  - text: Remove the `fn` definition.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constelemValue=n=>{returnc=>document.getElementById(c+n).value"));
 
 ```

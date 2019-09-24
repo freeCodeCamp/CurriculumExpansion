@@ -28,7 +28,7 @@ Use this operator to return `str` if `str === str2`, and an empty string (`""`) 
 
 ```yml
 tests:
-  - text: Use the ternary operator to return `str` if `str === str2`, and an empty string (`""`) otherwise.
+  - text: See description above for instructions.
     testString: assert(highPrecedence("2*2") === "" && highPrecedence("2+2") === "2+2" && code.includes("?"));
 
 ```

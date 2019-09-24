@@ -20,7 +20,7 @@ In `idToText`, use the `id` property of `cell` to make sure the argument is equa
 
 ```yml
 tests:
-  - text: Use the `id` property of `cell`.
+  - text: See description above for instructions.
     testString: assert(/constidToText=\(?id\)?=>cells\.find\(\(?cell\)?=>cell\.id===id\)/.test(code.replace(/\s/g, "")));
 
 ```

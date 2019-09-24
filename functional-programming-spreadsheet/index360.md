@@ -21,7 +21,7 @@ Set `/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi` to a variable named `rangeRe
 
 ```yml
 tests:
-  - text: Add `evalFormula` as described.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constevalFormula=x=>{constrangeRegex=/([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi"));
 
 ```

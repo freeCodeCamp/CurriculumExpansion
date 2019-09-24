@@ -27,7 +27,7 @@ Return `toNumberList`.
 
 ```yml
 tests:
-  - text: Return `toNumberList`.
+  - text: See description above for instructions.
     testString: assert(applyFn("")("0,1,2").every((x, i) => x == i));
 
 ```

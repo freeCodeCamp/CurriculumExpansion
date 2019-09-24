@@ -22,7 +22,7 @@ You can fix this by adding `.slice()` between `nums` and `sort` - this creates a
 
 ```yml
 tests:
-  - text: Prevent `nums` from being modified.
+  - text: See description above for instructions.
     testString: assert(/constmedian=nums=>\{constsorted=nums\.slice\(\)\.sort\(\((.+),(.+)\)=>\1-\2\)/.test(code.replace(/\s/g, "")));
 
 ```

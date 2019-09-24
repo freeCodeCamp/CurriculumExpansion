@@ -20,7 +20,7 @@ Use the ternary operator in `nodups` to return `a` if `a.includes(x)` and `a.con
 
 ```yml
 tests:
-  - text: Make `nodups` remove duplicates.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(spreadsheetFunctions.nodups([1,3,1,5,7,7,9,7])) === "[1,3,5,7,9]");
 
 ```

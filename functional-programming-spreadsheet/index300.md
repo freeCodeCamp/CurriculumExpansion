@@ -20,7 +20,7 @@ Use the ternary operator to return `[]` if `start > end` and `[start].concat([en
 
 ```yml
 tests:
-  - text: Use the ternary operator.
+  - text: See description above for instructions.
     testString: assert(JSON.stringify(range(3, 2)) === "[]" && JSON.stringify(range(1, 3)) === "[1,3]");
 
 ```

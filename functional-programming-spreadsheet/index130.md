@@ -26,7 +26,7 @@ Define a function `highPrecedence` which takes a single argument `str` and retur
 
 ```yml
 tests:
-  - text: Define a function, `highPrecedence`.
+  - text: See description above for instructions.
     testString: assert(highPrecedence("a") === "a");
 
 ```

@@ -20,7 +20,7 @@ Now define a function `createLabel` which takes an argument `name` and has an em
 
 ```yml
 tests:
-  - text: Define `createLabel`.
+  - text: See description above for instructions.
     testString: assert(/window\.onload[\s\S]*constcreateLabel=\(?name\)?=>\{\}/.test(code.replace(/\s/g, "")));
 
 ```

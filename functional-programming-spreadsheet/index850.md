@@ -28,7 +28,7 @@ Add an `isEven` function (to the global scope) which returns whether the number 
 
 ```yml
 tests:
-  - text: Add the `isEven` function to global scope.
+  - text: See description above for instructions.
     testString: assert(isEven(20) && !isEven(31));
 
 ```

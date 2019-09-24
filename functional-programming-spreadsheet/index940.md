@@ -20,7 +20,7 @@ Now add `median` to `spreadsheetFunctions`, just like you added `sum` and `avera
 
 ```yml
 tests:
-  - text: Add `median` to `spreadsheetFunctions`.
+  - text: See description above for instructions.
     testString: assert(spreadsheetFunctions.median([1, 20, 3]) === 3 && spreadsheetFunctions.median([27, 7, 20, 10]) === 15);
 
 ```

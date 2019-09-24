@@ -20,7 +20,7 @@ Replace the `""` in `str2.replace(regex, "")` with a function which takes `match
 
 ```yml
 tests:
-  - text: Replace the `""` with the function.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("returnstr2.replace(regex,(match,fn,args)=>spreadsheetFunctions)"));
 
 ```

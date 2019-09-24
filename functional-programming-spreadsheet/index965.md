@@ -23,7 +23,7 @@ Replace the body of `range` with `start`.
 
 ```yml
 tests:
-  - text: `range` should return `start`.
+  - text: See description above for instructions.
     testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>start"));
 
 ```
