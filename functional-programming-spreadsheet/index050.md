@@ -28,7 +28,7 @@ Note that the value is returned implicitly.
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/const\s+addVar\s*=\s*\(\s*x\s*,\s*y\s*\)\s*=>\s*x\s*\+\s*y/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("constaddVar=(x,y)=>x+y"));
 
 ```
 

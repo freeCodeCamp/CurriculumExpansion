@@ -22,7 +22,7 @@ It should accept two parameters, `x` and `y`.
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/function\s+add\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*\}/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("functionadd(x,y){}"));
 
 ```
 

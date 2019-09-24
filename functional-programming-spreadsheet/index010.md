@@ -24,7 +24,7 @@ Start by creating an empty `infixToFunction` object using `const`.
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/const\s+infixToFunction\s*=\s*\{\s*\}/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("constinfixToFuncton={}"));
 
 ```
 

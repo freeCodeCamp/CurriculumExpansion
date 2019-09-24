@@ -29,7 +29,7 @@ Assign the anonymous function to the variable `addVar`.
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/const\s+addVar\s*=\s*function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("constaddVar=function(x,y){returnx+y"));
 
 ```
 

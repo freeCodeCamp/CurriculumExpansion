@@ -23,7 +23,7 @@ Assign `add` to a new variable `addVar`.
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/const\s+addVar\s*=\s*add/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("constaddVar=add"));
 
 ```
 

@@ -30,7 +30,7 @@ Make the function `add` anonymous and remove the `addVar` definition (as `add` i
 ```yml
 tests:
   - text: See description above for instructions.
-    testString: assert(/function\s*\(\s*x\s*,\s*y\s*\)\s*\{\s*return\s+x\s*\+\s*y/.test(code));
+    testString: assert(code.replace(/\s/g, "").includes("function(x,y){returnx+y"));
 
 ```
 
