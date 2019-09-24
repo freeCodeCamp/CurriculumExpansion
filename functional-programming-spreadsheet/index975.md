@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `fill` method takes an argument and replaces all elements of the array with that argument.
-Use it on the array in `range` to replace everything with `start`.
+The <code>fill</code> method takes an argument and replaces all elements of the array with that argument.
+Use it on the array in <code>range</code> to replace everything with <code>start</code>.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Use it on the array in `range` to replace everything with `start`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Use the <code>fill</code> method in <code>range</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>Array(end-start+1).fill(start)"));
+
+```
 
 </section>
 

@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define two variable: `length` which is `sorted.length` and `middle` which is `sorted.length /  2 - 1`.
+Now define two variable: <code>length</code> which is <code>sorted.length</code> and <code>middle</code> which is <code>length /  2 - 1</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now define two variable: `length` which is `sorted.length` and `middle` which is
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>length</code> and <code>middle</code>.
+    testString: assert(/constmedian=nums=>\{constsorted=nums\.slice\(\)\.sort\(\((.+),(.+)\)=>\1-\2\);?constlength=sorted\.length;?constmiddle=length\/2-1/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

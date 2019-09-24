@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Add a return statement to `median` so that it returns `isEven(length)`.
+Add a return statement to <code>median</code> so that it returns <code>isEven(length)</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Add a return statement to `median` so that it returns `isEven(length)`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add a return statement to <code>median</code> so that it returns <code>isEven(length)</code>.
+    testString: assert(median([1,2,3,4]) && !median([1,2,3]));
+
+```
 
 </section>
 

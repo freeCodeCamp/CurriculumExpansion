@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now define a `median` function which takes an argument `nums` (in the global scope).
+Now define a <code>median</code> function which takes an argument <code>nums</code> (in the global scope).
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now define a `median` function which takes an argument `nums` (in the global sco
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Define <code>median</code> in the global scope.
+    testString: assert(/constmedian=\(?nums\)?=>/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 

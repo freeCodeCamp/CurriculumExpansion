@@ -7,7 +7,7 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Now add `median` to `spreadsheetFunctions`, just like you added `sum` and `average`.
+Now add <code>median</code> to <code>spreadsheetFunctions</code>, just like you added <code>sum</code> and <code>average</code>.
 </section>
 
 ## Instructions
@@ -17,6 +17,13 @@ Now add `median` to `spreadsheetFunctions`, just like you added `sum` and `avera
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Add <code>median</code> to <code>spreadsheetFunctions</code>.
+    testString: assert(spreadsheetFunctions.median([1, 20, 3]) === 3 && spreadsheetFunctions.median([27, 7, 20, 10]) === 15);
+
+```
 
 </section>
 

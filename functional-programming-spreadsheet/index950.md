@@ -7,8 +7,8 @@ isRequired: true
 
 ## Description
 <section id='description'>
-The `some` method checks if any element of the array satisfies the provided testing function.
-Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passed in are even.
+The <code>some</code> method checks if any element of the array satisfies the provided testing function.
+Add <code>someeven</code> to <code>spreadsheetFunctions</code>, which checks if any of the items passed in are even.
 </section>
 
 ## Instructions
@@ -18,6 +18,13 @@ Add `someeven` to `spreadsheetFunctions`, which checks if any of the items passe
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text:  Define <code>someeven</code> in <code>spreadsheetFunctions</code>.
+    testString: assert(spreadsheetFunctions.someeven([1, 5, 4, 3]) && !spreadsheetFunctions.someeven([3, 5, 9]) && code.includes(".some"));
+
+```
 
 </section>
 

@@ -7,10 +7,10 @@ isRequired: true
 
 ## Description
 <section id='description'>
-We've used recursion in `range`, but recursion can have performance issues in JavaScript.
-If performance is an issue, you should try to use a higher order function like `reduce`, and if you can't do that, you'll probably have to use a for/while loop.
+We've used recursion in <code>range</code>, but recursion can have performance issues in JavaScript.
+If performance is an issue, you should try to use a higher order function like <code>reduce</code>, and if you can't do that, you'll probably have to use a for/while loop.
 While we don't expect the user to enter particularly large numbers so that performance is an issue, we're going to refactor `range` as an exercise.
-Replace the body of `range` with `start`.
+Replace the body of <code>range</code> with <code>start</code>.
 </section>
 
 ## Instructions
@@ -20,6 +20,13 @@ Replace the body of `range` with `start`.
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: <code>range</code> should return <code>start</code>.
+    testString: assert(code.replace(/\s/g, "").includes("constrange=(start,end)=>start"));
+
+```
 
 </section>
 

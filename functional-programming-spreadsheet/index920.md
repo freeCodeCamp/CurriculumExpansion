@@ -7,9 +7,9 @@ isRequired: true
 
 ## Description
 <section id='description'>
-Unfortunately, `sort` not only returns a new array, but also modifies the existing one.
+Unfortunately, <code>sort</code> not only returns a new array, but also modifies the existing one.
 So our function also modifies the array passed to it - it is impure.
-You can fix this by adding `.slice()` between `nums` and `sort` - this creates a new array, that is equivalent to `nums`, but is immediately discarded, so it doesn't matter if it changes.
+You can fix this by adding <code>.slice()</code> between <code>nums</code> and <code>sort</code> - this creates a new array, that is equivalent to <code>nums</code>, but is immediately discarded, so it doesn't matter if it changes.
 </section>
 
 ## Instructions
@@ -19,6 +19,13 @@ You can fix this by adding `.slice()` between `nums` and `sort` - this creates a
 
 ## Tests
 <section id='tests'>
+
+```yml
+tests:
+  - text: Prevent <code>nums</code> from being modified.
+    testString: assert(/constmedian=nums=>\{constsorted=nums\.slice\(\)\.sort\(\((.+),(.+)\)=>\1-\2\)/.test(code.replace(/\s/g, "")));
+
+```
 
 </section>
 
