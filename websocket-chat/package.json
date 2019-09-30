@@ -4,10 +4,10 @@
   "description": "Chat project made to FreeCodeCamp's Curriculum.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
-    "body-parser": "1.19.0",
     "ejs": "^2.6.2",
     "express": "4.16.4",
     "express-session": "1.16.1",
@@ -20,5 +20,8 @@
     "freeCodeCamp",
     "node.js",
     "javascript"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
 }
