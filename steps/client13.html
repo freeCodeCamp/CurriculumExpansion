@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        class="logo"
+        src="./assets/freeCodeCamp.png"
+        alt="freeCodeCamp logo"
+      />
+    </nav>
+
+    <main class="container">
+      <form class="chat-form" action="#" onSubmit="handleFormSubmit(event)">
+        <input
+          class="username-input round-border focused-input"
+          placeholder="Username"
+          required
+        />
+
+        <div class="chat-history"></div>
+
+        <textarea
+          class="msg-input round-border focused-input"
+          rows="3"
+          placeholder="Type your message"
+        ></textarea>
+
+        <button class="submit-button round-border ">Send</button>
+      </form>
+    </main>
+
+    <template class="msg-component">
+      <div class="msg-bubble">
+        <span class="msg-name"></span>
+        <span class="msg-content"></span>
+        <span class="msg-timestamp"></span>
+      </div>
+    </template>
+
+    <script>
+      const socket = io("localhost:3000");
+
+      const handleFormSubmit = e => {
+        e.preventDefault();
+
+        const username = document.querySelector(".username-input").value;
+        const msg = document.querySelector(".msg-input").value;
+
+        if (username && msg) {
+          socket.emit("newMessage", {
+            username,
+            msg
+          });
+
+          addMessage(username, msg, true);
+        }
+      };
+
+      const addMessage = (username, message, sended) => {
+        const chat_message = createMessageComponent(username, message, sended);
+
+        appendMessageHistory(chat_message);
+        clearMessageInput();
+      };
+
+      const createMessageComponent = (username, message, sended) => {
+        const clone = createTemplateComponent(".msg-component");
+
+        // Create a copy of the message component
+        const bubble = clone.querySelector(".msg-bubble");
+
+        bubble.className += sended ? " sended" : " received";
+
+        bubble.querySelector(".msg-name").textContent = username;
+        bubble.querySelector(".msg-content").textContent = message;
+
+        bubble.querySelector(".msg-timestamp").textContent = getMessageTime();
+
+        return bubble;
+      };
+
+      // Insert a message in the chat history
+      const appendMessageHistory = message =>
+        document.querySelector(".chat-history").appendChild(message);
+
+      const clearMessageInput = () =>
+        (document.querySelector(".msg-input").value = "");
+
+      const getMessageTime = () => {
+        const date = new Date();
+
+        return `${date.getHours()}:${date.getMinutes()}`;
+      };
+
+      const createTemplateComponent = templateID => {
+        // Get the template in the DOM
+        const template = document.querySelector(templateID);
+
+        // Load the message template to the DOM
+        return document.importNode(template.content, true);
+      };
+    </script>
+  </body>
+</html>

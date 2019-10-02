@@ -1,13 +1,13 @@
-const socket = io('http://localhost:3000');
+const socket = io("http://localhost:3000");
 
 // When socket conects
-socket.on('connect', () => {
+socket.on("connect", () => {
   // // Emitted whenever a message is received
-  socket.on('newMessage', (username, message) => {
+  socket.on("newMessage", (username, message) => {
     addMessage(username, message, false);
   });
 
-  socket.on('previousMessages', messages => {
+  socket.on("previousMessages", messages => {
     messages.map(msg => addMessage(msg.username, msg.msg, false));
   });
 });
@@ -20,27 +20,27 @@ const addMessage = (username, message, sended) => {
 };
 
 const createMessageComponent = (username, message, sended) => {
-  const clone = createTemplateComponent('.msg-component');
+  const clone = createTemplateComponent(".msg-component");
 
   // Create a copy of the message component
-  const bubble = clone.querySelector('.msg-bubble');
+  const bubble = clone.querySelector(".msg-bubble");
 
-  bubble.className += sended ? ' sended' : ' received';
+  bubble.className += sended ? " sended" : " received";
 
-  bubble.querySelector('.msg-name').textContent = username;
-  bubble.querySelector('.msg-content').textContent = message;
+  bubble.querySelector(".msg-name").textContent = username;
+  bubble.querySelector(".msg-content").textContent = message;
 
-  bubble.querySelector('.msg-timestamp').textContent = getMessageTime();
+  bubble.querySelector(".msg-timestamp").textContent = getMessageTime();
 
   return bubble;
 };
 
 // Insert a message in the chat history
 const appendMessageHistory = message =>
-  document.querySelector('.chat-history').appendChild(message);
+  document.querySelector(".chat-history").appendChild(message);
 
 const clearMessageInput = () =>
-  (document.querySelector('.msg-input').value = '');
+  (document.querySelector(".msg-input").value = "");
 
 const getMessageTime = () => {
   const date = new Date();
@@ -49,13 +49,15 @@ const getMessageTime = () => {
 };
 
 const handleFormSubmit = e => {
+  console.log(e);
+
   e.preventDefault();
 
-  const username = document.querySelector('.username-input').value;
-  const msg = document.querySelector('.msg-input').value;
+  const username = document.querySelector(".username-input").value;
+  const msg = document.querySelector(".msg-input").value;
 
   if (username && msg) {
-    socket.emit('newMessage', {
+    socket.emit("newMessage", {
       username,
       msg
     });

@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Socket.io Chat</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+    <title>Document</title>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"
+    />
+  </head>
   <body>
     <nav class="navbar">
       <img
@@ -22,9 +21,9 @@
     </nav>
 
     <main class="container">
-      <form class="chat-form" onSubmit="handleFormSubmit(event)">
+      <form class="chat-form" action="#" onSubmit="handleFormSubmit(event)">
         <input
-          class="username-input round-border"
+          class="username-input round-border focused-input"
           placeholder="Username"
           required
         />
@@ -32,7 +31,7 @@
         <div class="chat-history"></div>
 
         <textarea
-          class="msg-input round-border "
+          class="msg-input round-border focused-input"
           rows="3"
           placeholder="Type your message"
         ></textarea>
@@ -48,8 +47,5 @@
         <span class="msg-timestamp"></span>
       </div>
     </template>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/script.js"></script>
   </body>
 </html>
