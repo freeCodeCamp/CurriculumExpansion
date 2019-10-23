@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Socket.io Chat</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <img
+        class="logo"
+        src="./assets/freeCodeCamp.png"
+        alt="freeCodeCamp logo"
+      />
+    </nav>
+
+    <main class="container">
+      <form class="chat-form" onSubmit="handleFormSubmit(event)">
+        <input
+          class="username-input round-border"
+          placeholder="Username"
+          required
+        />
+
+        <div class="chat-history"></div>
+
+        <textarea
+          class="msg-input round-border "
+          rows="3"
+          placeholder="Type your message"
+        ></textarea>
+
+        <button class="submit-button round-border ">Send</button>
+      </form>
+    </main>
+
+    <template class="msg-component">
+      <div class="msg-bubble">
+        <span class="msg-name"></span>
+        <span class="msg-content"></span>
+        <span class="msg-timestamp"></span>
+      </div>
+    </template>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
