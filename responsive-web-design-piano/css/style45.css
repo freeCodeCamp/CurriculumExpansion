@@ -55,6 +55,10 @@ html {
 }
 
 /* 
+<<<<<<< HEAD
     The `<img>` element needs its parent to have a position set as a
+=======
+    The `<img>` element needs it's parent to have a position set as
+>>>>>>> feat: Add more steps and rearrange files
     point of reference. In the `#piano` rule, set the `position` to `relative`.
 */

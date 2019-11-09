@@ -56,6 +56,10 @@ html {
 }
 
 /* 
+<<<<<<< HEAD
     To smooth the sharp edges of the piano and keys,
+=======
+    To smooth the sharp edges of the piano and keys
+>>>>>>> feat: Add more steps and rearrange files
     start by giving the `#piano` a `border-radius` set to `10px`.
 */
