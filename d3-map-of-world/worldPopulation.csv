@@ -1,0 +1,217 @@
+﻿ID,Name,Population
+AFG,Afghanistan,35530081
+ALB,Albania,2873457
+DZA,Algeria,41318142
+ASM,American Samoa,55641
+AND,Andorra,76965
+AGO,Angola,29784193
+ATG,Antigua and Barbuda,102012
+ARG,Argentina,44271041
+ARM,Armenia,2930450
+ABW,Aruba,105264
+AUS,Australia,24601860
+AUT,Austria,8797566
+AZE,Azerbaijan,9854033
+BHS,"Bahamas, The",395361
+BHR,Bahrain,1492584
+BGD,Bangladesh,164669751
+BRB,Barbados,285719
+BLR,Belarus,9498264
+BEL,Belgium,11382393
+BLZ,Belize,374681
+BEN,Benin,11175692
+BMU,Bermuda,65441
+BTN,Bhutan,807610
+BOL,Bolivia,11051600
+BIH,Bosnia and Herzegovina,3507017
+BWA,Botswana,2291661
+BRA,Brazil,209288278
+VGB,British Virgin Islands,31196
+BRN,Brunei Darussalam,428697
+BGR,Bulgaria,7075947
+BFA,Burkina Faso,19193382
+BDI,Burundi,10864245
+CPV,Cabo Verde,546388
+KHM,Cambodia,16005373
+CMR,Cameroon,24053727
+CAN,Canada,36708083
+CYM,Cayman Islands,61559
+CAF,Central African Republic,4659080
+TCD,Chad,14899994
+CHI,Channel Islands,165314
+CHL,Chile,18054726
+CHN,China,1386395000
+COL,Colombia,49065615
+COM,Comoros,813912
+COD,"Congo, Dem. Rep.",81339988
+COG,"Congo, Rep.",5260750
+CRI,Costa Rica,4905769
+CIV,Cote d'Ivoire,24294750
+HRV,Croatia,4124531
+CUB,Cuba,11484636
+CUW,Curacao,160175
+CYP,Cyprus,1179551
+CZE,Czech Republic,10594438
+DNK,Denmark,5764980
+DJI,Djibouti,956985
+DMA,Dominica,73925
+DOM,Dominican Republic,10766998
+ECU,Ecuador,16624858
+EGY,"Egypt, Arab Rep.",97553151
+SLV,El Salvador,6377853
+GNQ,Equatorial Guinea,1267689
+ERI,Eritrea,..
+EST,Estonia,1317384
+SWZ,Eswatini,1367254
+ETH,Ethiopia,104957438
+FRO,Faroe Islands,49290
+FJI,Fiji,905502
+FIN,Finland,5508214
+FRA,France,67105513
+PYF,French Polynesia,283007
+GAB,Gabon,2025137
+GMB,"Gambia, The",2100568
+GEO,Georgia,3728004
+DEU,Germany,82685827
+GHA,Ghana,28833629
+GIB,Gibraltar,34571
+GRC,Greece,10753531
+GRL,Greenland,56171
+GRD,Grenada,107825
+GUM,Guam,164229
+GTM,Guatemala,16913503
+GIN,Guinea,12717176
+GNB,Guinea-Bissau,1861283
+GUY,Guyana,777859
+HTI,Haiti,10981229
+HND,Honduras,9265067
+HKG,"Hong Kong SAR, China",7391700
+HUN,Hungary,9787966
+ISL,Iceland,343400
+IND,India,1339180127
+IDN,Indonesia,263991379
+IRN,"Iran, Islamic Rep.",81162788
+IRQ,Iraq,38274618
+IRL,Ireland,4811321
+IMN,Isle of Man,84287
+ISR,Israel,8713300
+ITA,Italy,60536709
+JAM,Jamaica,2890299
+JPN,Japan,126785797
+JOR,Jordan,9702353
+KAZ,Kazakhstan,18037776
+KEN,Kenya,49699862
+KIR,Kiribati,116398
+PRK,"Korea, Dem. People’s Rep.",25490965
+KOR,"Korea, Rep.",51466201
+XKX,Kosovo,1830700
+KWT,Kuwait,4136528
+KGZ,Kyrgyz Republic,6198200
+LAO,Lao PDR,6858160
+LVA,Latvia,1942248
+LBN,Lebanon,6082357
+LSO,Lesotho,2233339
+LBR,Liberia,4731906
+LBY,Libya,6374616
+LIE,Liechtenstein,37922
+LTU,Lithuania,2828403
+LUX,Luxembourg,596336
+MAC,"Macao SAR, China",622567
+MDG,Madagascar,25570895
+MWI,Malawi,18622104
+MYS,Malaysia,31624264
+MDV,Maldives,436330
+MLI,Mali,18541980
+MLT,Malta,467999
+MHL,Marshall Islands,53127
+MRT,Mauritania,4420184
+MUS,Mauritius,1264613
+MEX,Mexico,129163276
+FSM,"Micronesia, Fed. Sts.",105544
+MDA,Moldova,3549196
+MCO,Monaco,38695
+MNG,Mongolia,3075647
+MNE,Montenegro,622373
+MAR,Morocco,35739580
+MOZ,Mozambique,29668834
+MMR,Myanmar,53370609
+NAM,Namibia,2533794
+NRU,Nauru,12876
+NPL,Nepal,29304998
+NLD,Netherlands,17131296
+NCL,New Caledonia,280460
+NZL,New Zealand,4793900
+NIC,Nicaragua,6217581
+NER,Niger,21477348
+NGA,Nigeria,190886311
+MKD,North Macedonia,2083160
+MNP,Northern Mariana Islands,55144
+NOR,Norway,5276968
+OMN,Oman,4636262
+PAK,Pakistan,197015955
+PLW,Palau,21729
+PAN,Panama,4098587
+PNG,Papua New Guinea,8251162
+PRY,Paraguay,6811297
+PER,Peru,32165485
+PHL,Philippines,104918090
+POL,Poland,37974826
+PRT,Portugal,10300300
+PRI,Puerto Rico,3325001
+QAT,Qatar,2639211
+ROU,Romania,19583986
+RUS,Russian Federation,144496740
+RWA,Rwanda,12208407
+WSM,Samoa,196440
+SMR,San Marino,33400
+STP,Sao Tome and Principe,204327
+SAU,Saudi Arabia,32938213
+SEN,Senegal,15850567
+SRB,Serbia,7020858
+SYC,Seychelles,95843
+SLE,Sierra Leone,7557212
+SGP,Singapore,5612253
+SXM,Sint Maarten (Dutch part),41109
+SVK,Slovak Republic,5439232
+SVN,Slovenia,2066388
+SLB,Solomon Islands,611343
+SOM,Somalia,14742523
+ZAF,South Africa,56717156
+SDS,South Sudan,12575714
+ESP,Spain,46593171
+LKA,Sri Lanka,21444000
+KNA,St. Kitts and Nevis,55345
+LCA,St. Lucia,178844
+MAF,St. Martin (French part),32125
+VCT,St. Vincent and the Grenadines,109897
+SDN,Sudan,40533330
+SUR,Suriname,563402
+SWE,Sweden,10057698
+CHE,Switzerland,8450851
+SYR,Syrian Arab Republic,18269868
+TJK,Tajikistan,8921343
+TZA,Tanzania,57310019
+THA,Thailand,69037513
+TLS,Timor-Leste,1296311
+TGO,Togo,7797694
+TON,Tonga,108020
+TTO,Trinidad and Tobago,1369125
+TUN,Tunisia,11532127
+TUR,Turkey,80745020
+TKM,Turkmenistan,5758075
+TCA,Turks and Caicos Islands,35446
+UGA,Uganda,42862958
+UKR,Ukraine,44831135
+ARE,United Arab Emirates,9400145
+GBR,United Kingdom,66023290
+USA,United States,325147121
+URY,Uruguay,3456750
+UZB,Uzbekistan,32387200
+VUT,Vanuatu,276244
+VEN,"Venezuela, RB",31977065
+VNM,Vietnam,95540800
+VIR,Virgin Islands (U.S.),107268
+PSE,West Bank and Gaza,4684777
+YEM,"Yemen, Rep.",28250420
+ZMB,Zambia,17094130
+ZWE,Zimbabwe,16529904

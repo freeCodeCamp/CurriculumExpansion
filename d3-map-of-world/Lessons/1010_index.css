@@ -1,0 +1,34 @@
+svg {
+  background-color: #ADD8E6;
+
+
+
+}
+
+/*
+Two last lessons to adjust the style of the page.
+
+Pan and zoom functionality changes the behavior on the page - the user can zoom
+in, then "grab" the map and move it around. It's nice to use a different cursor
+style - a hand instead of a pointer - to indicate this is possible on the page.
+
+Add a rule under `svg` that sets the `cursor` to `grab`.
+*/
+
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.label {
+  color: #0050A1;
+}

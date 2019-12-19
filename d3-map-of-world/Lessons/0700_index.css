@@ -1,0 +1,22 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+
+
+
+}
+
+/*
+Add a rule so the initial opacity is set to `0` (so the user doesn't see anything
+until they interact with the map).
+*/

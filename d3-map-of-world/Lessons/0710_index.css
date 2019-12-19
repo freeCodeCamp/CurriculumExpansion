@@ -1,0 +1,23 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+  opacity: 0;
+
+
+
+}
+
+/*
+Finally, add a rule to round the corners of the tooltip box (with `border-radius`)
+and give it a value of `5px`.
+*/

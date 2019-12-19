@@ -1,0 +1,19 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+
+
+
+}
+
+/*
+Next, add some padding of `10px` to give some space around the text that will
+display in the tooltip box.
+*/

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>World Population</title>
+
+    <!-- Style sheet -->
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+  </head>
+  <body>
+    <!-- D3 v5 script -->
+    <script type="text/javascript" src="./d3v5min.js"></script>
+
+    <!-- D3 topoJSON script -->
+    <script type="text/javascript" src="./topojsonv1min.js"></script>
+
+    <h1>D3 Map of World Population</h1>
+    <div id="map"></div>
+
+
+
+    <!--
+    Believe it or not, you now have the basic map functionality done!
+    Everything beyond this point will add bonus functionality and custom
+    features that make your map easier to understand and use.
+
+    You'll create a tooltip, add pan and zoom behavior, and create a legend
+    for the population fill color values.
+
+    The next set of lessons will walk you through adding the tooltip so when a
+    user hovers over a country with their mouse (or taps a country on their
+    mobile device), the name and population of the country are displayed. It
+    will also change the formatting of the country's color and border, so it's
+    obvious which one the user has selected.
+
+    Add a `div` tag with an `id` of `tooltip`. This gives the D3 script an
+    element in the HTML that it can target so the tooltip actions are visible.
+    -->
+
+    <footer>
+      Sources:<br />
+      Map made with Natural Earth<br />
+      World population data as of 2017: https://databank.worldbank.org
+    </footer>
+
+    <!-- Script with D3 code -->
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

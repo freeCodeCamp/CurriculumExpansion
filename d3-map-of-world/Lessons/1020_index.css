@@ -1,0 +1,31 @@
+svg {
+  background-color: #ADD8E6;
+  cursor: grab;
+}
+
+
+
+/*
+Finally, create a rule to style the cursor as a closed, grabbing hand when the
+user is actively grabbing the map.
+
+You do this with a new rule for `svg:active` and set the `cursor` to `grabbing`.
+*/
+
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.label {
+  color: #0050A1;
+}

@@ -1,0 +1,27 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+
+
+/*
+You may have noticed that there was a `label` class added to the `span` elements
+that surrounded the "Country" and "Population" labels in the tooltip text. This
+makes it easy to target and re-style.
+
+Create a rule for the `label` class and change the text color to `#0050A1` so
+it's easier to read.
+*/

@@ -1,0 +1,18 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+
+
+/*
+With the tooltip in your HTML and created in your script, let's add some initial
+styling to it.
+
+Create a rule for the `tooltip` class and give it a `position` of `absolute`.
+This is just to start - you'll change the positioning dynamically based on where
+the user's mouse is in the script.
+*/
