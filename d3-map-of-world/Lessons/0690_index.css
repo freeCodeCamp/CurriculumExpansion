@@ -1,0 +1,20 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+
+
+
+}
+
+/*
+Add a rule so the background color is gray (`#b8b8b8`).
+*/

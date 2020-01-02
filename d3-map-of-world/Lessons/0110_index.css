@@ -1,0 +1,12 @@
+
+
+
+/*
+There's one huge benefit of D3 using common web standards to create dynamic
+visualizations. You can style those elements with CSS just as you would an
+element you created in HTML.
+
+Let's add a stylesheet for this project. Create a CSS rule for your `svg`
+element, and add `background-color` set to `#ADD8E6`. This is a pale blue color
+and it will look like the oceans in your map.
+*/

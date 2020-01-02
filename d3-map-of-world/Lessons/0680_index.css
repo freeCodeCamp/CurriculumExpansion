@@ -1,0 +1,19 @@
+svg {
+  background-color: #ADD8E6;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+
+
+
+}
+
+/*
+Now add a rule so the text color is white (`#fff`).
+*/
