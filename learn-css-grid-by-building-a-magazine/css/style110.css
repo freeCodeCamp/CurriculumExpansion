@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Baskervville", serif;
+  color: linen;
+  background-color: #202020;
+}
+
+h1 {
+  font-family: "Anton", serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: linen;
+}
+
+section:last-child {
+  margin-bottom: 3rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  row-gap: 3rem;
+}
+
+.heading {
+  grid-column: 2 / 3;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+}
+
+
+.hero {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+/* You could also add `object-fit` property to `cover`. This will told the browser how to resized the image to fit its container.  */
+.hero-img {
+  width: 100%;
+}
+
+.text {
+  grid-column: 2 / 3;
+}

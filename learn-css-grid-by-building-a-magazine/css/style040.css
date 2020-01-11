@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Baskervville", serif;
+  color: linen;
+  background-color: #202020;
+}
+
+h1 {
+  font-family: "Anton", serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: linen;
+}
+
+section:last-child {
+  margin-bottom: 3rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  row-gap: 3rem;
+}
+
+/* Our magazine have three big sections. As you already set the main layout on the `main` element, let's place them on the right place so it looks better. 
+You can set the placement of your element using `grid-column` or `grid-row` property. The `grid-row` property is a shorthand property for `grid-row-start` and `grid-row-end` i.e: `grid-row: 1 / 3`.
+The above example saying the element start at grid line 1 and end at grid line 3 (It takes two rows height). 
+Set `grid-column` property in the `heading` and `text` class and have it start from grid line 2 and end at grid line 3.
+*/
+
+.heading {
+
+}
+
+.text {
+  
+}
