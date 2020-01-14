@@ -7,15 +7,10 @@ const mapPath = "./naturalEarth50TopoJSON.json";
 
 
 /*
-As noted in the second comment, the map data source is Natural Earth. The datasets
-are available to use in the public domain. We used the site mapshaper.org to
-convert shape (`.shp`) and database (`.dbf`) files into a TopoJSON format that
-D3 supports.
-
-The "50" in the TopoJSON name is a reference to the level of detail (1:50m scale)
-and is the middle option. It's a compromise between having enough country
-information (for example, it doesn't cut out smaller Caribbean islands) while
-keeping the file size usable for a web application.
+The "50" in the TopoJSON name is a reference to the level of detail (1:50m scale).
+It's is a compromise between having enough country information (for example, it
+doesn't cut out smaller Caribbean islands) while keeping the file size usable for
+a web application.
 
 The population numbers you'll show in the map are 2017 data in a comma-separated
 value (CSV) file we downloaded from the World Bank website. It has each country's
