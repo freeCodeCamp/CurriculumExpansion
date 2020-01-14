@@ -78,5 +78,9 @@ highlights the country and displays the name and population information when the
 user hovers over it. First, you need to add the base styling for each country,
 which will then be adjusted in the tooltip code.
 
+Here, you'll use the `d3.style()` method. It works similarly to `.attr()`, but
+adds inline CSS and will override both the `.attr()` method styles and CSS rules
+in a stylesheet.
+
 Chain a `.style()` method and set the country `"stroke-width"` to a value of `0.5`.
 */
