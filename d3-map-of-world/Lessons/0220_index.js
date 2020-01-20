@@ -28,8 +28,4 @@ given `x` value, keeping the `y` position the same.
 
 Edit the value for your `d` attribute so after the `M 20 20` there's a space,
 then the command to draw a horizontal line to the `x` coordinate of `90`.
-
-Note that if you were using the lowercase version of this command, you'd write
-it `h dx`. The page would draw a line `dx` units to the right (if  `dx` were
-positive, to the left if it were negative) starting from your current position.
 */

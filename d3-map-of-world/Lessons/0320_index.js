@@ -27,11 +27,11 @@ It takes an array of `[longitude, latitude]` coordinates, and centers the
 projection there.
 
 D3 will use the default value of `[0°, 0°]`, so this method allows you to put any
-country or place in the center. For example, if you wanted Brazil in the center
-of your map, you could use `.center([-70, -50])`.
+country or place in the center.
 
-For a Mercator projection, 0° longitude works great, but we won't need to see
-as much of Antarctica as Greenland, so we'll move the center up to 20° latitude.
+For a Mercator projection, 0° longitude works great, but we won't need to see as
+much of Antarctica as Greenland, so we'll move the center up to 20° latitude.
+
 Chain the `.center()` method to your projection and pass it an array with these
 two values.
 */

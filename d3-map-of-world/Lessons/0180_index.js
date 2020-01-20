@@ -19,20 +19,12 @@ svg.append("rect")
 Now the `rect` element has all necessary attributes for it to render on the page,
 with a default `fill` color of black.
 
-You've already styled a D3-created element (the `svg` tag) with your CSS
-stylesheet. D3 also provides methods to style elements within the script, which
-you'll need when you want to dynamically style an element based on data.
+You've styled a D3-created element (the `svg` tag) with your CSS stylesheet, but
+you may need to style an element dynamically based on data or user interaction.
+The `.attr()` method also works for some styling, depending on the attribute.
 
-`fill` happens to be an attribute of a `rect` element, so you have two more
-choices here. You can use the `.attr()` method: `.attr("fill", "colorChoice")`
-or D3's `.style()` method: `.style("fill", "colorChoice")`.
-
-The difference between the three is precedence. CSS styles will override the
-`.attr()` method, but the `.style()` method adds inline CSS, and will override
-the CSS stylesheet.
-
-This project will use a mix: attributes will use `.attr()`, static styles will
-use CSS rules in the stylesheet, and dynamic styles will use `.style()`.
+Note that a CSS rule in your stylesheet would take precedence over styling added
+with the `.attr()` method.
 
 Chain one more `.attr()` method to your `rect` to make the `fill` color `"yellow"`.
 */
