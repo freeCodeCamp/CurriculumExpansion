@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: linen;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
+  row-gap: 3rem;
+}
+
+.heading {
+  grid-column: 2 / 3;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+}
+
+.hero {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-title {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  color: orangered;
+  font-size: 8rem;
+}
+
+.hero-subtitle {
+  font-size: 2.4rem;
+  color: orangered;
+  text-align: center;
+}
+
+.author {
+  font-size: 2rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+.author-name a:hover {
+  background-color: #306203;
+}
+
+.author-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 
+Like with Flexbox, you can align the content of grid items with `align-items` or `justify-items`. `align-items` will align child elements along the column's axis.
+Align the items in `.social-icons` by setting the `align-items` property to `center`.  */
+.social-icons {
+  font-size: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.text {
+  grid-column: 2 / 3;
+}

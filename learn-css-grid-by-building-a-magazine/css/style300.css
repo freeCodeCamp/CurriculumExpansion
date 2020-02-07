@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Baskervville", serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: linen;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  row-gap: 3rem;
+}
+
+.heading {
+  grid-column: 2 / 3;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+}
+
+
+.hero {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.hero-title {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  color: orangered;
+  font-size: 8rem;
+}
+
+.hero-subtitle {
+  font-size: 2.4rem;
+  color: orangered;
+  text-align: center;
+}
+
+.author {
+  font-size: 2rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+.author-name a:hover {
+  background-color: #306203;
+}
+
+.author-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 
+Use a grid to arrange the layout of the social icons.
+Create a rule targeting `.social-icons` and set the `display` property to `grid`. Also make the icons bigger by setting the `font-size` to `3rem`.
+*/
+
+.text {
+  grid-column: 2 / 3;
+}

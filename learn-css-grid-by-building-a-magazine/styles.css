@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,22 +25,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
-
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem,1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
 
@@ -57,8 +55,7 @@ main {
   position: relative;
 }
 
-.hero-img,
-.images img {
+img {
   width: 100%;
   object-fit: cover;
 }
@@ -109,52 +106,42 @@ main {
   text-align: justify;
 }
 
-.big-letter {
+/* .text p+p {
+  margin-top: 1rem;
+} */
+
+.first-paragraph::first-letter {
   float: left;
   font-size: 6rem;
-  line-height: 1.1;
   margin-right: 1rem;
   color: orangered;
 }
 
 hr {
   margin: 1.5rem 0;
+  border: 1px solid rgba(120, 120, 120, 0.6);
 }
 
 .quote {
-  color: #0ebeff;
+  color: #00beef;
   font-size: 2.4rem;
   text-align: center;
   font-family: 'Raleway', sans-serif;
 }
 
 .quote::before {
-  content: "“ ";
+  content: '“ ';
 }
 
 .quote::after {
-  content: " ”";
+  content: ' ”';
 }
 
-.textWithImages {
+.text-with-images {
   display: grid;
   grid-template-columns: 1fr 2fr;
   column-gap: 3rem;
-  /*   don't need this for ff  */
-  margin-top: 0;
-}
-
-.list-title {
-  font-size: 3rem;
-}
-
-.list-title,
-.list-header {
-  color: #0ebeff;
-}
-
-.list-header {
-  font-size: 2rem;
+  margin-bottom: 3rem;
 }
 
 .lists {
@@ -166,50 +153,49 @@ hr {
   margin-bottom: 1.5rem;
 }
 
-.images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, min-content);
-  gap: 2rem;
+.list-title,
+.list-subtitle {
+  color: #00beef;
 }
 
-.images-1 {
+.image-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+  gap: 2rem;
+  place-items: center;
+}
+
+.image-1,
+.image-3 {
   grid-column: 1 / -1;
 }
 
-.images-quote {
-  grid-column: 2 / -1;
-}
-
-.images-3 {
-  grid-column: 2 / -1;
-}
-
 @media only screen and (max-width: 850px) {
-  .images {
+  .image-wrapper {
     row-gap: 2rem;
     column-gap: 1rem;
   }
-  .images-2 {
+  .image-2 {
     margin: 0;
   }
-  .images-3 {
+  .image-3 {
     grid-column: 1 / -1;
   }
 }
 
 @media only screen and (max-width: 720px) {
-  .images {
+  .image-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, min-content);
   }
-  .images-quote {
+  .image-quote {
     grid-column: 1 / -1;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .textWithImages {
+  .text-with-images {
     grid-template-columns: 1fr;
   }
 }

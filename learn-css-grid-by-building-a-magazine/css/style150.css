@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,65 +25,26 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
-
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
 
-.heading {
-  grid-column: 2 / 3;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 1.5rem;
-}
-
-
-.hero {
-  grid-column: 1 / -1;
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-}
-
-
-.hero-title {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  color: orangered;
-  font-size: 8rem;
-}
-
-.hero-subtitle {
-  font-size: 2.4rem;
-  color: orangered;
-  text-align: center;
-}
-
-/* We finish styeling the `.hero` class. Now let's style the `.author` a little bit. 
-Set the size to 2rem, and since we using `Raleway` from Google fonts, let's add it to the `.author`.  */
-.author {
-
-}
-
-.text {
-  grid-column: 2 / 3;
-}
+/* 
+Our magazine will have three big sections. You already set the overall layout in the `main`element, so let's adjust the placement so it looks better.
+One way to adjust the placement of your elements by using the `grid-column` property, which is shorthand for `grid-column-start` and `grid-column-end`: `grid-column: 1 / 3;`
+The above example tells the grid item to start at grid line 1 and end at grid line 3 within a grid column.
+Create a rule targeting the `heading` class and set `grid-template-columns` to start from grid line 2 and end at grid line 3.
+*/

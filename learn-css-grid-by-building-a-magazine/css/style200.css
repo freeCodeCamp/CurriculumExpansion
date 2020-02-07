@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,22 +25,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
-
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
 
@@ -52,54 +50,9 @@ main {
   row-gap: 1.5rem;
 }
 
-
-.hero {
-  grid-column: 1 / -1;
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-}
-
-
-.hero-title {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  color: orangered;
-  font-size: 8rem;
-}
-
-.hero-subtitle {
-  font-size: 2.4rem;
-  color: orangered;
-  text-align: center;
-}
-
-.author {
-  font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
-}
-
-.author-name a:hover {
-  background-color: #306203;
-}
-
-.author-date {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* If in case you want to add more links or elements to this icons, and not worry about the layout, you could add property `grid-auto-flow`. 
-This is Grid auto-placement algorithm and it has three value: row, column and dense.
-Since you want to add new element to the new column, set the value to column. */
-.social-icons {
-  font-size: 3rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  
-}
+/* If you don't know the last grid line number you could use `-1`. This is the same as saying the last grid line. 
+Create a rule using the `.hero` selector and set `grid-column` to start from grid line one and end at the last grid line.
+*/
 
 .text {
   grid-column: 2 / 3;

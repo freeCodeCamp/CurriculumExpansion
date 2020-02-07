@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,50 +25,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
+/* Now you can style the layout of your grid. CSS grid is similar to Flexbox in that it has a special property for both the parent and child elements.
+In this parent element, set the magazine to a three column layout by setting the `grid-template-columns` property to the value `1fr 94rem 1fr`.
+This will create three columns where the middle column is 94 rem wide, and the first and last columns are both 1 fraction of the remaining space in the grid container.`.
+*/
 
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
-  row-gap: 3rem;
-}
-
-.heading {
-  grid-column: 2 / 3;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 1.5rem;
-}
-
-
-.hero {
-  grid-column: 1 / -1;
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-}
-
-/* Our `.hero-title` doesn't look like a title at all. Let's move inside the image with absolute position and set the top to 10% and left to 15%  */
-
-.hero-title {
-
-}
-
-.text {
-  grid-column: 2 / 3;
 }
