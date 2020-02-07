@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,75 +25,33 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
-
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
+
+/* You now can style the layout of `heading` class with CSS grid.
+If you have two or more same size columns or rows, you can use `repeat()` function.
+To make three columns with same width, you could write: `grid-template-columns: repeat(3, 200px);`. 
+Create two equal columns in the `heading` class with width of `1fr` each. 
+*/
 
 .heading {
   grid-column: 2 / 3;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 1.5rem;
-}
-
-
-.hero {
-  grid-column: 1 / -1;
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-}
-
-
-.hero-title {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  color: orangered;
-  font-size: 8rem;
-}
-
-.hero-subtitle {
-  font-size: 2.4rem;
-  color: orangered;
-  text-align: center;
-}
-
-.author {
-  font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
-}
-
-.author-name a:hover {
-  background-color: #306203;
-}
-
-.author-date {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* For `.social-icons` class you can use grid to arrange the layout. Add a display property and set it to grid, also please make the size bigger so we can see it better. How about 3rem for the size? */
-.social-icons {
-
 }
 
 .text {

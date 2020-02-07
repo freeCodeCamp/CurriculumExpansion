@@ -5,45 +5,8 @@
   margin: 0;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Baskervville", serif;
-  color: linen;
-  background-color: #202020;
-}
-
-h1 {
-  font-family: "Anton", serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway", sans-serif;
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: linen;
-}
-
-section:last-child {
-  margin-bottom: 3rem;
-}
-
-/* To make you columns responsive on any devices, you could use minmax function. The value of minmax function could be `<length>`, `<percentage>`, a `<flex>` value or one of the keyword values `max-content`, `min-content`, or `auto`. 
-For example: `minmax(200px, 1fr) minmax(min-content, 500px)`.
-The value that you write before is the max value, now you could wrap it with minmax function and give the `min` value to it. 
-Wrap each of the already defined values of your `grid-template-columns` property with minmax function and set the min value to `2rem`, `min-content` and `2rem` respectiveley. 
+/* 
+For typography, you could set it on the html and body element. First, lets target the `html` element and set its `font-size` to `62.5%`.
+Why we set it to this value? Because we will want to use the flexible unit `rem` within the rest of our CSS rule. The default font-size is 16px, so by set it to 62.5%, our default font-size will become 62.5% * 16px = 10px.
+So by typing `2rem`, it is equal to `20px`. This is will make easier for us to calculate our CSS unit. 
 */
-main {
-  display: grid;
-  grid-template-columns: 1fr 94rem 1fr;
-}

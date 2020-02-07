@@ -6,18 +6,18 @@
 }
 
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', serif;
 }
 
 h2,
@@ -25,43 +25,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+/* 
+The text decoration is gone, but the color looks dull. Set property `color` value to `linen`, same as color value we already declared in body. 
+*/
+
+a {
   text-decoration: none;
   color: linen;
-}
-section:last-child {
-  margin-bottom: 3rem;
-}
-
-main {
-  display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
-  row-gap: 3rem;
-}
-
-.heading {
-  grid-column: 2 / 3;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 1.5rem;
-}
-
-
-.hero {
-  grid-column: 1 / -1;
-  position: relative;
-}
-
-/* If you look at the main image, the image is not covering the entire grid yet. You could add property width to the `.hero-img` class and set it to 100%;  */
-.hero-img {
-
-}
-
-.text {
-  grid-column: 2 / 3;
 }

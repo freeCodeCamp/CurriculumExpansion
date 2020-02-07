@@ -6,53 +6,14 @@
 }
 
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: "Baskervville", serif;
-  color: linen;
-  background-color: #202020;
-}
-
-h1 {
-  font-family: "Anton", serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway", sans-serif;
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: linen;
-}
-
-section:last-child {
-  margin-bottom: 3rem;
-}
-
-main {
-  display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
-  row-gap: 3rem;
-}
-
-/* Is that possible to have grid inside grid? YES it's possible. 
-All you have to do is give `display: grid;` in the children element.
-Add it to your `heading` class
+/* 
+Our magazine will have 'dark theme', so in our `body` element add the `color` property and set its value to `linen`. 
 */
 
-.heading {
-  grid-column: 2 / 3;
-}
-
-.text {
-  grid-column: 2 / 3;
+body {
+  font-family: 'Baskervville', serif;
 }

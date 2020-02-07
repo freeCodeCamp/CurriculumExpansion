@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,22 +25,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: linen;
 }
 
-section:last-child {
-  margin-bottom: 3rem;
-}
-
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
 
@@ -52,59 +50,20 @@ main {
   row-gap: 1.5rem;
 }
 
-
 .hero {
   grid-column: 1 / -1;
   position: relative;
 }
 
-.hero-img {
+img {
   width: 100%;
   object-fit: cover;
 }
 
-
-.hero-title {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  color: orangered;
-  font-size: 8rem;
-}
-
-.hero-subtitle {
-  font-size: 2.4rem;
-  color: orangered;
-  text-align: center;
-}
-
-.author {
-  font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
-}
-
-.author-name a:hover {
-  background-color: #306203;
-}
-
-.author-date {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.social-icons {
-  font-size: 3rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  align-items: center;
-}
-
-/* To divide you magazine to columns, you can use `column-width` property. This is not a grid property, but a common css property and very useful to divide your column into smaller columns.
-Divide the `.text` column and set the value to `25rem;`. 
- */
+/* Our title doesn't look like a title at all. 
+Create rule to target the `hero-title` class. 
+Move the title inside the image by setting its `position` to `absolute`, `top` to `100%` and `left` to `15%`  */
 
 .text {
   grid-column: 2 / 3;
-  font-size: 1.8rem;
 }

@@ -6,18 +6,18 @@
 }
 
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Baskervville", serif;
+  font-family: 'Baskervville', serif;
   color: linen;
-  background-color: #202020;
+  background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: "Anton", serif;
+  font-family: 'Anton', sans-serif;
 }
 
 h2,
@@ -25,40 +25,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a:link,
-a:visited {
-  text-decoration: none;
-  color: linen;
-}
-
-section:last-child {
-  margin-bottom: 3rem;
-}
-
-main {
-  display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
-  row-gap: 3rem;
-}
-
-.heading {
-  grid-column: 2 / 3;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 1.5rem;
-}
-
-/* For `hero` class set the `grid-column` that start from grid line 1 all the way to the end. 
-Tips: If you don't know the last grid line number you could use `-1`. This is the same as saying the last grid line.  */
-
-.hero {
-
-}
-
-.text {
-  grid-column: 2 / 3;
-}
+/* 
+Next, let's style the link element. As usual, most of us don't like the default underline on the link text.
+Target `a` element and set `text-decoration` property to `none`. 
+*/

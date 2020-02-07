@@ -1,48 +1,8 @@
+/* 
+Great! now lets add some properties to delete the default padding and margin in some elements. Add property `padding` and `margin` and set its value to `0`. 
+*/
+
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Baskervville", serif;
-  color: linen;
-  background-color: #202020;
-}
-
-h1 {
-  font-family: "Anton", serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway", sans-serif;
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: linen;
-}
-
-section:last-child {
-  margin-bottom: 3rem;
-}
-
-/* Now you can styled the layout of your grid. Grid like flexbox has special property for parent element and children element. 
-In this parent element, set the magazine with three columns layout using `grid-template-columns` property and set the value to `1fr 94rem 1fr`. 
-This will create three columns with width of `1fraction 94rem 1fraction`.
-*/
-
-main {
-  display: grid;
 }
