@@ -17,5 +17,5 @@ const yScale = d3.scaleLinear()
   
 
 /*
-  Create a new `const` named `xScale` use it to create another linear scale like you did for the y-scale. This will be the horizontal or "x" axis.
+  Create a new `const` named `xScale` and use it to create another linear scale like you did for the y-scale. This will be the horizontal or "x" axis.
 */
