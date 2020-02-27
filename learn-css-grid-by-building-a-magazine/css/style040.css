@@ -11,6 +11,6 @@ html {
 }
 
 /* 
-We already install three fonts from Google fonts for you. Lets use it in our body element. 
-Create rule for body element and set `font-family` property to `"Baskervville"` and `serif` as the fallback font. 
+We already installed three fonts from Google for you, so let's use it in our `body` element.
+Create a rule that targets `body` and set the `font-family` property to `"Baskervville"`, with `serif` as the fallback font.
 */

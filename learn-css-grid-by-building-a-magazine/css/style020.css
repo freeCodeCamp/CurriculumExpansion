@@ -6,7 +6,8 @@
 }
 
 /* 
-For typography, you could set it on the html and body element. First, lets target the `html` element and set its `font-size` to `62.5%`.
-Why we set it to this value? Because we will want to use the flexible unit `rem` within the rest of our CSS rule. The default font-size is 16px, so by set it to 62.5%, our default font-size will become 62.5% * 16px = 10px.
-So by typing `2rem`, it is equal to `20px`. This is will make easier for us to calculate our CSS unit. 
+It's best to set typography on the `html` and `body` elements.
+First, target the `html` element and set its `font-size` to `62.5%`.
+Why set it to this value? The default font-size is 16px, so here we're effectively making it 10px (62.5% * 16px = 10px).
+This will make it easier for us to work with `rem` units later, as `2rem` will equal 20px, `3rem` 30px, and so on.
 */

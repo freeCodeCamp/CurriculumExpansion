@@ -97,7 +97,7 @@ img {
 }
 
 /* 
-To divide you magazine into columns, use the `column-width` property. This is not a CSS Grid property, but a common CSS property that's very useful for dividing columns into smaller columns.
+To divide the magazine into columns, use the `column-width` property. This is not a CSS grid property, but a common CSS property that's very useful for dividing columns into smaller columns.
 In the `.text` rule, set `column-width` to `25rem`
  */
 

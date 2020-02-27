@@ -11,7 +11,7 @@ html {
 }
 
 /* 
-Our magazine will have 'dark theme', so in our `body` element add the `color` property and set its value to `linen`. 
+Our magazine will have a dark theme, so in the `body` rule, add the `color` property and set its value to `linen`. 
 */
 
 body {

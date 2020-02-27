@@ -162,8 +162,8 @@ hr {
 /* 
 Our magazine images looks pretty good. 
 All your need to do next is to add more space between the grid. 
-You can use `gap` property which is a shorthand for `row-gap` and `column-gap` property. 
-Add `gap` property to `.image-wrapper` class and set its value to `2rem`. 
+You can use the `gap` property, which is a shorthand for the `row-gap` and `column-gap` properties. 
+Add the `gap` property to `.image-wrapper` and set its value to `2rem`. 
 */
 
 .image-wrapper {

@@ -160,9 +160,9 @@ hr {
 }
 
 /* 
-If you want to center the content inside each grid, you could use `place-items` property.
-The `place-items` is a shorthand for `align-items` and `justify-items` property that will align the content inside the grid properly. 
-Add `place-items` property and set its value to `center`. 
+If you want to center the content inside each grid, use `place-items` property.
+`place-items` is a shorthand for the `align-items` and `justify-items` properties that are often used to align content vertically and horizontally inside a grid. 
+Add the `place-items` property and set its value to `center`. 
 */
 
 .image-wrapper {

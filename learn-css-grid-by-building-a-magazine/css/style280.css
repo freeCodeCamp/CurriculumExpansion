@@ -80,7 +80,8 @@ img {
 }
 
 /* 
-To give the `.author` element a hover affect, write a rule that uses the `.author-name a:hover` selector. Set the `background-color` to the classic freeCodeCamp green, `#306203`.*/
+To give the `.author` element a hover affect, write a rule that uses the `.author-name a:hover` selector. Set the `background-color` to the classic freeCodeCamp green, `#306203`.
+*/
 
 .text {
   grid-column: 2 / 3;

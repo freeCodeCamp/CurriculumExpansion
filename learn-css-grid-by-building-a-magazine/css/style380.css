@@ -105,6 +105,6 @@ img {
 }
 
 /* 
-To make the first letter of the first paragraph stand out, you could use pseudo-selector `::first-letter` which targeted the first letter of the element.
-Create a rule for `.first-paragraph` class and target its first letter with pseudo selector `::first-letter` and set the `font-size` property to `6rem`. 
+To make the first letter of the first paragraph stand out, you could use the pseudo-selector `::first-letter` which targets the first letter of the element.
+Create a rule for the `.first-paragraph` class, target its first letter with `::first-letter`, and set the `font-size` property to `6rem`. 
  */

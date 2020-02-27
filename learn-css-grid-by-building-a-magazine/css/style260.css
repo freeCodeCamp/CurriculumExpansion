@@ -68,8 +68,10 @@ img {
   font-size: 8rem;
 }
 
-/* The subtitle also too tiny to read. 
-Target the `hero-subtitle` class and set the `font-size` to `2.4rem`, `color` to `orangered`, and `text-align` to `center`.  */
+/* 
+The subtitle also too tiny to read. 
+Target the `hero-subtitle` class and set the `font-size` to `2.4rem`, `color` to `orangered`, and `text-align` to `center`.
+*/
 
 .text {
   grid-column: 2 / 3;

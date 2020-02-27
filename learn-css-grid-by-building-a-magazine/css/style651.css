@@ -116,6 +116,76 @@ hr {
   border: 1px solid rgba(120, 120, 120, 0.6);
 }
 
-/* 
-To make the quote text stand out, create a rule for the `.quote` class with the property `color` set to `#00beef` and `font-size` to `2.4rem` for better readability and hierarchy.
-*/
+.quote {
+  color: #00beef;
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.quote::before {
+  content: '“ ';
+}
+
+.quote::after {
+  content: ' ”';
+}
+
+.text-with-images {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 3rem;
+}
+
+.lists {
+  list-style-type: none;
+  margin-top: 2rem;
+}
+
+.lists li {
+  margin-bottom: 1.5rem;
+}
+
+.list-title,
+.list-subtitle {
+  color: #00beef;
+}
+
+.list-title {
+  font-size: 3rem;
+}
+
+.list-subtitle {
+  font-size: 2rem;
+}
+
+.image-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+  gap: 2rem;
+}
+
+.image-1,
+.image-3 {
+  grid-column: 1 / -1;
+}
+
+@media only screen and(max-width: 720px) {
+  .image-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .text-with-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  /* 
+  First set the font size of `.hero-title` to `6rem`.  
+  */
+
+}

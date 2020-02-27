@@ -152,8 +152,8 @@ hr {
 }
 
 /* 
-You are doing great so far! Now let's style the last section of our magazine, the images. 
-Our images is wrap within `aside` element with class `image-wrapper`. 
-Let's use grid again to align the layout of class`image-wrapper`. 
+You are doing great so far! Now let's style the last section of our magazine, the images.
+Our images are wrapped with an `aside` element with the class `.image-wrapper`. 
+Let's use grid again to adjust the layout that element.
 Create new CSS rule for `.image-wrapper` and set its `display` property to `grid`. 
 */

@@ -147,6 +147,6 @@ hr {
 }
 
 /* 
-Now give color to the list title and subtitle. 
-Create rule for both class `.list-title` and `.list-subtitle` and set `color` property to `#00beef`
+Now add some color to the list title and subtitle. 
+Create a rule that targets both `.list-title` and `.list-subtitle` and set the `color` property to `#00beef`.
 */

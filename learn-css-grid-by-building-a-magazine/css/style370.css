@@ -96,7 +96,7 @@ img {
   align-items: center;
 }
 
-/* Looking much better, but how to tidy it up a little bit? Use `text-align` property and set it to `justify`.
+/* 
 Things are looking much better, but we can improve the layout of the text.
 Use the `text-align` property and set it to `justify`.
  */

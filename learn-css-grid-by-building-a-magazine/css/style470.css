@@ -132,9 +132,9 @@ hr {
 }
 
 /* 
-Now we can move on to style the second paragraph section of our magazine. 
-This section has two class names, text and text-with-images. 
-So its already inherited a CSS styling rule from `.text` that we had created.
-We want to separate two elements inside this section into its own grid. 
-Create a rule for `text-with-images` and set the property `display` to `grid`. 
+Now we can move on to styling the second paragraph of our magazine. 
+This section has two class names, `.text` and `.text-with-images`. 
+So its already inherited styling from the `.text` CSS rule we created.
+We want to separate the two elements inside this section into its own grid. 
+Create a rule for `.text-with-images` and set the property `display` to `grid`. 
 */

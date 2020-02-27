@@ -143,6 +143,6 @@ hr {
 }
 
 /* 
-For each `li` element inside our unordered list, add space on the bottom to separate it with each other. 
+Add some space to the bottom of each `li` element inside the unordered list to separate them from each other.
 Create a rule targeting `.lists li` and set the `margin-bottom` property to `1.5rem`. 
 */

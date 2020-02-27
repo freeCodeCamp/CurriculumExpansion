@@ -171,26 +171,9 @@ hr {
   grid-column: 1 / -1;
 }
 
-@media only screen and (max-width: 850px) {
-  .image-wrapper {
-    row-gap: 2rem;
-    column-gap: 1rem;
-  }
-  .image-2 {
-    margin: 0;
-  }
-  .image-3 {
-    grid-column: 1 / -1;
-  }
-}
-
 @media only screen and (max-width: 720px) {
   .image-wrapper {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, min-content);
-  }
-  .image-quote {
-    grid-column: 1 / -1;
   }
 }
 
@@ -204,41 +187,28 @@ hr {
   .hero-title {
     font-size: 6rem;
   }
-  .hero-subtitle {
-    font-size: 1.8rem;
-  }
-  .author {
-    grid-column-start: 1;
-    font-size: 1.8rem;
-  }
-  .social-icons {
-    grid-column-start: 2;
-    font-size: 2rem;
-  }
-  .text {
-    font-size: 1.6rem;
-  }
+
+  .hero-subtitle,
+  .author,
   .quote,
   .list-header {
     font-size: 1.8rem;
   }
+
+  .social-icons {
+    font-size: 2rem;
+  }
+  
+  .text {
+    font-size: 1.6rem;
+  }
 }
 
 @media only screen and (max-width: 420px) {
-  main {
-    grid-template-columns: 1fr;
-    padding: 0 2rem;
-  }
-  .heading {
-    grid-template-columns: 1fr;
-  }
-  .heading,
-  .text {
-    grid-column: 1 / -1;
-  }
   .hero-title {
     font-size: 4.5rem;
   }
+
   .social-icons {
     grid-column-start: 1;
   }

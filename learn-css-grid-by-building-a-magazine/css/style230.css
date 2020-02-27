@@ -55,7 +55,9 @@ main {
   position: relative;
 }
 
-/* Also add `object-fit` property to `cover`. This will told the browser how to resized the image to fit its container.  */
+/* 
+Also add the `object-fit` property and set it to `cover`. 
+This will tell the browser how to resize the image to fit its container.   */
 img {
   width: 100%;
 }

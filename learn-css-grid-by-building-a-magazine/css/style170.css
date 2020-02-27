@@ -42,9 +42,10 @@ main {
   row-gap: 3rem;
 }
 
-/* Is that possible to have grid inside grid? Yes it's possible!
-All you have to do is set `display: grid;` in the child element.
-Add `display: grid` to your `heading` class. 
+/* 
+You might be thinking, is it possible to have a grid inside a grid? Yes, it's possible!
+All you have to do is set `display` to `grid` in the child element.
+Add that to the `heading` class
 */
 
 .heading {

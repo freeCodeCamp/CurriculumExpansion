@@ -160,7 +160,7 @@ hr {
 }
 
 /* 
-Now create the rule for 3 rows. Add property `grid-template-rows` and set its value to `repeat(3, min-content)` so we can have three dynamic height rows based on its content. 
+Now create the rule for 3 rows. Add the property `grid-template-rows` and set its value to `repeat(3, min-content)` so we can have three rows with dynamic heights based on their content.
 */
 
 .image-wrapper {

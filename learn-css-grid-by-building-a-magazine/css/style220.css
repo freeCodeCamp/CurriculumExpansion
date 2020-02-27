@@ -55,8 +55,10 @@ main {
   position: relative;
 }
 
-/* If you look at the main image, it is not covering the entire grid yet. 
-Write new CSS rule to target the `img` element and set its `width` to 100%. */
+/* 
+If you look at the main image, it is not covering the entire grid yet.
+Write a new CSS rule to target the `img` element and set its `width` to 100%.
+ */
 
 .text {
   grid-column: 2 / 3;

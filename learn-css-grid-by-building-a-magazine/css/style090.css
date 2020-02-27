@@ -29,7 +29,8 @@ h6 {
 }
 
 /* 
-The text decoration is gone, but the color looks dull. Set property `color` value to `linen`, same as color value we already declared in body. 
+Now the text decoration is gone, but the color looks dull. 
+Set the property `color` to `linen`, the same color value we already declared in the `body`.
 */
 
 a {

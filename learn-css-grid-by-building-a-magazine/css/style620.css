@@ -172,5 +172,13 @@ hr {
 }
 
 /* 
-Next Media queries
+Well done, you've made it so far!
+Next, let's style our magazine so it will look great on every devices. 
+First you need to write a rule for certain width. 
+Lets start with the max-width 720px. Add this code below:
+```
+@media only screen and(max-width: 720px) {
+
+}
+```
 */

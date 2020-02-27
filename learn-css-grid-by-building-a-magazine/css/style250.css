@@ -60,8 +60,10 @@ img {
   object-fit: cover;
 }
 
-/* The title still looks small and not grab the reader's attention. 
-Set its color to `orangered` and the `font-size` to `8rem` to make it look like a real title.  */
+/* 
+The title still looks small and not grab the reader's attention. 
+Set its color to `orangered` and the `font-size` to `8rem` to make it look like a real title.
+*/
 
 .hero-title {
   position: absolute;
