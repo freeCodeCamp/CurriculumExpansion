@@ -1,4 +1,4 @@
 /* 
-Before we start with CSS grid, we need to 'normalize' the CSS rules and make a little tweak. 
-Lets start with targeting all elements with `*` and also its pseudo class like `*::before`, `*::after`.
+Before we start with CSS grid, we need to 'normalize' the CSS rules and make them easier to work with.
+Let's start by targeting all elements with `*` and also its pseudo classes `*::before` and `*::after`.
 */

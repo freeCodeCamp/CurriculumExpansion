@@ -112,8 +112,8 @@ img {
 }
 
 /* 
-Now to add color to the `hr` element you need to use `border` property. 
-Set its `border` property to `1px solid rgba(120, 120, 120, 0.6)`.
+Now to add color to the `hr` element, you need to use the `border` property. 
+Set its `border` to `1px solid rgba(120, 120, 120, 0.6)`.
 */
 
 hr {

@@ -112,6 +112,6 @@ img {
 }
 
 /* 
-Our paragraph looks really good now. The only styling we need is for the blockquote. 
-First let's style the `hr` element. Create a rule for `hr` element and set the `margin` property to `1.5rem 0`. It will add some space at the top and bottom of blockquote. 
+Our paragraph looks really good now. The only styling we need is for the blockquote.
+Create a rule for the `hr` element and set the `margin` property to `1.5rem 0`. It will add some space at the top and bottom of the blockquote.
 */

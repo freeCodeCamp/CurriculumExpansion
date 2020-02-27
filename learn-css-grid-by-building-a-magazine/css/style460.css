@@ -128,5 +128,6 @@ hr {
 }
 
 /* 
- Do the last instruction for the `.quote` class, but now for the `::after` pseudo-class. Set its `content` property to ` ”`. 
+Now create a rule that targets .quote, but uses the `::after` pseudo-class.
+Set its `content` property to ` ”`.
 */

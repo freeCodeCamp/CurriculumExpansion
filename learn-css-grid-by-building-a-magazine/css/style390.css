@@ -105,8 +105,8 @@ img {
 }
 
 /* 
-That first letter doesn't look in line with the rest of the texts. 
-Add property `float` and set it to `left` to make it in line. 
+That first letter doesn't look in line with the rest of the text. 
+Add property `float` and set it to `left` to bring it in. 
  */
 
 .first-paragraph::first-letter {

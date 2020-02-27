@@ -132,9 +132,9 @@ hr {
 }
 
 /* 
-Now we can arrange the layout into two uneven columns. One column for the text and the other for the images. 
-Set the property `grid-template-columns` to `1fr 2fr` so the images will have bigger column width. 
-Also set its `column-gap` property to `3rem` to give space between the grid. 
+Next, arrange the layout into two uneven columns, one column for the text and the other for the images.
+Set the property `grid-template-columns` to `1fr 2fr` so the images will have a bigger column width. 
+Also set its `column-gap` property to `3rem` to increase the space between the columns. 
 */
 
 .text-with-images {

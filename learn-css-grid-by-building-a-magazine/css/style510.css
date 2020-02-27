@@ -138,7 +138,7 @@ hr {
 }
 
 /* 
-Add space between the lists and the title by adding `margin-top` property to `2rem` to the `lists` class rule. 
+Add some space between the lists and the title by setting `margin-top` property to `2rem` in the `.lists` rule.
 */
 
 .lists {

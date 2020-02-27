@@ -6,7 +6,7 @@
 }
 
 /* 
-To ease our confusion with the actual size of our elements, lets add `box-sizing` property to `border-box`. 
+To ease any confusion with the actual size of our elements, add the `box-sizing` property and set it to `border-box`.
 */
 
 html {

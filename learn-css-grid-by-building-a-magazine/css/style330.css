@@ -88,12 +88,10 @@ img {
 }
 
 /* 
-
-Now the auto-placement algorithm will kick in whenever you add a new icon element. But the new column width will be set to auto and won't look evenly distributed.
-You could set the width of a new created column with `grid-auto-columns` property and set the width the same as the width we make in the `grid-template-columns`.
+Now the auto-placement algorithm will kick in whenever you add a new icon element. But the new column width will be set to `auto` and won't look evenly distributed.
 To set the width of newly created columns, set `grid-auto-columns` to `1fr` like you did with `grid-template-columns`.
-
 */
+
 .social-icons {
   font-size: 3rem;
   display: grid;

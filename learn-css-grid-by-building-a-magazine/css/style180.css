@@ -42,10 +42,11 @@ main {
   row-gap: 3rem;
 }
 
-/* You now can style the layout of `heading` class with CSS grid.
-If you have two or more same size columns or rows, you can use `repeat()` function.
+/* 
+Now you can style the layout of the `heading` class with CSS grid.
+If you have two or more columns or rows that are the same size, you can use the `repeat()` function.
 To make three columns with same width, you could write: `grid-template-columns: repeat(3, 200px);`. 
-Create two equal columns in the `heading` class with width of `1fr` each. 
+Create two equal columns in the `heading` class with a width of `1fr` each. 
 */
 
 .heading {

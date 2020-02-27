@@ -168,6 +168,6 @@ hr {
 }
 
 /* 
-The layout for these images is that we want to make the first and third image taking the whole width of the grid. 
-Create rule for `.image-1` and `.image-3` and set the `grid-column` property to `1 / -1`. 
+Next, we want to make the first and third image take up the whole width of the grid.
+Create a rule that targets `.image-1` and `.image-3` and set the `grid-column` property to `1 / -1`
 */

@@ -17,6 +17,6 @@ body {
 }
 
 /* 
-As we said before that we have three fonts installed from Google fonts. One for our body, one for our main heading and the other for sub-heading. 
-Create rule for `h1` element and set its `font-family` property to `"Anton"` and `sans-serif` as the fallback font. 
+As we mentioned before, there are three fonts from Google already downloaded. One for the body, one for the main heading, and the other for the sub-heading.
+Create a rule for the `h1` element and set its `font-family` to `"Anton"` with `sans-serif` as the fallback font. 
 */

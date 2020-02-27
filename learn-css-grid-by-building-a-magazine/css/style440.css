@@ -117,8 +117,8 @@ hr {
 }
 
 /* 
-Usually blockquote has its own font type.
-Set the `font-family` to `"Raleway"` and `sans-serif` as the fallback font to distinguish it with the paragraph font. 
+Usually blockquotes have their own font type.
+Set the `font-family` to `"Raleway"` and `sans-serif` as the fallback font to distinguish it from the font used for the paragraphs.
 */
 
 .quote {

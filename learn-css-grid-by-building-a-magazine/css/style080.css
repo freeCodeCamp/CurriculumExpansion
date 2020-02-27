@@ -29,6 +29,6 @@ h6 {
 }
 
 /* 
-Next, let's style the link element. As usual, most of us don't like the default underline on the link text.
-Target `a` element and set `text-decoration` property to `none`. 
+Next, let's style the link element. As usual, most of us don't like the default underline for the link text.
+Target the `a` elements and set the `text-decoration` property to `none`.
 */

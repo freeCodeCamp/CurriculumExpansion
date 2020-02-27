@@ -124,8 +124,8 @@ hr {
 }
 
 /* 
-A quote is not a quote if it doesn't have double quotation mark. 
-You could do it with CSS pseudo class `::before` or `::after`. 
+A quote is not really a quote if it doesn't have double quotation marks.
+You could do this with the CSS pseudo class `::before` or `::after`. 
 Create a rule for `.quote::before` and set the `content` property to `“ `.
-PS: Don't forget the space after the double mark quote.  
+Don't forget the space after the double quotation mark!  
 */

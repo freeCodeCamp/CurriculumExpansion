@@ -160,7 +160,8 @@ hr {
 }
 
 /* 
-We want to make 2 columns by 3 rows grid layout. The columns will be for images and quote. Add property `grid-template-columns` to make 2 columns and set its width to `2fr 1fr`
+We want to make a 2 column, 3 row grid layout. The columns will be for images and the quote.
+Add the property `grid-template-columns` and set it to `2fr 1fr` to create two columns and set its width.
 */
 
 .image-wrapper {
