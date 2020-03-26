@@ -21,29 +21,21 @@ const products = [
   }
 ];
 
-class ShoppingCart {
-  constructor() {
-    this.items = [];
-  }
+/*
+The shoppingCart is shaping up nicely.
+But we have a problem here. Right now you can pass in any arbitrary value as the `productId` and it will get added to the items array.
+This is a cause for concern, since our shoppingCart can only be filled by items in the `products` array.
+Time to fix this.
+Modify the `addItems` method so that only valid `productId` is added into our items array.
+You will have to loop through the products list and check if the passed `productId` exists in it.
+*/
 
-  addItem(id, products) {
-    for(let i = 0; i < products.length; i++) {
-      /*  
-      This code functions but can we make this better? We could use built in method called `find` to make our code more concise and easier to read.
-
-      The `find` method returns the first item when a given condition is satisfied. 
-
-      Create a variable called `item`, and set it equal to the item returned by the `find` method.
-      
-      For example:
-      ```
-      const match = arr.find(item => item.name === name);
-      myArr.push(match);
-      ```
-      */
-      if(id === products[i].id) {
-        this.items.push(products[i]);
-      }
-    }
+const shoppingCart = {
+  items: [],
+  addItem: (productId) => {
+    shoppingCart.items.push(productId);
   }
 }
+
+shoppingCart.addItem(99);
+console.log(shoppingCart.items);

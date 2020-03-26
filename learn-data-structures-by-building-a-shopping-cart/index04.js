@@ -21,19 +21,13 @@ const products = [
   }
 ];
 
-class ShoppingCart {
-  /*
-  Classes have a special method -- or function inside of a class -- called `constructor` that sets up each new object that's created with the class blueprint.
-  Declare a `constructor` method inside the `ShoppingCart` class.
-  Here is an example:
-  ```
-  class Car {
-    constructor() {
-    
-    }
-  }
-  ```
-  */
-
-  
-}
+/*
+These key-value pairs are separated by a colon `:`. Each key inside an object is called its property.
+A property can have a value of any type. 
+An empty object is one that has no properties.
+For example:
+```
+const user = {}
+```
+Go ahead and initialize an empty object called shoppingCart.
+*/
