@@ -22,7 +22,7 @@ const products = [
 ];
 
 /*
-You can also add methods to an object. If a function referenced by a property of the object, we call it a method of the object.
+You can also add methods to an object. If a function is referenced by a property of the object, we call it a method of the object.
 Here is an example:
 ```
 const user = {
@@ -38,4 +38,4 @@ Remember, each key-value pair in an object needs to be followed by a comma `,` i
 */
 const shoppingCart = {
   items: []
-}
+};
