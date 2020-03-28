@@ -21,24 +21,21 @@ const products = [
   }
 ];
 
-class ShoppingCart {
-  constructor() {
-    this.items = [];
-  }
-
-  /*
-  The easiest way to add an item to our cart is through an item's unique id.
-  Because their ids are unique, we can easily identify what kind of items they are.
-  Have our `addItem` method take `id` as its first parameter and the `products` array as the second parameter.
-  Here's a function that takes two parameters, `name` and `list`:
-  ```
-  sayName (name, list) {
-
-  }
-  ```
-  */
-
-  addItem() {
-
+/*
+You can also add methods to an object. If a function is referenced by a property of the object, we call it a method of the object.
+Here is an example:
+```
+const user = {
+  name: "John Doe",
+  print: () => {
+    console.log(user.name);
   }
 }
+```
+The `print` method of the `user` object prints the name of the user to the console.
+Add a property called addItem to the `shoppingCart` and initialize it as an empty function.
+Remember, each key-value pair in an object needs to be followed by a comma `,` if another pair succeeds it.
+*/
+const shoppingCart = {
+  items: []
+};

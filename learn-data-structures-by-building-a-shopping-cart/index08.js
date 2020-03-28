@@ -21,25 +21,14 @@ const products = [
   }
 ];
 
-class ShoppingCart {
-  constructor() {
-    this.items = [];
-  }
+/*
+Next, let's add some logic to our `addItem` method.
+The `addItem` method should be able to add a value called productId, passed as a parameter, into the `items` array.
+You can use the `push` Array method to populate `items`.
+*/
 
-  addItem(id, products) {
-    /*
-    Let's loop through the given products array and check if a product object contains the given id. 
-
-    During the loop, if the id is found, push the object that contains the id to our items array.
-
-    Use a `for` loop to accomplish this. Here is an example:
-
-    for(let i = 0; i < arr.length; i++) {
-      if(id === arr[i].id) {
-        this.myArray.push(arr[i]);
-      }
-    }
-    */
-
+const shoppingCart = {
+  items: [],
+  addItem: () => {
   }
 }

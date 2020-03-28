@@ -21,15 +21,9 @@ const products = [
   }
 ];
 
-class ShoppingCart {
-  constructor() {
-    /*
-    When we assign properties inside our constructor, we attach the `this` keyword in front of them.
-    Then each new object created by the class will have those properties.
-    Create an empty array and assign it to a property called `items` inside the constructor.
-    For example, `this.make = 'Hyundai'`;
-    */
+/*
+Great! Now let us start adding products to our cart.
+Add a property called items to our `shoppingCart` object and initialize it as an empty array.
+*/
+const shoppingCart = {}
 
-    
-  }
-}
