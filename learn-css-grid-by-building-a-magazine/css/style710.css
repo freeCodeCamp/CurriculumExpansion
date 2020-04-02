@@ -211,7 +211,7 @@ hr {
     font-size: 4.5rem;
   }
   /* 
-  Finally adjust the layout for your `.social-icons` because at smaller device it will collide with `author` element. 
-  Create rule for `.social-icons` and set `grid-column-start` property to `1` so it will start at the new row. 
+  Finally, adjust the layout for your `.social-icons` it will collide with the author element on smaller devices.
+  Create rule for `.social-icons` and set the `grid-column-start` property to 1 so it will start at the new row.
   */
 }

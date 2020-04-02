@@ -184,7 +184,6 @@ hr {
 }
 
 /*
-Now our magazine's text including title, sub-title and paragrapah have font size that is too big for smaller device. 
-So you need to adjust the typography of the font. 
-Create rule for media queries with `max-width: 550px`. 
+Now our magazine's text including title, sub-title and paragrapah have font size that is too big for smaller device.
+To adjust the typography, first create rule for media queries with `max-width: 550px`. 
 */
