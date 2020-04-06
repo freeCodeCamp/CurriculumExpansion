@@ -21,10 +21,6 @@ const products = [
   },
 ];
 
-/*
-  Create a new method called getItems that returns the current items in the `shoppingCart`.
-*/
-
 const shoppingCart = {
   items: [],
   addItem: (productId) => {
@@ -35,4 +31,11 @@ const shoppingCart = {
       }
     }
   },
+  getItems: () => {
+    return shoppingCart.items;
+  },
 };
+/*
+Create a function called `shoppingCartGenerator` that initializes and returns
+an empty object called `newShoppingCart`.
+ */

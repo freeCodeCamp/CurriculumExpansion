@@ -21,18 +21,27 @@ const products = [
   },
 ];
 
-/*
-  Create a new method called getItems that returns the current items in the `shoppingCart`.
-*/
-
-const shoppingCart = {
-  items: [],
-  addItem: (productId) => {
+function shoppingCartGenerator() {
+  const newShoppingCart = {};
+  newShoppingCart.items = [];
+  newShoppingCart.addItem = (productId) => {
     for (let i = 0; i < products.length; i++) {
       if (productId === products[i].id) {
         shoppingCart.items.push(productId);
         break;
       }
     }
-  },
-};
+  };
+  newShoppingCart.getItems = () => {
+    return shoppingCart.items;
+  };
+  return newShoppingCart;
+}
+
+const primary = shoppingCartGenerator();
+const wishlist = shoppingCartGenerator();
+
+/*
+    There is a way of reusing pieces of code in memory to mitigate the problem we just saw.
+    Inst
+*/
