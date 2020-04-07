@@ -74,5 +74,5 @@ const shoppingCart = {
   existing shoppingCart objects.
 
   A better approach would be to instead generate the shoppingCart object using a function. We'll
-  call the function `generateShoppingCart`.
+  call the function `shoppingCartGenerator`.
   */

@@ -42,6 +42,15 @@ const primary = shoppingCartGenerator();
 const wishlist = shoppingCartGenerator();
 
 /*
-    There is a way of reusing pieces of code in memory to mitigate the problem we just saw.
-    Inst
+  A smart approach would be to move the functions `getItems` and `addItem` to an object that can be used
+  to store all the methods we wish our shoppingCart objects to have access to.
+
+  ```
+  const functionStore = {
+    method1 = ()=>{
+      console.log('hey, I am a function')
+    }
+  }
+  ```
+  Create an empty object called `functionStore`.
 */
