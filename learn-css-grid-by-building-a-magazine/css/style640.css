@@ -179,7 +179,7 @@ hr {
 
 /* 
 Great! Lets move on to our next media queries rule. 
-When the device getting smaller, you will want to align all the layout into one column.
+As the device gets smaller, you will want to align everything in vertical one column.
 Create media query rule for `max-width: 600px`.
 Target the `.text-with-images` class and set `grid-template-columns` property values to `1fr`. 
 */

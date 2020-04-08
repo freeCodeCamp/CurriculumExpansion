@@ -175,7 +175,8 @@ hr {
 Well done, you've made it so far!
 Next, let's style our magazine so it will look great on every device. 
 First, you need to write a media query to style elements when the screen is a certain width.
-Lets start with the max-width 720px. Add this code below:
+Let's start by writing a media query to style elements when the screen is up to 720 pixels wide.
+For example:
 ```
 @media only screen and(max-width: 720px) {
 

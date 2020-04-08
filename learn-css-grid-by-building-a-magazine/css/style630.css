@@ -175,7 +175,7 @@ hr {
 
 @media only screen and(max-width: 720px) {
 /* 
-When the screen is 720px wide, our blockquote at the second section looks terrible.
+When the screen is 720px wide, our blockquote in the second section looks terrible.
 We want everything to align in one column.
 Create rule for the `.image-wrapper` class.
 */

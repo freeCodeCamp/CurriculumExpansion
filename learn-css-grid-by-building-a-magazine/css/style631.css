@@ -175,7 +175,7 @@ hr {
 
 @media only screen and(max-width: 720px) {
   /* 
-    Now to aligh the layout into one column, simply target the `grid-template-columns` property and set its value to `1fr.
+    Now to align the layout into one column, simply target the `grid-template-columns` property and set its value to `1fr`.
 
   ```
   .image-wrapper {
