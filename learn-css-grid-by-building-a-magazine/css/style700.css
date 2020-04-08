@@ -208,6 +208,6 @@ hr {
 
 @media only screen and (max-width: 420px) {
   /* 
-  Our magazine title still look big at this width. Let's adjust `.hero-title` class font size to `4.5rem`. 
+  Our magazine's title still looks big at this width. Let's adjust the `.hero-title` class's font size to `4.5rem`.
   */
 }
