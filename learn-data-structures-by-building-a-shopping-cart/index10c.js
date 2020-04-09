@@ -21,10 +21,6 @@ const products = [
   },
 ];
 
-/*
-  Create a new method called getItems that returns the current items in the `shoppingCart`.
-*/
-
 const shoppingCart = {
   items: [],
   addItem: (productId) => {
@@ -35,4 +31,15 @@ const shoppingCart = {
       }
     }
   },
+  getItems: () => {
+    return shoppingCart.items;
+  },
 };
+/*
+  Excellent. Now using the dot notation, add the items property to the `newShoppingCart`
+  object before returning it.
+   */
+function shoppingCartGenerator() {
+  const newShoppingCart = {};
+  return newShoppingCart;
+}

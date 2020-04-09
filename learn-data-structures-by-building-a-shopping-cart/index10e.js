@@ -21,6 +21,24 @@ const products = [
   },
 ];
 
+const shoppingCart = {
+  items: [],
+  addItem: (productId) => {
+    for (let i = 0; i < products.length; i++) {
+      if (productId === products[i].id) {
+        shoppingCart.items.push(productId);
+        break;
+      }
+    }
+  },
+  getItems: () => {
+    return shoppingCart.items;
+  },
+};
+/*
+    Hurray! The `shoppingCartGenerator` is now ready to use.
+    Using this function, create the two shoppingCarts: primary and wishlist
+*/
 function shoppingCartGenerator() {
   const newShoppingCart = {};
   newShoppingCart.items = [];
@@ -37,13 +55,3 @@ function shoppingCartGenerator() {
   };
   return newShoppingCart;
 }
-
-const primary = shoppingCartGenerator();
-const wishlist = shoppingCartGenerator();
-
-/*
-It appears we have fulfilled the requirements for Object Oriented Programming.
-But unfortunately, we have a problem in our code that will cost performance.
-This performance cost is not significant for small software programs, but nonetheless,
-we have to address the issue and find a better way to build objects.
-*/

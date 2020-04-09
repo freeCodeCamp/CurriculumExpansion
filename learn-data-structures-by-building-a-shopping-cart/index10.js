@@ -2,46 +2,79 @@ const products = [
   {
     id: 0,
     name: "Vanilla buttercream cupcake",
-    price: 2.99
+    price: 2.99,
   },
   {
     id: 1,
     name: "French Macaroon",
-    price: 3.99
+    price: 3.99,
   },
   {
     id: 2,
     name: "Fruit sprinkles cupcake",
-    price: 3.99
+    price: 3.99,
   },
   {
     id: 3,
     name: "Pink flower cupcake",
-    price: 5.99
-  }
+    price: 5.99,
+  },
 ];
 
-class ShoppingCart {
-  constructor() {
-    this.items = [];
-  }
-
-  addItem(id, products) {
-    const item = products.find(item => item.id === id);
-    this.items.push(item);
-  }
-
-  getItems() {
-    return this.items;
-  }
-}
+const shoppingCart = {
+  items: [],
+  addItem: (productId) => {
+    for (let i = 0; i < products.length; i++) {
+      if (productId === products[i].id) {
+        shoppingCart.items.push(productId);
+        break;
+      }
+    }
+  },
+  getItems: () => {
+    return shoppingCart.items;
+  },
+};
 
 /*
-We now need to create an instance or a copy of our `ShoppingCart` class.
-This instance will be an object and have all of the methods and data defined in the class available to it.
-To make an instance of a class, use the `new` keyword.
-For example, `const car = new Car();`
-Make an instance of the `ShoppingCart` class and assign it to a variable called `shoppingCart`.
+Super! Looks like the shoppingCart is in a good shape.
+Time to take it for a spin. Suppose we need two shopping carts, let's call one `primary`, 
+which we'll use to buy the items we want right now. The other we'll call `wishlist`, a 
+shoppingCart with the items you may want to buy in the future.
+The way we do this is not glaringly obvious.
+
+The simplest way would be to copy the shoppingCart object's code and reuse it.
+
+```
+const primary = {
+  items: [],
+  addItem: (productId) => {
+    for (let i = 0; i < products.length; i++) {
+      if (productId === products[i].id) {
+        shoppingCart.items.push(productId);
+        break;
+      }
+    }
+  },
+  getItems: () => {
+    return shoppingCart.items;
+  },
+};
+
+const wishlist = {
+  items: [],
+  addItem: (productId) => {
+    for (let i = 0; i < products.length; i++) {
+      if (productId === products[i].id) {
+        shoppingCart.items.push(productId);
+        break;
+      }
+    }
+  },
+  getItems: () => {
+    return shoppingCart.items;
+  },
+};
+```
+
 */
-
-

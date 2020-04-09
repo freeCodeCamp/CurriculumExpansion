@@ -42,8 +42,15 @@ const primary = shoppingCartGenerator();
 const wishlist = shoppingCartGenerator();
 
 /*
-It appears we have fulfilled the requirements for Object Oriented Programming.
-But unfortunately, we have a problem in our code that will cost performance.
-This performance cost is not significant for small software programs, but nonetheless,
-we have to address the issue and find a better way to build objects.
+  A smart approach would be to move the functions `getItems` and `addItem` to an object that can be used
+  to store all the methods we wish our shoppingCart objects to have access to.
+
+  ```
+  const functionStore = {
+    method1 = ()=>{
+      console.log('hey, I am a function')
+    }
+  }
+  ```
+  Create an empty object called `functionStore`.
 */
