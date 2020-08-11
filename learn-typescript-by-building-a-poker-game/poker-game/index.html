@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="index.js" type="module"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Poker game</title>
+    </head>
+    <body>
+        <div id="profile-container">
+            <h2>Welcome <span id="user-name"></span></h2>
+            <span
+                id="cash-container"
+                class="mdl-chip mdl-chip--contact"
+            >
+                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">$</span>
+                <span id="cash" class="mdl-chip__text"></span>
+            </span>
+        </div>
+
+        <div id="welcome-container">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input type="text" class="mdl-textfield__input"
+                    id="user-name-input" />
+                <label for="user-name-input"
+                    class="mdl-textfield__label">
+                    Please enter your name:
+                </label>
+            </div>
+            <button id="start"
+                class="mdl-button mdl-js-button mdl-button--primary">
+                Start
+            </button>
+        </div>
+
+        <div id="bet-container">
+            <label for="bet-range-input">Place your bet:</label>
+            <input type="range" min="1"
+                class="mdl-slider mdl-js-slider"
+                id="bet-range-input" />
+            <span
+                id="bet-value-container"
+                class="mdl-chip mdl-chip--contact"
+            >
+                <span class="mdl-chip__contact" id="mdl-chip__token"></span>
+                <span id="bet-value-input-val" class="mdl-chip__text"></span>
+            </span>
+            <button id="bet"
+                class="mdl-button mdl-js-button mdl-button--primary">
+                Bet
+            </button>
+        </div>
+
+        <div id="result-container">
+            <h3>Your bet is $<span id="bet-in-result"></span>. Good luck!</h3>
+            <div id="poker-table-container">
+                <div id="bot-result-container">
+                    <h2>Bot</h2>
+                    <div id="bot-result"></div>
+                </div>
+                <div id="player-result-container">
+                    <h2>You</h2>
+                    <div id="player-result"></div>
+                </div>
+            </div>
+            <div id="result-rank-container">
+                <div id="bot-rank"></div>
+                <div id="player-rank"></div>
+            </div>
+            <br>
+            <div id="result-text-container">
+                <div id="winner-text"></div>
+                <div id="cash-result"></div>
+            </div>
+            <div id="action-container">
+                <button id="end"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    End
+                </button>
+                <button id="next"
+                    class="mdl-button mdl-js-button mdl-button--primary">
+                    Next
+                </button>
+                <button id="refill"
+                    class="mdl-button mdl-js-button mdl-button--primary">
+                    Refill $100
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
+
