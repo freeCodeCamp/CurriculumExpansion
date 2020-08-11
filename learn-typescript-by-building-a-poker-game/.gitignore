@@ -1,0 +1,51 @@
+# Bundled
+dist/
+.cache/
+
+# TS compiled
+poker-game-ts/**/*.js
+poker-game-ts/**/*.map
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+Thumbs.db
+
+# npm
+node_modules/
+
+# Logs
+*.log
+
+# IntelliJ
+.idea
+
+# VScode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Other IDE and editor
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Vim template
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+Session.vim
+.netrwhist
+*~
+[._]*.un~
+
