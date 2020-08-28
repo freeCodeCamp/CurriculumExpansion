@@ -1,8 +1,0 @@
-.magazine {
-  display: grid;
-  /* To declare the number of columns i.e. vertical divisions a grid has, we use the
-  grid-template-columns property. We use a unit called fr that represents a fraction of the free space.
-  For example: grid-template-columns: 1fr 3fr; would divide the grid into 1+3=4 parts, the first column
-  would occupy 25% of the space and the second one would occupy 75%
-  Use the property to declare 6 columns each having 1/6th of the total space*/
-}
