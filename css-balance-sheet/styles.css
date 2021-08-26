@@ -1,0 +1,78 @@
+body {
+    text-align: center;
+}
+
+#sheet {
+    text-align: left;
+    max-width: 500px;
+    margin: auto;
+    background-color: #d0d0d5;
+}
+
+#header {
+    color: white;
+    background-color: #1b1b32
+}
+
+.section {
+    width: 100%;
+}
+
+.row:nth-child(even) {
+    background-color: #99c9ff;
+}
+
+.row:nth-child(odd) {
+    background-color: #dbb8ff;
+}
+
+.row:first-child {
+    background-color: #f1be32;
+}
+
+.row:last-child {
+    background-color: #3b3b4f;
+}
+
+.row[class=total] {
+    color: white;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.total {
+    border-style: none none double none;
+    border-bottom: 2px double black;
+    font-weight: bold;
+    color: white;
+}
+
+span:not(.name) {
+    margin-left: 10px;
+    min-width: 10%;
+    text-align: right;
+}
+
+span[class=current] {
+    font-style: italic;
+}
+
+.name {
+    width: 100%;
+    text-align: left;
+}
+
+.row[tabindex]:hover {
+    background-color: #f5f5f5;
+    color: black;
+}
+
+.row[tabindex]:focus {
+    background-color: #f5f5f5;
+    color: black;
+}
