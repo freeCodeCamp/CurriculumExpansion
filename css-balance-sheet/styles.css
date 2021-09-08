@@ -55,12 +55,14 @@ p[class~="total"] {
   border-bottom: 1px solid black;
 }
 
+/* Ignore the name, so we can justify those to the left */
 span:not(.name) {
   margin-left: 10px;
   min-width: 10%;
   text-align: right;
 }
 
+/* Will make the current year column italic */
 span[class="current"] {
   font-style: italic;
 }
@@ -83,10 +85,19 @@ tab index will interact on hover */
   color: black;
 }
 
+/* Selects all h2 that are children of div */
 div > h2 {
   text-decoration: underline;
 }
 
+/* Explain that this doesn't affect the first title
+because this selector looks for div -> h2 and is seeing the outer div? */
 div ~ h2 {
   font-weight: normal;
+}
+
+/* Selects the notes elements*/
+p + span {
+  font-size: 0.9em;
+  font-style: italic;
 }
