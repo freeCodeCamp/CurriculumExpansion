@@ -1,4 +1,3 @@
-
 :root {
   --penguin-size: 300px;
   --penguin-skin: gray;
@@ -14,6 +13,10 @@
   margin-top: 75px;
   width: var(--penguin-size, 300px);
   height: var(--penguin-size, 300px);
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0ms;
 }
 
 .right-cheek {
@@ -132,6 +135,7 @@
   width: 15%;
   height: 17%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .left-eye {
@@ -141,6 +145,7 @@
   width: 15%;
   height: 17%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .sparkle {
@@ -159,6 +164,7 @@
   width: 15%;
   height: 10%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .blush-left {
@@ -168,6 +174,7 @@
   width: 15%;
   height: 10%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .beak-top {
@@ -177,6 +184,7 @@
   width: 20%;
   height: 10%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .beak-bottom {
@@ -186,6 +194,7 @@
   width: 16%;
   height: 10%;
   border-radius: 50%;
+  z-index: 2;
 }
 
 body {
@@ -221,27 +230,71 @@ body {
 }
 
 .background-mountain {
-    width: 300px;
-    height: 300px;
-    background-color: maroon;
-    position: absolute;
-    left: 100px;
-    top: 225px;
-    z-index: -5;
-    transform: rotate(45deg);
+  width: 300px;
+  height: 300px;
+  background-color: maroon;
+  position: absolute;
+  left: 100px;
+  top: 225px;
+  z-index: -5;
+  transform: rotate(45deg);
 }
 
 .shift-right {
-    position: absolute;
-    transform: translate(60vw, -200px) scaleX(-1);
+  position: absolute;
+  transform: translate(60vw, -200px) scaleX(-1);
 }
 
 .sun {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    background-color: yellow;
-    right: -75px;
-    top: -75px;
-    border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-color: yellow;
+  right: -75px;
+  top: -75px;
+  border-radius: 50%;
+}
+
+.shirt {
+  box-sizing: border-box;
+  width: 125px;
+  height: 115px;
+  background-color: black;
+  color: white;
+  top: 135px;
+  left: 87.5px;
+  z-index: 1;
+  border-radius: 10% 10% 25% 25%;
+  padding: 0px 25px;
+}
+
+.shirt::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 90%;
+  background-color: white;
+  border-radius: 100% 100% 50% 50%;
+  top: -75px;
+  left: 16px;
+}
+
+.shirt > div {
+  position: relative;
+  font-size: 25pt;
+  width: 50%;
+}
+
+.shirt > div:not(.heart) {
+  top: 30px;
+}
+
+.heart {
+  float: right;
+  top: -15px;
+}
+
+.penguin:hover {
+  transform: scale(1.5, 1.5);
+  cursor: not-allowed;
 }
