@@ -29,7 +29,7 @@ body {
 
 /* Teach here the nth-child looks at all children,
 but nth of type looks only at same tag name.*/
-.row:nth-child(even) {
+.row:nth-of-type(even) {
   background-color: #f5f6f7;
 }
 
