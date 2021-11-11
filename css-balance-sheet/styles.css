@@ -30,7 +30,7 @@ body {
 /* Teach here the nth-child looks at all children,
 but nth of type looks only at same tag name.*/
 .row:nth-child(odd) {
-  background-color: #f5f6f7;
+  background-color: #d0d0d5;
 }
 
 /* Use nth-child first, explain it doesn't work,
