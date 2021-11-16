@@ -1,6 +1,7 @@
 body {
   text-align: center;
   font-family: Tahoma;
+  color: #0a0a23;
 }
 
 #sheet {
@@ -11,15 +12,9 @@ body {
   border: 2px solid #d0d0d5;
 }
 
-#header .row {
-  background-color: transparent;
-  color: #0a0a23;
-}
-
 #header h2 {
   text-decoration: none;
   background-color: transparent;
-  color: #0a0a23;
   font-size: 1.3em;
 }
 
@@ -91,7 +86,6 @@ tab index will interact on hover */
 /* Selects all h2 that are children of div */
 div > h2 {
   background-color: #99c9ff;
-  color: black;
   font-size: 1.3em;
   padding: 0 4px;
 }
