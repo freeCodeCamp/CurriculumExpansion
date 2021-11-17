@@ -1,0 +1,104 @@
+body {
+  text-align: center;
+  font-family: Tahoma;
+  color: #0a0a23;
+}
+
+#sheet {
+  text-align: left;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #d0d0d5;
+}
+
+#header h2 {
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+.section {
+  width: 100%;
+}
+
+/* Teach here the nth-child looks at all children,
+but nth of type looks only at same tag name.*/
+.row:nth-child(odd) {
+  background-color: #d0d0d5;
+}
+
+/* Use nth-child first, explain it doesn't work,
+switch to nth-of-type */
+.row:nth-of-type(odd) {
+  background-color: #dfdfe2;
+}
+
+.row:last-child {
+  background-color: transparent;
+  margin-bottom: 30px;
+}
+
+/* Good opportunity to explain that this is 
+similar to .total, but shows we can ignore the span total
+so it stays grey*/
+p[class~="total"] {
+  border-bottom: 4px double #0a0a23;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #0a0a23;
+  padding: 4px;
+}
+
+/* Ignore the name, so we can justify those to the left */
+span:not(.name) {
+  margin-left: 10px;
+  min-width: 15%;
+  text-align: right;
+}
+
+/* Will make the current year column italic */
+span[class="current"] {
+  font-style: italic;
+}
+
+.name {
+  width: 100%;
+  text-align: left;
+}
+
+/* Using this selector assures that only rows with some 
+tab index will interact on hover */
+.row[tabindex]:hover {
+  background-color: #99c9ff;
+}
+
+/* Explain that this is true when tab indexed or clicked */
+.row[tabindex]:focus {
+  background-color: #198eee;
+  color: white;
+}
+
+/* Selects all h2 that are children of div */
+div > h2 {
+  background-color: #99c9ff;
+  font-size: 1.3em;
+  padding: 0 4px;
+}
+
+/* Explain that this doesn't affect the first title
+because this selector looks for div -> h2 and is seeing the outer div? */
+div ~ h2 {
+  font-weight: normal;
+}
+
+/* Selects the notes elements*/
+p + span {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #3b3b4f;
+}
