@@ -1,0 +1,60 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  background-color: rgb(255, 255, 255); /* Just to teach additive color combinations */
+  padding: 10px 0;
+}
+
+.marker {
+  width: 200px;
+  height: 25px;
+  margin: 10px auto;
+}
+
+.tip {
+  width: 35px;
+  height: 25px;
+  display: inline-block;
+}
+
+.sleeve {
+  width: 110px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 20px;
+  border-left: 10px double rgba(0, 0, 0, 0.75);
+}
+
+.marker > .sleeve {
+  background-color: hsla(0, 0%, 100%, 0.5);
+}
+
+.red {
+  background: linear-gradient(
+    0deg,
+    rgb(122, 38, 14) 0%,
+    rgb(245, 62, 113) 50%,
+    rgb(162, 27, 27) 100%
+  );
+  box-shadow: 0 0px 20px 0px rgba(83, 14, 14, 0.8);
+}
+
+.green {
+  background: linear-gradient(
+    180deg,
+    #0e7a26 0%,
+    #71f53e 50%,
+    #1ba21b 100%
+  );
+  box-shadow: 0 0px 20px 0px rgba(59, 126, 32, 0.8);
+}
+
+.blue {
+  background: linear-gradient(180deg, hsl(253, 79%, 27%) 0%, hsl(223, 90%, 60%) 50%, hsl(240, 71%, 37%) 100%);
+  box-shadow: 0 0px 20px 0px hsla(223, 59%, 31%, 0.8);
+}
