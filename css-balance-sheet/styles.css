@@ -6,64 +6,44 @@ body {
 
 #sheet {
   text-align: left;
-  max-width: 500px;
+  width: 100vw;
+  max-width: 550px;
   margin: 10px auto;
   padding: 10px;
   border: 2px solid #d0d0d5;
 }
 
-#header h2 {
-  text-decoration: none;
-  background-color: transparent;
-  font-size: 1.3em;
+tr {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #0a0a23;
+  border: none;
+  margin: 10px 0;
+  padding: 4px;
 }
 
-.section {
-  width: 100%;
+.data, #years {
+    border-bottom: 1px solid black;
 }
 
 /* Teach here the nth-child looks at all children,
 but nth of type looks only at same tag name.*/
-.row:nth-child(odd) {
+.data:nth-of-type(4n + 3) {
   background-color: #d0d0d5;
 }
 
 /* Use nth-child first, explain it doesn't work,
-switch to nth-of-type */
-.row:nth-of-type(odd) {
+  switch to nth-of-type */
+.data:nth-of-type(4n + 1) {
   background-color: #dfdfe2;
 }
 
-.row:last-child {
-  background-color: transparent;
-  margin-bottom: 30px;
-}
-
-/* Good opportunity to explain that this is 
-similar to .total, but shows we can ignore the span total
-so it stays grey*/
-p[class~="total"] {
-  border-bottom: 4px double #0a0a23;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-  justify-content: flex-end;
-  border-bottom: 1px solid #0a0a23;
-  padding: 4px;
-}
-
 /* Ignore the name, so we can justify those to the left */
-span:not(.name) {
+td:not(.name):not(.notes) {
   margin-left: 10px;
   min-width: 15%;
   text-align: right;
-}
-
-/* Will make the current year column italic */
-span[class="current"] {
-  font-style: italic;
 }
 
 .name {
@@ -71,34 +51,55 @@ span[class="current"] {
   text-align: left;
 }
 
+.notes {
+  width: 100%;
+  text-align: left;
+  font-style: italic;
+}
+
+tr[class="total"] {
+  border-bottom: 4px double #0a0a23;
+  font-weight: bold;
+}
+
 /* Using this selector assures that only rows with some 
 tab index will interact on hover */
-.row[tabindex]:hover {
+tr[class~="total"]:hover {
   background-color: #99c9ff;
 }
 
 /* Explain that this is true when tab indexed or clicked */
-.row[tabindex]:focus {
+tr[class~="total"]:focus {
   background-color: #198eee;
   color: white;
 }
 
-/* Selects all h2 that are children of div */
-div > h2 {
-  background-color: #99c9ff;
-  font-size: 1.3em;
-  padding: 0 4px;
+/* Will make the current year column italic */
+td[class="current"] {
+  font-style: italic;
 }
 
-/* Explain that this doesn't affect the first title
-because this selector looks for div -> h2 and is seeing the outer div? */
-div ~ h2 {
+/* Selects all th that are children of tr */
+tr:not(#header):not(#subheader) > th {
+  color: #356eaf;
+  font-size: 1.3em;
+  padding: 0;
+  width: 100%;
   font-weight: normal;
 }
 
-/* Selects the notes elements*/
-p + span {
-  font-size: 0.8em;
-  font-style: italic;
-  color: #3b3b4f;
+#header > th {
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 2em;
+}
+
+#subheader > th {
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1.3em;
 }
