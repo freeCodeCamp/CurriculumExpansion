@@ -1,104 +1,172 @@
-body {
-  text-align: center;
-  font-family: Tahoma;
-  color: #0a0a23;
-}
-
-#sheet {
-  text-align: left;
-  max-width: 500px;
-  margin: 10px auto;
-  padding: 10px;
-  border: 2px solid #d0d0d5;
-}
-
-#header h2 {
-  text-decoration: none;
-  background-color: transparent;
-  font-size: 1.3em;
-}
-
-.section {
-  width: 100%;
-}
-
-/* Teach here the nth-child looks at all children,
-but nth of type looks only at same tag name.*/
-.row:nth-child(odd) {
-  background-color: #d0d0d5;
-}
-
-/* Use nth-child first, explain it doesn't work,
-switch to nth-of-type */
-.row:nth-of-type(odd) {
-  background-color: #dfdfe2;
-}
-
-.row:last-child {
-  background-color: transparent;
-  margin-bottom: 30px;
-}
-
-/* Good opportunity to explain that this is 
-similar to .total, but shows we can ignore the span total
-so it stays grey*/
-p[class~="total"] {
-  border-bottom: 4px double #0a0a23;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-  justify-content: flex-end;
-  border-bottom: 1px solid #0a0a23;
-  padding: 4px;
-}
-
-/* Ignore the name, so we can justify those to the left */
-span:not(.name) {
-  margin-left: 10px;
-  min-width: 15%;
-  text-align: right;
-}
-
-/* Will make the current year column italic */
-span[class="current"] {
-  font-style: italic;
-}
-
-.name {
-  width: 100%;
-  text-align: left;
-}
-
-/* Using this selector assures that only rows with some 
-tab index will interact on hover */
-.row[tabindex]:hover {
-  background-color: #99c9ff;
-}
-
-/* Explain that this is true when tab indexed or clicked */
-.row[tabindex]:focus {
-  background-color: #198eee;
-  color: white;
-}
-
-/* Selects all h2 that are children of div */
-div > h2 {
-  background-color: #99c9ff;
-  font-size: 1.3em;
-  padding: 0 4px;
-}
-
-/* Explain that this doesn't affect the first title
-because this selector looks for div -> h2 and is seeing the outer div? */
-div ~ h2 {
-  font-weight: normal;
-}
-
-/* Selects the notes elements*/
-p + span {
-  font-size: 0.8em;
-  font-style: italic;
-  color: #3b3b4f;
-}
+/* Lesson a: Add sr-only properties without !important
+   Lesson b: Add :not selector teaching specificity
+   Lesson c: "To prevent yourself from accidentally overriding your .sr-only, add !important to each and every property!"*/
+   span[class~="sr-only"] {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    color: #0a0a23;
+  }
+  
+  h1 {
+    max-width: 37.25rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 1.5rem;
+  }
+  
+  h1 .flex {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  h1 .flex span:first-of-type {
+    font-size: 0.7em;
+  }
+  
+  h1 .flex span:last-of-type {
+    font-size: 1.2em;
+  }
+  
+  section {
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 2px solid #d0d0d5;
+  }
+  
+  #years {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    background: #0a0a23;
+    color: #fff;
+    z-index: 999;
+    padding: 0.5rem calc(1.25rem + 2px) 0.5rem 0;
+    margin: 0 -2px;
+  }
+  
+  #years span[class] {
+    font-weight: bold;
+    width: 4.5rem;
+    text-align: right;
+  }
+  
+  .table-wrap {
+    padding: 0 0.75rem 1.5rem 0.75rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    position: relative;
+    margin-top: 3rem;
+  }
+  
+  table caption {
+    color: #356eaf;
+    font-size: 1.3em;
+    font-weight: normal;
+    position: absolute;
+    top: -2.25rem;
+    left: 0.5rem;
+  }
+  
+  tbody td {
+    width: 100vw;
+    min-width: 4rem;
+    max-width: 4rem;
+  }
+  
+  tbody th {
+    width: cal(100% - 12rem);
+  }
+  
+  tr[class="total"] {
+    /* tr.total { */
+    border-bottom: 4px double #0a0a23;
+    font-weight: bold;
+  }
+  
+  tr[class="total"] th {
+    text-align: left;
+    padding: 0.5rem 0 0.25rem 0.5rem;
+  }
+  
+  tr.total td {
+    text-align: right;
+    padding: 0 0.25rem;
+  }
+  
+  tr.total td:nth-of-type(3) {
+    padding-right: 0.5rem;
+  }
+  
+  tr.total:hover {
+    background-color: #99c9ff;
+  }
+  
+  td.current {
+    font-style: italic;
+  }
+  
+  tr th.name {
+    color: #000 !important;
+    font-size: 1em !important;
+    font-weight: bold !important;
+  }
+  
+  /* tr.data:nth-child(odd) {
+    color: green;
+  } */
+  tr.data {
+    background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+  }
+  
+  tr.data th {
+    text-align: left;
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+  }
+  
+  tr.data th .description {
+    display: block;
+    /* 	font-weight: normal; See :not selector below */
+    font-style: italic;
+    padding: 1rem 0 0.75rem;
+    margin-right: -13.5rem;
+  }
+  
+  tr.data td {
+    vertical-align: top;
+    padding: 0.3rem 0.25rem 0;
+    text-align: right;
+  }
+  
+  tr.data td:last-of-type {
+    padding-right: 0.5rem;
+  }
+  
+  /* Lesson d: To be removed once 
+     Lessons a and b are done */
+  span:not(.sr-only) {
+    font-weight: normal;
+  }
+  
