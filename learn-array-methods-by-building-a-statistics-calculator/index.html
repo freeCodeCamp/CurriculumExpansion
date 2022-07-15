@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js"></script>
+    <title>Statistics Calculator</title>
+  </head>
+  <body>
+    <h1>Statistics Calculator</h1>
+    <p>Enter a list of comma-separated numbers.</p>
+    <form onsubmit="calculate(); return false;">
+      <label for="numbers">Numbers:</label>
+      <input type="text" name="numbers" id="numbers" />
+      <button type="submit">Calculate</button>
+    </form>
+    <div class="results"q>
+      <p class="bold">Mean: <span id="mean"></span></p>
+      <p class="bold">Median: <span id="median"></span></p>
+      <p class="bold">Mode: <span id="mode"></span></p>
+    </div>
+  </body>
+</html>
