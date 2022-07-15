@@ -1,4 +1,5 @@
 const getMean = (array) => {
+  // teach the reduce method
   const mean = array.reduce((acc, el) => acc + el, 0) / array.length;
   return mean;
 };
@@ -10,6 +11,7 @@ const getMedian = (array) => {
 
 const getMode = (array) => {
   const counts = {};
+  // teach the forEach method??
   array.forEach((el) => {
     counts[el] = (counts[el] || 0) + 1;
   });
@@ -22,7 +24,12 @@ const getMode = (array) => {
 const calculate = () => {
   const value = document.querySelector("#numbers").value;
   const array = value.split(/,\s*/g);
+  // teach here that inputs are always strings
+  // also teaching the map method
   const numbers = array.map((el) => parseInt(el));
+  // explain that values which don't parse to a number are NaN
+  // and NaN can't be compared to anything
+  // also teaching the filter method
   const filtered = numbers.filter((el) => !isNaN(el));
 
   const mean = getMean(filtered);
