@@ -12,7 +12,7 @@ let currentSong = 0;
 // This could be a nice review for objects nested inside arrays and how to access those properties
 let playlist = [
   {
-    id: "We-Are-Going-to-Make-it",
+    id: "we-are-going-to-make-it",
     audio: "audio/We-Are-Going-to-Make-it.mp3",
     title: "We Are Going to Make it",
     artist: "Quincy Larson",
