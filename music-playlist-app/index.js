@@ -36,7 +36,7 @@ let playlist = [
     artist: "Quincy Larson",
   },
   {
-    id: "The-Surest-Way-Out-is-Through",
+    id: "the-surest-way-out-is-through",
     audio: "audio/The-Surest-Way-Out-is-Through.mp3",
     title: "The Surest Way Out is Through",
     artist: "Quincy Larson",
