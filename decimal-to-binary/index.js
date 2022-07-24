@@ -91,7 +91,7 @@ const decimalToBinary = (input) => {
     return "";
   } else {
     return (result.innerText =
-      decimalToBinary(Math.floor(parseInt(input, 10) / 2)) + (input % 2));
+      decimalToBinary(Math.floor(parseInt(input, 10) / 2)) + String(input % 2));
   }
 };
 
