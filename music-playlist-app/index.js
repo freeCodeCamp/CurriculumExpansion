@@ -30,7 +30,7 @@ let playlist = [
     artist: "Quincy Larson",
   },
   {
-    id: "Cruising-for-a-Musing",
+    id: "cruising-for-a-musing",
     audio: "audio/Cruising-for-a-Musing.mp3",
     title: "Cruising for a Musing",
     artist: "Quincy Larson",
