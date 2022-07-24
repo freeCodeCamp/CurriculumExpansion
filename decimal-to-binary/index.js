@@ -96,7 +96,7 @@ const decimalToBinary = (input) => {
 };
 
 const checkUserInput = () => {
-  if (numberInput.value === "") {
+  if (!numberInput.value || isNaN(parseInt(numberInput.value))) {
     // This might be the first time where alert is introduced
     alert("Please provide a number");
     return;
