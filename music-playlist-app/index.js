@@ -24,7 +24,7 @@ let playlist = [
     artist: "Quincy Larson",
   },
   {
-    id: "Collider-in-My-Head",
+    id: "collider-in-my-head",
     audio: "audio/Collider-in-My-Head.mp3",
     title: "Collider in My Head",
     artist: "Quincy Larson",
