@@ -18,7 +18,7 @@ let playlist = [
     artist: "Quincy Larson",
   },
   {
-    id: "Cant-Stay-Down",
+    id: "cant-stay-down",
     audio: "audio/Can't-Stay-Down.mp3",
     title: "Can't Stay Down",
     artist: "Quincy Larson",
