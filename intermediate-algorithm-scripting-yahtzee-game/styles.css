@@ -67,8 +67,6 @@ main {
   color: var(--white);
   background-color: var(--green);
   border-color: var(--green);
-  /* color: green; */
-  /* background-color: rgba(0, 255, 0, 0.1); */
 }
 
 .rounds-text {
@@ -103,5 +101,11 @@ input[type="radio"]:disabled + label {
 @media (max-width: 765px) {
   main {
     width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn {
+    width: 120px;
   }
 }
