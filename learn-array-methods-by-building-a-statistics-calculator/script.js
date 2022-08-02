@@ -1,5 +1,10 @@
 const getMean = (array) => {
-  // teach the reduce method
+  // // teach the reduce method
+  // const mean = array.reduce((acc, el) => {
+  //   return acc + el;
+  // });
+
+  // show how to use concise version here
   const mean = array.reduce((acc, el) => acc + el, 0) / array.length;
   return mean;
 };
@@ -11,7 +16,7 @@ const getMedian = (array) => {
 
 const getMode = (array) => {
   const counts = {};
-  // teach the forEach method??
+  // review the for each method
   array.forEach((el) => {
     counts[el] = (counts[el] || 0) + 1;
   });
@@ -24,17 +29,21 @@ const getMode = (array) => {
 const calculate = () => {
   const value = document.querySelector("#numbers").value;
   const array = value.split(/,\s*/g);
-  // teach here that inputs are always strings
-  // also teaching the map method
-  const numbers = array.map((el) => parseInt(el));
-  // explain that values which don't parse to a number are NaN
-  // and NaN can't be compared to anything
-  // also teaching the filter method
-  const filtered = numbers.filter((el) => !isNaN(el));
+  // // teach here that inputs are always strings
+  // // also teaching the map method
+  // const numbers = array.map((el) => parseInt(el));
+  // // explain that values which don't parse to a number are NaN
+  // // and NaN can't be compared to anything
+  // // also teaching the filter method
+  // const filtered = numbers.filter((el) => !isNaN(el));
 
-  const mean = getMean(filtered);
-  const median = getMedian(filtered);
-  const mode = getMode(filtered);
+  // teach method chaining
+  const numbers = array.map((el) => parseInt(el)).filter((el) => !isNaN(el));
+
+  // have campers use filtered first, then after chaining switch these to numbers
+  const mean = getMean(numbers);
+  const median = getMedian(numbers);
+  const mode = getMode(numbers);
 
   document.querySelector("#mean").innerHTML = mean;
   document.querySelector("#median").innerHTML = median;
