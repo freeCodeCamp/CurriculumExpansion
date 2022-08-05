@@ -1,84 +1,126 @@
-document.getElementById('calorie-form').onsubmit = calculate;
+const calorieCounter = document.getElementById('calorie-counter');
+const budgetNumberInput = document.getElementById('budget');
+const entryDropdown = document.getElementById('entry-dropdown');
+const addEntryButton = document.getElementById('add-entry');
+const clearButton = document.getElementById('clear');
+const output = document.getElementById('output');
+let error = false;
 
-function calculate(event) {
-  event.preventDefault();
-  clearOutput();
+function cleanInputString(str) {
+  // Remove +, -, and whitespace from string
+  /*
+    Could teach the .split() and .join()
+    methods to do this with a for loop, then refactor
+    to use regex. Might also be able to have learners
+    practice with the .reverse() method here just for fun.
 
-  const total = Array.from(document.getElementsByClassName('cal-control'))
-    .map(input => Number(input.value))
-    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const strArray = str.split('');
+    const cleanStrArray = [];
+    
+    for (let i = 0; i < strArray.length; i++) {
+      if (strArray[i] !== '+' && strArray[i] !== '-' && strArray[i] !== ' ') {
+        cleanStrArray.push(strArray[i]);
+      }
+    }
 
-  const maxCalories = document.getElementById('female').checked ? 2000 : 2500;
+    return cleanStrArray.join('');
+  */
 
-  const difference = total - maxCalories;
-  const surplusOrDeficit = difference > 0 ? 'Surplus' : 'Deficit';
-
-  const output = document.getElementById('output');
-
-  const result = document.createElement('h3');
-  result.className = 'green-text';
-  const resultText = document.createTextNode(
-    `${Math.abs(difference)} Calorie ${surplusOrDeficit}`
-  );
-
-  result.appendChild(resultText);
-  output.appendChild(result);
-
-  const line = document.createElement('hr');
-  output.appendChild(line);
-
-  const recommended = document.createElement('h4');
-  const recommendedText = document.createTextNode(
-    `${maxCalories} Recommended Calories`
-  );
-
-  recommended.appendChild(recommendedText);
-  output.appendChild(recommended);
-
-  const consumed = document.createElement('h4');
-  consumed.innerHTML = `${total} Consumed Calories`;
-  output.appendChild(consumed);
-
-  output.setAttribute('class', 'bordered-class');
-  output.style.backgroundColor = '#FFF9C4';
+  const regex = /[+-\s]/g; // Explain \s for whitespace and global flag
+  return str.replace(regex, '');
 }
 
-document.getElementById('add').onclick = function() {
-  const foodInput = document.createElement('input');
-  foodInput.placeholder = 'food name';
-  foodInput.classList.add('food-control');
-  document.getElementById('entries').appendChild(foodInput);
+function isInvalidInput(str) {
+  /*
+    Check exponential notation and
+    return matches to display an error message
 
-  const calorieInput = document.createElement('input');
-  calorieInput.setAttribute('type', 'number');
-  calorieInput.setAttribute('min', '0');
-  calorieInput.classList.add('cal-control');
-  calorieInput.classList.add('extra-cal-control');
-  document.getElementById('entries').appendChild(calorieInput);
-};
+    - Have learners search for exponential notation with /e/
+    - Explain that number inputs allow e and E, and teach the i flag for case insensitivity: /e/i
+    - Explain that number inputs only allow e between digits. Match e between specific digits: /1e3/i
+    - Explain character classes to search for digits 0-9. Refactor to /[0-9]e[0-9]/i
+    - Explain the + character to match 1 or more of whatever precedes it: /[0-9]+e[0-9]+/i
+    - Explain that \d matches digits, and can replace [0-9]. Refactor to /\d+ed+/i
+  */
+  const regex = /\d+e\d+/i;
+  return str.match(regex);
+}
 
-document.getElementById('clear').onclick = function() {
-  clearOutput();
-  clearForm();
-};
+function addEntry() {
+  // Could be simplified with template strings
+  // const targetId = '#' + entryDropdown.value;
+  // const targetInputContainer = document.querySelector(targetId + ' ' + '.input-container');
+  const targetInputContainer = document.body.querySelector(`#${entryDropdown.value} .input-container`);
+  const index = targetInputContainer.querySelectorAll('input[type="text"]').length; // Could also use targetInputContainer.querySelectorAll('input').length / 2
+  const HTMLString = `
+  <label for="${entryDropdown.value}-${index}-name">Entry ${index} Name</label>
+  <input type="text" id="${entryDropdown.value}-${index}-name" placeholder="Name" />
+  <label for="${entryDropdown.value}-${index}-calories">Entry ${index} Calories</label>
+  <input
+    type="number"
+    min="0"
+    id="${entryDropdown.value}-${index}-calories"
+    placeholder="Calories"
+  />`; // Labels need to be included for accessibility
+  
+  targetInputContainer.innerHTML += HTMLString;
+}
 
-const clearOutput = () => {
-  document.getElementById('output').innerHTML = '';
-  document.getElementById('output').classList.remove('bordered-class');
-};
+function calculateCalories(e) {
+  e.preventDefault();
+  error = false; // Reset global error flag
+  const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
+  const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
+  const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
+  const snacksNumberInputs = document.querySelectorAll('#snacks input[type=number]');
+  const exerciseNumberInputs = document.querySelectorAll('#exercise input[type=number]');
+  // Add this node to an array to process like other inputs, briefly explain the difference between arrays and node lists
+  const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+  const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+  const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+  const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+  const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+  const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+  
+  // Exit early if there is a detected error
+  if (error) return;
 
-const clearForm = () => {
-  const foodInputs = Array.from(
-    document.getElementsByClassName('food-control')
-  );
+  const remainingCalories = budgetCalories - (breakfastCalories + lunchCalories + dinnerCalories + snacksCalories) + exerciseCalories;
+  output.innerText = `${remainingCalories} Calories Remaining`;
+  output.classList.remove('hide');
+}
 
-  foodInputs.forEach(input => input.remove());
+function getCaloriesFromInputs(list) {
+  let calories = 0;
 
-  const calInputs = Array.from(
-    document.getElementsByClassName('extra-cal-control')
-  );
+  for (let i = 0; i < list.length; i++) {
+    const currVal = cleanInputString(list[i].value);
+    const invalidInputMatch = isInvalidInput(currVal);
 
-  calInputs.forEach(input => input.remove());
+    if (invalidInputMatch) {
+      alert(`Invalid input: ${invalidInputMatch[0]}`);
+      error = true;
+      return null;
+    } else {
+      calories += Number(currVal);
+    }
+  }
 
-  document.getElementById('calorie-form').reset();
-};
+  return calories;
+}
+
+function clearForm() {
+  const inputContainers = Array.from(document.querySelectorAll('.input-container'));
+
+  for (let i = 0; i < inputContainers.length; i++) {
+    inputContainers[i].innerHTML = ''; // element.remove() works, too
+  }
+
+  budgetNumberInput.value = '';
+  output.innerText = '';
+  output.classList.add('hide');
+}
+
+addEntryButton.addEventListener("click", addEntry);
+clearButton.addEventListener("click", clearForm);
+calorieCounter.addEventListener("submit", calculateCalories);

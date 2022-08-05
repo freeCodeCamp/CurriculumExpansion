@@ -1,93 +1,86 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: gray;
-  font-family: 'Segoe UI', Arial;
+  font-family: "Lato", Arial;
+  font-size: 18px;
+  background-color: #1b1b32;
 }
 
-.container {
-  margin: 30px auto;
-  background: white;
-  padding: 30px 40px;
-  border-radius: 5px;
-  width: 400px;
-}
-
-.center {
-  text-align: center;
-}
-
-h4,
-h3 {
-  margin: 5px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 120px 300px;
-  grid-row-gap: 5px;
+main {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.container {
+  background-color: #fff;
+  width: 90%;
+  max-width: 680px;
+}
+
+h1, .container {
+  margin: 15px auto;
+}
+
+.container,
+form {
+  padding: 15px;
+}
+
+label,
+fieldset legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  font-size: inherit;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
-  border-radius: 4px;
-  background-color: white;
-  font-family: 'Segoe UI', Arial;
-  font-size: 16px;
-  margin: 10px auto;
-  border: none;
-  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  font-size: inherit;
+  padding: 2px 8px;
+}
+
+button:hover {
   cursor: pointer;
 }
 
-button:focus {
-  outline: 0;
-}
-
-.btn-solid {
-  background-color: rgb(40, 167, 69);
-  color: white;
-  border: 1px solid rgb(40, 167, 69);
-}
-
-.btn-outline {
-  color: rgb(40, 167, 69);
-  border: 1px solid rgb(40, 167, 69);
-}
-
-.btn-add {
-  background-color: rgb(21, 101, 192);
-  color: white;
-  border: 1px solid rgb(21, 101, 192);
-  display: block;
-}
-
-.green-text {
-  color: rgb(40, 167, 69);
-}
-input.cal-control {
-  margin: 5px;
-  border-radius: 5px;
-  height: 20px;
-  border: 1px solid rgb(160, 160, 160);
-  padding: 5px;
-  width: 80px;
-}
-
-input.food-control {
-  margin: 5px 0px;
-  border-radius: 5px;
-  height: 20px;
-  border: 1px solid rgb(160, 160, 160);
-  padding: 5px;
-  width: 80px;
-}
-
-#output {
-  margin: 0px 20px 0px 20px;
+.output {
+  border: 2px solid black;
+  width: 50%;
+  margin: auto;
+  padding: 15px;
   text-align: center;
-  padding: 0px 20px;
 }
 
-.bordered-class {
-  border: 2px solid rgb(21, 101, 192);
-  border-radius: 5px;
+.hide {
+  display: none;
 }
