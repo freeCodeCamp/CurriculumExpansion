@@ -83,8 +83,19 @@ function displaySong(song = "", artist = "") {
 }
 
 function playPauseSong() {
-  isPlaying ? song.pause() : song.play();
-
+  if (isPlaying) {
+    song.pause();
+    playPauseBtn.setAttribute(
+      "aria-label",
+      `Paused ${playlist[currentSong].title}`
+    );
+  } else {
+    song.play();
+    playPauseBtn.setAttribute(
+      "aria-label",
+      `Playing ${playlist[currentSong].title}`
+    );
+  }
   // This might be the first time teaching the logical NOT operator.
   isPlaying = !isPlaying;
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
@@ -95,6 +106,10 @@ function goToPreviousSong() {
   currentSong === 0 ? (song.currentTime = 0) : currentSong--;
   song = new Audio(playlist[currentSong].audio);
   song.play();
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Playing ${playlist[currentSong].title}`
+  );
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
 }
 
@@ -103,6 +118,10 @@ function goToNextSong() {
   currentSong === playlist.length - 1 ? (currentSong = 0) : currentSong++;
   song = new Audio(playlist[currentSong].audio);
   song.play();
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Playing ${playlist[currentSong].title}`
+  );
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
 }
 
