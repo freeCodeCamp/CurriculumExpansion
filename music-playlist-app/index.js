@@ -60,15 +60,18 @@ function createPlaylist() {
   playlist.map(
     (song, id) =>
       (playlistContainer.innerHTML += `
-  <div id=song${id} class="img-text-container">
-    <div id=${playlist[id].id} class="song-text-container">
-      <p class="song">${song.title}</p>
-      <p>- ${song.artist}</p>
-    </div>
-    <div class="btn-container">
-      <button type="button" class="delete-btn btn">Delete</button>
-    </div>
-  </div>
+    <li>
+      <div id=song${id} class="img-text-container">
+        <div id=${playlist[id].id} class="song-text-container">
+          <p class="song">${song.title}</p>
+          <p>- ${song.artist}</p>
+        </div>
+        <div class="btn-container">
+          <span class="sr-only">Delete ${song.title}</span>
+          <button type="button" class="delete-btn btn">Delete</button>
+        </div>
+      </div>
+    </li>
   `)
   );
 }
