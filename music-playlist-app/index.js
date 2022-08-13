@@ -72,7 +72,6 @@ function createPlaylist() {
   `)
   );
 }
-createPlaylist();
 
 // This is the first time teaching default parameters.
 function displaySong(song = "", artist = "") {
