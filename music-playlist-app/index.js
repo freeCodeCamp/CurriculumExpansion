@@ -66,7 +66,7 @@ function createPlaylist() {
       <p>- ${song.artist}</p>
     </div>
     <div class="btn-container">
-      <button class="delete-btn btn">Delete</button>
+      <button type="button" class="delete-btn btn">Delete</button>
     </div>
   </div>
   `)
