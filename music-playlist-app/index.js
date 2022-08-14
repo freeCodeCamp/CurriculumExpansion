@@ -62,10 +62,10 @@ function createPlaylist() {
       (playlistContainer.innerHTML += `
     <li>
       <div id=song${id} class="play-song-btn-container">
-        <div id=${playlist[id].id} class="song-text-container img-text-container">
-          <p class="song">${song.title}</p>
-          <p>- ${song.artist}</p>
-        </div>
+        <button id=${playlist[id].id} type="button"  class="song-btn">
+          <span class="song">${song.title}</span>
+          <span>- ${song.artist}</span>
+        </button>
         <div class="btn-container">
           <span class="sr-only">Delete ${song.title}</span>
           <button type="button" class="delete-btn btn">Delete</button>
@@ -170,12 +170,12 @@ function deleteSong() {
 deleteSong();
 
 function chooseSong() {
-  document.querySelectorAll(".song-text-container").forEach(function (songDiv) {
-    songDiv.addEventListener("click", function () {
+  document.querySelectorAll(".song-btn").forEach(function (songBtn) {
+    songBtn.addEventListener("click", function () {
       song.pause();
       isPlaying = false;
       // This is the first mention of findIndex
-      currentSong = playlist.findIndex((obj) => obj.id === songDiv.id);
+      currentSong = playlist.findIndex((obj) => obj.id === songBtn.id);
       song = new Audio(playlist[currentSong].audio);
       playPauseSong();
     });
