@@ -61,8 +61,8 @@ function createPlaylist() {
     (song, id) =>
       (playlistContainer.innerHTML += `
     <li>
-      <div id=song${id} class="img-text-container">
-        <div id=${playlist[id].id} class="song-text-container">
+      <div id=song${id} class="play-song-btn-container">
+        <div id=${playlist[id].id} class="song-text-container img-text-container">
           <p class="song">${song.title}</p>
           <p>- ${song.artist}</p>
         </div>

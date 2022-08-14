@@ -41,14 +41,20 @@ body {
   flex-direction: column;
 }
 
-.img-text-container,
+.play-song-btn-container,
 .current-song-container {
   display: flex;
   padding: 5px;
   border-bottom: 1px solid black;
 }
 
-.img-text-container:hover {
+.song-btn {
+  font-size: 1rem;
+  background-color: var(--gray100);
+  border: none;
+}
+
+.song-btn:hover {
   background-color: var(--gray200);
   cursor: pointer;
 }
@@ -59,8 +65,7 @@ body {
   object-fit: cover;
 }
 
-.text-container,
-.song-text-container {
+.text-container {
   text-align: center;
   width: 100%;
   display: flex;
