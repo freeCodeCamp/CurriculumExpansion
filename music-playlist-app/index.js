@@ -62,9 +62,10 @@ function createPlaylist() {
       (playlistContainer.innerHTML += `
     <li>
       <div id=song${id} class="play-song-btn-container">
-        <button id=${playlist[id].id} type="button"  class="song-btn">
-          <span class="song">${song.title}</span>
-          <span>- ${song.artist}</span>
+        <button id=${playlist[id].id} type="button" class="song-btn">
+          <span class="sr-only">Play</span>${song.title}
+          <span class="sr-only">by</span>
+          - ${song.artist}
         </button>
         <div class="btn-container">
           <span class="sr-only">Delete ${song.title}</span>

@@ -45,10 +45,11 @@ body {
 .current-song-container {
   display: flex;
   padding: 5px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--main-background-color);
 }
 
 .song-btn {
+  padding: 5px;
   font-size: 1rem;
   background-color: var(--gray100);
   border: none;
@@ -90,10 +91,6 @@ body {
   background-image: linear-gradient(#fecc4c, #ffac33);
   border-color: var(--golden-yellow);
   border-width: 3px;
-}
-
-.song {
-  padding-top: 2px;
 }
 
 .svg-styles {
