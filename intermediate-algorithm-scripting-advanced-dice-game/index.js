@@ -107,9 +107,9 @@ class Game {
   }
 
   // this might be the first time classList and add are introduced
-  selectAllDice() {
+  deSelectAllDice() {
     diceButtons.forEach((element) => {
-      element.classList.add("selected");
+      element.classList.remove("selected");
     });
   }
 
@@ -124,7 +124,7 @@ class Game {
 
   rollSelectedDice() {
     diceButtons.forEach((element, index) => {
-      if (element.classList.contains("selected"))
+      if (!element.classList.contains("selected"))
         this.diceValues[index] = element.textContent = Math.ceil(
           Math.random() * 6
         );
@@ -276,7 +276,7 @@ rollDiceBtn.addEventListener("click", (e) => {
 keepScoreBtn.addEventListener("click", (e) => {
   if (game.currentRound <= 6 && game.isKeepScoreSuccess()) {
     game.resetRadioInputs();
-    game.selectAllDice();
+    game.deSelectAllDice();
     game.updateStatsUI();
     game.updateScoreUI();
     game.isDiceSelectionEnabled = false;

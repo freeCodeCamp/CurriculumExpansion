@@ -64,9 +64,7 @@ main {
 }
 
 .die.selected {
-  color: var(--white);
-  background-color: var(--green);
-  border-color: var(--green);
+  border-color: var(--dark-orange);
 }
 
 .rounds-text {
