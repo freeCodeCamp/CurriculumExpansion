@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simplified Yahtzee Dice Game</title>
+    <title>Advanced Dice Game</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <header>
-      <h1>Yahtzee!</h1>
+      <h1>Advanced Dice Game</h1>
     </header>
 
     <main>
@@ -82,11 +82,11 @@
             <input
               type="radio"
               name="score-options"
-              id="yahtzee"
-              value="yahtzee"
+              id="diced"
+              value="diced"
               disabled
             />
-            <label for="yahtzee">Yahtzee<span></span></label>
+            <label for="diced">Diced<span></span></label>
           </div>
           <div>
             <input
@@ -113,7 +113,9 @@
         <button class="btn" id="keep-score-btn" type="button" disabled>
           Keep the above selected score
         </button>
-        <button class="btn" id="roll-dice-btn" type="button">Roll the selected dice</button>
+        <button class="btn" id="roll-dice-btn" type="button">
+          Roll the selected dice
+        </button>
       </form>
 
       <div id="scores">

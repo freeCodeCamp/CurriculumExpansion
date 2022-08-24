@@ -198,7 +198,7 @@ class Game {
     }
 
     if (numOfSameDiceValues[0] === 5) {
-      this.validScoreOptions["yahtzee"] = 50;
+      this.validScoreOptions["diced"] = 50;
     }
   }
 
