@@ -89,7 +89,7 @@ input[type="radio"]:disabled + label {
   background-image: linear-gradient(var(--yellow), var(--dark-orange));
 }
 
-@media (max-width: 765px) {
+@media (max-width: 992px) {
   main {
     width: 100%;
   }
