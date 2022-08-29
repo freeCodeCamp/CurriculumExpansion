@@ -7,7 +7,9 @@ const totalScoreText = document.getElementById("total-score");
 const scoreHistory = document.getElementById("score-history");
 const rollDiceBtn = document.getElementById("roll-dice-btn");
 const keepScoreBtn = document.getElementById("keep-score-btn");
-
+const rulesBtn = document.getElementById("rules-btn");
+const rulesContainer = document.querySelector(".rules-container");
+let isModalShowing = false;
 // Good review of selection Sort algorithm
 const selectionSort = (arr) => {
   let arrDeepCopy = [];
@@ -253,5 +255,16 @@ keepScoreBtn.addEventListener("click", (e) => {
   if (game.currentRound > 6) {
     // Give DOM some time to complete manipulation then check & run gameOver
     setTimeout(game.gameOver, 100);
+  }
+});
+
+rulesBtn.addEventListener("click", () => {
+  isModalShowing = !isModalShowing;
+  if (isModalShowing) {
+    rulesBtn.textContent = "Hide Rules";
+    rulesContainer.style.display = "block";
+  } else {
+    rulesBtn.textContent = "Show Rules";
+    rulesContainer.style.display = "none";
   }
 });

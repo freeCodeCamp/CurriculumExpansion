@@ -33,6 +33,25 @@ h1 {
   margin: 25px 0;
 }
 
+.rules-container {
+  display: none;
+  background-color: var(--light-grey);
+  color: var(--black);
+  width: 50%;
+  margin: 20px auto;
+  height: 300px;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.rules-container ul {
+  list-style-type: none;
+}
+
+.points {
+  margin-top: 15px;
+}
+
 main {
   background-color: var(--light-grey);
   padding: 20px;
