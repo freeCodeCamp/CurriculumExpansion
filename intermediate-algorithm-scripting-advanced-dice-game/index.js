@@ -2,7 +2,6 @@ const scoreInputs = document.querySelectorAll("#score-options input");
 const scoreSpans = document.querySelectorAll("#score-options span");
 const scoreLabels = document.querySelectorAll("#score-options label");
 const diceButtons = document.querySelectorAll("#dice > button");
-const diceContainer = document.getElementById("dice");
 const currentRoundText = document.getElementById("current-round");
 const currentRoundRollsText = document.getElementById("current-round-rolls");
 const totalScoreText = document.getElementById("total-score");
@@ -93,7 +92,6 @@ class Game {
     this.currentRound = 1;
     this.scoreHistory = [];
     this.validScoreOptions = {};
-    this.isDiceSelectionEnabled = false;
   }
 
   resetRadioInputs() {
@@ -106,28 +104,11 @@ class Game {
     });
   }
 
-  // this might be the first time classList and add are introduced
-  deSelectAllDice() {
-    diceButtons.forEach((element) => {
-      element.classList.remove("selected");
-    });
-  }
-
-  startDiceSelector() {
-    diceContainer.addEventListener("click", (e) => {
-      if (this.isDiceSelectionEnabled) {
-        // this might be the first time the toggle method is introduced
-        e.target.classList.toggle("selected");
-      }
-    });
-  }
-
-  rollSelectedDice() {
+  rollDice() {
     diceButtons.forEach((element, index) => {
-      if (!element.classList.contains("selected"))
-        this.diceValues[index] = element.textContent = Math.ceil(
-          Math.random() * 6
-        );
+      this.diceValues[index] = element.textContent = Math.ceil(
+        Math.random() * 6
+      );
     });
     this.rollsInCurrentRound++;
   }
@@ -169,7 +150,6 @@ class Game {
     );
 
     this.validScoreOptions = {
-      chance: sumOfDiceValues,
       none: 0,
     };
 
@@ -195,10 +175,6 @@ class Game {
 
     if (totalConsecutives === 5) {
       this.validScoreOptions["large-straight"] = 40;
-    }
-
-    if (numOfSameDiceValues[0] === 5) {
-      this.validScoreOptions["diced"] = 50;
     }
   }
 
@@ -233,10 +209,6 @@ class Game {
         this.currentRound++;
         this.rollsInCurrentRound = 0;
 
-        if (allScoreInputs[i].value !== "none") {
-          allScoreInputs[i].remove();
-          allRadioLabels[i].remove();
-        }
         return true;
       }
     }
@@ -255,16 +227,14 @@ class Game {
 }
 
 const game = new Game();
-game.startDiceSelector();
 
 rollDiceBtn.addEventListener("click", (e) => {
   if (game.currentRound <= 6) {
-    game.rollSelectedDice();
+    game.rollDice();
     game.resetRadioInputs();
     game.generateValidScoreOptions();
     game.enableValidScoreInputs();
     game.updateStatsUI();
-    game.isDiceSelectionEnabled = true;
     keepScoreBtn.disabled = false;
 
     if (game.rollsInCurrentRound % 3 === 0) {
@@ -276,10 +246,8 @@ rollDiceBtn.addEventListener("click", (e) => {
 keepScoreBtn.addEventListener("click", (e) => {
   if (game.currentRound <= 6 && game.isKeepScoreSuccess()) {
     game.resetRadioInputs();
-    game.deSelectAllDice();
     game.updateStatsUI();
     game.updateScoreUI();
-    game.isDiceSelectionEnabled = false;
     rollDiceBtn.disabled = false;
     e.target.disabled = true;
   }

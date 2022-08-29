@@ -58,13 +58,8 @@ main {
   height: 40px;
   text-align: center;
   margin-right: 15px;
-  cursor: pointer;
   border: 4px solid var(--black);
   padding: 10px;
-}
-
-.die.selected {
-  border-color: var(--dark-orange);
 }
 
 .rounds-text {
