@@ -87,7 +87,7 @@ input[type="radio"]:disabled + label {
   border-width: 3px;
 }
 
-.btn:hover {
+.btn:hover:enabled {
   background-image: linear-gradient(var(--yellow), var(--dark-orange));
 }
 
