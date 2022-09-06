@@ -10,3 +10,45 @@
   --dark-grey: #1b1b32;
   --light-grey: #f5f6f7;
 }
+
+body {
+  background-color: var(--dark-grey);
+  color: var(--light-grey);
+}
+
+body,
+#message-input:placeholder-shown {
+  text-align: center;
+}
+
+.main-text {
+  margin: 25px 0;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.message-label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+#message-input:placeholder-shown {
+  font-size: 1.1rem;
+}
+
+#result {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.footer {
+  margin-top: 10px;
+}
