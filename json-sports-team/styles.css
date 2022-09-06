@@ -16,6 +16,7 @@
 body {
   background-color: var(--dark-grey);
   text-align: center;
+  padding: 10px;
 }
 
 .title,
