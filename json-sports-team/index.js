@@ -184,7 +184,7 @@ Object.freeze(myFavoriteFootballTeam);
  *
  */
 
-// this could be a good review of destructuring
+// this could be a good review of object destructuring
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
 
@@ -193,7 +193,8 @@ teamName.innerHTML = team;
 worldCupYear.innerHTML = year;
 headCoach.innerHTML = coachName;
 
-const setPlayerCards = (arr) => {
+// this might be the first time default parameters are introduced
+const setPlayerCards = (arr = players) => {
   playerCards.innerHTML += arr
     .map(
       ({ name, position, number, isCaptain, nickname }) =>
