@@ -1,9 +1,7 @@
-"strict mode";
 const teamName = document.getElementById("team");
 const typeOfSport = document.getElementById("sport");
 const worldCupYear = document.getElementById("year");
 const headCoach = document.getElementById("head-coach");
-const matches = document.getElementById("matches");
 const playerCards = document.getElementById("player-cards");
 const selectElement = document.getElementById("players");
 
