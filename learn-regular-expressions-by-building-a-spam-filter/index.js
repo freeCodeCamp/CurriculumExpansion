@@ -1,3 +1,7 @@
+const messageInput = document.getElementById("message-input");
+const result = document.getElementById("result");
+const checkMessageButton = document.getElementById("check-message-btn");
+
 const wordCondenser = /(?:^|\s)\S(?:(\s+)\S)(?:\1\S)*(?:$|\s)/g;
 const spaceCondenser = /\s{2,}/g;
 
@@ -23,6 +27,5 @@ const blacklistRegexps = [
 
 const isSpam = (msg) => {
   const spacesCondensed = condenseSpaces(msg);
-
   return blacklistRegexps.some((re) => re.test(spacesCondensed));
 };
