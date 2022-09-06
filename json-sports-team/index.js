@@ -198,8 +198,6 @@ const setPlayerCards = (arr) => {
     .join("");
 };
 
-setPlayerCards(players);
-
 selectElement.addEventListener("change", (e) => {
   // maybe we could have users print the results of the values for the select options
   //console.log(e.target.value);
