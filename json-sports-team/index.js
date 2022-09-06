@@ -1,3 +1,4 @@
+"strict mode";
 const teamName = document.getElementById("team");
 const typeOfSport = document.getElementById("sport");
 const worldCupYear = document.getElementById("year");
@@ -173,6 +174,16 @@ const myFavoriteFootballTeam = {
   ],
 };
 
+// first time Object.freeze is introduced. We can talk about how this function prevents data mutation
+Object.freeze(myFavoriteFootballTeam);
+
+/**
+ *
+ * We could have a step where myFavoriteFootballTeam.team = "USA" would not change the value because
+ * Object.freeze is in effect.
+ *
+ */
+
 // this could be a good review of destructuring
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
@@ -230,17 +241,3 @@ selectElement.addEventListener("change", (e) => {
       setPlayerCards(players);
   }
 });
-
-/**
- * I think it would be nice to have users console.log the original JSON data
- * Then we can have them console.log the JSON.stringify result
- * Then we can have them console.log the JSON.parse result
- * This will help users compare the outputs and understand how these methods work.
- *
- *
- *  console.log(myFavoriteFootballTeam);
- *  const stringifiedJSON = JSON.stringify(myFavoriteFootballTeam);
- *  console.log(stringifiedJSON);
- *  console.log(JSON.parse(stringifiedJSON));
- *
- */
