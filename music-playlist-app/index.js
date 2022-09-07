@@ -111,7 +111,7 @@ function goToPreviousSong() {
   song.play();
   playPauseBtn.setAttribute(
     "aria-label",
-    `Playing ${playlist[currentSong].title}`
+    `Pause ${playlist[currentSong].title}`
   );
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
 }
