@@ -96,7 +96,7 @@ function playPauseSong() {
     song.play();
     playPauseBtn.setAttribute(
       "aria-label",
-      `Playing ${playlist[currentSong].title}`
+      `Pause ${playlist[currentSong].title}`
     );
   }
   // This might be the first time teaching the logical NOT operator.
