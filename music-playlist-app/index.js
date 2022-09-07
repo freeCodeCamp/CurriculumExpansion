@@ -90,7 +90,7 @@ function playPauseSong() {
     song.pause();
     playPauseBtn.setAttribute(
       "aria-label",
-      `Paused ${playlist[currentSong].title}`
+      `Play ${playlist[currentSong].title}`
     );
   } else {
     song.play();
