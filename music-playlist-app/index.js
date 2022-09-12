@@ -154,6 +154,11 @@ function shufflePlaylist() {
   createPlaylist();
   deleteSong();
   chooseSong();
+
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Play ${playlist[currentSong].title}`
+  );
 }
 
 function deleteSong() {
