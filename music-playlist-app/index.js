@@ -68,14 +68,18 @@ function createPlaylist() {
           - ${song.artist}
         </button>
         <div class="btn-container">
-          <span class="sr-only">Delete ${song.title}</span>
-          <button type="button" class="delete-btn btn">Delete</button>
+          <button type="button" class="delete-btn btn">
+            Delete 
+            <span class="sr-only">${song.title}</span>
+          </button>
         </div>
       </div>
     </li>
   `)
   );
 }
+
+createPlaylist();
 
 // This is the first time teaching default parameters.
 function displaySong(song = "", artist = "") {
