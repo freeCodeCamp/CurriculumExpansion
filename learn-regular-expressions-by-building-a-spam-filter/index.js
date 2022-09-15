@@ -7,13 +7,12 @@ const checkMessageButton = document.getElementById("check-message-btn");
  * and we can start with matches for literal phrases and then have the
  * campers create more complex regex which seemed to be the original intent for this project.
  *
- * Ex. fr33 m0ney would result in true for the spam filter
- *
+ *  We should add an instance of the match method here. Just not sure where.
  *
  */
 
 const blacklistRegexps = [
-  /[0-9] hundred|thousand|million dollars/i,
+  /[0-9] hundred|thousand|million|billion dollars/gi,
   /PLEASE HELP|ASSIST ME/i,
   /(?:^|\s)fr[e3][e3] m[o0]n[e3]y(?:$|\s)/i,
   /(?:^|\s)[s5][t7][o0][c{[(]k [a@4]l[e3]r[t7](?:$|\s)/i,
