@@ -95,6 +95,8 @@ function displaySong(song = "", artist = "") {
 }
 
 function playPauseSong() {
+  if (playlist.length === 0) return;
+  
   if (isPlaying) {
     song.pause();
     playPauseBtn.setAttribute(
