@@ -176,7 +176,7 @@ function deleteSong() {
         displaySong();
         document.getElementById(`song${songId}`).remove();
         // This might be the first time where splice is introduced
-        playlist.splice(songId, 1);
+        playlist.splice(playlist[songId].id, 1);
       }
     });
   });
