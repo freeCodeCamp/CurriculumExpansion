@@ -79,10 +79,7 @@ function createPlaylist() {
   );
 }
 
-  playPauseBtn.setAttribute(
-    "aria-label",
-    `Play ${playlist[currentSong].title}`
-  );
+playPauseBtn.setAttribute("aria-label", `Play ${playlist[currentSong].title}`);
 
 createPlaylist();
 
@@ -96,7 +93,7 @@ function displaySong(song = "", artist = "") {
 
 function playPauseSong() {
   if (playlist.length === 0) return;
-  
+
   if (isPlaying) {
     song.pause();
     playPauseBtn.setAttribute(
