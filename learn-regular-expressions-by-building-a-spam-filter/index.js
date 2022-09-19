@@ -7,7 +7,7 @@ const checkMessageButton = document.getElementById("check-message-btn");
  * and we can start with matches for literal phrases and then have the
  * campers create more complex regex which seemed to be the original intent for this project.
  *
- *  We should add an instance of the match method here. Just not sure where.
+ *
  *
  */
 
@@ -19,6 +19,12 @@ const blacklistRegexps = [
   /(?:^|\s)d[e3][a@4]r fr[i1|][e3]nd(?:$|\s)/i,
 ];
 
+/**
+ * We could add a step that has the camper use match here first,
+ * then explain that because we don't need to do anything with the matched value,
+ * moving to test could be more performant. - Naomi
+ *
+ */
 const isSpam = (msg) => blacklistRegexps.some((re) => re.test(msg));
 
 checkMessageButton.addEventListener("click", () => {
