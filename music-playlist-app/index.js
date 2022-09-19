@@ -79,6 +79,11 @@ function createPlaylist() {
   );
 }
 
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Play ${playlist[currentSong].title}`
+  );
+
 createPlaylist();
 
 // This is the first time teaching default parameters.
