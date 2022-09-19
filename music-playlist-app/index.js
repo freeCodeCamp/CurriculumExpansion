@@ -175,8 +175,9 @@ function deleteSong() {
         isPlaying = false;
         displaySong();
         document.getElementById(`song${songId}`).remove();
-        // This might be the first time where splice is introduced
-        playlist.splice(playlist[songId].id, 1);
+
+        // chose to use a more functional approach instead of using splice
+        playlist = playlist.filter((song) => song.id !== playlist[songId].id);
       }
     });
   });
