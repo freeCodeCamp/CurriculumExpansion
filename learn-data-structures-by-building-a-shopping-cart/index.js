@@ -1,3 +1,8 @@
+const shoppingCartContainer = document.getElementById("shopping-cart");
+const dessertCards = document.getElementById("dessert-cards");
+const shoppingCartBtn = document.getElementById("cart-btn");
+const showHideCartSpan = document.getElementById("show-hide-cart");
+let isCartShowing = false;
 const products = [
   {
     id: 1,
@@ -98,6 +103,14 @@ class ShoppingCart {
     return this.taxRate;
   }
 }
+
+const shoppingCart = new ShoppingCart();
+
+shoppingCartBtn.addEventListener("click", () => {
+  isCartShowing = !isCartShowing;
+  showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
+  shoppingCartContainer.style.display = isCartShowing ? "block" : "none";
+});
 
 /**
  *

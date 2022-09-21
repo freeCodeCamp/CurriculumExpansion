@@ -18,3 +18,45 @@
   --orange: #ffac33;
   --dark-orange: #f89808;
 }
+
+body {
+  background-color: var(--dark-grey);
+}
+
+.title {
+  color: var(--light-grey);
+  text-align: center;
+  margin: 25px 0;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  color: var(--dark-grey);
+  background-color: var(--gold);
+  background-image: linear-gradient(var(--golden-yellow), var(--orange));
+  border-color: var(--gold);
+  border-width: 3px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(var(--yellow), var(--dark-orange));
+}
+
+#cart-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#shopping-cart {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: var(--light-grey);
+  width: 200px;
+  height: 400px;
+  border-radius: 15px;
+}
