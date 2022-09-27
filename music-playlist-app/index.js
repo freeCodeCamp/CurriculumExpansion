@@ -60,18 +60,27 @@ function createPlaylist() {
   playlist.map(
     (song, id) =>
       (playlistContainer.innerHTML += `
-  <div id=song${id} class="img-text-container">
-    <div id=${playlist[id].id} class="song-text-container">
-      <p class="song">${song.title}</p>
-      <p>- ${song.artist}</p>
-    </div>
-    <div class="btn-container">
-      <button class="delete-btn btn">Delete</button>
-    </div>
-  </div>
+    <li>
+      <div id=song${id} class="play-song-btn-container">
+        <button id=${playlist[id].id} type="button" class="song-btn">
+          <span class="sr-only">Play</span>${song.title}
+          <span class="sr-only">by</span>
+          - ${song.artist}
+        </button>
+        <div class="btn-container">
+          <button type="button" class="delete-btn btn">
+            Delete 
+            <span class="sr-only">${song.title}</span>
+          </button>
+        </div>
+      </div>
+    </li>
   `)
   );
 }
+
+playPauseBtn.setAttribute("aria-label", `Play ${playlist[currentSong].title}`);
+
 createPlaylist();
 
 // This is the first time teaching default parameters.
@@ -83,8 +92,21 @@ function displaySong(song = "", artist = "") {
 }
 
 function playPauseSong() {
-  isPlaying ? song.pause() : song.play();
+  if (playlist.length === 0) return;
 
+  if (isPlaying) {
+    song.pause();
+    playPauseBtn.setAttribute(
+      "aria-label",
+      `Play ${playlist[currentSong].title}`
+    );
+  } else {
+    song.play();
+    playPauseBtn.setAttribute(
+      "aria-label",
+      `Pause ${playlist[currentSong].title}`
+    );
+  }
   // This might be the first time teaching the logical NOT operator.
   isPlaying = !isPlaying;
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
@@ -95,6 +117,10 @@ function goToPreviousSong() {
   currentSong === 0 ? (song.currentTime = 0) : currentSong--;
   song = new Audio(playlist[currentSong].audio);
   song.play();
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Pause ${playlist[currentSong].title}`
+  );
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
 }
 
@@ -103,6 +129,10 @@ function goToNextSong() {
   currentSong === playlist.length - 1 ? (currentSong = 0) : currentSong++;
   song = new Audio(playlist[currentSong].audio);
   song.play();
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Pause ${playlist[currentSong].title}`
+  );
   displaySong(playlist[currentSong].title, playlist[currentSong].artist);
 }
 
@@ -128,6 +158,11 @@ function shufflePlaylist() {
   createPlaylist();
   deleteSong();
   chooseSong();
+
+  playPauseBtn.setAttribute(
+    "aria-label",
+    `Play ${playlist[currentSong].title}`
+  );
 }
 
 function deleteSong() {
@@ -140,8 +175,9 @@ function deleteSong() {
         isPlaying = false;
         displaySong();
         document.getElementById(`song${songId}`).remove();
-        // This might be the first time where splice is introduced
-        playlist.splice(songId, 1);
+
+        // chose to use a more functional approach instead of using splice
+        playlist = playlist.filter((song) => song.id !== playlist[songId].id);
       }
     });
   });
@@ -149,12 +185,12 @@ function deleteSong() {
 deleteSong();
 
 function chooseSong() {
-  document.querySelectorAll(".song-text-container").forEach(function (songDiv) {
-    songDiv.addEventListener("click", function () {
+  document.querySelectorAll(".song-btn").forEach(function (songBtn) {
+    songBtn.addEventListener("click", function () {
       song.pause();
       isPlaying = false;
       // This is the first mention of findIndex
-      currentSong = playlist.findIndex((obj) => obj.id === songDiv.id);
+      currentSong = playlist.findIndex((obj) => obj.id === songBtn.id);
       song = new Audio(playlist[currentSong].audio);
       playPauseSong();
     });
