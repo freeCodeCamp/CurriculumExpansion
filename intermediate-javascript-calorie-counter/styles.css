@@ -1,58 +1,25 @@
-*,
-::before,
-::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Lato", Arial;
-  font-size: 18px;
-  background-color: #1b1b32;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 h1 {
   text-align: center;
-  color: #fff;
 }
 
 .container {
-  background-color: #fff;
   width: 90%;
   max-width: 680px;
 }
 
-h1, .container {
-  margin: 15px auto;
-}
-
+h1,
 .container,
-form {
-  padding: 15px;
+.output {
+  margin: 20px auto;
 }
 
 label,
-fieldset legend {
+legend {
   font-weight: bold;
-  margin-bottom: 10px;
-}
-
-fieldset {
-  padding: 5px;
-  margin-bottom: 15px;
-}
-
-input,
-select {
-  font-size: inherit;
-  margin-bottom: 15px;
 }
 
 .input-container {
@@ -60,24 +27,21 @@ select {
   flex-direction: column;
 }
 
-button {
-  margin-bottom: 15px;
-}
-
-button {
-  font-size: inherit;
-  padding: 2px 8px;
-}
-
 button:hover {
   cursor: pointer;
 }
 
+fieldset,
+label,
+button,
+input,
+select {
+  margin-bottom: 10px;
+}
+
 .output {
   border: 2px solid black;
-  width: 50%;
-  margin: auto;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
 }
 
