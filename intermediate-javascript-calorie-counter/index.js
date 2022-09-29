@@ -51,15 +51,15 @@ function addEntry() {
   // const targetId = '#' + entryDropdown.value;
   // const targetInputContainer = document.querySelector(targetId + ' ' + '.input-container');
   const targetInputContainer = document.body.querySelector(`#${entryDropdown.value} .input-container`);
-  const index = targetInputContainer.querySelectorAll('input[type="text"]').length; // Could also use targetInputContainer.querySelectorAll('input').length / 2
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1; // Could also use targetInputContainer.querySelectorAll('input').length / 2
   const HTMLString = `
-  <label for="${entryDropdown.value}-${index}-name">Entry ${index} Name</label>
-  <input type="text" id="${entryDropdown.value}-${index}-name" placeholder="Name" />
-  <label for="${entryDropdown.value}-${index}-calories">Entry ${index} Calories</label>
+  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
+  <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
   <input
     type="number"
     min="0"
-    id="${entryDropdown.value}-${index}-calories"
+    id="${entryDropdown.value}-${entryNumber}-calories"
     placeholder="Calories"
   />`; // Labels need to be included for accessibility
   
