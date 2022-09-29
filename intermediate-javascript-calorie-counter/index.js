@@ -98,7 +98,7 @@ function getCaloriesFromInputs(list) {
     const invalidInputMatch = isInvalidInput(currVal);
 
     if (invalidInputMatch) {
-      alert(`Invalid input: ${invalidInputMatch[0]}`);
+      alert(`Invalid input: ${invalidInputMatch[0]}`); // This might be the first time alert() is introduced
       isError = true;
       return null;
     } else {
