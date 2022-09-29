@@ -4,7 +4,7 @@ const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
 const output = document.getElementById('output');
-let error = false;
+let isError = false;
 
 function cleanInputString(str) {
   // Remove +, -, and whitespace from string
@@ -68,7 +68,7 @@ function addEntry() {
 
 function calculateCalories(e) {
   e.preventDefault();
-  error = false; // Reset global error flag
+  isError = false; // Reset global error flag
   const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
   const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
   const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
@@ -83,7 +83,7 @@ function calculateCalories(e) {
   const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
   
   // Exit early if there is a detected error
-  if (error) return;
+  if (isError) return;
 
   const remainingCalories = budgetCalories - (breakfastCalories + lunchCalories + dinnerCalories + snacksCalories) + exerciseCalories;
   output.innerText = `${remainingCalories} Calories Remaining`;
@@ -99,7 +99,7 @@ function getCaloriesFromInputs(list) {
 
     if (invalidInputMatch) {
       alert(`Invalid input: ${invalidInputMatch[0]}`);
-      error = true;
+      isError = true;
       return null;
     } else {
       calories += Number(currVal);
