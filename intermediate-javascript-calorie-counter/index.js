@@ -67,7 +67,7 @@ function addEntry() {
 }
 
 function calculateCalories(e) {
-  e.preventDefault();
+  e.preventDefault(); // Might be the first time preventDefault() is introduced
   isError = false; // Reset global error flag
   const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
   const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
