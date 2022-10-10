@@ -1,9 +1,19 @@
-"use strict";
-
-// Sort the array elements in ascending order
-// Important test case: input array should not change as arrays are passed by reference
+const scoreInputs = document.querySelectorAll("#score-options input");
+const scoreSpans = document.querySelectorAll("#score-options span");
+const diceDivs = document.querySelectorAll("#dice > div");
+const currentRoundText = document.getElementById("current-round");
+const currentRoundRollsText = document.getElementById("current-round-rolls");
+const totalScoreText = document.getElementById("total-score");
+const scoreHistory = document.getElementById("score-history");
+const rollDiceBtn = document.getElementById("roll-dice-btn");
+const keepScoreBtn = document.getElementById("keep-score-btn");
+const rulesBtn = document.getElementById("rules-btn");
+const rulesContainer = document.querySelector(".rules-container");
+let isModalShowing = false;
+// Good review of selection Sort algorithm
 const selectionSort = (arr) => {
   let arrDeepCopy = [];
+
   arr.forEach((element, index) => {
     arrDeepCopy[index] = element;
   });
@@ -17,6 +27,7 @@ const selectionSort = (arr) => {
         smallestPos = j;
       }
     }
+
     let temp = arrDeepCopy[i];
     arrDeepCopy[i] = smallest;
     arrDeepCopy[smallestPos] = temp;
@@ -25,36 +36,32 @@ const selectionSort = (arr) => {
 };
 
 // Return the maximum number of consecutives
-// getMaxNumOfConsecutives([2, 3, 3, 3, 4]) should return 3
-// getMaxNumOfConsecutives([2, 3, 3, 7, 8, 9, 10]) should return 4
+
 const getMaxNumOfConsecutives = (sortedArr) => {
   let currentCount = 0;
   let maxCount = 0;
 
   for (let prev = 0, next = 1; next < sortedArr.length; prev++, next++) {
     if (sortedArr[next] - sortedArr[prev] === 1) {
-      if (currentCount === 0) currentCount++;
+      if (currentCount === 0) {
+        currentCount++;
+      }
       currentCount++;
     }
     if (
       sortedArr[next] - sortedArr[prev] > 1 ||
       next === sortedArr.length - 1
     ) {
-      if (currentCount > maxCount) maxCount = currentCount;
+      if (currentCount > maxCount) {
+        maxCount = currentCount;
+      }
       currentCount = 0;
     }
   }
   return maxCount;
 };
 
-// Sum the elements of an integer array
-const sumOfArrElements = (arr) => {
-  let arrElementsSum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    arrElementsSum += arr[i];
-  }
-  return arrElementsSum;
-};
+const sumOfArrElements = (arr) => arr.reduce((prev, curr) => prev + curr, 0);
 
 // Return an object with number of die having same value
 // getNumOfSameDiceValues([4, 4, 4, 6, 6]) should return {4: 3, 6: 2}
@@ -64,7 +71,9 @@ const getNumOfSameDiceValues = (sortedArr) => {
   for (let i = 1; i < sortedArr.length; i++) {
     let previous = sortedArr[i - 1];
     if (previous === sortedArr[i]) {
-      if (count === 0) count++;
+      if (count === 0) {
+        count++;
+      }
       count++;
     }
     if (previous !== sortedArr[i] || i === sortedArr.length - 1) {
@@ -84,54 +93,46 @@ class Game {
     this.currentRound = 1;
     this.scoreHistory = [];
     this.validScoreOptions = {};
-    this.isDiceSelectionEnabled = false;
   }
 
   resetRadioInputs() {
-    document.querySelectorAll("#score-options input").forEach((element) => {
+    scoreInputs.forEach((element) => {
       element.disabled = true;
       element.checked = false;
     });
-    document.querySelectorAll("#score-options span").forEach((element) => {
+    scoreSpans.forEach((element) => {
       element.textContent = "";
     });
   }
 
-  selectAllDice() {
-    document.querySelectorAll("#dice > div").forEach((element) => {
-      element.classList.add("selected");
-    });
-  }
-
-  startDiceSelector() {
-    document.querySelector("#dice").addEventListener("click", (event) => {
-      if (this.isDiceSelectionEnabled === true)
-        event.target.classList.toggle("selected");
-    });
-  }
-
-  rollSelectedDice() {
-    const dieDivs = document.querySelectorAll("#dice > div");
-    dieDivs.forEach((element, index) => {
-      if (element.classList.contains("selected"))
-        this.diceValues[index] = element.textContent = Math.ceil(
-          Math.random() * 6
-        );
+  rollDice() {
+    diceDivs.forEach((element, index) => {
+      this.diceValues[index] = element.textContent = Math.ceil(
+        Math.random() * 6
+      );
     });
     this.rollsInCurrentRound++;
   }
 
   updateStatsUI() {
-    document.querySelector("#current-round").textContent = this.currentRound;
-    document.querySelector("#total-score").textContent = this.totalScore;
-    document.querySelector(
-      "#current-round-rolls"
-    ).textContent = this.rollsInCurrentRound;
+    /**
+     * After keeping a set of dice in the 6th round, the current round text changes to 7 just before the game over confirmation message pops up.
+     * This change prevents updating that text without messing up the other logic that relies on the current round being greater that 6
+     * if (this.currentRound <= 6) currentRoundText.textContent = this.currentRound;
+     *
+     * We can point out this error to campers and create a step where campers add that if statement
+     *
+     *
+     */
+    currentRoundText.textContent = this.currentRound;
+    totalScoreText.textContent = this.totalScore;
+    currentRoundRollsText.textContent = this.rollsInCurrentRound;
   }
 
   updateScoreUI() {
-    const scoreboard = document.querySelector("#score-history");
+    const scoreboard = scoreHistory;
     const scoreEntry = document.createElement("li");
+    // I believe this is the first time Object.entries has been introduced
     const [type, score] = Object.entries(
       game.scoreHistory[game.scoreHistory.length - 1]
     )[0];
@@ -152,12 +153,13 @@ class Game {
     const sortedDiceValues = selectionSort(this.diceValues);
     const sumOfDiceValues = sumOfArrElements(this.diceValues);
     const totalConsecutives = getMaxNumOfConsecutives(sortedDiceValues);
+
+    // I believe this is the first time Object.values has been introduced
     const numOfSameDiceValues = Object.values(
       getNumOfSameDiceValues(sortedDiceValues)
     );
 
     this.validScoreOptions = {
-      chance: sumOfDiceValues,
       none: 0,
     };
 
@@ -172,44 +174,43 @@ class Game {
       this.validScoreOptions["four-of-a-kind"] = sumOfDiceValues;
 
     if (numOfSameDiceValues.length === 2) {
-      if (sumOfArrElements(numOfSameDiceValues) === 5)
+      if (sumOfArrElements(numOfSameDiceValues) === 5) {
         this.validScoreOptions["full-house"] = 25;
+      }
     }
 
-    if (totalConsecutives >= 4) this.validScoreOptions["small-straight"] = 30;
+    if (totalConsecutives >= 4) {
+      this.validScoreOptions["small-straight"] = 30;
+    }
 
-    if (totalConsecutives === 5) this.validScoreOptions["large-straight"] = 40;
-
-    if (numOfSameDiceValues[0] === 5) this.validScoreOptions["yahtzee"] = 50;
+    if (totalConsecutives === 5) {
+      this.validScoreOptions["large-straight"] = 40;
+    }
   }
 
   enableValidScoreInputs() {
-    const availableScoreInputs = document.querySelectorAll(
-      "#score-options input"
-    );
-    const availableRadioScores = document.querySelectorAll(
-      "#score-options span"
-    );
+    const availableScoreInputs = scoreInputs;
+    const availableRadioScores = scoreSpans;
+    // I believe this is the first time Object.keys has been introduced
     const validScoreOptionsKeys = Object.keys(this.validScoreOptions);
 
     for (let i = 0; i < validScoreOptionsKeys.length; i++) {
       for (let j = 0; j < availableScoreInputs.length; j++) {
         if (validScoreOptionsKeys[i] === availableScoreInputs[j].value) {
           availableScoreInputs[j].disabled = false;
-          availableRadioScores[j].textContent =
-            ", score = " +
-            this.validScoreOptions[availableScoreInputs[j].value];
+          availableRadioScores[j].textContent = `, score= ${
+            this.validScoreOptions[availableScoreInputs[j].value]
+          }`;
         }
       }
     }
   }
 
   isKeepScoreSuccess() {
-    const allScoreInputs = document.querySelectorAll("#score-options input");
-    const allRadioLabels = document.querySelectorAll("#score-options label");
+    const allScoreInputs = scoreInputs;
 
     for (let i = 0; i < allScoreInputs.length; i++) {
-      if (allScoreInputs[i].checked === true) {
+      if (allScoreInputs[i].checked) {
         const currentValue = allScoreInputs[i].value;
         const currentScore = this.validScoreOptions[currentValue];
         this.totalScore += currentScore;
@@ -217,10 +218,6 @@ class Game {
         this.currentRound++;
         this.rollsInCurrentRound = 0;
 
-        if (allScoreInputs[i].value !== "none") {
-          allScoreInputs[i].remove();
-          allRadioLabels[i].remove();
-        }
         return true;
       }
     }
@@ -239,35 +236,44 @@ class Game {
 }
 
 const game = new Game();
-game.startDiceSelector();
 
-const rollDiceBtn = document.querySelector("#roll-dice-btn");
-const keepScoreBtn = document.querySelector("#keep-score-btn");
-
-rollDiceBtn.addEventListener("click", function (event) {
+rollDiceBtn.addEventListener("click", (e) => {
   if (game.currentRound <= 6) {
-    game.rollSelectedDice();
+    game.rollDice();
     game.resetRadioInputs();
     game.generateValidScoreOptions();
     game.enableValidScoreInputs();
     game.updateStatsUI();
-    game.isDiceSelectionEnabled = true;
     keepScoreBtn.disabled = false;
-    if (game.rollsInCurrentRound % 3 === 0) event.target.disabled = true;
+
+    if (game.rollsInCurrentRound % 3 === 0) {
+      e.target.disabled = true;
+    }
   }
 });
 
-keepScoreBtn.addEventListener("click", function (event) {
+keepScoreBtn.addEventListener("click", (e) => {
   if (game.currentRound <= 6 && game.isKeepScoreSuccess()) {
     game.resetRadioInputs();
-    game.selectAllDice();
     game.updateStatsUI();
     game.updateScoreUI();
-    game.isDiceSelectionEnabled = false;
     rollDiceBtn.disabled = false;
-    event.target.disabled = true;
+    e.target.disabled = true;
   }
-  if (game.currentRound > 6)
+
+  if (game.currentRound > 6) {
     // Give DOM some time to complete manipulation then check & run gameOver
     setTimeout(game.gameOver, 100);
+  }
+});
+
+rulesBtn.addEventListener("click", () => {
+  isModalShowing = !isModalShowing;
+  if (isModalShowing) {
+    rulesBtn.textContent = "Hide Rules";
+    rulesContainer.style.display = "block";
+  } else {
+    rulesBtn.textContent = "Show Rules";
+    rulesContainer.style.display = "none";
+  }
 });
