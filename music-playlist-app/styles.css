@@ -48,6 +48,14 @@ body {
   display: flex;
   padding: 5px;
   border-bottom: 1px solid var(--main-background-color);
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  
+}
+
+.current-song-container{
+  background-color: #fec544;
 }
 
 .song-btn {
@@ -55,18 +63,24 @@ body {
   font-size: 1rem;
   background-color: var(--gray100);
   border: none;
+
 }
 
 .song-btn:hover {
-  background-color: var(--gray200);
+  background-color: #fec544;
   cursor: pointer;
 }
 
 .img-styles {
-  width: 5rem;
-  height: 5rem;
+  width: 8rem;
+  height: 8rem;
   object-fit: cover;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid red;
 }
+
 
 .text-container {
   text-align: center;
@@ -74,25 +88,44 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 0.5rem;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #0a0a23;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.text-container p{
+  color: red;
 }
 
 .media-controls,
 .btn-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.media-controls{
+  background-color: greenyellow;
 }
 
 .btn {
   cursor: pointer;
-  width: 50px;
+  width: 100px;
   margin: 10px;
-  color: var(--main-background-color);
+  padding: 10px;
+  color: #0a0a23;
   font-size: 14px;
-  background-color: var(--golden-yellow);
-  background-image: linear-gradient(#fecc4c, #ffac33);
   border-color: var(--golden-yellow);
   border-width: 3px;
+  transition: 0.3s ease all;
+}
+
+.btn:hover{
+  color: #fec544;
+  background-color: #0a0a23;
 }
 
 .svg-styles {
@@ -104,7 +137,10 @@ body {
   cursor: pointer;
   padding: 10px;
   border: none;
-  background-color: var(--gray100);
+  background-color: #0a0a23;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-bottom: 20px;
 }
 
 .shuffle-btn {
@@ -112,8 +148,16 @@ body {
   height: 70px;
 }
 
+
 li {
-  list-style-type: none;
+  list-style-type:georgian;
+}
+
+li :nth-child(1){
+  background-color:brown;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .sr-only {
