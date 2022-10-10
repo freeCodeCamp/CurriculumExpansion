@@ -1,6 +1,6 @@
 const scoreInputs = document.querySelectorAll("#score-options input");
 const scoreSpans = document.querySelectorAll("#score-options span");
-const diceButtons = document.querySelectorAll("#dice > button");
+const diceDivs = document.querySelectorAll("#dice > div");
 const currentRoundText = document.getElementById("current-round");
 const currentRoundRollsText = document.getElementById("current-round-rolls");
 const totalScoreText = document.getElementById("total-score");
