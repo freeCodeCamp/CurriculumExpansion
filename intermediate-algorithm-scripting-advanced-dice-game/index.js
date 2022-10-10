@@ -115,6 +115,15 @@ class Game {
   }
 
   updateStatsUI() {
+    /**
+     * After keeping a set of dice in the 6th round, the current round text changes to 7 just before the game over confirmation message pops up.
+     * This change prevents updating that text without messing up the other logic that relies on the current round being greater that 6
+     * if (this.currentRound <= 6) currentRoundText.textContent = this.currentRound;
+     *
+     * We can point out this error to campers and create a step where campers add that if statement
+     *
+     *
+     */
     currentRoundText.textContent = this.currentRound;
     totalScoreText.textContent = this.totalScore;
     currentRoundRollsText.textContent = this.rollsInCurrentRound;
