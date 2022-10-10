@@ -106,7 +106,7 @@ class Game {
   }
 
   rollDice() {
-    diceButtons.forEach((element, index) => {
+    diceDivs.forEach((element, index) => {
       this.diceValues[index] = element.textContent = Math.ceil(
         Math.random() * 6
       );
