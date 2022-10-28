@@ -51,7 +51,9 @@ function addEntry() {
   // const targetId = '#' + entryDropdown.value;
   // const targetInputContainer = document.querySelector(targetId + ' ' + '.input-container');
   const targetInputContainer = document.body.querySelector(`#${entryDropdown.value} .input-container`);
-  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1; // Could also use targetInputContainer.querySelectorAll('input').length / 2
+  // When breaking up into steps, have the entry number start at 0 and have the learner test it. Then have another
+  // step where they fix the issue by adding 1 to the entry number as soon as it's initialized
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   const HTMLString = `
   <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
   <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
