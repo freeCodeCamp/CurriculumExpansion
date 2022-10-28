@@ -39,6 +39,11 @@ select {
   margin-bottom: 10px;
 }
 
+/*
+  Consider adding some of the styles below later as the JS is being built up.
+  Rules like .output span won't make sense until the later in the project.
+*/
+
 .output {
   border: 2px solid black;
   padding: 10px;
@@ -47,4 +52,17 @@ select {
 
 .hide {
   display: none;
+}
+
+.output span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.surplus {
+  color: #006627;
+}
+
+.deficit {
+  color: #B30000;
 }

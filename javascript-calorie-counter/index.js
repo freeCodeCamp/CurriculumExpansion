@@ -87,8 +87,17 @@ function calculateCalories(e) {
   // Exit early if there is a detected error
   if (isError) return;
 
-  const remainingCalories = budgetCalories - (breakfastCalories + lunchCalories + dinnerCalories + snacksCalories) + exerciseCalories;
-  output.innerText = `${remainingCalories} Calories Remaining`;
+  const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+  const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
+  const surplusOrDeficit = remainingCalories >= 0 ? 'Surplus' : 'Deficit';
+  output.innerHTML = `
+    <span class="${surplusOrDeficit === 'Surplus' ? 'surplus' : 'deficit'}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span>
+    <hr>
+    <p>${budgetCalories} Calories Budgeted</p>
+    <p>${consumedCalories} Calories Consumed</p>
+    <p>${exerciseCalories} Calories Burned</p>
+  `;
+
   output.classList.remove('hide');
 }
 
