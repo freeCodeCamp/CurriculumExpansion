@@ -65,7 +65,10 @@ function addEntry() {
     placeholder="Calories"
   />`; // Labels need to be included for accessibility
   
-  targetInputContainer.innerHTML += HTMLString;
+  // Original version which causes input values to be lost when appending to the DOM with .innerHTML
+  // targetInputContainer.innerHTML += HTMLString;
+  // Refactored to use .insertAdjacentHTML() to avoid losing input values
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
 
 function calculateCalories(e) {
