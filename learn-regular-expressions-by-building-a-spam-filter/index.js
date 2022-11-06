@@ -18,6 +18,16 @@ const checkMessageButton = document.getElementById("check-message-btn");
  *
  */
 
+/**
+ * A note about adding positive lookaheads. We could start with what is written about also refactor it in other steps
+ * to include positive lookaheads
+ *
+ * For positive lookaheads, something like /\d+(?=\s+dollars)/gi would match "100" in "100 dollars", and "000" in "1,000 dollars".
+ * We could also look for other currencies like euros that often come up in spam emails with /\d+(?=\s+(dollars|euros))/gi.
+ * We could even search for USD or EUR. - Kris
+ *
+ */
+
 const denyListRegexps = [
   /[0-9] hundred|thousand|million|billion dollars/gi,
   /PLEASE HELP|ASSIST ME/i,
