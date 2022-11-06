@@ -3,10 +3,11 @@ const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
 /**
- * I read through the previous discussions for this project
- * and we can start with matches for literal phrases and then have the
- * campers create more complex regex which seemed to be the original intent for this project.
- *
+ * For the first regex in the list we could start with the [0-9] character group and matching with literal phrases like
+ * hundred, thousand million and billion
+ * Then we can slowly refactor it in other steps to include the \d, \s  * and ? flags
+ * At the end could have something like this
+ * \d*\s+(hundred|thousand|million|billion)(\s+dollars)?
  *
  *
  */
