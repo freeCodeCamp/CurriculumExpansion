@@ -12,7 +12,7 @@ const checkMessageButton = document.getElementById("check-message-btn");
  *
  */
 
-const blacklistRegexps = [
+const denyListRegexps = [
   /[0-9] hundred|thousand|million|billion dollars/gi,
   /PLEASE HELP|ASSIST ME/i,
   /(?:^|\s)fr[e3][e3] m[o0]n[e3]y(?:$|\s)/i,
