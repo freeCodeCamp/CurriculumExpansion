@@ -12,6 +12,12 @@ const checkMessageButton = document.getElementById("check-message-btn");
  *
  */
 
+/**
+ * If we want to teach how to match a whole phrase like "please help me",
+ * this would be a good place to introduce a capture group around HELP|ASSIST. - Kris
+ *
+ */
+
 const denyListRegexps = [
   /[0-9] hundred|thousand|million|billion dollars/gi,
   /PLEASE HELP|ASSIST ME/i,
