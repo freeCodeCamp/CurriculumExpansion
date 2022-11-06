@@ -45,7 +45,8 @@ body,
   font-size: 1.5rem;
 }
 
-#message-input:placeholder-shown {
+#message-input:placeholder-shown,
+textarea {
   font-size: 1.1rem;
 }
 
