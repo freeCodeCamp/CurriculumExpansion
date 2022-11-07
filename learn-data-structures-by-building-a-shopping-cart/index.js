@@ -1,8 +1,9 @@
 const shoppingCartContainer = document.getElementById("shopping-cart");
-const dessertCards = document.getElementById("dessert-cards");
+const dessertCards = document.getElementById("dessert-card-container");
 const shoppingCartBtn = document.getElementById("cart-btn");
 const showHideCartSpan = document.getElementById("show-hide-cart");
 let isCartShowing = false;
+
 const products = [
   {
     id: 1,
@@ -18,7 +19,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Fruit sprinkles cupcake",
+    name: "Pumpkin cupcake",
     price: 3.99,
     category: "cupcake",
   },
@@ -39,6 +40,42 @@ const products = [
     name: "Strawberry ice cream",
     price: 2.99,
     category: "ice cream",
+  },
+  {
+    id: 7,
+    name: "Chocolate Macaroon",
+    price: 3.99,
+    category: "macaroon",
+  },
+  {
+    id: 8,
+    name: "Strawberry pretzel",
+    price: 4.99,
+    category: "pretzel",
+  },
+  {
+    id: 9,
+    name: "Butter Pecan ice cream",
+    price: 2.99,
+    category: "ice cream",
+  },
+  {
+    id: 10,
+    name: "Rocky Road ice cream",
+    price: 2.99,
+    category: "ice cream",
+  },
+  {
+    id: 11,
+    name: "Vanilla Macaroon",
+    price: 3.99,
+    category: "macaroon",
+  },
+  {
+    id: 12,
+    name: "Lemon cupcake",
+    price: 2.99,
+    category: "cupcake",
   },
 ];
 
@@ -105,6 +142,17 @@ class ShoppingCart {
 }
 
 const shoppingCart = new ShoppingCart();
+
+products.map(
+  ({ name, id, price }) =>
+    (dessertCards.innerHTML += `
+    <div class="dessert-card" id=dessert${id}>
+      <h2>${name}</h2>
+      <p class="dessert-price">Price: $${price}</p>
+      <button class="btn add-to-cart-btn">Add to cart</button>
+    </div>
+  `)
+);
 
 shoppingCartBtn.addEventListener("click", () => {
   isCartShowing = !isCartShowing;
