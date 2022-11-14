@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -41,14 +43,21 @@ body {
   flex-direction: column;
 }
 
-.img-text-container,
+.play-song-btn-container,
 .current-song-container {
   display: flex;
   padding: 5px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--main-background-color);
 }
 
-.img-text-container:hover {
+.song-btn {
+  padding: 5px;
+  font-size: 1rem;
+  background-color: var(--gray100);
+  border: none;
+}
+
+.song-btn:hover {
   background-color: var(--gray200);
   cursor: pointer;
 }
@@ -59,8 +68,7 @@ body {
   object-fit: cover;
 }
 
-.text-container,
-.song-text-container {
+.text-container {
   text-align: center;
   width: 100%;
   display: flex;
@@ -87,10 +95,6 @@ body {
   border-width: 3px;
 }
 
-.song {
-  padding-top: 2px;
-}
-
 .svg-styles {
   width: 32px;
   height: 32px;
@@ -106,4 +110,19 @@ body {
 .shuffle-btn {
   width: 70px;
   height: 70px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
