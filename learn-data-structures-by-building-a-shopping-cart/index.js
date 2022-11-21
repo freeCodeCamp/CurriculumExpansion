@@ -84,6 +84,20 @@ const products = [
   },
 ];
 
+products.map(
+  ({ name, id, price }) =>
+    (dessertCards.innerHTML += `
+    <div class="dessert-card" id=dessert${id}>
+      <h2>${name}</h2>
+      <p class="dessert-price">$${price}</p>
+      <button 
+        id="${id}" 
+        class="btn add-to-cart-btn">Add to cart
+      </button>
+    </div>
+  `)
+);
+
 class ShoppingCart {
   constructor() {
     this.items = [];
@@ -94,6 +108,15 @@ class ShoppingCart {
   addItem(id, products) {
     const item = products.find((item) => item.id === id);
     this.items.push(item);
+    const { name, price } = item;
+    if (this.items.length === 1) {
+      shoppingCartContainer.innerText = "";
+    }
+
+    shoppingCartContainer.innerHTML += `
+      <p>${name}</p>
+      <p>$${price}</p>
+    `;
   }
 
   getItems() {
@@ -148,18 +171,13 @@ class ShoppingCart {
 
 const shoppingCart = new ShoppingCart();
 
-products.map(
-  ({ name, id, price }) =>
-    (dessertCards.innerHTML += `
-    <div class="dessert-card" id=dessert${id}>
-      <h2>${name}</h2>
-      <p class="dessert-price">$${price}</p>
-      <button 
-      id="${name.replaceAll(" ", "-")}" 
-      class="btn add-to-cart-btn">Add to cart</button>
-    </div>
-  `)
-);
+const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
+
+[...addToCartBtns].forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    shoppingCart.addItem(Number(event.target.id), products);
+  });
+});
 
 shoppingCartBtn.addEventListener("click", () => {
   isCartShowing = !isCartShowing;
