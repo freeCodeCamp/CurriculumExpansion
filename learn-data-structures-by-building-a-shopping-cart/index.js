@@ -153,8 +153,10 @@ products.map(
     (dessertCards.innerHTML += `
     <div class="dessert-card" id=dessert${id}>
       <h2>${name}</h2>
-      <p class="dessert-price">Price: $${price}</p>
-      <button class="btn add-to-cart-btn">Add to cart</button>
+      <p class="dessert-price">$${price}</p>
+      <button 
+      id="${name.replaceAll(" ", "-")}" 
+      class="btn add-to-cart-btn">Add to cart</button>
     </div>
   `)
 );
