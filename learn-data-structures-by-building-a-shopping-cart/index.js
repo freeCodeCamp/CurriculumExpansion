@@ -7,7 +7,7 @@ let isCartShowing = false;
 const products = [
   {
     id: 1,
-    name: "6 Vanilla cupcakes",
+    name: "Vanilla cupcakes (6 pack)",
     price: 12.99,
     category: "cupcake",
     hasDiscount: true,
@@ -32,7 +32,7 @@ const products = [
   },
   {
     id: 5,
-    name: "4 Chocolate pretzels",
+    name: "Chocolate pretzels (4 pack)",
     price: 10.99,
     category: "pretzel",
     hasDiscount: true,
@@ -45,7 +45,7 @@ const products = [
   },
   {
     id: 7,
-    name: "4 Chocolate Macaroons",
+    name: "Chocolate Macaroons (4 pack)",
     price: 9.99,
     category: "macaroon",
     hasDiscount: true,
@@ -70,14 +70,14 @@ const products = [
   },
   {
     id: 11,
-    name: "5 Vanilla Macaroons",
+    name: "Vanilla Macaroons (5 pack)",
     price: 11.99,
     category: "macaroon",
     hasDiscount: true,
   },
   {
     id: 12,
-    name: "4 Lemon cupcakes",
+    name: "Lemon cupcakes (4 pack)",
     price: 12.99,
     category: "cupcake",
     hasDiscount: true,
