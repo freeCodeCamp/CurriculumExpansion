@@ -12,6 +12,12 @@ const cartTotal = document.getElementById("total");
 const showHideCartSpan = document.getElementById("show-hide-cart");
 let isCartShowing = false;
 
+/**
+ *
+ * We can decide if we want to provide this products array for them or write steps where the campers
+ * will build it out themselves
+ *
+ */
 const products = [
   {
     id: 1,
@@ -87,6 +93,7 @@ const products = [
   },
 ];
 
+// another good instance to show how map and destructuring works
 products.map(
   ({ name, id, price }) =>
     (dessertCards.innerHTML += `
@@ -101,13 +108,16 @@ products.map(
   `)
 );
 
+// This might be the first time where classes are introduced
 class ShoppingCart {
+  // this might be the first time the this keyword is introduced
   constructor() {
     this.items = [];
     this.taxRate = 8.25;
   }
 
   addItem(id, products) {
+    // this might be the first time where the find method is introduced
     const product = products.find((item) => item.id === id);
     const { name, price } = product;
     this.items.push(product);
@@ -139,17 +149,13 @@ class ShoppingCart {
     return this.items.length;
   }
 
-  removeItem(id) {
-    const index = this.items.indexOf(id);
-    this.items.splice(index, 1);
-  }
-
   clearCart() {
     if (!this.items.length) {
       alert("Your shopping cart is already empty");
       return;
     }
 
+    // this might be the first time the confirm method is introduced. I don't remember if we are using it in the music player project
     let isCartCleared = confirm(
       "Are you sure you want to clear all items from your shopping cart?"
     );
