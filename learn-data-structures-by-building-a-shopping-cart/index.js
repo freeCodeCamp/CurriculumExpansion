@@ -116,8 +116,6 @@ class ShoppingCart {
         (totalCountPerProduct[dessert.name] || 0) + 1;
     });
 
-    console.log(totalCountPerProduct);
-
     if (this.items.length === 1) {
       shoppingCartContainer.innerText = "";
     }
