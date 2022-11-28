@@ -1,6 +1,14 @@
-const shoppingCartContainer = document.getElementById("shopping-cart");
+const shoppingCartContainer = document.getElementById(
+  "shopping-cart-container"
+);
+const productsContainer = document.getElementById("products-container");
 const dessertCards = document.getElementById("dessert-card-container");
 const shoppingCartBtn = document.getElementById("cart-btn");
+const clearShoppingCartBtn = document.getElementById("clear-cart-btn");
+const totalNumberOfItems = document.getElementById("total-items");
+const cartSubTotal = document.getElementById("subtotal");
+const cartTaxes = document.getElementById("taxes");
+const cartTotal = document.getElementById("total");
 const showHideCartSpan = document.getElementById("show-hide-cart");
 let isCartShowing = false;
 
@@ -10,7 +18,6 @@ const products = [
     name: "Vanilla cupcakes (6 pack)",
     price: 12.99,
     category: "cupcake",
-    hasDiscount: true,
   },
   {
     id: 2,
@@ -35,7 +42,6 @@ const products = [
     name: "Chocolate pretzels (4 pack)",
     price: 10.99,
     category: "pretzel",
-    hasDiscount: true,
   },
   {
     id: 6,
@@ -48,7 +54,6 @@ const products = [
     name: "Chocolate Macaroons (4 pack)",
     price: 9.99,
     category: "macaroon",
-    hasDiscount: true,
   },
   {
     id: 8,
@@ -73,14 +78,12 @@ const products = [
     name: "Vanilla Macaroons (5 pack)",
     price: 11.99,
     category: "macaroon",
-    hasDiscount: true,
   },
   {
     id: 12,
     name: "Lemon cupcakes (4 pack)",
     price: 12.99,
     category: "cupcake",
-    hasDiscount: true,
   },
 ];
 
@@ -102,7 +105,6 @@ class ShoppingCart {
   constructor() {
     this.items = [];
     this.taxRate = 8.25;
-    this.discountPercentage = 30;
   }
 
   addItem(id, products) {
@@ -116,10 +118,6 @@ class ShoppingCart {
         (totalCountPerProduct[dessert.name] || 0) + 1;
     });
 
-    if (this.items.length === 1) {
-      shoppingCartContainer.innerText = "";
-    }
-
     let currentProductCount = totalCountPerProduct[product.name];
     let currentProductCountSpan = document.getElementById(
       "product-count-for-id" + id
@@ -127,9 +125,11 @@ class ShoppingCart {
 
     currentProductCount > 1
       ? (currentProductCountSpan.textContent = `${currentProductCount}x`)
-      : (shoppingCartContainer.innerHTML += `
+      : (productsContainer.innerHTML += `
       <div id=dessert${id} class="product">
-        <p><span class="product-count" id=product-count-for-id${id}></span>${name}</p>
+        <p>
+          <span class="product-count" id=product-count-for-id${id}></span>${name}
+        </p>
         <p>$${price}</p>
       </div>
     `);
@@ -152,10 +152,6 @@ class ShoppingCart {
     this.items = [];
   }
 
-  applyDiscount(amount) {
-    return parseFloat(((this.discountPercentage / 100) * amount).toFixed(2));
-  }
-
   calculateTaxes(amount) {
     return parseFloat(((this.taxRate / 100) * amount).toFixed(2));
   }
@@ -163,17 +159,7 @@ class ShoppingCart {
   calculateTotal() {
     const subTotal = this.items.reduce((total, item) => total + item.price, 0);
     const tax = this.calculateTaxes(subTotal);
-    const discount = this.applyDiscount(subTotal);
-    const total = subTotal - discount + tax;
-    return total;
-  }
-
-  setDiscountPercentage(percentage) {
-    this.discountPercentage = percentage;
-  }
-
-  getDiscountPercentage() {
-    return this.discountPercentage;
+    return subTotal + tax;
   }
 
   setTaxRate(taxRate) {
@@ -186,7 +172,6 @@ class ShoppingCart {
 }
 
 const shoppingCart = new ShoppingCart();
-
 const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 
 [...addToCartBtns].forEach((btn) => {
@@ -200,17 +185,3 @@ shoppingCartBtn.addEventListener("click", () => {
   showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
   shoppingCartContainer.style.display = isCartShowing ? "block" : "none";
 });
-
-/**
- *
- * Concepts to cover
- *
- * push(),shift(),unshift(),pop()
- * spread operator
- * delete operator
- * hasOwnProperty()
- * for...in
- * Object.keys()
- *
- *
- */
