@@ -88,6 +88,11 @@ body {
   overflow-y: scroll;
 }
 
+.product-count {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 @media (min-width: 768px) {
   #dessert-card-container {
     flex-direction: row;
@@ -95,5 +100,9 @@ body {
 
   .dessert-card {
     flex: 1 0 21%;
+  }
+
+  #shopping-cart {
+    width: 300px;
   }
 }

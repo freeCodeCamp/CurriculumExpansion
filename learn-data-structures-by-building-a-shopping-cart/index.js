@@ -87,7 +87,7 @@ const products = [
 products.map(
   ({ name, id, price }) =>
     (dessertCards.innerHTML += `
-    <div class="dessert-card" id=dessert${id}>
+    <div class="dessert-card">
       <h2>${name}</h2>
       <p class="dessert-price">$${price}</p>
       <button 
@@ -106,17 +106,35 @@ class ShoppingCart {
   }
 
   addItem(id, products) {
-    const item = products.find((item) => item.id === id);
-    this.items.push(item);
-    const { name, price } = item;
+    const product = products.find((item) => item.id === id);
+    const { name, price } = product;
+    this.items.push(product);
+
+    const totalCountPerProduct = {};
+    this.items.forEach((dessert) => {
+      totalCountPerProduct[dessert.name] =
+        (totalCountPerProduct[dessert.name] || 0) + 1;
+    });
+
+    console.log(totalCountPerProduct);
+
     if (this.items.length === 1) {
       shoppingCartContainer.innerText = "";
     }
 
-    shoppingCartContainer.innerHTML += `
-      <p>${name}</p>
-      <p>$${price}</p>
-    `;
+    let currentProductCount = totalCountPerProduct[product.name];
+    let currentProductCountSpan = document.getElementById(
+      "product-count-for-id" + id
+    );
+
+    currentProductCount > 1
+      ? (currentProductCountSpan.textContent = `${currentProductCount}x`)
+      : (shoppingCartContainer.innerHTML += `
+      <div id=dessert${id} class="product">
+        <p><span class="product-count" id=product-count-for-id${id}></span>${name}</p>
+        <p>$${price}</p>
+      </div>
+    `);
   }
 
   getItems() {
