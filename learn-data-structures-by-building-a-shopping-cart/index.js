@@ -135,10 +135,6 @@ class ShoppingCart {
     `);
   }
 
-  getItems() {
-    return this.items;
-  }
-
   getCount() {
     return this.items.length;
   }
@@ -159,15 +155,11 @@ class ShoppingCart {
   calculateTotal() {
     const subTotal = this.items.reduce((total, item) => total + item.price, 0);
     const tax = this.calculateTaxes(subTotal);
-    return subTotal + tax;
-  }
-
-  setTaxRate(taxRate) {
-    this.taxRate = taxRate;
-  }
-
-  getTaxRate() {
-    return this.taxRate;
+    const total = subTotal + tax;
+    cartSubTotal.textContent = `$${subTotal.toFixed(2)}`;
+    cartTaxes.textContent = `$${tax}`;
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+    return total;
   }
 }
 
@@ -177,6 +169,8 @@ const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 [...addToCartBtns].forEach((btn) => {
   btn.addEventListener("click", (event) => {
     shoppingCart.addItem(Number(event.target.id), products);
+    totalNumberOfItems.textContent = shoppingCart.getCount();
+    shoppingCart.calculateTotal();
   });
 });
 
