@@ -73,7 +73,7 @@ body {
   margin: 30px auto 10px;
 }
 
-#shopping-cart-container {
+#cart-container {
   display: none;
   position: absolute;
   top: 60px;
@@ -106,7 +106,7 @@ body {
     flex: 1 0 21%;
   }
 
-  #shopping-cart-container {
+  #cart-container {
     width: 300px;
   }
 }

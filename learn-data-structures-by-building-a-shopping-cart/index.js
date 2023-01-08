@@ -1,10 +1,8 @@
-const shoppingCartContainer = document.getElementById(
-  "shopping-cart-container"
-);
+const cartContainer = document.getElementById("cart-container");
 const productsContainer = document.getElementById("products-container");
 const dessertCards = document.getElementById("dessert-card-container");
-const shoppingCartBtn = document.getElementById("cart-btn");
-const clearShoppingCartBtn = document.getElementById("clear-cart-btn");
+const cartBtn = document.getElementById("cart-btn");
+const clearCartBtn = document.getElementById("clear-cart-btn");
 const totalNumberOfItems = document.getElementById("total-items");
 const cartSubTotal = document.getElementById("subtotal");
 const cartTaxes = document.getElementById("taxes");
@@ -185,23 +183,23 @@ class ShoppingCart {
   }
 }
 
-const shoppingCart = new ShoppingCart();
+const cart = new ShoppingCart();
 const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 
 [...addToCartBtns].forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    shoppingCart.addItem(Number(event.target.id), products);
-    totalNumberOfItems.textContent = shoppingCart.getCount();
-    shoppingCart.calculateTotal();
+    cart.addItem(Number(event.target.id), products);
+    totalNumberOfItems.textContent = cart.getCount();
+    cart.calculateTotal();
   });
 });
 
-shoppingCartBtn.addEventListener("click", () => {
+cartBtn.addEventListener("click", () => {
   isCartShowing = !isCartShowing;
   showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
-  shoppingCartContainer.style.display = isCartShowing ? "block" : "none";
+  cartContainer.style.display = isCartShowing ? "block" : "none";
 });
 
-clearShoppingCartBtn.addEventListener("click", () => {
-  shoppingCart.clearCart();
+clearCartBtn.addEventListener("click", () => {
+  cart.clearCart();
 });
