@@ -97,6 +97,10 @@ body {
   margin-right: 10px;
 }
 
+.product-category {
+  margin: 10px 0;
+}
+
 @media (min-width: 768px) {
   #dessert-card-container {
     flex-direction: row;
