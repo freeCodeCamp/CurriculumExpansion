@@ -113,6 +113,7 @@ class ShoppingCart {
   constructor() {
     this.items = [];
     this.taxRate = 8.25;
+    this.total = 0;
   }
 
   addItem(id, products) {
@@ -166,6 +167,7 @@ class ShoppingCart {
       cartTaxes.textContent = 0;
       cartTotal.textContent = 0;
       this.items = [];
+      this.total = 0;
     }
   }
 
@@ -176,11 +178,11 @@ class ShoppingCart {
   calculateTotal() {
     const subTotal = this.items.reduce((total, item) => total + item.price, 0);
     const tax = this.calculateTaxes(subTotal);
-    const total = subTotal + tax;
+    this.total = subTotal + tax;
     cartSubTotal.textContent = `$${subTotal.toFixed(2)}`;
-    cartTaxes.textContent = `$${tax}`;
-    cartTotal.textContent = `$${total.toFixed(2)}`;
-    return total;
+    cartTaxes.textContent = `$${tax.toFixed(2)}`;
+    cartTotal.textContent = `$${this.total.toFixed(2)}`;
+    return this.total;
   }
 }
 
