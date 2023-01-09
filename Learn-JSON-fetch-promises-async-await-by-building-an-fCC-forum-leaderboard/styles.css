@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #2a2a40;
+  --black: #000;
+  --dark-navy: #0a0a23;
+  --dark-grey: #d0d0d5;
+  --medium-grey: #dfdfe2;
+  --light-grey: #f5f6f7;
+  --peach: #f28373;
+  --salmon-color: #f0aea9;
+  --light-blue: #8bd9f6;
+  --light-orange: #f8b172;
+  --light-green: #93cb5b;
+  --golden-yellow: #f1ba33;
+  --gold: #f9aa23;
+  --green: #6bca6b;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+nav {
+  background-color: var(--dark-navy);
+  padding: 10px 0;
+}
+
+.fcc-logo {
+  width: 210px;
+  height: 24px;
+  display: block;
+  margin: auto;
+}
+
+.title {
+  margin: 25px 0;
+  text-align: center;
+  color: var(--light-grey);
+}
+
+table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+thead th:first-child {
+  width: 70%;
+}
+
+th {
+  border-bottom: 2px solid var(--dark-grey);
+  color: var(--dark-grey);
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+th:not(:first-child) {
+  text-align: center;
+}
+
+th:first-child {
+  text-align: start;
+}
+
+td {
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+td {
+  padding: 20px 0;
+}
+
+.post {
+  color: var(--medium-grey);
+  text-decoration: none;
+}
+
+.post-title {
+  font-size: 1.3rem;
+}
+
+.topic-data {
+  text-align: center;
+  color: var(--dark-grey);
+}
+
+.category {
+  padding: 3px;
+  color: var(--black);
+  display: block;
+  width: fit-content;
+  margin: 2px 0 5px;
+  text-decoration: none;
+}
+
+.career {
+  background-color: var(--salmon-color);
+}
+
+.feedback,
+.html-css {
+  background-color: var(--light-blue);
+}
+
+.support {
+  background-color: var(--light-orange);
+}
+
+.general {
+  background-color: var(--light-green);
+}
+
+.javascript {
+  background-color: var(--golden-yellow);
+}
+
+.backend {
+  background-color: var(--gold);
+}
+
+.python {
+  background-color: var(--green);
+}
+
+.motivation {
+  background-color: var(--peach);
+}
+
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .views,
+  #views {
+    display: none;
+  }
+
+  #replies,
+  #activity {
+    font-size: 0.7rem;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+  }
+}
