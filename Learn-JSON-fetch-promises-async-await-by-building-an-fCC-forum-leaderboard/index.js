@@ -26,8 +26,8 @@ const categories = {
 
 const forumCategories = (id) => {
   return categories.hasOwnProperty(id)
-    ? `<a class="category ${categories[id]["className"]}"  target="_blank" href=${FORUM_CATEGORY_URL}${categories[id]["className"]}/${id}>${categories[id]["category"]}</a>`
-    : `<a class="category general" target="_blank" href=${FORUM_CATEGORY_URL}general/1>General</a>`;
+    ? `<a class="category ${categories[id]["className"]}" target="_blank" href="${FORUM_CATEGORY_URL}${categories[id]["className"]}/${id}">${categories[id]["category"]}</a>`
+    : `<a class="category general" target="_blank" href="${FORUM_CATEGORY_URL}general/1">General</a>`;
 };
 
 const showTime = (time) => {
