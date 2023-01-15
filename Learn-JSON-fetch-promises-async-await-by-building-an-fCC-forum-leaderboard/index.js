@@ -87,7 +87,7 @@ const showLatestPosts = (posts) => {
       .join("");
   };
 
-  topics.map(
+  topics.forEach(
     ({
       id,
       title,
