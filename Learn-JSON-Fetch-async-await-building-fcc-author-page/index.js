@@ -19,11 +19,12 @@ fetch("https://fcc-author-api.herokuapp.com/authors")
 const fetchMoreAuthors = () => {
   startingIndex += 8;
   endingIndex = endingIndex + 8;
+  displayUsers(authorDataArr.slice(startingIndex, endingIndex));
+
   if (authorDataArr.length <= endingIndex) {
     loadMoreBtn.disabled = true;
     loadMoreBtn.textContent = "No more data to load";
   }
-  displayUsers(authorDataArr.slice(startingIndex, endingIndex));
 };
 
 const displayUsers = (users) => {
