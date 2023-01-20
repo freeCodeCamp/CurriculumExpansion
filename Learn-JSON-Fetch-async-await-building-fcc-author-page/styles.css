@@ -8,6 +8,7 @@
   --main-bg-color: #1b1b32;
   --light-grey: #f5f6f7;
   --dark-purple: #5a01a7;
+  --golden-yellow: #feac32;
 }
 
 body {
@@ -56,4 +57,16 @@ body {
 
 .error-msg {
   color: var(--light-grey);
+}
+
+.btn {
+  cursor: pointer;
+  width: 200px;
+  margin: 10px;
+  color: var(--main-background-color);
+  font-size: 14px;
+  background-color: var(--golden-yellow);
+  background-image: linear-gradient(#fecc4c, #ffac33);
+  border-color: var(--golden-yellow);
+  border-width: 3px;
 }

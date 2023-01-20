@@ -1,13 +1,30 @@
 const authorContainer = document.getElementById("author-container");
+const loadMoreBtn = document.getElementById("load-more-btn");
+let startingIndex = 0;
+let endingIndex = 8;
+let authorDataArr;
 
 // replace this API with one hosted by FCC
 fetch("https://fcc-author-api.herokuapp.com/authors")
   .then((res) => res.json())
-  .then((data) => displayUsers(data))
+  .then((data) => {
+    authorDataArr = data;
+    displayUsers(authorDataArr.slice(startingIndex, endingIndex));
+  })
   .catch((err) => {
     authorContainer.innerHTML = `<p class="error-msg">There was an error loading the data</p>`;
     console.error(`There was an error: ${err}`);
   });
+
+const fetchMoreAuthors = () => {
+  startingIndex += 8;
+  endingIndex = endingIndex + 8;
+  if (authorDataArr.length <= endingIndex) {
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = "No more data to load";
+  }
+  displayUsers(authorDataArr.slice(startingIndex, endingIndex));
+};
 
 const displayUsers = (users) => {
   users.forEach(
@@ -23,3 +40,5 @@ const displayUsers = (users) => {
     `)
   );
 };
+
+loadMoreBtn.addEventListener("click", fetchMoreAuthors);
