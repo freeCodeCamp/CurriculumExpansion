@@ -2,7 +2,7 @@ const authorContainer = document.getElementById("author-container");
 const loadMoreBtn = document.getElementById("load-more-btn");
 let startingIndex = 0;
 let endingIndex = 8;
-let authorDataArr;
+let authorDataArr = [];
 
 // replace this API with one hosted by FCC
 fetch("https://fcc-author-api.herokuapp.com/authors")
