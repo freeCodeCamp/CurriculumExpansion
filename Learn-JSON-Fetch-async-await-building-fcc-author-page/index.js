@@ -18,7 +18,7 @@ fetch("https://fcc-author-api.herokuapp.com/authors")
 
 const fetchMoreAuthors = () => {
   startingIndex += 8;
-  endingIndex = endingIndex + 8;
+  endingIndex += 8;
   displayUsers(authorDataArr.slice(startingIndex, endingIndex));
 
   if (authorDataArr.length <= endingIndex) {
