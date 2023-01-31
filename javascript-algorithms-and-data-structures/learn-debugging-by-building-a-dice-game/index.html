@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simplified Yahtzee Dice Game</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/index.js"></script>
+</head>
+
+<body>
+  <header>
+    <h2>Welcome to a simplified version of Yahtzee. Amazon's #1 best-selling dice game.</h2>
+
+    <p>
+      <a href="https://www.wikihow.com/Play-Yahtzee" target="_blank">
+        If you're not familiar with the game, check out the rules here.
+      </a>
+    </p>
+
+    <p>
+      The rules are the same as in the above-linked article with some changes as follows to make the game a bit
+      simpler:
+    </p>
+
+    <ul>
+      <li>There will be 6 rounds or turns, each comprised of three dice rolls</li>
+      <li>Score combinations will be only from the lower section</li>
+      <li>No bonus scores of any kind</li>
+    </ul>
+
+    <p>The green boxes are selected dice.
+      You can
+      select / unselect a die by clicking on it. <br> On the first roll of every round you need to roll all the five
+      dice. Now, let's get rolling!</p>
+  </header>
+
+  <hr>
+
+  <main>
+    <div id="game">
+      <div id="dice">
+        <div class="die selected"></div>
+        <div class="die selected"></div>
+        <div class="die selected"></div>
+        <div class="die selected"></div>
+        <div class="die selected"></div>
+      </div>
+
+      <p>
+        <strong>Rolls: <span id="current-round-rolls">0</span> | Round: <span id="current-round">1</span></strong>
+      </p>
+
+      <div id="score-options">
+        <div>
+          <input type="radio" name="score-options" id="three" value="three-of-a-kind" disabled>
+          <label for="three">Three of a kind<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="four" value="four-of-a-kind" disabled>
+          <label for="four">Four of a kind<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="full" value="full-house" disabled>
+          <label for="full">Full house<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="small" value="small-straight" disabled>
+          <label for="small">Small straight<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="large" value="large-straight" disabled>
+          <label for="large">Large straight<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="yahtzee" value="yahtzee" disabled>
+          <label for="yahtzee">Yahtzee<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="chance" value="chance" disabled>
+          <label for="chance">Chance<span></span></label>
+        </div>
+        <div>
+          <input type="radio" name="score-options" id="none" value="none" disabled>
+          <label for="none">None of the above<span></span></label>
+        </div>
+      </div>
+
+      <br />
+
+      <button id="keep-score-btn" disabled>Keep the above selected score</button>
+      <button id="roll-dice-btn">Roll the selected dice</button>
+    </div>
+
+    <div id="scores">
+      <h3>Score history (Total score: <span id="total-score">0</span>)</h3>
+      <ol id="score-history"></ol>
+    </div>
+  </main>
+
+</body>
+
+</html>
