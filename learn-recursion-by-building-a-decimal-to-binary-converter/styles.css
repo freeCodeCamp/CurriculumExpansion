@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1b1b32;
+  font-family: "Times New Roman", Times, serif;
+  color: #f5f6f7;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.convert-btn {
+  background-color: #f1be32;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+}
+
+.number-input {
+  height: 25px;
+}
+
+#result {
+  width: 200px;
+  padding: 15px 0;
+  margin: 30px auto 0;
+  border: 5px solid #f1be32;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.show-animation {
+  width: 30%;
+  margin: 250px auto 0;
+  padding: 15px 0;
+  border: 5px solid #f1be32;
+  font-size: 1.2rem;
+  text-align: center;
+}
