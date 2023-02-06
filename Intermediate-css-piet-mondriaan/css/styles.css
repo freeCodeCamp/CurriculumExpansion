@@ -34,10 +34,6 @@
     margin-bottom: .5em
   }
   
-  .margin-left-2 {
-    margin-left: .5em
-  }
-  
   .border-top-width {
     border-top-width: 1em;
   }
@@ -82,16 +78,8 @@
     border-color: hsl(240, 63%, 62%);
   } 
   
-  .border-bottom-color-yellow {
-    border-bottom-color: hsl(59, 100%, 50%);
-  }
-  
   .border-top-color-brown {
     border-top-color: hsl(7, 100%, 50%);
-  }
-  
-  .width-10 {
-    width: 100%
   }
   
   .height-2 {
@@ -100,10 +88,6 @@
   
   .height-6 {
     height: 60%;
-  }
-  
-  .height-7 {
-    height: 70%;
   }
   
   .height-8 {
@@ -154,10 +138,6 @@
     right: 60%
   }
   
-  .right-7 {
-    right: 70%
-  }
-  
   .right-9 {
     right: 90%
   }
@@ -172,14 +152,6 @@
   
   .index-2 {
     z-index: 2;
-  }
-  
-  .index-3 {
-    z-index: 3;
-  }
-  
-  .index-4 {
-    z-index: 3;
   }
   
   .transparent {
