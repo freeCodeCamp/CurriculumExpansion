@@ -1,169 +1,169 @@
 .grid {
-    display: grid;
-  }
-  
-  .grid-stack-area {
-    grid-template-areas: 'stack';
-  }
-  
-  .grid-area-name {
-   grid-area: stack;
-  }
-  
-  .silcing-raw-big {
-    grid-template-rows: .4fr repeat(4, 1fr) .75fr;
-  }
-  
-  .silcing-columns-big {
-    grid-template-columns: 0.2fr 1.2fr repeat(2, 1fr);
-  }
-  
-  .margin-0 {
-    margin: 0
-  }
-  
-  .margin-top-2 {
-    margin-top: 0.5em;
-  }
-  
-  .margin-right-2 {
-    margin-right: .5em
-  }
-  
-  .margin-bottom-2 {
-    margin-bottom: .5em
-  }
-  
-  .border-top-width {
-    border-top-width: 1em;
-  }
-  
-  .border-right-width {
-    border-right-width: 1em;
-  }
-  
-  .border-bottom-width {
-    border-bottom-width: 1em;
-  }
-  
-  .border-left-width {
-    border-left-width: 1em;
-  }
-  
-  .border-top-style-solid {
-    border-top-style: solid;
-  }
-  
-  .border-right-style-solid {
-    border-right-style: solid;
-  }
-  
-  .border-bottom-style-solid {
-    border-bottom-style: solid;
-  }
-  
-  .border-left-style-solid {
-    border-left-style: solid;
-  }
-  
-  .border-color-yellow {
-    border-color: hsl(59, 100%, 50%);
-  }
-  
-  .border-color-brown {
-    border-color: hsl(7, 100%, 50%);
-  }
-  
-  .border-color-blue {
-    border-color: hsl(240, 63%, 62%);
-  } 
-  
-  .border-top-color-brown {
-    border-top-color: hsl(7, 100%, 50%);
-  }
-  
-  .height-2 {
-    height: 20%;
-  }
-  
-  .height-6 {
-    height: 60%;
-  }
-  
-  .height-8 {
-    height: 80%;
-  } 
-  
-  .height-10 {
-    height: 100%;
-  }
-  
-  .height-full {
-    height: 100vh;
-  }
-  
-  .transform-top {
-    transform: translate(0, -5%);
-  }
-  
-  .transform-bottom {
-    transform: translate(0, 50%);
-  }
-  
-  .position-relative {
-    position: relative;
-  }
-  
-  .position-absolute {
-    position: absolute
-  }
-  
-  .right-low-5 {
-    right: 5%
-  }
-  
-  .right-2 {
-    right: 20%
-  }
-  
-  .right-3 {
-    right: 30%
-  }
-  
-  .right-4 {
-    right: 40%
-  }
-  
-  .right-6 {
-    right: 60%
-  }
-  
-  .right-9 {
-    right: 90%
-  }
-  
-  .index-bottom {
-    z-index: -1;
-  }
-  
-  .index-1 {
-    z-index: 1;
-  }
-  
-  .index-2 {
-    z-index: 2;
-  }
-  
-  .transparent {
-   color: transparent;
-  }
-  
-  a::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    z-index: 999;
-  }
+  display: grid;
+}
+
+.grid-stack-area {
+  grid-template-areas: "stack";
+}
+
+.grid-area-name {
+  grid-area: stack;
+}
+
+.silcing-raw-big {
+  grid-template-rows: 0.4fr repeat(4, 1fr) 0.75fr;
+}
+
+.silcing-columns-big {
+  grid-template-columns: 0.2fr 1.2fr repeat(2, 1fr);
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-top-2 {
+  margin-top: 0.5em;
+}
+
+.margin-right-2 {
+  margin-right: 0.5em;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 0.5em;
+}
+
+.border-top-width {
+  border-top-width: 1em;
+}
+
+.border-right-width {
+  border-right-width: 1em;
+}
+
+.border-bottom-width {
+  border-bottom-width: 1em;
+}
+
+.border-left-width {
+  border-left-width: 1em;
+}
+
+.border-top-style-solid {
+  border-top-style: solid;
+}
+
+.border-right-style-solid {
+  border-right-style: solid;
+}
+
+.border-bottom-style-solid {
+  border-bottom-style: solid;
+}
+
+.border-left-style-solid {
+  border-left-style: solid;
+}
+
+.border-color-yellow {
+  border-color: hsl(59, 100%, 50%);
+}
+
+.border-color-brown {
+  border-color: hsl(7, 100%, 50%);
+}
+
+.border-color-blue {
+  border-color: hsl(240, 63%, 62%);
+}
+
+.border-top-color-brown {
+  border-top-color: hsl(7, 100%, 50%);
+}
+
+.height-2 {
+  height: 20%;
+}
+
+.height-6 {
+  height: 60%;
+}
+
+.height-8 {
+  height: 80%;
+}
+
+.height-10 {
+  height: 100%;
+}
+
+.height-full {
+  height: 100vh;
+}
+
+.transform-top {
+  transform: translate(0, -5%);
+}
+
+.transform-bottom {
+  transform: translate(0, 50%);
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.right-low-5 {
+  right: 5%;
+}
+
+.right-2 {
+  right: 20%;
+}
+
+.right-3 {
+  right: 30%;
+}
+
+.right-4 {
+  right: 40%;
+}
+
+.right-6 {
+  right: 60%;
+}
+
+.right-9 {
+  right: 90%;
+}
+
+.index-bottom {
+  z-index: -1;
+}
+
+.index-1 {
+  z-index: 1;
+}
+
+.index-2 {
+  z-index: 2;
+}
+
+.transparent {
+  color: transparent;
+}
+
+a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  z-index: 999;
+}
