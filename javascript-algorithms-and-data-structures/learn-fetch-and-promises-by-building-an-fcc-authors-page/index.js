@@ -4,8 +4,7 @@ let startingIndex = 0;
 let endingIndex = 8;
 let authorDataArr = [];
 
-// replace this API with one hosted by FCC
-fetch("https://fcc-author-api.herokuapp.com/authors")
+fetch("https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json")
   .then((res) => res.json())
   .then((data) => {
     authorDataArr = data;
