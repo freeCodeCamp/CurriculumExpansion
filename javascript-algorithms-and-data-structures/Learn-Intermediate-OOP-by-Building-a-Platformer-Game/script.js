@@ -31,6 +31,11 @@ class Player {
     this.position.y += this.velocity.y;
     //this condition stops the player from falling past the canvas screen's height
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+      // this condition stops the player from jumping above the screen
+      if (this.position.y < 0) {
+        this.position.y = 0;
+        this.velocity.y = gravity;
+      }
       this.velocity.y += gravity;
     } else {
       this.velocity.y = 0;
