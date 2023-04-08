@@ -67,5 +67,6 @@ body {
 @media (min-width: 768px) {
   .start-screen {
     width: 60%;
+    max-width: 700px;
   }
 }
