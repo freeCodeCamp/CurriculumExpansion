@@ -1,271 +1,258 @@
+// targets the radio buttons and the spans
 const scoreInputs = document.querySelectorAll("#score-options input");
 const scoreSpans = document.querySelectorAll("#score-options span");
-const diceDivs = document.querySelectorAll("#dice > div");
+
+// square boxes that display the dice values
+const diceButtons = document.querySelectorAll("#dice > button");
+
+// targets the current round and rolls
 const currentRoundText = document.getElementById("current-round");
 const currentRoundRollsText = document.getElementById("current-round-rolls");
+
+// targets the score history and total score
 const totalScoreText = document.getElementById("total-score");
 const scoreHistory = document.getElementById("score-history");
+
+// targets the roll dice and keep score buttons
 const rollDiceBtn = document.getElementById("roll-dice-btn");
 const keepScoreBtn = document.getElementById("keep-score-btn");
-const rulesBtn = document.getElementById("rules-btn");
-const rulesContainer = document.querySelector(".rules-container");
-let isModalShowing = false;
-// Good review of selection Sort algorithm
-const selectionSort = (arr) => {
-  let arrDeepCopy = [];
 
-  arr.forEach((element, index) => {
-    arrDeepCopy[index] = element;
+// deals with the rules modal
+const rulesContainer = document.querySelector(".rules-container");
+const rulesBtn = document.getElementById("rules-btn");
+
+// deals with the modal that shows up the game rules
+let isModalShowing = false;
+
+// initial values
+let displayArray = [];
+let score = 0;
+let totalScore = 0;
+
+let round = 1; // max 6 rounds
+let rolls = 0; // max 3 rolls each round
+
+/**
+ * ! this is the function that rolls the dice & updates the dice display
+ */
+
+const rollDice = () => {
+  displayArray = [];
+  for (let i = 0; i < 5; i++) {
+    const randomDice = Math.floor(Math.random() * 6) + 1;
+    displayArray.push(randomDice);
+  }
+
+  diceButtons.forEach((dice, index) => {
+    dice.textContent = displayArray[index];
+  });
+};
+
+/**
+ * ! this is the function that updates the rolls and rounds
+ */
+
+const UpdateStats = () => {
+  // update the rolls and rounds
+  currentRoundRollsText.innerHTML = rolls;
+  currentRoundText.innerHTML = round;
+};
+
+/**
+ * ! Update Score & history
+ */
+
+const updateScore = (selectedValue, achieved) => {
+  totalScore += parseInt(selectedValue);
+  totalScoreText.innerHTML = totalScore;
+
+  scoreHistory.innerHTML += `<li>${achieved} : ${selectedValue}</li>`;
+};
+
+/**
+ * ! this will help to reset the radio input options
+ */
+
+const resetRadioOption = () => {
+  scoreInputs.forEach((input) => {
+    input.disabled = true;
+    input.checked = false;
   });
 
-  for (let i = 0; i < arrDeepCopy.length - 1; i++) {
-    let smallest = arrDeepCopy[i];
-    let smallestPos = i;
-    for (let j = i + 1; j < arrDeepCopy.length; j++) {
-      if (arrDeepCopy[j] < smallest) {
-        smallest = arrDeepCopy[j];
-        smallestPos = j;
-      }
-    }
-
-    let temp = arrDeepCopy[i];
-    arrDeepCopy[i] = smallest;
-    arrDeepCopy[smallestPos] = temp;
-  }
-  return arrDeepCopy;
+  scoreSpans.forEach((span) => {
+    span.textContent = "";
+  });
 };
 
-// Return the maximum number of consecutives
+/**
+ * ! this function will update the radio button with disabled, score and text attributes
+ */
 
-const getMaxNumOfConsecutives = (sortedArr) => {
-  let currentCount = 0;
-  let maxCount = 0;
-
-  for (let prev = 0, next = 1; next < sortedArr.length; prev++, next++) {
-    if (sortedArr[next] - sortedArr[prev] === 1) {
-      if (currentCount === 0) {
-        currentCount++;
-      }
-      currentCount++;
-    }
-    if (
-      sortedArr[next] - sortedArr[prev] > 1 ||
-      next === sortedArr.length - 1
-    ) {
-      if (currentCount > maxCount) {
-        maxCount = currentCount;
-      }
-      currentCount = 0;
-    }
-  }
-  return maxCount;
+const updateRadioOption = (optionNode, score) => {
+  scoreInputs[optionNode].disabled = false;
+  scoreInputs[optionNode].value = score;
+  scoreSpans[optionNode].textContent = `, score = ${score}`;
 };
 
-const sumOfArrElements = (arr) => arr.reduce((prev, curr) => prev + curr, 0);
+/**
+ * ! This will help us detect small / large straights
+ */
 
-// Return an object with number of die having same value
-// getNumOfSameDiceValues([4, 4, 4, 6, 6]) should return {4: 3, 6: 2}
-const getNumOfSameDiceValues = (sortedArr) => {
-  const numOfSameDiceValues = {};
-  let count = 0;
-  for (let i = 1; i < sortedArr.length; i++) {
-    let previous = sortedArr[i - 1];
-    if (previous === sortedArr[i]) {
-      if (count === 0) {
-        count++;
-      }
-      count++;
-    }
-    if (previous !== sortedArr[i] || i === sortedArr.length - 1) {
-      if (count > 0) numOfSameDiceValues[previous] = count;
-      count = 0;
-    }
+const straightDetector = (arr) => {
+  const sortNumbers = arr.sort((a, b) => a - b);
+  const uniqueNumbers = [...new Set(sortNumbers)];
+  const stringifyArray = uniqueNumbers.join("");
+
+  // SMALL STRAIGHT POSSIBILITIES
+  // 1,2,3,4
+  // 2,3,4,5
+  // 3,4,5,6
+
+  // LARGE STRAIGHT POSSIBILITIES
+  // 1,2,3,4,5
+  // 2,3,4,5,6
+
+  const smallStraightLogic = ["1234", "2345", "3456"];
+  const largeStraightLogic = ["12345", "23456"];
+
+  if (smallStraightLogic.includes(stringifyArray)) {
+    updateRadioOption(3, 30);
+  } else if (largeStraightLogic.includes(stringifyArray)) {
+    updateRadioOption(4, 40);
+  } else {
+    updateRadioOption(5, 0);
   }
-  return numOfSameDiceValues;
 };
 
-// Game class to encapsulate all the properties and methods related to game
-class Game {
-  constructor() {
-    this.diceValues = [0, 0, 0, 0, 0];
-    this.rollsInCurrentRound = 0;
-    this.totalScore = 0;
-    this.currentRound = 1;
-    this.scoreHistory = [];
-    this.validScoreOptions = {};
-  }
+/**
+ * ! This will help us 3 of a kind / 4 of a kind
+ */
 
-  resetRadioInputs() {
-    scoreInputs.forEach((element) => {
-      element.disabled = true;
-      element.checked = false;
-    });
-    scoreSpans.forEach((element) => {
-      element.textContent = "";
-    });
-  }
+const getHighestDuplicates = (arr) => {
+  const counts = {};
 
-  rollDice() {
-    diceDivs.forEach((element, index) => {
-      this.diceValues[index] = element.textContent = Math.ceil(
-        Math.random() * 6
-      );
-    });
-    this.rollsInCurrentRound++;
-  }
-
-  updateStatsUI() {
-    /**
-     * After keeping a set of dice in the 6th round, the current round text changes to 7 just before the game over confirmation message pops up.
-     * This change prevents updating that text without messing up the other logic that relies on the current round being greater that 6
-     * if (this.currentRound <= 6) currentRoundText.textContent = this.currentRound;
-     *
-     * We can point out this error to campers and create a step where campers add that if statement
-     *
-     *
-     */
-    currentRoundText.textContent = this.currentRound;
-    totalScoreText.textContent = this.totalScore;
-    currentRoundRollsText.textContent = this.rollsInCurrentRound;
-  }
-
-  updateScoreUI() {
-    const scoreboard = scoreHistory;
-    const scoreEntry = document.createElement("li");
-    // I believe this is the first time Object.entries has been introduced
-    const [type, score] = Object.entries(
-      game.scoreHistory[game.scoreHistory.length - 1]
-    )[0];
-
-    const formattedScoreType = (type[0].toUpperCase() + type.slice(1)).replace(
-      /-/g,
-      " "
-    );
-
-    const formattedScore = document.createTextNode(
-      `${formattedScoreType}: ${score}`
-    );
-    scoreEntry.appendChild(formattedScore);
-    scoreboard.appendChild(scoreEntry);
-  }
-
-  generateValidScoreOptions() {
-    const sortedDiceValues = selectionSort(this.diceValues);
-    const sumOfDiceValues = sumOfArrElements(this.diceValues);
-    const totalConsecutives = getMaxNumOfConsecutives(sortedDiceValues);
-
-    // I believe this is the first time Object.values has been introduced
-    const numOfSameDiceValues = Object.values(
-      getNumOfSameDiceValues(sortedDiceValues)
-    );
-
-    this.validScoreOptions = {
-      none: 0,
-    };
-
-    for (let i = 0; i < numOfSameDiceValues.length; i++) {
-      if (numOfSameDiceValues[i] >= 3) {
-        this.validScoreOptions["three-of-a-kind"] = sumOfDiceValues;
-        break;
-      }
-    }
-
-    if (numOfSameDiceValues[0] >= 4)
-      this.validScoreOptions["four-of-a-kind"] = sumOfDiceValues;
-
-    if (numOfSameDiceValues.length === 2) {
-      if (sumOfArrElements(numOfSameDiceValues) === 5) {
-        this.validScoreOptions["full-house"] = 25;
-      }
-    }
-
-    if (totalConsecutives >= 4) {
-      this.validScoreOptions["small-straight"] = 30;
-    }
-
-    if (totalConsecutives === 5) {
-      this.validScoreOptions["large-straight"] = 40;
+  // Count the occurrences of each number in the array
+  for (const num of arr) {
+    if (counts[num]) {
+      counts[num]++;
+    } else {
+      counts[num] = 1;
     }
   }
 
-  enableValidScoreInputs() {
-    const availableScoreInputs = scoreInputs;
-    const availableRadioScores = scoreSpans;
-    // I believe this is the first time Object.keys has been introduced
-    const validScoreOptionsKeys = Object.keys(this.validScoreOptions);
-
-    for (let i = 0; i < validScoreOptionsKeys.length; i++) {
-      for (let j = 0; j < availableScoreInputs.length; j++) {
-        if (validScoreOptionsKeys[i] === availableScoreInputs[j].value) {
-          availableScoreInputs[j].disabled = false;
-          availableRadioScores[j].textContent = `, score= ${
-            this.validScoreOptions[availableScoreInputs[j].value]
-          }`;
-        }
-      }
+  // Find the highest count of duplicates that is at least 3 or 4
+  let highestCount = 0;
+  for (const num of arr) {
+    const count = counts[num];
+    if (count >= 3 && count > highestCount) {
+      highestCount = count;
+    }
+    if (count >= 4 && count > highestCount) {
+      highestCount = count;
     }
   }
 
-  isKeepScoreSuccess() {
-    const allScoreInputs = scoreInputs;
+  // Filter the original array to include only the numbers that appear the highest number of times
+  const highestDuplicates = arr.filter((num) => counts[num] === highestCount);
 
-    for (let i = 0; i < allScoreInputs.length; i++) {
-      if (allScoreInputs[i].checked) {
-        const currentValue = allScoreInputs[i].value;
-        const currentScore = this.validScoreOptions[currentValue];
-        this.totalScore += currentScore;
-        this.scoreHistory.push({ [allScoreInputs[i].value]: currentScore });
-        this.currentRound++;
-        this.rollsInCurrentRound = 0;
+  // according to rules, it should be sum of all 5 dices
+  const sumOfAllDices = displayArray.reduce((a, b) => a + b, 0);
 
-        return true;
-      }
-    }
-    alert("Please select a score.");
-    return false;
+  // Return the highest duplicates only if there are at least three or four of them
+  if (highestCount >= 4) {
+    updateRadioOption(1, sumOfAllDices);
+  } else if (highestCount >= 3) {
+    updateRadioOption(0, sumOfAllDices);
+  } else {
+    updateRadioOption(5, 0);
+  }
+};
+
+/**
+ * ! This will help us detect full house
+ */
+
+const detectFullHouse = (arr) => {
+  // condiiton, 3 of a kind and 2 of a kind
+  const counts = {};
+
+  // Count the occurrences of each number in the array
+  for (const num of arr) {
+    counts[num] = counts[num] ? counts[num] + 1 : 1;
   }
 
-  gameOver() {
-    if (
-      confirm(
-        `You scored ${game.totalScore} points. Do you want to play again?`
-      )
-    )
-      location.reload();
-  }
-}
+  // Check if there are three of one number and two of another number
+  let hasThreeOfAKind = false;
+  let hasPair = false;
 
-const game = new Game();
-
-rollDiceBtn.addEventListener("click", (e) => {
-  if (game.currentRound <= 6) {
-    game.rollDice();
-    game.resetRadioInputs();
-    game.generateValidScoreOptions();
-    game.enableValidScoreInputs();
-    game.updateStatsUI();
-    keepScoreBtn.disabled = false;
-
-    if (game.rollsInCurrentRound % 3 === 0) {
-      e.target.disabled = true;
+  for (const num in counts) {
+    if (counts[num] === 3) {
+      hasThreeOfAKind = true;
+    } else if (counts[num] === 2) {
+      hasPair = true;
     }
+  }
+
+  if (hasThreeOfAKind && hasPair) {
+    updateRadioOption(2, 25);
+  } else {
+    updateRadioOption(5, 0);
+  }
+};
+
+/**
+ * ! This will help us run all the functions that detect the outcome of the roll
+ */
+
+const findRollResult = (arr) => {
+  straightDetector(arr);
+  getHighestDuplicates(arr);
+  detectFullHouse(arr);
+};
+
+/**
+ * ! This function will help us reset the game
+ */
+
+const resetGame = () => {
+  displayArray = [0, 0, 0, 0, 0];
+  score = 0;
+  totalScore = 0;
+  round = 1;
+  rolls = 0;
+
+  diceButtons.forEach((dice, index) => {
+    dice.textContent = displayArray[index];
+  });
+
+  totalScoreText.innerHTML = totalScore;
+  scoreHistory.innerHTML = "";
+
+  currentRoundRollsText.innerHTML = rolls;
+  currentRoundText.innerHTML = round;
+
+  resetRadioOption();
+};
+
+/**
+ * ! this is the trigger for the app to work
+ */
+
+rollDiceBtn.addEventListener("click", () => {
+  if (rolls === 3) {
+    window.alert("Please select an option");
+  } else {
+    rolls++;
+    resetRadioOption();
+    rollDice();
+    UpdateStats();
+    findRollResult(displayArray);
   }
 });
 
-keepScoreBtn.addEventListener("click", (e) => {
-  if (game.currentRound <= 6 && game.isKeepScoreSuccess()) {
-    game.resetRadioInputs();
-    game.updateStatsUI();
-    game.updateScoreUI();
-    rollDiceBtn.disabled = false;
-    e.target.disabled = true;
-  }
-
-  if (game.currentRound > 6) {
-    // Give DOM some time to complete manipulation then check & run gameOver
-    setTimeout(game.gameOver, 100);
-  }
-});
+/**
+ * ! this is the function that triggers the rules button
+ **/
 
 rulesBtn.addEventListener("click", () => {
   isModalShowing = !isModalShowing;
@@ -275,5 +262,38 @@ rulesBtn.addEventListener("click", () => {
   } else {
     rulesBtn.textContent = "Show Rules";
     rulesContainer.style.display = "none";
+  }
+});
+
+/**
+ * ! this will help us keep the score and move forward to the next round
+ */
+
+keepScoreBtn.addEventListener("click", () => {
+  let selectedValue;
+  let achieved;
+
+  for (const radioButton of scoreInputs) {
+    if (radioButton.checked) {
+      selectedValue = radioButton.value;
+      achieved = radioButton.id;
+      break;
+    }
+  }
+
+  if (selectedValue) {
+    rolls = 0;
+    round++;
+    UpdateStats();
+    resetRadioOption();
+    updateScore(selectedValue, achieved);
+    if (round >= 6) {
+      setTimeout(() => {
+        window.alert(`Game Over! Your total score is ${totalScore}`);
+        resetGame();
+      }, 500);
+    }
+  } else {
+    window.alert("Please select an option or roll the dice");
   }
 });
