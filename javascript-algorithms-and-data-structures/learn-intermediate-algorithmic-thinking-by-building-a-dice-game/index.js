@@ -52,7 +52,7 @@ const rollDice = () => {
  * ! this is the function that updates the rolls and rounds
  */
 
-const UpdateStats = () => {
+const updateStats = () => {
   // update the rolls and rounds
   currentRoundRollsText.innerHTML = rolls;
   currentRoundText.innerHTML = round;
@@ -117,15 +117,15 @@ const straightDetector = (arr) => {
 
   if (smallStraightLogic.includes(stringifyArray)) {
     updateRadioOption(3, 30);
-  } else if (largeStraightLogic.includes(stringifyArray)) {
-    updateRadioOption(4, 40);
-  } else {
-    updateRadioOption(5, 0);
   }
+  if (largeStraightLogic.includes(stringifyArray)) {
+    updateRadioOption(4, 40);
+  }
+  updateRadioOption(5, 0);
 };
 
 /**
- * ! This will help us 3 of a kind / 4 of a kind
+ * ! This will help us detect - 3 of a kind / 4 of a kind
  */
 
 const getHighestDuplicates = (arr) => {
@@ -152,20 +152,17 @@ const getHighestDuplicates = (arr) => {
     }
   }
 
-  // Filter the original array to include only the numbers that appear the highest number of times
-  const highestDuplicates = arr.filter((num) => counts[num] === highestCount);
-
   // according to rules, it should be sum of all 5 dices
   const sumOfAllDices = displayArray.reduce((a, b) => a + b, 0);
 
   // Return the highest duplicates only if there are at least three or four of them
   if (highestCount >= 4) {
     updateRadioOption(1, sumOfAllDices);
-  } else if (highestCount >= 3) {
-    updateRadioOption(0, sumOfAllDices);
-  } else {
-    updateRadioOption(5, 0);
   }
+  if (highestCount >= 3) {
+    updateRadioOption(0, sumOfAllDices);
+  }
+  updateRadioOption(5, 0);
 };
 
 /**
@@ -181,23 +178,30 @@ const detectFullHouse = (arr) => {
     counts[num] = counts[num] ? counts[num] + 1 : 1;
   }
 
-  // Check if there are three of one number and two of another number
-  let hasThreeOfAKind = false;
-  let hasPair = false;
+  /**
+   * ! Check if there are three of one number and two of another number
+   * ? Have campers iterate through object first, then refactor this to
+   * ? use Object.values().includes() instead. 👇
+   */
 
-  for (const num in counts) {
-    if (counts[num] === 3) {
-      hasThreeOfAKind = true;
-    } else if (counts[num] === 2) {
-      hasPair = true;
-    }
-  }
+  // let hasThreeOfAKind = false;
+  // let hasPair = false;
+
+  // for (const num in counts) {
+  //   if (counts[num] === 3) {
+  //     hasThreeOfAKind = true;
+  //   } else if (counts[num] === 2) {
+  //     hasPair = true;
+  //   }
+  // }
+
+  const hasThreeOfAKind = Object.values(counts).includes(3);
+  const hasPair = Object.values(counts).includes(2);
 
   if (hasThreeOfAKind && hasPair) {
     updateRadioOption(2, 25);
-  } else {
-    updateRadioOption(5, 0);
   }
+  updateRadioOption(5, 0);
 };
 
 /**
@@ -240,12 +244,14 @@ const resetGame = () => {
 
 rollDiceBtn.addEventListener("click", () => {
   if (rolls === 3) {
-    window.alert("Please select an option");
+    window.alert(
+      "You have made three rolls this round. Please select a score."
+    );
   } else {
     rolls++;
     resetRadioOption();
     rollDice();
-    UpdateStats();
+    updateStats();
     findRollResult(displayArray);
   }
 });
@@ -284,7 +290,7 @@ keepScoreBtn.addEventListener("click", () => {
   if (selectedValue) {
     rolls = 0;
     round++;
-    UpdateStats();
+    updateStats();
     resetRadioOption();
     updateScore(selectedValue, achieved);
     if (round >= 6) {
