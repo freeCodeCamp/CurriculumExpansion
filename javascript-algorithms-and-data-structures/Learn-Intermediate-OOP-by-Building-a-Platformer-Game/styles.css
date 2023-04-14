@@ -60,6 +60,20 @@ body {
   justify-content: center;
 }
 
+.ending-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+  background-color: var(--section-bg-color);
+  border-radius: 20px;
+  padding: 10px;
+  display: none;
+}
+
 #canvas {
   display: none;
 }
@@ -68,5 +82,9 @@ body {
   .start-screen {
     width: 60%;
     max-width: 700px;
+  }
+
+  .ending-title {
+    max-width: 300px;
   }
 }

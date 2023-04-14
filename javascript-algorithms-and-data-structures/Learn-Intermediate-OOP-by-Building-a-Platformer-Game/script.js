@@ -1,6 +1,7 @@
 const startBtn = document.getElementById("start-btn");
 const canvas = document.getElementById("canvas");
 const startScreen = document.querySelector(".start-screen");
+const endingScreen = document.querySelector(".ending-title");
 const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -40,9 +41,9 @@ class Player {
     } else {
       this.velocity.y = 0;
     }
-  }
-  if (this.position.x < this.width) {
-    this.position.x = this.width;
+    if (this.position.x < this.width) {
+      this.position.x = this.width;
+    }
   }
 }
 
@@ -86,9 +87,12 @@ const platformPositions = [
   { x: 2500, y: 450 },
   { x: 2900, y: 400 },
   { x: 3150, y: 350 },
-  { x: 3900, y: 350 },
+  { x: 3900, y: 450 },
+  { x: 4200, y: 400 },
+  { x: 4400, y: 200 },
   { x: 4700, y: 150 },
 ];
+
 const platforms = platformPositions.map(
   (platform) => new Platform(platform.x, platform.y)
 );
@@ -140,13 +144,15 @@ const animate = () => {
       });
     }
   }
+
   platforms.forEach((platform) => {
     const collisionDetectionRules = [
       player.position.y + player.height <= platform.position.y,
       player.position.y + player.height + player.velocity.y >=
         platform.position.y,
-      player.position.x >= platform.position.x - (player.width / 2),
-      player.position.x <= platform.position.x + platform.width - (player.width / 3),
+      player.position.x >= platform.position.x - player.width / 2,
+      player.position.x <=
+        platform.position.x + platform.width - player.width / 3,
     ];
 
     if (collisionDetectionRules.every((rule) => rule)) {
@@ -154,14 +160,16 @@ const animate = () => {
     }
   });
 
-  checkpoints.forEach((checkpoint) => {
+  checkpoints.forEach((checkpoint, index) => {
     if (
       player.position.x >= checkpoint.position.x &&
       activeCheckpointCollisionDetection
     ) {
-      activeCheckpointCollisionDetection = false;
-
-      movePlayer("ArrowRight", 0, false);
+      if (index === checkpoints.length - 1) {
+        showEndingTitleScreen();
+        activeCheckpointCollisionDetection = false;
+        movePlayer("ArrowRight", 0, false);
+      }
     }
   });
 };
@@ -207,9 +215,11 @@ const startGame = () => {
   animate();
 };
 
-startBtn.addEventListener("click", () => {
-  startGame();
-});
+const showEndingTitleScreen = () => {
+  endingScreen.style.display = "block";
+};
+
+startBtn.addEventListener("click", startGame);
 
 window.addEventListener("keydown", ({ key }) => {
   movePlayer(key, 8, true);
