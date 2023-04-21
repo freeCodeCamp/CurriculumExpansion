@@ -17,8 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  margin-top: 60px;
 }
 
 .container {
@@ -121,8 +120,18 @@ button {
   color: var(--white-color, white);
   cursor: pointer;
   font-size: 14px;
-  outline: none;
+  outline-color: var(--player-highlight-color);
   text-align: center;
+}
+
+.playlist__song[role="button"] {
+  outline-color: var(--player-highlight-color);
+}
+
+button:focus,
+.playlist__song[role="button"]:focus {
+  outline-style: dashed;
+  outline-width: 2px;
 }
 
 /* Playlist */

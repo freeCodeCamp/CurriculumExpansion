@@ -8,37 +8,13 @@ function renderSongs(songs) {
 // TODO: First Array for steps
 const songList = songs.map((song) => {
     return `
-    <div class="playlist__song">
+    <div class="playlist__song" role="button" tabindex="0">
         <div class="playlist__song-info">
             <p class="playlist__song-title">${song.title}</p>
             <p class="playlist__song-artist">${song.artist}</p>
         </div>
         <div class="playlist__song-rating">
-            <span>
-            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path class="playlist__song-rate" d="M5.99999 0L7.34708 4.1459H11.7063L8.17962 6.7082L9.52671 10.8541L5.99999 8.2918L2.47328 10.8541L3.82037 6.7082L0.293655 4.1459H4.65291L5.99999 0Z" fill="#F5F6F7"/>
-</svg>
-            </span>
-            <span>
-            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path class="playlist__song-rate" d="M5.99999 0L7.34708 4.1459H11.7063L8.17962 6.7082L9.52671 10.8541L5.99999 8.2918L2.47328 10.8541L3.82037 6.7082L0.293655 4.1459H4.65291L5.99999 0Z" fill="#F5F6F7"/>
-</svg>
-            </span>
-            <span>
-            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path class="playlist__song-rate" class="star--rate" d="M5.99999 0L7.34708 4.1459H11.7063L8.17962 6.7082L9.52671 10.8541L5.99999 8.2918L2.47328 10.8541L3.82037 6.7082L0.293655 4.1459H4.65291L5.99999 0Z" fill="#F5F6F7"/>
-</svg>
-            </span>
-            <span >
-            <svg  width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path class="playlist__song-rate" d="M5.99999 0L7.34708 4.1459H11.7063L8.17962 6.7082L9.52671 10.8541L5.99999 8.2918L2.47328 10.8541L3.82037 6.7082L0.293655 4.1459H4.65291L5.99999 0Z" fill="#F5F6F7"/>
-</svg>
-            </span>
-            <span>
-            <svg  width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path class="playlist__song-rate" d="M5.99999 0L7.34708 4.1459H11.7063L8.17962 6.7082L9.52671 10.8541L5.99999 8.2918L2.47328 10.8541L3.82037 6.7082L0.293655 4.1459H4.65291L5.99999 0Z" fill="#F5F6F7"/>
-</svg>
-            </span>
+
         </div>
         <div class="playlist__song-duration">
             <p>${song.duration}</p>
@@ -52,33 +28,6 @@ const songList = songs.map((song) => {
 
 renderSongs(songs);
 
-// SONG-RATING - forEach Array Method
-
-// document.querySelectorAll(".playlist__song-rate").forEach((star) => {
-//     star.addEventListener("click", function () {
-//         star.classList.toggle('rated');
-//     });
-// });
-
-
-document.querySelectorAll(".playlist__song-rating").forEach((starDiv) => {
-    let starIndex = 0;
-    const starList = starDiv.querySelectorAll(".playlist__song-rate");
-    starList.forEach((star) => {
-        star.addEventListener("click",() => {
-            if(!star.classList.contains("rated")) {
-                if(!starList[starIndex].classList.contains("rated") ) {
-                    starList[starIndex].classList.add("rated");
-                    ++starIndex
-                }
-            } else if (star.classList.contains("rated")) {
-                --starIndex;
-                starList[starIndex].classList.remove("rated");
-            }
-        })
-    })
-})
-
 
 // audio API
 const audio = new Audio();
@@ -90,7 +39,7 @@ const playPausebtn = document.querySelector(".play");
 
 function playSong(song) {
     const oldIndex = currentIndex;
-    // using indesof method
+    // using indesOf method
     const newIndex = songs.indexOf(song);
 
     playPausebtn.innerHTML = '<img src="assets/pause.svg" alt="pause button" />'
@@ -159,7 +108,7 @@ function previousSong() {
 
 // playlist display
 function clearSongBgs() {
-    document.querySelectorAll('.playlist__song').forEach(song => {
+    document.querySelectorAll(".playlist__song").forEach(song => {
         song.classList.remove('selected');
     });
 }
@@ -174,7 +123,7 @@ function playSelectedSong(song, songDiv) {
     playSong(song);
     clearSongBgs();
 
-    songDiv.parentNode.classList.add('selected');
+    songDiv.classList.add('selected');
 }
 
 
@@ -193,6 +142,9 @@ document.querySelector(".rewind").addEventListener("click", previousSong);
 document.querySelector(".forward").addEventListener("click", nextSong);
 document.querySelector(".shuffle").addEventListener("click", shuffle);
 
+
+
+
 document.querySelector(".playlist__close").addEventListener("click", toggleClosePlaylist);
 
 
@@ -210,7 +162,6 @@ window.addEventListener("keydown", (event) => {
 //        togglePlayPause();
 //    }
 
-
     switch (true) {
         case (event.key === "ArrowUp"):
             previousSong();
@@ -219,16 +170,19 @@ window.addEventListener("keydown", (event) => {
             nextSong();
             break
         case (event.key === " "):
+            event.preventDefault();
             togglePlayPause();
             break
     }
 })
 
-// forEach method
-document.querySelectorAll(".playlist__song-info").forEach((songDiv, index) => {
-  songDiv.addEventListener("click", () => playSelectedSong(songs[index], songDiv));
+
+document.querySelectorAll('div[role="button"]').forEach((songDiv,index) => {
+    songDiv.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            playSelectedSong(songs[index], songDiv);
+        }
+    });
 });
-
-
 
 
