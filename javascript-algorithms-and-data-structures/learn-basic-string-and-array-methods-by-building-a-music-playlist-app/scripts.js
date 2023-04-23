@@ -94,8 +94,8 @@ function togglePlayPause() {
 
 function toggleClosePlaylist() {
     if (songListDiv.style.visibility == "hidden") {
-        songListDiv.style. visibility = "visible";
-        songListDiv.style. display = "flex";
+        songListDiv.style.visibility = "visible";
+        songListDiv.style.display = "flex";
 
     } else {
         songListDiv.style.visibility = "hidden";
