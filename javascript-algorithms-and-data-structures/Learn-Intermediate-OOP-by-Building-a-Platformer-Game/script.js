@@ -195,7 +195,8 @@ const movePlayer = (key, xVelocity, isPressed) => {
 
     case "ArrowUp":
     // older browsers might use spacebar instead of an empty string
-    case " " || "Spacebar":
+    case " ":
+    case "Spacebar":
       player.velocity.y -= 8;
       break;
 
