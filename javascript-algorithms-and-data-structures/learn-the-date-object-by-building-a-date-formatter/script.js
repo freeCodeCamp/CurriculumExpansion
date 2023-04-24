@@ -4,6 +4,7 @@ const dateOptionsSelectElement = document.getElementById("date-options");
 // first time date object is introduced
 
 // I think we should add a step for campers to log the date to the console so they can see the results
+// Then update the log call on each new variable declaration to see what their new values are
 const date = new Date();
 const day = date.getDate();
 // start with a step that doesn't add one, let campers see that months
