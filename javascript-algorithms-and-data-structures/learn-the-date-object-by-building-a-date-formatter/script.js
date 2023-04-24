@@ -6,6 +6,8 @@ const dateOptionsSelectElement = document.getElementById("date-options");
 // I think we should add a step for campers to log the date to the console so they can see the results
 const date = new Date();
 const day = date.getDate();
+// start with a step that doesn't add one, let campers see that months
+// are zero indexed.
 const month = date.getMonth() + 1;
 const year = date.getFullYear();
 const hours = date.getHours();
