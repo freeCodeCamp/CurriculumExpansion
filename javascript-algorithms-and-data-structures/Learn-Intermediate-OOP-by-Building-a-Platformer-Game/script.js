@@ -173,6 +173,7 @@ const animate = () => {
       player.position.y + player.height <= checkpoint.position.y + checkpoint.height &&
       activeCheckpointCollisionDetection
     ) {
+      checkpoint.claim();
       if (index === checkpoints.length - 1) {
         showEndingTitleScreen();
         activeCheckpointCollisionDetection = false;
