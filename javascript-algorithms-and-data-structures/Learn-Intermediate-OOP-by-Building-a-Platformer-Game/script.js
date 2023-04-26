@@ -135,14 +135,14 @@ const animate = () => {
   } else {
     player.velocity.x = 0;
 
-    if (keys.rightKey.pressed) {
+    if (keys.rightKey.pressed && activeCheckpointCollisionDetection) {
       platforms.forEach((platform) => {
         platform.position.x -= 5;
       });
       checkpoints.forEach((checkpoint) => {
         checkpoint.position.x -= 5;
       });
-    } else if (keys.leftKey.pressed) {
+    } else if (keys.leftKey.pressed && activeCheckpointCollisionDetection) {
       platforms.forEach((platform) => {
         platform.position.x += 5;
       });
