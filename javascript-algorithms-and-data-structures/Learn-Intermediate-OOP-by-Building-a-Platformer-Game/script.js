@@ -190,8 +190,8 @@ const animate = () => {
     ) {
       checkpoint.claim();
       if (index === checkpoints.length - 1) {
-        showCheckpointScreen("You reached the final checkpoint!");
         activeCheckpointCollisionDetection = false;
+        showCheckpointScreen("You reached the final checkpoint!");
         movePlayer("ArrowRight", 0, false);
       } else if (
         player.position.x >= checkpoint.position.x &&
