@@ -2,6 +2,7 @@ const startBtn = document.getElementById("start-btn");
 const canvas = document.getElementById("canvas");
 const startScreen = document.querySelector(".start-screen");
 const endingScreen = document.querySelector(".ending-title");
+const checkpointScreen = document.querySelector(".checkpoint-title");
 const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
