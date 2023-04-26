@@ -163,12 +163,17 @@ const animate = () => {
   checkpoints.forEach((checkpoint, index) => {
     if (
       player.position.x >= checkpoint.position.x &&
+      player.position.y >= checkpoint.position.y &&
+      player.position.y + player.height <= checkpoint.position.y + checkpoint.height &&
       activeCheckpointCollisionDetection
     ) {
       if (index === checkpoints.length - 1) {
         showEndingTitleScreen();
         activeCheckpointCollisionDetection = false;
         movePlayer("ArrowRight", 0, false);
+      } else if (player.position.x >= checkpoint.position.x &&
+        player.position.x <= checkpoint.position.x + 40) {
+        showCheckpointScreen();
       }
     }
   });
