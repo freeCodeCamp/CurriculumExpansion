@@ -220,6 +220,11 @@ const showEndingTitleScreen = () => {
   endingScreen.style.display = "block";
 };
 
+const showCheckpointScreen = () => {
+  checkpointScreen.style.display = "block";
+  setTimeout(() => checkpointScreen.style.display = "none", 2000);
+};
+
 startBtn.addEventListener("click", startGame);
 
 window.addEventListener("keydown", ({ key }) => {
