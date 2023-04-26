@@ -1,8 +1,8 @@
 const startBtn = document.getElementById("start-btn");
 const canvas = document.getElementById("canvas");
 const startScreen = document.querySelector(".start-screen");
-const endingScreen = document.querySelector(".ending-title");
-const checkpointScreen = document.querySelector(".checkpoint-title");
+const checkpointScreen = document.querySelector(".checkpoint-screen");
+const checkpointMessage = document.querySelector(".checkpoint-screen > p");
 const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -108,6 +108,7 @@ const checkpointPositions = [
   { x: 2900, y: 330 },
   { x: 4800, y: 80 },
 ];
+
 const checkpoints = checkpointPositions.map(
   (checkpoint) => new CheckPoint(checkpoint.x, checkpoint.y)
 );
@@ -163,6 +164,19 @@ const animate = () => {
 
     if (collisionDetectionRules.every((rule) => rule)) {
       player.velocity.y = 0;
+      return;
+    }
+    const platformDetectionRules = [
+      player.position.x >= platform.position.x - player.width / 2,
+      player.position.x <=
+        platform.position.x + platform.width - player.width / 3,
+      player.position.y + player.height >= platform.position.y,
+      player.position.y <= platform.position.y + platform.height,
+    ];
+
+    if (platformDetectionRules.every((rule) => rule)) {
+      player.position.y = platform.position.y + player.height;
+      player.velocity.y = gravity;
     }
   });
 
@@ -170,17 +184,20 @@ const animate = () => {
     if (
       player.position.x >= checkpoint.position.x &&
       player.position.y >= checkpoint.position.y &&
-      player.position.y + player.height <= checkpoint.position.y + checkpoint.height &&
+      player.position.y + player.height <=
+        checkpoint.position.y + checkpoint.height &&
       activeCheckpointCollisionDetection
     ) {
       checkpoint.claim();
       if (index === checkpoints.length - 1) {
-        showEndingTitleScreen();
+        showCheckpointScreen("You reached the final checkpoint!");
         activeCheckpointCollisionDetection = false;
         movePlayer("ArrowRight", 0, false);
-      } else if (player.position.x >= checkpoint.position.x &&
-        player.position.x <= checkpoint.position.x + 40) {
-        showCheckpointScreen();
+      } else if (
+        player.position.x >= checkpoint.position.x &&
+        player.position.x <= checkpoint.position.x + 40
+      ) {
+        showCheckpointScreen("You reached a checkpoint!");
       }
     }
   });
@@ -228,13 +245,10 @@ const startGame = () => {
   animate();
 };
 
-const showEndingTitleScreen = () => {
-  endingScreen.style.display = "block";
-};
-
-const showCheckpointScreen = () => {
+const showCheckpointScreen = (msg) => {
   checkpointScreen.style.display = "block";
-  setTimeout(() => checkpointScreen.style.display = "none", 2000);
+  checkpointMessage.textContent = msg;
+  setTimeout(() => (checkpointScreen.style.display = "none"), 2000);
 };
 
 startBtn.addEventListener("click", startGame);

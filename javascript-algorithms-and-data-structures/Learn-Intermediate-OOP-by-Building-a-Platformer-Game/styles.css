@@ -60,7 +60,7 @@ body {
   justify-content: center;
 }
 
-.ending-title {
+.checkpoint-screen {
   position: absolute;
   left: 0;
   right: 0;
@@ -84,7 +84,7 @@ body {
     max-width: 700px;
   }
 
-  .ending-title {
+  .checkpoint-screen {
     max-width: 300px;
   }
 }
