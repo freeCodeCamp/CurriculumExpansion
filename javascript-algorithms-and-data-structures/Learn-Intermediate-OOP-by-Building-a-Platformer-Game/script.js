@@ -213,6 +213,11 @@ const keys = {
 };
 
 const movePlayer = (key, xVelocity, isPressed) => {
+  if (!activeCheckpointCollisionDetection) {
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    return;
+  }
   switch (key) {
     case "ArrowLeft":
       keys.leftKey.pressed = isPressed;
