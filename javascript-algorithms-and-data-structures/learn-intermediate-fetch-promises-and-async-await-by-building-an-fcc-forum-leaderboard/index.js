@@ -1,19 +1,13 @@
-const postsContainer = document.getElementById("posts-container");
+const FORUM_LATEST = "https://forum-proxy.freecodecamp.rocks/latest";
 const FORUM_TOPIC_URL = "https://forum.freecodecamp.org/t/";
 const FORUM_CATEGORY_URL = "https://forum.freecodecamp.org/c/";
 const AVATAR_URL = "https://sea1.discourse-cdn.com/freecodecamp";
 
-// this might be the first time campers are working with IFFEs
-(async () => {
-  const res = await fetch("https://forum-proxy.freecodecamp.rocks/latest");
-  const data = await res.json();
-  showLatestPosts(data);
-  // do we want to leave this here so campers can see the output?
-  console.log(data);
-})();
+const postsContainer = document.getElementById("posts-container");
 
-// do we want campers to build this out or just supply it for them?
-const categories = {
+// we supply this to the campers
+
+const categorieList = {
   299: { category: "Career Advice", className: "career" },
   409: { category: "Project Feedback", className: "feedback" },
   417: { category: "freeCodeCamp Support", className: "support" },
@@ -24,37 +18,62 @@ const categories = {
   560: { category: "Backend Development", className: "backend" },
 };
 
+async function fetchData() {
+  const res = await fetch(FORUM_LATEST);
+  const data = await res.json();
+  showLatestPosts(data);
+}
+fetchData();
+
 const forumCategories = (id) => {
-  return categories.hasOwnProperty(id)
-    ? `<a class="category ${categories[id]["className"]}" target="_blank" href="${FORUM_CATEGORY_URL}${categories[id]["className"]}/${id}">${categories[id]["category"]}</a>`
-    : `<a class="category general" target="_blank" href="${FORUM_CATEGORY_URL}general/1">General</a>`;
+  let selectedCategory = {};
+
+  if (categorieList.hasOwnProperty(id)) {
+    const { category, className } = categorieList[id];
+    selectedCategory.className = className;
+    selectedCategory.category = category;
+  } else {
+    selectedCategory.className = "General";
+    selectedCategory.category = "General";
+    id = 1;
+  }
+
+  const url = `${FORUM_CATEGORY_URL}${selectedCategory.className}/${id}`;
+  const linkText = selectedCategory.category;
+  const linkClass = `category ${selectedCategory.className}`;
+  const linkTarget = "_blank";
+
+  return `<a href="${url}" class="${linkClass}" target="${linkTarget}">${linkText}</a>`;
 };
 
-const showTime = (time) => {
-  const lastPost = new Date(time);
+function showTime(time) {
   const currentTime = new Date();
+  const lastPost = new Date(time);
 
-  if (currentTime.getUTCHours() === lastPost.getUTCHours()) {
-    return `${currentTime.getMinutes() - lastPost.getUTCMinutes()}m`;
-  } else {
-    return `${currentTime.getHours() - lastPost.getHours()}h`;
-  }
-};
+  const timeDifference = currentTime - lastPost;
+  const MS_PER_MINUTE = 1000 * 60;
 
-const countingViews = (userViews) => {
-  let count = 0;
-  let currViews = userViews;
-  while (currViews !== 0) {
-    currViews = Math.floor(currViews / 10);
-    count++;
-  }
+  const minutesAgo = Math.floor(timeDifference / MS_PER_MINUTE);
+  const hoursAgo = Math.floor(minutesAgo / 60);
+  const daysAgo = Math.floor(hoursAgo / 24);
 
-  if (count >= 4) {
-    return `${userViews.toString().slice(0, -3)}k`;
-  } else {
-    return userViews;
+  if (minutesAgo < 60) {
+    return `${minutesAgo}m ago`;
   }
-};
+  if (hoursAgo < 24) {
+    return `${hoursAgo}h ago`;
+  }
+  return `${daysAgo}d ago`;
+}
+
+function countingViews(views) {
+  const thousands = Math.floor(views / 1000);
+
+  if (views >= 1000) {
+    return `${thousands}k`;
+  }
+  return views;
+}
 
 const showLatestPosts = (posts) => {
   const { topic_list, users } = posts;
@@ -87,20 +106,19 @@ const showLatestPosts = (posts) => {
       .join("");
   };
 
-  topics.forEach(
-    ({
+  topics.forEach((item) => {
+    const {
       id,
       title,
       views,
       posts_count,
       slug,
       posters,
-      has_summary,
       excerpt,
       category_id,
       bumped_at,
-    }) =>
-      (postsContainer.innerHTML += `
+    } = item;
+    return (postsContainer.innerHTML += `
 
       <tr id="${id}">
         <td>
@@ -110,9 +128,6 @@ const showLatestPosts = (posts) => {
           <div>
             ${forumCategories(category_id)}
           </div>
-          <a class="post" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
-            ${has_summary ? `${excerpt}read more` : ""}
-          </a>
         </td>
 
         <td>
@@ -125,7 +140,6 @@ const showLatestPosts = (posts) => {
         <td class="views topic-data"> ${countingViews(views)}</td>
         <td class="activity topic-data">${showTime(bumped_at)}</td>
       </tr>
-
-    `)
-  );
+    `);
+  });
 };

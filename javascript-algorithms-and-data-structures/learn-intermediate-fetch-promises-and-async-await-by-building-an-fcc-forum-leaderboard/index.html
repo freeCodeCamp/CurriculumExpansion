@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Learn about the Fetch API, promises and Async await by building an
-      freeCodeCamp forum leader board
-    </title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a
-              href="https://forum.freecodecamp.org/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img
-                class="fcc-logo"
-                src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
-                alt="freeCodeCamp logo"
-            /></a>
-          </li>
-        </ul>
-      </nav>
-      <h1 class="title">Latest topics</h1>
-    </header>
-    <main>
-      <table>
-        <thead>
-          <tr>
-            <th>Topics</th>
-            <th></th>
-            <th id="replies">Replies</th>
-            <th id="views">Views</th>
-            <th id="activity">Activity</th>
-          </tr>
-        </thead>
-        <tbody id="posts-container"></tbody>
-      </table>
-    </main>
-    <script src="./index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    FCC Forum Leaderboard
+  </title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <img class="fcc-logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+        alt="freeCodeCamp logo" />
+    </nav>
+    <h1 class="title">Latest topics</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Topics</th>
+          <th></th>
+          <th id="replies">Replies</th>
+          <th id="views">Views</th>
+          <th id="activity">Activity</th>
+        </tr>
+      </thead>
+      <tbody id="posts-container"></tbody>
+    </table>
+  </main>
+</body>
+<script src="./index.js"></script>
+
 </html>

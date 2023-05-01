@@ -32,7 +32,6 @@ nav {
 
 .fcc-logo {
   width: 210px;
-  height: 24px;
   display: block;
   margin: auto;
 }
@@ -43,39 +42,42 @@ nav {
   color: var(--light-grey);
 }
 
+/**
+  * ! Table tag styles starts here
+  */
+
 table {
-  table-layout: fixed;
   width: 80%;
-  border-collapse: collapse;
+  color: var(--dark-grey);
   margin: auto;
+
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
-thead th:first-child {
+th:first-child {
+  text-align: start;
   width: 70%;
 }
 
 th {
   border-bottom: 2px solid var(--dark-grey);
-  color: var(--dark-grey);
   padding-bottom: 10px;
   font-size: 1.2rem;
 }
 
-th:not(:first-child) {
-  text-align: center;
-}
-
-th:first-child {
-  text-align: start;
+td:not( :first-child ) {
+  text-align: right;
 }
 
 td {
   border-bottom: 1px solid var(--dark-grey);
-}
-
-td {
   padding: 20px 0;
 }
+
+/**
+  * ! Table tag styles ends here
+  */
 
 .post {
   color: var(--medium-grey);
@@ -113,7 +115,7 @@ td {
   background-color: var(--light-orange);
 }
 
-.general {
+.General {
   background-color: var(--light-green);
 }
 
@@ -139,6 +141,7 @@ td {
 }
 
 @media (max-width: 760px) {
+
   .views,
   #views {
     display: none;
