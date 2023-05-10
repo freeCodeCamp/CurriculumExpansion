@@ -21,7 +21,6 @@ const songPlaylistDiv = document.querySelector(".playlist");
 function renderSongs(songs) {
 
 // map Array Method
-// TODO: First Array for steps
 const songList = songs.map((song) => {
     return `
     <div class="playlist__song" role="button" tabindex="0">
