@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #dfdfe2;
+  background-color: #c9d2fc;
 }
 
 
@@ -16,7 +16,7 @@ body {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: linear-gradient(#2a2a40 85%, #3b3b4f 100%);
+  background: linear-gradient(#5e5e5e 85%, #45454f 100%);
   width: 185px;
   height: 170px;
   border: 1px solid #000;
@@ -33,7 +33,7 @@ body {
   border-top-right-radius: 10px;
   border-left: 35px solid transparent;
   border-right: 35px solid transparent;
-  border-bottom: 70px solid #2a2a40;
+  border-bottom: 70px solid #5e5e5e;
 }
 
 .right-ear {
@@ -46,7 +46,7 @@ body {
   border-top-right-radius: 10px;
   border-left: 35px solid transparent;
   border-right: 35px solid transparent;
-  border-bottom: 70px solid #2a2a40;
+  border-bottom: 70px solid #5e5e5e;
 }
 
 .cat-left-inner-ear {
@@ -82,7 +82,7 @@ body {
   transform: rotate(25deg);
   width: 30px;
   height: 40px;
-  background-color: #393737;
+  background-color: #000;
   border-radius: 60%;
 }
 
@@ -93,7 +93,7 @@ body {
   transform: rotate(-25deg);
   width: 30px;
   height: 40px;
-  background-color: #393737;
+  background-color: #000;
   border-radius: 60%;
 }
 
@@ -129,7 +129,7 @@ body {
   transform: rotate(180deg);
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 20px solid #3b3b4f;
+  border-bottom: 20px solid #442c2c;
 }
 
 .cat-mouth-line-left {
