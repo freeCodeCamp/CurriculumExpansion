@@ -52,7 +52,7 @@ const addNewTask = () => {
 const addTaskToTaskContainer = () => {
   tasksContainer.innerHTML = "";
 
-  taskData.map(
+  taskData.forEach(
     ({ id, task, date, description }) =>
       /**
        * We could have a debugging step here where the original uses the assignment operator here tasksContainer.innerHTML =
