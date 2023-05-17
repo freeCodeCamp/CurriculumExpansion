@@ -84,7 +84,7 @@ const deleteTask = (task) => {
 
 const editTask = (task) => {
   form.style.display = "block";
-  let dataArrIndex = taskData.findIndex(
+  const dataArrIndex = taskData.findIndex(
     (item) => item.id === task.parentElement.id
   );
 
