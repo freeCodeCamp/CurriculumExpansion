@@ -66,8 +66,8 @@ th {
   font-size: 1.2rem;
 }
 
-td:not( :first-child ) {
-  text-align: right;
+td:not(:first-child) {
+  text-align: center;
 }
 
 td {
@@ -79,27 +79,19 @@ td {
   * ! Table tag styles ends here
   */
 
-.post {
-  color: var(--medium-grey);
-  text-decoration: none;
-}
-
 .post-title {
   font-size: 1.3rem;
-}
-
-.topic-data {
-  text-align: center;
-  color: var(--dark-grey);
+  color: var(--medium-grey);
+  text-decoration: none;
 }
 
 .category {
   padding: 3px;
   color: var(--black);
+  text-decoration: none;
   display: block;
   width: fit-content;
   margin: 2px 0 5px;
-  text-decoration: none;
 }
 
 .career {

@@ -75,36 +75,24 @@ function countingViews(views) {
   return views;
 }
 
+const displayUsers = (posters, users) => {
+  return posters
+    .map((poster) => {
+      const user = users.find((user) => user.id === poster.user_id);
+      if (user) {
+        const avatar = user.avatar_template.replace(/{size}/, 30);
+        const avatarUrl = avatar.startsWith("/user_avatar/")
+          ? AVATAR_URL.concat(avatar)
+          : avatar;
+        return `<img src="${avatarUrl}" alt="${user.name}">`;
+      }
+    })
+    .join("");
+};
+
 const showLatestPosts = (posts) => {
   const { topic_list, users } = posts;
   const { topics } = topic_list;
-
-  const displayUsers = (posters) => {
-    let postersArr = [];
-    let avatarArr = [];
-    let posterIds = posters.map((poster) => poster.user_id);
-    for (const user of users) {
-      if (posterIds.includes(user.id)) {
-        postersArr.push(user);
-      }
-    }
-
-    postersArr.forEach((user) => {
-      const avatar = user.avatar_template.replace(/{size}/, 30);
-      if (avatar.startsWith("/user_avatar/")) {
-        avatarArr.push(AVATAR_URL.concat(avatar));
-      } else {
-        avatarArr.push(avatar);
-      }
-    });
-
-    return avatarArr
-      .map(
-        (avatar, index) =>
-          `<img src="${avatar}" alt="${postersArr[index].name}">`
-      )
-      .join("");
-  };
 
   topics.forEach((item) => {
     const {
@@ -122,17 +110,15 @@ const showLatestPosts = (posts) => {
 
       <tr id="${id}">
         <td>
-          <a class="post-title post" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
+          <a class="post-title" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
             ${title}
           </a>
-          <div>
-            ${forumCategories(category_id)}
-          </div>
+          ${forumCategories(category_id)}
         </td>
 
         <td>
           <div class="avatar-container">
-            ${displayUsers(posters)}
+            ${displayUsers(posters, users)}
           </div>
         </td>
 
