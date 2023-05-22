@@ -59,7 +59,7 @@ let currentTime = 0;
 
 let currentIndex = 0;
 
-updatePlayingSongBkg(currentIndex);
+updatePlayingSongBackground(currentIndex);
 
 const playSVG = document.getElementById("play");
 
@@ -72,7 +72,7 @@ function playSong(song) {
 
     if (oldIndex !== newIndex) {
         clearSongBgs();
-        updatePlayingSongBkg(newIndex)
+        updatePlayingSongBackground(newIndex)
     }
 
     audio.src = song.src;
@@ -85,7 +85,7 @@ function playSong(song) {
     audio.play();
     currentIndex = newIndex;
 
-    updatePlayingSongBkg(newIndex);
+    updatePlayingSongBackground(newIndex);
 
 }
 
@@ -97,7 +97,7 @@ function pauseSong() {
 
 function togglePlay() {
   playSong(songs[currentIndex]);
-  updatePlayingSongBkg(currentIndex)
+  updatePlayingSongBackground(currentIndex)
 
 }
 
@@ -146,7 +146,7 @@ function clearSongBgs() {
     });
 }
 
-function updatePlayingSongBkg(newIndex) {
+function updatePlayingSongBackground(newIndex) {
     const songDivs = document.querySelectorAll(".playlist__song");
     songDivs[newIndex].setAttribute('aria-current', true);
 }
