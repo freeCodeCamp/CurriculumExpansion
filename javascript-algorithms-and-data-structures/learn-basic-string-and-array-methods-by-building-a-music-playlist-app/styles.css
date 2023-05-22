@@ -165,15 +165,15 @@ button:focus,
 }
 
 #playlist__songs {
-  width: auto;
+  width: 430px;
   height: 430px;
   background-color: var(--player-fg-color);
   display: flex;
   flex-direction: column;
-  row-gap: 3px;
+  row-gap: 8px;
   padding: 8px 9px;
   visibility: visible;
-  justify-content: center;
+  justify-content: start;
   list-style: none;
 }
 
@@ -183,7 +183,7 @@ button:focus,
 
 .playlist__song {
   display: grid;
-  grid-template-columns: 6fr 1fr 30px;
+  grid-template-columns: 6fr 40px 30px;
   height: 34px;
   width: 412px;
   column-gap: 5px;
@@ -248,4 +248,27 @@ button:focus,
   font-size: 9px;
   margin: auto;
   font-family: "Roboto Mono", monospace;
+}
+
+.player__popup-menu {
+  background-color: var(--player-highlight-color);
+  width: 90px;
+  height: 30px;
+  align-self: center;
+  color: #1b1b32;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.show {
+  display: block;
+}
+
+#delete-Btn {
+  fill: var(--player-fg-color);
+}
+
+#delete-Btn:hover,
+#delete-Btn:focus {
+  fill: #ff0000;
 }

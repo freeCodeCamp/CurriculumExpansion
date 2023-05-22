@@ -1,4 +1,7 @@
 
+
+function app() {
+
 //  Songs array creation
 
 const songs = [
@@ -16,29 +19,29 @@ const songs = [
 
   // song playlist
 const songListDiv = document.getElementById("playlist__songs");
-const songListUL = document.getElementById("playlist__songs-list");
-const songPlaylistDiv = document.querySelector(".playlist");
-
 const closeBtn = document.querySelector(".playlist__close");
 
-function renderSongs(songs) {
+function renderSongs(array) {
 
 // map Array Method
 const songList = songs.map((song,index) => {
     return `
-      <li >
-        <button class="playlist__song" ${index === 0 && `aria-current="true"`}>
-            <div class="playlist__song-info">
+      <li>
+        <div class="playlist__song" ${index === 0 && `aria-current="true"`}>
+            <button class="playlist__song-info">
                 <p class="playlist__song-title">${song.title}</p>
                 <p class="playlist__song-artist">${song.artist}</p>
-            </div>
-            <div class="playlist__song-favorite">
-
-            </div>
+            </button>
             <div class="playlist__song-duration">
                 <p>${song.duration}</p>
             </div>
-        </button>
+            <button class="playlist__song-delete" aria-label="delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle id="delete-Btn" cx="8" cy="8" r="8" fill="#4d4d62"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 5.28651L8 6.75478L9.39515 5.28651C9.71667 4.94814 10.2893 4.90301 10.6741 5.18571C11.059 5.4684 11.1103 5.97188 10.7888 6.31026L9.1832 7.99999L10.7888 9.68974C11.1103 10.0281 11.059 10.5316 10.6741 10.8143C10.2893 11.097 9.71667 11.0519 9.39515 10.7135L8 9.24521L6.60485 10.7135C6.28333 11.0519 5.7107 11.097 5.32587 10.8143C4.94102 10.5316 4.88969 10.0281 5.21121 9.68974L6.8168 7.99999L5.21122 6.31026C4.8897 5.97188 4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
+              </svg>
+            </button>
+        </div>
       </li>
     `;
     }).join('');
@@ -48,13 +51,14 @@ const songList = songs.map((song,index) => {
 //
 renderSongs(songs);
 
-
 // audio API
 const audio = new Audio();
+
 // keepig track of time for each song
 let currentTime = 0;
 
 let currentIndex = 0;
+
 updatePlayingSongBkg(currentIndex);
 
 const playSVG = document.getElementById("play");
@@ -110,12 +114,6 @@ function toggleClosePlaylist() {
     }
 }
 
-function currentSong() {
-  return songs.find((song) => {
-    song.src === audio.src
-}) || songs[currentIndex];
-}
-
 // player controls
 function nextSong() {
   const nextIndex = (currentIndex + 1) % songs.length;
@@ -153,13 +151,11 @@ function updatePlayingSongBkg(newIndex) {
     songDivs[newIndex].setAttribute('aria-current', true);
 }
 
-
-function playSelectedSong(song, songDiv) {
+function playSelectedSong(song, songBtn) {
     playSong(song);
     clearSongBgs();
-    songDiv.setAttribute('aria-current', true);
+    songBtn.setAttribute('aria-current', true);
 }
-
 
 function shuffle() {
     // Shallow copy done with spread operator
@@ -167,9 +163,28 @@ function shuffle() {
     // using array sort method and Math.random method
     songsCopy.sort(() => 0.5 - Math.random());
     renderSongs(songsCopy);
+    // reset eventlisteners to stay in sync with songs playing
     setSongEventListener();
 }
 
+function deleteSong(song){
+  let resetBtn = document.createElement('button');
+  let resetText = document.createTextNode('Reset Playlist');
+  resetBtn.appendChild(resetText);
+  resetBtn.ariaLabel = 'reset playlist';
+  resetBtn.classList.add('player__popup-menu');
+  resetBtn.onclick = function () {
+    app()
+  };
+
+  songs.splice(song,1);
+  renderSongs(songs);
+  setDeleteEventListener();
+
+  if(songs.length < 2) {
+    songListDiv.append(resetBtn);
+  }
+}
 
 // Event listeners
 document.querySelector(".play").addEventListener("click", togglePlay);
@@ -180,10 +195,8 @@ document.querySelector(".shuffle").addEventListener("click", shuffle);
 
 closeBtn.addEventListener("click", toggleClosePlaylist);
 
-
 // continue playing next song
 audio.addEventListener("ended", nextSong);
-
 
 // keyboardEvents
 window.addEventListener("keydown", (event) => {
@@ -197,11 +210,22 @@ window.addEventListener("keydown", (event) => {
     }
 })
 
-
 function setSongEventListener(){
-  document.querySelectorAll('.playlist__song').forEach((song,index) => {
-    song.addEventListener('click', event => playSelectedSong(songs[index], song));
+  document.querySelectorAll('.playlist__song').forEach((songDiv,index) => {
+    songDiv.querySelector('.playlist__song-info').addEventListener('click', () => playSelectedSong(songs[index], songDiv));
   });
 };
 
 setSongEventListener();
+
+function setDeleteEventListener(){
+  document.querySelectorAll('.playlist__song').forEach((songDiv,index) => {
+    songDiv.querySelector('.playlist__song-delete').addEventListener('click', () => deleteSong(index));
+  });
+};
+
+setDeleteEventListener();
+
+}
+
+
