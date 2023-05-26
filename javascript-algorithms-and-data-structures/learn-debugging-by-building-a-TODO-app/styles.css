@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --light-grey: #f5f6f7;
+  --dark-grey: #0a0a23;
+  --yellow: #f1be32;
+  --golden-yellow: #feac32;
+}
+
+body {
+  background-color: var(--dark-grey);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  color: var(--light-grey);
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.app {
+  background-color: var(--white);
+  width: 100%;
+  height: auto;
+  border: 5px solid var(--yellow);
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: scroll;
+}
+
+.btn {
+  cursor: pointer;
+  width: 100px;
+  margin: 10px;
+  color: var(--dark-grey);
+  background-color: var(--golden-yellow);
+  background-image: linear-gradient(#fecc4c, #ffac33);
+  border-color: var(--golden-yellow);
+  border-width: 3px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(#ffcc4c, #f89808);
+}
+
+.open-modal-btn {
+  display: block;
+  margin: 10px auto;
+  width: 80%;
+  font-size: 1.2rem;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.modal-heading-text {
+  margin: 10px 0 5px;
+}
+
+.modal-title {
+  padding-bottom: 5px;
+}
+
+#confirm-modal {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+.modal-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#tasks-container {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.task {
+  margin: 5px 0;
+}
+
+#text-input {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .app,
+  .modal {
+    width: 300px;
+  }
+}
