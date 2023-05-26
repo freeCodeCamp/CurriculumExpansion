@@ -7,7 +7,16 @@ const tasksContainer = document.getElementById("tasks-container");
 const textInput = document.getElementById("text-input");
 const dateInput = document.getElementById("date-input");
 const descriptionInput = document.getElementById("textarea");
-let taskData = [];
+/**
+ * We can have a debugging step where campers have to debug the error message of taskData.map is not a function
+ * We can have them initially log this to the console
+ * console.log(typeof localStorage.getItem("data"));
+ * They will see that it is a string which is why the error is there
+ * So then we can have them refactor it to use the JSON.parse method
+ *
+ */
+
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
 
 openModalBtn.addEventListener("click", () => (form.style.display = "block"));
 closeModalBtn.addEventListener("click", () => confirmModal.showModal());
