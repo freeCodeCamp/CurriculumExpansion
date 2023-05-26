@@ -101,16 +101,6 @@ const resetForm = () => {
   descriptionInput.value = "";
 };
 
-/**
- * We can have a debugging step where campers have to debug the error message of taskData.map is not a function
- * We can have them initially log this to the console
- * console.log(typeof localStorage.getItem("data"));
- * They will see that it is a string which is why the error is there
- * So then we can have them refactor it to use the JSON.parse method
- *
- */
-
-taskData = JSON.parse(localStorage.getItem("data")) || [];
 
 if (taskData.length) {
   addTaskToTaskContainer();
