@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Intermediate OOP by Building a Platformer Game</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="start-screen">
+      <h1 class="main-title">freeCodeCamp Code Warrior</h1>
+      <p class="instructions">
+        Help the main player navigate to the yellow checkpoints.
+      </p>
+      <p class="instructions">
+        Use the keyboard arrows to move the player around.
+      </p>
+      <p class="instructions">You can also use the spacebar to jump.</p>
+
+      <div class="btn-container">
+        <button class="btn" id="start-btn">Start Game</button>
+      </div>
+    </div>
+
+    <div class="checkpoint-screen">
+      <h2>Congrats!</h2>
+      <p>You reached the last checkpoint.</p>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
