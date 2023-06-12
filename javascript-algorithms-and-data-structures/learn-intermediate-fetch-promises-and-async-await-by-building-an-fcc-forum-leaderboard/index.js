@@ -7,7 +7,7 @@ const postsContainer = document.getElementById("posts-container");
 
 // we supply this to the campers
 
-const categorieList = {
+const allCategories = {
   299: { category: "Career Advice", className: "career" },
   409: { category: "Project Feedback", className: "feedback" },
   417: { category: "freeCodeCamp Support", className: "support" },
@@ -25,11 +25,11 @@ async function fetchData() {
 }
 fetchData();
 
-const forumCategories = (id) => {
+const forumCategory = (id) => {
   let selectedCategory = {};
 
-  if (categorieList.hasOwnProperty(id)) {
-    const { category, className } = categorieList[id];
+  if (allCategories.hasOwnProperty(id)) {
+    const { category, className } = allCategories[id];
     selectedCategory.className = className;
     selectedCategory.category = category;
   } else {
@@ -43,10 +43,10 @@ const forumCategories = (id) => {
   const linkClass = `category ${selectedCategory.className}`;
   const linkTarget = "_blank";
 
-  return `<a href="${url}" class="${linkClass}" target="${linkTarget}">${linkText}</a>`;
+  return `<a href="${url}" class="${linkClass}" target="_blank">${linkText}</a>`;
 };
 
-function showTime(time) {
+function timeAgo(time) {
   const currentTime = new Date();
   const lastPost = new Date(time);
 
@@ -66,7 +66,7 @@ function showTime(time) {
   return `${daysAgo}d ago`;
 }
 
-function countingViews(views) {
+function viewCount(views) {
   const thousands = Math.floor(views / 1000);
 
   if (views >= 1000) {
@@ -75,7 +75,7 @@ function countingViews(views) {
   return views;
 }
 
-const displayUsers = (posters, users) => {
+const avatars = (posters, users) => {
   return posters
     .map((poster) => {
       const user = users.find((user) => user.id === poster.user_id);
@@ -102,7 +102,6 @@ const showLatestPosts = (posts) => {
       posts_count,
       slug,
       posters,
-      excerpt,
       category_id,
       bumped_at,
     } = item;
@@ -113,18 +112,18 @@ const showLatestPosts = (posts) => {
           <a class="post-title" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
             ${title}
           </a>
-          ${forumCategories(category_id)}
+          ${forumCategory(category_id)}
         </td>
 
         <td>
           <div class="avatar-container">
-            ${displayUsers(posters, users)}
+            ${avatars(posters, users)}
           </div>
         </td>
 
         <td class="replies topic-data"> ${posts_count - 1}</td>
-        <td class="views topic-data"> ${countingViews(views)}</td>
-        <td class="activity topic-data">${showTime(bumped_at)}</td>
+        <td class="views topic-data"> ${viewCount(views)}</td>
+        <td class="activity topic-data">${timeAgo(bumped_at)}</td>
       </tr>
     `);
   });
