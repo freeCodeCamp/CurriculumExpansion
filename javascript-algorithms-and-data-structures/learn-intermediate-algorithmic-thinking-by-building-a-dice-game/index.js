@@ -3,7 +3,7 @@ const scoreInputs = document.querySelectorAll("#score-options input");
 const scoreSpans = document.querySelectorAll("#score-options span");
 
 // square boxes that display the dice values
-const diceButtons = document.querySelectorAll("#dice > button");
+const diceButtons = document.querySelectorAll(".die");
 
 // targets the current round and rolls
 const currentRoundText = document.getElementById("current-round");
@@ -132,6 +132,8 @@ const getHighestDuplicates = (arr) => {
   const counts = {};
 
   // Count the occurrences of each number in the array
+  // can have campers refactor to:
+  // counts[num] = (counts[num] || 0) + 1;
   for (const num of arr) {
     if (counts[num]) {
       counts[num]++;
@@ -293,7 +295,7 @@ keepScoreBtn.addEventListener("click", () => {
     updateStats();
     resetRadioOption();
     updateScore(selectedValue, achieved);
-    if (round >= 6) {
+    if (round > 6) {
       setTimeout(() => {
         window.alert(`Game Over! Your total score is ${totalScore}`);
         resetGame();
