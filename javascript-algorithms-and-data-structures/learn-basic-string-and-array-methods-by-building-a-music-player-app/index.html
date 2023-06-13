@@ -20,7 +20,7 @@
   <body onload="app()">
     <div class="container">
       <div class="player">
-        <div class="player__bar">
+        <div class="player-bar">
           <div class="parallel-lines">
             <div></div>
             <div></div>
@@ -48,19 +48,19 @@
             </span>
           </div>
         </div>
-        <div class="player__content">
-          <div id="player__album-art">
+        <div class="player-content">
+          <div id="player-album-art">
             <img
               src="https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg"
               alt="song cover art"
             />
           </div>
-          <div class="player__display">
-            <div class="player__display--songArtist">
-              <p id="player__song-title"></p>
-              <p id="player__song-artist"></p>
+          <div class="player-display">
+            <div class="player-display-songArtist">
+              <p id="player-song-title"></p>
+              <p id="player-song-artist"></p>
             </div>
-            <div class="player__buttons">
+            <div class="player-buttons">
               <button class="previous" aria-label="Previous">
                 <svg
                   width="24"
@@ -152,7 +152,7 @@
         </div>
       </div>
       <div class="playlist">
-        <div class="playlist__bar">
+        <div class="playlist-bar">
           <div class="parallel-lines">
             <div></div>
             <div></div>
@@ -164,7 +164,7 @@
           </div>
           <div>
             <button
-              class="playlist__close"
+              class="playlist-close"
               aria-label="Playlist"
               aria-expanded="true"
             >
@@ -172,7 +172,7 @@
             </button>
           </div>
         </div>
-        <ul id="playlist__songs" aria-labelledby="playlist"></ul>
+        <ul id="playlist-songs" aria-labelledby="playlist"></ul>
       </div>
     </div>
     <script src="script.js"></script>

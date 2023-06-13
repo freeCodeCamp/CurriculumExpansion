@@ -85,8 +85,8 @@ function app() {
   ];
 
     // song playlist
-  const songListDiv = document.getElementById("playlist__songs");
-  const closeBtn = document.querySelector(".playlist__close");
+  const songListDiv = document.getElementById("playlist-songs");
+  const closeBtn = document.querySelector(".playlist-close");
   const playPath = document.getElementById('play');
 
 
@@ -95,15 +95,15 @@ function app() {
   const songList = songs.map((song,index) => {
       return `
         <li>
-          <div class="playlist__song" ${index === 0 && `aria-current="true"`}>
-              <button class="playlist__song-info">
-                  <p class="playlist__song-title">${song.title}</p>
-                  <p class="playlist__song-artist">${song.artist}</p>
+          <div class="playlist-song" ${index === 0 && `aria-current="true"`}>
+              <button class="playlist-song-info">
+                  <p class="playlist-song-title">${song.title}</p>
+                  <p class="playlist-song-artist">${song.artist}</p>
               </button>
-              <div class="playlist__song-duration">
+              <div class="playlist-song-duration">
                   <p>${song.duration}</p>
               </div>
-              <button class="playlist__song-delete" aria-label="delete">
+              <button class="playlist-song-delete" aria-label="delete">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle id="delete-Btn" cx="8" cy="8" r="8" fill="#4d4d62"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 5.28651L8 6.75478L9.39515 5.28651C9.71667 4.94814 10.2893 4.90301 10.6741 5.18571C11.059 5.4684 11.1103 5.97188 10.7888 6.31026L9.1832 7.99999L10.7888 9.68974C11.1103 10.0281 11.059 10.5316 10.6741 10.8143C10.2893 11.097 9.71667 11.0519 9.39515 10.7135L8 9.24521L6.60485 10.7135C6.28333 11.0519 5.7107 11.097 5.32587 10.8143C4.94102 10.5316 4.88969 10.0281 5.21121 9.68974L6.8168 7.99999L5.21122 6.31026C4.8897 5.97188 4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
@@ -191,8 +191,8 @@ function app() {
     currentIndex = nextIndex;
 
   //   keeping keyboard indicator in sync with array keyls/selected indicator.
-    if(document.activeElement.classList.contains('playlist__song')) {
-      const nextSongDivs = document.querySelectorAll(".playlist__song");
+    if(document.activeElement.classList.contains('playlist-song')) {
+      const nextSongDivs = document.querySelectorAll(".playlist-song");
       nextSongDivs[currentIndex].focus();
     }
   }
@@ -203,28 +203,28 @@ function app() {
     currentIndex = prevIndex;
 
   //   keeping keyboard indicator in sync with array keyls/selected indicator.
-    if(document.activeElement.classList.contains('playlist__song')) {
-        const previousSongDivs = document.querySelectorAll(".playlist__song");
+    if(document.activeElement.classList.contains('playlist-song')) {
+        const previousSongDivs = document.querySelectorAll(".playlist-song");
         previousSongDivs[currentIndex].focus();
       }
   }
 
   function renderSongDisplay(currentIndex) {
-    document.getElementById("player__song-title").innerText = songs[currentIndex].title;
-    document.getElementById("player__song-artist").innerText = songs[currentIndex].artist;
-    document.getElementById("player__album-art").innerHTML = `<img src="${songs[currentIndex].cover}" alt="song cover art" />`;
+    document.getElementById("player-song-title").innerText = songs[currentIndex].title;
+    document.getElementById("player-song-artist").innerText = songs[currentIndex].artist;
+    document.getElementById("player-album-art").innerHTML = `<img src="${songs[currentIndex].cover}" alt="song cover art" />`;
   }
 
 
   // playlist display
   function clearSongBgs() {
-      document.querySelectorAll(".playlist__song").forEach(song => {
+      document.querySelectorAll(".playlist-song").forEach(song => {
           song.removeAttribute('aria-current');
       });
   }
 
   function updatePlayingSongBackground(newIndex) {
-      const updateSongDivs = document.querySelectorAll(".playlist__song");
+      const updateSongDivs = document.querySelectorAll(".playlist-song");
       updateSongDivs[newIndex].setAttribute('aria-current', true);
   }
 
@@ -250,7 +250,7 @@ function app() {
     let resetText = document.createTextNode('Reset Playlist');
     resetBtn.appendChild(resetText);
     resetBtn.ariaLabel = 'reset playlist';
-    resetBtn.classList.add('player__popup-menu');
+    resetBtn.classList.add('player-reset-btn');
     resetBtn.onclick = function () {
       app()
     };
@@ -290,16 +290,16 @@ function app() {
   })
 
   function setSongEventListener(){
-    document.querySelectorAll('.playlist__song').forEach((songDiv,index) => {
-      songDiv.querySelector('.playlist__song-info').addEventListener('click', () => playSelectedSong(songs[index], songDiv));
+    document.querySelectorAll('.playlist-song').forEach((songDiv,index) => {
+      songDiv.querySelector('.playlist-song-info').addEventListener('click', () => playSelectedSong(songs[index], songDiv));
     });
   };
 
   setSongEventListener();
 
   function setDeleteEventListener(){
-    document.querySelectorAll('.playlist__song').forEach((songDiv,index) => {
-      songDiv.querySelector('.playlist__song-delete').addEventListener('click', () => deleteSong(index));
+    document.querySelectorAll('.playlist-song').forEach((songDiv,index) => {
+      songDiv.querySelector('.playlist-song-delete').addEventListener('click', () => deleteSong(index));
     });
   };
 
