@@ -174,7 +174,7 @@ button:focus,
 
 #playlist-songs {
   width: 430px;
-  height: 430px;
+  height: 100%;
   background-color: var(--player-fg-color);
   display: flex;
   flex-direction: column;
@@ -191,8 +191,8 @@ button:focus,
 
 .playlist-song {
   display: grid;
-  grid-template-columns: 6fr 40px 30px;
-  height: 34px;
+  grid-template-columns: 6fr 30px;
+  height: auto;
   width: 412px;
   column-gap: 5px;
   justify-items: left;
@@ -211,6 +211,7 @@ button:focus,
 .playlist-song-info {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-around;
   padding: 5px;
   font-family: "Lato", sans-serif;
@@ -247,12 +248,14 @@ button:focus,
 
 .playlist-song-artist {
   font-size: 9px;
+  width: 80px;
 }
 
 .playlist-song-duration {
   font-size: 9px;
   margin: auto;
   font-family: "Roboto Mono", monospace;
+  width: 30px;
 }
 
 .player-reset-btn {
@@ -290,6 +293,7 @@ button:focus,
 
   #playlist-songs {
     height: 280px;
+    padding: 0 6px;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-color: var(--player-bg-color) var(--main-bg-color);
@@ -324,16 +328,21 @@ button:focus,
   }
 
   .playlist-song {
+    grid-template-columns: 6fr 27px;
     width: 265px;
     height: auto;
   }
 
   .playlist-song-title {
-    width: 122px;
+    width: 140px;
   }
 
   .playlist-song-artist {
-    width: 50px;
+    width: 40px;
+  }
+
+  .playlist-song-duration > button {
+    padding: 0;
   }
 
   .player-content {

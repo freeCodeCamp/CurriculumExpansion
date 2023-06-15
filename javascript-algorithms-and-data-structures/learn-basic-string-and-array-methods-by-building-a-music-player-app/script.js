@@ -99,10 +99,10 @@ function app() {
               <button class="playlist-song-info">
                   <p class="playlist-song-title">${song.title}</p>
                   <p class="playlist-song-artist">${song.artist}</p>
+                  <div class="playlist-song-duration">
+                      <p>${song.duration}</p>
+                  </div>
               </button>
-              <div class="playlist-song-duration">
-                  <p>${song.duration}</p>
-              </div>
               <button class="playlist-song-delete" aria-label="delete">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle id="delete-Btn" cx="8" cy="8" r="8" fill="#4d4d62"/>
