@@ -137,6 +137,7 @@ function renderSongs(array) {
 const songListDiv = document.getElementById("playlist-songs");
 const playPath = document.getElementById('play');
 const closeBtn = document.querySelector(".playlist-close");
+const arrow = document.querySelector(".arrow");
 
 // audio API
 const audio = new Audio();
@@ -181,6 +182,7 @@ function togglePlay() {
 }
 
 function toggleClosePlaylist() {
+    arrow.classList.toggle('active');
     if (songListDiv.style.visibility === "hidden") {
         songListDiv.style.visibility = "visible";
         songListDiv.style.display = "flex";
@@ -339,6 +341,7 @@ function closePlaylist(view){
   if (view.matches) {
     return toggleClosePlaylist();
   } else {
+    arrow.classList.toggle('active');
     songListDiv.style.visibility = "visible";
     songListDiv.style.display = "flex";
     closeBtn.setAttribute('aria-expanded', true);
