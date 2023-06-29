@@ -1,5 +1,5 @@
  //  Songs array creation
-const songs = [
+ const songs = [
   {
     id:"0",
     title: "Scratching The Surface",
@@ -157,7 +157,7 @@ function playSong(song) {
   // using indesOf method
   setCurrentIndex(playlist().indexOf(song));
 
-  playPath.style.fill="#f1be32";
+  playPath.classList.add('playing');
 
   audio.src = song.src;
   audio.title = song.title;
@@ -173,7 +173,7 @@ function playSong(song) {
 function pauseSong() {
   audio.pause();
   setCurrentTime(audio.currentTime);
-  playPath.style.fill="#fbf9f9";
+  playPath.classList.remove('playing');
 }
 
 function togglePlay() {

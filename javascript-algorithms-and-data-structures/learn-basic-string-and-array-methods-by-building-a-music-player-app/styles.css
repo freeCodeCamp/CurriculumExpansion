@@ -1,9 +1,22 @@
+@import "nightOwl.css";
+@import "cobalt2.css";
+
 :root {
-  --white-color: #fbf9f9;
-  --main-bg-color: #4d4d62;
-  --player-bg-color: #1b1b32;
-  --player-fg-color: #3b3b4f;
-  --player-highlight-color: #f1be32;
+  /* colors */
+  --primary-color: #dfdfe2;
+  --secondary-color: #ffffff;
+  --app-background-color: #4d4d62;
+  --background-color: #1b1b32;
+  --foreground-color: #3b3b4f;
+  --highlight-color: #f1be32;
+
+  /* font sizes */
+  --root-font-size: 16px;
+  font-size: var(--root-font-size);
+
+  /* font-families */
+  --font-headline: "Roboto Mono", monospace;
+  --font-family: "Lato", sans-serif;
 }
 
 *,
@@ -13,16 +26,18 @@
 }
 
 body {
-  background-color: var(--main-bg-color);
+  background-color: var(--app-background-color);
+  color: var(--primary-color);
+  font-family: var(--font-family);
 }
 
 h1 {
-  font-size: 16px;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: var(--root-font-size);
 }
 
 ul {
@@ -41,8 +56,8 @@ ul {
 .player,
 .playlist {
   width: 450px;
-  background-color: var(--player-bg-color);
-  border: 3px solid var(--player-fg-color);
+  background-color: var(--background-color);
+  border: 3px solid var(--foreground-color);
 }
 
 .player {
@@ -67,7 +82,7 @@ ul {
   height: 2px;
   width: 100%;
   min-width: 75px;
-  background-color: var(--player-highlight-color);
+  background-color: var(--highlight-color);
 }
 
 .player-bar {
@@ -87,19 +102,19 @@ ul {
   width: 430px;
   height: 30px;
   position: relative;
-  background-color: var(--player-fg-color);
+  background-color: var(--foreground-color);
 }
 
 .fcc-title,
 .playlist-title {
-  color: var(--white-color, white);
+  color: var(--secondary-color);
   margin: 0;
-  font-family: "Roboto Mono", monospace;
+  font-family: var(--font-headline);
 }
 
 .player-content {
   display: flex;
-  background-color: var(--player-fg-color);
+  background-color: var(--foreground-color);
   width: 430px;
   height: 200px;
   column-gap: 13px;
@@ -109,9 +124,8 @@ ul {
 
 #player-album-art {
   height: 153px;
-  /* overflow: hidden; */
-  background-color: var(--main-bg-color);
-  box-shadow: -6px 6px var(--player-bg-color);
+  background-color: var(--secondary-color);
+  box-shadow: -6px 6px var(--background-color);
 }
 
 #player-album-art img {
@@ -123,12 +137,21 @@ ul {
   flex-direction: column;
   row-gap: 20px;
   padding: 14px;
-  background-color: var(--player-bg-color);
+  background-color: var(--background-color);
   height: 153px;
   width: 226px;
 }
 .player-display-songArtist {
   height: 80px;
+}
+
+#play,
+.controls {
+  fill: var(--primary-color);
+}
+
+#play.playing {
+  fill: var(--highlight-color);
 }
 
 .player-buttons {
@@ -139,15 +162,15 @@ ul {
 button {
   background: transparent;
   border: none;
-  color: var(--white-color, white);
+  color: var(--primary-color);
   cursor: pointer;
-  font-size: 14px;
-  outline-color: var(--player-highlight-color);
+  font-size: var(--root-font-size);
+  outline-color: var(--highlight-color);
   text-align: center;
 }
 
 .playlist-song {
-  outline-color: var(--player-highlight-color);
+  outline-color: var(--highlight-color);
 }
 
 button:focus,
@@ -170,7 +193,7 @@ button:focus,
 #playlist-songs {
   width: 430px;
   height: 100%;
-  background-color: var(--player-fg-color);
+  background-color: var(--foreground-color);
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -196,11 +219,11 @@ button:focus,
 }
 
 [aria-current="true"] {
-  background-color: var(--player-bg-color);
+  background-color: var(--background-color);
 }
 
 [aria-current="true"] p {
-  color: var(--player-highlight-color);
+  color: var(--highlight-color);
 }
 
 .playlist-song-info {
@@ -209,47 +232,39 @@ button:focus,
   align-items: center;
   justify-content: space-around;
   padding: 5px;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-family);
 }
 
 #player-song-title,
-#player-song-artist,
-.playlist-song-title,
-.playlist-song-artist,
-.playlist-song-duration {
-  color: var(--white-color, white);
+#player-song-artist {
   margin: 0;
 }
 
-#player-song-title,
 #player-song-artist {
-  font-family: "Lato", sans-serif;
-}
-
-#player-song-artist {
-  color: var(--player-highlight-color);
-  font-size: 12px;
+  color: var(--highlight-color);
+  font-size: 0.75rem;
 }
 
 #player-song-title {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .playlist-song-title {
-  font-size: 12px;
+  font-size: 0.75rem;
   width: 241px;
   text-align: left;
 }
 
 .playlist-song-artist {
-  font-size: 9px;
+  font-size: 0.625rem;
   width: 80px;
 }
 
 .playlist-song-duration {
-  font-size: 9px;
+  font-size: 0.625rem;
+
   margin: auto;
-  font-family: "Roboto Mono", monospace;
+  font-family: var(--font-headline);
   width: 30px;
 }
 
@@ -262,7 +277,7 @@ button:focus,
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid var(--player-highlight-color);
+  border-top: 8px solid var(--highlight-color);
   transform: rotate(90deg);
 }
 
@@ -271,11 +286,11 @@ button:focus,
 }
 
 .player-reset-btn {
-  background-color: var(--player-highlight-color);
+  background-color: var(--highlight-color);
   width: 90px;
   height: 30px;
   align-self: center;
-  color: #1b1b32;
+  color: var(--background-color);
   font-size: 0.7em;
   font-weight: bold;
 }
@@ -285,7 +300,7 @@ button:focus,
 }
 
 #delete-Btn {
-  fill: var(--player-fg-color);
+  fill: var(--foreground-color);
 }
 
 #delete-Btn:hover,
@@ -308,7 +323,7 @@ button:focus,
     padding: 0 6px;
     overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-color: var(--player-bg-color) var(--main-bg-color);
+    scrollbar-color: var(--background-color) var(--secondary-color);
     scrollbar-width: thin;
   }
 
@@ -317,19 +332,19 @@ button:focus,
   }
 
   #playlist-songs::-webkit-scrollbar-track {
-    background: var(--player-bg-color);
+    background: var(--background-color);
   }
 
   #playlist-songs::-webkit-scrollbar-thumb {
-    background: var(--main-bg-color);
+    background: var(--secondary-color);
   }
 
   h1 {
-    font-size: 12px;
+    font-size: 0.813rem;
   }
 
   h2 {
-    font-size: 11px;
+    font-size: 0.75rem;
   }
 
   .player-bar,
