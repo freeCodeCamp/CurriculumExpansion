@@ -296,7 +296,7 @@ function resetButton() {
 
 function deleteSong(song){
 
-  if(currentSong() == playlist()[song].title){
+  if(currentSong() === playlist()[song].title){
     audio.pause();
   }
 
