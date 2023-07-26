@@ -106,7 +106,7 @@ const userData = {
 };
 
 /**
- * ! Delete Button Component & Function
+ * ! Delete Button Function
  */
 
 const deleteSong = (id) => {
@@ -117,6 +117,10 @@ const deleteSong = (id) => {
   }
   console.log(userData?.songs);
 };
+
+/**
+ * ! Delete Button Component
+ */
 
 const deleteBtn = (id) => {
   return `<button onclick="deleteSong(${id})" class="playlist-song-delete" aria-label="delete">
@@ -155,7 +159,19 @@ const renderSongs = (array) => {
 };
 
 /**
- * ! shuffle songs and render on HTML
+ * ! Music player various buttons section here
+ */
+
+const playSong = () => {};
+
+const pauseSong = () => {};
+
+const nextSong = () => {};
+
+const previousSong = () => {};
+
+/**
+ * ? shuffle songs and render on HTML
  */
 
 const shuffle = () => {
@@ -173,7 +189,7 @@ shuffleBtn.addEventListener("click", shuffle);
  * ! The songs playlist reset button here with eventListener
  */
 
-function resetButton() {
+const resetButton = () => {
   let resetBtn = document.createElement("button");
   let resetText = document.createTextNode("Reset Playlist");
   resetBtn.appendChild(resetText);
@@ -189,7 +205,7 @@ function resetButton() {
   });
 
   return resetBtn;
-}
+};
 
 (() => {
   renderSongs(userData?.songs);

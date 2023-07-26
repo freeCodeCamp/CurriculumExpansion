@@ -1,3 +1,10 @@
+// DOM targets
+// song playlist
+const songListDiv = document.getElementById("playlist-songs");
+const playPath = document.getElementById("play");
+const closeBtn = document.querySelector(".playlist-close");
+const arrow = document.querySelector(".arrow");
+
 //  Songs array creation
 const songs = [
   {
@@ -92,6 +99,10 @@ const songs = [
   },
 ];
 
+/**
+ * ! This is removed and replaced with something simple
+ */
+
 // State Management: useState Hook
 function useState(array) {
   let state = array;
@@ -103,6 +114,10 @@ function useState(array) {
   }
   return [getState, setState];
 }
+
+/**
+ * ! This is done
+ */
 
 function renderSongs(array) {
   // map Array Method
@@ -132,21 +147,16 @@ function renderSongs(array) {
   songListDiv.innerHTML = songList;
 }
 
-// song playlist
-const songListDiv = document.getElementById("playlist-songs");
-const playPath = document.getElementById("play");
-const closeBtn = document.querySelector(".playlist-close");
-const arrow = document.querySelector(".arrow");
-
 // audio API
 const audio = new Audio();
 
+/**
+ * ! These are obsolete
+ */
+
 const [playlist, setPlaylist] = useState([...songs]);
-
 const [currentIndex, setCurrentIndex] = useState(0);
-
 const [currentTime, setCurrentTime] = useState(0);
-
 const [currentSong, setCurrentSong] = useState(playlist()[currentIndex()]);
 
 // first time the matchMedia is being taught. Make sure to introduce with example in the steps
@@ -179,6 +189,10 @@ function togglePlay() {
   playSong(playlist()[currentIndex()]);
   updatePlayingSongBackground(currentIndex());
 }
+
+/**
+ * ! This is removed
+ */
 
 function toggleClosePlaylist() {
   arrow.classList.toggle("active");
@@ -234,6 +248,10 @@ function renderSongDisplay(currentIndex) {
   }" alt="song cover art" />`;
 }
 
+/**
+ * ! looks useless ??
+ */
+
 // playlist display
 function clearSongBgs() {
   document.querySelectorAll(".playlist-song").forEach((song) => {
@@ -251,6 +269,10 @@ function playSelectedSong(song, songBtn) {
   clearSongBgs();
   songBtn.setAttribute("aria-current", true);
 }
+
+/**
+ * ! This is done
+ */
 
 function shuffle() {
   // first time the spread operator is being taught. Make sure to introduce with example in the steps
@@ -276,6 +298,10 @@ function songPlayingInList() {
   });
 }
 
+/**
+ * ! This is done
+ */
+
 function resetButton() {
   let resetBtn = document.createElement("button");
   let resetText = document.createTextNode("Reset Playlist");
@@ -294,6 +320,10 @@ function resetButton() {
 
   return resetBtn;
 }
+
+/**
+ * ! This is done
+ */
 
 function deleteSong(song) {
   if (currentSong() === playlist()[song].title) {
@@ -340,6 +370,10 @@ function setDeleteEventListener() {
       .addEventListener("click", () => deleteSong(index));
   });
 }
+
+/**
+ * ! This is removed
+ */
 
 // Set Media Query with JavaScript to close the playlist container when viewport is at 700px or smaller
 function closePlaylist(view) {
