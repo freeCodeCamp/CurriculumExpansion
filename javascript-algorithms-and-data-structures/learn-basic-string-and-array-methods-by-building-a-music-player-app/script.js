@@ -391,3 +391,5 @@ function app() {
   setDeleteEventListener();
   closePlaylist(view);
 }
+
+app();
