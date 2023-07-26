@@ -217,7 +217,7 @@ function previousSong() {
   playSong(playlist()[prevIndex]);
   setCurrentIndex(prevIndex);
 
-  //   keeping keyboard indicator in sync with array keyls/selected indicator.
+  // keeping keyboard indicator in sync with array keyls/selected indicator.
   if (document.activeElement.classList.contains("playlist-song-info")) {
     const previousSongDivs = document.querySelectorAll(".playlist-song-info");
     previousSongDivs[currentIndex()].focus();
