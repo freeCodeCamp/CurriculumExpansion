@@ -5,6 +5,7 @@
 // song playlist
 const songListDiv = document.getElementById("playlist-songs");
 const playPath = document.getElementById("play");
+const pausePath = document.getElementById("pause");
 const closeBtn = document.querySelector(".playlist-close");
 const arrow = document.querySelector(".arrow");
 
@@ -103,6 +104,7 @@ const songsDatabase = [
 
 const userData = {
   songs: songsDatabase,
+  currentSong: {},
 };
 
 /**
@@ -162,9 +164,23 @@ const renderSongs = (array) => {
  * ! Music player various buttons section here
  */
 
-const playSong = () => {};
+// audio API
+const audio = new Audio();
 
-const pauseSong = () => {};
+const playSong = (song) => {
+  userData.currentSong = song;
+  audio.src = song.src;
+  audio.title = song.title;
+  // audio.currentTime = currentTime();
+
+  audio.play();
+  console.log(audio);
+};
+
+const pauseSong = () => {
+  audio.pause();
+  // setCurrentTime(audio.currentTime);
+};
 
 const nextSong = () => {};
 
@@ -184,6 +200,16 @@ const shuffle = () => {
  */
 
 shuffleBtn.addEventListener("click", shuffle);
+
+playPath.addEventListener("click", () => {
+  playPath.classList.add("playing");
+  playSong(userData?.songs[0]);
+});
+
+pausePath.addEventListener("click", () => {
+  playPath.classList.remove("playing");
+  pauseSong();
+});
 
 /**
  * ! The songs playlist reset button here with eventListener
