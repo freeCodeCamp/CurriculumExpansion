@@ -105,6 +105,7 @@ const songsDatabase = [
 const userData = {
   songs: songsDatabase,
   currentSong: {},
+  songCurrentTime: 0,
 };
 
 /**
@@ -171,7 +172,7 @@ const playSong = (song) => {
   userData.currentSong = song;
   audio.src = song.src;
   audio.title = song.title;
-  // audio.currentTime = currentTime();
+  audio.currentTime = userData.songCurrentTime;
 
   audio.play();
   console.log(audio);
@@ -179,7 +180,8 @@ const playSong = (song) => {
 
 const pauseSong = () => {
   audio.pause();
-  // setCurrentTime(audio.currentTime);
+  userData.songCurrentTime = audio.currentTime;
+  console.log(audio.currentTime);
 };
 
 const nextSong = () => {};

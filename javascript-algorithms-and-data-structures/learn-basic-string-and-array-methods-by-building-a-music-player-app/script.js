@@ -182,6 +182,7 @@ function playSong(song) {
 function pauseSong() {
   audio.pause();
   setCurrentTime(audio.currentTime);
+  console.log(audio.currentTime);
   playPath.classList.remove("playing");
 }
 
