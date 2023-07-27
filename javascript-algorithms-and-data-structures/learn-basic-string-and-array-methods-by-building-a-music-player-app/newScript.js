@@ -7,7 +7,9 @@ const songListDiv = document.getElementById("playlist-songs");
 const playPath = document.getElementById("play");
 const pausePath = document.getElementById("pause");
 const closeBtn = document.querySelector(".playlist-close");
-const arrow = document.querySelector(".arrow");
+// const arrow = document.querySelector(".arrow");
+const nextBtn = document.getElementById("nextBtn");
+const previousBtn = document.getElementById("previousBtn");
 
 // Buttons
 const shuffleBtn = document.getElementById("shuffleBtn");
@@ -104,7 +106,7 @@ const songsDatabase = [
 
 const userData = {
   songs: songsDatabase,
-  currentSong: {},
+  currentSong: null,
   songCurrentTime: 0,
 };
 
@@ -184,9 +186,25 @@ const pauseSong = () => {
   console.log(audio.currentTime);
 };
 
-const nextSong = () => {};
+const nextSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0]);
+  }
+  const songIndex = userData?.songs.indexOf(userData.currentSong);
+  const nextSong = userData?.songs[songIndex + 1];
+  playSong(nextSong);
+  console.log(nextSong);
+};
 
-const previousSong = () => {};
+const previousSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0]);
+  }
+  const songIndex = userData?.songs.indexOf(userData.currentSong);
+  const previousSong = userData?.songs[songIndex - 1];
+  playSong(previousSong);
+  console.log(previousSong);
+};
 
 /**
  * ? shuffle songs and render on HTML
@@ -211,6 +229,14 @@ playPath.addEventListener("click", () => {
 pausePath.addEventListener("click", () => {
   playPath.classList.remove("playing");
   pauseSong();
+});
+
+nextBtn.addEventListener("click", () => {
+  nextSong();
+});
+
+previousBtn.addEventListener("click", () => {
+  previousSong();
 });
 
 /**
