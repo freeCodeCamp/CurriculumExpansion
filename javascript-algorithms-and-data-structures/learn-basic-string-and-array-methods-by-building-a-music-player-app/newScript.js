@@ -175,35 +175,32 @@ const playSong = (song) => {
   audio.src = song.src;
   audio.title = song.title;
   audio.currentTime = userData.songCurrentTime;
-
+  playPath.classList.add("playing");
   audio.play();
-  console.log(audio);
 };
 
 const pauseSong = () => {
   audio.pause();
   userData.songCurrentTime = audio.currentTime;
-  console.log(audio.currentTime);
 };
 
 const nextSong = () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0]);
+  } else {
+    const songIndex = userData?.songs.indexOf(userData.currentSong);
+    const nextSongOnList = userData?.songs[songIndex + 1];
+    playSong(nextSongOnList);
   }
-  const songIndex = userData?.songs.indexOf(userData.currentSong);
-  const nextSong = userData?.songs[songIndex + 1];
-  playSong(nextSong);
-  console.log(nextSong);
 };
 
 const previousSong = () => {
-  if (userData?.currentSong === null) {
-    playSong(userData?.songs[0]);
+  if (userData?.currentSong === null) return;
+  else {
+    const songIndex = userData?.songs.indexOf(userData.currentSong);
+    const previousSong = userData?.songs[songIndex - 1];
+    playSong(previousSong);
   }
-  const songIndex = userData?.songs.indexOf(userData.currentSong);
-  const previousSong = userData?.songs[songIndex - 1];
-  playSong(previousSong);
-  console.log(previousSong);
 };
 
 /**
@@ -222,7 +219,6 @@ const shuffle = () => {
 shuffleBtn.addEventListener("click", shuffle);
 
 playPath.addEventListener("click", () => {
-  playPath.classList.add("playing");
   playSong(userData?.songs[0]);
 });
 
