@@ -7,7 +7,6 @@ const songListDiv = document.getElementById("playlist-songs");
 const playPath = document.getElementById("play");
 const pausePath = document.getElementById("pause");
 const closeBtn = document.querySelector(".playlist-close");
-// const arrow = document.querySelector(".arrow");
 const nextBtn = document.getElementById("next");
 const previousBtn = document.getElementById("previous");
 
@@ -137,12 +136,36 @@ const deleteBtn = (id) => {
 };
 
 /**
+ * ! Display currently playing song
+ */
+
+const playerDisplay = (song) => {
+  const playingSong = document.getElementById("player-song-title");
+  const songArtist = document.getElementById("player-song-artist");
+
+  playingSong.textContent = song.title;
+  songArtist.textContent = song.artist;
+};
+
+/**
+ * ! Song highlighter
+ */
+
+const songHighlighter = (id) => {
+  const allSongsLabel = document.querySelectorAll(".playlist-song");
+  allSongsLabel.forEach((song) => {
+    song.removeAttribute("aria-current");
+  });
+  allSongsLabel[id].ariaCurrent = "true";
+};
+
+/**
  * ! renderSongs on the HTML
  */
 
 const renderSongs = (array) => {
   const songList = array
-    ?.map((song, index) => {
+    ?.map((song) => {
       return `
       <li id=${song.id}>
         <div class="playlist-song">
@@ -177,6 +200,8 @@ const playSong = (song) => {
   audio.currentTime = userData.songCurrentTime;
   playPath.classList.add("playing");
   audio.play();
+  songHighlighter(song.id);
+  playerDisplay(song);
 };
 
 const pauseSong = () => {
