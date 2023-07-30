@@ -8,11 +8,11 @@ const playPath = document.getElementById("play");
 const pausePath = document.getElementById("pause");
 const closeBtn = document.querySelector(".playlist-close");
 // const arrow = document.querySelector(".arrow");
-const nextBtn = document.getElementById("nextBtn");
-const previousBtn = document.getElementById("previousBtn");
+const nextBtn = document.getElementById("next");
+const previousBtn = document.getElementById("previous");
 
 // Buttons
-const shuffleBtn = document.getElementById("shuffleBtn");
+const shuffleBtn = document.getElementById("shuffle");
 
 //  Songs array creation
 const cover =
@@ -104,7 +104,7 @@ const songsDatabase = [
  * ! A State management object
  */
 
-const userData = {
+let userData = {
   songs: songsDatabase,
   currentSong: null,
   songCurrentTime: 0,
@@ -190,6 +190,11 @@ const nextSong = () => {
   } else {
     const songIndex = userData?.songs.indexOf(userData.currentSong);
     const nextSongOnList = userData?.songs[songIndex + 1];
+    userData = {
+      ...userData,
+      currentSong: nextSongOnList,
+      songCurrentTime: 0,
+    };
     playSong(nextSongOnList);
   }
 };
@@ -199,6 +204,11 @@ const previousSong = () => {
   else {
     const songIndex = userData?.songs.indexOf(userData.currentSong);
     const previousSong = userData?.songs[songIndex - 1];
+    userData = {
+      ...userData,
+      currentSong: previousSong,
+      songCurrentTime: 0,
+    };
     playSong(previousSong);
   }
 };
@@ -219,7 +229,11 @@ const shuffle = () => {
 shuffleBtn.addEventListener("click", shuffle);
 
 playPath.addEventListener("click", () => {
-  playSong(userData?.songs[0]);
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0]);
+  } else {
+    playSong(userData?.currentSong);
+  }
 });
 
 pausePath.addEventListener("click", () => {

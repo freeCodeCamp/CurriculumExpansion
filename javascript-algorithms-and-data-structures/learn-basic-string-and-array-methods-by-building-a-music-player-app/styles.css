@@ -74,8 +74,8 @@ ul {
   padding: 0 5px;
 }
 
-.parallel-lines > div,
-.parallel-lines-top > div {
+.parallel-lines>div,
+.parallel-lines-top>div {
   height: 2px;
   width: 100%;
   min-width: 75px;
@@ -138,6 +138,7 @@ ul {
   height: 153px;
   width: 226px;
 }
+
 .player-display-song-artist {
   height: 80px;
 }
@@ -147,7 +148,8 @@ ul {
 }
 
 /* Note: JS will need to be updated for this style to be applied */
-.play.playing {
+/* joys take: we target the class->svg, then we don't have to write extra code on JS */
+.playing>svg {
   fill: var(--highlight-color);
 }
 
@@ -286,6 +288,7 @@ or remove and just style button wrapper */
 }
 
 @media (max-width: 700px) {
+
   .player,
   .playlist {
     width: 300px;
@@ -343,7 +346,7 @@ or remove and just style button wrapper */
     width: 40px;
   }
 
-  .playlist-song-duration > button {
+  .playlist-song-duration>button {
     padding: 0;
   }
 
@@ -368,7 +371,7 @@ or remove and just style button wrapper */
     padding: 0 10px;
   }
 
-  .player-display-song-artist > p {
+  .player-display-song-artist>p {
     white-space: pre-wrap;
   }
 
