@@ -136,8 +136,6 @@ ul {
   fill: var(--primary-color);
 }
 
-/* Note: JS will need to be updated for this style to be applied */
-/* joys take: we target the class->svg, then we don't have to write extra code on JS */
 .playing > svg {
   fill: var(--highlight-color);
 }
@@ -253,16 +251,8 @@ button:focus,
   width: 30px;
 }
 
-/* Note: remove delete-Btn id from circle svg */
 .playlist-song-delete {
   padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-/* Note: add this directly to SVG in JS template string,
-or remove and just style button wrapper */
-.playlist-song-delete svg {
   width: 20px;
   height: 20px;
 }
@@ -289,7 +279,7 @@ or remove and just style button wrapper */
 
   #playlist-songs {
     height: 280px;
-    padding: 0 6px;
+    padding: 5px 6px;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-color: var(--background-color) var(--secondary-color);
