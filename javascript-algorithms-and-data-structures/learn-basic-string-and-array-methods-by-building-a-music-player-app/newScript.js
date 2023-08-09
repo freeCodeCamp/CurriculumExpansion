@@ -4,14 +4,11 @@
 
 // song playlist
 const songListDiv = document.getElementById("playlist-songs");
-const playPath = document.getElementById("play");
-const pausePath = document.getElementById("pause");
-const closeBtn = document.querySelector(".playlist-close");
-const nextBtn = document.getElementById("next");
-const previousBtn = document.getElementById("previous");
-
-// Buttons
-const shuffleBtn = document.getElementById("shuffle");
+const playButton = document.getElementById("play");
+const pauseButton = document.getElementById("pause");
+const nextButton = document.getElementById("next");
+const previousButton = document.getElementById("previous");
+const shuffleButton = document.getElementById("shuffle");
 
 //  Songs array creation
 const cover =
@@ -198,7 +195,7 @@ const playSong = (songId) => {
     audio.currentTime = userData.songCurrentTime;
   }
   userData.currentSong = song;
-  playPath.classList.add("playing");
+  playButton.classList.add("playing");
   audio.play();
   songHighlighter(song.id);
   playerDisplay(song);
@@ -210,6 +207,7 @@ const pauseSong = () => {
 };
 
 const nextSong = () => {
+  console.log(userData);
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
@@ -254,9 +252,7 @@ const shuffle = () => {
  * ! Event Listeners Section here
  */
 
-shuffleBtn.addEventListener("click", shuffle);
-
-playPath.addEventListener("click", () => {
+playButton.addEventListener("click", () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
@@ -264,39 +260,40 @@ playPath.addEventListener("click", () => {
   }
 });
 
-pausePath.addEventListener("click", () => {
-  playPath.classList.remove("playing");
+pauseButton.addEventListener("click", () => {
+  playButton.classList.remove("playing");
   pauseSong();
 });
 
-nextBtn.addEventListener("click", () => {
+nextButton.addEventListener("click", () => {
   nextSong();
 });
 
-previousBtn.addEventListener("click", () => {
+previousButton.addEventListener("click", () => {
   previousSong();
 });
+
+shuffleButton.addEventListener("click", shuffle);
 
 /**
  * ! The songs playlist reset button here with eventListener
  */
 
 const resetButton = () => {
-  let resetBtn = document.createElement("button");
-  let resetText = document.createTextNode("Reset Playlist");
-  resetBtn.appendChild(resetText);
-  resetBtn.id = "resetBtn";
-  resetBtn.ariaLabel = "reset playlist";
-  resetBtn.classList.add("player-reset-btn");
-  songListDiv.appendChild(resetBtn);
+  const resetButton = document.createElement("button");
+  const resetText = document.createTextNode("Reset Playlist");
+  resetButton.appendChild(resetText);
+  resetButton.id = "reset";
+  resetButton.ariaLabel = "Reset playlist";
+  songListDiv.appendChild(resetButton);
 
-  resetBtn?.addEventListener("click", () => {
+  resetButton?.addEventListener("click", () => {
     userData.songs = songsDatabase;
     renderSongs(userData?.songs);
-    resetBtn.remove();
+    resetButton.remove();
   });
 
-  return resetBtn;
+  return resetButton;
 };
 
 (() => {
