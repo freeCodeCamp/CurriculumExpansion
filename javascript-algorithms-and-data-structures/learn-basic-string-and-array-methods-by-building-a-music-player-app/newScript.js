@@ -174,17 +174,13 @@ const renderSongs = (array) => {
   const songList = array
     ?.map((song) => {
       return `
-      <li>
-        <div class="playlist-song" id="song-index${song.id}">
-            <button class="playlist-song-info" onclick="playSong(${song.id})">
-                <p class="playlist-song-title">${song.title}</p>
-                <p class="playlist-song-artist">${song.artist}</p>
-                <div class="playlist-song-duration">
-                    <p>${song.duration}</p>
-                </div>
-            </button>
-            ${deleteBtn(song.id)}
-        </div>
+      <li id="${song.id} song-index${song.id}" class="playlist-song">
+        <button class="playlist-song-info" onclick="playSong(${song.id})">
+          <span class="playlist-song-title">${song.title}</span>
+          <span class="playlist-song-artist">${song.artist}</span>
+          <span class="playlist-song-duration">${song.duration}</span>
+        </button>
+        ${deleteBtn(song.id)}
       </li>
     `;
     })

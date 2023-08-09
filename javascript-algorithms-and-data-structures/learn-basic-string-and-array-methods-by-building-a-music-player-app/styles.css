@@ -194,9 +194,8 @@ button:focus,
 
 .playlist-song {
   display: flex;
-  height: auto;
+  height: 55px;
   justify-content: space-between;
-  justify-items: left;
   align-items: center;
   padding: 5px;
 }
