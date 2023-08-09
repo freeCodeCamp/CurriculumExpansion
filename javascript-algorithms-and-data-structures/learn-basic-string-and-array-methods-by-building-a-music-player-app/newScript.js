@@ -114,6 +114,11 @@ let userData = {
  */
 
 const deleteSong = (id) => {
+  if (userData?.currentSong?.id === id.toString()) {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+  }
   userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
   renderSongs(userData?.songs);
   if (userData.songs.length === 0) {
@@ -152,11 +157,13 @@ const playerDisplay = (song) => {
  */
 
 const songHighlighter = (id) => {
-  const allSongsLabel = document.querySelectorAll(".playlist-song");
-  allSongsLabel.forEach((song) => {
+  const playlistSongElements = document.querySelectorAll(".playlist-song");
+  const songToHighlight = document.getElementById(`song-index${id}`);
+
+  playlistSongElements.forEach((song) => {
     song.removeAttribute("aria-current");
   });
-  allSongsLabel[id].ariaCurrent = "true";
+  songToHighlight.setAttribute("aria-current", "true");
 };
 
 /**
@@ -167,9 +174,9 @@ const renderSongs = (array) => {
   const songList = array
     ?.map((song) => {
       return `
-      <li id=${song.id}>
-        <div class="playlist-song">
-            <button class="playlist-song-info">
+      <li>
+        <div class="playlist-song" id="song-index${song.id}">
+            <button class="playlist-song-info" onclick="playSong(${song.id})">
                 <p class="playlist-song-title">${song.title}</p>
                 <p class="playlist-song-artist">${song.artist}</p>
                 <div class="playlist-song-duration">
@@ -193,11 +200,16 @@ const renderSongs = (array) => {
 // audio API
 const audio = new Audio();
 
-const playSong = (song) => {
-  userData.currentSong = song;
+const playSong = (songId) => {
+  const song = userData?.songs.find((song) => song.id === songId.toString());
   audio.src = song.src;
   audio.title = song.title;
-  audio.currentTime = userData.songCurrentTime;
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData.songCurrentTime;
+  }
+  userData.currentSong = song;
   playPath.classList.add("playing");
   audio.play();
   songHighlighter(song.id);
@@ -211,16 +223,16 @@ const pauseSong = () => {
 
 const nextSong = () => {
   if (userData?.currentSong === null) {
-    playSong(userData?.songs[0]);
+    playSong(userData?.songs[0].id);
   } else {
     const songIndex = userData?.songs.indexOf(userData.currentSong);
-    const nextSongOnList = userData?.songs[songIndex + 1];
+    const nextSong = userData?.songs[songIndex + 1];
     userData = {
       ...userData,
-      currentSong: nextSongOnList,
+      currentSong: nextSong,
       songCurrentTime: 0,
     };
-    playSong(nextSongOnList);
+    playSong(nextSong.id);
   }
 };
 
@@ -234,7 +246,7 @@ const previousSong = () => {
       currentSong: previousSong,
       songCurrentTime: 0,
     };
-    playSong(previousSong);
+    playSong(previousSong.id);
   }
 };
 
@@ -245,6 +257,9 @@ const previousSong = () => {
 const shuffle = () => {
   userData.songs = userData?.songs.sort(() => Math.random() - 0.5);
   renderSongs(userData?.songs);
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
+  pauseSong();
 };
 
 /**
@@ -255,9 +270,9 @@ shuffleBtn.addEventListener("click", shuffle);
 
 playPath.addEventListener("click", () => {
   if (userData?.currentSong === null) {
-    playSong(userData?.songs[0]);
+    playSong(userData?.songs[0].id);
   } else {
-    playSong(userData?.currentSong);
+    playSong(userData?.currentSong.id);
   }
 });
 
