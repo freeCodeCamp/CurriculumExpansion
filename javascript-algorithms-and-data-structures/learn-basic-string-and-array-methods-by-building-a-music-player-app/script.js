@@ -1,10 +1,3 @@
-// DOM targets
-// song playlist
-const songListDiv = document.getElementById("playlist-songs");
-const playPath = document.getElementById("play");
-const closeBtn = document.querySelector(".playlist-close");
-const arrow = document.querySelector(".arrow");
-
 //  Songs array creation
 const songs = [
   {
@@ -99,10 +92,6 @@ const songs = [
   },
 ];
 
-/**
- * ! This is removed and replaced with something simple
- */
-
 // State Management: useState Hook
 function useState(array) {
   let state = array;
@@ -115,25 +104,22 @@ function useState(array) {
   return [getState, setState];
 }
 
-/**
- * ! This is done
- */
-
 function renderSongs(array) {
   // map Array Method
   const songList = array
     .map((song, index) => {
       return `
-        <li id=${song.id}>
-          <div class="playlist-song" ${
-            index === currentIndex() && `aria-current="true"`
-          }>
+        <li id=${song.id} class="playlist-song" ${
+        index === currentIndex() && `aria-current="true"`
+      }>
               <button class="playlist-song-info">
                   <span class="playlist-song-title">${song.title}</span>
                   <span class="playlist-song-artist">${song.artist}</span>
                   <span class="playlist-song-duration">${song.duration}</span>
               </button>
-              <button class="playlist-song-delete" aria-label="delete ${song.title}">
+              <button class="playlist-song-delete" aria-label="delete ${
+                song.title
+              }">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle id="delete-Btn" cx="8" cy="8" r="8" fill="#4d4d62"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 5.28651L8 6.75478L9.39515 5.28651C9.71667 4.94814 10.2893 4.90301 10.6741 5.18571C11.059 5.4684 11.1103 5.97188 10.7888 6.31026L9.1832 7.99999L10.7888 9.68974C11.1103 10.0281 11.059 10.5316 10.6741 10.8143C10.2893 11.097 9.71667 11.0519 9.39515 10.7135L8 9.24521L6.60485 10.7135C6.28333 11.0519 5.7107 11.097 5.32587 10.8143C4.94102 10.5316 4.88969 10.0281 5.21121 9.68974L6.8168 7.99999L5.21122 6.31026C4.8897 5.97188 4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
@@ -147,16 +133,21 @@ function renderSongs(array) {
   songListDiv.innerHTML = songList;
 }
 
+// song playlist
+const songListDiv = document.getElementById("playlist-songs");
+const playPath = document.getElementById("play");
+const closeBtn = document.querySelector(".playlist-close");
+const arrow = document.querySelector(".arrow");
+
 // audio API
 const audio = new Audio();
 
-/**
- * ! These are obsolete
- */
-
 const [playlist, setPlaylist] = useState([...songs]);
+
 const [currentIndex, setCurrentIndex] = useState(0);
+
 const [currentTime, setCurrentTime] = useState(0);
+
 const [currentSong, setCurrentSong] = useState(playlist()[currentIndex()]);
 
 // first time the matchMedia is being taught. Make sure to introduce with example in the steps
@@ -182,7 +173,6 @@ function playSong(song) {
 function pauseSong() {
   audio.pause();
   setCurrentTime(audio.currentTime);
-  console.log(audio.currentTime);
   playPath.classList.remove("playing");
 }
 
@@ -191,23 +181,20 @@ function togglePlay() {
   updatePlayingSongBackground(currentIndex());
 }
 
-/**
- * ! This is removed
- */
+// function toggleClosePlaylist() {
+//     arrow.classList.toggle('active');
+//     if (songListDiv.style.visibility === "hidden") {
+//         songListDiv.style.visibility = "visible";
+//         songListDiv.style.display = "flex";
+//         closeBtn.setAttribute('aria-expanded', true);
+//         return;
 
-function toggleClosePlaylist() {
-  arrow.classList.toggle("active");
-  if (songListDiv.style.visibility === "hidden") {
-    songListDiv.style.visibility = "visible";
-    songListDiv.style.display = "flex";
-    closeBtn.setAttribute("aria-expanded", true);
-    return;
-  } else {
-    songListDiv.style.visibility = "hidden";
-    songListDiv.style.display = "none";
-    closeBtn.setAttribute("aria-expanded", false);
-  }
-}
+//     } else {
+//         songListDiv.style.visibility = "hidden";
+//         songListDiv.style.display = "none";
+//         closeBtn.setAttribute('aria-expanded', false);
+//     }
+// }
 
 // player controls
 function nextSong() {
@@ -232,7 +219,7 @@ function previousSong() {
   playSong(playlist()[prevIndex]);
   setCurrentIndex(prevIndex);
 
-  // keeping keyboard indicator in sync with array keyls/selected indicator.
+  //   keeping keyboard indicator in sync with array keyls/selected indicator.
   if (document.activeElement.classList.contains("playlist-song-info")) {
     const previousSongDivs = document.querySelectorAll(".playlist-song-info");
     previousSongDivs[currentIndex()].focus();
@@ -248,10 +235,6 @@ function renderSongDisplay(currentIndex) {
     playlist()[currentIndex].cover
   }" alt="song cover art" />`;
 }
-
-/**
- * ! looks useless ??
- */
 
 // playlist display
 function clearSongBgs() {
@@ -270,10 +253,6 @@ function playSelectedSong(song, songBtn) {
   clearSongBgs();
   songBtn.setAttribute("aria-current", true);
 }
-
-/**
- * ! This is done
- */
 
 function shuffle() {
   // first time the spread operator is being taught. Make sure to introduce with example in the steps
@@ -299,10 +278,6 @@ function songPlayingInList() {
   });
 }
 
-/**
- * ! This is done
- */
-
 function resetButton() {
   let resetBtn = document.createElement("button");
   let resetText = document.createTextNode("Reset Playlist");
@@ -321,10 +296,6 @@ function resetButton() {
 
   return resetBtn;
 }
-
-/**
- * ! This is done
- */
 
 function deleteSong(song) {
   if (currentSong() === playlist()[song].title) {
@@ -359,7 +330,7 @@ function setSongEventListener() {
     songDiv
       .querySelector(".playlist-song-info")
       .addEventListener("click", () =>
-        playSelectedSong(playlist()[index], songDiv)
+        playSelectedSong(playlist()[index], songDiv),
       );
   });
 }
@@ -372,22 +343,18 @@ function setDeleteEventListener() {
   });
 }
 
-/**
- * ! This is removed
- */
-
-// Set Media Query with JavaScript to close the playlist container when viewport is at 700px or smaller
-function closePlaylist(view) {
-  // first time the matchMedia's property 'matches' is being taught. Make sure to introduce with example in the steps
-  if (view.matches) {
-    return toggleClosePlaylist();
-  } else {
-    arrow.classList.toggle("active");
-    songListDiv.style.visibility = "visible";
-    songListDiv.style.display = "flex";
-    closeBtn.setAttribute("aria-expanded", true);
-  }
-}
+// // Set Media Query with JavaScript to close the playlist container when viewport is at 700px or smaller
+// function closePlaylist(view){
+//   // first time the matchMedia's property 'matches' is being taught. Make sure to introduce with example in the steps
+//   if (view.matches) {
+//     return toggleClosePlaylist();
+//   } else {
+//     arrow.classList.toggle('active');
+//     songListDiv.style.visibility = "visible";
+//     songListDiv.style.display = "flex";
+//     closeBtn.setAttribute('aria-expanded', true);
+//   }
+// }
 
 function setEventListeners() {
   // Event listeners
@@ -396,12 +363,12 @@ function setEventListeners() {
   document.querySelector(".previous").addEventListener("click", previousSong);
   document.querySelector(".next").addEventListener("click", nextSong);
   document.querySelector(".shuffle").addEventListener("click", shuffle);
-  closeBtn.addEventListener("click", toggleClosePlaylist);
+  // closeBtn.addEventListener("click", toggleClosePlaylist);
 
   // continue playing next song
   audio.addEventListener("ended", nextSong);
 
-  view.addEventListener("change", closePlaylist);
+  // view.addEventListener("change", closePlaylist);
 
   // keyboardEvents
   window.addEventListener("keydown", (event) => {
@@ -424,7 +391,7 @@ function app() {
   setEventListeners();
   setSongEventListener();
   setDeleteEventListener();
-  closePlaylist(view);
+  // closePlaylist(view);
 }
 
 app();
