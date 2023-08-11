@@ -115,6 +115,7 @@ const deleteSong = (id) => {
     userData.currentSong = null;
     userData.songCurrentTime = 0;
     pauseSong();
+    setPlayerDisplay();
   }
   userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
   renderSongs(userData?.songs);
@@ -129,12 +130,12 @@ const deleteSong = (id) => {
  * ! Display currently playing song
  */
 
-const playerDisplay = (song) => {
+const setPlayerDisplay = (title, artist) => {
   const playingSong = document.getElementById("player-song-title");
   const songArtist = document.getElementById("player-song-artist");
 
-  playingSong.textContent = song.title;
-  songArtist.textContent = song.artist;
+  playingSong.textContent = title ? title : "";
+  songArtist.textContent = artist ? artist : "";
 };
 
 /**
@@ -199,7 +200,7 @@ const playSong = (songId) => {
   playButton.classList.add("playing");
   audio.play();
   songHighlighter(song.id);
-  playerDisplay(song);
+  setPlayerDisplay(song.title, song.artist);
 };
 
 const pauseSong = () => {
@@ -242,6 +243,7 @@ const shuffle = () => {
   userData.currentSong = null;
   userData.songCurrentTime = 0;
   pauseSong();
+  setPlayerDisplay();
   updatePlayButtonAccessibleText();
 };
 
