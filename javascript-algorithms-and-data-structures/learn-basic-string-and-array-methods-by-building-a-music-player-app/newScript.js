@@ -1,8 +1,3 @@
-/**
- * ! DOM Targets Area
- */
-
-// song playlist
 const playlistSongs = document.getElementById("playlist-songs");
 const playButton = document.getElementById("play");
 const pauseButton = document.getElementById("pause");
@@ -10,10 +5,9 @@ const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
 const shuffleButton = document.getElementById("shuffle");
 
-//  Songs array creation
 const cover =
   "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg";
-const songsDatabase = [
+const allSongs = [
   {
     id: "0",
     title: "Scratching The Surface",
@@ -96,39 +90,43 @@ const songsDatabase = [
   },
 ];
 
-/**
- * ! A State management object
- */
-
+const audio = new Audio();
 let userData = {
-  songs: songsDatabase,
+  songs: allSongs,
   currentSong: null,
   songCurrentTime: 0,
 };
-
-/**
- * ! Delete Button Function
- */
 
 const deleteSong = (id) => {
   if (userData?.currentSong?.id === id.toString()) {
     userData.currentSong = null;
     userData.songCurrentTime = 0;
+
     pauseSong();
     setPlayerDisplay();
   }
+
   userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
   renderSongs(userData?.songs);
   setPlayButtonAccessibleText();
-  if (userData.songs.length === 0) {
-    resetButton();
-  }
-  console.log(userData?.songs);
-};
 
-/**
- * ! Display currently playing song
- */
+  if (userData.songs.length === 0) {
+    const resetButton = document.createElement("button");
+    const resetText = document.createTextNode("Reset Playlist");
+
+    resetButton.id = "reset";
+    resetButton.ariaLabel = "Reset playlist";
+    resetButton.appendChild(resetText);
+    playlistSongs.appendChild(resetButton);
+
+    resetButton.addEventListener("click", () => {
+      userData.songs = allSongs;
+
+      renderSongs(userData?.songs);
+      resetButton.remove();
+    });
+  }
+};
 
 const setPlayerDisplay = (title, artist) => {
   const playingSong = document.getElementById("player-song-title");
@@ -138,10 +136,6 @@ const setPlayerDisplay = (title, artist) => {
   songArtist.textContent = artist ? artist : "";
 };
 
-/**
- * ! Song highlighter
- */
-
 const songHighlighter = (id) => {
   const playlistSongElements = document.querySelectorAll(".playlist-song");
   const songToHighlight = document.getElementById(`song-${id}`);
@@ -149,16 +143,13 @@ const songHighlighter = (id) => {
   playlistSongElements.forEach((song) => {
     song.removeAttribute("aria-current");
   });
+
   songToHighlight.setAttribute("aria-current", "true");
 };
 
-/**
- * ! renderSongs on the HTML
- */
-
 const renderSongs = (array) => {
-  const playlistHTML = array
-    ?.map((song) => {
+  const songsHTML = array
+    .map((song) => {
       return `
       <li id="song-${song.id}" class="playlist-song">
         <button class="playlist-song-info" onclick="playSong(${song.id})">
@@ -177,20 +168,14 @@ const renderSongs = (array) => {
     })
     .join("");
 
-  playlistSongs.innerHTML = playlistHTML;
+  playlistSongs.innerHTML = songsHTML;
 };
-
-/**
- * ! Music player various buttons section here
- */
-
-// audio API
-const audio = new Audio();
 
 const playSong = (songId) => {
   const song = userData?.songs.find((song) => song.id === songId.toString());
   audio.src = song.src;
   audio.title = song.title;
+
   if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
     audio.currentTime = 0;
   } else {
@@ -198,19 +183,20 @@ const playSong = (songId) => {
   }
   userData.currentSong = song;
   playButton.classList.add("playing");
-  audio.play();
+
   songHighlighter(song.id);
   setPlayerDisplay(song.title, song.artist);
+  audio.play();
 };
 
 const pauseSong = () => {
-  audio.pause();
   userData.songCurrentTime = audio.currentTime;
+
   playButton.classList.remove("playing");
+  audio.pause();
 };
 
 const nextSong = () => {
-  console.log(userData);
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
@@ -233,15 +219,12 @@ const previousSong = () => {
   }
 };
 
-/**
- * ? shuffle songs and render on HTML
- */
-
 const shuffle = () => {
   userData.songs = userData?.songs.sort(() => Math.random() - 0.5);
-  renderSongs(userData?.songs);
   userData.currentSong = null;
   userData.songCurrentTime = 0;
+
+  renderSongs(userData?.songs);
   pauseSong();
   setPlayerDisplay();
   setPlayButtonAccessibleText();
@@ -250,12 +233,11 @@ const shuffle = () => {
 const setPlayButtonAccessibleText = () => {
   const song = userData?.currentSong || userData?.songs[0];
 
-  playButton.setAttribute("aria-label", `Play ${song.title}`);
+  playButton.setAttribute(
+    "aria-label",
+    song?.title ? `Play ${song.title}` : "Play",
+  );
 };
-
-/**
- * ! Event Listeners Section here
- */
 
 playButton.addEventListener("click", () => {
   if (userData?.currentSong === null) {
@@ -278,27 +260,6 @@ previousButton.addEventListener("click", () => {
 });
 
 shuffleButton.addEventListener("click", shuffle);
-
-/**
- * ! The songs playlist reset button here with eventListener
- */
-
-const resetButton = () => {
-  const resetButton = document.createElement("button");
-  const resetText = document.createTextNode("Reset Playlist");
-  resetButton.appendChild(resetText);
-  resetButton.id = "reset";
-  resetButton.ariaLabel = "Reset playlist";
-  playlistSongs.appendChild(resetButton);
-
-  resetButton?.addEventListener("click", () => {
-    userData.songs = songsDatabase;
-    renderSongs(userData?.songs);
-    resetButton.remove();
-  });
-
-  return resetButton;
-};
 
 renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
