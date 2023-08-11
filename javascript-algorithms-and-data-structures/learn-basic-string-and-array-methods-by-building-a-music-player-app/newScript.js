@@ -118,6 +118,7 @@ const deleteSong = (id) => {
   }
   userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
   renderSongs(userData?.songs);
+  updatePlayButtonAccessibleText();
   if (userData.songs.length === 0) {
     resetButton();
   }
@@ -215,6 +216,7 @@ const nextSong = () => {
     const nextSong = userData?.songs[currentSongIndex + 1];
 
     playSong(nextSong.id);
+    updatePlayButtonAccessibleText();
   }
 };
 
@@ -225,6 +227,7 @@ const previousSong = () => {
     const previousSong = userData?.songs[currentSongIndex - 1];
 
     playSong(previousSong.id);
+    updatePlayButtonAccessibleText();
   }
 };
 
@@ -238,6 +241,13 @@ const shuffle = () => {
   userData.currentSong = null;
   userData.songCurrentTime = 0;
   pauseSong();
+  updatePlayButtonAccessibleText();
+};
+
+const updatePlayButtonAccessibleText = () => {
+  const song = userData?.currentSong || userData?.songs[0];
+
+  playButton.setAttribute("aria-label", `Play ${song.title}`);
 };
 
 /**
@@ -288,6 +298,5 @@ const resetButton = () => {
   return resetButton;
 };
 
-(() => {
-  renderSongs(userData?.songs);
-})();
+renderSongs(userData?.songs);
+updatePlayButtonAccessibleText();
