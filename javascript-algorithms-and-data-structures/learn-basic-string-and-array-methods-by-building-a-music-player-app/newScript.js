@@ -211,13 +211,9 @@ const nextSong = () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
-    const songIndex = userData?.songs.indexOf(userData.currentSong);
-    const nextSong = userData?.songs[songIndex + 1];
-    userData = {
-      ...userData,
-      currentSong: nextSong,
-      songCurrentTime: 0,
-    };
+    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const nextSong = userData?.songs[currentSongIndex + 1];
+
     playSong(nextSong.id);
   }
 };
@@ -225,13 +221,9 @@ const nextSong = () => {
 const previousSong = () => {
   if (userData?.currentSong === null) return;
   else {
-    const songIndex = userData?.songs.indexOf(userData.currentSong);
-    const previousSong = userData?.songs[songIndex - 1];
-    userData = {
-      ...userData,
-      currentSong: previousSong,
-      songCurrentTime: 0,
-    };
+    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const previousSong = userData?.songs[currentSongIndex - 1];
+
     playSong(previousSong.id);
   }
 };
