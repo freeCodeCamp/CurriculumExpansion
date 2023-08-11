@@ -1,10 +1,17 @@
-//  Songs array creation
-const songs = [
+const playlistSongs = document.getElementById("playlist-songs");
+const playButton = document.getElementById("play");
+const pauseButton = document.getElementById("pause");
+const nextButton = document.getElementById("next");
+const previousButton = document.getElementById("previous");
+const shuffleButton = document.getElementById("shuffle");
+
+const cover =
+  "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg";
+const allSongs = [
   {
     id: "0",
     title: "Scratching The Surface",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "4:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/scratching-the-surface.mp3",
@@ -12,8 +19,7 @@ const songs = [
   {
     id: "1",
     title: "Can't Stay Down",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "4:15",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stay-down.mp3",
@@ -21,8 +27,7 @@ const songs = [
   {
     id: "2",
     title: "Still Learning",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:51",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/still-learning.mp3",
@@ -30,8 +35,7 @@ const songs = [
   {
     id: "3",
     title: "Cruising for a Musing",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:34",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cruising-for-a-musing.mp3",
@@ -39,8 +43,7 @@ const songs = [
   {
     id: "4",
     title: "Never Not Favored",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:35",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/never-not-favored.mp3",
@@ -48,8 +51,7 @@ const songs = [
   {
     id: "5",
     title: "From the Ground Up",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:12",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/from-the-ground-up.mp3",
@@ -57,8 +59,7 @@ const songs = [
   {
     id: "6",
     title: "Walking on Air",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/walking-on-air.mp3",
@@ -66,8 +67,7 @@ const songs = [
   {
     id: "7",
     title: "Can't Stop Me. Can't Even Slow Me Down.",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:52",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stop-me-cant-even-slow-me-down.mp3",
@@ -75,8 +75,7 @@ const songs = [
   {
     id: "8",
     title: "The Surest Way Out is Through",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "3:10",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/the-surest-way-out-is-through.mp3",
@@ -84,314 +83,183 @@ const songs = [
   {
     id: "9",
     title: "Chasing That Feeling",
-    cover:
-      "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg",
+    cover,
     artist: "Quincy Larson",
     duration: "2:43",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/chasing-that-feeling.mp3",
   },
 ];
 
-// State Management: useState Hook
-function useState(array) {
-  let state = array;
-  function getState() {
-    return state;
-  }
-  function setState(newState) {
-    state = newState;
-  }
-  return [getState, setState];
-}
+const audio = new Audio();
+let userData = {
+  songs: allSongs,
+  currentSong: null,
+  songCurrentTime: 0,
+};
 
-function renderSongs(array) {
-  // map Array Method
-  const songList = array
-    .map((song, index) => {
+const deleteSong = (id) => {
+  if (userData?.currentSong?.id === id.toString()) {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+
+    pauseSong();
+    setPlayerDisplay();
+  }
+
+  userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
+  renderSongs(userData?.songs);
+  setPlayButtonAccessibleText();
+
+  if (userData.songs.length === 0) {
+    const resetButton = document.createElement("button");
+    const resetText = document.createTextNode("Reset Playlist");
+
+    resetButton.id = "reset";
+    resetButton.ariaLabel = "Reset playlist";
+    resetButton.appendChild(resetText);
+    playlistSongs.appendChild(resetButton);
+
+    resetButton.addEventListener("click", () => {
+      userData.songs = allSongs;
+
+      renderSongs(userData?.songs);
+      resetButton.remove();
+    });
+  }
+};
+
+const setPlayerDisplay = (title, artist) => {
+  const playingSong = document.getElementById("player-song-title");
+  const songArtist = document.getElementById("player-song-artist");
+
+  playingSong.textContent = title ? title : "";
+  songArtist.textContent = artist ? artist : "";
+};
+
+const songHighlighter = (id) => {
+  const playlistSongElements = document.querySelectorAll(".playlist-song");
+  const songToHighlight = document.getElementById(`song-${id}`);
+
+  playlistSongElements.forEach((song) => {
+    song.removeAttribute("aria-current");
+  });
+
+  songToHighlight.setAttribute("aria-current", "true");
+};
+
+const renderSongs = (array) => {
+  const songsHTML = array
+    .map((song) => {
       return `
-        <li id=${song.id} class="playlist-song" ${
-        index === currentIndex() && `aria-current="true"`
-      }>
-              <button class="playlist-song-info">
-                  <span class="playlist-song-title">${song.title}</span>
-                  <span class="playlist-song-artist">${song.artist}</span>
-                  <span class="playlist-song-duration">${song.duration}</span>
-              </button>
-              <button class="playlist-song-delete" aria-label="delete ${
-                song.title
-              }">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle id="delete-Btn" cx="8" cy="8" r="8" fill="#4d4d62"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 5.28651L8 6.75478L9.39515 5.28651C9.71667 4.94814 10.2893 4.90301 10.6741 5.18571C11.059 5.4684 11.1103 5.97188 10.7888 6.31026L9.1832 7.99999L10.7888 9.68974C11.1103 10.0281 11.059 10.5316 10.6741 10.8143C10.2893 11.097 9.71667 11.0519 9.39515 10.7135L8 9.24521L6.60485 10.7135C6.28333 11.0519 5.7107 11.097 5.32587 10.8143C4.94102 10.5316 4.88969 10.0281 5.21121 9.68974L6.8168 7.99999L5.21122 6.31026C4.8897 5.97188 4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
-                </svg>
-              </button>
-        </li>
-      `;
+      <li id="song-${song.id}" class="playlist-song">
+        <button class="playlist-song-info" onclick="playSong(${song.id})">
+          <span class="playlist-song-title">${song.title}</span>
+          <span class="playlist-song-artist">${song.artist}</span>
+          <span class="playlist-song-duration">${song.duration}</span>
+        </button>
+        <button onclick="deleteSong(${song.id})" class="playlist-song-delete" aria-label="Delete ${song.title}">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="8" fill="#4d4d62"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 5.28651L8 6.75478L9.39515 5.28651C9.71667 4.94814 10.2893 4.90301 10.6741 5.18571C11.059 5.4684 11.1103 5.97188 10.7888 6.31026L9.1832 7.99999L10.7888 9.68974C11.1103 10.0281 11.059 10.5316 10.6741 10.8143C10.2893 11.097 9.71667 11.0519 9.39515 10.7135L8 9.24521L6.60485 10.7135C6.28333 11.0519 5.7107 11.097 5.32587 10.8143C4.94102 10.5316 4.88969 10.0281 5.21121 9.68974L6.8168 7.99999L5.21122 6.31026C4.8897 5.97188 4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
+          </svg>
+        </button>
+      </li>
+    `;
     })
     .join("");
 
-  songListDiv.innerHTML = songList;
-}
+  playlistSongs.innerHTML = songsHTML;
+};
 
-// song playlist
-const songListDiv = document.getElementById("playlist-songs");
-const playPath = document.getElementById("play");
-const closeBtn = document.querySelector(".playlist-close");
-const arrow = document.querySelector(".arrow");
-
-// audio API
-const audio = new Audio();
-
-const [playlist, setPlaylist] = useState([...songs]);
-
-const [currentIndex, setCurrentIndex] = useState(0);
-
-const [currentTime, setCurrentTime] = useState(0);
-
-const [currentSong, setCurrentSong] = useState(playlist()[currentIndex()]);
-
-// first time the matchMedia is being taught. Make sure to introduce with example in the steps
-let view = window.matchMedia("(max-width: 700px)");
-
-function playSong(song) {
-  // using indesOf method
-  setCurrentIndex(playlist().indexOf(song));
-
-  playPath.classList.add("playing");
-
+const playSong = (songId) => {
+  const song = userData?.songs.find((song) => song.id === songId.toString());
   audio.src = song.src;
   audio.title = song.title;
-  audio.currentTime = currentTime();
 
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData.songCurrentTime;
+  }
+  userData.currentSong = song;
+  playButton.classList.add("playing");
+
+  songHighlighter(song.id);
+  setPlayerDisplay(song.title, song.artist);
   audio.play();
-  setCurrentSong(song.title);
+};
 
-  updatePlayingSongBackground(currentIndex());
-  renderSongDisplay(currentIndex());
-}
+const pauseSong = () => {
+  userData.songCurrentTime = audio.currentTime;
 
-function pauseSong() {
+  playButton.classList.remove("playing");
   audio.pause();
-  setCurrentTime(audio.currentTime);
-  playPath.classList.remove("playing");
-}
+};
 
-function togglePlay() {
-  playSong(playlist()[currentIndex()]);
-  updatePlayingSongBackground(currentIndex());
-}
+const nextSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const nextSong = userData?.songs[currentSongIndex + 1];
 
-// function toggleClosePlaylist() {
-//     arrow.classList.toggle('active');
-//     if (songListDiv.style.visibility === "hidden") {
-//         songListDiv.style.visibility = "visible";
-//         songListDiv.style.display = "flex";
-//         closeBtn.setAttribute('aria-expanded', true);
-//         return;
-
-//     } else {
-//         songListDiv.style.visibility = "hidden";
-//         songListDiv.style.display = "none";
-//         closeBtn.setAttribute('aria-expanded', false);
-//     }
-// }
-
-// player controls
-function nextSong() {
-  const nextIndex = (currentIndex() + 1) % playlist().length;
-  setCurrentTime(0);
-  clearSongBgs();
-  playSong(playlist()[nextIndex]);
-  setCurrentIndex(nextIndex);
-
-  //   keeping keyboard indicator in sync with array keyls/selected indicator.
-  if (document.activeElement.classList.contains("playlist-song-info")) {
-    const nextSongDivs = document.querySelectorAll(".playlist-song-info");
-    nextSongDivs[currentIndex()].focus();
+    playSong(nextSong.id);
+    setPlayButtonAccessibleText();
   }
-}
+};
 
-function previousSong() {
-  const prevIndex =
-    (currentIndex() - 1 + playlist().length) % playlist().length;
-  setCurrentTime(0);
-  clearSongBgs();
-  playSong(playlist()[prevIndex]);
-  setCurrentIndex(prevIndex);
+const previousSong = () => {
+  if (userData?.currentSong === null) return;
+  else {
+    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const previousSong = userData?.songs[currentSongIndex - 1];
 
-  //   keeping keyboard indicator in sync with array keyls/selected indicator.
-  if (document.activeElement.classList.contains("playlist-song-info")) {
-    const previousSongDivs = document.querySelectorAll(".playlist-song-info");
-    previousSongDivs[currentIndex()].focus();
+    playSong(previousSong.id);
+    setPlayButtonAccessibleText();
   }
-}
+};
 
-function renderSongDisplay(currentIndex) {
-  document.getElementById("player-song-title").innerText =
-    playlist()[currentIndex].title;
-  document.getElementById("player-song-artist").innerText =
-    playlist()[currentIndex].artist;
-  document.getElementById("player-album-art").innerHTML = `<img src="${
-    playlist()[currentIndex].cover
-  }" alt="song cover art" />`;
-}
+const shuffle = () => {
+  userData.songs = userData?.songs.sort(() => Math.random() - 0.5);
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
 
-// playlist display
-function clearSongBgs() {
-  document.querySelectorAll(".playlist-song").forEach((song) => {
-    song.removeAttribute("aria-current");
-  });
-}
+  renderSongs(userData?.songs);
+  pauseSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
+};
 
-function updatePlayingSongBackground(newIndex) {
-  const updateSongDivs = document.querySelectorAll(".playlist-song");
-  updateSongDivs[newIndex].setAttribute("aria-current", true);
-}
+const setPlayButtonAccessibleText = () => {
+  const song = userData?.currentSong || userData?.songs[0];
 
-function playSelectedSong(song, songBtn) {
-  playSong(song);
-  clearSongBgs();
-  songBtn.setAttribute("aria-current", true);
-}
+  playButton.setAttribute(
+    "aria-label",
+    song?.title ? `Play ${song.title}` : "Play",
+  );
+};
 
-function shuffle() {
-  // first time the spread operator is being taught. Make sure to introduce with example in the steps
-  let songsCopy = [...playlist()];
-  // using array sort method and Math.random method
-  songsCopy.sort(() => 0.5 - Math.random());
-  renderSongs(songsCopy);
-  songPlayingInList();
-  setPlaylist(songsCopy);
-  clearSongBgs();
-  updatePlayingSongBackground(currentIndex());
-  setDeleteEventListener();
-  setSongEventListener();
-}
-
-function songPlayingInList() {
-  document.querySelectorAll(".playlist-song").forEach((songDiv, index) => {
-    let songPlayingInList = songDiv.querySelector(".playlist-song-info")
-      .firstElementChild.innerText;
-    if (songPlayingInList === currentSong()) {
-      setCurrentIndex(index);
-    }
-  });
-}
-
-function resetButton() {
-  let resetBtn = document.createElement("button");
-  let resetText = document.createTextNode("Reset Playlist");
-  resetBtn.appendChild(resetText);
-  resetBtn.ariaLabel = "reset playlist";
-  resetBtn.classList.add("player-reset-btn");
-  resetBtn.onclick = function () {
-    renderSongs(songs);
-    songPlayingInList();
-    setPlaylist([...songs]);
-    clearSongBgs();
-    updatePlayingSongBackground(currentIndex());
-    setDeleteEventListener();
-    setSongEventListener();
-  };
-
-  return resetBtn;
-}
-
-function deleteSong(song) {
-  if (currentSong() === playlist()[song].title) {
-    audio.pause();
+playButton.addEventListener("click", () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
   }
+});
 
-  if (song === playlist().length - 1) {
-    // first time splice is introduced. make sure to provide explanation and example in the steps.
-    playlist().splice(song);
-  }
+pauseButton.addEventListener("click", () => {
+  pauseSong();
+});
 
-  playlist().splice(song, 1);
-  renderSongs(playlist());
-  songPlayingInList();
-  setPlaylist(playlist());
-  clearSongBgs();
+nextButton.addEventListener("click", () => {
+  nextSong();
+});
 
-  if (playlist().length > 0) {
-    updatePlayingSongBackground(currentIndex());
-  }
+previousButton.addEventListener("click", () => {
+  previousSong();
+});
 
-  setDeleteEventListener();
-  setSongEventListener();
+shuffleButton.addEventListener("click", shuffle);
 
-  if (playlist().length < 2) {
-    songListDiv.append(resetButton());
-  }
-}
-
-function setSongEventListener() {
-  document.querySelectorAll(".playlist-song").forEach((songDiv, index) => {
-    songDiv
-      .querySelector(".playlist-song-info")
-      .addEventListener("click", () =>
-        playSelectedSong(playlist()[index], songDiv),
-      );
-  });
-}
-
-function setDeleteEventListener() {
-  document.querySelectorAll(".playlist-song").forEach((songDiv, index) => {
-    songDiv
-      .querySelector(".playlist-song-delete")
-      .addEventListener("click", () => deleteSong(index));
-  });
-}
-
-// // Set Media Query with JavaScript to close the playlist container when viewport is at 700px or smaller
-// function closePlaylist(view){
-//   // first time the matchMedia's property 'matches' is being taught. Make sure to introduce with example in the steps
-//   if (view.matches) {
-//     return toggleClosePlaylist();
-//   } else {
-//     arrow.classList.toggle('active');
-//     songListDiv.style.visibility = "visible";
-//     songListDiv.style.display = "flex";
-//     closeBtn.setAttribute('aria-expanded', true);
-//   }
-// }
-
-function setEventListeners() {
-  // Event listeners
-  document.querySelector(".play").addEventListener("click", togglePlay);
-  document.querySelector(".pause").addEventListener("click", pauseSong);
-  document.querySelector(".previous").addEventListener("click", previousSong);
-  document.querySelector(".next").addEventListener("click", nextSong);
-  document.querySelector(".shuffle").addEventListener("click", shuffle);
-  // closeBtn.addEventListener("click", toggleClosePlaylist);
-
-  // continue playing next song
-  audio.addEventListener("ended", nextSong);
-
-  // view.addEventListener("change", closePlaylist);
-
-  // keyboardEvents
-  window.addEventListener("keydown", (event) => {
-    switch (true) {
-      case event.key === "ArrowUp":
-        previousSong();
-        break;
-      case event.key === "ArrowDown":
-        nextSong();
-        break;
-      default:
-    }
-  });
-}
-
-function app() {
-  renderSongs(playlist());
-  updatePlayingSongBackground(currentIndex());
-  renderSongDisplay(currentIndex());
-  setEventListeners();
-  setSongEventListener();
-  setDeleteEventListener();
-  // closePlaylist(view);
-}
-
-app();
+renderSongs(userData?.songs);
+setPlayButtonAccessibleText();
