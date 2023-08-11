@@ -3,7 +3,7 @@
  */
 
 // song playlist
-const songListDiv = document.getElementById("playlist-songs");
+const playlistSongs = document.getElementById("playlist-songs");
 const playButton = document.getElementById("play");
 const pauseButton = document.getElementById("pause");
 const nextButton = document.getElementById("next");
@@ -157,7 +157,7 @@ const songHighlighter = (id) => {
  */
 
 const renderSongs = (array) => {
-  const songList = array
+  const playlistHTML = array
     ?.map((song) => {
       return `
       <li id="song-${song.id}" class="playlist-song">
@@ -177,7 +177,7 @@ const renderSongs = (array) => {
     })
     .join("");
 
-  songListDiv.innerHTML = songList;
+  playlistSongs.innerHTML = playlistHTML;
 };
 
 /**
@@ -289,7 +289,7 @@ const resetButton = () => {
   resetButton.appendChild(resetText);
   resetButton.id = "reset";
   resetButton.ariaLabel = "Reset playlist";
-  songListDiv.appendChild(resetButton);
+  playlistSongs.appendChild(resetButton);
 
   resetButton?.addEventListener("click", () => {
     userData.songs = songsDatabase;
