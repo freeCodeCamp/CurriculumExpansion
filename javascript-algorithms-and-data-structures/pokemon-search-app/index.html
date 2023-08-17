@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poke Search App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 id="hd">Pokemon Search app</h2>
+
+    <div class="container">
+      <div class="searchBar">
+        <input
+          type="text"
+          name="pokemon"
+          id="search-input"
+          placeholder="Enter Pokemon Name or ID"
+        />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <div id="pokeOutput">
+        <div class="top-container">
+          <div class="image-container">
+            <div class="poke-name-num">
+              <span id="poke_name" class="poke-info">Name: </span>
+              <span id="poke_num" class="poke-info">#ID: </span>
+            </div>
+
+            <img
+              class="empty-img"
+              src="./images/search.png"
+              alt=""
+              id="pokeImage"
+            />
+            <span id="poke_types" class="poke-type">Types</span>
+
+            <div class="size">
+              <span class="poke-info"><span id = "pokemon-wt" class="weight">Weight:</span></span>
+              <span class="poke-info"><span id = "pokemon-ht" class="height">Height:</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-container">
+          <table>
+            <tr>
+              <th>Base</th>
+              <th>Stats</th>
+            </tr>
+            <tr>
+              <td>HP:</td>
+              <td id ="hp_display" class="hp"></td>
+            </tr>
+            <tr>
+              <td>Attack:</td>
+              <td id="attack_display" class="attack"></td>
+            </tr>
+            <tr>
+              <td>Defense:</td>
+              <td id="defense_display" class="defense"></td>
+            </tr>
+            <tr>
+              <td>Sp.Attack:</td>
+              <td id="sp_attack_display" class="special-attack"></td>
+            </tr>
+            <tr>
+              <td>Sp.Defense:</td>
+              <td id="sp_defense_display" class="special-defense"></td>
+            </tr>
+            <tr>
+              <td>Speed:</td>
+              <td id="speed_display" class="speed"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+body {
+  font-family: sans-serif;
+  background-color: #0a0a23;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.searchBar {
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+button {
+  padding: 14px 0;
+  width: 25%;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #e337b2;
+  outline: none;
+  border: none;
+}
+
+label {
+  font-size: 1.3rem;
+}
+input[type="text"] {
+  height: 40px;
+  padding-left: 10px;
+}
+
+#pokeOutput {
+  padding: 20px 50px 30px;
+}
+#pokeImage {
+  display: block;
+  margin: 20px 0;
+  width: 180px;
+  position: relative;
+  /* left: -5px; */
+}
+
+.base-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.stat {
+  font-weight: 700;
+}
+.poke-name-num {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  
+}
+.size {
+  display: inline;
+  float: right;
+  margin-right: 5px;
+}
+.name {
+  display: block;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+}
+.poke-info {
+  display: inline-block;
+  margin-right: 2px;
+  font-size: small;
+}
+
+.poke-type {
+  display: inline;
+  float: left;
+  margin-right: 2px;
+  background-color: #d258db;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: small;
+}
+
+.container {
+  width: 450px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  color: #000;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(223, 220, 220, 0.75);
+}
+
+.image-container {
+  height: 250px;
+  white-space: nowrap;
+  padding: 10px;
+  border: 1px solid #948a89;
+  font-size: 1.2rem;
+    background-color: #f0f0f8;
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1 rem;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+  border-left: 5px solid #fff;
+}
+
+tr {
+  background-color: #a230d7;
+  border-bottom: 5px solid #fff;
+  border-top: 5px solid #fff;
+}
+.pokeType {
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin-left: 5px;
+  font-weight: 700;
+}
