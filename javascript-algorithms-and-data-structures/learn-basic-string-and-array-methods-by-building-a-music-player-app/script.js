@@ -5,13 +5,10 @@ const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
 const shuffleButton = document.getElementById("shuffle");
 
-const cover =
-  "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/quincy-larson-album-art.jpg";
 const allSongs = [
   {
     id: "0",
     title: "Scratching The Surface",
-    cover,
     artist: "Quincy Larson",
     duration: "4:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/scratching-the-surface.mp3",
@@ -19,7 +16,6 @@ const allSongs = [
   {
     id: "1",
     title: "Can't Stay Down",
-    cover,
     artist: "Quincy Larson",
     duration: "4:15",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stay-down.mp3",
@@ -27,7 +23,6 @@ const allSongs = [
   {
     id: "2",
     title: "Still Learning",
-    cover,
     artist: "Quincy Larson",
     duration: "3:51",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/still-learning.mp3",
@@ -35,7 +30,6 @@ const allSongs = [
   {
     id: "3",
     title: "Cruising for a Musing",
-    cover,
     artist: "Quincy Larson",
     duration: "3:34",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cruising-for-a-musing.mp3",
@@ -43,7 +37,6 @@ const allSongs = [
   {
     id: "4",
     title: "Never Not Favored",
-    cover,
     artist: "Quincy Larson",
     duration: "3:35",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/never-not-favored.mp3",
@@ -51,7 +44,6 @@ const allSongs = [
   {
     id: "5",
     title: "From the Ground Up",
-    cover,
     artist: "Quincy Larson",
     duration: "3:12",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/from-the-ground-up.mp3",
@@ -59,7 +51,6 @@ const allSongs = [
   {
     id: "6",
     title: "Walking on Air",
-    cover,
     artist: "Quincy Larson",
     duration: "3:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/walking-on-air.mp3",
@@ -67,7 +58,6 @@ const allSongs = [
   {
     id: "7",
     title: "Can't Stop Me. Can't Even Slow Me Down.",
-    cover,
     artist: "Quincy Larson",
     duration: "3:52",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stop-me-cant-even-slow-me-down.mp3",
@@ -75,7 +65,6 @@ const allSongs = [
   {
     id: "8",
     title: "The Surest Way Out is Through",
-    cover,
     artist: "Quincy Larson",
     duration: "3:10",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/the-surest-way-out-is-through.mp3",
@@ -83,7 +72,6 @@ const allSongs = [
   {
     id: "9",
     title: "Chasing That Feeling",
-    cover,
     artist: "Quincy Larson",
     duration: "2:43",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/chasing-that-feeling.mp3",
