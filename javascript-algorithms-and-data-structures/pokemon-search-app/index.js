@@ -1,88 +1,76 @@
-document.getElementById("search-btn").addEventListener("click", getPokemon);
+const pokemonID = document.getElementById("pokemon-id");
+const pokemonName = document.getElementById("pokemon-name");
+const defaultSprite = document.getElementById("default-sprite");
+const types = document.getElementById("types");
+const height = document.getElementById("height");
+const weight = document.getElementById("weight");
+const hp = document.getElementById("hp");
+const attack = document.getElementById("attack");
+const defense = document.getElementById("defense");
+const specialAttack = document.getElementById("special-attack");
+const specialDefense = document.getElementById("special-defense");
+const speed = document.getElementById("speed");
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
-var pokeMonId = document.getElementById("poke_num");
-var pokemonNameDisplay = document.getElementById("poke_name");
-var pokeTypesDisplay = document.getElementById("poke_types");
-var pokemonHeightDisplay = document.getElementById("pokemon-ht");
-var pokemonWeightDisplay = document.getElementById("pokemon-wt");
-var pokemonHpDisplay = document.getElementById("hp_display");
-var pokemonAttackDisplay = document.getElementById("attack_display");
-var pokemonDefenseDisplay = document.getElementById("defense_display");
-var pokemonSpAttackDisplay = document.getElementById("sp_attack_display");
-var pokemonSpDefenseDisplay = document.getElementById("sp_defense_display");
-var pokemonSpeedDisplay = document.getElementById("speed_display");
+const getPokemon = async () => {
+  try {
+    const pokemonNameOrId = searchInput.value.toLowerCase();
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`
+    );
+    const data = await response.json();
+
+    // Set Pokémon info
+    pokemonName.innerHTML = `${data.name.toUpperCase()}`;
+    pokemonID.innerHTML = `#${data.id}`;
+    weight.innerHTML = `Weight: ${data.weight}`;
+    height.innerHTML = `Height: ${data.height}`;
+    defaultSprite.src = data.sprites.front_default;
+
+    // Set stats
+    hp.innerHTML = data.stats[0].base_stat;
+    attack.innerHTML = data.stats[1].base_stat;
+    defense.innerHTML = data.stats[2].base_stat;
+    specialAttack.innerHTML = data.stats[3].base_stat;
+    specialDefense.innerHTML = data.stats[4].base_stat;
+    speed.innerHTML = data.stats[5].base_stat;
+
+    // Set types
+    let typesHTML = "";
+
+    data.types.forEach((obj) => {
+      typesHTML += `<span class="type ${obj.type.name}">${obj.type.name}</span>`;
+    });
+    types.innerHTML = typesHTML;
+  } catch (err) {
+    resetDisplay();
+    alert("Pokémon not found");
+    console.log(`Pokémon not found: ${err}`);
+  }
+};
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getPokemon();
+});
 
 function resetDisplay() {
-  pokemonNameDisplay.innerHTML = "";
-  pokeMonId.innerHTML = "";
-  pokeTypesDisplay.innerHTML = "";
-  pokemonHeightDisplay.innerHTML = "";
-  pokemonWeightDisplay.innerHTML = "";
-  pokemonHpDisplay.innerHTML = "";
-  pokemonAttackDisplay.innerHTML = "";
-  pokemonDefenseDisplay.innerHTML = "";
-  pokemonSpAttackDisplay.innerHTML = "";
-  pokemonSpDefenseDisplay.innerHTML = "";
-  pokemonSpeedDisplay.innerHTML = "";
-}
+  // reset to default display if pokemon is not found
 
-function getPokemon(e) {
-  const name = document.getElementById("search-input").value;
+  // set image to gray
+  defaultSprite.src = "images/search.png";
 
-  const pokemonName = name.toLowerCase();
-
-  // const pokeTypes = document.getElementById("types").value;
-
-  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      // reset display
-      resetDisplay();
-
-      //get names
-      pokemonNameDisplay.innerHTML += "Name: " + data.name.toUpperCase();
-
-      // get ids
-      pokeMonId.innerHTML += "ID: " + data.id;
-
-      //get weight
-      pokemonWeightDisplay.innerHTML = "Weight: " + data.weight;
-
-      // get height
-      pokemonHeightDisplay.innerHTML = "Height: " + data.height;
-
-      // get image
-      // set src attribute of image to the image url
-      document.getElementById("pokeImage").src = data.sprites.front_default;
-
-      // get stats
-      pokemonHpDisplay.innerHTML = data.stats[0].base_stat;
-
-      pokemonAttackDisplay.innerHTML = data.stats[1].base_stat;
-
-      pokemonDefenseDisplay.innerHTML = data.stats[2].base_stat;
-
-      pokemonSpAttackDisplay.innerHTML = data.stats[3].base_stat;
-
-      pokemonSpDefenseDisplay.innerHTML = data.stats[4].base_stat;
-
-      pokemonSpeedDisplay.innerHTML = data.stats[5].base_stat;
-
-      // get types
-      var pokeTypesArr = [];
-      for (var i = 0; i < data.types.length; i++) {
-        var type = data.types[i].type.name;
-        pokeTypesArr.push(type);
-        console.log("array" + pokeTypesArr);
-      }
-      pokeTypesDisplay.innerHTML = pokeTypesArr.join(", ");
-    })
-
-    .catch((err) => {
-      alert("Pokemon not found");
-      console.log("Pokemon not found", err);
-    });
-
-  e.preventDefault();
+  // reset stats
+  pokemonName.innerHTML = "";
+  pokemonID.innerHTML = "";
+  types.innerHTML = "";
+  height.innerHTML = "";
+  weight.innerHTML = "";
+  hp.innerHTML = "";
+  attack.innerHTML = "";
+  defense.innerHTML = "";
+  specialAttack.innerHTML = "";
+  specialDefense.innerHTML = "";
+  speed.innerHTML = "";
 }
