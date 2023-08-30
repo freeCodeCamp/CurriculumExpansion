@@ -1,58 +1,24 @@
-const form = document.getElementById("modal");
-const confirmModal = document.getElementById("confirm-modal");
-const confirmBtn = document.getElementById("confirm-btn");
-const openModalBtn = document.getElementById("open-modal-btn");
-const closeModalBtn = document.getElementById("close-modal-btn");
+const addTaskForm = document.getElementById("add-task-form");
+const confirmCloseDialog = document.getElementById("confirm-close-dialog");
+const openAddTaskFormBtn = document.getElementById("open-add-task-form-btn");
+const closeAddTaskFormBtn = document.getElementById("close-add-task-form-btn");
+const cancelBtn = document.getElementById("cancel-btn");
+const discardBtn = document.getElementById("discard-btn");
 const tasksContainer = document.getElementById("tasks-container");
-const textInput = document.getElementById("text-input");
+const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
-const descriptionInput = document.getElementById("textarea");
-/**
- * We can have a debugging step where campers have to debug the error message of taskData.map is not a function
- * We can have them initially log this to the console
- * console.log(typeof localStorage.getItem("data"));
- * They will see that it is a string which is why the error is there
- * So then we can have them refactor it to use the JSON.parse method
- *
- */
-
+const descriptionInput = document.getElementById("description-input");
 const taskData = JSON.parse(localStorage.getItem("data")) || [];
-
-openModalBtn.addEventListener("click", () => (form.style.display = "block"));
-closeModalBtn.addEventListener("click", () => confirmModal.showModal());
-
-confirmBtn.addEventListener("click", () => {
-  form.style.display = "none";
-  resetForm();
-});
-
-form.addEventListener("submit", (e) => {
-  /**
-   * We could have a debugging step here where the   e.preventDefault(); is initially left off
-   * Then we could show campers that behavior so they understand why it is needed.
-   *
-   */
-  e.preventDefault();
-
-  addNewTask();
-});
 
 const addNewTask = () => {
   taskData.unshift({
-    id: textInput.value.split(" ").join("-"),
-    task: textInput.value,
+    id: titleInput.value.split(" ").join("-"),
+    task: titleInput.value,
     date: dateInput.value,
-    description: descriptionInput.value,
+    description: descriptionInput.value
   });
 
-  form.style.display = "none";
-
-  /**
-   * We could have a debugging step where the original does not use JSON.stringify
-   * and we could talk the "[object Object]" is not valid JSON error message
-   * Then we could refactor it to use the JSON.stringify(taskData)
-   */
-
+  addTaskForm.style.display = "none";
   localStorage.setItem("data", JSON.stringify(taskData));
 
   addTaskToTaskContainer();
@@ -63,11 +29,6 @@ const addTaskToTaskContainer = () => {
 
   taskData.forEach(
     ({ id, task, date, description }) =>
-      /**
-       * We could have a debugging step here where the original uses the assignment operator here tasksContainer.innerHTML =
-       * Then we could show campers that new items are not be properly added to the container and that the += operator is needed
-       *
-       */
       (tasksContainer.innerHTML += `
       <div class="task" id="${id}">
         <p><strong>Task:</strong> ${task}</p>
@@ -92,12 +53,12 @@ const deleteTask = (task) => {
 };
 
 const editTask = (task) => {
-  form.style.display = "block";
+  addTaskForm.style.display = "flex";
   const dataArrIndex = taskData.findIndex(
     (item) => item.id === task.parentElement.id
   );
 
-  textInput.value = taskData[dataArrIndex].task;
+  titleInput.value = taskData[dataArrIndex].task;
   dateInput.value = taskData[dataArrIndex].date;
   descriptionInput.value = taskData[dataArrIndex].description;
 
@@ -105,12 +66,29 @@ const editTask = (task) => {
 };
 
 const resetForm = () => {
-  textInput.value = "";
+  titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
 };
 
-
 if (taskData.length) {
   addTaskToTaskContainer();
 }
+
+openAddTaskFormBtn.addEventListener("click", () => addTaskForm.style.display = "flex");
+
+closeAddTaskFormBtn.addEventListener("click", () => confirmCloseDialog.showModal());
+
+cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
+
+discardBtn.addEventListener("click", () => {
+  confirmCloseDialog.close();
+  addTaskForm.style.display = "none";
+  resetForm();
+});
+
+addTaskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  addNewTask();
+});
