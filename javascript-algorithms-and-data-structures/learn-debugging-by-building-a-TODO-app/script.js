@@ -12,7 +12,7 @@ const taskData = JSON.parse(localStorage.getItem("data")) || [];
 
 const addNewTask = () => {
   taskData.unshift({
-    id: titleInput.value.split(" ").join("-"),
+    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
     title: titleInput.value,
     date: dateInput.value,
     description: descriptionInput.value
