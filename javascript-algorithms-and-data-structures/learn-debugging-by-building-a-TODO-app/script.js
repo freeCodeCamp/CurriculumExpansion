@@ -13,7 +13,7 @@ const taskData = JSON.parse(localStorage.getItem("data")) || [];
 const addNewTask = () => {
   taskData.unshift({
     id: titleInput.value.split(" ").join("-"),
-    task: titleInput.value,
+    title: titleInput.value,
     date: dateInput.value,
     description: descriptionInput.value
   });
@@ -28,10 +28,10 @@ const addTaskToTaskContainer = () => {
   tasksContainer.innerHTML = "";
 
   taskData.forEach(
-    ({ id, task, date, description }) =>
+    ({ id, title, date, description }) =>
       (tasksContainer.innerHTML += `
       <div class="task" id="${id}">
-        <p><strong>Task:</strong> ${task}</p>
+        <p><strong>Title:</strong> ${title}</p>
         <p><strong>Date:</strong> ${date}</p>
         <p><strong>Description:</strong> ${description}</p>
         <button onclick="editTask(this)" type="button" class="btn">Edit</button>
@@ -58,7 +58,7 @@ const editTask = (task) => {
     (item) => item.id === task.parentElement.id
   );
 
-  titleInput.value = taskData[dataArrIndex].task;
+  titleInput.value = taskData[dataArrIndex].title;
   dateInput.value = taskData[dataArrIndex].date;
   descriptionInput.value = taskData[dataArrIndex].description;
 
