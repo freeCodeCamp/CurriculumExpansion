@@ -65,7 +65,7 @@ h1 {
   justify-self: center;
 }
 
-.close-add-task-form-btn {
+.close-task-form-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -76,7 +76,7 @@ h1 {
   height: 20px;
 }
 
-.add-task-form {
+.task-form {
   display: none;
   position: absolute;
   top: 50%;
@@ -92,30 +92,30 @@ h1 {
   overflow: auto;
 }
 
-.add-task-form-header {
+.task-form-header {
   display: flex;
   justify-content: flex-end;
 }
 
-.add-task-form-body {
+.task-form-body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.add-task-form-footer {
+.task-form-footer {
   display: flex;
   justify-content: center;
 }
 
-.add-task-form-label,
+.task-form-label,
 #title-input,
 #date-input,
 #description-input {
   display: block;
 }
 
-.add-task-form-label {
+.task-form-label {
   margin-bottom: 5px;
   font-size: 1.3rem;
   font-weight: bold;
@@ -157,12 +157,12 @@ h1 {
 
 @media (min-width: 576px) {
   .todo-app,
-  .add-task-form {
+  .task-form {
     width: 400px;
     height: 450px;
   }
 
-  .add-task-form-label {
+  .task-form-label {
     font-size: 1.5rem;
   }
 

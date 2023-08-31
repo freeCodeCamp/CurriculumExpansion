@@ -11,14 +11,14 @@
     <main>
       <h1>Todo App</h1>
       <div class="todo-app">
-        <button id="open-add-task-form-btn" class="btn large-btn">
+        <button id="open-task-form-btn" class="btn large-btn">
           Add New Task
         </button>
-        <form class="add-task-form" id="add-task-form">
-          <div class="add-task-form-header">
+        <form class="task-form" id="task-form">
+          <div class="task-form-header">
             <button
-              id="close-add-task-form-btn"
-              class="close-add-task-form-btn"
+              id="close-task-form-btn"
+              class="close-task-form-btn"
               type="button"
               aria-label="close"
             >
@@ -42,8 +42,8 @@
               </svg>
             </button>
           </div>
-          <div class="add-task-form-body">
-            <label class="add-task-form-label" for="title-input">Title</label>
+          <div class="task-form-body">
+            <label class="task-form-label" for="title-input">Title</label>
             <input
               required
               type="text"
@@ -51,9 +51,9 @@
               id="title-input"
               value=""
             />
-            <label class="add-task-form-label" for="date-input">Date</label>
+            <label class="task-form-label" for="date-input">Date</label>
             <input type="date" class="form-control" id="date-input" value="" />
-            <label class="add-task-form-label" for="description-input"
+            <label class="task-form-label" for="description-input"
               >Description</label
             >
             <textarea
@@ -63,9 +63,9 @@
               rows="5"
             ></textarea>
           </div>
-          <div class="add-task-form-footer">
+          <div class="task-form-footer">
             <button
-              id="add-task-btn"
+              id="task-btn"
               class="btn large-btn"
               type="submit"
               aria-label="add task"

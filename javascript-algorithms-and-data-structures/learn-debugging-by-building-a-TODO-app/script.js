@@ -1,7 +1,7 @@
-const addTaskForm = document.getElementById("add-task-form");
+const taskForm = document.getElementById("task-form");
 const confirmCloseDialog = document.getElementById("confirm-close-dialog");
-const openAddTaskFormBtn = document.getElementById("open-add-task-form-btn");
-const closeAddTaskFormBtn = document.getElementById("close-add-task-form-btn");
+const openTaskFormBtn = document.getElementById("open-task-form-btn");
+const closeTaskFormBtn = document.getElementById("close-task-form-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 const discardBtn = document.getElementById("discard-btn");
 const tasksContainer = document.getElementById("tasks-container");
@@ -18,7 +18,7 @@ const addNewTask = () => {
     description: descriptionInput.value
   });
 
-  addTaskForm.style.display = "none";
+  taskForm.style.display = "none";
   localStorage.setItem("data", JSON.stringify(taskData));
 
   addTaskToTaskContainer();
@@ -53,7 +53,7 @@ const deleteTask = (task) => {
 };
 
 const editTask = (task) => {
-  addTaskForm.style.display = "flex";
+  taskForm.style.display = "flex";
   const dataArrIndex = taskData.findIndex(
     (item) => item.id === task.parentElement.id
   );
@@ -75,19 +75,19 @@ if (taskData.length) {
   addTaskToTaskContainer();
 }
 
-openAddTaskFormBtn.addEventListener("click", () => addTaskForm.style.display = "flex");
+openTaskFormBtn.addEventListener("click", () => taskForm.style.display = "flex");
 
-closeAddTaskFormBtn.addEventListener("click", () => confirmCloseDialog.showModal());
+closeTaskFormBtn.addEventListener("click", () => confirmCloseDialog.showModal());
 
 cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
 
 discardBtn.addEventListener("click", () => {
   confirmCloseDialog.close();
-  addTaskForm.style.display = "none";
+  taskForm.style.display = "none";
   resetForm();
 });
 
-addTaskForm.addEventListener("submit", (e) => {
+taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   addNewTask();
