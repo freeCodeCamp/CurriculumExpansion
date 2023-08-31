@@ -42,18 +42,19 @@ const addTaskToTaskContainer = () => {
   resetForm();
 };
 
-const deleteTask = (task) => {
-  task.parentElement.remove();
+const deleteTask = (buttonEl) => {
   let dataArrIndex = taskData.findIndex(
-    (item) => item.id === task.parentElement.id
+    (item) => item.id === buttonEl.parentElement.id
   );
+
+  buttonEl.parentElement.remove();
   taskData.splice(dataArrIndex, 1);
   localStorage.setItem("data", JSON.stringify(taskData));
 };
 
-const editTask = (task) => {
+const editTask = (buttonEl) => {
   const dataArrIndex = taskData.findIndex(
-    (item) => item.id === task.parentElement.id
+    (item) => item.id === buttonEl.parentElement.id
   );
 
   titleInput.value = taskData[dataArrIndex].title;
