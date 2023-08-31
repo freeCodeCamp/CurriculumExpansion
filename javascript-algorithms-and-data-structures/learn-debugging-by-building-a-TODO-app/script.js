@@ -18,9 +18,8 @@ const addNewTask = () => {
     description: descriptionInput.value
   });
 
-  taskForm.style.display = "none";
+  taskForm.classList.toggle("hidden");
   localStorage.setItem("data", JSON.stringify(taskData));
-
   addTaskToTaskContainer();
 };
 
@@ -53,7 +52,6 @@ const deleteTask = (task) => {
 };
 
 const editTask = (task) => {
-  taskForm.style.display = "flex";
   const dataArrIndex = taskData.findIndex(
     (item) => item.id === task.parentElement.id
   );
@@ -62,6 +60,7 @@ const editTask = (task) => {
   dateInput.value = taskData[dataArrIndex].date;
   descriptionInput.value = taskData[dataArrIndex].description;
 
+  taskForm.classList.toggle("hidden");
   taskData.splice(dataArrIndex, 1);
 };
 
@@ -75,7 +74,7 @@ if (taskData.length) {
   addTaskToTaskContainer();
 }
 
-openTaskFormBtn.addEventListener("click", () => taskForm.style.display = "flex");
+openTaskFormBtn.addEventListener("click", () => taskForm.classList.toggle("hidden"));
 
 closeTaskFormBtn.addEventListener("click", () => confirmCloseDialog.showModal());
 
@@ -83,7 +82,7 @@ cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
 
 discardBtn.addEventListener("click", () => {
   confirmCloseDialog.close();
-  taskForm.style.display = "none";
+  taskForm.classList.toggle("hidden");
   resetForm();
 });
 
