@@ -58,13 +58,6 @@ h1 {
   gap: 10px;
 }
 
-#search-form {
-  margin: 10px 0;
-  padding: 5px;
-  border-radius: 8px 8px 0 0;
-  gap: 10px;
-}
-
 #search-input {
   height: 40px;
   padding-left: 10px;
