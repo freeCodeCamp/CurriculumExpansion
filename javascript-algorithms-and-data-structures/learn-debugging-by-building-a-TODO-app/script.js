@@ -1,76 +1,49 @@
-const form = document.getElementById("modal");
-const confirmModal = document.getElementById("confirm-modal");
-const confirmBtn = document.getElementById("confirm-btn");
-const openModalBtn = document.getElementById("open-modal-btn");
-const closeModalBtn = document.getElementById("close-modal-btn");
+const taskForm = document.getElementById("task-form");
+const confirmCloseDialog = document.getElementById("confirm-close-dialog");
+const openTaskFormBtn = document.getElementById("open-task-form-btn");
+const closeTaskFormBtn = document.getElementById("close-task-form-btn");
+const addOrUpdateTaskBtn = document.getElementById("add-or-update-task-btn");
+const cancelBtn = document.getElementById("cancel-btn");
+const discardBtn = document.getElementById("discard-btn");
 const tasksContainer = document.getElementById("tasks-container");
-const textInput = document.getElementById("text-input");
+const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
-const descriptionInput = document.getElementById("textarea");
-/**
- * We can have a debugging step where campers have to debug the error message of taskData.map is not a function
- * We can have them initially log this to the console
- * console.log(typeof localStorage.getItem("data"));
- * They will see that it is a string which is why the error is there
- * So then we can have them refactor it to use the JSON.parse method
- *
- */
-
+const descriptionInput = document.getElementById("description-input");
 const taskData = JSON.parse(localStorage.getItem("data")) || [];
+let currentTask = {}; // Used to track state when editing and discarding tasks
 
-openModalBtn.addEventListener("click", () => (form.style.display = "block"));
-closeModalBtn.addEventListener("click", () => confirmModal.showModal());
-
-confirmBtn.addEventListener("click", () => {
-  form.style.display = "none";
-  resetForm();
-});
-
-form.addEventListener("submit", (e) => {
-  /**
-   * We could have a debugging step here where the   e.preventDefault(); is initially left off
-   * Then we could show campers that behavior so they understand why it is needed.
-   *
-   */
-  e.preventDefault();
-
-  addNewTask();
-});
-
-const addNewTask = () => {
-  taskData.unshift({
-    id: textInput.value.split(" ").join("-"),
-    task: textInput.value,
+const addOrUpdateTask = () => {
+  // Attempt to find an existing task -- could add this
+  // functionality while refactoring later in the project
+  const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
+  const taskObj = {
+    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
+    title: titleInput.value,
     date: dateInput.value,
     description: descriptionInput.value,
-  });
+  };
 
-  form.style.display = "none";
-
-  /**
-   * We could have a debugging step where the original does not use JSON.stringify
-   * and we could talk the "[object Object]" is not valid JSON error message
-   * Then we could refactor it to use the JSON.stringify(taskData)
-   */
+  if (dataArrIndex === -1) {
+    // Add new task
+    taskData.unshift(taskObj);
+  } else {
+    // Update existing task
+    taskData[dataArrIndex] = taskObj;
+  }
 
   localStorage.setItem("data", JSON.stringify(taskData));
-
   addTaskToTaskContainer();
+  reset();
 };
 
 const addTaskToTaskContainer = () => {
   tasksContainer.innerHTML = "";
 
   taskData.forEach(
-    ({ id, task, date, description }) =>
-      /**
-       * We could have a debugging step here where the original uses the assignment operator here tasksContainer.innerHTML =
-       * Then we could show campers that new items are not be properly added to the container and that the += operator is needed
-       *
-       */
+    ({ id, title, date, description }) =>
       (tasksContainer.innerHTML += `
       <div class="task" id="${id}">
-        <p><strong>Task:</strong> ${task}</p>
+        <p><strong>Title:</strong> ${title}</p>
         <p><strong>Date:</strong> ${date}</p>
         <p><strong>Description:</strong> ${description}</p>
         <button onclick="editTask(this)" type="button" class="btn">Edit</button>
@@ -78,39 +51,85 @@ const addTaskToTaskContainer = () => {
       </div>
     `)
   );
-
-  resetForm();
 };
 
-const deleteTask = (task) => {
-  task.parentElement.remove();
-  let dataArrIndex = taskData.findIndex(
-    (item) => item.id === task.parentElement.id
+const deleteTask = (buttonEl) => {
+  const dataArrIndex = taskData.findIndex(
+    (item) => item.id === buttonEl.parentElement.id
   );
+
+  buttonEl.parentElement.remove();
   taskData.splice(dataArrIndex, 1);
   localStorage.setItem("data", JSON.stringify(taskData));
 };
 
-const editTask = (task) => {
-  form.style.display = "block";
+const editTask = (buttonEl) => {
   const dataArrIndex = taskData.findIndex(
-    (item) => item.id === task.parentElement.id
+    (item) => item.id === buttonEl.parentElement.id
   );
+  // Update currentTask for state management
+  currentTask = taskData[dataArrIndex];
 
-  textInput.value = taskData[dataArrIndex].task;
-  dateInput.value = taskData[dataArrIndex].date;
-  descriptionInput.value = taskData[dataArrIndex].description;
+  titleInput.value = currentTask.title;
+  dateInput.value = currentTask.date;
+  descriptionInput.value = currentTask.description;
 
-  taskData.splice(dataArrIndex, 1);
+  // Update task form button
+  addOrUpdateTaskBtn.innerText = "Update Task";
+  addOrUpdateTaskBtn.ariaLabel = "Update Task";
+
+  // Show task form
+  taskForm.classList.toggle("hidden");
 };
 
-const resetForm = () => {
-  textInput.value = "";
+const reset = () => {
+  // Reset form inputs
+  titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
+  // Reset task form button
+  addOrUpdateTaskBtn.innerText = "Add Task";
+  addOrUpdateTaskBtn.ariaLabel = "Add Task";
+  // Hide task form and reset currentTask
+  taskForm.classList.toggle("hidden");
+  currentTask = {};
 };
-
 
 if (taskData.length) {
   addTaskToTaskContainer();
 }
+
+openTaskFormBtn.addEventListener("click", () =>
+  taskForm.classList.toggle("hidden")
+);
+
+closeTaskFormBtn.addEventListener("click", () => {
+  // Note: We could get a bit fancy here and use JSON.stringify() to compare
+  // the currentTask object (minus the id) to the form inputs as an object,
+  // but it may be overkill for this project.
+  const formInputsContainValues =
+    titleInput.value || dateInput.value || descriptionInput.value;
+  const formInputValuesUpdated =
+    titleInput.value !== currentTask.title ||
+    dateInput.value !== currentTask.date ||
+    descriptionInput.value !== currentTask.description;
+  if (formInputsContainValues && formInputValuesUpdated) {
+    // Changes detected, so show confirmCloseDialog as a modal
+    confirmCloseDialog.showModal();
+  } else {
+    // No changes made, so reset everything to default and hide the form
+    reset();
+  }
+});
+
+cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
+
+discardBtn.addEventListener("click", () => {
+  confirmCloseDialog.close();
+  reset();
+});
+
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addOrUpdateTask();
+});
