@@ -20,8 +20,8 @@ const addOrUpdateTask = () => {
     id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
     title: titleInput.value,
     date: dateInput.value,
-    description: descriptionInput.value
-  }
+    description: descriptionInput.value,
+  };
 
   if (dataArrIndex === -1) {
     // Add new task
@@ -99,14 +99,20 @@ if (taskData.length) {
   addTaskToTaskContainer();
 }
 
-openTaskFormBtn.addEventListener("click", () => taskForm.classList.toggle("hidden"));
+openTaskFormBtn.addEventListener("click", () =>
+  taskForm.classList.toggle("hidden")
+);
 
 closeTaskFormBtn.addEventListener("click", () => {
   // Note: We could get a bit fancy here and use JSON.stringify() to compare
   // the currentTask object (minus the id) to the form inputs as an object,
   // but it may be overkill for this project.
-  const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
-  const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
+  const formInputsContainValues =
+    titleInput.value || dateInput.value || descriptionInput.value;
+  const formInputValuesUpdated =
+    titleInput.value !== currentTask.title ||
+    dateInput.value !== currentTask.date ||
+    descriptionInput.value !== currentTask.description;
   if (formInputsContainValues && formInputValuesUpdated) {
     // Changes detected, so show confirmCloseDialog as a modal
     confirmCloseDialog.showModal();
