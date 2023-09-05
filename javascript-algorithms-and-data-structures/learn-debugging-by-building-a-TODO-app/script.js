@@ -123,4 +123,7 @@ discardBtn.addEventListener("click", () => {
   reset();
 });
 
-addOrUpdateTaskBtn.addEventListener("click", () => addOrUpdateTask());
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addOrUpdateTask();
+});
