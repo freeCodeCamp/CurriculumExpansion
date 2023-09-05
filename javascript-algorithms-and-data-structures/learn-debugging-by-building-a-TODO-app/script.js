@@ -31,15 +31,9 @@ const addOrUpdateTask = () => {
     taskData[dataArrIndex] = taskObj;
   }
 
-  // Reset currentTask
-  currentTask = {};
-  // Hide elements and reset button text and aria-label
-  taskForm.classList.toggle("hidden");
-  addOrUpdateTaskBtn.innerText = "Add Task";
-  addOrUpdateTaskBtn.ariaLabel = "Add Task";
-
   localStorage.setItem("data", JSON.stringify(taskData));
   addTaskToTaskContainer();
+  reset();
 };
 
 const addTaskToTaskContainer = () => {
@@ -57,12 +51,10 @@ const addTaskToTaskContainer = () => {
       </div>
     `)
   );
-
-  resetForm();
 };
 
 const deleteTask = (buttonEl) => {
-  let dataArrIndex = taskData.findIndex(
+  const dataArrIndex = taskData.findIndex(
     (item) => item.id === buttonEl.parentElement.id
   );
 
@@ -86,13 +78,21 @@ const editTask = (buttonEl) => {
   addOrUpdateTaskBtn.innerText = "Update Task";
   addOrUpdateTaskBtn.ariaLabel = "Update Task";
 
+  // Show task form
   taskForm.classList.toggle("hidden");
 };
 
-const resetForm = () => {
+const reset = () => {
+  // Reset form inputs
   titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
+  // Reset task form button
+  addOrUpdateTaskBtn.innerText = "Add Task";
+  addOrUpdateTaskBtn.ariaLabel = "Add Task";
+  // Hide task form and reset currentTask
+  taskForm.classList.toggle("hidden");
+  currentTask = {};
 };
 
 if (taskData.length) {
@@ -101,14 +101,26 @@ if (taskData.length) {
 
 openTaskFormBtn.addEventListener("click", () => taskForm.classList.toggle("hidden"));
 
-closeTaskFormBtn.addEventListener("click", () => confirmCloseDialog.showModal());
+closeTaskFormBtn.addEventListener("click", () => {
+  // Note: We could get a bit fancy here and use JSON.stringify() to compare
+  // the currentTask object (minus the id) to the form inputs as an object,
+  // but it may be overkill for this project.
+  const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
+  const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
+  if (formInputsContainValues && formInputValuesUpdated) {
+    // Changes detected, so show confirmCloseDialog as a modal
+    confirmCloseDialog.showModal();
+  } else {
+    // No changes made, so reset everything to default and hide the form
+    reset();
+  }
+});
 
 cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
 
 discardBtn.addEventListener("click", () => {
   confirmCloseDialog.close();
-  taskForm.classList.toggle("hidden");
-  resetForm();
+  reset();
 });
 
 addOrUpdateTaskBtn.addEventListener("click", () => addOrUpdateTask());
