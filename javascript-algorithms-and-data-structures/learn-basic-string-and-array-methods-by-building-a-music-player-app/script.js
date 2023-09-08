@@ -96,6 +96,7 @@ const deleteSong = (id) => {
 
   userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
   renderSongs(userData?.songs);
+  songHighlighter();
   setPlayButtonAccessibleText();
 
   if (userData.songs.length === 0) {
@@ -111,31 +112,36 @@ const deleteSong = (id) => {
       userData.songs = allSongs;
 
       renderSongs(userData?.songs);
+      setPlayButtonAccessibleText();
       resetButton.remove();
     });
   }
 };
 
-const setPlayerDisplay = (title, artist) => {
+const setPlayerDisplay = () => {
   const playingSong = document.getElementById("player-song-title");
   const songArtist = document.getElementById("player-song-artist");
+  const currentTitle = userData?.currentSong?.title;
+  const currentArtist = userData?.currentSong?.artist;
 
-  playingSong.textContent = title ? title : "";
-  songArtist.textContent = artist ? artist : "";
+  playingSong.textContent = currentTitle ? currentTitle : "";
+  songArtist.textContent = currentArtist ? currentArtist : "";
 };
 
-const songHighlighter = (id) => {
+const songHighlighter = () => {
   const playlistSongElements = document.querySelectorAll(".playlist-song");
-  const songToHighlight = document.getElementById(`song-${id}`);
+  const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
 
-  playlistSongElements.forEach((song) => {
-    song.removeAttribute("aria-current");
+  // Introduce the .forEach() method
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute("aria-current");
   });
 
-  songToHighlight.setAttribute("aria-current", "true");
+  if (songToHighlight) songToHighlight.setAttribute("aria-current", "true");
 };
 
 const renderSongs = (array) => {
+  // Introduce the .map() method
   const songsHTML = array
     .map((song) => {
       return `
@@ -154,13 +160,14 @@ const renderSongs = (array) => {
       </li>
     `;
     })
-    .join("");
+    .join(""); // Introduce the .join() method
 
   playlistSongs.innerHTML = songsHTML;
 };
 
-const playSong = (songId) => {
-  const song = userData?.songs.find((song) => song.id === songId.toString());
+const playSong = (id) => {
+  // Introduce the .find() method
+  const song = userData?.songs.find((song) => song.id === id.toString());
   audio.src = song.src;
   audio.title = song.title;
 
@@ -172,8 +179,9 @@ const playSong = (songId) => {
   userData.currentSong = song;
   playButton.classList.add("playing");
 
-  songHighlighter(song.id);
-  setPlayerDisplay(song.title, song.artist);
+  songHighlighter();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
   audio.play();
 };
 
@@ -192,7 +200,6 @@ const nextSong = () => {
     const nextSong = userData?.songs[currentSongIndex + 1];
 
     playSong(nextSong.id);
-    setPlayButtonAccessibleText();
   }
 };
 
@@ -203,7 +210,6 @@ const previousSong = () => {
     const previousSong = userData?.songs[currentSongIndex - 1];
 
     playSong(previousSong.id);
-    setPlayButtonAccessibleText();
   }
 };
 
@@ -248,6 +254,26 @@ previousButton.addEventListener("click", () => {
 });
 
 shuffleButton.addEventListener("click", shuffle);
+
+audio.addEventListener("ended", () => {
+  // Review the .find() method
+  const nextSong = userData?.songs.find((song) => song.id === userData?.currentSong.id + 1);
+
+  if (nextSong) {
+    nextSong();
+  } else {
+    userData = {
+      songs: userData?.songs,
+      currentSong: null,
+      songCurrentTime: 0
+    }
+
+    pauseSong(); // Remove the playing class from the play button
+    setPlayerDisplay(); // Remove the song title and artist from the player
+    songHighlighter(); // Remove the highlight from the playlist
+    setPlayButtonAccessibleText(); // Update the play button's accessible text
+  }
+});
 
 renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
