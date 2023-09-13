@@ -99,7 +99,7 @@ const playSong = (id) => {
   userData.currentSong = song;
   playButton.classList.add("playing");
 
-  songHighlighter();
+  highlightCurrentSong();
   setPlayerDisplay();
   setPlayButtonAccessibleText();
   audio.play();
@@ -112,7 +112,7 @@ const pauseSong = () => {
   audio.pause();
 };
 
-const nextSong = () => {
+const playNextSong = () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
@@ -123,7 +123,7 @@ const nextSong = () => {
   }
 };
 
-const previousSong = () => {
+const playPreviousSong = () => {
   if (userData?.currentSong === null) return;
   else {
     const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
@@ -155,7 +155,7 @@ const deleteSong = (id) => {
 
   userData.songs = userData?.songs.filter((song) => song.id !== id);
   renderSongs(userData?.songs);
-  songHighlighter();
+  highlightCurrentSong();
   setPlayButtonAccessibleText();
 
   if (userData.songs.length === 0) {
@@ -187,7 +187,7 @@ const setPlayerDisplay = () => {
   songArtist.textContent = currentArtist ? currentArtist : "";
 };
 
-const songHighlighter = () => {
+const highlightCurrentSong = () => {
   const playlistSongElements = document.querySelectorAll(".playlist-song");
   const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
 
@@ -246,11 +246,11 @@ pauseButton.addEventListener("click", () => {
 });
 
 nextButton.addEventListener("click", () => {
-  nextSong();
+  playNextSong();
 });
 
 previousButton.addEventListener("click", () => {
-  previousSong();
+  playPreviousSong();
 });
 
 shuffleButton.addEventListener("click", shuffle);
@@ -260,7 +260,7 @@ audio.addEventListener("ended", () => {
   const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
 
   if (nextSongExists) {
-    nextSong();
+    playNextSong();
   } else {
     userData = {
       songs: userData?.songs,
@@ -270,7 +270,7 @@ audio.addEventListener("ended", () => {
 
     pauseSong(); // Remove the playing class from the play button
     setPlayerDisplay(); // Remove the song title and artist from the player
-    songHighlighter(); // Remove the highlight from the playlist
+    highlightCurrentSong(); // Remove the highlight from the playlist
     setPlayButtonAccessibleText(); // Update the play button's accessible text
   }
 });
