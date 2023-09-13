@@ -256,10 +256,10 @@ previousButton.addEventListener("click", () => {
 shuffleButton.addEventListener("click", shuffle);
 
 audio.addEventListener("ended", () => {
-  // Review the .find() method
-  const nextSong = userData?.songs.find((song) => song.id === userData?.currentSong.id + 1);
+  const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
 
-  if (nextSong) {
+  if (nextSongExists) {
     nextSong();
   } else {
     userData = {
