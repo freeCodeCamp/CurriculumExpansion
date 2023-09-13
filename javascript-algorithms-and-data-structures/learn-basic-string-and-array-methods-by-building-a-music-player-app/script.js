@@ -116,7 +116,7 @@ const playNextSong = () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
-    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const currentSongIndex = getCurrentSongIndex();
     const nextSong = userData?.songs[currentSongIndex + 1];
 
     playSong(nextSong.id);
@@ -126,7 +126,7 @@ const playNextSong = () => {
 const playPreviousSong = () => {
   if (userData?.currentSong === null) return;
   else {
-    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+    const currentSongIndex = getCurrentSongIndex();
     const previousSong = userData?.songs[currentSongIndex - 1];
 
     playSong(previousSong.id);
@@ -233,6 +233,8 @@ const setPlayButtonAccessibleText = () => {
   );
 };
 
+const getCurrentSongIndex = () => userData?.songs.indexOf(userData.currentSong);
+
 playButton.addEventListener("click", () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
@@ -256,7 +258,10 @@ previousButton.addEventListener("click", () => {
 shuffleButton.addEventListener("click", shuffle);
 
 audio.addEventListener("ended", () => {
-  const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
+  // Could start with the full code here at first, then refactor
+  // later to use a separate getCurrentSongIndex function once it's used
+  // in more than one place
+  const currentSongIndex = getCurrentSongIndex();
   const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
 
   if (nextSongExists) {
