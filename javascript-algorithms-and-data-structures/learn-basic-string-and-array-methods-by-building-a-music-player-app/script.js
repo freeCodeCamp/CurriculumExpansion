@@ -105,7 +105,7 @@ const allSongs = [
 
 const audio = new Audio();
 let userData = {
-  songs: allSongs,
+  songs: [...allSongs],
   currentSong: null,
   songCurrentTime: 0,
 };
@@ -193,7 +193,7 @@ const deleteSong = (id) => {
     playlistSongs.appendChild(resetButton);
 
     resetButton.addEventListener("click", () => {
-      userData.songs = allSongs;
+      userData.songs = [...allSongs];
 
       renderSongs(userData?.songs);
       setPlayButtonAccessibleText();
