@@ -72,7 +72,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 0 5px;
-  width: 100%;
+  width: 430px;
   height: 30px;
   background-color: var(--foreground-color);
 }
@@ -81,7 +81,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   row-gap: 6px;
-  padding: 0 5px;
+  padding: 0 2px;
 }
 
 .parallel-lines > div {
