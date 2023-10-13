@@ -221,7 +221,12 @@ const highlightCurrentSong = () => {
     songEl.removeAttribute("aria-current");
   });
 
-  if (songToHighlight) songToHighlight.setAttribute("aria-current", "true");
+  if (songToHighlight) {
+    // Teach how to query specific inner elements within a node
+    const songButton = songToHighlight.querySelector("button.playlist-song-info");
+    songToHighlight.setAttribute("aria-current", "true")
+    songButton.focus();
+  }
 };
 
 const renderSongs = (array) => {
