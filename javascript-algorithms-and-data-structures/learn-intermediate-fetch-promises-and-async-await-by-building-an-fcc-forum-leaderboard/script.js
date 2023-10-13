@@ -18,11 +18,17 @@ const allCategories = {
   560: { category: "Backend Development", className: "backend" },
 };
 
-async function fetchData() {
-  const res = await fetch(FORUM_LATEST);
-  const data = await res.json();
-  showLatestPosts(data);
-}
+const fetchData = async () => {
+  try {
+    const res = await fetch(FORUM_LATEST);
+    const data = await res.json();
+
+    showLatestPosts(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 fetchData();
 
 const forumCategory = (id) => {
@@ -33,7 +39,7 @@ const forumCategory = (id) => {
     selectedCategory.className = className;
     selectedCategory.category = category;
   } else {
-    selectedCategory.className = "General";
+    selectedCategory.className = "general";
     selectedCategory.category = "General";
     id = 1;
   }
@@ -41,12 +47,11 @@ const forumCategory = (id) => {
   const url = `${FORUM_CATEGORY_URL}${selectedCategory.className}/${id}`;
   const linkText = selectedCategory.category;
   const linkClass = `category ${selectedCategory.className}`;
-  const linkTarget = "_blank";
 
   return `<a href="${url}" class="${linkClass}" target="_blank">${linkText}</a>`;
 };
 
-function timeAgo(time) {
+const timeAgo = (time) => {
   const currentTime = new Date();
   const lastPost = new Date(time);
 
@@ -60,20 +65,23 @@ function timeAgo(time) {
   if (minutesAgo < 60) {
     return `${minutesAgo}m ago`;
   }
+
   if (hoursAgo < 24) {
     return `${hoursAgo}h ago`;
   }
-  return `${daysAgo}d ago`;
-}
 
-function viewCount(views) {
+  return `${daysAgo}d ago`;
+};
+
+const viewCount = (views) => {
   const thousands = Math.floor(views / 1000);
 
   if (views >= 1000) {
     return `${thousands}k`;
   }
+
   return views;
-}
+};
 
 const avatars = (posters, users) => {
   return posters
@@ -94,37 +102,75 @@ const showLatestPosts = (posts) => {
   const { topic_list, users } = posts;
   const { topics } = topic_list;
 
-  topics.forEach((item) => {
-    const {
-      id,
-      title,
-      views,
-      posts_count,
-      slug,
-      posters,
-      category_id,
-      bumped_at,
-    } = item;
-    return (postsContainer.innerHTML += `
+  // // Option 1: concatenate string before adding it to the DOM
+  // let HTMLString = "";
 
-      <tr id="${id}">
-        <td>
-          <a class="post-title" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
-            ${title}
-          </a>
-          ${forumCategory(category_id)}
-        </td>
+  // topics.forEach((item) => {
+  //   const {
+  //     id,
+  //     title,
+  //     views,
+  //     posts_count,
+  //     slug,
+  //     posters,
+  //     category_id,
+  //     bumped_at,
+  //   } = item;
 
-        <td>
-          <div class="avatar-container">
-            ${avatars(posters, users)}
-          </div>
-        </td>
+  //   HTMLString += `
+  //     <tr id="${id}">
+  //       <td>
+  //         <a class="post-title" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
+  //           ${title}
+  //         </a>
+  //         ${forumCategory(category_id)}
+  //       </td>
+  //       <td>
+  //         <div class="avatar-container">
+  //           ${avatars(posters, users)}
+  //         </div>
+  //       </td>
+  //       <td class="replies topic-data">${posts_count - 1}</td>
+  //       <td class="views topic-data">${viewCount(views)}</td>
+  //       <td class="activity topic-data">${timeAgo(bumped_at)}</td>
+  //     </tr>
+  //   `;
+  // });
 
-        <td class="replies topic-data"> ${posts_count - 1}</td>
-        <td class="views topic-data"> ${viewCount(views)}</td>
-        <td class="activity topic-data">${timeAgo(bumped_at)}</td>
-      </tr>
-    `);
-  });
+  // postsContainer.innerHTML = HTMLString;
+
+  // Option 2: use .map() and .join() to create the HTML string before adding it to the DOM
+  postsContainer.innerHTML = topics
+    .map((item) => {
+      const {
+        id,
+        title,
+        views,
+        posts_count,
+        slug,
+        posters,
+        category_id,
+        bumped_at,
+      } = item;
+
+      return `
+        <tr id="${id}">
+          <td>
+            <a class="post-title" target="_blank" href="${FORUM_TOPIC_URL}${slug}/${id}">
+              ${title}
+            </a>
+            ${forumCategory(category_id)}
+          </td>
+          <td>
+            <div class="avatar-container">
+              ${avatars(posters, users)}
+            </div>
+          </td>
+          <td class="replies topic-data">${posts_count - 1}</td>
+          <td class="views topic-data">${viewCount(views)}</td>
+          <td class="activity topic-data">${timeAgo(bumped_at)}</td>
+        </tr>
+      `;
+    })
+    .join("");
 };

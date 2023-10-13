@@ -42,28 +42,29 @@ nav {
   color: var(--light-grey);
 }
 
-/**
-  * ! Table tag styles starts here
-  */
-
-table {
-  width: 80%;
-  color: var(--dark-grey);
-  margin: auto;
-
-  table-layout: fixed;
-  border-collapse: collapse;
+.table-wrapper {
+  padding: 0 25px;
+  overflow-x: auto;
 }
 
-th:first-child {
+table {
+  width: 100%;
+  color: var(--dark-grey);
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow-x: scroll;
+}
+
+#topics {
   text-align: start;
-  width: 70%;
+  width: 60%;
 }
 
 th {
   border-bottom: 2px solid var(--dark-grey);
   padding-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 td:not(:first-child) {
@@ -75,12 +76,8 @@ td {
   padding: 20px 0;
 }
 
-/**
-  * ! Table tag styles ends here
-  */
-
 .post-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--medium-grey);
   text-decoration: none;
 }
@@ -91,7 +88,7 @@ td {
   text-decoration: none;
   display: block;
   width: fit-content;
-  margin: 2px 0 5px;
+  margin: 10px 0 10px;
 }
 
 .career {
@@ -107,7 +104,7 @@ td {
   background-color: var(--light-orange);
 }
 
-.General {
+.general {
   background-color: var(--light-green);
 }
 
@@ -129,23 +126,30 @@ td {
 
 .avatar-container {
   display: flex;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-@media (max-width: 760px) {
+.avatar-container img {
+  width: 30px;
+  height: 30px;
+}
 
-  .views,
-  #views {
-    display: none;
+@media (max-width: 750px) {
+  .table-wrapper {
+    padding: 0 15px;
   }
 
-  #replies,
-  #activity {
-    font-size: 0.7rem;
+  table {
+    width: 700px;
   }
 
-  td {
-    border: none;
-    border-bottom: 1px solid var(--light-grey);
+  th {
+    font-size: 1.2rem;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
   }
 }
