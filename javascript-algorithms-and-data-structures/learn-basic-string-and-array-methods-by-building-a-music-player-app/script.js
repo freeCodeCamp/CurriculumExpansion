@@ -214,7 +214,9 @@ const setPlayerDisplay = () => {
 
 const highlightCurrentSong = () => {
   const playlistSongElements = document.querySelectorAll(".playlist-song");
-  const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
+  const songToHighlight = document.getElementById(
+    `song-${userData?.currentSong?.id}`
+  );
 
   // Introduce the .forEach() method
   playlistSongElements.forEach((songEl) => {
@@ -223,8 +225,10 @@ const highlightCurrentSong = () => {
 
   if (songToHighlight) {
     // Teach how to query specific inner elements within a node
-    const songButton = songToHighlight.querySelector("button.playlist-song-info");
-    songToHighlight.setAttribute("aria-current", "true")
+    const songButton = songToHighlight.querySelector(
+      "button.playlist-song-info"
+    );
+    songToHighlight.setAttribute("aria-current", "true");
     songButton.focus();
   }
 };
@@ -259,7 +263,7 @@ const setPlayButtonAccessibleText = () => {
 
   playButton.setAttribute(
     "aria-label",
-    song?.title ? `Play ${song.title}` : "Play",
+    song?.title ? `Play ${song.title}` : "Play"
   );
 };
 
@@ -300,8 +304,8 @@ audio.addEventListener("ended", () => {
     userData = {
       songs: userData?.songs,
       currentSong: null,
-      songCurrentTime: 0
-    }
+      songCurrentTime: 0,
+    };
 
     pauseSong(); // Remove the playing class from the play button
     setPlayerDisplay(); // Remove the song title and artist from the player
