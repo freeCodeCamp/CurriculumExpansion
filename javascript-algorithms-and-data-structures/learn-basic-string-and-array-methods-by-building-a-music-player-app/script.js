@@ -5,72 +5,97 @@ const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
 const shuffleButton = document.getElementById("shuffle");
 
+// // Short mp3s for testing
+// const allSongs = [
+//   {
+//     id: 0,
+//     title: "9 Second Sample",
+//     artist: "Quincy Larson",
+//     duration: "0:09",
+//     src: "https://download.samplelib.com/mp3/sample-9s.mp3",
+//   },
+//   {
+//     id: 1,
+//     title: "12 Second Sample",
+//     artist: "Quincy Larson",
+//     duration: "0:12",
+//     src: "https://download.samplelib.com/mp3/sample-12s.mp3",
+//   },
+//   {
+//     id: 2,
+//     title: "15 Second Sample",
+//     artist: "Quincy Larson",
+//     duration: "0:15",
+//     src: "https://download.samplelib.com/mp3/sample-15s.mp3",
+//   }
+// ];
+
 const allSongs = [
   {
-    id: "0",
+    id: 0,
     title: "Scratching The Surface",
     artist: "Quincy Larson",
     duration: "4:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/scratching-the-surface.mp3",
   },
   {
-    id: "1",
+    id: 1,
     title: "Can't Stay Down",
     artist: "Quincy Larson",
     duration: "4:15",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stay-down.mp3",
   },
   {
-    id: "2",
+    id: 2,
     title: "Still Learning",
     artist: "Quincy Larson",
     duration: "3:51",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/still-learning.mp3",
   },
   {
-    id: "3",
+    id: 3,
     title: "Cruising for a Musing",
     artist: "Quincy Larson",
     duration: "3:34",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cruising-for-a-musing.mp3",
   },
   {
-    id: "4",
+    id: 4,
     title: "Never Not Favored",
     artist: "Quincy Larson",
     duration: "3:35",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/never-not-favored.mp3",
   },
   {
-    id: "5",
+    id: 5,
     title: "From the Ground Up",
     artist: "Quincy Larson",
     duration: "3:12",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/from-the-ground-up.mp3",
   },
   {
-    id: "6",
+    id: 6,
     title: "Walking on Air",
     artist: "Quincy Larson",
     duration: "3:25",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/walking-on-air.mp3",
   },
   {
-    id: "7",
+    id: 7,
     title: "Can't Stop Me. Can't Even Slow Me Down.",
     artist: "Quincy Larson",
     duration: "3:52",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stop-me-cant-even-slow-me-down.mp3",
   },
   {
-    id: "8",
+    id: 8,
     title: "The Surest Way Out is Through",
     artist: "Quincy Larson",
     duration: "3:10",
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/the-surest-way-out-is-through.mp3",
   },
   {
-    id: "9",
+    id: 9,
     title: "Chasing That Feeling",
     artist: "Quincy Larson",
     duration: "2:43",
@@ -80,13 +105,72 @@ const allSongs = [
 
 const audio = new Audio();
 let userData = {
-  songs: allSongs,
+  songs: [...allSongs],
   currentSong: null,
   songCurrentTime: 0,
 };
 
+const playSong = (id) => {
+  // Introduce the .find() method
+  const song = userData?.songs.find((song) => song.id === id);
+  audio.src = song.src;
+  audio.title = song.title;
+
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData.songCurrentTime;
+  }
+  userData.currentSong = song;
+  playButton.classList.add("playing");
+
+  highlightCurrentSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
+  audio.play();
+};
+
+const pauseSong = () => {
+  userData.songCurrentTime = audio.currentTime;
+
+  playButton.classList.remove("playing");
+  audio.pause();
+};
+
+const playNextSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+    const nextSong = userData?.songs[currentSongIndex + 1];
+
+    playSong(nextSong.id);
+  }
+};
+
+const playPreviousSong = () => {
+  if (userData?.currentSong === null) return;
+  else {
+    const currentSongIndex = getCurrentSongIndex();
+    const previousSong = userData?.songs[currentSongIndex - 1];
+
+    playSong(previousSong.id);
+  }
+};
+
+const shuffle = () => {
+  userData.songs = userData?.songs.sort(() => Math.random() - 0.5);
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
+
+  renderSongs(userData?.songs);
+  pauseSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
+};
+
 const deleteSong = (id) => {
-  if (userData?.currentSong?.id === id.toString()) {
+  if (userData?.currentSong?.id === id) {
     userData.currentSong = null;
     userData.songCurrentTime = 0;
 
@@ -94,8 +178,9 @@ const deleteSong = (id) => {
     setPlayerDisplay();
   }
 
-  userData.songs = userData?.songs.filter((song) => song.id !== id.toString());
+  userData.songs = userData?.songs.filter((song) => song.id !== id);
   renderSongs(userData?.songs);
+  highlightCurrentSong();
   setPlayButtonAccessibleText();
 
   if (userData.songs.length === 0) {
@@ -108,34 +193,48 @@ const deleteSong = (id) => {
     playlistSongs.appendChild(resetButton);
 
     resetButton.addEventListener("click", () => {
-      userData.songs = allSongs;
+      userData.songs = [...allSongs];
 
       renderSongs(userData?.songs);
+      setPlayButtonAccessibleText();
       resetButton.remove();
     });
   }
 };
 
-const setPlayerDisplay = (title, artist) => {
+const setPlayerDisplay = () => {
   const playingSong = document.getElementById("player-song-title");
   const songArtist = document.getElementById("player-song-artist");
+  const currentTitle = userData?.currentSong?.title;
+  const currentArtist = userData?.currentSong?.artist;
 
-  playingSong.textContent = title ? title : "";
-  songArtist.textContent = artist ? artist : "";
+  playingSong.textContent = currentTitle ? currentTitle : "";
+  songArtist.textContent = currentArtist ? currentArtist : "";
 };
 
-const songHighlighter = (id) => {
+const highlightCurrentSong = () => {
   const playlistSongElements = document.querySelectorAll(".playlist-song");
-  const songToHighlight = document.getElementById(`song-${id}`);
+  const songToHighlight = document.getElementById(
+    `song-${userData?.currentSong?.id}`
+  );
 
-  playlistSongElements.forEach((song) => {
-    song.removeAttribute("aria-current");
+  // Introduce the .forEach() method
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute("aria-current");
   });
 
-  songToHighlight.setAttribute("aria-current", "true");
+  if (songToHighlight) {
+    // Teach how to query specific inner elements within a node
+    const songButton = songToHighlight.querySelector(
+      "button.playlist-song-info"
+    );
+    songToHighlight.setAttribute("aria-current", "true");
+    songButton.focus();
+  }
 };
 
 const renderSongs = (array) => {
+  // Introduce the .map() method
   const songsHTML = array
     .map((song) => {
       return `
@@ -154,68 +253,9 @@ const renderSongs = (array) => {
       </li>
     `;
     })
-    .join("");
+    .join(""); // Introduce the .join() method
 
   playlistSongs.innerHTML = songsHTML;
-};
-
-const playSong = (songId) => {
-  const song = userData?.songs.find((song) => song.id === songId.toString());
-  audio.src = song.src;
-  audio.title = song.title;
-
-  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
-    audio.currentTime = 0;
-  } else {
-    audio.currentTime = userData.songCurrentTime;
-  }
-  userData.currentSong = song;
-  playButton.classList.add("playing");
-
-  songHighlighter(song.id);
-  setPlayerDisplay(song.title, song.artist);
-  audio.play();
-};
-
-const pauseSong = () => {
-  userData.songCurrentTime = audio.currentTime;
-
-  playButton.classList.remove("playing");
-  audio.pause();
-};
-
-const nextSong = () => {
-  if (userData?.currentSong === null) {
-    playSong(userData?.songs[0].id);
-  } else {
-    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
-    const nextSong = userData?.songs[currentSongIndex + 1];
-
-    playSong(nextSong.id);
-    setPlayButtonAccessibleText();
-  }
-};
-
-const previousSong = () => {
-  if (userData?.currentSong === null) return;
-  else {
-    const currentSongIndex = userData?.songs.indexOf(userData.currentSong);
-    const previousSong = userData?.songs[currentSongIndex - 1];
-
-    playSong(previousSong.id);
-    setPlayButtonAccessibleText();
-  }
-};
-
-const shuffle = () => {
-  userData.songs = userData?.songs.sort(() => Math.random() - 0.5);
-  userData.currentSong = null;
-  userData.songCurrentTime = 0;
-
-  renderSongs(userData?.songs);
-  pauseSong();
-  setPlayerDisplay();
-  setPlayButtonAccessibleText();
 };
 
 const setPlayButtonAccessibleText = () => {
@@ -223,9 +263,11 @@ const setPlayButtonAccessibleText = () => {
 
   playButton.setAttribute(
     "aria-label",
-    song?.title ? `Play ${song.title}` : "Play",
+    song?.title ? `Play ${song.title}` : "Play"
   );
 };
+
+const getCurrentSongIndex = () => userData?.songs.indexOf(userData.currentSong);
 
 playButton.addEventListener("click", () => {
   if (userData?.currentSong === null) {
@@ -240,14 +282,37 @@ pauseButton.addEventListener("click", () => {
 });
 
 nextButton.addEventListener("click", () => {
-  nextSong();
+  playNextSong();
 });
 
 previousButton.addEventListener("click", () => {
-  previousSong();
+  playPreviousSong();
 });
 
 shuffleButton.addEventListener("click", shuffle);
+
+audio.addEventListener("ended", () => {
+  // Could start with the full code here at first, then refactor
+  // later to use a separate getCurrentSongIndex function once it's used
+  // in more than one place
+  const currentSongIndex = getCurrentSongIndex();
+  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
+
+  if (nextSongExists) {
+    playNextSong();
+  } else {
+    userData = {
+      songs: userData?.songs,
+      currentSong: null,
+      songCurrentTime: 0,
+    };
+
+    pauseSong(); // Remove the playing class from the play button
+    setPlayerDisplay(); // Remove the song title and artist from the player
+    highlightCurrentSong(); // Remove the highlight from the playlist
+    setPlayButtonAccessibleText(); // Update the play button's accessible text
+  }
+});
 
 renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
