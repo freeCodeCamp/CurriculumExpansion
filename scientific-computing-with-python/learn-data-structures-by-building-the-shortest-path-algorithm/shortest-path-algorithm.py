@@ -8,7 +8,7 @@ my_graph = {
     'G': [('D', 3), ('F', 8)]
 }
 
-def calc_distances(graph, start, end = ''):
+def shortest_path(graph, start, end = ''):
     unvisited = []
     distances = {}
     paths = {}
@@ -37,7 +37,7 @@ def calc_distances(graph, start, end = ''):
             unvisited.remove(current)        
         if not unvisited:
             if end:
-                print(f'\n{start}-{end} distance: {distances[end]}\nPath: {paths[end]}\n')
+                print(f'\n{start}-{end} distance: {distances[end]}\nPath: {" -> ".join(paths[end])}\n')
             else:
                 for node in graph:
                     if node != start:
@@ -48,4 +48,4 @@ def calc_distances(graph, start, end = ''):
         next_obj = {k:v for (k, v) in distances.items() if k in unvisited}
         current = min(next_obj, key=next_obj.get)
 
-calc_distances(my_graph, 'A', 'G')
+shortest_path(my_graph, 'A', 'G')
