@@ -69,13 +69,9 @@ class BinarySearchTree:
 
 # Example usage:
 bst = BinarySearchTree()
-bst.insert(50)
-bst.insert(30)
-bst.insert(20)
-bst.insert(40)
-bst.insert(70)
-bst.insert(60)
-bst.insert(80)
+nodes = [50, 30, 20, 40, 70, 60, 80]
+for node in nodes:
+    bst.insert(node)
 
 print("Inorder traversal:", bst.inorder_traversal())  # Should print [20, 30, 40, 50, 60, 70, 80]
 
