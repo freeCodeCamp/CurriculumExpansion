@@ -8,23 +8,14 @@ my_graph = {
     'G': [('D', 3), ('F', 8)]
 }
 
-def shortest_path(graph, start, end = ''):
-    unvisited = []
-    distances = {}
-    paths = {}
-    inf = float('inf')
-    for node in graph:
-        unvisited.append(node)
-        paths[node] = []
-        if node == start:
-            distances[node] = 0
-        else:
-            distances[node] = inf
+def shortest_path(graph, start, target = ''):
+    unvisited = list(graph)
+    distances = {node: 0 if node == start else float('inf') for node in graph}
+    paths = {node: [] for node in graph}    
+    paths[start].append(start)
     
-    current = start
-    paths[current].append(current)
-    
-    while True:
+    while unvisited:
+        current = min(unvisited, key=distances.get)
         for node, distance in graph[current]:
             if distance + distances[current] < distances[node]:
                 distances[node] = distance + distances[current]
@@ -33,19 +24,16 @@ def shortest_path(graph, start, end = ''):
                 else:
                     paths[node].extend(paths[current])
                 paths[node].append(node)
-        if unvisited:
-            unvisited.remove(current)
-        if not unvisited:
-            if end:
-                print(f'\n{start}-{end} distance: {distances[end]}\nPath: {" -> ".join(paths[end])}\n')
-            else:
-                for node in graph:
-                    if node != start:
-                        print(f'\n{start}-{node} distance: {distances[node]}\nPath: {" -> ".join(paths[node])}')
-                print()
-            return distances, paths
+        unvisited.remove(current)
         
-        next_obj = {k:v for (k, v) in distances.items() if k in unvisited}
-        current = min(next_obj, key=next_obj.get)
+    if target:
+        print(f'\n{start}-{target} distance: {distances[target]}\nPath: {" -> ".join(paths[target])}\n')
+    else:
+        for node in graph:
+            if node == start:
+                continue
+            print(f'\n{start}-{node} distance: {distances[node]}\nPath: {" -> ".join(paths[node])}')
+        print()
+    return distances, paths
 
 shortest_path(my_graph, 'A', 'G')
