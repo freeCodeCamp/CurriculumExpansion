@@ -32,7 +32,6 @@ nav {
 
 .fcc-logo {
   width: 210px;
-  height: 24px;
   display: block;
   margin: auto;
 }
@@ -43,61 +42,53 @@ nav {
   color: var(--light-grey);
 }
 
-table {
-  table-layout: fixed;
-  width: 80%;
-  border-collapse: collapse;
-  margin: auto;
+.table-wrapper {
+  padding: 0 25px;
+  overflow-x: auto;
 }
 
-thead th:first-child {
-  width: 70%;
+table {
+  width: 100%;
+  color: var(--dark-grey);
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow-x: scroll;
+}
+
+#topics {
+  text-align: start;
+  width: 60%;
 }
 
 th {
   border-bottom: 2px solid var(--dark-grey);
-  color: var(--dark-grey);
   padding-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
-th:not(:first-child) {
+td:not(:first-child) {
   text-align: center;
-}
-
-th:first-child {
-  text-align: start;
 }
 
 td {
   border-bottom: 1px solid var(--dark-grey);
-}
-
-td {
   padding: 20px 0;
 }
 
-.post {
+.post-title {
+  font-size: 1.2rem;
   color: var(--medium-grey);
   text-decoration: none;
-}
-
-.post-title {
-  font-size: 1.3rem;
-}
-
-.topic-data {
-  text-align: center;
-  color: var(--dark-grey);
 }
 
 .category {
   padding: 3px;
   color: var(--black);
+  text-decoration: none;
   display: block;
   width: fit-content;
-  margin: 2px 0 5px;
-  text-decoration: none;
+  margin: 10px 0 10px;
 }
 
 .career {
@@ -135,22 +126,30 @@ td {
 
 .avatar-container {
   display: flex;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-@media (max-width: 760px) {
-  .views,
-  #views {
-    display: none;
+.avatar-container img {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 750px) {
+  .table-wrapper {
+    padding: 0 15px;
   }
 
-  #replies,
-  #activity {
-    font-size: 0.7rem;
+  table {
+    width: 700px;
   }
 
-  td {
-    border: none;
-    border-bottom: 1px solid var(--light-grey);
+  th {
+    font-size: 1.2rem;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
   }
 }
