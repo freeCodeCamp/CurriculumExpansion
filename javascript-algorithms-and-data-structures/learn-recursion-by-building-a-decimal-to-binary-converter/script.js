@@ -1,4 +1,4 @@
-const numberInput = document.getElementById("number");
+const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert");
 const result = document.getElementById("result");
 const animationContainer = document.getElementById("animation-container");
@@ -36,7 +36,7 @@ const animationData = [
 
 const decimalToBinary = (input) => {
   if (input === 0 || input === 1) {
-    return input.toString();
+    return new String(input);
   } else {
     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
@@ -79,7 +79,7 @@ const checkUserInput = () => {
 
   if (!numberInput.value || isNaN(inputInt)) {
     // This might be the first time where alert is introduced
-    alert("Please provide a number");
+    alert("Please provide a decimal number");
     return;
   }
 
