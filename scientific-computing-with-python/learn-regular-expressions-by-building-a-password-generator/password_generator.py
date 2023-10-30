@@ -14,7 +14,7 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
     while True:
         password = ''    
         # Generate password
-        for i in range(length):
+        for _ in range(length):
             password += secrets.choice(all_characters)
 
         # Check constraints        
@@ -25,11 +25,11 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
             (lowercase, re.findall('[a-z]', password))
         ]
 
-        if all([i <= len(j) for i, j in constraints]):
+        if all(limit <= len(matched_regex) for limit, matched_regex in constraints):
             break    
     
     return password
 
 if __name__ == "__main__":    
-    newPassword = generate_password()
-    print("Generated Password:", newPassword)
+    new_password = generate_password()
+    print("Generated Password:", new_password)
