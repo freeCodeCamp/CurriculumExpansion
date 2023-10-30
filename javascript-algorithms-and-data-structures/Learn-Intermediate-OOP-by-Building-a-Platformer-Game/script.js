@@ -182,7 +182,9 @@ const animate = () => {
 
   checkpoints.forEach((checkpoint, index) => {
     if (
-      player.position.x >= checkpoint.position.x &&
+      player.position.x >= checkpoint.position.x - player.width * 0.9 &&
+      player.position.x - player.width <=
+        checkpoint.position.x - checkpoint.width + player.width * 0.9 &&
       player.position.y >= checkpoint.position.y &&
       player.position.y + player.height <=
         checkpoint.position.y + checkpoint.height &&
