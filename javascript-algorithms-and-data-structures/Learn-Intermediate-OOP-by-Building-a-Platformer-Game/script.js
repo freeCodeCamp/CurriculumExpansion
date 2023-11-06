@@ -45,6 +45,9 @@ class Player {
     if (this.position.x < this.width) {
       this.position.x = this.width;
     }
+    if (this.position.x >= canvas.width - 2*this.width) {
+      this.position.x = canvas.width - 2*this.width
+    }
   }
 }
 
@@ -187,6 +190,7 @@ const animate = () => {
   checkpoints.forEach((checkpoint, index) => {
     const checkpointDetectionRules = [
       player.position.x >= checkpoint.position.x,
+      player.position.x - player.width <= checkpoint.position.x - checkpoint.width + player.width * 0.9,
       player.position.y >= checkpoint.position.y,
       player.position.y + player.height <=
         checkpoint.position.y + checkpoint.height,
