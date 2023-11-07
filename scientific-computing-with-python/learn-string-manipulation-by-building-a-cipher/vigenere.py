@@ -29,9 +29,9 @@ def encrypt(message, key):
 def decrypt(message, key):
     return vigenere(message, key, - 1)
 
-text = 'mrttaqrhknsw ih puucpm'
-k = 'happycoding'
+text = 'mrttaqrhknsw ih puggrur'
+custom_key = 'happycoding'
 
 print(f'\nEncrypted text: {text}')
-print(f'Key: {k}')    
-print(f'\nDecrypted text: {decrypt(text, k)}', '\n')
+print(f'Key: {custom_key}')    
+print(f'\nDecrypted text: {decrypt(text, custom_key)}', '\n')
