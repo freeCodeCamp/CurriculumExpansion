@@ -1,6 +1,6 @@
 class Board:
     def __init__(self, board):
-        self.board = board        
+        self.board = board
         self.print_board()
     
     # Find the first empty square (currently containing zero)
@@ -8,18 +8,18 @@ class Board:
         for row, lst in enumerate(self.board):
             if 0 in lst:
                 col = lst.index(0)
-                return row, col             
+                return row, col
         return None
     
     # Check if num can be inserted in the row
-    def valid_in_row(self, row, num):    
+    def valid_in_row(self, row, num):
         for col in range(9):
             if self.board[row][col] == num:
                 return False
         return True
 
     # Check if num can be inserted in the column
-    def valid_in_col(self, col, num):    
+    def valid_in_col(self, col, num):
         for row in range(9):
             if self.board[row][col] == num:
                 return False
@@ -36,19 +36,19 @@ class Board:
         return True
     
     # Check if num is a valid choice
-    # based on the return value of the 3 valid_in_x functions 
-    def is_valid(self, empty, n):        
-        valid_in_row = self.valid_in_row(empty[0], n)
-        valid_in_col = self.valid_in_col(empty[1], n)
-        valid_in_square = self.valid_in_square(empty[0], empty[1], n)
+    # based on the return value of the 3 valid_in_x functions
+    def is_valid(self, empty, num):
+        valid_in_row = self.valid_in_row(empty[0], num)
+        valid_in_col = self.valid_in_col(empty[1], num)
+        valid_in_square = self.valid_in_square(empty[0], empty[1], num)
         if all([valid_in_row, valid_in_col, valid_in_square]):
-            return n
+            return num
         return False
     
-    def print_board(self):        
+    def print_board(self):
         upper_lines = f'╔═══{"╤═══"*2}{"╦═══"}{"╤═══"*2}{"╦═══"}{"╤═══"*2}╗'
-        middle_lines = f'╟───{"┼───"*2}{"╫───"}{"┼───"*2}{"╫───"}{"┼───"*2}╢'        
-        lower_lines = f'╚═══{"╧═══"*2}{"╩═══"}{"╧═══"*2}{"╩═══"}{"╧═══"*2}╝'        
+        middle_lines = f'╟───{"┼───"*2}{"╫───"}{"┼───"*2}{"╫───"}{"┼───"*2}╢'
+        lower_lines = f'╚═══{"╧═══"*2}{"╩═══"}{"╧═══"*2}{"╩═══"}{"╧═══"*2}╝'
         print(upper_lines)
         for index, line in enumerate(self.board):
             row_list = []
@@ -63,11 +63,11 @@ class Board:
             
             row = ' '.join(str(item) for item in row_list)
             row_empty = row.replace('0', ' ')
-            print('║', row_empty, '║' )            
+            print('║', row_empty, '║' )
             if index < 8:
                 if index % 3 == 2:
                     print(f'╠═══{"╪═══"*2}{"╬═══"}{"╪═══"*2}{"╬═══"}{"╪═══"*2}╣')
-                else:        
+                else:
                     print(middle_lines)
             else:
                 print(lower_lines)
@@ -104,8 +104,7 @@ class Sudoku_Solver:
             print('\nSolved puzzle:')
             gameboard.print_board()
         else:
-            print('\nThe provided puzzle is unsolvable.')  
-
+            print('\nThe provided puzzle is unsolvable.')
 
 
 example_board = [
