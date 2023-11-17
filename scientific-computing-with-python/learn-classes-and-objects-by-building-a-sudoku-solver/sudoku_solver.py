@@ -2,10 +2,10 @@ class Board:
     def __init__(self, board):
         self.board = board        
     
-    def find_empty_square(self):
-        """Find the first empty square - currently containing zero.
+    def find_empty_cell(self):
+        """Find the first empty cell - currently containing zero.
         
-        Returns tuple with row and col indices, for square that's not yet filled.
+        Returns tuple with row and col indices, for cell that's not yet filled.
         Otherwise returns None.
         """
         for row, contents in enumerate(self.board):
@@ -76,7 +76,7 @@ class Board:
         Returns True when sudoku is solved, otherwise returns False.
         """
                  
-        if (next_empty := self.find_empty_square()) is None:
+        if (next_empty := self.find_empty_cell()) is None:
             return True
         else:            
             for guess in range(1, 10):                
