@@ -3,7 +3,11 @@ class Board:
         self.board = board        
     
     def find_empty_square(self):
-        '''Find the first empty square - currently containing zero.'''
+        """Find the first empty square - currently containing zero.
+        
+        Returns tuple with row and col indices, for square that's not yet filled.
+        Otherwise returns None.
+        """
         for row, contents in enumerate(self.board):
             try:
                 col = contents.index(0)                
@@ -13,18 +17,18 @@ class Board:
         return None    
     
     def valid_in_row(self, row, num):
-        '''Check if num can be inserted in the row.'''
+        """Check if num can be inserted in the row."""
         return num not in self.board[row]    
     
     def valid_in_col(self, col, num):
-        '''Check if num can be inserted in the column.'''
+        """Check if num can be inserted in the column."""
         return all(
             self.board[row][col] != num
             for row in range(9)
         )    
     
     def valid_in_square(self, row, col, num):
-        '''Check if num can be inserted in 3x3 square.'''
+        """Check if num can be inserted in 3x3 square."""
         row_start = (row // 3) * 3
         col_start = (col // 3) * 3
         for row_no in range(row_start, row_start + 3):
@@ -34,8 +38,7 @@ class Board:
         return True      
     
     def is_valid(self, empty, num):
-        '''Check if num is a valid choice
-        based on the return value of the 3 valid_in_x functions.'''
+        """Check if num is a valid choice for empty cell."""
         row, col = empty
         valid_in_row = self.valid_in_row(row, num)
         valid_in_col = self.valid_in_col(col, num)
@@ -43,7 +46,7 @@ class Board:
         return all([valid_in_row, valid_in_col, valid_in_square])            
     
     def print_board(self):
-        '''Print the puzzle board.'''        
+        """Print the puzzle board."""
         upper_lines = f'╔═══{"╤═══"*2}{"╦═══"}{"╤═══"*2}{"╦═══"}{"╤═══"*2}╗'
         middle_lines = f'╟───{"┼───"*2}{"╫───"}{"┼───"*2}{"╫───"}{"┼───"*2}╢'
         lower_lines = f'╚═══{"╧═══"*2}{"╩═══"}{"╧═══"*2}{"╩═══"}{"╧═══"*2}╝'
@@ -68,11 +71,10 @@ class Board:
                 print(lower_lines)
 
     def solver(self):
-        '''When no empty square can be found the puzzle is solved.
-        Otherwise, find the first valid digit to insert from 1 to 9.
-        Replace the zero with the valid digit.
-        If the puzzle cannot be solved restore the zero.
-        Trigger the backtracking if guesses don't lead to the solution.'''
+        """Attempt solving the sudoku in-place.
+        
+        Returns True when sudoku is solved, otherwise returns False.
+        """
                  
         if (next_empty := self.find_empty_square()) is None:
             return True
@@ -90,9 +92,10 @@ class Board:
     
 
 def solve_sudoku(board):
-    '''Istantiate a Board object, print the puzzle to solve,
-    call the solver method from the Board class, print the result
-    and return the Board object.'''
+    """Print and solve sudoku board.
+    
+    Returns Board object.
+    """
 
     gameboard = Board(board)
     print('\nPuzzle to solve:')
