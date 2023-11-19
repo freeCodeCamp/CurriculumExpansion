@@ -36,4 +36,3 @@ def shortest_path(graph, start, target = ''):
 shortest_path(my_graph, 'A', 'F
 ')
 
-              
