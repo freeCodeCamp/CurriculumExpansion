@@ -15,37 +15,38 @@ IBM scientist Hans Peter Luhn, is a simple check digit formula used to validate 
 
 
 def check(card_number):
-		sum_of_odd_digits = 0
-		sum_of_even_digits = 0
+    sum_of_odd_digits = 0
+    sum_of_even_digits = 0
 
-		card_number_reversed = card_number[::-1]
+    card_number_reversed = card_number[::-1]
 
-		for number in card_number_reversed[::2]:
-				sum_of_odd_digits += int(number)
+    for number in card_number_reversed[::2]:
+        sum_of_odd_digits += int(number)
 
-		for number in card_number_reversed[1::2]:
-				number = int(number) * 2
-				if number >= 10:
-						sum_of_even_digits += (number // 10) + (number % 10)
-				else:
-						sum_of_even_digits += number
+    for number in card_number_reversed[1::2]:
+        number = int(number) * 2
+        if number >= 10:
+            sum_of_even_digits += (number // 10) + (number % 10)
+        else:
+            sum_of_even_digits += number
 
-		total = sum_of_odd_digits + sum_of_even_digits
+    total = sum_of_odd_digits + sum_of_even_digits
 
-		return total % 10 == 0
+    return total % 10 == 0
 
 
 def main():
-		card_number = '4111-1111-4555-1142'
+    card_number = '4111-1111-4555-1142'
 
-		if '-' or ' ' in card_number:
-				card_number = card_number.translate(str.maketrans({'-': '', ' ': ''}))
+    if '-' or ' ' in card_number:
+        card_number = card_number.translate(str.maketrans({'-': '', ' ': ''}))
 
-		if check(card_number):
-				print('VALID!')
-		else:
-				print('INVALID!')
+    if check(card_number):
+        print('VALID!')
+    else:
+        print('INVALID!')
 
 
 if __name__ == '__main__':
-		main()
+    main()
+
