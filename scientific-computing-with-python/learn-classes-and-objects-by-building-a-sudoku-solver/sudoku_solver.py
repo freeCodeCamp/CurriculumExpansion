@@ -1,6 +1,33 @@
 class Board:
     def __init__(self, board):
-        self.board = board        
+        self.board = board
+
+    def __str__(self):
+        upper_lines = f'\n╔═══{"╤═══"*2}{"╦═══"}{"╤═══"*2}{"╦═══"}{"╤═══"*2}╗\n'
+        middle_lines = f'╟───{"┼───"*2}{"╫───"}{"┼───"*2}{"╫───"}{"┼───"*2}╢\n'
+        lower_lines = f'╚═══{"╧═══"*2}{"╩═══"}{"╧═══"*2}{"╩═══"}{"╧═══"*2}╝\n'
+        board_string = upper_lines
+        for index, line in enumerate(self.board):
+            row_list = []
+            for square_no, part in enumerate([line[:3], line[3:6], line[6:]], start=1):
+                row_square = '|'.join(str(item) for item in part)
+                row_list.extend(row_square)
+                if square_no != 3:
+                    row_list.append('║')
+
+            row = f'║ {" ".join(row_list)} ║\n'
+            row_empty = row.replace('0', ' ')
+            board_string += row_empty
+            
+            if index < 8:
+                if index % 3 == 2:
+                    board_string += f'╠═══{"╪═══"*2}{"╬═══"}{"╪═══"*2}{"╬═══"}{"╪═══"*2}╣\n'
+                else:
+                    board_string += middle_lines
+            else:
+                board_string += lower_lines
+
+        return board_string
     
     def find_empty_cell(self):
         """Find the first empty cell - currently containing zero.
@@ -10,22 +37,22 @@ class Board:
         """
         for row, contents in enumerate(self.board):
             try:
-                col = contents.index(0)                
+                col = contents.index(0)
                 return row, col
             except ValueError:
                 pass
-        return None    
+        return None
     
     def valid_in_row(self, row, num):
         """Check if num can be inserted in the row."""
-        return num not in self.board[row]    
+        return num not in self.board[row]
     
     def valid_in_col(self, col, num):
         """Check if num can be inserted in the column."""
         return all(
             self.board[row][col] != num
             for row in range(9)
-        )    
+        )
     
     def valid_in_square(self, row, col, num):
         """Check if num can be inserted in 3x3 square."""
@@ -35,7 +62,7 @@ class Board:
             for col_no in range(col_start, col_start + 3):
                 if self.board[row_no][col_no] == num:
                     return False
-        return True      
+        return True
     
     def is_valid(self, empty, num):
         """Check if num is a valid choice for empty cell."""
@@ -43,43 +70,18 @@ class Board:
         valid_in_row = self.valid_in_row(row, num)
         valid_in_col = self.valid_in_col(col, num)
         valid_in_square = self.valid_in_square(row, col, num)
-        return all([valid_in_row, valid_in_col, valid_in_square])            
-    
-    def print_board(self):
-        """Print the puzzle board."""
-        upper_lines = f'╔═══{"╤═══"*2}{"╦═══"}{"╤═══"*2}{"╦═══"}{"╤═══"*2}╗'
-        middle_lines = f'╟───{"┼───"*2}{"╫───"}{"┼───"*2}{"╫───"}{"┼───"*2}╢'
-        lower_lines = f'╚═══{"╧═══"*2}{"╩═══"}{"╧═══"*2}{"╩═══"}{"╧═══"*2}╝'
-        print(upper_lines)
-        for index, line in enumerate(self.board):
-            row_list = []
-            for square_no, part in enumerate([line[:3], line[3:6], line[6:]], start=1):
-                row_square = '|'.join(str(item) for item in part)
-                row_list.extend(row_square)
-                if square_no != 3:
-                    row_list.append('║')
-            
-            row = ' '.join(row_list)
-            row_empty = row.replace('0', ' ')
-            print('║', row_empty, '║' )
-            if index < 8:
-                if index % 3 == 2:
-                    print(f'╠═══{"╪═══"*2}{"╬═══"}{"╪═══"*2}{"╬═══"}{"╪═══"*2}╣')
-                else:
-                    print(middle_lines)
-            else:
-                print(lower_lines)
+        return all([valid_in_row, valid_in_col, valid_in_square])
 
     def solver(self):
         """Attempt solving the sudoku in-place.
         
         Returns True when sudoku is solved, otherwise returns False.
         """
-                 
+        
         if (next_empty := self.find_empty_cell()) is None:
             return True
-        else:            
-            for guess in range(1, 10):                
+        else:
+            for guess in range(1, 10):
                 if self.is_valid(next_empty, guess):
                     row, col = next_empty
                     self.board[row][col] = guess
@@ -89,7 +91,7 @@ class Board:
                     self.board[row][col] = 0
 
         return False
-    
+
 
 def solve_sudoku(board):
     """Print and solve sudoku board.
@@ -99,10 +101,10 @@ def solve_sudoku(board):
 
     gameboard = Board(board)
     print('\nPuzzle to solve:')
-    gameboard.print_board()        
-    if gameboard.solver():        
+    print(gameboard)
+    if gameboard.solver():
         print('\nSolved puzzle:')
-        gameboard.print_board()
+        print(gameboard)
     else:
         print('\nThe provided puzzle is unsolvable.')
     return gameboard
