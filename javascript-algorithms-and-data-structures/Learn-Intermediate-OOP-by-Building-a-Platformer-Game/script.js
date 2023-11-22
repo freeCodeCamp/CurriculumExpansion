@@ -67,13 +67,15 @@ class Platform {
 }
 
 class CheckPoint {
-  constructor(x, y) {
+  constructor(x, y, z) {
+    this.order = z;
     this.position = {
       x,
       y,
     };
     this.width = 40;
     this.height = 70;
+    this.claimed = false;
   };
 
   draw() {
@@ -84,6 +86,7 @@ class CheckPoint {
     this.width = 0;
     this.height = 0;
     this.position.y = Infinity;
+    this.claimed = true;
   }
 };
 
@@ -109,13 +112,13 @@ const platforms = platformPositions.map(
 );
 
 const checkpointPositions = [
-  { x: 1170, y: 80 },
-  { x: 2900, y: 330 },
-  { x: 4800, y: 80 },
+  { x: 1170, y: 80, z: 1},
+  { x: 2900, y: 330, z: 2 },
+  { x: 4800, y: 80, z: 3 },
 ];
 
 const checkpoints = checkpointPositions.map(
-  checkpoint => new CheckPoint(checkpoint.x, checkpoint.y)
+  checkpoint => new CheckPoint(checkpoint.x, checkpoint.y, checkpoint.z)
 );
 
 const animate = () => {
@@ -187,14 +190,15 @@ const animate = () => {
     };
   });
 
-  checkpoints.forEach((checkpoint, index) => {
+  checkpoints.forEach((checkpoint, index, checkpoints) => {
     const checkpointDetectionRules = [
       player.position.x >= checkpoint.position.x,
       player.position.x - player.width <= checkpoint.position.x - checkpoint.width + player.width * 0.9,
       player.position.y >= checkpoint.position.y,
       player.position.y + player.height <=
         checkpoint.position.y + checkpoint.height,
-      isCheckpointCollisionDetectionActive
+      isCheckpointCollisionDetectionActive,
+      index === 0 || checkpoints[index-1].claimed === true
     ];
 
     if (checkpointDetectionRules.every((rule) => rule)) {
