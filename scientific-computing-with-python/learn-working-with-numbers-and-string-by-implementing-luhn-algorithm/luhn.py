@@ -38,8 +38,7 @@ def check(card_number):
 def main():
     card_number = '4111-1111-4555-1142'
 
-    if '-' or ' ' in card_number:
-        card_number = card_number.translate(str.maketrans({'-': '', ' ': ''}))
+    card_number = card_number.translate(str.maketrans({'-': '', ' ': ''}))
 
     if check(card_number):
         print('VALID!')
