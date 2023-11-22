@@ -40,7 +40,7 @@ def main():
 
     card_number = card_number.translate(str.maketrans({'-': '', ' ': ''}))
 
-    if check(card_number):
+    if verify_card_number(card_number):
         print('VALID!')
     else:
         print('INVALID!')
