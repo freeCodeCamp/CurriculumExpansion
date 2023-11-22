@@ -23,12 +23,12 @@ def check(card_number):
     for number in card_number_reversed[::2]:
         sum_of_odd_digits += int(number)
 
-    for number in card_number_reversed[1::2]:
-        number = int(number) * 2
+    sum_of_even_digits = 0
+    for digit in card_number_reversed[1::2]:
+        number = int(digit) * 2
         if number >= 10:
-            sum_of_even_digits += (number // 10) + (number % 10)
-        else:
-            sum_of_even_digits += number
+            number = (number // 10) + (number % 10)
+        sum_of_even_digits += number
 
     total = sum_of_odd_digits + sum_of_even_digits
 
