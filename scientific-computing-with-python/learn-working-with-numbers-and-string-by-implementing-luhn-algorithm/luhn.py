@@ -14,7 +14,7 @@ IBM scientist Hans Peter Luhn, is a simple check digit formula used to validate 
 """
 
 
-def check(card_number):
+def verify_card_number(card_number):
     sum_of_odd_digits = 0
     sum_of_even_digits = 0
 
