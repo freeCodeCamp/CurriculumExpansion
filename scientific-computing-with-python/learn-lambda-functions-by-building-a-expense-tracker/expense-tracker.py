@@ -3,7 +3,7 @@ expenses = []
 def add_expense(amount, category):
     expenses.append({"amount": amount, "category": category})
 
-def list_expenses():
+def print_expenses(expenses):
     for expense in expenses:
         print(f"Amount: {expense['amount']}, Category: {expense['category']}")
 
