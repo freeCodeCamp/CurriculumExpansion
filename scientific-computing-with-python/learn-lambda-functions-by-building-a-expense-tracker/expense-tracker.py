@@ -11,9 +11,7 @@ def total_expenses():
     return sum(map(lambda expense: expense['amount'], expenses))
 
 def filter_expenses_by_category(category):
-    filtered_expenses = filter(lambda expense: expense['category'] == category, expenses)
-    for expense in filtered_expenses:
-        print(f"Amount: {expense['amount']}, Category: {expense['category']}")
+    return filter(lambda expense: expense['category'] == category, expenses)
 
 def main():
     while True:
