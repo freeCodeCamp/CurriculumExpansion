@@ -39,7 +39,8 @@ def main():
         elif choice == '4':
             category = input("Enter category to filter: ")
             print(f"\nExpenses for {category}:")
-            filter_expenses_by_category(category)
+            expenses_from_category = filter_expenses_by_category(category)
+            print_expenses(expenses_from_category)
 
         elif choice == '5':
             print("Exiting the program.")
