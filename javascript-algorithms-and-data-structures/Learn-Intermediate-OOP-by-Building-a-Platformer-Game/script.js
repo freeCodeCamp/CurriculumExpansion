@@ -10,7 +10,7 @@ const gravity = 0.5;
 let isCheckpointCollisionDetectionActive = true;
 
 function proportionalSize(s) {
-  return innerHeight < 500 ? Math.round((s / 500) * innerHeight) : s;
+  return innerHeight < 500 ? Math.ceil((s / 500) * innerHeight) : s;
 }
 
 class Player {
@@ -97,36 +97,29 @@ class CheckPoint {
 const player = new Player();
 
 const platformPositions = [
-  { x: 500, y: 450 },
-  { x: 700, y: 400 },
-  { x: 850, y: 350 },
-  { x: 900, y: 350 },
-  { x: 1050, y: 150 },
-  { x: 2500, y: 450 },
-  { x: 2900, y: 400 },
-  { x: 3150, y: 350 },
-  { x: 3900, y: 450 },
-  { x: 4200, y: 400 },
-  { x: 4400, y: 200 },
-  { x: 4700, y: 150 },
-].map(({ x, y }) => ({
-  x,
-  y: proportionalSize(y),
-}));
+  { x: 500, y: proportionalSize(450) },
+  { x: 700, y: proportionalSize(400) },
+  { x: 850, y: proportionalSize(350) },
+  { x: 900, y: proportionalSize(350) },
+  { x: 1050, y: proportionalSize(150) },
+  { x: 2500, y: proportionalSize(450) },
+  { x: 2900, y: proportionalSize(400) },
+  { x: 3150, y: proportionalSize(350) },
+  { x: 3900, y: proportionalSize(450) },
+  { x: 4200, y: proportionalSize(400) },
+  { x: 4400, y: proportionalSize(200) },
+  { x: 4700, y: proportionalSize(150) },
+];
 
 const platforms = platformPositions.map(
   (platform) => new Platform(platform.x, platform.y)
 );
 
 const checkpointPositions = [
-  { x: 1170, y: 80, z: 1 },
-  { x: 2900, y: 330, z: 2 },
-  { x: 4800, y: 80, z: 3 },
-].map(({ x, y, z }) => ({
-  x,
-  y: proportionalSize(y),
-  z,
-}));
+  { x: 1170, y: proportionalSize(80), z: 1 },
+  { x: 2900, y: proportionalSize(330), z: 2 },
+  { x: 4800, y: proportionalSize(80), z: 3 },
+];
 
 const checkpoints = checkpointPositions.map(
   (checkpoint) => new CheckPoint(checkpoint.x, checkpoint.y, checkpoint.z)
@@ -146,9 +139,12 @@ const animate = () => {
 
   player.update();
 
-  if (keys.rightKey.pressed && player.position.x < 400) {
+  if (keys.rightKey.pressed && player.position.x < proportionalSize(400)) {
     player.velocity.x = 5;
-  } else if (keys.leftKey.pressed && player.position.x > 100) {
+  } else if (
+    keys.leftKey.pressed &&
+    player.position.x > proportionalSize(100)
+  ) {
     player.velocity.x = -5;
   } else {
     player.velocity.x = 0;
@@ -222,7 +218,7 @@ const animate = () => {
         movePlayer('ArrowRight', 0, false);
       } else if (
         player.position.x >= checkpoint.position.x &&
-        player.position.x <= checkpoint.position.x + 40
+        player.position.x <= checkpoint.position.x + proportionalSize(40)
       ) {
         showCheckpointScreen('You reached a checkpoint!');
       }
