@@ -9,8 +9,8 @@ canvas.height = innerHeight;
 const gravity = 0.5;
 let isCheckpointCollisionDetectionActive = true;
 
-function proportionalSize(s) {
-  return innerHeight < 500 ? Math.ceil((s / 500) * innerHeight) : s;
+function proportionalSize(size) {
+  return innerHeight < 500 ? Math.ceil((size / 500) * innerHeight) : size;
 }
 
 class Player {
