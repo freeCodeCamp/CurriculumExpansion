@@ -92,7 +92,7 @@ def terminal_menu():
     while True:
         if page == 0:
             value_from_user = input(
-                "Please provide angle, speed and starting height for the projectile separated by a space: "
+                "Please provide starting height, speed and angle for the projectile separated by a space: "
             )
             value_from_user = list(map(int, re.split(r' +', value_from_user)))
             bullet = Projectile(*value_from_user)
