@@ -13,11 +13,11 @@ class Projectile:
         self.__speed = speed
         self.__angle = math.radians(angle)
 
-        self.__calculate_displacement()
-        self.__calculate_all_coordinates()
+        self.__displacement = self.__calculate_displacement()
+        self.__coordinates = self.__calculate_all_coordinates()
 
     def __calculate_displacement(self):
-        self.__displacement = self.__speed * math.cos(self.__angle) * (
+        return self.__speed * math.cos(self.__angle) * (
             self.__speed * math.sin(self.__angle) +
             math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
                       2 * g * self.__height)) / g
@@ -27,10 +27,10 @@ class Projectile:
             2 * self.__speed**2 * math.cos(self.__angle)**2)
 
     def __calculate_all_coordinates(self):
-        self.__coordinates = []
-        for x in range(math.ceil(self.__displacement)):
-            y = self.__calculate_y_coordinate(x)
-            self.__coordinates.append((x, y))
+        return [
+            (x, self._calculate_y_coordinate(x))
+            for x in range(math.ceil(self.__displacement))
+        ]
 
     def __create_coordinates_table(self):
         table = '  x      y\n'
@@ -65,13 +65,10 @@ class Projectile:
         return self.__create_trajectory()
 
     def table(self):
-        table = self.__create_coordinates_table()
-        return table
+        return self.__create_coordinates_table()
 
     def details(self):
-        print(
-            f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__displacement, 1)} m'
-        )
+        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__displacement, 1)} m'
 
     def __setitem__(self, key, newvalue):
         if key == 'angle':
@@ -94,7 +91,7 @@ def terminal_menu():
             value_from_user = input(
                 "Please provide starting height, speed and angle for the projectile separated by a space: "
             )
-            value_from_user = list(map(int, re.split(r' +', value_from_user)))
+            numbers = [int(number) for number in value_from_user.split()]
             bullet = Projectile(*value_from_user)
             page = 1
         elif page == 1:
