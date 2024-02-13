@@ -14,8 +14,8 @@ class Projectile:
         self.__speed = speed
         self.__angle = math.radians(angle)
 
-        self.__displacement = self.__calculate_displacement()
-        self.__coordinates = self.__calculate_all_coordinates()
+        self.__displacement = self.__calculate_displacement() #TODO use arguments for speed height angle
+        self.__coordinates = self.__calculate_all_coordinates() #TODO use arguments for speed height angle
 
     def __calculate_displacement(self):
         #TODO: break in smaller pieces
@@ -73,18 +73,49 @@ class Projectile:
     def details(self):
         return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__displacement, 1)} m'
 
-    def __setitem__(self, key, newvalue):
-        if key == 'angle':
-            self.__angle = math.radians(newvalue)
-        elif key == 'speed':
-            self.__speed = newvalue
-        elif key == 'height':
-            self.__height = newvalue
-        else:
-            return "Invalid property name"
+    @property
+    def height(self):
+        return self.__height
+    
+    @height.setter
+    def height(self, new_height):
+        self.__height = new_height
+        self.__displacement = self.__calculate_displacement()
+        self.__coordinates = self.__calculate_all_coordinates()
 
-        self.__calculate_displacement()
-        self.__calculate_all_coordinates()
+    @property
+    def angle(self):
+        return self.__angle
+    
+    @angle.setter
+    def angle(self, new_angle):
+        self.__angle = math.radians(new_angle)
+        self.__displacement = self.__calculate_displacement()
+        self.__coordinates = self.__calculate_all_coordinates()
+
+    @property
+    def speed(self):
+        return self.__speed
+
+    @speed.setter
+    def speed(self, new_speed):
+        self.__speed = new_speed
+        self.__displacement = self.__calculate_displacement()
+        self.__coordinates = self.__calculate_all_coordinates()
+        
+
+    # def __setitem__(self, key, newvalue):
+    #     if key == 'angle':
+    #         self.__angle = math.radians(newvalue)
+    #     elif key == 'speed':
+    #         self.__speed = newvalue
+    #     elif key == 'height':
+    #         self.__height = newvalue
+    #     else:
+    #         return "Invalid property name"
+
+    #     self.__calculate_displacement()
+    #     self.__calculate_all_coordinates()
 
 
 def terminal_menu():
