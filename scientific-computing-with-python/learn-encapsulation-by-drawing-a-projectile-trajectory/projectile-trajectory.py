@@ -2,8 +2,8 @@ import math
 import re
 
 # constants
-g = 9.81
-projectile = '∙'
+GRAVITATIONAL_ACCELERATION = 9.81
+PROJECTILE = '∙'
 
 
 class Projectile:
@@ -22,11 +22,11 @@ class Projectile:
         return self.__speed * math.cos(self.__angle) * (
             self.__speed * math.sin(self.__angle) +
             math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
-                      2 * g * self.__height)) / g
+                      2 * g * self.__height)) / GRAVITATIONAL_ACCELERATION
 
     def __calculate_y_coordinate(self, x):
         #TODO: break in smaller pieces
-        return self.__height + math.tan(self.__angle) * x - g * x**2 / (
+        return self.__height + math.tan(self.__angle) * x - GRAVITATIONAL_ACCELERATION * x**2 / (
             2 * self.__speed**2 * math.cos(self.__angle)**2)
 
     def __calculate_all_coordinates(self):
@@ -52,7 +52,7 @@ class Projectile:
             row = ''
             for x in range(-2, columns + 1):
                 if (x, y) in rounded_coord:
-                    row += projectile
+                    row += PROJECTILE
                 elif x == -1 and y >= 0:
                     row += '⊣'
                 elif y == -1 and x >= 0:
@@ -108,7 +108,7 @@ def terminal_menu():
     while True:
         if page == 0:
             value_from_user = input(
-                "Please provide starting height, speed and angle for the projectile separated by a space: "
+                "Please provide starting height, speed and angle for the PROJECTILE separated by a space: "
             )
             numbers = [int(number) for number in value_from_user.split()]
             
