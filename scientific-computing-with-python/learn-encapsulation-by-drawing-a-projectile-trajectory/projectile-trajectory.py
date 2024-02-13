@@ -7,6 +7,7 @@ projectile = '∙'
 
 
 class Projectile:
+    __slots__ = ('__height', '__speed', '__angle', '__displacement', '__coordinates')
 
     def __init__(self, height, speed, angle):
         self.__height = height
@@ -17,12 +18,14 @@ class Projectile:
         self.__coordinates = self.__calculate_all_coordinates()
 
     def __calculate_displacement(self):
+        #TODO: break in smaller pieces
         return self.__speed * math.cos(self.__angle) * (
             self.__speed * math.sin(self.__angle) +
             math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
                       2 * g * self.__height)) / g
 
     def __calculate_y_coordinate(self, x):
+        #TODO: break in smaller pieces
         return self.__height + math.tan(self.__angle) * x - g * x**2 / (
             2 * self.__speed**2 * math.cos(self.__angle)**2)
 
@@ -97,10 +100,13 @@ def terminal_menu():
         elif page == 1:
             print()
             bullet.details()
-            page = int(
-                input(
-                    "\nChoose what to do:\n1. Draw trajectory\n2. List coordinates\n3. Change a value\n4. Exit\n"
-                )) + 1
+            try:
+                page = int(
+                    input(
+                        "\nChoose what to do:\n1. Draw trajectory\n2. List coordinates\n3. Change a value\n4. Exit\n"
+                    )) + 1
+            except:
+                print('Invalid input, please try again')
         elif page == 2:
             print(bullet)
             page = 1
@@ -110,7 +116,11 @@ def terminal_menu():
         elif page == 4:
             key = input(
                 'Write "speed", "angle", or "height" to choose which value:')
-            value = float(input('What value do you want to give?'))
+            try:
+                value = float(input('What value do you want to give?'))
+                bullet[key] = value
+            except:
+                print('Invalid value has been submitted')
             bullet[key] = value
             page = 1
         elif page == 5:
