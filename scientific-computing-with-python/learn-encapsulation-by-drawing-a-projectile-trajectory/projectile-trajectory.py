@@ -22,7 +22,7 @@ class Projectile:
         return self.__speed * math.cos(self.__angle) * (
             self.__speed * math.sin(self.__angle) +
             math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
-                      2 * g * self.__height)) / GRAVITATIONAL_ACCELERATION
+                      2 * GRAVITATIONAL_ACCELERATION * self.__height)) / GRAVITATIONAL_ACCELERATION
 
     def __calculate_y_coordinate(self, x):
         #TODO: break in smaller pieces
