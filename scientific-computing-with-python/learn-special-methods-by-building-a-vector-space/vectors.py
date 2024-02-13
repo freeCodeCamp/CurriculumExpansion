@@ -13,28 +13,30 @@ class Vector:
     def __repr__(self):
         return f'Vector({self.x}, {self.y}, {self.z})'
 
-    def __add__(self, other):        
+    def __add__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
         x = self.x + other.x
         y = self.y + other.y
-        z = self.z + other.z
-        v = Vector(x, y, z)
-        return v
+        z = self.z + other.z        
+        return Vector(x, y, z)
     
     def __sub__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
         x = self.x - other.x
         y = self.y - other.y
         z = self.z - other.z
-        v = Vector(x, y, z)
-        return v
+        return Vector(x, y, z)
     
     def __mul__(self, other):
         # Scalar multiplication
-        if isinstance(other, int) or isinstance(other, float):
-            self.x *= other
-            self.y *= other
-            self.z *= other
-            self.norm *= other
-            return self
+        if isinstance(other, (float, int)):
+            x = self.x * other
+            y = self.y * other
+            z = self.z * other            
+            return Vector(x, y, z)
+        
         # Scalar product
         elif isinstance(other, Vector):
             x = self.x * other.x
@@ -45,13 +47,16 @@ class Vector:
         
     def cross(self, other):
         # Cross product
+        if not isinstance(other, Vector):
+            raise TypeError('Argument must be a Vector instance')
         x = self.y * other.z - self.z * other.y
         y = self.z * other.x - self.x * other.z
         z = self.x * other.y - self.y * other.x
-        v = Vector(x, y, z)
-        return v
+        return Vector(x, y, z)
     
     def __eq__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
         if self.x == other.x \
         and self.y == other.y \
         and self.z == other.z:
@@ -62,12 +67,16 @@ class Vector:
         return not self == other
     
     def __lt__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
         return self.norm < other.norm
     
     def __gt__(self, other):
         return not self < other
     
     def __le__(self, other):
+        if not isinstance(other, Vector):
+            return NotImplemented
         return self.norm <= other.norm
     
     def __ge__(self, other):
