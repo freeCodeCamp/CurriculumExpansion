@@ -14,8 +14,8 @@ class Projectile:
         self.__speed = speed
         self.__angle = math.radians(angle)
 
-        self.__displacement = self.__calculate_displacement() #TODO use arguments for speed height angle
-        self.__coordinates = self.__calculate_all_coordinates() #TODO use arguments for speed height angle
+        self.__displacement = self.__calculate_displacement()
+        self.__coordinates = self.__calculate_all_coordinates()
 
     def __calculate_displacement(self):
         #TODO: break in smaller pieces
@@ -31,7 +31,7 @@ class Projectile:
 
     def __calculate_all_coordinates(self):
         return [
-            (x, self._calculate_y_coordinate(x))
+            (x, self.__calculate_y_coordinate(x))
             for x in range(math.ceil(self.__displacement))
         ]
 
@@ -102,21 +102,6 @@ class Projectile:
         self.__speed = new_speed
         self.__displacement = self.__calculate_displacement()
         self.__coordinates = self.__calculate_all_coordinates()
-        
-
-    # def __setitem__(self, key, newvalue):
-    #     if key == 'angle':
-    #         self.__angle = math.radians(newvalue)
-    #     elif key == 'speed':
-    #         self.__speed = newvalue
-    #     elif key == 'height':
-    #         self.__height = newvalue
-    #     else:
-    #         return "Invalid property name"
-
-    #     self.__calculate_displacement()
-    #     self.__calculate_all_coordinates()
-
 
 def terminal_menu():
     page = 0
@@ -126,7 +111,8 @@ def terminal_menu():
                 "Please provide starting height, speed and angle for the projectile separated by a space: "
             )
             numbers = [int(number) for number in value_from_user.split()]
-            bullet = Projectile(*value_from_user)
+            
+            bullet = Projectile(*numbers)
             page = 1
         elif page == 1:
             print()
@@ -146,13 +132,21 @@ def terminal_menu():
             page = 1
         elif page == 4:
             key = input(
-                'Write "speed", "angle", or "height" to choose which value:')
+                'Write "speed", "angle", or "height" to choose which value: ')
             try:
-                value = float(input('What value do you want to give?'))
-                bullet[key] = value
+                value = float(input('What value do you want to give? '))
+                if key == 'speed':
+                    bullet.speed = value
+                elif key == 'angle':
+                    bullet.angle = value
+                elif key == 'height':
+                    bullet.height = value
+                else:
+                    raise Exception("Valid keys are 'speed', 'height', 'angle'")
+
             except:
                 print('Invalid value has been submitted')
-            bullet[key] = value
+            
             page = 1
         elif page == 5:
             break
