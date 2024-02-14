@@ -19,7 +19,7 @@ class Vector:
         x = self.x + other.x
         y = self.y + other.y
         z = self.z + other.z        
-        return Vector(x, y, z)
+        return self.__class__(x, y, z)
     
     def __sub__(self, other):
         if not isinstance(other, Vector):
@@ -57,9 +57,7 @@ class Vector:
     def __eq__(self, other):
         if not isinstance(other, Vector):
             return NotImplemented
-        if self.x == other.x \
-        and self.y == other.y \
-        and self.z == other.z:
+        if self.x == other.x and self.y == other.y and self.z == other.z:
             return True
         return False
     
