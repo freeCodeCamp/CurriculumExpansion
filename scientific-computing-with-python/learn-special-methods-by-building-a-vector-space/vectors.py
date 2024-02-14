@@ -44,11 +44,14 @@ class Vector:
             z = self.z * other.z
             scalar = (x**2 + y**2 + z**2)**0.5
             return scalar
+        else:
+            other_type = other.__class__.__name__
+            raise TypeError(f"Multiplication is not defined between 'Vector' and '{other_type}'")
         
     def cross(self, other):
         # Cross product
         if not isinstance(other, Vector):
-            raise TypeError('Argument must be a Vector instance')
+            raise TypeError("Argument must be a 'Vector' instance")
         x = self.y * other.z - self.z * other.y
         y = self.z * other.x - self.x * other.z
         z = self.x * other.y - self.y * other.x
