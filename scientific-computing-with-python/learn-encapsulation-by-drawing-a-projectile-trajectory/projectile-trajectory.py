@@ -16,24 +16,36 @@ class Projectile:
 
     def __calculate_displacement(self):
         #TODO: break in smaller pieces
-        return self.__speed * math.cos(self.__angle) * (
-            self.__speed * math.sin(self.__angle) +
-            math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
-                      2 * GRAVITATIONAL_ACCELERATION * self.__height)) / GRAVITATIONAL_ACCELERATION
-    
+        # return self.__speed * math.cos(self.__angle) * (
+        #     self.__speed * math.sin(self.__angle) +
+        #     math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
+        #               2 * GRAVITATIONAL_ACCELERATION * self.__height)) / GRAVITATIONAL_ACCELERATION
+        horizontal_component = self.__speed * math.cos(self.__angle)
+        vertical_component = self.__speed * math.sin(self.__angle)
+        sqrt_component = math.sqrt(self.__speed ** 2 * math.sin(self.__angle) ** 2 +
+                                   2 * GRAVITATIONAL_ACCELERATION * self.__height)
+        displacement = horizontal_component * (vertical_component + sqrt_component) / GRAVITATIONAL_ACCELERATION
+        return displacement
+
     def __calculate_y_coordinate(self, x):
         #TODO: break in smaller pieces
-        return self.__height + math.tan(self.__angle) * x - GRAVITATIONAL_ACCELERATION * x**2 / (
-            2 * self.__speed**2 * math.cos(self.__angle)**2)
+        # return self.__height + math.tan(self.__angle) * x - GRAVITATIONAL_ACCELERATION * x**2 / (
+        #     2 * self.__speed**2 * math.cos(self.__angle)**2)
+        height_component = self.__height
+        angle_component = math.tan(self.__angle) * x
+        acceleration_component = GRAVITATIONAL_ACCELERATION * x ** 2 / (
+                2 * self.__speed ** 2 * math.cos(self.__angle) ** 2)
+        y_coordinate = height_component + angle_component - acceleration_component
+        return y_coordinate
 
     def calculate_all_coordinates(self):
         return [
             (x, self.__calculate_y_coordinate(x))
-            for x in range(math.ceil(self.__displacement))
+            for x in range(math.ceil(self.__calculate_displacement))
         ]
 
     def details(self):
-        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacementdisplacement, 1)} m'
+        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacement, 1)} m'
 
     def __str__(self):
         return self.details()
