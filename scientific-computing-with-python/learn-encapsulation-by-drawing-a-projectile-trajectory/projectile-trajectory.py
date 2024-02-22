@@ -7,15 +7,12 @@ PROJECTILE = '∙'
 
 
 class Projectile:
-    __slots__ = ('__height', '__speed', '__angle', '__displacement', '__coordinates')
+    __slots__ = ('__height', '__speed', '__angle')
 
     def __init__(self, height, speed, angle):
         self.__height = height
         self.__speed = speed
         self.__angle = math.radians(angle)
-
-        self.__displacement = self.__calculate_displacement()
-        self.__coordinates = self.__calculate_all_coordinates()
 
     def __calculate_displacement(self):
         #TODO: break in smaller pieces
@@ -23,17 +20,51 @@ class Projectile:
             self.__speed * math.sin(self.__angle) +
             math.sqrt(self.__speed**2 * math.sin(self.__angle)**2 +
                       2 * GRAVITATIONAL_ACCELERATION * self.__height)) / GRAVITATIONAL_ACCELERATION
-
+    
     def __calculate_y_coordinate(self, x):
         #TODO: break in smaller pieces
         return self.__height + math.tan(self.__angle) * x - GRAVITATIONAL_ACCELERATION * x**2 / (
             2 * self.__speed**2 * math.cos(self.__angle)**2)
 
-    def __calculate_all_coordinates(self):
+    def calculate_all_coordinates(self):
         return [
             (x, self.__calculate_y_coordinate(x))
             for x in range(math.ceil(self.__displacement))
         ]
+
+    def details(self):
+        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacementdisplacement, 1)} m'
+
+    def __str__(self):
+        return self.details()
+    
+    @property
+    def height(self):
+        return self.__height
+    
+    @height.setter
+    def height(self, new_height):
+        self.__height = new_height
+
+    @property
+    def angle(self):
+        return self.__angle
+    
+    @angle.setter
+    def angle(self, new_angle):
+        self.__angle = math.radians(new_angle)
+
+    @property
+    def speed(self):
+        return self.__speed
+
+    @speed.setter
+    def speed(self, new_speed):
+        self.__speed = new_speed
+
+class Graph:
+    def __init__(self, coordinates):
+        self.__coordinates = coordinates
 
     def __create_coordinates_table(self):
         table = '  x      y\n'
@@ -63,45 +94,12 @@ class Projectile:
                     row += ' '
             graph += row + '\n'
         return graph
-
+    
     def __str__(self):
         return self.__create_trajectory()
 
     def table(self):
         return self.__create_coordinates_table()
-
-    def details(self):
-        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__displacement, 1)} m'
-
-    @property
-    def height(self):
-        return self.__height
-    
-    @height.setter
-    def height(self, new_height):
-        self.__height = new_height
-        self.__displacement = self.__calculate_displacement()
-        self.__coordinates = self.__calculate_all_coordinates()
-
-    @property
-    def angle(self):
-        return self.__angle
-    
-    @angle.setter
-    def angle(self, new_angle):
-        self.__angle = math.radians(new_angle)
-        self.__displacement = self.__calculate_displacement()
-        self.__coordinates = self.__calculate_all_coordinates()
-
-    @property
-    def speed(self):
-        return self.__speed
-
-    @speed.setter
-    def speed(self, new_speed):
-        self.__speed = new_speed
-        self.__displacement = self.__calculate_displacement()
-        self.__coordinates = self.__calculate_all_coordinates()
 
 def terminal_menu():
     page = 0
@@ -125,10 +123,12 @@ def terminal_menu():
             except:
                 print('Invalid input, please try again')
         elif page == 2:
-            print(bullet)
+            graph = Graph(bullet.calculate_all_coordinates)
+            print(graph)
             page = 1
         elif page == 3:
-            print(bullet.table())
+            graph = Graph(bullet.calculate_all_coordinates)
+            print(graph.table())
             page = 1
         elif page == 4:
             key = input(
