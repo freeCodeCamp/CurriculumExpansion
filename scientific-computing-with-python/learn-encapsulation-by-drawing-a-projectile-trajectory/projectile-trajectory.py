@@ -41,7 +41,7 @@ class Projectile:
     def calculate_all_coordinates(self):
         return [
             (x, self.__calculate_y_coordinate(x))
-            for x in range(math.ceil(self.__calculate_displacement))
+            for x in range(math.ceil(self.__calculate_displacement()))
         ]
 
     def details(self):
@@ -77,6 +77,7 @@ class Projectile:
 class Graph:
     def __init__(self, coordinates):
         self.__coordinates = coordinates
+        print(self.__create_trajectory())
 
     def __create_coordinates_table(self):
         table = '  x      y\n'
@@ -89,22 +90,9 @@ class Graph:
         rounded_coord = [(x, round(y)) for x, y in self.__coordinates]
         rows = max([y for x, y in rounded_coord]) + 1
         columns = max([x for x, y in rounded_coord]) + 1
-        # TODO?: if rows and/or columns too big, no draw (how big?)
-        graph = ''
-        for y in range(rows, -3, -1):
-            row = ''
-            for x in range(-2, columns + 1):
-                if (x, y) in rounded_coord:
-                    row += PROJECTILE
-                elif x == -1 and y >= 0:
-                    row += '⊣'
-                elif y == -1 and x >= 0:
-                    row += '⊤'
-                elif (x == -2 and y == 0) or (x == 0 and y == -2):
-                    row += '0'
-                else:
-                    row += ' '
-            graph += row + '\n'
+        graph_matrix = [[PROJECTILE if (x, y) in rounded_coord else ' ' for x in range(columns)] for y in range(rows, -1, -1)]
+        graph_rows = ['⊣' + ''.join(row) for row in graph_matrix] + [' ' + '⊤'*columns]
+        graph = '\n'.join(graph_rows)
         return graph
     
     def __str__(self):
@@ -163,4 +151,5 @@ def terminal_menu():
         elif page == 5:
             break
 
-terminal_menu()
+#terminal_menu()
+Graph(Projectile(12, 12, 12).calculate_all_coordinates())
