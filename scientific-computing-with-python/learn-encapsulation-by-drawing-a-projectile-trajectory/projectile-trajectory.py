@@ -90,7 +90,6 @@ class Graph:
         rows = max([y for x, y in rounded_coord]) + 1
         columns = max([x for x, y in rounded_coord]) + 1
         graph_matrix = [[PROJECTILE if (x, y) in rounded_coord else ' ' for x in range(columns)] for y in range(rows, -1, -1)]
-        # ALTERNATIVELY
         graph_rows = ['⊣' + ''.join(row) for row in graph_matrix] + [' ' + '⊤'*columns]
         graph = '\n'.join(graph_rows)
         return graph
