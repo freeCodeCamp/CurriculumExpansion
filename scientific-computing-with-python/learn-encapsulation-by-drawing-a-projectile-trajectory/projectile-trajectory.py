@@ -45,7 +45,7 @@ class Projectile:
         ]
 
     def details(self):
-        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacement, 1)} m'
+        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacement(), 1)} m'
 
     def __str__(self):
         return self.details()
@@ -77,7 +77,6 @@ class Projectile:
 class Graph:
     def __init__(self, coordinates):
         self.__coordinates = coordinates
-        print(self.__create_trajectory())
 
     def __create_coordinates_table(self):
         table = '  x      y\n'
@@ -91,6 +90,7 @@ class Graph:
         rows = max([y for x, y in rounded_coord]) + 1
         columns = max([x for x, y in rounded_coord]) + 1
         graph_matrix = [[PROJECTILE if (x, y) in rounded_coord else ' ' for x in range(columns)] for y in range(rows, -1, -1)]
+        # ALTERNATIVELY
         graph_rows = ['⊣' + ''.join(row) for row in graph_matrix] + [' ' + '⊤'*columns]
         graph = '\n'.join(graph_rows)
         return graph
@@ -123,11 +123,11 @@ def terminal_menu():
             except:
                 print('Invalid input, please try again')
         elif page == 2:
-            graph = Graph(bullet.calculate_all_coordinates)
+            graph = Graph(bullet.calculate_all_coordinates())
             print(graph)
             page = 1
         elif page == 3:
-            graph = Graph(bullet.calculate_all_coordinates)
+            graph = Graph(bullet.calculate_all_coordinates())
             print(graph.table())
             page = 1
         elif page == 4:
@@ -151,5 +151,4 @@ def terminal_menu():
         elif page == 5:
             break
 
-#terminal_menu()
-Graph(Projectile(12, 12, 12).calculate_all_coordinates())
+terminal_menu()
