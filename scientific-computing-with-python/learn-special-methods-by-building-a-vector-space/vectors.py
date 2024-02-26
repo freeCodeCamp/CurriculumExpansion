@@ -16,13 +16,13 @@ class R2Vector:
     
     def __add__(self, other):
         if not isinstance(other, self.__class__):
-            return NotImplemented
+            raise TypeError(f"Addition is not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'")
         kwargs = {i: self.__getattribute__(i) + other.__getattribute__(i) for i in self.__dict__}
         return self.__class__(**kwargs)
     
     def __sub__(self, other):
         if not isinstance(other, self.__class__):
-            return NotImplemented
+            raise TypeError(f"Subtraction is not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'")
         kwargs = {i: self.__getattribute__(i) - other.__getattribute__(i) for i in self.__dict__}
         return self.__class__(**kwargs)
     
@@ -41,7 +41,7 @@ class R2Vector:
     
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
-            return NotImplemented
+            raise TypeError(f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'")
         
         if all(self.__getattribute__(i) == other.__getattribute__(i) for i in self.__dict__):
             return True
@@ -52,7 +52,7 @@ class R2Vector:
     
     def __lt__(self, other):
         if not isinstance(other, self.__class__):
-            return NotImplemented
+            raise TypeError(f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'")
         return self.norm() < other.norm()
     
     def __gt__(self, other):
@@ -60,7 +60,7 @@ class R2Vector:
 
     def __le__(self, other):
         if not isinstance(other, self.__class__):
-            return NotImplemented
+            raise TypeError(f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'")
         return self.norm() <= other.norm()
     
     def __ge__(self, other):
