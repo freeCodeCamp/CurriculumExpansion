@@ -45,7 +45,7 @@ class Projectile:
         ]
 
     def details(self):
-        return f'angle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacement(), 1)} m'
+        return f'\nangle: {round(math.degrees(self.__angle))}°\nspeed: {self.__speed} m/s\nstarting height: {self.__height} m\ndisplacement: {round(self.__calculate_displacement(), 1)} m'
 
     def __str__(self):
         return self.details()
@@ -79,7 +79,7 @@ class Graph:
         self.__coordinates = coordinates
 
     def __create_coordinates_table(self):
-        table = '  x      y\n'
+        table = '\n  x      y\n'
         for x, y in self.__coordinates:
             table += f'{x:>3}{round(y, 2):>7.2f}\n'
 
@@ -91,7 +91,7 @@ class Graph:
         columns = max([x for x, y in rounded_coord]) + 1
         graph_matrix = [[PROJECTILE if (x, y) in rounded_coord else ' ' for x in range(columns)] for y in range(rows, -1, -1)]
         graph_rows = ['⊣' + ''.join(row) for row in graph_matrix] + [' ' + '⊤'*columns]
-        graph = '\n'.join(graph_rows)
+        graph = '\n' + '\n'.join(graph_rows)
         return graph
     
     def __str__(self):
@@ -113,7 +113,7 @@ def terminal_menu():
             page = 1
         elif page == 1:
             print()
-            print('\n', bullet.details())
+            print(bullet.details())
             try:
                 page = int(
                     input(
@@ -123,23 +123,22 @@ def terminal_menu():
                 print('Invalid input, please try again')
         elif page == 2:
             graph = Graph(bullet.calculate_all_coordinates())
-            print('\n', graph)
+            print(graph)
             page = 1
         elif page == 3:
             graph = Graph(bullet.calculate_all_coordinates())
-            print('\n', graph.table())
+            print(graph.table())
             page = 1
         elif page == 4:
             key = input(
                 'Write "speed", "angle", or "height" to choose which value: ')
-            try:
-                value = float(input('What value do you want to give? '))
-                if f'__{key}' in bullet.__slots__:
+            if f'__{key}' in bullet.__slots__:
+                try:
+                    value = float(input('What value do you want to give? '))
                     bullet.__setattr__(key, value)
-                else:
-                    raise Exception("Valid keys are 'speed', 'height', 'angle'")
-
-            except ValueError:
+                except ValueError:
+                    print('Invalid value has been submitted')
+            else:
                 print('Invalid value has been submitted')
             
             page = 1
