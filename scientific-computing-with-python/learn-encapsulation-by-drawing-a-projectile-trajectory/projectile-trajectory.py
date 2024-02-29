@@ -139,7 +139,7 @@ def terminal_menu():
                 else:
                     raise Exception("Valid keys are 'speed', 'height', 'angle'")
 
-            except:
+            except ValueError:
                 print('Invalid value has been submitted')
             
             page = 1
