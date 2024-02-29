@@ -113,7 +113,7 @@ def terminal_menu():
             page = 1
         elif page == 1:
             print()
-            bullet.details()
+            print(bullet.details())
             try:
                 page = int(
                     input(
@@ -141,7 +141,7 @@ def terminal_menu():
                 elif key == 'height':
                     bullet.height = value
                 else:
-                    print("Valid keys are 'speed', 'height', 'angle'")
+                    raise Exception("Valid keys are 'speed', 'height', 'angle'")
 
             except:
                 print('Invalid value has been submitted')
