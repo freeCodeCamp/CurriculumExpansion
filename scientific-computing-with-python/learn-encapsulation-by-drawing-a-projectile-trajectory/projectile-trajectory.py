@@ -141,7 +141,7 @@ def terminal_menu():
                 elif key == 'height':
                     bullet.height = value
                 else:
-                    raise Exception("Valid keys are 'speed', 'height', 'angle'")
+                    print("Valid keys are 'speed', 'height', 'angle'")
 
             except:
                 print('Invalid value has been submitted')
