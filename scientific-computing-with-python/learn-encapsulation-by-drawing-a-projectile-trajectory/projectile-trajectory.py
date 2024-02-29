@@ -134,12 +134,8 @@ def terminal_menu():
                 'Write "speed", "angle", or "height" to choose which value: ')
             try:
                 value = float(input('What value do you want to give? '))
-                if key == 'speed':
-                    bullet.speed = value
-                elif key == 'angle':
-                    bullet.angle = value
-                elif key == 'height':
-                    bullet.height = value
+                if f'__{key}' in bullet.__slots__:
+                    bullet.__setattr__(key, value)
                 else:
                     raise Exception("Valid keys are 'speed', 'height', 'angle'")
 
