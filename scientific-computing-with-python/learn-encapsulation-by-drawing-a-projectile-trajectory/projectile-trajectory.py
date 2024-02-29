@@ -113,7 +113,7 @@ def terminal_menu():
             page = 1
         elif page == 1:
             print()
-            print(bullet.details())
+            print('\n', bullet.details())
             try:
                 page = int(
                     input(
@@ -123,11 +123,11 @@ def terminal_menu():
                 print('Invalid input, please try again')
         elif page == 2:
             graph = Graph(bullet.calculate_all_coordinates())
-            print(graph)
+            print('\n', graph)
             page = 1
         elif page == 3:
             graph = Graph(bullet.calculate_all_coordinates())
-            print(graph.table())
+            print('\n', graph.table())
             page = 1
         elif page == 4:
             key = input(
