@@ -124,7 +124,7 @@ class Solver:
         self.equation.solve()
         self.equation.analyze()
     
-    def create_output(self):
+    def print_output(self):
         self._solve()
         output_string = '\n{:-^24}'.format(self.equation.type) + f'\n\n{str(self.equation):^24}\n\n'        
         output_string += '{:-^24}'.format('Solutions')
@@ -140,7 +140,6 @@ class Solver:
         print(output_string)
         
 
-eq1 = QuadraticEquation(-2, -3, 2)
-eq2 = LinearEquation(2, 4)
-s = Solver(eq2)
-s.create_output()
+eq = QuadraticEquation(-2, -3, 2)
+s = Solver(eq)
+s.print_output()
