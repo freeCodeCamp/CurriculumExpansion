@@ -1,14 +1,14 @@
 def square_root_bisection(square_target, tolerance=1e-7, max_iterations=100):
     if square_target < 0:
         # Square root of negative number is not defined in real numbers
-        raise ValueError(
-            'Square root of negative number is not defined in real numbers')
+        raise ValueError('Square root of negative number is not defined in real numbers')
     if square_target == 1:
-        print(f"The square root of {square_target} is 1")
+        root = 1
+        print(f'The square root of {square_target} is 1')
 
     elif square_target == 0:
-        print(f"The square root of {square_target} is 0")
-
+        root = 0
+        print(f'The square root of {square_target} is 0')
     else:
 
         low = 0
@@ -31,11 +31,10 @@ def square_root_bisection(square_target, tolerance=1e-7, max_iterations=100):
         if root is None:
             print(f"Failed to converge within {max_iterations} iterations.")
         else:
-            print(
-                f"The square root of {square_target} is approximately {root}")
-        return root
+            print(f'The square root of {square_target} is approximately {root}')
+    return root
 
 
 # Example usage
-N = 0
+N = 81
 root = square_root_bisection(N)
