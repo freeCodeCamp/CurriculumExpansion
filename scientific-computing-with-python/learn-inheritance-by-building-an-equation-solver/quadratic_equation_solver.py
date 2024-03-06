@@ -1,186 +1,146 @@
+from abc import ABC, abstractmethod
 import re
 
-class QuadraticEquation: 
-    type = 'Equation'
 
-    def __init__(self, a=0, b=0, c=0):
-        if a == 0:
-            raise ValueError(f"'{self.__class__.__name__}.a' must be different from zero")
-        self.a = a
-        self.b = b
-        self.c = c        
-        self.line = self.__prettify_line() + ' = 0'
-        self.delta = self.b**2 - 4 * self.a * self.c
-        self.results = set()
-        self.details = set()
+class Equation(ABC):
+    """
+    Equation objects are instantiated providing the equation coefficients as arguments.
+    The coefficient order goes from the zero-th grade of x to the n-th grade.
+    Coefficients with the value of zero must be specified.
+    """
+    def __init__(self, *args):
+        if (self.grade + 1)!= len(args):
+            raise TypeError(f"'Equation' object takes {self.grade + 1} positional arguments but {len(args)} were given")
+        for arg in args:            
+            if not isinstance(arg, (int, float)):
+                raise TypeError("Coefficients must be of type 'int' or 'float'")
+        if args[-1] == 0:
+            raise ValueError('Highest order coefficient must be different from zero')
+        self.coefficients = {n: arg for n, arg in enumerate(args)}
+        self.results = []
+        self.details = []        
 
-    def __prettify_line(self):
-        line = ''
-        if self.a != 0:
-            if self.a == 1:
-                line += 'x² '
-            elif self.a == -1:
-                line += '-x² '
-            else:
-                line += f'{self.a}x² '
-        if self.b != 0:            
-           line += '{:+}x '.format(self.b)
-        if self.c != 0:            
-            line += '{:+}'.format(self.c)
-        line = line.replace('+1x', '+x').replace('-1x', '-x')
-        return line
-    
-    def create_output(self):
-        output_string = '\n{:-^24}'.format(self.type) + f'\n\n{self.line:^24}\n\n'
-        if self.results:
-            output_string += '{:-^24}'.format('Solutions')
-            output_string += '\n\n'
-            for result in self.results:
-                output_string += f'{result:^24}\n'
-            output_string += '\n'
-        if self.details:
-            output_string += '{:-^24}'.format('Details')
-            output_string += '\n\n' 
-            for detail in self.details:
-                output_string += detail
-            output_string += '\n'
-        return output_string
-    
     def __str__(self):
-        return self.create_output()
-    
-    @staticmethod    
-    def parse(expression, coeff={'a': 0, 'b': 0, 'c': 0}):
-        transformed_expr = QuadraticEquation.__validate(expression)
-        terms = re.split(r'(?<!^)(?=[\+-])', transformed_expr)        
-        for term in terms:
-            try:
-                spaceless_term = re.sub(r'\s', '', term)
-                if 'x**2' in spaceless_term:
-                    a = re.split(r'\*?x\*\*2', spaceless_term)[0]
-                    coeff['a'] = float(QuadraticEquation.__fix(a))           
-                elif ('x' or 'x**1') in spaceless_term:
-                    b = re.split(r'\*?x', spaceless_term)[0]
-                    coeff['b'] = float(QuadraticEquation.__fix(b))
+        terms = []        
+        for n, coefficient in self.coefficients.items():            
+            if coefficient:
+                if n == 0:
+                    terms.append(f'{coefficient:+}')
+                elif n == 1:
+                    terms.insert(0, f'{coefficient:+}x')
                 else:
-                    c = spaceless_term
-                    coeff['c'] = float(c)
-            except Exception:
-                raise ValueError('Expression should be quadratic in the form "ax**2 + bx + c"')
-        return coeff
+                    terms.insert(0, f'{coefficient:+}x**{n}')
+        equation_string = ' '.join(terms)
+        equation_string += ' = 0'
+        return re.sub(r'(?<!\d)1(?=x)', '', equation_string.strip('+'))
     
-    @staticmethod
-    def __validate(expression):
-        transformed_expr = re.sub(r'\s', '', expression).replace('X', 'x')        
-        bad_char = re.search(r'[^x\d\.\+\-\*]', transformed_expr)
-        higher = re.findall(r'x\*\*([^12]|\d{2,})', transformed_expr)
-        quadratic_term = re.search(r'x\*\*2', transformed_expr)
-        consecutive_sign = re.search(r'[\+-][\+-]', transformed_expr)
-        repetition_patterns = [r'x\*\*2', r'x\*\*1', r'x(?:[\+-]|$)', r'(?<!\*)\d+(?:\.\d+)?(?:[\+-]|$)']
-        repetitions = any(len(re.findall(pattern, transformed_expr)) > 1 for pattern in repetition_patterns)    
-        if any([bad_char, higher, not quadratic_term, consecutive_sign, repetitions]):
-            raise ValueError('Expression should be quadratic in the form "ax**2 + bx + c"')
-        return transformed_expr
+    @property
+    @abstractmethod
+    def grade(self):
+        ...
 
-    @staticmethod
-    def __fix(term):
-        if re.search(r'\d', term) is None:
-                term += '1'        
-        return term
+    @property
+    @abstractmethod
+    def type(self):
+        ...
     
-    def solve(self): 
+    @abstractmethod
+    def solve(self):
+        ...
+
+    @abstractmethod
+    def analyze(self):
+        ...
+
+    
+class LinearEquation(Equation):
+    @property
+    def grade(self):
+        return 1
+    
+    @property
+    def type(self):
+        return 'Linear Equation'
+
+    def solve(self):
+        x = - self.coefficients[0] / self.coefficients[1]
+        self.results.append(f'x = {round(x, 3)}')
+        return [x]
+    
+    def analyze(self):
+        self.details.append(f'slope = {self.coefficients[1]:>16}\ny-intercept = {self.coefficients[0]:>10}')
+        return {'slope': self.coefficients[1], 'intercept': self.coefficients[0]}
+
+
+class QuadraticEquation(Equation):
+    def __init__(self, *args):
+        super().__init__(*args)
+        self.delta = self.coefficients[1]**2 - 4 * self.coefficients[2] * self.coefficients[0]
+
+    @property
+    def grade(self):
+        return 2
+    
+    @property
+    def type(self):
+        return 'Quadratic Equation'
+
+    def solve(self):
         if self.delta < 0:
-            roots = {'x₁': None, 'x₂': None}
-            self.results.add('No real roots')
-            return roots
-                
-        x1 = (- self.b + (self.delta)**0.5)/(2 * self.a)
-        x2 = (- self.b - (self.delta)**0.5)/(2 * self.a)        
-        if self.delta == 0:        
-            roots = {'x': x1}
-            self.results.add(f'x = {round(x1, 3)}')
-            return roots
-                       
-        roots = {'x1': x1, 'x2': x2}
-        self.results.add(f'x1 = {round(x1, 3)}')
-        self.results.add(f'x2 = {round(x2, 3)}')
-        return roots
-    
-    def analyze(self):                
-        x = - self.b / (2 * self.a)
-        y = self.a * x**2 + self.b * x + self.c
+            self.results.append('No real roots')            
+            return []
+
+        x1 = (- self.coefficients[1] + (self.delta)**0.5)/(2 * self.coefficients[2])
+        x2 = (- self.coefficients[1] - (self.delta)**0.5)/(2 * self.coefficients[2])        
+        if self.delta == 0:
+            self.results.append(f'x = {round(x1, 3)}')            
+            return [x1]
+
+        self.results.extend([f'x1 = {round(x1, 3)}', f'x2 = {round(x2, 3)}'])        
+        return [x1, x2]
+
+    def analyze(self):
+        x = - self.coefficients[1] / (2 * self.coefficients[2])
+        y = self.coefficients[2] * x**2 + self.coefficients[1] * x + self.coefficients[0]
         vertex = {'x': x, 'y': y}                    
-        if self.a > 0:
+        if self.coefficients[2] > 0:
             concavity = 'upwards'
             vertex['m'] = 'min'            
         else:
             concavity = 'downwards'
             vertex['m'] = 'max'
         coord = f'{(round(x, 3), round(x, 3))}'
-        self.details.add(f'concavity = {concavity:>12}\n{vertex["m"]} = {coord:>18}')
-        return vertex, concavity
+        self.details.append(f'concavity = {concavity:>12}\n{vertex["m"]} = {coord:>18}')
+        return {'vertex': vertex, 'concavity': concavity}
     
 
-class QuadraticInequality(QuadraticEquation):
-    type = 'Inequality'
+class Solver:
+    def __init__(self, equation):
+        if not isinstance(equation, Equation):
+            raise TypeError("Argument must be an Equation object")
+        self.equation = equation
 
-    def __init__(self, sign='>', a=0, b=0, c=0,):
-        super().__init__(a, b, c)        
-        self.sign = sign
-        self.line = self.line.replace('=', self.sign )
-
-    def __invert_sign(self):
-        if self.a < 0:
-            self.a *= -1
-            self.b *= -1
-            self.c *= -1
-            if '>' in self.sign:
-                self.sign = self.sign.replace('>', '<')
-            elif '<' in self.sign:
-                self.sign = self.sign.replace('<', '>')
-
-    def solve(self):
-        self.__invert_sign()
-        if self.delta < 0:
-            if '>' in self.sign:
-                self.results.add('∀ x')
-            elif '<' in self.sign:
-                self.results.add('∄ x')
-            return self.results
+    def _solve(self):
+        self.equation.solve()
+        self.equation.analyze()
+    
+    def create_output(self):
+        self._solve()
+        output_string = '\n{:-^24}'.format(self.equation.type) + f'\n\n{str(self.equation):^24}\n\n'        
+        output_string += '{:-^24}'.format('Solutions')
+        output_string += '\n\n'
+        for result in self.equation.results:
+            output_string += f'{result:^24}\n'
+        output_string += '\n'        
+        output_string += '{:-^24}'.format('Details')
+        output_string += '\n\n' 
+        for detail in self.equation.details:
+            output_string += detail
+        output_string += '\n'
+        print(output_string)
         
-        x1 = (- self.b + (self.delta)**0.5)/(2 * self.a)
-        x2 = (- self.b - (self.delta)**0.5)/(2 * self.a)        
-        if self.delta == 0:
-            if self.sign == '>':
-                self.results.add(f'x ≠ {round(x1, 3)}')
-            elif self.sign == '>=':
-                self.results.add(f'∀ x')
-            elif self.sign == '<':
-                self.results.add(f'∄ x')
-            elif self.sign == '<=':
-                self.results.add(f'x = {round(x1, 3)}')
-            return self.results
-        
-        x_min = min(x1, x2)
-        x_max = max(x1, x2)
-        e = '=' if '=' in self.sign else ''
-        if '>' in self.sign:            
-            self.results.update((f'x <{e} {round(x_min, 3)}', f'x >{e} {round(x_max, 3)}'))
-        elif '<' in self.sign:            
-            self.results = {f'{round(x_min, 3)} <{e} x <{e} {round(x_max, 3)}'}        
-        return self.results
 
-    def analyze(self):
-        raise AttributeError("'QuadraticInequality' object has no attribute 'analyze'")
-        
-expression = '-x**2  -4.5x +1.2'
-coefficients = QuadraticEquation.parse(expression)
-eq = QuadraticEquation(**coefficients)
-eq.solve()
-eq.analyze()
-print(eq)
-
-ineq = QuadraticInequality('<', **coefficients)
-ineq.solve()
-#ineq.analyze()
-print(ineq)
+eq1 = QuadraticEquation(-2, -3, 2)
+eq2 = LinearEquation(2, 4)
+s = Solver(eq2)
+s.create_output()
