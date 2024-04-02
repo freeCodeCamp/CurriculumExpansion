@@ -1,5 +1,4 @@
 import math
-import re
 
 # constants
 GRAVITATIONAL_ACCELERATION = 9.81
