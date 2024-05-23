@@ -34,14 +34,11 @@ class Maker:
         print(f"Here's your {ordered_menu_item.name}. Enjoy! :)")
 
 
-"""
-The MenuItem class represents a menu item. It keeps track of the name, the ingredients,
-and the cost.
-"""
-
-
 class MenuItem:
-
+    """
+    The MenuItem class represents a menu item. It keeps track of the name, the ingredients,
+    and the cost.
+    """
     def __init__(self, name, water, milk, beans, cost):
         self.name = name
         self.cost = cost
