@@ -3,22 +3,16 @@ import re
 
 
 class Equation(ABC):
-    """
-    Equation objects are instantiated providing the equation coefficients as arguments.
-    The coefficient order goes from the n-th grade of x to the zero-th grade.
-    Coefficients with the value of zero must be specified.
-    """
-
     def __init__(self, *args):
-        if (self.grade + 1) != len(args):
+        if (self.degree + 1) != len(args):
             raise TypeError(
-                f"'Equation' object takes {self.grade + 1} positional arguments but {len(args)} were given"
+                f"'Equation' object takes {self.degree + 1} positional arguments but {len(args)} were given"
             )
         for arg in args:
             if not isinstance(arg, (int, float)):
                 raise TypeError("Coefficients must be of type 'int' or 'float'")
         if args[0] == 0:
-            raise ValueError("Highest order coefficient must be different from zero")
+            raise ValueError("Highest degree coefficient must be different from zero")
         self.coefficients = {n: arg for n, arg in enumerate(reversed(args))}
         self.results = []
         self.details = []
@@ -39,7 +33,7 @@ class Equation(ABC):
 
     @property
     @abstractmethod
-    def grade(self): ...
+    def degree(self): ...
 
     @property
     @abstractmethod
@@ -54,7 +48,7 @@ class Equation(ABC):
 
 class LinearEquation(Equation):
     @property
-    def grade(self):
+    def degree(self):
         return 1
 
     @property
@@ -63,7 +57,7 @@ class LinearEquation(Equation):
 
     def solve(self):
         x = -self.coefficients[0] / self.coefficients[1]
-        self.results.append(f"x = {round(x, 3)}")
+        self.results.append(f"x = {x:.3f}")
         return [x]
 
     def analyze(self):
@@ -81,7 +75,7 @@ class QuadraticEquation(Equation):
         )
 
     @property
-    def grade(self):
+    def degree(self):
         return 2
 
     @property
@@ -96,10 +90,10 @@ class QuadraticEquation(Equation):
         x1 = (-self.coefficients[1] + (self.delta) ** 0.5) / (2 * self.coefficients[2])
         x2 = (-self.coefficients[1] - (self.delta) ** 0.5) / (2 * self.coefficients[2])
         if self.delta == 0:
-            self.results.append(f"x = {round(x1, 3)}")
+            self.results.append(f"x = {x1:.3f}")
             return [x1]
 
-        self.results.extend([f"x1 = {round(x1, 3)}", f"x2 = {round(x2, 3)}"])
+        self.results.extend([f"x1 = {x1:.3f}", f"x2 = {x2:.3f}"])
         return [x1, x2]
 
     def analyze(self):
@@ -116,39 +110,31 @@ class QuadraticEquation(Equation):
         else:
             concavity = "downwards"
             vertex["m"] = "max"
-        coord = f"{(round(x, 3), round(x, 3))}"
+        coord = f"({x:.3f}, {y:.3f})"
         self.details.append(f'concavity = {concavity:>12}\n{vertex["m"]} = {coord:>18}')
         return {"vertex": vertex, "concavity": concavity}
 
 
-class Solver:
-    def __init__(self, equation):
-        if not isinstance(equation, Equation):
-            raise TypeError("Argument must be an Equation object")
-        self.equation = equation
-
-    def _solve(self):
-        self.equation.solve()
-        self.equation.analyze()
-
-    def print_output(self):
-        self._solve()
-        output_string = (
-            "\n{:-^24}".format(self.equation.type) + f"\n\n{str(self.equation):^24}\n\n"
-        )
-        output_string += "{:-^24}".format("Solutions")
-        output_string += "\n\n"
-        for result in self.equation.results:
-            output_string += f"{result:^24}\n"
-        output_string += "\n"
-        output_string += "{:-^24}".format("Details")
-        output_string += "\n\n"
-        for detail in self.equation.details:
-            output_string += detail
-        output_string += "\n"
-        print(output_string)
+def solver(equation):
+    if not isinstance(equation, Equation):
+        raise TypeError("Argument must be an Equation object")
+    if not equation.results:
+        equation.solve()
+    if not equation.details:
+        equation.analyze()
+    output_string = "\n{:-^24}".format(equation.type)
+    output_string += f"\n\n{str(equation):^24}\n\n"
+    output_string += "{:-^24}".format("Solutions") + "\n\n"
+    for result in equation.results:
+        output_string += f"{result:^24}\n"
+    output_string += "\n"
+    output_string += "{:-^24}".format("Details") + "\n\n"
+    for detail in equation.details:
+        output_string += detail + "\n"
+    print(output_string)
 
 
-eq = QuadraticEquation(2, -3, -2)
-s = Solver(eq)
-s.print_output()
+lin_eq = LinearEquation(2, 3)
+solver(lin_eq)
+quadr_eq = QuadraticEquation(2, -3, -2)
+solver(quadr_eq)
