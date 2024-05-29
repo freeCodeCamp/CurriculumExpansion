@@ -49,15 +49,12 @@ class MenuItem:
         }
 
 
-"""
-The Menu class represents the menu. It keeps track of the menu items where each item is
-an instance of the MenuItem class. The class holds the functionalities for finding an
-individual menu item and getting all the menu items.
-"""
-
-
 class Menu:
-
+    """
+    The Menu class represents the menu. It keeps track of the menu items where each item is
+    an instance of the MenuItem class. The class holds the functionalities for finding an
+    individual menu item and getting all the menu items.
+    """
     def __init__(self):
         self.menu = [
             MenuItem(name="latte", water=200, milk=150, beans=24, cost=2.5),
