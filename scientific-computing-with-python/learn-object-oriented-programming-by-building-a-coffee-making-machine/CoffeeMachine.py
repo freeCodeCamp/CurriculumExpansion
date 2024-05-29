@@ -85,7 +85,7 @@ class Stash:
         self.profit = 0
 
     def report(self):
-        print(f"Money: {self.CURRENCY}{self.profit}")
+        print(f"Money: {self.CURRENCY} {self.profit}")
 
     def make_payment(self, price):
         money_received = float(input('How much money are you giving me? '))
