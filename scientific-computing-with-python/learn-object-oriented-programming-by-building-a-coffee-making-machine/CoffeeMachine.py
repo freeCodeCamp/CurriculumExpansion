@@ -75,12 +75,10 @@ class Menu:
         print("Sorry that item is not available.")
 
 
-"""
-The Stash class represents the stash. It keeps track of the money in the machine.
-"""
-
-
 class Stash:
+    """
+    The Stash class represents the stash. It keeps track of the money in the machine.
+    """
     CURRENCY = '$'
 
     def __init__(self):
