@@ -16,9 +16,9 @@ class Maker:
         }
 
     def report(self):
-        print(f"Water: {self.resources['water']}ml")
-        print(f"Milk: {self.resources['milk']}ml")
-        print(f"Coffee: {self.resources['beans']}g")
+        print(f"Water: {self.resources['water']} ml")
+        print(f"Milk: {self.resources['milk']} ml")
+        print(f"Coffee: {self.resources['beans']} g")
 
     def is_resource_sufficient(self, ordered_menu_item):
         can_make = True
