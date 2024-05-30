@@ -16,17 +16,13 @@ class R2Vector:
 
     def __add__(self, other):
         if self.__class__ != other.__class__:
-            raise TypeError(
-                f"Addition is not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-            )
+            return NotImplemented
         kwargs = {i: getattr(self, i) + getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
 
     def __sub__(self, other):
         if self.__class__ != other.__class__:
-            raise TypeError(
-                f"Subtraction is not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-            )
+            return NotImplemented
         kwargs = {i: getattr(self, i) - getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
 
@@ -35,21 +31,15 @@ class R2Vector:
         if isinstance(other, (float, int)):
             kwargs = {i: getattr(self, i) * other for i in vars(self)}
             return self.__class__(**kwargs)
-
         # Dot product
         elif self.__class__ == other.__class__:
             args = [getattr(self, i) * getattr(other, i) for i in vars(self)]
             return sum(args)
-
-        raise TypeError(
-            f"Multiplication is not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-        )
+        return NotImplemented
 
     def __eq__(self, other):
         if self.__class__ != other.__class__:
-            raise TypeError(
-                f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-            )
+            return NotImplemented
         return all(getattr(self, i) == getattr(other, i) for i in vars(self))
 
     def __ne__(self, other):
@@ -57,16 +47,12 @@ class R2Vector:
 
     def __lt__(self, other):
         if self.__class__ != other.__class__:
-            raise TypeError(
-                f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-            )
+            return NotImplemented
         return self.norm() < other.norm()
 
     def __gt__(self, other):
         if self.__class__ != other.__class__:
-            raise TypeError(
-                f"Comparison operations are not defined between '{self.__class__.__name__}' and '{other.__class__.__name__}'"
-            )
+            return NotImplemented
         return self.norm() > other.norm()
 
     def __le__(self, other):
