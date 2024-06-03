@@ -15,30 +15,30 @@ class R2Vector:
         return f"{self.__class__.__name__}({args})"
 
     def __add__(self, other):
-        if self.__class__ != other.__class__:
+        if type(self) != type(other):
             return NotImplemented
         kwargs = {i: getattr(self, i) + getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
 
     def __sub__(self, other):
-        if self.__class__ != other.__class__:
+        if type(self) != type(other):
             return NotImplemented
         kwargs = {i: getattr(self, i) - getattr(other, i) for i in vars(self)}
         return self.__class__(**kwargs)
 
     def __mul__(self, other):
         # Scalar multiplication
-        if isinstance(other, (float, int)):
+        if type(other) in (int, float):
             kwargs = {i: getattr(self, i) * other for i in vars(self)}
             return self.__class__(**kwargs)
         # Dot product
-        elif self.__class__ == other.__class__:
+        elif type(self) == type(other):
             args = [getattr(self, i) * getattr(other, i) for i in vars(self)]
             return sum(args)
         return NotImplemented
 
     def __eq__(self, other):
-        if self.__class__ != other.__class__:
+        if type(self) != type(other):
             return NotImplemented
         return all(getattr(self, i) == getattr(other, i) for i in vars(self))
 
@@ -46,12 +46,12 @@ class R2Vector:
         return not self == other
 
     def __lt__(self, other):
-        if self.__class__ != other.__class__:
+        if type(self) != type(other):
             return NotImplemented
         return self.norm() < other.norm()
 
     def __gt__(self, other):
-        if self.__class__ != other.__class__:
+        if type(self) != type(other):
             return NotImplemented
         return self.norm() > other.norm()
 
@@ -68,8 +68,8 @@ class R3Vector(R2Vector):
         self.z = z
 
     def cross(self, other):
-        if self.__class__ != other.__class__:
-            raise TypeError(f"Argument must be a '{self.__class__.__name__}' instance")
+        if type(self) != type(other):
+            return NotImplemented
         kwargs = {
             "x": self.y * other.z - self.z * other.y,
             "y": self.z * other.x - self.x * other.z,
