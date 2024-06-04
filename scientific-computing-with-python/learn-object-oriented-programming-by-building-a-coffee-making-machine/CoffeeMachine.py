@@ -27,10 +27,10 @@ class Maker:
                 return False
         return True
 
-    def make_coffee(self, ordered_menu_item):
-        for item in ordered_menu_item.ingredients:
-            self.resources[item] -= ordered_menu_item.ingredients[item]
-        print(f"Here's your {ordered_menu_item.name}. Enjoy! :)")
+    def make_coffee(self, menu_item):
+        for _, amount in menu_item.ingredients.items():
+            self.resources[item] -= amount
+        print(f"Here's your {menu_item.name}. Enjoy! :)")
 
 
 class MenuItem:
