@@ -20,13 +20,12 @@ class Maker:
         print(f"Milk: {self.resources['milk']} ml")
         print(f"Coffee: {self.resources['beans']} g")
 
-    def is_resource_sufficient(self, ordered_menu_item):
-        can_make = True
-        for item in ordered_menu_item.ingredients:
-            if ordered_menu_item.ingredients[item] > self.resources[item]:
-                print(f"Sorry there is not enough {item}.")
-                can_make = False
-        return can_make
+    def is_resource_sufficient(self, menu_item)
+        for ingredient, amount in menu_item.ingredients.items():
+            if amount >= self.resources.get(ingredient, 0):
+                print(f"Sorry there is not enough {ingredient}.")
+                return False
+        return True
 
     def make_coffee(self, ordered_menu_item):
         for item in ordered_menu_item.ingredients:
