@@ -1,92 +1,88 @@
 from time import sleep
-
-"""
-The Maker class represents the coffee maker itself. It keep tracks of the water, milk,
-and beans in the machine. Makes coffee and reports on the resources.
-"""
-
+from typing import Dict, List
 
 class Maker:
+    '''
+    The Maker class represents the coffee maker itself. It keeps track of the water, milk,
+    and beans in the machine. Makes coffee and reports on the resources.
+    '''
 
-    def __init__(self):
-        self.resources = {
-            "water": 300,
-            "milk": 200,
-            "beans": 100,
-        }
+    def __init__(self, resources: Dict [str, int]):
+        self.resources = resources
 
     def report(self):
-        print(f"Water: {self.resources['water']} ml")
-        print(f"Milk: {self.resources['milk']} ml")
-        print(f"Coffee: {self.resources['beans']} g")
+        for resource, amount in self.resources.items():
+            print(f'{resource}: {amount} ml')
 
-    def is_resource_sufficient(self, menu_item)
+    def is_resource_sufficient(self, menu_item):
         for ingredient, amount in menu_item.ingredients.items():
             if amount >= self.resources.get(ingredient, 0):
-                print(f"Sorry there is not enough {ingredient}.")
+                print(f'Sorry there is not enough {ingredient}.')
+                print()
                 return False
         return True
 
     def make_coffee(self, menu_item):
-        for _, amount in menu_item.ingredients.items():
-            self.resources[item] -= amount
+        for ingredient, amount in menu_item.ingredients.items():
+            self.resources[ingredient] -= amount
+            sleep(5)
         print(f"Here's your {menu_item.name}. Enjoy! :)")
+        print()
 
 
 class MenuItem:
-    """
+    '''
     The MenuItem class represents a menu item. It keeps track of the name, the ingredients,
     and the cost.
-    """
-    def __init__(self, name, ingredients, cost):
+    '''
+
+    def __init__(self, name: str, cost: float, ingredients: Dict[str, int]):
         self.name = name
         self.cost = cost
         self.ingredients = ingredients
 
+    def __str__(self):
+        return f'{self.name.capitalize()} (${self.cost})'
+
 
 class Menu:
-    """
+    '''
     The Menu class represents the menu. It keeps track of the menu items where each item is
     an instance of the MenuItem class. The class holds the functionalities for finding an
     individual menu item and getting all the menu items.
-    """
-    def __init__(self):
-        self.menu = [
-            MenuItem(name="latte", water=200, milk=150, beans=24, cost=2.5),
-            MenuItem(name="espresso", water=50, milk=0, beans=18, cost=1.5),
-            MenuItem(name="cappuccino", water=250, milk=50, beans=24, cost=3),
-        ]
+    '''
+
+    def __init__(self, menu_items: List[MenuItem]):
+        self.menu_items = menu_items
 
     def get_all_menu_items(self):
-        options = ""
-        for item in self.menu:
-            options += f"{item.name}/"
+        options = ''
+        for item in self.menu_items:
+            options += f'{item.name}/'
         return options
 
-    def find_menu_item(self, item_name):
-        for item in self.menu:
+    def find_menu_item(self, item_name: str):
+        for item in self.menu_items:
             if item.name == item_name:
                 return item
-        print("Sorry that item is not available.")
-
+        print('Sorry that item is not available.')
 
 class Stash:
-    """
+    '''
     The Stash class represents the stash. It keeps track of the money in the machine.
-    """
-    CURRENCY = '$'
+    '''
+    def __init__(self, profit: int):
+        self.profit = profit
 
-    def __init__(self):
-        self.profit = 0
 
     def report(self):
-        print(f"Money: {self.CURRENCY} {self.profit}")
+        print(f'Money: ${self.profit}')
 
-    def make_payment(self, price):
+    def make_payment(self, price: float):
         money_received = float(input('How much money are you giving me? '))
         if money_received >= price:
             change = round(money_received - price, 2)
-            print(f"Here is {self.CURRENCY}{change} in change.")
+            print(f'Here is ${change} in change.')
             self.profit += price
             return True
         else:
@@ -94,29 +90,28 @@ class Stash:
             return False
 
 
-def welcome():
-    print('''
-          WELCOME TO FCC COFFEE MACHINE!
-
-          ------ MENU ------
-          Espresso ($1.50)
-          Latte ($2.50)
-          Cappuccino ($3.00)
-          ------------------
-
-          PS: Type "report" at any moment
-          to check our available resources.
-          Type "off" to log out from the machine.
-        ''')
-
-
-menu = Menu()
-money_stash = Stash()
-coffee_maker = Maker()
+menu = Menu([
+    MenuItem(name='latte', cost=2.5, ingredients={'water': 200, 'milk': 150, 'beans': 24}),
+    MenuItem(name='espresso', cost=1.5, ingredients={'water': 50, 'milk': 0, 'beans': 18}),
+    MenuItem(name='cappuccino', cost=3, ingredients={'water': 250, 'milk': 50, 'beans':24}),
+    ])
+money_stash = Stash(profit=0)
+coffee_maker = Maker(resources={
+    'water': 300,
+    'milk': 200,
+    'beans': 100,
+    })
 is_on = True
 
 while is_on:
-    welcome()
+    print('Welcome to freeCodeCamp Coffee Machine')
+    print()
+    for available_item in menu.menu_items:
+        print(available_item)
+    print()
+    print('Type "report" to check available resource \nand "off" to log out from machine.')
+    print()
+
     options = menu.get_all_menu_items()
     user_choice = str(
         input(f'What would you like?\nOptions ({options}): ')).strip().lower()
@@ -130,11 +125,7 @@ while is_on:
     elif menu.find_menu_item(user_choice) is None:
         print('\033[31mError. Please choose an available option.\033[m')
     else:
-        beverage = menu.find_menu_item(user_choice)  # Encapsulates the result
-        sufficient_resources = coffee_maker.is_resource_sufficient(
-            beverage)  # TrueFalse result
-        sufficient_money = money_stash.make_payment(beverage.cost)
-        if sufficient_resources and sufficient_money:
+        beverage = menu.find_menu_item(user_choice)
+        if coffee_maker.is_resource_sufficient(beverage) and money_stash.make_payment(beverage.cost):
             print('Thank you! Allow us to make your beverage now...')
             coffee_maker.make_coffee(beverage)
-            sleep(5)
