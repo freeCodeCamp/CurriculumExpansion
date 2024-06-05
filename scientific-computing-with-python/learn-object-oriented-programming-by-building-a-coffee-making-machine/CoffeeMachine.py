@@ -38,14 +38,10 @@ class MenuItem:
     The MenuItem class represents a menu item. It keeps track of the name, the ingredients,
     and the cost.
     """
-    def __init__(self, name, water, milk, beans, cost):
+    def __init__(self, name, ingredients, cost):
         self.name = name
         self.cost = cost
-        self.ingredients = {
-            'water': water,
-            'milk': milk,
-            'beans': beans,
-        }
+        self.ingredients = ingredients
 
 
 class Menu:
