@@ -12,7 +12,7 @@ class Maker:
 
     def report(self):
         for resource, amount in self.resources.items():
-            print(f'{resource}: {amount} ml')
+            print(f'{resource}: {amount} {'gm' if resource == 'beans' else 'ml'}')
 
     def is_resource_sufficient(self, menu_item):
         for ingredient, amount in menu_item.ingredients.items():
@@ -65,7 +65,8 @@ class Menu:
         for item in self.menu_items:
             if item.name == item_name:
                 return item
-        print('Sorry that item is not available.')
+        raise Exception('That item is not available.')
+        # print('Sorry that item is not available.')
 
 class Stash:
     '''
@@ -79,15 +80,19 @@ class Stash:
         print(f'Money: ${self.profit}')
 
     def make_payment(self, price: float):
-        money_received = float(input('How much money are you giving me? '))
-        if money_received >= price:
-            change = round(money_received - price, 2)
-            print(f'Here is ${change} in change.')
-            self.profit += price
-            return True
-        else:
-            print("Sorry that's not enough money. Money refunded.")
-            return False
+        try:
+            money_received = float(input('How much money are you giving me? '))
+
+            if money_received >= price:
+                change = round(money_received - price, 2)
+                print(f'Here is ${change} in change.')
+                self.profit += price
+                return True
+            else:
+                print("Sorry that's not enough money. Money refunded.")
+                return False
+        except ValueError:
+            print('The amount of money has to be a numerical value.')
 
 
 menu = Menu([
@@ -113,19 +118,21 @@ while is_on:
     print()
 
     options = menu.get_all_menu_items()
-    user_choice = str(
-        input(f'What would you like?\nOptions ({options}): ')).strip().lower()
+    user_choice = input(f'What would you like?\nOptions ({options}): ').strip().lower()
 
-    if user_choice == 'off':
-        print('Shutting down!')
-        is_on = False
-    elif user_choice == 'report':
-        coffee_maker.report()
-        money_stash.report()
-    elif menu.find_menu_item(user_choice) is None:
-        print('\033[31mError. Please choose an available option.\033[m')
-    else:
-        beverage = menu.find_menu_item(user_choice)
-        if coffee_maker.is_resource_sufficient(beverage) and money_stash.make_payment(beverage.cost):
-            print('Thank you! Allow us to make your beverage now...')
-            coffee_maker.make_coffee(beverage)
+    try:
+        if user_choice == 'off':
+            print('Shutting down!')
+            is_on = False
+        elif user_choice == 'report':
+            coffee_maker.report()
+            money_stash.report()
+        elif menu.find_menu_item(user_choice) is None:
+            print('\033[31mError. Please choose an available option.\033[m')
+        else:
+            beverage = menu.find_menu_item(user_choice)
+            if coffee_maker.is_resource_sufficient(beverage) and money_stash.make_payment(beverage.cost):
+                print('Thank you! Allow us to make your beverage now...')
+                coffee_maker.make_coffee(beverage)
+    except Exception as error:
+        print(error)
