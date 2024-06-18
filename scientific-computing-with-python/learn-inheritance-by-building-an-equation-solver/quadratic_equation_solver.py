@@ -19,8 +19,14 @@ class Equation(ABC):
         self.coefficients = {(len(args) - n - 1): arg for n, arg in enumerate(args)}
 
     def __init_subclass__(cls):
-        if not (hasattr(cls, "type") and hasattr(cls, "degree")):
-            raise AttributeError()
+        if not hasattr(cls, "degree"):
+            raise AttributeError(
+                f"Cannot create '{cls.__name__}' class: missing required attribute 'degree'"
+            )
+        if not hasattr(cls, "type"):
+            raise AttributeError(
+                f"Cannot create '{cls.__name__}' class: missing required attribute 'type'"
+            )
 
     def __str__(self):
         terms = []
