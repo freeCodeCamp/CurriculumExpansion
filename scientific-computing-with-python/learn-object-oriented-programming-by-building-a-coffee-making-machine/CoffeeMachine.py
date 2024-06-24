@@ -16,7 +16,7 @@ class Maker:
 
     def is_resource_sufficient(self, menu_item):
         for ingredient, amount in menu_item.ingredients.items():
-            if amount >= self.resources.get(ingredient, 0):
+            if amount > self.resources.get(ingredient, 0):
                 print(f'Sorry there is not enough {ingredient}.')
                 print()
                 return False
@@ -65,7 +65,7 @@ class Menu:
         for item in self.menu_items:
             if item.name == item_name:
                 return item
-        raise Exception('That item is not available.')
+        raise ValueError('That item is not available.')
 
 class Stash:
     '''
@@ -126,12 +126,10 @@ while is_on:
         elif user_choice == 'report':
             coffee_maker.report()
             money_stash.report()
-        elif menu.find_menu_item(user_choice) is None:
-            print('\033[31mError. Please choose an available option.\033[m')
         else:
             beverage = menu.find_menu_item(user_choice)
             if coffee_maker.is_resource_sufficient(beverage) and money_stash.make_payment(beverage.cost):
                 print('Thank you! Allow us to make your beverage now...')
                 coffee_maker.make_coffee(beverage)
-    except Exception as error:
+    except ValueError as error:
         print(error)
