@@ -7,7 +7,7 @@ class Maker:
     and beans in the machine. Makes coffee and reports on the resources.
     '''
 
-    def __init__(self, resources: Dict [str, int]):
+    def __init__(self, resources):
         self.resources = resources
 
     def report(self):
@@ -36,7 +36,7 @@ class MenuItem:
     and the cost.
     '''
 
-    def __init__(self, name: str, cost: float, ingredients: Dict[str, int]):
+    def __init__(self, name, cost, ingredients):
         self.name = name
         self.cost = cost
         self.ingredients = ingredients
@@ -52,7 +52,7 @@ class Menu:
     individual menu item and getting all the menu items.
     '''
 
-    def __init__(self, menu_items: List[MenuItem]):
+    def __init__(self, menu_items):
         self.menu_items = menu_items
 
     def get_all_menu_items(self):
@@ -61,25 +61,24 @@ class Menu:
             options += f'{item.name}/'
         return options
 
-    def find_menu_item(self, item_name: str):
+    def find_menu_item(self, item_name):
         for item in self.menu_items:
             if item.name == item_name:
                 return item
         raise Exception('That item is not available.')
-        # print('Sorry that item is not available.')
 
 class Stash:
     '''
     The Stash class represents the stash. It keeps track of the money in the machine.
     '''
-    def __init__(self, profit: int):
+    def __init__(self, profit):
         self.profit = profit
 
 
     def report(self):
         print(f'Money: ${self.profit}')
 
-    def make_payment(self, price: float):
+    def make_payment(self, price):
         try:
             money_received = float(input('How much money are you giving me? '))
 
