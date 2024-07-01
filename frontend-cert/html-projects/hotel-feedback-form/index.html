@@ -15,15 +15,17 @@
       </p>
     </header>
     <main>
-      <form action="">
+      <form action="https://www.freecodecamp.org/learn/">
         <fieldset>
           <legend>Personal Information</legend>
+          <!--NOTE: We should should add a step to have campers first use implicit association. Then we can refactor to using the for attribute.-->
           <label for="full-name">Name*:</label>
           <input
             placeholder="Ex. Jane Doe"
             required
             id="full-name"
             type="text"
+            name="name"
           />
 
           <label for="email">Email address*:</label>
@@ -32,6 +34,7 @@
             required
             id="email"
             type="email"
+            name="email"
           />
           <label for="age">Age(optional):</label>
           <input type="number" name="age" id="age" min="10" max="99" />
@@ -40,14 +43,10 @@
         <fieldset>
           <legend>Was this your first time at our hotel?</legend>
 
-          <label
-            >Yes
-            <input type="radio" name="hotel-stay" />
-          </label>
-          <label
-            >No
-            <input type="radio" name="hotel-stay" />
-          </label>
+          <label for="yes-option">Yes </label>
+          <input id="yes-option" type="radio" name="hotel-stay" />
+          <label for="no-option">No </label>
+          <input id="no-option" type="radio" name="hotel-stay" />
         </fieldset>
 
         <fieldset>
@@ -56,19 +55,19 @@
           </legend>
 
           <label for="ads">Social Media Ads</label>
-          <input type="checkbox" id="ads" />
+          <input type="checkbox" id="ads" name="ads" />
 
           <label for="recommendation">Personal Recommendation</label>
-          <input type="checkbox" id="recommendation" />
+          <input type="checkbox" id="recommendation" name="recommendation" />
 
           <label for="location">Location</label>
-          <input type="checkbox" id="location" />
+          <input type="checkbox" id="location" name="location" />
 
           <label for="reputation">Reputation</label>
-          <input checked type="checkbox" id="reputation" />
+          <input checked type="checkbox" id="reputation" name="reputation" />
 
           <label for="price">Price</label>
-          <input type="checkbox" id="price" />
+          <input type="checkbox" id="price" name="price" />
         </fieldset>
 
         <fieldset>
