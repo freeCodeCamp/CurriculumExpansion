@@ -1,4 +1,4 @@
-1. You should have  a`title` element containing the text `Chocolate Chip Cookies Recipe` and a `meta` elements in the `head`.
+1. You should have  a`title` element containing the text `Chocolate Chip Cookies Recipe` and a `meta` element with a `charset` attribute set to `UTF-8` in the `head`.
 
 1. You should have an `h1` that gives a title to the whole page, it should say `Chocolate Chip Cookies`.
 
