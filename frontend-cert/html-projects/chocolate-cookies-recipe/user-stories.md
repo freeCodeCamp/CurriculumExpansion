@@ -1,4 +1,8 @@
-1. You should have a `title` element containing the text `Chocolate Chip Cookies Recipe` and a `meta` element with a `charset` attribute set to `UTF-8` in the `head`.
+1. You should have a `!DOCTYPE html` declaration.
+
+1. You should have a `head` element containing a `title` element with the text `Chocolate Chip Cookies Recipe` and a `meta` element with a `charset` attribute set to `UTF-8`.
+
+1. You should have a `body` element.
 
 1. You should have an `h1` element with the text `Chocolate Chip Cookies`.
 
