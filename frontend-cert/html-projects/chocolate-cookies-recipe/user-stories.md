@@ -1,5 +1,7 @@
 1. You should have a `!DOCTYPE html` declaration.
 
+1. You should have an `html` element with `lang` set to `en`.
+
 1. You should have a `head` element containing a `title` element with the text `Chocolate Chip Cookies Recipe` and a `meta` element with a `charset` attribute set to `UTF-8`.
 
 1. You should have a `body` element.
@@ -16,4 +18,4 @@
 
 1. You should have an ordered list element with at least 4 list items that lists the recipe steps in order, below the second `h2`.
 
-1. You should have at least one `img` element with an `alt` attribute.
+1. You should one `img` element with a `src` attribute set to `cookies-image.jpg` and an `alt` attribute describing the image.
