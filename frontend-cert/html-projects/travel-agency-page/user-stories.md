@@ -1,6 +1,6 @@
 1. You should have a `!DOCTYPE html` declaration.
 
-1. You should have an `html` element with `lang` set to `en`
+1. You should have an `html` element with `lang` set to `en`.
 
 1. You should have a `head` element containing a `meta` void element with `charset` set to `utf-8` and a `title` with the text `Travel Agency Page`.
 
