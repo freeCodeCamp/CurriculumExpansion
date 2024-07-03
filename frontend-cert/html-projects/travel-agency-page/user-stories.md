@@ -20,4 +20,4 @@
 
 1. For each `figure` element, use the following image `src` and `figcaption` values respectively: `colosseo.jpg` with `Rome and Center Italy`, `lavaredo.jpg` with `National Parks`, `favignana.jpg` with `South Italy and Islands`.
 
-1. All your anchor elements should have an `href` attribute with the value of `<placeholder>` and a `target` attribute with the value of `_blank`.
+1. All your anchor elements should have an `href` attribute with the value of `https://www.freecodecamp.org/learn` and a `target` attribute with the value of `_blank`.
