@@ -10,7 +10,7 @@
 
 6. The second `div` should have these classes: `color-box color2`. 
 
-7.  `.color2` should have a background color of `#33FF57`.
+7. `.color2` should have a background color of `#33FF57`.
 
 8. The third `div` should have these classes: `color-box color3`. 
 
