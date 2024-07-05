@@ -5,15 +5,15 @@ console.log("Hi there!");
 
 // review variables and assignment
 const botName = "teacherBot";
-const occupation = "teacher";
 
 // teach string concatenation using the + operator
-// console.log("My name is " + botName);
-// console.log("I am an experienced " + occupation);
-// then teach template literals and have them refactor the code
+// const greeting = "My name is " + botName
+// console.log(greeting);
 
-console.log(`My name is ${botName}.`);
-console.log(`I am an experienced ${occupation}.`);
+// then have them refactor the code to teach template literals
+
+const greeting = `My name is ${botName}.`;
+console.log(greeting);
 
 // review variables and assignment
 const subject = "JavaScript";
