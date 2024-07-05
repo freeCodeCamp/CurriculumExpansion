@@ -1,0 +1,41 @@
+body {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #010101;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    color: #eee;
+    font-size: 20px;
+}
+
+.progress-bar {
+    width: 800px;
+    height: 25px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px blue;
+}
+
+.percentage {
+    display: block;
+    height: 100%;
+    background: linear-gradient(to right, blue, magenta);
+    border-radius: 5px;
+    animation: progress 1500ms ease-in 1;
+    width: 75%;
+}
+
+.markings {
+    color: #fff;
+    margin-top: 10px;
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+}
