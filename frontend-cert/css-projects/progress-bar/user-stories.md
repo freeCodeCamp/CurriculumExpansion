@@ -5,7 +5,7 @@
 
 2. Your progress bar should be `800px` wide and `25px` high. 
    
-3. Inside the `progress-bar` `div`, there should be a `span` with the class `percentage` that represents the actual progress of the bar. Set the appropriate display type to the `span` class to adapt it to the parent.
+3. Inside the `progress-bar` `div`, there should be another`div` with the class `percentage` that represents the actual progress of the bar. Set the appropriate display type to the `span` class to adapt it to the parent.
 
 4. Add a background color to the progress percentage to make it visible.
 
