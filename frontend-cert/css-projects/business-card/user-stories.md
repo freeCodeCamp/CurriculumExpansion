@@ -10,15 +10,15 @@
 
 6. Inside the `buisness-card` div, there should be an `img` tag with the class `profile-image`. The image source should be set to `flower.jpg` and there should be an `alt` attribute should be set to a meaningful description. The image size should be `150px by 150px`. The bottom margin should be `10px` and there should be a `2px` solid `lightgray` border around the image.
 
-7. Inside the `business-card` `div`, you should have an `h1`, `h2, `and `h3` element.
+7. Inside the `business-card` `div`, after the `img` element,  you should have three `p` elements with the class `full-name`, `designation` and `company` respectively.
 
-8. The `h1` element should contain your name. Its font size should be `24px` and the `color` should be `darkslategray`.
+8. The first `p` element should contain your name. Its font size should be `24px` and the `color` should be `darkslategray`.
 
-9. The  `h2` element should have your designation. Its `font-size` property should be `18px` and the `color` should be set to `gray`.
+9. The second `p` element should contain your designation. Its `font-size` property should be `18px` and the `color` should be set to `gray`.
 
-10. The `h3` element should have the company name. Its font size should be `16px` and the `color` should be set to `darkgray`.
+10. The third `p` element should have your company name. Its font size should be `16px` and the `color` should be set to `darkgray`.
 
-11. There should be an `hr` element below the `h3` element. The `hr` element in general should have a `1px` dashed top border in `slategray` color. There should be a top and bottom `margin` of `20px` and a left and right `margin` of `0px`.
+11. There should be an `hr` element below the last `p` element. The `hr` element in general should have a `1px` dashed top border in `slategray` color. There should be a top and bottom `margin` of `20px` and a left and right `margin` of `0px`.
 
 12. After the `hr` element, there should be three `p` elements. In the first `p` element, you should have an email address as the text. In the second `p` element, the text should be a phone number. The third `p` element should have the text `Portfolio: ` and an `a` element with any valid link. Add an `hr` element after the third `p` element.
 

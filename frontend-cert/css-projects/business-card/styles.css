@@ -22,17 +22,17 @@ body {
     border: 2px solid lightgray;
 }
 
-h1 {
+.full-name {
     font-size: 24px;
     color: darkslategray;
 }
 
-h2 {
+.designation {
     font-size: 18px;
     color: gray;
 }
 
-h3 {
+.company {
     font-size: 16px;
     color: darkgray;
 }
