@@ -2,7 +2,7 @@
    
 2. All of the `p` tags should have a top and bottom margin of `5px` and a left and right margin of `0px`.
 
-3. All links on the page should have a default of no underline. When you hover over the links, there should be an underline
+3. All links on the page should have a default of no underline. When you hover over the links, there should be an underline.
 
 4. You should have a `div` with the class `business-card`. 
    
@@ -20,7 +20,7 @@
 
 11. There should be an `hr` element below the `h3` element. The `hr` element in general should have a `1px` dashed top border in `slategray` color. There should be a top and bottom `margin` of `20px` and a left and right `margin` of `0px`.
 
-12. After the `hr` element, there should be three `p` elements. In the first `p` element, there should be an `a` element with `href` property set to an email address. The `a` tag should have an email address as the text. In the second `p` element, the text should be a phone number. The third `p` element should have the text `Portfolio: ` and an `a` element with any valid link. Add an `hr` element after the third `p` element.
+12. After the `hr` element, there should be three `p` elements. In the first `p` element, you should have an email address as the text. In the second `p` element, the text should be a phone number. The third `p` element should have the text `Portfolio: ` and an `a` element with any valid link. Add an `hr` element after the third `p` element.
 
 13. You should have another `div` with the class `social-media`. This div should have a top margin of `10px` and a font size of `14px`. The links inside this div should be `maroon` and should have a margin of `10px` all around. Within this class, there should be a `p` tag with the text `Connect with me`. 
 
