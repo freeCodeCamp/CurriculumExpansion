@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div:not([id="inner"]) {
+    border-radius: 50%;
+    border: 0;
+}
+
+#red {
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+}
+
+#orange {
+    background-color: orange;
+    width: 380px;
+    height: 380px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+}
+
+#yellow {
+    background-color: yellow;
+    width: 360px;
+    height: 360px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#green {
+    background-color: green;
+    width: 340px;
+    height: 340px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#blue {
+    background-color: blue;
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#indigo {
+    background-color: indigo;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#violet {
+    background-color: violet;
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#white {
+    background-color: white;
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#inner {
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left: -70px;
+    top: 130px;
+}
