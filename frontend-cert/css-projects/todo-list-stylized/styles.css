@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.todo-list {
+    list-style-type: square;
+    padding: 0;
+}
+
+.todo-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.todo-list li a {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.todo-list li a.edit:link,
+.todo-list li a.delete:link {
+    color: blue;
+}
+
+.todo-list li a.edit:visited,
+.todo-list li a.delete:visited {
+    color: purple;
+}
+
+.todo-list li a.edit:hover,
+.todo-list li a.delete:hover {
+    color: red;
+}
+
+.todo-list li a.edit:focus,
+.todo-list li a.delete:focus {
+    outline: 2px solid blue;
+    outline-offset: 2px;
+}
+
+.todo-list li a.edit:active,
+.todo-list li a.delete:active {
+    color: green;
+}
+
+.todo-list li a.edit {
+    position: absolute;
+    right: 60px;
+}
+
+.todo-list li a.delete {
+    position: absolute;
+    right: 10px;
+}
