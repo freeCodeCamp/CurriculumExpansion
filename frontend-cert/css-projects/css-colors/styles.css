@@ -24,29 +24,27 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
     font-weight: bold;
     border-radius: 8px;
     text-align: center;
 }
 
 .color1 {
-    background-color: #FF0000;
+    
 }
 
 .color2 {
-    background-color: #33FF57;
+    
 }
 
 .color3 {
-    background-color: orange;
+    
 }
 
 .color5 {
-    background-color: rgba(255, 255, 0, 1);
-    color: #000;
+    
 }
 
 .color6 {
-    background-color: purple;
+    
 }

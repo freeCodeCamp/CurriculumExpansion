@@ -1,25 +1,19 @@
 1. You should set the background color for `body` to `#f4f4f4`.
 
-2. You should have a `div` with a class of `color-grid`.
+2. You should have a `div` with a class of `color-grid` to hold all your color elements.
 
-3. You should have five `div` elements within `div` created above.
+3. You should have five `div` elements within `color-grid` `div`.
 
-4. The first `div` should have these classes: `color-box color1`. 
+4. The five `div` elements should each have a class of `color-box` and `color#`, where # is the number of the order of that `div`. For example: `color1` for the first `div`, `color2` for the second, and so on.
 
-5. `.color1` should have a background color of `#FF0000`.
+5. The `.color-box` class should have a set `width` and `height` so your `div` elements are visible on the page.
 
-6. The second `div` should have these classes: `color-box color2`. 
+6. The `.color1` element should have a `background-color` that uses hexadecimal color value.
 
-7. `.color2` should have a background color of `#33FF57`.
+7. The `.color2` element should have a `background-color` that uses an RGB color value.
 
-8. The third `div` should have these classes: `color-box color3`. 
+8. The `.color3` element should have a `background-color` that uses a predefined (word) color value.
 
-9. `.color3` should have a background color of `orange`.
+9. The `.color4` element should have a `background-color` that uses a HSL color value.
 
-10. The fourth `div` should have these classes: `color-box color4`. 
-
-11. `.color4` should have a background color of `rgba(255, 255, 0, 1)`.
-
-12. The fifth `div` should have these classes: `color-box color5`. 
-
-13. `.color5` should have a background color of `purple`.
+10. The `.color5` element should have a `background-color` set.
