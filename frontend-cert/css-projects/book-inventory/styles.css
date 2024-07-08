@@ -23,12 +23,16 @@ td {
     background-image: linear-gradient(hsl(120, 20%, 95%, 0.4), hsl(120, 20%, 75%, 0.4));
 }
 span {
-    display:inline-block;
+    display: inline-block;
 }
+
+.status {
+    border-radius: 20%/60%;
+}
+
 .status, .rate {
     height: 1.85em;
     width: 7em;
-    border-radius: 20%/60%;
     padding: 0.3em;
 }
 .to-read .status {
