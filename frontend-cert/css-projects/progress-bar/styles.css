@@ -12,7 +12,7 @@ h2 {
     font-size: 2em;
 }
 
-.progress-bar {
+.max-acceleration {
     width: 800px;
     height: 25px;
     margin-top: 10px;
@@ -20,12 +20,12 @@ h2 {
     box-shadow: 0 0 10px blue;
 }
 
-.percentage {
+.acceleration-percentage {
     display: block;
     height: 100%;
     background: linear-gradient(to right, blue, magenta);
     border-radius: 5px;
-    animation: progress 1500ms ease-in 1;
+    animation: acceleration 1500ms ease-in 1;
     width: 75%;
 }
 
@@ -50,8 +50,9 @@ h2 {
     margin-left: 260px;
 }
 
-@keyframes progress {
+@keyframes acceleration {
     from {
         width: 0;
     }
 }
+

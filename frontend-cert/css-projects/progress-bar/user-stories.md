@@ -1,16 +1,16 @@
-1. You should have a `div` or `main` element that targets the class `progress-bar-container`. Inside it, there should be an `h1` heading with the text of `Car Acceleration`.
+1. You should have an `h1` heading with the text of `Car Acceleration`.
 
 
-1. Inside the main container, there should be a `div` with the class `progress-bar` that contains the full width of the progress bar.
+2. After the heading, there should be a `div` with the class `max-acceleration` that contains the maximum acceleration of the car.
 
-2. Your progress bar should be `800px` wide and `25px` high. 
+3. Your acceleration meter should be `800px` wide and `25px` high. 
    
-3. Inside the `progress-bar` `div`, there should be another`div` with the class `percentage` that represents the actual progress of the bar. Set the appropriate display type to the `span` class to adapt it to the parent.
+4. Inside the `max-acceleration` `div`, there should be another `div` with the class `acceleration-percentage` that represents the current acceleration of the car. Set the appropriate display type to this class to adapt it to the parent.
 
-4. You should have a background color for the progress percentage to make it visible.
+5. You should have a background color for the progress percentage to make it visible.
 
-5. The progress bar animation should be named `progress`. It should last for `1.5` seconds and should be slow at the beginning and fast at the end. The animation should run only once.
+6. The acceleration meter animation should be named `acceleration`. It should last for `1.5` seconds and should be slow at the beginning and fast at the end. The animation should run only once.
 
-6. The `progress` should start with a width of `0` and end with a width of `75%`.
+7. The `acceleration` animation should start with a width of `0` and end with a width of `75%`.
 
-7. You should add speed labels that indicate the speed of the car at `0`, `100`, `180`, `300` mph.
+8. You should add speed labels that indicate the speed of the car at `0`, `100`, `180`, `300` mph.
