@@ -57,12 +57,12 @@ span[class^="rate"] span {
     width: 20%;
     margin: 0.1em;
 }
-span[class$="three"] span {
+span[class~="three"] span {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
-span[class$="two"] :nth-child(1), span[class$="two"] :nth-child(2) {
+span[class~="two"] :nth-child(1), span[class~="two"] :nth-child(2) {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
-span[class$="one"] :first-child {
+span[class~="one"] :first-child {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
