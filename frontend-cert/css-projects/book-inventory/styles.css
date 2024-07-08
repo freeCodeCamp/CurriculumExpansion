@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 100vw;
+}
+thead {
+    background-image: linear-gradient(rgb(140, 215, 250, 0.60), rgb(15, 180, 245, 0.60));
+}
+th {
+    padding: 0.4em;
+}
+td {
+    text-align: center;
+    padding: 0.3em;
+}
+.read {
+    background-image: linear-gradient(rgb(185, 255, 185, 0.60), rgba(117, 229, 119, 0.6));
+}
+.to-read, .in-progress {
+    background-image: linear-gradient(rgb(240, 245, 240, 0.4), rgba(175, 200, 175, 0.4));
+}
+span {
+    display:inline-block;
+}
+.status, .rate {
+    height: 1.75em;
+    width: 6em;
+    border-radius: 20%/60%;
+    padding: 0.3em;
+}
+.to-read .status {
+    background-image: linear-gradient(rgb(255, 105, 100), rgb(245, 20, 15));
+    border: 0.1em solid rgb(125, 140, 125);
+}
+.read .status {
+    border: 0.1em solid rgb(75, 180, 55);
+    background-image: linear-gradient(rgb(80, 245, 80), rgb(15, 200, 15));
+}
+
+.in-progress .status {
+    border: 0.1em solid rgb(199, 133, 10);
+    background-image: linear-gradient(rgb(248, 174, 35), rgb(240, 112, 8));
+}
+
+.rate span {
+    border: 0.1em solid rgb(135, 134, 134);
+    border-radius: 50%;
+    background-color: rgb(243, 238, 238);
+    height: 100%;
+    width: 25%;
+}
+.three span {
+    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+}
+.two :nth-child(1), .two :nth-child(2) {
+    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+}
+.one :nth-child(1) {
+    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+}
