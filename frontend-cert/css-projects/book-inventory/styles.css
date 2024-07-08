@@ -7,7 +7,7 @@ table {
     width: 100vw;
 }
 thead {
-    background-image: linear-gradient(rgb(140, 215, 250, 0.60), rgb(15, 180, 245, 0.60));
+    background-image: linear-gradient(hsl(197, 92%, 77%, 0.60), hsl(197, 92%, 50%, 0.60));
 }
 th {
     padding: 0.4em;
@@ -17,47 +17,48 @@ td {
     padding: 0.3em;
 }
 .read {
-    background-image: linear-gradient(rgb(185, 255, 185, 0.60), rgba(117, 229, 119, 0.6));
+    background-image: linear-gradient(hsl(120, 100%, 85%, 0.60), hsl(120, 70%, 70%, 0.6));
 }
 .to-read, .in-progress {
-    background-image: linear-gradient(rgb(240, 245, 240, 0.4), rgba(175, 200, 175, 0.4));
+    background-image: linear-gradient(hsl(120, 20%, 95%, 0.4), hsl(120, 20%, 75%, 0.4));
 }
 span {
     display:inline-block;
 }
 .status, .rate {
-    height: 1.75em;
-    width: 6em;
+    height: 1.85em;
+    width: 7em;
     border-radius: 20%/60%;
     padding: 0.3em;
 }
 .to-read .status {
-    background-image: linear-gradient(rgb(255, 105, 100), rgb(245, 20, 15));
-    border: 0.1em solid rgb(125, 140, 125);
+    border: 0.1em solid hsl(5, 100%, 45%);
+    background-image: linear-gradient(hsl(5, 100%, 75%), hsl(5, 100%, 50%));    
 }
 .read .status {
-    border: 0.1em solid rgb(75, 180, 55);
-    background-image: linear-gradient(rgb(80, 245, 80), rgb(15, 200, 15));
+    border: 0.1em solid hsl(120, 75%, 45%);
+    background-image: linear-gradient(hsl(120, 75%, 75%), hsl(120, 75%, 50%));
 }
 
 .in-progress .status {
-    border: 0.1em solid rgb(199, 133, 10);
-    background-image: linear-gradient(rgb(248, 174, 35), rgb(240, 112, 8));
+    border: 0.1em solid hsl(40, 90%, 40%);
+    background-image: linear-gradient(hsl(40, 90%, 75%), hsl(40, 90%, 50%));
 }
 
 .rate span {
-    border: 0.1em solid rgb(135, 134, 134);
+    border: 0.1em solid hsl(0, 0%, 50%);
     border-radius: 50%;
-    background-color: rgb(243, 238, 238);
+    background-color: hsl(0, 15%, 95%);
     height: 100%;
-    width: 25%;
+    width: 20%;
+    margin: 0.1em;
 }
 .three span {
-    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
 .two :nth-child(1), .two :nth-child(2) {
-    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
 .one :nth-child(1) {
-    background-image: linear-gradient(90deg,rgb(250, 222, 66),  gold);
+    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
