@@ -6,12 +6,12 @@
 
 div:not([id="cover"]) {
     border-radius: 50%;
+    position: absolute;
 }
 
 #container {
     width: 350px;
     height: 350px;
-    position: absolute;
     right: 0;
     left: 0;
     top: 0;
@@ -23,7 +23,6 @@ div:not([id="cover"]) {
     background-color: red;
     width: 250px;
     height: 250px;
-    position: absolute;
     top: 50px;
     left: 50px;
 }
@@ -32,7 +31,6 @@ div:not([id="cover"]) {
     background-color: orange;
     width: 235px;
     height: 235px;
-    position: absolute;
     left: 57.5px;
     top: 57.5px;
 
@@ -42,7 +40,6 @@ div:not([id="cover"]) {
     background-color: yellow;
     width: 220px;
     height: 220px;
-    position: absolute;
     left: 65px;
     top: 65px;
 }
@@ -51,7 +48,6 @@ div:not([id="cover"]) {
     background-color: green;
     width: 205px;
     height: 205px;
-    position: absolute;
     left: 72.5px;
     top: 72.5px;
 }
@@ -60,7 +56,6 @@ div:not([id="cover"]) {
     background-color: blue;
     width: 190px;
     height: 190px;
-    position: absolute;
     left: 80px;
     top: 80px;
 }
@@ -69,7 +64,6 @@ div:not([id="cover"]) {
     background-color: indigo;
     width: 175px;
     height: 175px;
-    position: absolute;
     left: 87.5px;
     top: 87.5px;
 }
@@ -78,7 +72,6 @@ div:not([id="cover"]) {
     background-color: violet;
     width: 160px;
     height: 160px;
-    position: absolute;
     left: 95px;
     top: 95px;
 }
@@ -87,16 +80,15 @@ div:not([id="cover"]) {
     background-color: white;
     width: 145px;
     height: 145px;
-    position: absolute;
     left: 102.5px;
     top: 102.5px;
 }
 
 #cover {
+    position: absolute;
     background-color: white;
     width: 250px;
     height: 125px;
-    position: absolute;
     left: 50px;
     top: 175px;
 }
