@@ -16,40 +16,40 @@ td {
     text-align: center;
     padding: 0.3em;
 }
-.read {
+tr[class="read"] {
     background-image: linear-gradient(hsl(120, 100%, 85%, 0.60), hsl(120, 70%, 70%, 0.6));
 }
-.to-read, .in-progress {
+tr[class="to-read"], tr[class="in-progress"] {
     background-image: linear-gradient(hsl(120, 20%, 95%, 0.4), hsl(120, 20%, 75%, 0.4));
 }
 span {
     display: inline-block;
 }
 
-.status {
+span[class="status"] {
     border-radius: 20%/60%;
 }
 
-.status, .rate {
+span[class="status"], span[class^="rate"] {
     height: 1.85em;
     width: 7em;
     padding: 0.3em;
 }
-.to-read .status {
+tr[class="to-read"] span[class="status"] {
     border: 0.1em solid hsl(5, 100%, 45%);
     background-image: linear-gradient(hsl(5, 100%, 75%), hsl(5, 100%, 50%));    
 }
-.read .status {
+tr[class="read"] span[class="status"] {
     border: 0.1em solid hsl(120, 75%, 45%);
     background-image: linear-gradient(hsl(120, 75%, 75%), hsl(120, 75%, 50%));
 }
 
-.in-progress .status {
+tr[class="in-progress"] span[class="status"] {
     border: 0.1em solid hsl(40, 90%, 40%);
     background-image: linear-gradient(hsl(40, 90%, 75%), hsl(40, 90%, 50%));
 }
 
-.rate span {
+span[class^="rate"] span {
     border: 0.1em solid hsl(0, 0%, 50%);
     border-radius: 50%;
     background-color: hsl(0, 15%, 95%);
@@ -57,12 +57,12 @@ span {
     width: 20%;
     margin: 0.1em;
 }
-.three span {
+span[class$="three"] span {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
-.two :nth-child(1), .two :nth-child(2) {
+span[class$="two"] :nth-child(1), span[class$="two"] :nth-child(2) {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
-.one :nth-child(1) {
+span[class$="one"] :first-child {
     background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
 }
