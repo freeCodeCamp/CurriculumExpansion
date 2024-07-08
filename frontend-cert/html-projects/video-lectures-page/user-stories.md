@@ -9,3 +9,5 @@
 1. The three `h2` elements should have the text `HTML Elements`, `Attributes`, and `Void Elements`, respectively.
 
 1. The three `iframe` elements should have a `src` attribute set to `<placeholder>`, `<placeholder>`, and `<placeholder>`, respectively.
+
+1. Each `iframe` element should also have a `title` attribute to describe the embedded content, and a `height` attribute and a `width` attribute to set the element to a proper size.
