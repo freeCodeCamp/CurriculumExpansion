@@ -1,0 +1,85 @@
+:root {
+    --color1: hsl(120, 95%, 90%);
+    --color2: hsl(120, 95%, 80%);
+    --color3: hsl(120, 95%, 65%);
+    --color4: hsl(120, 95%, 40%);
+    --color5: hsl(120, 95%, 25%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 95vw;
+    height: 95vh;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.time {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.time span {
+    height: 5%;
+    text-align: right;
+}
+
+.day {
+    height: 92%;
+    width: 18%;
+}
+
+.day :last-child {
+    border-bottom: 0.1em solid black;
+}
+
+span {
+    display: block;
+    height: 8%;
+}
+
+.range {
+    border: 0.1em solid black;
+    border-bottom: 0; 
+    height: 11.5%;
+    width: 100%;    
+}
+
+span[id*="day"] {
+    text-align: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.a1 {
+    background-color: var(--color1);
+}
+
+.a2 {
+    background-color: var(--color2);
+}
+
+.a3 {
+    background-color: var(--color3);
+}
+
+.a4 {
+    background-color: var(--color4);
+}
+
+.a5 {
+    background-color: var(--color5);
+}
