@@ -6,7 +6,7 @@
 
 1. You should have a `body` element.
 
-1. You should have an `h1` element with the same text as your `title` element.
+1. You should have an `h1` element with the name of your recipe.
 
 1. You should have a `p` element that introduces the recipe below the `h1`.
 
