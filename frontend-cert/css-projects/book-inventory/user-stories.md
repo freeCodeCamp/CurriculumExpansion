@@ -10,9 +10,7 @@
 
 1. `.rate` elements placed inside `.read` rows should have an additional class with the value of either `one`, `two`, or `three`, depending on the personal rate. This value should come after `rate`.
 
-1. You should use an attribute selector to target the elements with the class of `read` and set their `background-image` to use a `linear-gradient` of your choice.
-
-1. You should use an attribute selector to target the elements with the class of `to-read` and `in-progress` class and set their `background-image` to use a `linear-gradient` of your choice.
+1. You should create three attribute selectors to target the elements with the class of `read`, `to-read`, and `in-progress`, and set their `background-image` property to use a `linear-gradient` of your choice.
 
 1. You should set the `display` property of each `span` element to `inline-block`.
 

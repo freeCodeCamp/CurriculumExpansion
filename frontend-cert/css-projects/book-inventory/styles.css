@@ -1,27 +1,38 @@
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
+
 table {
     border-collapse: collapse;
     width: 100vw;
 }
+
 thead {
     background-image: linear-gradient(hsl(197, 92%, 77%, 0.60), hsl(197, 92%, 50%, 0.60));
 }
+
 th {
     padding: 0.4em;
 }
+
 td {
     text-align: center;
     padding: 0.3em;
 }
+
 tr[class="read"] {
-    background-image: linear-gradient(hsl(120, 100%, 85%, 0.60), hsl(120, 70%, 70%, 0.6));
+    background-image: linear-gradient(hsl(120, 100%, 85%, 0.6), hsl(120, 100%, 65%, 0.6));
 }
-tr[class="to-read"], tr[class="in-progress"] {
-    background-image: linear-gradient(hsl(120, 20%, 95%, 0.4), hsl(120, 20%, 75%, 0.4));
+
+tr[class="to-read"] {
+    background-image: linear-gradient(hsl(120, 20%, 95%, 0.6), hsl(120, 20%, 75%, 0.6));
 }
+
+tr[class="in-progress"] {
+    background-image: linear-gradient(hsl(40, 100%, 85%, 0.60), hsl(40, 100%, 65%, 0.6));
+}
+
 span {
     display: inline-block;
 }
@@ -30,15 +41,18 @@ span[class="status"] {
     border-radius: 20%/60%;
 }
 
-span[class="status"], span[class^="rate"] {
+span[class="status"],
+span[class^="rate"] {
     height: 1.85em;
     width: 7em;
     padding: 0.3em;
 }
+
 tr[class="to-read"] span[class="status"] {
     border: 0.1em solid hsl(5, 100%, 45%);
-    background-image: linear-gradient(hsl(5, 100%, 75%), hsl(5, 100%, 50%));    
+    background-image: linear-gradient(hsl(5, 100%, 75%), hsl(5, 100%, 50%));
 }
+
 tr[class="read"] span[class="status"] {
     border: 0.1em solid hsl(120, 75%, 45%);
     background-image: linear-gradient(hsl(120, 75%, 75%), hsl(120, 75%, 50%));
@@ -57,12 +71,16 @@ span[class^="rate"] span {
     width: 20%;
     margin: 0.1em;
 }
+
 span[class~="three"] span {
-    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
+    background-image: linear-gradient(hsl(50, 100%, 70%), hsl(50, 100%, 50%));
 }
-span[class~="two"] :nth-child(1), span[class~="two"] :nth-child(2) {
-    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
+
+span[class~="two"] :nth-child(1),
+span[class~="two"] :nth-child(2) {
+    background-image: linear-gradient(hsl(50, 100%, 70%), hsl(50, 100%, 50%));
 }
+
 span[class~="one"] :first-child {
-    background-image: linear-gradient(hsl(50, 100%, 70%),  hsl(50, 100%, 50%));
+    background-image: linear-gradient(hsl(50, 100%, 70%), hsl(50, 100%, 50%));
 }
