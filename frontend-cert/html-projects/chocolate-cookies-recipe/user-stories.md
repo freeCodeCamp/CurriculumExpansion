@@ -12,11 +12,11 @@
 
 1. You should have one `h2` element with the text `Ingredients` for the ingredients section.
 
-1. You should have an unordered list (`ul` element) with at least 4 list items (`li` elements) that lists your ingredients below the first `h2` element.
+1. You should have an unordered list (`ul` element) with at least four list items (`li` elements) that lists your ingredients below the first `h2` element.
 
 1. You should have a second `h2` element with the text `Instructions` for the instructions section.
 
-1. You should have an ordered list (`ol` element) with at least 4 list items that lists the recipe steps in order, below the second `h2`.
+1. You should have an ordered list (`ol` element) with at least four list items that lists the recipe steps in order, below the second `h2`.
 
 <!--TODO: change src when img is on the cdn -->
 1. You should have one `img` element with a `src` attribute set to a valid image, and an `alt` attribute describing the image. You can use the `cookie-url` if you would like.
