@@ -10,7 +10,7 @@
 
 6. Inside the `buisness-card` div, there should be an `img` tag with the class `profile-image`. The image source should be set to `flower.jpg` and there should be an `alt` attribute should be set to a meaningful description. The image size should be `150px by 150px`. The bottom margin should be `10px` and there should be a `2px` solid `lightgray` border around the image.
 
-7. Inside the `business-card` `div`, after the `img` element,  you should have three `p` elements with the class `full-name`, `designation` and `company` respectively.
+7. Inside the `business-card` `div`, after the `img` element, you should have three `p` elements with the class `full-name`, `designation`, and `company`, respectively.
 
 8. The first `p` element should contain your name. Its font size should be `24px` and the `color` should be `darkslategray`.
 
