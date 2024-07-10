@@ -4,79 +4,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting Coordinator</title>
+    <title>Meeting Scheduler</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <main>
-        <div class="time" >
-            <span id="h9">9:00 AM</span>
-            <span id="h10">10:00 AM</span>
-            <span id="h11">11:00 AM</span>
-            <span id="h12">12:00 AM</span>
-            <span id="h1">1:00 PM</span>
-            <span id="h2">2:00 PM</span>
-            <span id="h3">3:00 PM</span>
-            <span id="h4">4:00 PM</span>
-            <span id="h5">5:00 PM</span>
+        <div id="schedule">
+            <div class="time">
+                <span id="h9">9:00 AM</span>
+                <span id="h10">10:00 AM</span>
+                <span id="h11">11:00 AM</span>
+                <span id="h12">12:00 PM</span>
+                <span id="h1">1:00 PM</span>
+                <span id="h2">2:00 PM</span>
+                <span id="h3">3:00 PM</span>
+                <span id="h4">4:00 PM</span>
+                <span id="h5">5:00 PM</span>
+            </div>
+            <div class="day">
+                <span id="monday">Monday</span>
+                <div class="range a1" id="range1"></div>
+                <div class="range a3" id="range2"></div>
+                <div class="range a5" id="range3"></div>
+                <div class="range a2" id="range4"></div>
+                <div class="range" id="range5"></div>
+                <div class="range a5" id="range6"></div>
+                <div class="range a4" id="range7"></div>
+                <div class="range a2" id="range8"></div>
+            </div>
+            <div class="day">
+                <span id="tuesday">Tuesday</span>
+                <div class="range" id="range1"></div>
+                <div class="range" id="range2"></div>
+                <div class="range a1" id="range3"></div>
+                <div class="range a3" id="range4"></div>
+                <div class="range a3" id="range5"></div>
+                <div class="range a5" id="range6"></div>
+                <div class="range a5" id="range7"></div>
+                <div class="range a5" id="range8"></div>
+            </div>
+            <div class="day">
+                <span id="wednesday">Wednesday</span>
+                <div class="range a5" id="range1"></div>
+                <div class="range a5" id="range2"></div>
+                <div class="range a4" id="range3"></div>
+                <div class="range a4" id="range4"></div>
+                <div class="range a2" id="range5"></div>
+                <div class="range a2" id="range6"></div>
+                <div class="range" id="range7"></div>
+                <div class="range" id="range8"></div>
+            </div>
+            <div class="day">
+                <span id="thursday">Thursday</span>
+                <div class="range a5" id="range1"></div>
+                <div class="range a5" id="range2"></div>
+                <div class="range a4" id="range3"></div>
+                <div class="range a1" id="range4"></div>
+                <div class="range a2" id="range5"></div>
+                <div class="range a4" id="range6"></div>
+                <div class="range a4" id="range7"></div>
+                <div class="range a3" id="range8"></div>
+            </div>
+            <div class="day">
+                <span id="friday">Friday</span>
+                <div class="range" id="range1"></div>
+                <div class="range a3" id="range2"></div>
+                <div class="range a3" id="range3"></div>
+                <div class="range a5" id="range4"></div>
+                <div class="range a4" id="range5"></div>
+                <div class="range a5" id="range6"></div>
+                <div class="range a5" id="range7"></div>
+                <div class="range a1" id="range8"></div>
+            </div>
         </div>
-        <div class="day" >
-            <span id="monday">Monday</span>
-            <div class="range a1" id="range1"></div>
-            <div class="range a3" id="range2"></div>
-            <div class="range a5" id="range3"></div>
-            <div class="range a2" id="range4"></div>
-            <div class="range" id="range5"></div>
-            <div class="range a5" id="range6"></div>
-            <div class="range a4" id="range7"></div>
-            <div class="range a2" id="range8"></div>
-        </div>
-        <div class="day">
-            <span id="tuesday">Tuesday</span>
-            <div class="range" id="range1"></div>
-            <div class="range" id="range2"></div>
-            <div class="range a1" id="range3"></div>
-            <div class="range a3" id="range4"></div>
-            <div class="range a3" id="range5"></div>
-            <div class="range a5" id="range6"></div>
-            <div class="range a5" id="range7"></div>
-            <div class="range a5" id="range8"></div>
-        </div>
-        <div class="day">
-            <span id="wednesday">Wednesday</span>
-            <div class="range a5" id="range1"></div>
-            <div class="range a5" id="range2"></div>
-            <div class="range a4" id="range3"></div>
-            <div class="range a4" id="range4"></div>
-            <div class="range a2" id="range5"></div>
-            <div class="range a2" id="range6"></div>
-            <div class="range" id="range7"></div>
-            <div class="range" id="range8"></div>
-        </div>
-        <div class="day">
-            <span id="thursday">Thursday</span>
-            <div class="range a5" id="range1"></div>
-            <div class="range a5" id="range2"></div>
-            <div class="range a4" id="range3"></div>
-            <div class="range a1" id="range4"></div>
-            <div class="range a2" id="range5"></div>
-            <div class="range a4" id="range6"></div>
-            <div class="range a4" id="range7"></div>
-            <div class="range a3" id="range8"></div>
-        </div>
-        <div class="day">
-            <span id="friday">Friday</span>
-            <div class="range" id="range1"></div>
-            <div class="range a3" id="range2"></div>
-            <div class="range a3" id="range3"></div>
-            <div class="range a5" id="range4"></div>
-            <div class="range a4" id="range5"></div>
-            <div class="range a5" id="range6"></div>
-            <div class="range a5" id="range7"></div>
-            <div class="range a1" id="range8"></div>
+        <div id="legend">
+            <span id="legend-title">Availability</span>
+            <div id="legend-line"><span>0</span>
+                <div id="legend-color"></div><span>5+</span>
+            </div>
         </div>
     </main>
+
 </body>
 
 </html>
