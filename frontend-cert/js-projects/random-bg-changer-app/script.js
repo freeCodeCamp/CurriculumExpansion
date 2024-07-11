@@ -27,7 +27,7 @@ function changeBackgroundColor() {
 }
 const btn = document.querySelector("#btn");
 
-btn.onclick = changeBackgroundColor;
+btn.addEventListener("click", changeBackgroundColor);
 
 /* seed code
 const darkColorsArr = [
@@ -63,5 +63,5 @@ const darkColorsArr = [
   const btn = document.querySelector("#click-btn");
   console.log(btn)
   
-  btn.onclick = changeBackgroundColor();
+  btn.addEventListener("click", changeBackgroundColor());
 */
