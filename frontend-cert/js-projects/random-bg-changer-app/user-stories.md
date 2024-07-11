@@ -12,4 +12,4 @@
 
 1. You should update the `btn` variable so that it targets the button element. Open up the `index.html` to see the correct `id` name for that button element.
 
-1. You should fix the line that sets the `onclick` property of `btn` by assigning a reference to the `changeBackgroundColor` function to the property.
+1. You should fix the line that adds an event listener for the `click` event to `btn` by passing a reference to the `changeBackgroundColor` function to the method.
