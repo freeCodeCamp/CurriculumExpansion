@@ -27,24 +27,26 @@ h1 {
     font-weight: bold;
     border-radius: 8px;
     text-align: center;
+    width: 100px;
+    height: 100px;
 }
 
 .color1 {
-    
+    background-color: #33FF57;
 }
 
 .color2 {
-    
+    background-color: rgb(128,0,128);
 }
 
 .color3 {
-    
+    background-color: orange;
+}
+
+.color4 {
+    background-color: hsl(59, 61%, 26%);
 }
 
 .color5 {
-    
-}
-
-.color6 {
-    
+    background-color: red;
 }
