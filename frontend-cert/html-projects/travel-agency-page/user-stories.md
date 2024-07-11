@@ -4,7 +4,7 @@
 
 1. You should have a `head` element containing a `meta` void element with `charset` set to `utf-8` and a `title` with the text `Travel Agency Page`.
 
-1. You should have an `h1` element with the text `Discover Italy`.
+1. You should have an `h1` element to present your travel destinations.
 
 1. You should have a paragraph below the `h1` element introducing the travel opportunities.
 
@@ -16,8 +16,8 @@
 
 1. You should have an `h2` element with the text `Top Itineraries`.
 
-1. You should have three `figure` elements, each containing an anchor element and a `figcaption` element. The three anchor elements should have an `img` element as their content.
+1. You should have at least three `figure` elements, each containing an anchor element and a `figcaption` element.
 <!--TODO: change src when images are on the cdn -->
-1. For each `figure` element, use the following image `src` and `figcaption` values respectively: `colosseo.jpg` with `Rome and Center Italy`, `lavaredo.jpg` with `National Parks`, `favignana.jpg` with `South Italy and Islands`. Also, add an appropriate `alt` attribute to each image.
+1. The three anchor elements should have an `img` element with an appropriate `alt` attribute and a `src` attribute set to a valid image as their content. You can use `colosseo-url`, `lavaredo-url`, and `favignana-url` if you would like.
 
 1. All your five anchor elements should have an `href` attribute with the value of `https://www.freecodecamp.org/learn` and a `target` attribute with the value of `_blank`.
