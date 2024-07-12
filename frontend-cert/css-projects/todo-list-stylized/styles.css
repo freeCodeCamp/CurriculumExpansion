@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
@@ -20,7 +20,7 @@ h1 {
 }
 
 .todo-list {
-    list-style-type: square;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -28,9 +28,10 @@ h1 {
     margin-bottom: 15px;
     line-height: 1.6;
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: #e5f1e5;
+    border-radius: 10px;
+    /* border: 1px solid #ddd;
+    border-radius: 5px; */
     position: relative;
 }
 
@@ -39,38 +40,34 @@ h1 {
     text-decoration: none;
 }
 
-.todo-list li a.edit:link,
-.todo-list li a.delete:link {
+.todo-list li a.sub-item-link:link {
     color: blue;
 }
 
-.todo-list li a.edit:visited,
-.todo-list li a.delete:visited {
-    color: purple;
+.todo-list li a.sub-item-link:visited,
+{
+color: purple;
 }
 
-.todo-list li a.edit:hover,
-.todo-list li a.delete:hover {
+.todo-list li a.sub-item-link:hover {
     color: red;
 }
 
-.todo-list li a.edit:focus,
-.todo-list li a.delete:focus {
+.todo-list li a.sub-item-link:focus {
     outline: 2px solid blue;
     outline-offset: 2px;
 }
 
-.todo-list li a.edit:active,
-.todo-list li a.delete:active {
+.todo-list li a.sub-item-link:active {
     color: green;
 }
 
-.todo-list li a.edit {
-    position: absolute;
-    right: 60px;
+.sub-item {
+    list-style-type: square;
 }
 
-.todo-list li a.delete {
+/* 
+.todo-list li a.sub-item-link {
     position: absolute;
     right: 10px;
-}
+} */
