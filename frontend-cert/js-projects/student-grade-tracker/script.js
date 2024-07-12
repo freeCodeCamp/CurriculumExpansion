@@ -1,5 +1,7 @@
+// start with an empty array - objects will be pushed into it later
 const students = [];
 
+// Have campers create 4 or more objects – but working with more than 3 might make thigns too repetitious and redundant
 const student1 = {
   name: 'John',
   scores: [88, 90, 85],
@@ -27,10 +29,12 @@ const student4 = {
   grade: '',
 };
 
+// introduce push here
 students.push(student1, student2, student3, student4);
 
 console.log(students);
 
+// introduce pop
 students.pop(); // remove the last student so three are two left to work with
 
 let student1TotalScore =
@@ -61,6 +65,8 @@ Grading system
 50 - 59: E
 <50: F
 */
+
+// introduce if/else
 if (student1.averageScore >= 90 && student1.averageScore <= 100) {
   student1.grade = 'A';
 } else if (student1.averageScore >= 80 && student1.averageScore < 90) {
@@ -91,7 +97,7 @@ console.log(
     '.'
 );
 
-// With template literals
+// introduce template literals
 console.log(
   `Student1, with the name ${student1.name} has an average score of ${student1.averageScore} with the grade ${student1.grade}.`
 );
