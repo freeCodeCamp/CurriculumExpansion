@@ -52,6 +52,15 @@ console.log(student1); //average score should not be null anymore
 // repeat for the remaining 2 students
 
 // Calculate grade with if/else
+/*
+Grading system
+90 - 100: A
+80 - 89: B
+70 - 79: C
+60 - 69: D
+50 - 59: E
+<50: F
+*/
 if (student1.averageScore >= 90 && student1.averageScore <= 100) {
   student1.grade = 'A';
 } else if (student1.averageScore >= 80 && student1.averageScore < 90) {
