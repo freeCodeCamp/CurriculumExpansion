@@ -14,4 +14,4 @@
 
 1. You should use absolute positioniing to center `#red` respect to its parent, and each of the remaining `div` elements (except `#cover`) respect to the previous element.
 
-1. You should target `#cover` and set color to `white` and its size and position to cover the bottom half of the colored `div` elements.
+1. You should target `#cover` and set its color to `white` and its size and position to cover the bottom half of the colored `div` elements.
