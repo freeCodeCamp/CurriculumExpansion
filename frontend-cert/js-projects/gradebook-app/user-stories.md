@@ -11,7 +11,9 @@
     | `60 - 69`   | `"D"`   |
     | `0 - 59`    | `"F"`   |
 
-1. You should have a function named `hasPassingGrade` that takes a score as a parameter and returns either `true` or `false` depending on if the score corresponds to a passing grade. A passing grade is anything different from `"F"`. The function should use the `getGrade` function to determine the grade.
+1. You should have a function named `hasPassingGrade` that takes a score as a parameter and returns either `true` or `false` depending on if the score corresponds to a passing grade.
+
+1. The `hasPassingGrade` function should use the `getGrade` function to get the letter grade, and use it determine if the grade is passing. A passing grade is anything different from `"F"`.
 
 1. You should have a function named `studentMsg` that takes an array of scores and a student score as the parameters. The function should return a string with the format:
 
