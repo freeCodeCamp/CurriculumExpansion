@@ -1,6 +1,6 @@
 1. You should define a class named `HashTable` with a `collection` property initialized as an empty object inside its `constructor` method. The `collection` object should store key-value pairs based on the hashed value of the key.
 
-1. The `HashTable` class should have a static method `hash` and three instance methods, namely `add`, `remove`, and `lookup`.
+1. The `HashTable` class should have four instance methods, namely `hash`, `add`, `remove`, and `lookup`.
 
 1. The `hash` method should take a string as a parameter and return the hashed value computed as the sum of the UTF-16 code unit of each character in the string. Use the `charCodeAt` method for that.
 

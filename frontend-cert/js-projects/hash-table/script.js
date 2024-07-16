@@ -3,7 +3,7 @@ class HashTable {
         this.collection = {};
     }
 
-    static hash(string) {
+    hash(string) {
         let hashed = 0;
         for (let i = 0; i < string.length; i++) {
             hashed += string.charCodeAt(i);
@@ -11,8 +11,8 @@ class HashTable {
         return hashed
     }
 
-    add(key, val)  {
-        const theHash = HashTable.hash(key);
+    add(key, val) {
+        const theHash = this.hash(key);
         if (!this.collection.hasOwnProperty(theHash)) {
             this.collection[theHash] = {};
         }
@@ -20,20 +20,20 @@ class HashTable {
     }
 
     remove(key) {
-        const theHash = HashTable.hash(key);
+        const theHash = this.hash(key);
         const hashedObj = this.collection[theHash];
         if (hashedObj.hasOwnProperty(key)) {
-          delete hashedObj[key];
+            delete hashedObj[key];
         }
         if (!Object.keys(hashedObj).length) {
-          delete this.collection[theHash];
+            delete this.collection[theHash];
         }
-      }
+    }
 
     lookup(key) {
-        const theHash = HashTable.hash(key);
+        const theHash = this.hash(key);
         if (this.collection.hasOwnProperty(theHash)) {
-        return this.collection[theHash][key];
+            return this.collection[theHash][key];
         }
         return null
     }
