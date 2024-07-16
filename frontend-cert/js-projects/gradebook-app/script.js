@@ -10,7 +10,7 @@ function getAverage(scores) {
   
   function getGrade(score) {
     if (score === 100) {
-      return "A++";
+      return "A+";
     } else if (score >= 90) {
       return "A";
     } else if (score >= 80) {
