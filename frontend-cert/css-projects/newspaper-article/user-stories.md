@@ -9,4 +9,4 @@
 9. Your `.author` should use CSS to make it bold.
 10. Your `.text` elements should be indented `20px`.
 11. Your `.text` elements should have a `line-height` that's two times the size of its parent's `font-size`.
-12. The first letter of your `.text` elements should be bold and two times the size its parent's `font-size`. Hint: use the `::first-letter` selector.
+12. The first letter of your `.text` elements should be bold and two times the size of its parent's `font-size`. Hint: use the `::first-letter` selector.
