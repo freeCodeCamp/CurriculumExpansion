@@ -36,6 +36,10 @@ body {
   text-align: center;
 }
 
+.top {
+  align-self: flex-start;
+}
+
 .middle {
   align-self: center;
   display: flex;
