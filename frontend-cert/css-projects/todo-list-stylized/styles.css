@@ -30,8 +30,6 @@ h1 {
     padding: 10px;
     background-color: #e5f1e5;
     border-radius: 10px;
-    /* border: 1px solid #ddd;
-    border-radius: 5px; */
     position: relative;
 }
 
@@ -44,9 +42,8 @@ h1 {
     color: blue;
 }
 
-.todo-list li a.sub-item-link:visited,
-{
-color: purple;
+.todo-list li a.sub-item-link:visited {
+    color: purple;
 }
 
 .todo-list li a.sub-item-link:hover {
@@ -65,9 +62,3 @@ color: purple;
 .sub-item {
     list-style-type: square;
 }
-
-/* 
-.todo-list li a.sub-item-link {
-    position: absolute;
-    right: 10px;
-} */
