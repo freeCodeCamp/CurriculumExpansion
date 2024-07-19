@@ -10,7 +10,7 @@
    ```
 1. The `.magazine-cover` should have a `grid-template-columns` property of `1fr 1fr 1fr`.
 1. The `.magazine-cover` should have a `grid-template-rows` property of `auto 1fr 1fr`.
-1. Add a `gap` of `10px` to the `.magazine-cover`.
+1. Add a `gap` of `10px` and a `width` of `80%` to the `.magazine-cover`.
 1. Set the `background-color` of the `.magazine-cover` to `#fff`.
 1. All the nested `div` elements should have a `grid-area` property that corresponds to the class name.
 1. Add a `padding` of `10px` to all the nested `div` elements classes.
