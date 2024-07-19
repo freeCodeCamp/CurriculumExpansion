@@ -1,10 +1,10 @@
 1. You should have a `div` with the class `space`.
 
-1. Inside the `space` `div`, there should be two more `div` elements with the class `earth` and `orbit`, respectively.
+1. Inside the `.space` `div`, there should be two more `div` elements with the class `earth` and `orbit`, respectively.
 
-1. Inside the `orbit` `div`, there should be another `div` with the class `moon`.
+1. Inside the `.orbit` `div`, there should be another `div` with the class `moon`.
 
-1. Your `earth` and `moon` `div` elements should have a background color and `border-radius` to make them look like planets.
+1. Your `.earth` and `.moon` `div` elements should have a background color and `border-radius` to make them look like planets.
 
 1. The orbit path for the moon around the Earth should be a circle. The `.orbit` `div` should be centered with respect to the `earth`
 
