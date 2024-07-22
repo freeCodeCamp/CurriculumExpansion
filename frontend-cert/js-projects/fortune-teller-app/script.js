@@ -7,6 +7,7 @@ var fortune5 = "It would be wise to avoid the colour red today.";
 var randomNumber = Math.floor(Math.random() * 5) + 1;
 
 var selectedFortune;
+
 if (randomNumber === 1) {
   selectedFortune = fortune1;
 } else if (randomNumber === 2) {
