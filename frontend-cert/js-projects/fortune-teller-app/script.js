@@ -1,12 +1,12 @@
-var fortune1 = "Your cat will look very cuddly today.";
-var fortune2 = "The weather will be nice tomorrow.";
-var fortune3 = "Be cautious of your new neighbours.";
-var fortune4 = "You will find a new hobby soon.";
-var fortune5 = "It would be wise to avoid the colour red today.";
+const fortune1 = "Your cat will look very cuddly today.";
+const fortune2 = "The weather will be nice tomorrow.";
+const fortune3 = "Be cautious of your new neighbours.";
+const fortune4 = "You will find a new hobby soon.";
+const fortune5 = "It would be wise to avoid the colour red today.";
 
-var randomNumber = Math.floor(Math.random() * 5) + 1;
+let randomNumber = Math.floor(Math.random() * 5) + 1;
 
-var selectedFortune;
+let selectedFortune;
 
 if (randomNumber === 1) {
   selectedFortune = fortune1;
@@ -21,4 +21,3 @@ if (randomNumber === 1) {
 }
 
 console.log(selectedFortune);
-
