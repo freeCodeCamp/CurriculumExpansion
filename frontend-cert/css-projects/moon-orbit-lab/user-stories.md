@@ -6,6 +6,6 @@
 
 1. Your `.earth` and `.moon` `div` elements should have a background color and `border-radius` to make them look like planets.
 
-1. The orbit path for the moon around the Earth should be a circle. The `.orbit` `div` should be centered with respect to the `earth`
+1. The orbit path for the moon around the Earth should be a circle. The `.orbit` `div` should be centered with respect to `.earth`.
 
 1. You should define a `@keyframes orbit` animation that rotates the `.orbit` element 360 degrees around its center. You should apply this animation to the `.orbit` element with a duration of `5` seconds, a linear timing function, and infinite iterations.
