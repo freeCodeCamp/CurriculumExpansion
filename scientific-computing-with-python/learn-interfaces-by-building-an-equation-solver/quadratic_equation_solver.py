@@ -11,9 +11,8 @@ class Equation(ABC):
             raise TypeError(
                 f"'Equation' object takes {self.degree + 1} positional arguments but {len(args)} were given"
             )
-        for arg in args:
-            if not isinstance(arg, (int, float)):
-                raise TypeError("Coefficients must be of type 'int' or 'float'")
+        if any(not isinstance(arg, (int, float)) for arg in args):
+            raise TypeError("Coefficients must be of type 'int' or 'float'")
         if args[0] == 0:
             raise ValueError("Highest degree coefficient must be different from zero")
         self.coefficients = {(len(args) - n - 1): arg for n, arg in enumerate(args)}
@@ -32,7 +31,7 @@ class Equation(ABC):
         terms = []
         for n, coefficient in self.coefficients.items():
             if not coefficient:
-                continue
+                coefficient
             if n == 0:
                 terms.append(f"{coefficient:+}")
             elif n == 1:
@@ -77,7 +76,6 @@ class QuadraticEquation(Equation):
     def solve(self):
         if self.delta < 0:
             return []
-
         a, b, _ = self.coefficients.values()
         x1 = (-b + (self.delta) ** 0.5) / (2 * a)
         x2 = (-b - (self.delta) ** 0.5) / (2 * a)
@@ -100,37 +98,38 @@ class QuadraticEquation(Equation):
 
 
 def solver(equation):
-    width: int
     if not isinstance(equation, Equation):
         raise TypeError("Argument must be an Equation object")
+
     output_string = f"\n{equation.type:-^24}"
     output_string += f"\n\n{equation!s:^24}\n\n"
     output_string += f'{"Solutions":-^24}\n\n'
     results = equation.solve()
-    match len(results):
-        case 0:
+    match results:
+        case []:
             result_list = ["No real roots"]
-        case 1:
-            result_list = [f"x = {results[0]:.3f}"]
-        case 2:
-            result_list = [f"x1 = {results[0]:+.3f}", f"x2 = {results[1]:+.3f}"]
+        case [x]:
+            result_list = [f"x = {x:+.3f}"]
+        case [x1, x2]:
+            result_list = [f"x1 = {x1:+.3f}", f"x2 = {x2:+.3f}"]
     for result in result_list:
         output_string += f"{result:^24}\n"
     output_string += f'\n{"Details":-^24}\n\n'
     details = equation.analyze()
-    if isinstance(equation, LinearEquation):
-        slope, intercept = details.values()
-        details_list = [f"slope = {slope:>16.3f}", f"y-intercept = {intercept:>10.3f}"]
-    elif isinstance(equation, QuadraticEquation):
-        x, y, min_max, concavity = details.values()
-        coord = f"({x:.3f}, {y:.3f})"
-        details_list = [f"concavity = {concavity:>12}", f"{min_max} = {coord:>18}"]
+    match details:
+        case {"slope": slope, "intercept": intercept}:
+            details_list = [
+                f"slope = {slope:>16.3f}",
+                f"y-intercept = {intercept>10:.3f}",
+            ]
+        case {"x": x, "y": y, "min_max": min_max, "concavity": concavity}:
+            coord = f"({x:.3f}, {y:.3f})"
+            details_list = [f"concavity = {concavity:>12}", f"{min_max} = {coord:>18}"]
     for detail in details_list:
         output_string += f"{detail}\n"
     return output_string
 
 
 lin_eq = LinearEquation(2, 3)
-print(solver(lin_eq))
-quadr_eq = QuadraticEquation(2, -3, -2)
+quadr_eq = QuadraticEquation(1, 2, 1)
 print(solver(quadr_eq))
