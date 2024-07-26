@@ -1,0 +1,129 @@
+:root {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    --color0: hsl(0, 0%, 100%);
+    --color1: hsl(120, 95%, 90%);
+    --color2: hsl(120, 95%, 80%);
+    --color3: hsl(120, 95%, 65%);
+    --color4: hsl(120, 95%, 40%);
+    --color5: hsl(120, 95%, 25%);
+    --solid-border: 0.1rem solid black;
+    --dashed-border: 0.09rem dashed black;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: hsl(150, 30%, 75%);
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 40rem;
+}
+
+tr {
+    height: 1.1rem;
+}
+
+tr :first-child {
+    width: 4rem;
+}
+
+td {
+    border-right: var(--solid-border);
+    border-left: var(--solid-border);
+}
+
+.sharp td[class*="available"],
+.sharp th {
+    border-bottom: var(--solid-border);
+}
+
+.half td {
+    border-bottom: var(--dashed-border);
+}
+
+tbody :last-child td {
+    border: 0;
+}
+
+.time {
+    text-align: right;
+    border: 0;
+    padding: 0.4rem;
+}
+
+.available-0 {
+    background-color: var(--color0);
+}
+
+.available-1 {
+    background-color: var(--color1);
+}
+
+.available-2 {
+    background-color: var(--color2);
+}
+
+.available-3 {
+    background-color: var(--color3);
+}
+
+.available-4 {
+    background-color: var(--color4);
+}
+
+.available-5 {
+    background-color: var(--color5);
+}
+
+#legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18rem;
+    height: 3.5rem;
+    text-align: center;
+}
+
+#legend span {
+    display: inline-block;
+    width: 5rem;
+    height: 2rem;
+}
+
+#legend-gradient {
+    width: 100%;
+    height: 60%;
+    border: var(--solid-border);
+    background-image: linear-gradient(90deg,
+            var(--color0) 0% 17%,
+            var(--color1) 17% 34%,
+            var(--color2) 34% 50%,
+            var(--color3) 50% 67%,
+            var(--color4) 67% 83%,
+            var(--color5) 83% 100%);
+}
+
+#legend-line {
+    width: 60%;
+    height: 100%;
+    display: flex;
+}
