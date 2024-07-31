@@ -12,7 +12,6 @@ document.getElementById("textInput").addEventListener("input", function () {
 
   if (charCount === 50) {
     charCountDisplay.style.color = "red";
-  } else {
-    charCountDisplay.style.color = "darkslategray";
-  }
+  } 
+
 });

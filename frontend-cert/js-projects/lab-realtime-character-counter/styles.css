@@ -39,5 +39,6 @@ textarea:focus {
 #charCount {
     margin-top: 10px;
     font-size: 18px;
+    color: darkslategray;
     font-weight: bold;
 }
