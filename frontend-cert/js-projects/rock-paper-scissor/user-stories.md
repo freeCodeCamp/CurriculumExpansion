@@ -7,4 +7,4 @@
 - If the year is divisible by 100, then it is not a leap year.
 - If the year is divisible by 400, then it is a leap year.
 
-1. If the year is a leap year, print `year + " is a leap year."` to the console. Otherwise, print `year + " is not a leap year."`.
+1. If the year is a leap year, output `[year] is a leap year.` to the console. Otherwise, output `[year] is not a leap year.`. You will replace [year] with the year variable.
