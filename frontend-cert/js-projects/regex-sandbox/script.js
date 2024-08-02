@@ -1,4 +1,4 @@
-const patternInput = document.getElementById("pattern");
+const pattern = document.getElementById("pattern");
 const caseInsensitiveFlag = document.getElementById("i");
 const globalFlag = document.getElementById("g");
 const result = document.getElementById("result");
@@ -17,7 +17,7 @@ testButton.addEventListener(
     () => {
         let matched;
         let flags = getFlags();
-        const regex = new RegExp(patternInput.value, flags)
+        const regex = new RegExp(pattern.value, flags)
         console.log(regex)
         if (flags.includes(globalFlag)) {
             testString.innerHTML = testString.innerText.replaceAll(regex, '<span class="highlight">$&</span>')
