@@ -1,0 +1,152 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-grey: #1b1b32;
+    --light-grey: #f5f6f7;
+    --golden-yellow: #fecc4c;
+    --yellow: #ffcc4c;
+    --gold: #feac32;
+    --orange: #ffac33;
+    --dark-orange: #f89808;
+    --border: 0.2rem solid darkgrey;
+    --padding: 0.3rem;
+}
+
+body {
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+    font-size: 20px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    margin: 5rem auto 2rem;
+    text-align: center;
+}
+
+p {
+    padding: var(--padding);
+}
+
+#regex-container {
+    max-width: 680px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border);
+}
+
+#regex-container>label {
+    padding: var(--padding);
+    flex: 1 1 auto;
+}
+
+#pattern-container {
+    display: inline-block;
+    color: var(--dark-grey);
+    background-color: var(--light-grey);
+    margin: 5px;
+    border: var(--border);
+}
+
+#pattern {
+    margin: 0.2rem;
+    border: 0;
+    font-size: 1rem;
+    width: calc(100% - 1.2rem);
+}
+
+#pattern:focus {
+    outline: none;
+}
+
+#flags-container {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+}
+
+#flags-container>label {
+    padding: var(--padding);
+    margin-right: 0.3rem;
+}
+
+#test-container {
+    max-width: 680px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    border: var(--border);
+}
+
+#test-string {
+    background-color: var(--light-grey);
+    min-height: 5rem;
+    color: var(--dark-grey);
+    border-top: var(--border);
+    font-size: 1.2rem;
+}
+
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    pointer-events: none;
+    color: var(--dark-grey);
+}
+
+::placeholder {
+    color: var(--dark-grey);
+}
+
+
+button {
+    display: block;
+    cursor: pointer;
+    width: 8rem;
+    margin: 0.2rem auto;
+    color: var(--dark-grey);
+    background-color: var(--gold);
+    background-image: linear-gradient(var(--golden-yellow), var(--orange));
+    border-color: var(--gold);
+    border-width: 0.2rem;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    background-image: linear-gradient(var(--yellow), var(--dark-orange));
+}
+
+#result-container {
+    max-width: 680px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    align-self: flex-start;
+    margin: 0.4rem 0.2rem 0.2rem;
+    flex: 0 1 auto;
+}
+
+#result {
+    color: var(--dark-grey);
+    background-color: var(--light-grey);
+    font-size: 1.5rem;
+    flex: 1 1 auto;
+    margin: 0.2rem;
+    border: var(--border);
+    min-height: 3rem;
+}
+
+.highlight {
+    background-color: lightgreen;
+}
