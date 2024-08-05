@@ -73,7 +73,7 @@ function displayBooks() {
   console.log('Library Books:');
   library.forEach((book) => {
     console.log(
-      `${book.title} by ${book.author}, ${book.about} (${book.pages} pages)`
+      `${book.title} by ${book.author}, ${book.about} (${book.pages} pages)\n`
     );
   });
 }
