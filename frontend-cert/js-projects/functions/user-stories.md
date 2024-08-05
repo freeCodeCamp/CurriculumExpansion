@@ -1,20 +1,21 @@
-1. You should create a function named `add`. It should return the sum of two parameters.
+1. You should create an arrow function named `generatePassword`. The function should have a `length` parameter. Step 2 to 5 should be created within the `generatePassword` function.
 
-2. You should create a function named `subtract`. It should return the difference of two parameters.
+2. Using the `let` keyword, create a variable named `chars`. It should have a value of all possible characters that can be included in the password: `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()`.
 
-3. You should create an arrow function named `multiply`. It should return the product of two parameters.
+3. You should create a variable named `password`. It should have an empty string as its value.
 
-4. You should create an arrow function named `divide`. It should return the quotient of two parameters. The function should:
-    - Check if the second parameter is zero.
-    - Return an error message if the second parameter is zero.
-    - Return the quotient of the two parameters if the second parameter is not zero.
+4. You should create a `for` loop that runs `length` times. In the body of the loop:
+    - Generate a random index using `Math.floor(Math.random() * chars.length);` and store it in a variable named `randomIndex`
+    - Append the random characters to `password` using `chars[randomIndex]`.
 
-5. You should create a function named `calculator` function. In the function's body:
-    - You should prompt the user to choose an operation (add, subtract, multiply, divide) and convert the input to lowercase.
-    - You should prompt the user to enter two numbers and convert them to floating-point numbers using `parseFloat`.
-    - You should create a `result` variable using the `let` keyword.
-    - You should use a `switch` statement to call the appropriate function based on the chosen operation.
-    - You should return an error message if the operation is invalid.
-    - After the `switch` statement, you should log the result of the operation to the console.
+5. You should return `password`.
 
-6. You should call the `calculator` function.
+6. You should create an arrow function named `runPasswordGenerator`. Step 7 to 9 should be created within the `runPasswordGenerator` function.
+
+7. You should create a prompt that asks the user to `Enter the desired length for the password:`. Store the input in a `const` variable named `length`, and convert it to an integer.
+
+8. You should call the `generatePassword` function with `length` as a parameter and store the returned password in a `const` variable named `password`.
+
+9. You should log the generated password to the console using the message `Generated password: ${password}`.
+
+10. You should call the `runPasswordGenerator` function.
