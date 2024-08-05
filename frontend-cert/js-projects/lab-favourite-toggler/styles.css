@@ -29,9 +29,9 @@ h1 {
 .favorite-icon {
     font-size: 20px;
     cursor: pointer;
-    color: gray;
+    /* color: gray; */
 }
 
 .favorite-icon.filled {
-    color: black;
+    /* color: black; */
 }
