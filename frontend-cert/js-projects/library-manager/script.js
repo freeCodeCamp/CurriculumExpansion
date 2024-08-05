@@ -1,10 +1,10 @@
 // Initialize the library with some books – we can make campers fill in the first two, then supply the rest ourselves.
 const library = [
   {
-    title: 'Battle Cry of Freedom: The Civil War Era',
-    author: 'James M. McPherson',
-    about: 'A book about the American civil war',
-    pages: 904,
+    title: 'Your Next Five Moves: Master the Art of Business Strategy',
+    author: 'Patrick Bet-David and Greg Dinkin',
+    about: 'A book on how to plan ahead',
+    pages: 320,
   },
   {
     title: 'Atomic Habits',
@@ -14,11 +14,12 @@ const library = [
     pages: 320,
   },
   {
-    title: '1776',
-    author: 'David McCullough',
+    title:
+      'Choose Your Enemies Wisely: Business Planning for the Audacious Few',
+    author: 'Patrick Bet-David',
     about:
-      'A book about those who marched with George Washington during the Declaration of Independence',
-    pages: 386,
+      "A book that emphasizes the importance of identifying and understanding one's adversaries to succeed in the business world",
+    pages: 304,
   },
   {
     title: 'The Embedded Entrepreneur',
@@ -27,44 +28,44 @@ const library = [
     pages: 308,
   },
   {
-    title: 'Congo: The Epic History of a People',
-    author: 'Adam Hochschild',
-    about:
-      'A book about the people of Congo and the colonization of their land by King Leopold',
-    pages: 639,
+    title:
+      'How to Be a Coffee Bean: 111 Life-Changing Ways to Create Positive Change',
+    author: 'Jon Gordon',
+    about: 'A book about effective ways to lead a coffee bean lifestyle',
+    pages: 256,
   },
   {
-    title: 'Precolonial Black Africa',
-    author: 'Cheikh Anta Diop',
-    about: 'A book about the analysis of precolonial African states',
-    pages: 240,
+    title:
+      'The Creative Mindset: Mastering the Six Skills That Empower Innovation',
+    author: 'Jeff DeGraff and Staney DeGraff',
+    about: 'A book on how to develop creativity and  innovation skills',
+    pages: 168,
   },
   {
-    title: 'How Europe Underdeveloped Africa',
-    author: 'Walter Rodney',
+    title: 'Rich Dad Poor Dad',
+    author: 'Robert Kiyosaki and Sharon Lechter',
     about:
-      'A book detailing how European countries divided Africa between themselves and exploited it',
-    pages: 312,
+      'A book about financial literacy, financial independence, and building wealth. ',
+    pages: 336,
   },
   {
-    title: 'A History of the Guyanese Working People',
-    author: 'Walter Rodney',
-    about:
-      'The history of African and Aisan immigration into Guyana and the impact of colonization on Guyana',
-    pages: 312,
+    title: 'Zero to Sold',
+    author: 'Arvid Kahl',
+    about: 'A book on how to bootstrap a business',
+    pages: 500,
   },
 ];
 
 // Add book with push()
 function addBook(title, author, pages) {
-  const newBook = { title, author, pages };
+  const newBook = { title, author, pages }; // explain object shorthand property here and provide a basic example
   library.push(newBook);
 }
 
 // Use map to send the books into an array
 const bookSummaries = library.map((book) => {
   return `${book.title}, ${
-    book.about.charAt(0).toLowerCase() + book.about.slice(1)
+    book.about.charAt(0).toLowerCase() + book.about.slice(1) // teach charAt() method here
   }`;
 });
 
@@ -79,7 +80,7 @@ function displayBooks() {
 }
 
 // Filter book by a particular author
-const author = 'Walter Rodney';
+const author = 'Arvid Kahl';
 const booksByAuthor = library.filter((book) => book.author === author);
 
 // Use reduce() to calculate total number of pages of books in the library
