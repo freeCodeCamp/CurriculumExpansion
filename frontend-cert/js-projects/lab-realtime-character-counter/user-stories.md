@@ -2,7 +2,7 @@ You should have an `h1` element with the text `Real-Time Character Counter`.
 
 You should have a `textarea` element with the `id` of `textInput`. It should have a `placeholder` attribute with the text `Type something...`.
 
-There should be a `p` `element` with the `id` of `charCount`. It should initially contain the text `Character Count: 0/50`. This placeholder text should be replaced with the current count of characters in the `textarea` element.
+There should be a `p` element with the `id` of `charCount`. It should initially contain the text `Character Count: 0/50`. This placeholder text should be replaced with the current count of characters in the `textarea` element.
 
 You should attach an event listener to the `textInput` element that listens for the `input` event. 
 
