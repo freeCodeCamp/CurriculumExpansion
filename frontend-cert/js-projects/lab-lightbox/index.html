@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Lightbox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="title"><h1>Museum Gallery</h1></div>
+
+    <div class="gallery">
+        <img src="./images/stonehenge-thumbnail.jpg" alt="Image 1" class="gallery-item">
+         <img src="./images/storm-thumbnail.jpg" alt="Image 2" class="gallery-item">
+        <img src="./images/trees-thumbnail.jpg" alt="Image 3" class="gallery-item">
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span id="close" class="close">&times;</span>
+        <img id="lightbox-image" src="" alt="Lightbox Image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
