@@ -1,3 +1,5 @@
+Madlibs is a word game where one player prompts others for a list of words to substitute for blanks in a story before reading the story aloud. In this lab, you will create a Madlibs story using variables and string concatenation.
+
 1. You should declare the following variables using `let`:
 - `adjective`
 - `noun`
