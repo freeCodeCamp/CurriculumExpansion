@@ -16,4 +16,4 @@ Madlibs is a word game where one player prompts others for a list of words to su
 
 `"Once upon a time, there was a(n) [adjective] [noun] who loved to eat [noun2]. The [noun] lived in a [place] and had [adjective2] nostrils that blew fire when it was [verb]."`;
 
-1. You should print the final story to the console.
+1. You should output the final story to the console.
