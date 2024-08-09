@@ -1,4 +1,4 @@
-1. You should define the following variables using `let`:
+1. You should declare the following variables using `let`:
 - `adjective`
 - `noun`
 - `verb`
