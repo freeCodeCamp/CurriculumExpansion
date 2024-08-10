@@ -3,7 +3,7 @@
 1. Each `question#` variable should be an object with the keys `question`, `choices`, and `answer`.
 1. The `question` key should have the value of a string representing a question.
 1. The `choices` key should have the value of an array containing three strings, which are alternative answers to the question.
-1. The `answer` key should have the value of a string, representing the correct answer to the question.
+1. The `answer` key should have the value of a string, representing the correct answer to the question. Also, the value of `answer` should be included in the `choices` array.
 1. You should push each `question#` to the respective category inside the `questions` object.
 1. Each category of the `questions` object should have at least one element.
 1. You should declare a variable named `category` which has either the value of `"science"`, `"geography"`, or `"literature"`.
