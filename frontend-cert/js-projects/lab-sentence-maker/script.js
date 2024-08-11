@@ -1,3 +1,5 @@
+// Build a sentence maker
+
 //Objective: create 2 different stories using the same template
 // Reassign the variables to create a new story
 
