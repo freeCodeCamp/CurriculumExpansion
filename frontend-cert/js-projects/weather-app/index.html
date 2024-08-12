@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather App</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="card">
+			<span class="card-header" id="location"></span>
+			<div class="card-body">
+				<div class="weather-icon-ditails">
+					<div class="icon-temp">
+						<img id="weather-icon" src="https://cdn.freecodecamp.org/weather-icons/02n.png" alt="">
+						<span id="temperature">{{template}}&deg;</span>
+					</div>
+					<div>
+						<span id="feels-like">Feels like {{template}}&deg;</span>
+					</div>
+				</div>
+				<div class="weather-texts">
+					<span id="humidity" class="weather-text">Humidity: </span>
+					<span id="wind" class="weather-text">Wind: </span>
+					<span id=wind-gust class="weather-text">Wind Gust: </span>
+				</div>
+			</div>
+			<div class="card-footer">
+				<span id="weather-main"></span>
+				<!-- <div class="weather-main">
+					
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>
