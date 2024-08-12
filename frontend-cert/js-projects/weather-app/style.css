@@ -1,0 +1,29 @@
+.container {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.card {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.weather-texts {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+    align-items: flex-start;
+}
+
+.weather-icon-temperature {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.weather-text {
+	padding: 2px;
+}*/
