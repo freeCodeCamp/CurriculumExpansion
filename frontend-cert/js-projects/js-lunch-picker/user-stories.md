@@ -1,7 +1,7 @@
-1. You should create a `kidsMeal` array with one item, `Chicken Nuggets`, in it.
-1. You should create an `adultsMeal` array with one item, `Salad`, in it.
-1. You should use `push` to add three more food items being `"Pizza", "Burgers", "Tacos"` to the `kidsMeal` array.
-1. You should use `push` to add three more food items being `"Wraps", "Hummus", "Rice"` to the `adultsMeal` array.
+1. You should create a `kidsMeal` array with one item, `"Chicken Nuggets"`, in it.
+1. You should create an `adultsMeal` array with one item, `"Salad"`, in it.
+1. You should use `push` to add three more food items being `"Pizza"`, `"Burgers"`, and `"Tacos"` to the `kidsMeal` array.
+1. You should use `push` to add three more food items being `"Wraps"`, `"Hummus"`, and `"Rice"` to the `adultsMeal` array.
 1. You should log the `kidsMeal` array to the console using the following format:
    - `"Kids Menu: ", kidsMeal`.
 1. You should log the `adultsMeal` array to the console using the following format:
