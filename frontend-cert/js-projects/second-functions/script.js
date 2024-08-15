@@ -1,9 +1,5 @@
-function askQuestion(question) {
-    return prompt(question);
-}
-
 function checkAnswer(userAnswer, correctAnswer) {
-    return userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+    return userAnswer === correctAnswer;
 }
 
 const runQuiz = () => {
@@ -17,12 +13,12 @@ const runQuiz = () => {
     let score = 0;
 
     questions.forEach((q) => {
-        const userAnswer = askQuestion(q.question);
+        const userAnswer = prompt(q.question);
         if (checkAnswer(userAnswer, q.answer)) {
-            console.log("Correct!");
+            console.log(`Question: ${q.question}\nCorrect!`);
             score++;
         } else {
-            console.log(`Wrong. The correct answer is ${q.answer}.`);
+            console.log(`Question: ${q.question}\nWrong. The correct answer is ${q.answer}.`);
         }
     });
 
