@@ -11,24 +11,11 @@ let place = "garden";
 let adjective2 = "sparkling";
 let noun2 = "cakes";
 
-let story =
-  "Once upon a time, there was a(n) " +
-  adjective +
-  " " +
-  noun +
-  " who loved to eat " +
-  noun2 +
-  ". The " +
-  noun +
-  " lived in a " +
-  place +
-  " and had " +
-  adjective2 +
-  " nostrils that blew fire when it was " +
-  verb +
-  ".";
+const firstStory = `Once upon a time, there was a(n) ${adjective} ${noun} who loved to eat ${noun2}. 
+The ${noun} lived in a ${place} and had ${adjective2} nostrils that blew fire when it was ${verb}.`;
+
 // output the story
-console.log("First story:\n" + story);
+console.log("First story:\n" + firstStory);
 
 // reassign the variables
 
@@ -40,20 +27,7 @@ adjective2 = "colorful";
 noun2 = "flower";
 
 // create the second story
-story =
-  "Once upon a time, there was a(n) " +
-  adjective +
-  " " +
-  noun +
-  " who loved to eat " +
-  noun2 +
-  ". The " +
-  noun +
-  " lived in a " +
-  place +
-  " and had " +
-  adjective2 +
-  " nostrils that blew fire when it was " +
-  verb +
-  ".";
-console.log("Second story:\n" + story);
+const secondStory = `Once upon a time, there was a(n) ${adjective} ${noun} who loved to eat ${noun2}. 
+The ${noun} lived in a ${place} and had ${adjective2} nostrils that blew fire when it was ${verb}.`;
+
+console.log("Second story:\n" + secondStory);
