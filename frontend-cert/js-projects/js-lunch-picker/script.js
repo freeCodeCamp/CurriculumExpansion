@@ -22,8 +22,8 @@ kidsMeal.pop();
 adultsMeal.shift();
 
 // print both menus after removing items
-console.log("Kids Menu After Removing Items: ", kidsMeal);
-console.log("Adults Menu After Removing Items:", adultsMeal);
+console.log("Kids menu after removing the last item: ", kidsMeal);
+console.log("Adults Menu After Removing the first item:", adultsMeal);
 
 // task 7: create a random index for kidsMeal and adultsMeal
 let randomIndexKids = Math.floor(Math.random() * kidsMeal.length);
