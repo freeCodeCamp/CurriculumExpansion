@@ -1,0 +1,5 @@
+1. You should write a function `dfs()` that implements the <dfn>depth-first search</dfn> algorithm on a graph. Starting from a root node, the search first goes down a path of edges as far as it can. Once it reaches one end of a path, the search will backtrack to the last node with an un-visited edge path and continue searching down the un-visited edge path.
+1. The function should keep track of the visited nodes.
+1. The function should use a stack, an array where the last element added is the first to be removed, to make sure to visit the neighbors of the most recently added node.
+1. The function should take an undirected, adjacency matrix `graph` and a node label `root` as parameters. The node label is the numeric value of the node between `0` and `n - 1`, where `n` is the total number of nodes in the graph.
+1. The function should output an array of all nodes reachable from `root`.

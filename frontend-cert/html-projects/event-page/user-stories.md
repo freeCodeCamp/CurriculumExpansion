@@ -5,6 +5,6 @@
 1. You should have a `main` element that contains the different sections of the page.
 1. Inside the `main` element, you should have at least two `section` elements.
 1. The first `section` element should have an `id` attribute with the value `upcoming`, and a `h2` element with the text `Upcoming Events`.
-1. Inside the first section, you should have at least two `article` elements, each with a `h3` element for the event title, a paragraph for the event description, and a date for the event.
+1. Inside the first section, you should have at least two `article` elements, each with a `h3` element for the event title, a paragraph for the event description, and a date when the event will take place.
 1. The second `section` element should have an `id` attribute with the value `past`, and a `h2` element with the text `Past Events`.
-1. The past event section should have at least two `article` elements, each with a `h3` element for the event title, a paragraph for the event description, and a date for the event.
+1. The past event section should have at least two `article` elements, each with a `h3` element for the event title, a paragraph for the event description, and a date when the event happened.
