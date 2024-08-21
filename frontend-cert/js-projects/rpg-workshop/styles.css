@@ -31,7 +31,7 @@ body,
   color: var(--dark-blue);
 }
 
-#monsterStats {
+#monster-stats {
   display: none;
   border: 1px solid var(--dark-blue);
   padding: 5px;

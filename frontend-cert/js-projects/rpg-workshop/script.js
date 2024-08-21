@@ -52,16 +52,16 @@ const locations = [
   },
 ];
 
-const button1 = document.getElementById("button1");
-const button2 = document.getElementById("button2");
-const button3 = document.getElementById("button3");
+const button1 = document.getElementById("button-1");
+const button2 = document.getElementById("button-2");
+const button3 = document.getElementById("button-3");
 
 button1.addEventListener("click", goStore);
 button2.addEventListener("click", goCave);
 button3.addEventListener("click", fightDragon);
 
 const text = document.getElementById("text");
-const monsterStats = document.getElementById("monsterStats");
+const monsterStats = document.getElementById("monster-stats");
 
 // this ensures that the event listeners are removed before adding new ones
 function removeOldEventListeners() {
@@ -115,8 +115,8 @@ function goCave() {
 let health = 100;
 let gold = 50;
 
-const healthText = document.getElementById("healthText");
-const goldText = document.getElementById("goldText");
+const healthText = document.getElementById("health-text");
+const goldText = document.getElementById("gold-text");
 
 function buyHealth() {
   if (gold >= 10) {
@@ -207,8 +207,8 @@ const monsters = [
   },
 ];
 
-const monsterName = document.getElementById("monsterName");
-const monsterHealthText = document.getElementById("monsterHealth");
+const monsterName = document.getElementById("monster-name");
+const monsterHealthText = document.getElementById("monster-health");
 
 function goFight() {
   update(locations[3]);
@@ -272,7 +272,7 @@ function dodge() {
   text.textContent = `You dodge the attack from the ${monstersName}`;
 }
 
-const xpText = document.getElementById("xpText");
+const xpText = document.getElementById("xp-text");
 
 function defeatMonster() {
   gold += Math.floor(monsters[fightingIndex].level * 6.7);
