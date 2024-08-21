@@ -97,9 +97,10 @@ function update(location) {
   button1.textContent = location["button text"][0];
   button2.textContent = location["button text"][1];
   button3.textContent = location["button text"][2];
-  button1.onclick = location["button functions"][0];
-  button2.onclick = location["button functions"][1];
-  button3.onclick = location["button functions"][2];
+  button1.addEventListener("click", location["button functions"][0]);
+  button2.addEventListener("click", location["button functions"][1]);
+  button3.addEventListener("click", location["button functions"][2]);
+  // we need to use innerHTML here so the HTML entities show up on screen properly
   text.innerHTML = location.text;
 }
 
@@ -139,16 +140,16 @@ function buyWeapon() {
       currentWeapon++;
       goldText.textContent = gold;
       let newWeapon = weapons[currentWeapon].name;
-      text.textContent = "You now have a " + newWeapon + ".";
+      text.textContent = `You bought a ${newWeapon}.`;
       inventory.push(newWeapon);
-      text.textContent += " In your inventory you have: " + inventory;
+      text.textContent += ` In your inventory you have: ${inventory}`;
     } else {
       text.textContent = "You do not have enough gold to buy a weapon.";
     }
   } else {
     text.textContent = "You already have the most powerful weapon!";
     button2.textContent = "Sell weapon for 15 gold";
-    button2.onclick = sellWeapon;
+    button2.addEventListener("click", sellWeapon);
   }
 }
 
@@ -157,8 +158,7 @@ function sellWeapon() {
     gold += 15;
     goldText.textContent = gold;
     let currentWeapon = inventory.shift();
-    text.textContent = "You sold a " + currentWeapon + ".";
-    text.textContent += " In your inventory you have: " + inventory;
+    text.textContent = `You sold a ${currentWeapon}. In your inventory you have: ${inventory}`;
   } else {
     text.textContent = "Don't sell your only weapon!";
   }
