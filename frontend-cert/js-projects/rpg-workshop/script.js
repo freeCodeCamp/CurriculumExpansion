@@ -1,28 +1,4 @@
-const weapons = [
-  { name: "stick", power: 5 },
-  { name: "dagger", power: 30 },
-  { name: "claw hammer", power: 50 },
-  { name: "sword", power: 100 },
-];
-
-const monsters = [
-  {
-    name: "slime",
-    level: 2,
-    health: 15,
-  },
-  {
-    name: "fanged beast",
-    level: 8,
-    health: 60,
-  },
-  {
-    name: "dragon",
-    level: 20,
-    health: 300,
-  },
-];
-
+// have campers slowly build this out when they need that particular location
 const locations = [
   {
     name: "town square",
@@ -85,18 +61,38 @@ button2.addEventListener("click", goCave);
 button3.addEventListener("click", fightDragon);
 
 const text = document.getElementById("text");
-const xpText = document.getElementById("xpText");
-const healthText = document.getElementById("healthText");
-const goldText = document.getElementById("goldText");
 const monsterStats = document.getElementById("monsterStats");
-const monsterName = document.getElementById("monsterName");
-const monsterHealthText = document.getElementById("monsterHealth");
+
+// this ensures that the event listeners are removed before adding new ones
+function removeOldEventListeners() {
+  button1.removeEventListener("click", goStore);
+  button1.removeEventListener("click", buyHealth);
+  button1.removeEventListener("click", fightSlime);
+  button1.removeEventListener("click", attack);
+  button1.removeEventListener("click", goTown);
+  button1.removeEventListener("click", restart);
+
+  button2.removeEventListener("click", goCave);
+  button2.removeEventListener("click", buyWeapon);
+  button2.removeEventListener("click", fightBeast);
+  button2.removeEventListener("click", dodge);
+  button2.removeEventListener("click", goTown);
+  button2.removeEventListener("click", restart);
+
+  button3.removeEventListener("click", fightDragon);
+  button3.removeEventListener("click", goTown);
+  button3.removeEventListener("click", restart);
+}
 
 function update(location) {
   monsterStats.style.display = "none";
+
+  removeOldEventListeners();
+
   button1.textContent = location["button text"][0];
   button2.textContent = location["button text"][1];
   button3.textContent = location["button text"][2];
+
   button1.addEventListener("click", location["button functions"][0]);
   button2.addEventListener("click", location["button functions"][1]);
   button3.addEventListener("click", location["button functions"][2]);
@@ -119,6 +115,9 @@ function goCave() {
 let health = 100;
 let gold = 50;
 
+const healthText = document.getElementById("healthText");
+const goldText = document.getElementById("goldText");
+
 function buyHealth() {
   if (gold >= 10) {
     gold -= 10;
@@ -132,6 +131,13 @@ function buyHealth() {
 
 let currentWeapon = 0;
 let inventory = ["stick"];
+
+const weapons = [
+  { name: "stick", power: 5 },
+  { name: "dagger", power: 30 },
+  { name: "claw hammer", power: 50 },
+  { name: "sword", power: 100 },
+];
 
 function buyWeapon() {
   if (currentWeapon < weapons.length - 1) {
@@ -164,30 +170,51 @@ function sellWeapon() {
   }
 }
 
-let fighting;
+let fightingIndex;
 
 function fightSlime() {
-  fighting = 0;
+  fightingIndex = 0;
   goFight();
 }
 
 function fightBeast() {
-  fighting = 1;
+  fightingIndex = 1;
   goFight();
 }
 
 function fightDragon() {
-  fighting = 2;
+  fightingIndex = 2;
   goFight();
 }
 
 let monsterHealth;
 
+const monsters = [
+  {
+    name: "slime",
+    level: 2,
+    health: 15,
+  },
+  {
+    name: "fanged beast",
+    level: 8,
+    health: 60,
+  },
+  {
+    name: "dragon",
+    level: 20,
+    health: 300,
+  },
+];
+
+const monsterName = document.getElementById("monsterName");
+const monsterHealthText = document.getElementById("monsterHealth");
+
 function goFight() {
   update(locations[3]);
-  monsterHealth = monsters[fighting].health;
+  monsterHealth = monsters[fightingIndex].health;
   monsterStats.style.display = "block";
-  monsterName.textContent = monsters[fighting].name;
+  monsterName.textContent = monsters[fightingIndex].name;
   monsterHealthText.textContent = monsterHealth;
 }
 
@@ -195,11 +222,11 @@ let xp = 0;
 
 function attack() {
   const currentWeaponName = weapons[currentWeapon].name;
-  const monstersName = monsters[fighting].name;
+  const monstersName = monsters[fightingIndex].name;
 
   text.textContent = `The ${monstersName} attacks. You attack it with your ${currentWeaponName}.`;
 
-  health -= getMonsterAttackValue(monsters[fighting].level);
+  health -= getMonsterAttackValue(monsters[fightingIndex].level);
 
   if (isMonsterHit()) {
     monsterHealth -=
@@ -214,7 +241,7 @@ function attack() {
   if (health <= 0) {
     lose();
   } else if (monsterHealth <= 0) {
-    if (fighting === 2) {
+    if (fightingIndex === 2) {
       winGame();
     } else {
       defeatMonster();
@@ -241,13 +268,15 @@ function isMonsterHit() {
 
 // Have campers create this function on their own
 function dodge() {
-  const monstersName = monsters[fighting].name;
+  const monstersName = monsters[fightingIndex].name;
   text.textContent = `You dodge the attack from the ${monstersName}`;
 }
 
+const xpText = document.getElementById("xpText");
+
 function defeatMonster() {
-  gold += Math.floor(monsters[fighting].level * 6.7);
-  xp += monsters[fighting].level;
+  gold += Math.floor(monsters[fightingIndex].level * 6.7);
+  xp += monsters[fightingIndex].level;
   goldText.textContent = gold;
   xpText.textContent = xp;
   update(locations[4]);
