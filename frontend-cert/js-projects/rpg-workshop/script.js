@@ -129,7 +129,7 @@ function buyHealth() {
   }
 }
 
-let currentWeapon = 0;
+let currentWeaponIndex = 0;
 let inventory = ["stick"];
 
 const weapons = [
@@ -140,12 +140,12 @@ const weapons = [
 ];
 
 function buyWeapon() {
-  if (currentWeapon < weapons.length - 1) {
+  if (currentWeaponIndex < weapons.length - 1) {
     if (gold >= 30) {
       gold -= 30;
-      currentWeapon++;
+      currentWeaponIndex++;
       goldText.textContent = gold;
-      let newWeapon = weapons[currentWeapon].name;
+      let newWeapon = weapons[currentWeaponIndex].name;
       text.textContent = `You bought a ${newWeapon}.`;
       inventory.push(newWeapon);
       text.textContent += ` In your inventory you have: ${inventory}`;
@@ -221,7 +221,7 @@ function goFight() {
 let xp = 0;
 
 function attack() {
-  const currentWeaponName = weapons[currentWeapon].name;
+  const currentWeaponName = weapons[currentWeaponIndex].name;
   const monstersName = monsters[fightingIndex].name;
 
   text.textContent = `The ${monstersName} attacks. You attack it with your ${currentWeaponName}.`;
@@ -230,7 +230,7 @@ function attack() {
 
   if (isMonsterHit()) {
     monsterHealth -=
-      weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+      weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
   } else {
     text.textContent += " You miss.";
   }
@@ -250,7 +250,7 @@ function attack() {
 
   if (Math.random() <= 0.1 && inventory.length !== 1) {
     text.textContent += ` Your ${inventory.pop()} breaks.`;
-    currentWeapon--;
+    currentWeaponIndex--;
   }
 }
 
@@ -295,7 +295,7 @@ function restart() {
   xp = 0;
   health = 100;
   gold = 50;
-  currentWeapon = 0;
+  currentWeaponIndex = 0;
   inventory = ["stick"];
   goldText.textContent = gold;
   healthText.textContent = health;
