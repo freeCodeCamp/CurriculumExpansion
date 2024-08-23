@@ -7,7 +7,8 @@ function formatDateMMDDYYYY(date) {
   const year = date.getFullYear();
   return `${month}/${day}/${year}`;
 }
-console.log('Formatted Date (MM/DD/YYYY):', formatDateMMDDYYYY(currentDate));
+const shortDateFormat = `Formatted Date (MM/DD/YYYY): ${formatDateMMDDYYYY(currentDate)}`;
+console.log(shortDateFormat);
 
 function formatDateLong(date) {
   return date.toLocaleDateString(undefined, {
@@ -16,4 +17,5 @@ function formatDateLong(date) {
     day: 'numeric'
   });
 }
-console.log('Formatted Date (Month Day, Year):', formatDateLong(currentDate));
+const longDateFormat = `Formatted Date (Month Day, Year): ${formatDateLong(currentDate)}`;
+console.log(longDateFormat);
