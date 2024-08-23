@@ -1,5 +1,6 @@
 const currentDate = new Date();
-console.log('Current Date and Time:', currentDate);
+const currentDateFormat = `Current Date and Time: ${currentDate}`; 
+console.log(currentDateFormat);
 
 function formatDateMMDDYYYY(date) {
   const month = date.getMonth() + 1;
