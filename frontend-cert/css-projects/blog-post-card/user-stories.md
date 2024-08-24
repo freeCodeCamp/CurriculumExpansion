@@ -1,11 +1,11 @@
-1. You should have a `div` with a class of `blog-post-card` to hold all your card elements. Step 2 and 3 should be created within the `blog-post-card` `div`.
+1. You should have a `div` with a class of `blog-post-card` to hold all your card elements.
 
-2. You should have an image with a class of `post-img`.
+2. You should have an image with a valid `alt` text and the class of `post-img`.
 
-3. You should have a `div` with a class of `post-content`. Within the `post-content` `div`:
+3. You should have a `div` with a class of `post-content`. Within the `.post-content` `div`:
     - You should have a `h2` with a class of `post-title`. Assign some text to act as the title of your blog post.
     - You should have a `p` with a class of `post-excerpt`. Assign some text to summarize the blog post (maximum of 20 words).
-    - You should an `a` with a class of `read-more`. Assign the text `Read More` to it.
+    - You should an have an `a` with a class of `read-more`. Assign the text `Read More` to it.
 
 4. The `blog-post-card` class should add a white background, rounded corners, shadow for depth, overflow hidden to round the image borders, and control the card width and text alignment.
 
