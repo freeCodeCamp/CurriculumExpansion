@@ -11,27 +11,21 @@
 
 4. Each `input` and `textarea` element should have their corresponding `label` element with a `for` attribute set to the element `id`.
 
-5. The `form-container` `div` should have a background color of `white` and have values for `border-radius`, `padding`, and `width`. The text should be aligned to the center.
+5. The `form-container` `div` should have a background color, and have values for `border-radius`, `padding`, and `width`.
 
-6. The `h2` element should have a margin at the botton and the color set to `#333`.
+6. The `label` elements should be displayed as block elements, and have values for `margin` and `color`.
 
-7. The label elements should be displayed as block elements with a `margin` of `10px 0 5px` and a `color` set to `#555`.
+7. The `input` and `textarea` elements should have values for:
+    - `width`.
+    - `padding`.
+    - Margin on the bottom.
+    - `border` and `border-radius`.
 
-8. The `input` and `textarea` elements should have:
-    - 100% `width`.
-    - `padding` of `10px`.
-    - A `margin-bottom` of `10px`.
-    - A `border` of `1px solid #ddd`.
-    - Borders with a radius of `5px`.
-    - `box-sizing` set to `border-box`.
+8. The `button` element should have values for:
+    - Background color.
+    - Text color.
+    - `padding`.
+    - `border` and `borders-radius`.
+    - `font-size`.
 
-9. The `button` element should have:
-    - A background color of `#4CAF50`.
-    - White text color.
-    - `padding` of `10px 15px`.
-    - No `border`.
-    - `borders-radius` of `5px`.
-    - A `cursor` set to `pointer`.
-    - A `font-size` of `1em`.
-
-10. The button should have a hover effect that changes the background color to `#45a049`.
+9. The button should have a hover effect that changes the background color.
