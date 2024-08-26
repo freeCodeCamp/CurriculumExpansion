@@ -1,22 +1,20 @@
 You should have an `img` element with the id `weather-icon` for displaying the weather icon.
 
-You should have a `span` element with the id `main-temperature` for displaying the main temperature.
+You should have an element with the id `main-temperature` for displaying the main temperature.
 
-You should have a `span` element with the id `feels-like` for displaying what the temperature feels like.
+You should have an element with the id `feels-like` for displaying what the temperature feels like.
 
-You should have a `span` element with the id `humidity` for displaying the amount of humidity in air.
+You should have an element with the id `humidity` for displaying the amount of humidity in air.
 
-You should have a `span` with the id `wind` element for displaying the wind speed.
+You should have an element with the id `wind` element for displaying the wind speed.
 
-You should have a `span` with the id `wind-gust` element for displaying the wind gust.
+You should have an element with the id `wind-gust` element for displaying the wind gust.
 
-You should have a `span` with the id `weather-main` element for displaying the main weather type.
+You should have an element with the id `weather-main` element for displaying the main weather type.
 
-You should have a `span` with the id `location` element for displaying the current location.
+You should have an element with the id `location` element for displaying the current location.
 
-You should ask the user for location on load using an event listener.
-
-You should notify the user if geolocation is not available in the browser.
+Your app should automatically request the user's location when the page loads, and inform them if `geolocation` is not supported by their browser. If supported, then you should get the user's current geographic position. Otherwise display an `alert` with the text `Geolocation is not available` to the user .
 
 You should have an asynchronous function named `getWeather` to fetch the weather information from the api.
 
