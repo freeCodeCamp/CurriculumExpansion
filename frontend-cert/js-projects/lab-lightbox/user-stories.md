@@ -1,24 +1,25 @@
-A lightbox displays a larger version of an image when clicked and shadows the rest of the page. This project will create a lightbox gallery that displays full-size images when a thumbnail is clicked.
+A lightbox displays a larger version of an image when clicked and shadows the rest of the page. This project will create a lightbox gallery that displays full-size images when a thumbnail is clicked. For each image, two versions are provided: a thumbnail and a full-size image. The full-size image is the same as the thumbnail, but without the `-thumbnail` suffix.
 
-1. You should have an `h1` element with the text "Museum Gallery".
-1. You should have a `div` element with the class `gallery` that contains at least three `img` elements
-1. The `img` elements should have the class `gallery-item` and the `src` attribute set to the paths `./images/stonehenge-thumbnail.jpg`, `./images/storm-thumbnail.jpg`, and `./images/trees-thumbnail.jpg` respectively for thumbnails.
-1. You should have a `div` element with the class `lightbox` that contains:
-   - A `span` element with the ID `close` and the class `close` that serves as a close button. You can use the `&times;` character as the close button icon.
-   - An `img` element with the ID `lightbox-image` and an empty `src` attribute that will contain the full-size image when displayed.
-1. The `.lightbox` class should cover the entire viewport with a semi-transparent background and center the lightbox content. Initially, its display property should be set to `none` to hide it.
-1. The `.close` class should position the close button in the top-right corner of the lightbox and make it clickable.
-1. Select all the images with the class `gallery-item` and store them in a variable named `galleryItems`.
-1. Select the div with the id `lightbox` and store it in a variable named `lightbox`.
-1. Select the lightbox image with the id `lightbox-image` and store it in a variable named `lightboxImage`.
-1. Select the span with the id `close` and store it in a variable named `closeButton`.
-1. Create a function named `openLightbox` that:
-   - Takes an event object `src` as a parameter.
-   - Retrieves the `src` attribute of the clicked image.
-   - Sets the `display` property of the `lightbox` element to `"flex"` to make it visible.
-1. Create a function named `closeLightbox` that:
-   - Sets the `display` property of the `lightbox` element to `"none"` to hide it.
-1. Add a `click` event listener to the `close` button that calls the `closeLightbox` function when clicked.
-1. Add a click event listener to the `lightbox` element that calls the `closeLightbox` function when clicked outside the full-size image.
-1. Add a `click` event listener to each `gallery-item` using a`forEach` loop that calls the `openLightbox` function when clicked.
-1. In the `openLightbox` function, set the `src` attribute of the `lightbox-image` element to the full-size image URL by removing the `-thumbnail` suffix from the clicked image's `src` attribute.
+1. You should have a `div` with a class of `gallery` within your `body`.
+2. Within the `.gallery` element, you should have at three image thumbnails, each with a class of `gallery-item`. You should use the following links for thumbnail images: 
+<!-- would be replaced by cdn -->
+
+   - `./images/stonehenge-thumbnail.jpg`
+   - `./images/storm-thumbnail.jpg`
+   - `./images/trees-thumbnail.jpg`
+
+3. You should have a `div` with a class of `lightbox` within your `body`.
+4. You should have a `span` with an `id` of `close` within your `.lightbox` element. You can use `&times;` as its text if you want.??
+5. You should have a `img` with an `id` of `lightbox-image` within your `.lightbox` element.
+6. Your `.lightbox` element should cover the entire viewport, have a semi-transparent background, and center its content. Initially, its `display` property should be set to `none` to hide it.
+7. When you click one of your `.gallery-item` elements, the `.lightbox` element’s `display` property should be set to `flex` to make it, and the two elements within it, visible.
+8. When you click one of your `.gallery-item` elements, the `#lightbox-image` element’s `src` should be set to a full-size version of the image clicked by removing `-thumbnail` from the image’s `src` attribute. The full-size images are located at the following links:
+<!-- would be replaced by cdn -->
+   - `./images/stonehenge.jpg`
+   - `./images/storm.jpg`
+   - `./images/trees.jpg`
+
+9.  When your `.lightbox` element is visible and you click the `.close` button or the `.lightbox` element, the `.lightbox` elements `display` should be set back to `none`.
+10. You should use separate functions `closeLightbox` and `openLightbox` to handle the opening and closing of the lightbox.
+
+**Note:** Be sure to link your stylesheet and the JavaScript file in your HTML.
