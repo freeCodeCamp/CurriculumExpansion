@@ -1,6 +1,6 @@
 1. You should have a `div` with a class of `blog-post-card` to hold all your card elements.
 
-2. You should have an image with a valid `alt` text and the class of `post-img`.
+2. You should have an image with a valid `alt` text and the class of `post-img`. You can use `cover-photo.jpg` for the `src` attribute of your image.
 
 3. You should have a `div` with a class of `post-content`. Within the `.post-content` `div`:
     - You should have a `h2` with a class of `post-title`. Assign some text to act as the title of your blog post.
