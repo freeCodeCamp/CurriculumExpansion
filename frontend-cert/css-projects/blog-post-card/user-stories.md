@@ -17,4 +17,4 @@
 
 The `read-more` element should be styled for text color, background color, margin, `inline-block` display, `border-radius`, and `padding`. It should be styled like a button.
 
-9. The `read-more` element should have a lighter color when hovered on.
+9. The `read-more` element should have a hover effect that changes the background color.
