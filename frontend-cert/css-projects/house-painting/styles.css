@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+      #b3e6ff,
+      #b3e6ff 60%,
+      green 60%
+    );
+  }
+  
+  #house {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    background-color: #ff9980;
+    border: 6px solid #b35900;
+  }
+  
+  #chimney {
+    position: relative;
+    width: 90px;
+    height: 100px;
+    top: -100px;
+    left: 65%;
+    background: repeating-linear-gradient(
+      #e6e6e6,
+      #e6e6e6 10%,
+      black 10%,
+      black 12%
+    );
+    border: 2px solid black;
+    z-index: -1;
+  }
+  
+  #smoke {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    border-radius: 50%;
+    box-shadow: 0 -10px 10px 10px rgba(0,0,0,0.3);
+    border: none;
+  }
+  
+  #decor {
+    width: 100%;
+    height: 110px;
+    background-color: green;
+    position: absolute;
+    top: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      #b35900,
+      #b35900 2%,
+      transparent 2%,
+      transparent 5%
+    ), repeating-linear-gradient(
+      -45deg,
+      #b35900,
+      #b35900 2%,
+      #ff9980 2%,
+      #ff9980 5%
+    )
+  }
+  
+  .window {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(
+      to right,
+      #ffffb3,
+      #ffffb3 48%,
+      #b35900 48%,
+      #b35900 52%,
+      #ffffb3 52%,
+      #ffffb3 100%
+    );
+    position: absolute;
+    top: 40%;
+    border: 6px solid #b35900;
+  }
+  
+  #window-1 {
+    left: 7.5%;
+  }
+  
+  #window-2 {
+    right: 7.5%;
+  }
+  
+  #door {
+    width: 130px;
+    height: 180px;
+    position: absolute;
+    bottom: 0%;
+    left: 185px;
+    background-color: #e6e6e6;
+    border: 6px solid #b35900;
+    border-bottom: none;
+  }
+  
+  #door-knob {
+    width: 20px;
+    height: 20px;
+    background-color: #b35900;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+  }
+  
+  #welcome {
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 130px;
+    height: 40px;
+    position: absolute;
+    bottom: -47px;
+    left: 178px;
+    background-color: #85e085;
+    border: 2px solid black;
+    transform: skewX(-20deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
