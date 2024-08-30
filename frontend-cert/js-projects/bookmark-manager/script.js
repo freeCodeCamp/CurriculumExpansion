@@ -66,13 +66,13 @@ const fillBookmarkList = () => {
             categoryList.innerHTML += `
             <div>
               <input type="radio" name="bookmarks" id="${bookmark.name}" value="${bookmark.name}">
-                <label for="${bookmark.name}">
-                  <a href="${bookmark.url}">${bookmark.name}</a>
-                </label>
+              <label for="${bookmark.name}">
+                <a href="${bookmark.url}">${bookmark.name}</a>
+              </label>
             </div>`
         }
     } else {
-        categoryList.innerHTML = 'No Bookmarks Found';
+        categoryList.innerHTML = '<p>No Bookmarks Found</p>';
     }
 }
 
