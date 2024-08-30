@@ -1,0 +1,5 @@
+1. You should access the `#pattern`, `#test-string`, `#test-btn`, and `#result` elements and save in them in the variables `pattern`, `testString`, `testButton`, and `result`, respectively.
+1. You should access the `#i` and `#g` flag checkboxes and save them in the variables `caseInsensitiveFlag` and `globalFlag`, respectively.
+1. You should have a function named `getFlags` that returns a string containing the flags from checked flag checkboxes, or an empty string if none of them have been checked.
+1. When you click the `testButton` button, if the regex pattern matches the test string, the matched text should be highlighted. To highlight the matches, replace each match with the same text surrounded by a `span` element with the class of `highlight`. Note that the CSS for that has been already added for you.
+1. When there's a match, the matched text should be displayed inside `#result`. Otherwise, the text `no match` should be displayed.
