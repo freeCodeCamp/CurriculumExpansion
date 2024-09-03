@@ -55,7 +55,7 @@ div {
   height: 20px;
 }
 
-h1 {
+h1, h2 {
   margin-top: 20px;
   text-align: center;
 }
@@ -69,6 +69,7 @@ h1 {
 
 #category-list,
 h1,
+h2,
 label {
   color: var(--light-grey);
 }
