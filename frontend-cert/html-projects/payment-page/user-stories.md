@@ -6,3 +6,5 @@ You should have an `h2` with the text `Payment Information` within the second se
 You should have a `form` within the second section.
 You should have an input with an `id` and `name` of `card-name` within your form and a `label` associated with it.
 You should have an input with an `id` and `name` of `card-number` within your form and a label associated with it.
+At least two of your input elements should be required and have an `aria-required` attribute set to `true`.
+You should use `tab-index` at least once.
