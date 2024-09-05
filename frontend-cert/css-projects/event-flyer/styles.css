@@ -1,0 +1,38 @@
+html {
+  background-color: black;
+}
+
+body {
+  padding: 50px 10px;
+  margin: 0 auto;
+  width: 60vw;
+  height: calc(100vh - 100px);
+  background-color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+hr {
+  margin: 30px auto;
+  width: 80%;
+  background-color: black;
+  height: 2px;
+}
+
+main {
+  margin: 0 auto;
+}
+
+section {
+  text-align: center;
+  padding: 50px 10px;
+  vertical-align: top;
+  display: inline-block;
+  min-height: 100px;
+  width: 25%;
+}
+
+ul {
+  text-align: left;
+  list-style: inside;
+}
