@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <section>
+            <h2>Your Cart</h2>
+            <img src="spoon.jpg" alt="Left-handed spoon">
+            <p>Left-handed spoon</p>
+            <p>$29.99</p>
+        </section>
+
+        <section>
+            <h2>Payment Information</h2>
+            <form action="/submit-payment" method="POST">
+                <div>
+                    <label for="card-name">Cardholder Name</label>
+                    <input type="text" id="card-name" name="card-name" required aria-required="true" tab-index="0">
+                </div>
+                <div>
+                    <label for="card-number">Card Number</label>
+                    <input type="number" id="card-number" name="card-number" required aria-required="true">
+                </div>
+                <div>
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required aria-required="true">
+                </div>
+                <div>
+                    <label for="cvv">CVV</label>
+                    <input type="number" id="cvv" name="cvv" required aria-required="true" aria-label="Card Verification Value">
+                </div>
+                <input type="submit" value="Place Order">
+            </form>
+        </section>
+    </div>
+</body>
+</html>
