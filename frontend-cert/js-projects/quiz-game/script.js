@@ -31,16 +31,30 @@ const questions = [
     }
 ]
 
-function playQuiz() {
+function getRandomQuestion() {
     const randomIndex = Math.floor(Math.random() * questions.length);
-    let chosenQuestion = questions[randomIndex];
-    const answer = prompt(`${chosenQuestion.category.toUpperCase()}
-${chosenQuestion.question}
-${chosenQuestion.choices}`)
-        if (answer === chosenQuestion.answer) {
-            console.log("The answer is correct!");
-        } else {
-            console.log(`Wrong answer, the correct answer is: ${chosenQuestion.answer}`);
-        }
+    return questions[randomIndex];
 }
 
+function getRandomComputerChoice(choices) {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function getResults(obj) {
+    return computerChoice === obj.answer
+        ? "The computer's choice is correct!"
+        : `The computer's choice is wrong. The correct answer is: ${obj.answer}`;
+}
+
+const questionObj = getRandomQuestion();
+const { question, choices } = questionObj;
+
+console.log(question);
+console.log(`Choices: ${choices}`);
+
+const computerChoice = getRandomComputerChoice(choices);
+console.log(`Computer chooses: ${computerChoice}`);
+
+const results = getResults(questionObj);
+console.log(results);
