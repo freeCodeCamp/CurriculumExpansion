@@ -5,7 +5,7 @@ const projectStatus = Object.freeze({
 });
 
 class ProjectIdea {
-  constructor(title, description, status) {
+  constructor(title, description) {
     this.title = title;
     this.description = description;
     this.status = projectStatus.PENDING;
