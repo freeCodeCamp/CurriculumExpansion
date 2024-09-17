@@ -3,38 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Page</title>
+  <title>Greeting Card</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <section id="profile" class="profile-section">
-    <div class="profile-picture">
-      <img src="profile.jpg" alt="Profile Picture">
+  <div class="card" id="greeting-card">
+    <h1>Happy Birthday!</h1>
+    <p class="message">
+      Wishing you all the happiness and joy on your special day!
+    </p>
+
+    <div class="card-links">
+      <a href="#send" class="send-link">Send Card</a>
+      <a href="#share" class="share-link">Share on Social Media</a>
     </div>
-    <h1>John Doe</h1>
-    <p>Web Developer | JavaScript Enthusiast</p>
-    <p class="bio">I am a passionate developer who loves creating beautiful and functional websites.</p>
+  </div>
+
+  <section id="send">
+    <h2>Sending your card...</h2>
+    <p>Card successfully sent to your recipient!</p>
   </section>
 
-  <section id="skills" class="profile-section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>Python</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="profile-section">
-    <h3>Contact</h3>
-    <p>Reach me at:</p>
-    <ul class="contact-list">
-      <li><a href="mailto:johndoe@example.com">Email</a></li>
-      <li><a href="tel:+123456789">Phone</a></li>
-      <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-    </ul>
+  <section id="share">
+    <h2>Sharing your card...</h2>
+    <p>Your card was shared on social media!</p>
   </section>
 
 </body>

@@ -1,130 +1,87 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #666363;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .profile-section {
-    padding: 40px;
-    background-color: white;
-    margin: 20px auto; 
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; 
-    transition: background-color 0.3s ease;
-  }  
-  
-  .profile-picture img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #007bff;
-    transition: transform 0.3s;
-  }
-    
-  .profile-picture img:hover {
-    transform: scale(1.1);
-  }
-  
-  h1 {
-    margin-top: 20px;
-    font-size: 24px;
-  }
-  
-  ul.skills-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul.skills-list li {
-    background-color: #eee;
-    margin: 10px;
-    padding: 10px;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  }
-  
-  ul.skills-list li:nth-child(odd) {
-    background-color: #d9f9d9;
-  }
-  
-  ul.skills-list li:nth-child(even) {
-    background-color: #c6e6ff;
-  }
-  
-  ul.skills-list li:hover {
-    background-color: #ffcc00;
-  }
-  
-  ul.skills-list li:first-child {
-    font-weight: bold;
-    border-left: 5px solid #007bff;
-  }
-  
-  ul.skills-list li:last-child {
-    font-style: italic;
-    border-left: 5px solid #ff5733;
-  }
-  
-  ul.contact-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul.contact-list li {
-    margin: 10px;
-  }
-  
-  ul.contact-list li a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 18px;
-    padding: 10px;
-    transition: color 0.3s, background-color 0.3s;
-  }
-  
-  ul.contact-list li a:hover {
-    color: white;
-    background-color: #007bff;
-    border-radius: 5px;
-  }
-  
-  ul.contact-list li a:visited {
-    color: #999;
-  }
-  
-  ul.contact-list li a:active {
-    background-color: #ffcc00;
-    color: black;
-  }
-  
-  ul.contact-list li a:focus {
-    outline: 2px solid #007bff;
-    padding: 9px;
-  }
-  
-  section:target {
-    background-color: #fffbcc;
-  }
-  
-  h1::before {
-    content: '👤 ';
-    color: #ffcc00;
-  }
-  
-  h2::after {
-    content: ' 📈 ';
-    color: #ffcc00;
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #1B1B32;
+  padding: 40px;
+  text-align: center;
+}
 
-  h3::after {
-    content: ' 📞 ';
-    color: #ffcc00;
-  }
-  
-  .profile-section:not(#contact) {
-    background-color: #f0f0f0;
-  }
-  
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(181, 180, 180, 0.2);
+  transition: transform 0.3s, background-color 0.3s ease;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  background-color: #ffe0b5;
+}
+
+h1::before {
+  content: "🥳 ";
+}
+
+h1::after {
+  content: " 🥳";
+}
+
+.message {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card-links a {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: #0A0A23;
+  transition: background-color 0.3s ease;
+}
+
+.card-links a:hover {
+  background-color: #ff5733;
+}
+
+.card-links a:active {
+  background-color: #0A0A23;
+}
+
+.card-links a:focus {
+  outline: 2px solid #ffcc00;
+}
+
+.card-links a:visited {
+  color: rgb(255, 0, 64);
+}
+
+section {
+  display: none;
+  margin-top: 40px auto;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+section:hover{
+  transform: skewX(10deg);
+}
+
+section:target {
+  display: block;
+  margin: 40px auto;
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
