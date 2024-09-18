@@ -1,6 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #1B1B32;
+  background-color: brown;
   padding: 40px;
   text-align: center;
 }
@@ -9,7 +9,7 @@ body {
   background-color: white;
   border-radius: 10px;
   padding: 40px;
-  box-shadow: 0 4px 8px rgba(181, 180, 180, 0.2);
+  box-shadow: 0 4px 8px gray;
   transition: transform 0.3s, background-color 0.3s ease;
   max-width: 400px;
   margin: 0 auto;
@@ -17,7 +17,7 @@ body {
 
 .card:hover {
   transform: scale(1.1);
-  background-color: #ffe0b5;
+  background-color: khaki;
 }
 
 h1::before {
@@ -29,8 +29,8 @@ h1::after {
 }
 
 .message {
-  font-size: 18px;
-  color: #333;
+  font-size: 1.2em;
+  color: grey;
   margin-bottom: 20px;
 }
 
@@ -42,28 +42,28 @@ h1::after {
 
 .card-links a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1em;
   padding: 10px 20px;
   border-radius: 5px;
   color: white;
-  background-color: #0A0A23;
+  background-color: midnightblue;
   transition: background-color 0.3s ease;
 }
 
 .card-links a:hover {
-  background-color: #ff5733;
+  background-color: orangered;
 }
 
 .card-links a:active {
-  background-color: #0A0A23;
+  background-color: midnightblue;
 }
 
 .card-links a:focus {
-  outline: 2px solid #ffcc00;
+  outline: 2px solid yellow;
 }
 
 .card-links a:visited {
-  color: rgb(255, 0, 64);
+  color: crimson;
 }
 
 section {
@@ -80,7 +80,7 @@ section:hover{
 section:target {
   display: block;
   margin: 40px auto;
-  background-color: #e6f7ff;
+  background-color: whitesmoke;
   padding: 20px;
   border-radius: 10px;
 }
