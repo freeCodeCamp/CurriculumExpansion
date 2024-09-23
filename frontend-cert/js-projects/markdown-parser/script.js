@@ -8,10 +8,10 @@ const h1Regex = /^#\s(.*$)/gm;
 const h1Replacement = "<h1>$1</h1>";
 
 const boldRegex = /((?:\*|_){2})(.*)\1/g;
-const boldReplacement = "<b>$2</b>";
+const boldReplacement = "<strong>$2</strong>";
 
 const italicRegex = /(\*|_)(.*)\1/g;
-const italicReplacement = "<i>$2</i>";
+const italicReplacement = "<em>$2</em>";
 
 const imageRegex = /!\[\s*(.*?)\s*\]\(\s*(.*?)\s*\)/g;
 const imageReplacement = '<img alt="$1" src="$2">';
@@ -21,19 +21,17 @@ const linkReplacement = '<a href="$2">$1</a>';
 
 const blockquoteRegex = /^> (.*?)$/gm;
 const blockquoteReplacement = '<blockquote>$1</blockquote>';
-console.log(blockquoteRegex, blockquoteReplacement)
 
-const unorderedListRegex1 = /(?<!^[+*-] .*?\n)^[+*-] (.*?)$/gm
-const unorderedListReplacement1 = "<ul><li>$1</li>";
+const unorderedListRegex1 = /((?:^-\s+.*?$\n)+\s*?)\n/gm
+const unorderedListReplacement1 = "<ul>\n$1</ul>";
 
-const unorderedListRegex2 = /(?<!^[+*-] .*?\n)^[+*-] (.*?)$(?!\n^[+*-] .*?$)/gm;
-const unorderedListReplacement2 = "<ul><li>$1</li></ul>";
+const unorderedListRegex2 = /^-\s+(.*?$)\n/gm
+const ListReplacement2 = "<li>$1</li>\n";
 
-const unorderedListRegex3 = /^[+*-] (.*?)$(?!\n^[+*-] .*?$)/gm
-const unorderedListReplacement3 = "<li>$1</li></ul>";
+const orderedListRegex1 = /((?:^\d*\.\s+.*?$\n)+\s*?)\n/gm;
+const orderedListReplacement1 = "<ol>\n$1</ol>";
 
-const unorderedListRegex4 = /^[+*-] (.*?)$/gm;
-const unorderedListReplacement4 = "<li>$1</li>";
+const orderedListRegex2 = /^\d*\.\s+(.*?$)\n/gm;
 
 const replacementArray = [
     [h3Regex, h3Replacement],
@@ -45,22 +43,26 @@ const replacementArray = [
     [linkRegex, linkReplacement],
     [blockquoteRegex, blockquoteReplacement],
     [unorderedListRegex1, unorderedListReplacement1],
-    [unorderedListRegex2, unorderedListReplacement2],
-    [unorderedListRegex3, unorderedListReplacement3],
-    [unorderedListRegex4, unorderedListReplacement4],
+    [unorderedListRegex2, ListReplacement2],
+    [orderedListRegex1, orderedListReplacement1],
+    [orderedListRegex2, ListReplacement2],
 ]
-
-const parseMarkdown = (markdown) => {
-    for (element of replacementArray) {
-        console.log(element[0], element[1])
-        markdown = markdown.replace(element[0], element[1]);
-    }
+const markdownInput = document.getElementById('markdown-input');
+const convertMarkdown = () => {
+    let markdown = markdownInput.value;
+    replacementArray.forEach((item) => {
+        markdown = markdown.replace(item[0], item[1]);
+    })
     return markdown.trim();
 }
 
-const markdownInput = document.getElementById('markdown-input');
 markdownInput.addEventListener('input', () => {
-    const html = parseMarkdown(markdownInput.value);
-    console.log(html)
-    document.getElementById('html-output').innerHTML = html;
+    const html = convertMarkdown();
+    const out = document.getElementById('html-output');
+    out.innerHTML = html;
+    if (out.innerHTML !== "") {
+        out.style.display = "block";
+    } else {
+        out.style.display = "none";
+    }
 });
