@@ -1,0 +1,86 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: brown;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px gray;
+    transition: transform 0.3s, background-color 0.3s ease;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+    background-color: khaki;
+  }
+  
+  h1::before {
+    content: "🥳 ";
+  }
+  
+  h1::after {
+    content: " 🥳";
+  }
+  
+  .message {
+    font-size: 1.2em;
+    color: grey;
+    margin-bottom: 20px;
+  }
+  
+  .card-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .card-links a {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: midnightblue;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-links a:hover {
+    background-color: orangered;
+  }
+  
+  .card-links a:active {
+    background-color: midnightblue;
+  }
+  
+  .card-links a:focus {
+    outline: 2px solid yellow;
+  }
+  
+  .card-links a:visited {
+    color: crimson;
+  }
+  
+  section {
+    display: none;
+    margin-top: 40px auto;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  section:hover{
+    transform: skewX(10deg);
+  }
+  
+  section:target {
+    display: block;
+    margin: 40px auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+  }  
