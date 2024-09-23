@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greeting Card</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form id="job-application">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-  <div class="card" id="greeting-card">
-    <h1>Happy Birthday!</h1>
-    <p class="message">
-      Wishing you all the happiness and joy on your special day!
-    </p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-    <div class="card-links">
-      <a href="#send" class="send-link">Send Card</a>
-      <a href="#share" class="share-link">Share on Social Media</a>
+            <label for="position">Position:</label>
+            <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="developer">Developer</option>
+                <option value="designer">Designer</option>
+                <option value="manager">Manager</option>
+            </select>
+
+            <label for="availability">Availability:</label>
+            <input type="radio" id="fulltime" name="availability" value="full-time" required>
+            <label for="fulltime">Full-Time</label>
+            <input type="radio" id="parttime" name="availability" value="part-time">
+            <label for="parttime">Part-Time</label>
+
+            <label for="message">Why do you want this job?</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your motivation" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
     </div>
-  </div>
-
-  <section id="send">
-    <h2>Sending your card...</h2>
-    <p>Card successfully sent to your recipient!</p>
-  </section>
-
-  <section id="share">
-    <h2>Sharing your card...</h2>
-    <p>Your card was shared on social media!</p>
-  </section>
-
 </body>
 </html>
