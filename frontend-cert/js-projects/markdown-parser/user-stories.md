@@ -1,5 +1,5 @@
 1. You should have a function named `convertMarkdown` that takes no parameter.
-1. The `convertMarkdown` function should convert the makdown input from `#markdown-input` into HTML and should return a string containing the HTML code.
+1. The `convertMarkdown` function should convert the markdown input from `#markdown-input` into HTML and should return a string containing the HTML code.
 Here's a table containing all the markdown that `convertMarkdown` should be able to handle and the expected HTML after conversion:
 
     | Markdown | HTML |
