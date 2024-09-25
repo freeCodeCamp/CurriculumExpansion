@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -7,10 +11,11 @@ body {
     height: 200px;
 }
 #html-output {
-    display: none;
+    display: inline-block;
+    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
-    margin-top: 20px;
+    margin: 20px auto 20px;
     white-space: pre-wrap;
     background-color: #f9f9f9;
 }
