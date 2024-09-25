@@ -10,6 +10,7 @@
 1. The `input`, `select` and `textarea` elements should have an `:invalid` pseudo-class that changes the border color to red when invalid input is detected.
 1. The `input`, `select` and `textarea` elements should have a `:valid` pseudo-class that changes the border color to green when valid input is entered.
 1. The `button` element should have a `:hover` pseudo-class that changes the background color when hovered over.
+1. Use the `:checked` pseudo-class on `.radio-group input[type="radio"]` to add a border color, background color and a box shadow when the radio button is selected.
 1. Use the `:checked` pseudo-class on radio buttons to change the text color of the associated `label` when the option is selected.
 1. The `button` element should have a `:disabled` pseudo-class that changes the background color when the form is incomplete or invalid.
 1. Add an `:nth-child` pseudo-class to the `input` elements to style the first input fields differently. (e.g., rounded corners).
