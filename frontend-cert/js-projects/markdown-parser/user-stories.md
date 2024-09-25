@@ -13,4 +13,4 @@ Here's a table containing all the markdown that `convertMarkdown` should be able
     | `[link text](URL)` | `<a href="URL">link text</a>` |
     | `> quote` | `<blockquote>quote</blockquote>` |
 
-1. When you input text inside `#markdown-input`, the HTML code returned by `convertMarkdown` should be rendered inside `#html-ouput`.
+1. When you input text inside `#markdown-input`, the raw HTML code returned by `convertMarkdown` should be displayed inside `#html-ouput`.
