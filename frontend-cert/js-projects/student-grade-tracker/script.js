@@ -1,4 +1,4 @@
-// start with an empty array - objects will be pushed into it later
+// start with an empty array - campers will push objects into it later
 const students = [];
 
 /* Have campers create 3 objects. 
@@ -32,29 +32,6 @@ students.push(student1, student2, student3);
 
 console.log(students);
 
-let student1TotalScore =
-  student1.scores[0] + student1.scores[1] + student1.scores[2];
-
-console.log(student1TotalScore);
-// repeat for the two other students
-
-let student1AverageScore = student1TotalScore / student1.scores.length;
-console.log(student1AverageScore);
-
-// round the average score to 2 decmal places
-// let student1RoundedAvg =
-let student1RoundedAvg = (student1TotalScore / student1.scores.length).toFixed(
-  2
-);
-console.log(student1RoundedAvg);
-// this is a valid answer too: Math.floor(student1AverageScore * 100) / 100;
-//so, we should have accept the two in the tests
-
-// add the average score to the object
-student1.averageScore = student1RoundedAvg;
-console.log(student1); //average score should not be null anymore
-// repeat for the remaining 2 students
-
 // Calculate grade with if/else
 /*
 Grading system
@@ -66,34 +43,63 @@ Grading system
 <50: F
 */
 
-// introduce if/else
-/*
-Note: Since this step will be repetitive, introduce a statement like this:
-
-Now you are going to get the student grade just for the first student. In a future module, you will learn about functions which will make this code even more reusable.
-*/
-if (student1.averageScore >= 90 && student1.averageScore <= 100) {
-  student1.grade = 'A';
-} else if (student1.averageScore >= 80 && student1.averageScore < 90) {
-  student1.grade = 'B';
-} else if (student1.averageScore >= 70 && student1.averageScore < 80) {
-  student1.grade = 'C';
-} else if (student1.averageScore >= 60 && student1.averageScore < 70) {
-  student1.grade = 'D';
-} else if (student1.averageScore >= 50 && student1.averageScore < 60) {
-  student1.grade = 'E';
-} else if (student1.averageScore < 50) {
-  student1.grade = 'F';
-} else {
-  student1.grade = 'Invalid score';
+// Calculate the total score
+function getTotalScore(scores) {
+  return scores[0] + scores[1] + scores[2]; // Manually summing the scores
 }
 
-console.log('Student1 Grade:', student1.grade);
-console.log(student1); // grade should not be an empty string anymore
+const student1TotalScore = getTotalScore(student1.scores);
+console.log(`Student1 Total Score: ${student1TotalScore}`);
 
-// output student name and grade with concatenation
-const student1GradeOutput = `Student1, with the name ${student1.name} has an average score of ${student1.averageScore} with the grade ${student1.grade}.`;
+// Optional: make campers get the total score for the remaining students
+const student2TotalScore = getTotalScore(student2.scores);
+console.log(`Student2 Total Score: ${student2TotalScore}`);
 
-console.log(student1GradeOutput);
+const student3TotalScore = getTotalScore(student3.scores);
+console.log(`Student3 Total Score: ${student3TotalScore}`);
+console.log('\n');
 
-console.log(students); // at this point, all the fields in the student1 object should have a value
+function getAverageScore(scores) {
+  const totalScore = getTotalScore(scores);
+  return (totalScore / scores.length).toFixed(2);
+}
+
+const student1AverageScore = getAverageScore(student1.scores);
+console.log(`Student 1 Average Score: ${student1AverageScore}`);
+
+// Optional: make campers get the average score for the remaining students
+const student2AverageScore = getAverageScore(student2.scores);
+console.log(`Student 2 Average Score: ${student2AverageScore}`);
+
+const student3AverageScore = getAverageScore(student3.scores);
+console.log(`Student 3 Average Score: ${student3AverageScore}`);
+console.log('\n');
+
+function getGrade(averageScore) {
+  if (averageScore >= 90 && averageScore <= 100) {
+    return 'A';
+  } else if (averageScore >= 80 && averageScore < 90) {
+    return 'B';
+  } else if (averageScore >= 70 && averageScore < 80) {
+    return 'C';
+  } else if (averageScore >= 60 && averageScore < 70) {
+    return 'D';
+  } else if (averageScore >= 50 && averageScore < 60) {
+    return 'E';
+  } else if (averageScore < 50) {
+    return 'F';
+  } else {
+    return 'Invalid score';
+  }
+}
+
+// const student1Grade = getGrade(getAverageScore(student1.scores)); – this is one way to do it
+const student1Grade = getGrade(student1AverageScore);
+console.log(`Student 1 Grade: ${student1Grade}`);
+
+// Optional: make campers get the grade for the remaining students
+const student2Grade = getGrade(student2AverageScore);
+console.log(`Student 2 Grade: ${student2Grade}`);
+
+const student3Grade = getGrade(student3AverageScore);
+console.log(`Student 3 Grade: ${student3Grade}`);
