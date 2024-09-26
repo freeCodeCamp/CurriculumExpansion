@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reusable navbar component</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function Navbar() {
+        return (
+          <nav className="navbar">
+            <ul>
+              <li className="nav-item">
+                <a href="#">Dashboard</a>
+              </li>
+              <li className="nav-item">
+                <a href="#">Widgets</a>
+              </li>
+              <li className="nav-item">
+                <a href="#" aria-haspopup="true">
+                  Apps
+                </a>
+                <ul className="sub-menu" aria-label="submenu">
+                  <li>
+                    <a href="#">Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#">Chat</a>
+                  </li>
+                  <li>
+                    <a href="#">Email</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        );
+      }
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<Navbar />);
+    </script>
+  </body>
+</html>
