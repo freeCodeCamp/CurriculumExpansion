@@ -3,7 +3,7 @@ function sortByYear(book1, book2) {
     return -1;
   }
 
-  if (book1.release_year < book2.release_year) {
+  if (book1.release_year > book2.release_year) {
     return 1;
   }
 
