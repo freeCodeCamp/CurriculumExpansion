@@ -1,4 +1,4 @@
-const projectStatus = Object.freeze({
+const projectStatus = Object({
   PENDING: Symbol("Pending Execution"),
   SUCCESS: Symbol("Executed Successfully"),
   FAILURE: Symbol("Execution Failed"),
