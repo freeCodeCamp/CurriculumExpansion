@@ -1,4 +1,4 @@
-You should define a constant of type ENUM named `projectStatus` with the different project statuses you want to have such as `PENDING`, `SUCCESS`, or `FAILURE` with ypur preferred descriptions.
+You should define a constant of type `Object` named `projectStatus` with the different project statuses you want to have such as `PENDING`, `SUCCESS`, or `FAILURE` with your preferred descriptions.
 
 You should define a class named `ProjectIdea` with a `constructor` that takes a `title` and a `description`, both strings. The class should also have a property named `status` also of type string.
 
@@ -17,9 +17,3 @@ You should define a method named `toString` that returns the name of the project
 You should create one or more instance of the `ProjectIdeaBoard` class.
 
 You should create one or more instance of the `ProjectIdea` class and `pin` each of them to any one of the `ProjectIdeaBoard` instances.
-
-You should not `pin` one instance ot the `ProjectIdea` class to multiple instances of the `ProjectIdeaBoard` class.
-
-You should `unpin` random instances of the `ProjecIdea` class from their respective boards.
-
-You should examine the boards before and after pinning and unpinning of new project ideas.
