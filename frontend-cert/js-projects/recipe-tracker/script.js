@@ -46,7 +46,7 @@ recipes.push(recipe1, recipe2, recipe3);
 
 // Calculate average rating
 function getAverageRating(ratings) {
-  const total = ratings.reduce((sum, rating) => sum + rating, 0);
+  const total = ratings[0] + ratings[1] + ratings[2] + ratings[3];
   return (total / ratings.length).toFixed(2);
 }
 
@@ -77,7 +77,8 @@ const recipe1DifficultyLevel = getDificultyLevel(recipe1.cookingTime);
 console.log(`Recipe 1 Difficulty: ${recipe1DifficultyLevel}`);
 console.log('\n');
 
-// Process recipe2
+/*
+// Optional - Process recipe2
 const recipe2AverageRating = getAverageRating(recipe2.ratings);
 console.log(`Recipe 2 Average Rating: ${recipe2AverageRating}`);
 
@@ -88,7 +89,7 @@ const recipe2DifficultyLevel = getDificultyLevel(recipe2.cookingTime);
 console.log(`REcipe 2 Difficulty Level: ${recipe2DifficultyLevel}`);
 console.log('\n');
 
-// Process recipe3
+// Optional – Process recipe3
 const recipe3AverageRating = getAverageRating(recipe3.ratings);
 console.log(`Recipe 3 Average Rating: ${recipe3AverageRating}`);
 
@@ -97,21 +98,15 @@ console.log(`REcipe 3 Total Ingredients: ${recipe3TotalIngredients}`);
 
 const recipe3DifficultyLevel = getDificultyLevel(recipe3.cookingTime);
 console.log(`Recipe 3 Difficulty Level: ${recipe3DifficultyLevel}`);
+*/
 
-// Fill up each item of the recipes array with ratings
-recipe1.averageRating = recipe1AverageRating;
-recipe2.averageRating = recipe2AverageRating;
-recipe3.averageRating = recipe3AverageRating;
+// Fill up each item of the recipes array with averageRating, totalIngredients, and difficultyLevel
 
-// Fill up each item of the recipes array with total ingredients
-recipe1.totalIngredients = recipe1TotalIngredients;
-recipe2.totalIngredients = recipe2TotalIngredients;
-recipe3.totalIngredients = recipe3TotalIngredients;
-
-// Fill up each item of the recipes array with total ingredients
-recipe1.difficultyLevel = recipe1DifficultyLevel;
-recipe2.difficultyLevel = recipe2DifficultyLevel;
-recipe3.difficultyLevel = recipe3DifficultyLevel;
+for (const recipe of recipes) {
+  recipe.averageRating = getAverageRating(recipe.ratings);
+  recipe.totalIngredients = getTotalIngredients(recipe.ingredients);
+  recipe.difficultyLevel = getDificultyLevel(recipe.cookingTime);
+}
 
 // recipes array should now have everything filled up
 console.log(recipes);
