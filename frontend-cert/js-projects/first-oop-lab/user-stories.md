@@ -1,4 +1,4 @@
-You should define a constant of type `Object` named `projectStatus` with the different project statuses you want to have such as `PENDING`, `SUCCESS`, or `FAILURE` with your preferred descriptions.
+You should define a object constant named `projectStatus` with the different project statuses you want to have such as `PENDING`, `SUCCESS`, or `FAILURE` with your preferred descriptions.
 
 You should define a class named `ProjectIdea` with a `constructor` that takes a `title` and a `description`, both strings. The class should also have a property named `status` also of type string.
 
