@@ -4,12 +4,6 @@ const projectStatus = {
   FAILURE: { description: "Execution Failed" },
 };
 
-//   Object({
-//   PENDING: Symbol("Pending Execution"),
-//   SUCCESS: Symbol("Executed Successfully"),
-//   FAILURE: Symbol("Execution Failed"),
-// });
-
 class ProjectIdea {
   constructor(title, description) {
     this.title = title;
