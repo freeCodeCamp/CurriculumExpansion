@@ -6,7 +6,9 @@ The `sortByYear` function should return `1` if the `release_year` of `book1` obj
 
 The `sortByYear` function should return `0` for all other scenarios.
 
-You should have an array of objects named `books` where each object in the array should have a string `title`, another string `author_name`, and a number `release_year`.
+You should have an array of objects named `books` where each object in the array should have a string `title`, another string `author_name`, and a number `release_year`. 
+
+Your `books` array should have a minimum of three objects.
 
 You should call the `filter` higher-order function on the `books` array with a callback to filter out books written after a certain year such as 1950 and save the filtered array in a new array named `filteredBooks`.
 
