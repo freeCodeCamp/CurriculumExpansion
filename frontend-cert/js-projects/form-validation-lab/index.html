@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Customer Complaint Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Complaint Form</h1>
+    <form id="form">
+        <fieldset id="personal-info">
+            <div>
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" placeholder="John Doe">
+            </div>
+
+            <div>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset id="product-info">
+            <div>
+                <label for="order-no">Order No:</label>
+                <input type="text" id="order-no" name="order-no" placeholder="2024######">
+            </div>
+            <div>
+                <label for="product-code">Product Code:</label>
+                <input type="text" id="product-code" name="product-code" placeholder="XX##-X###-XX#">
+            </div>
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1">
+            </div>
+        </fieldset>
+
+        <fieldset id="complaints-group">
+            <legend>Complaint Reason:</legend>
+            <div>
+                <input type="checkbox" id="damaged-product" name="complaint" value="damaged-product">
+                <label for="damaged-product">Damaged Product</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="nonconforming-product" name="complaint" value="nonconforming-product">
+                <label for="nonconforming-product">Nonconforming Product</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="delayed-dispatch" name="complaint" value="delayed-dispatch">
+                <label for="delayed-dispatch">Delayed Dispatch</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="other-complaint" name="complaint" value="other">
+                <label for="other-complaint">Other</label>
+            </div>
+        </fieldset>
+
+        <div id="complaint-description-container">
+            <legend>Description of Complaint Reason</legend>
+            <textarea placeholder="Describe the reason of your complaint in at least 20 characters"
+                name="complaint-textarea" id="complaint-description"></textarea>
+        </div>
+
+        <fieldset id="solutions-group">
+            <legend>Desired Solution</legend>
+            <input type="radio" name="solutions" id="refund" value="refund">
+            <label for="refund">Refund</label>
+
+            <input type="radio" name="solutions" id="exchange" value="exchange">
+            <label for="exchange">Exchange</label>
+
+            <input type="radio" name="solutions" id="other-solution" value="other">
+            <label for="other-solution">Other</label>
+        </fieldset>
+
+        <div id="solution-description-container">
+            <legend>Description of Desired Solution</legend>
+            <textarea placeholder="Describe the desired solution to your issue in at least 20 characters"
+                name="solution-textarea" id="solution-description"></textarea>
+        </div>
+        <div id="btn-container">
+            <button type="submit" id="submit-btn">Submit</button>
+            <span id="message-box"></span>
+            <button type="button" id="clear-btn">Clear</button>
+        </div>
+
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
