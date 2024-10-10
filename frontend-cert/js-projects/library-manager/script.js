@@ -56,43 +56,50 @@ const library = [
   },
 ];
 
-// Add book with push()
-function addBook(title, author, pages) {
-  const newBook = { title, author, pages }; // explain object shorthand property here and provide a basic example
-  library.push(newBook);
+// Get books' summaries with map()
+function getBookSummaries(catalog) {
+  return catalog.map(
+    (book) =>
+      `${book.title}, ${
+        book.about.charAt(0).toLowerCase() + book.about.slice(1)
+      }`
+  );
 }
-
-// Use map to send the books into an array
-const bookSummaries = library.map((book) => {
-  return `${book.title}, ${
-    book.about.charAt(0).toLowerCase() + book.about.slice(1) // teach charAt() method here
-  }`;
-});
 
 // Display books with forEach()
-function displayBooks() {
-  console.log('Library Books:');
-  library.forEach((book) => {
-    console.log(
-      `${book.title} by ${book.author}, ${book.about} (${book.pages} pages)\n`
-    );
+function displayBooks(catalog) {
+  let output = 'Books in the Library:\n';
+
+  catalog.forEach((book) => {
+    output += `- ${book.title} by ${book.author} (${book.pages} pages)\n`;
   });
+
+  return output;
 }
 
-// Filter book by a particular author
-const author = 'Arvid Kahl';
-const booksByAuthor = library.filter((book) => book.author === author);
+// Filter book by a particular author with filter()
+function getBooksByAuthor(catalog, author) {
+  return catalog.filter((book) => book.author === author);
+}
 
 // Use reduce() to calculate total number of pages of books in the library
-const totalPages = library.reduce((acc, book) => acc + book.pages, 0);
+function getTotalPages(catalog) {
+  return catalog.reduce((acc, book) => acc + book.pages, 0);
+}
 
-// Log results to the console and make sure a new line separate each
-addBook('There was a Country', 'Chinua Achebe', 352);
-console.log('\n');
+const bookSummaries = getBookSummaries(library);
 console.log('Book summaries:', bookSummaries);
 console.log('\n');
-displayBooks();
+
+const libraryBooks = displayBooks(library);
+console.log(libraryBooks);
 console.log('\n');
-console.log(`Books by ${author}:`, booksByAuthor);
+
+const booksByArvidKahl = getBooksByAuthor(library, 'Arvid Kahl');
+console.log(`Books by Arvid Kahl:`, booksByArvidKahl);
 console.log('\n');
-console.log(`Total number of pages of books in the library: ${totalPages}`);
+
+const totalPagesOfBooksInLibrary = getTotalPages(library);
+console.log(
+  `Total number of pages of books in the library: ${totalPagesOfBooksInLibrary}`
+);
