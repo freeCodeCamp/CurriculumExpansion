@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mood Board</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function MoodBoardItem(props) {
+            return (
+                <div className="mood-board-item" style={{ backgroundColor: props.color }}>
+                    <img src={props.image} alt="Mood" className="mood-board-image" />
+                    <h3 className="mood-board-text">{props.description}</h3>
+                </div>
+            );
+        }
+
+        function MoodBoard() {
+            return (
+                
+                <div className="mood-board">
+                    <MoodBoardItem
+                        color="#f39c12"
+                        image="images/pathway.jpg"
+                        description="Golden Sunset"
+                    />
+                    <MoodBoardItem
+                        color="#8e44ad"
+                        image="images/shore.jpg"
+                        description="Lavender Dreams"
+                    />
+                    <MoodBoardItem
+                        color="#3498db"
+                        image="images/grass.jpg"
+                        description="Ocean Breeze"
+                    />
+                    <MoodBoardItem
+                        color="#2ecc71"
+                        image="images/ship.jpg"
+                        description="Green Nature"
+                    />
+                    <MoodBoardItem
+                        color="#e74c3c"
+                        image="images/santorini.jpg"
+                        description="Passionate Red"
+                    />
+                    <MoodBoardItem
+                        color="#95a5a6"
+                        image="images/pigeon.jpg"
+                        description="Minimal Vibes"
+                    />
+                </div>
+            );
+        }
+
+        const container = document.getElementById("root");
+        const root = ReactDOM.createRoot(container);
+        root.render(<MoodBoard />);
+    </script>
+</body>
+
+</html>
