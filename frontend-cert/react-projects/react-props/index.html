@@ -17,7 +17,10 @@
     <script type="text/babel">
         function MoodBoardItem(props) {
             return (
-                <div className="mood-board-item" style={{ backgroundColor: props.color }}>
+                <div
+                    className="mood-board-item"
+                    style={{ backgroundColor: props.color }}
+                >
                     <img src={props.image} alt="Mood" className="mood-board-image" />
                     <h3 className="mood-board-text">{props.description}</h3>
                 </div>
@@ -26,38 +29,40 @@
 
         function MoodBoard() {
             return (
-                
-                <div className="mood-board">
-                    <MoodBoardItem
-                        color="#f39c12"
-                        image="images/pathway.jpg"
-                        description="Golden Sunset"
-                    />
-                    <MoodBoardItem
-                        color="#8e44ad"
-                        image="images/shore.jpg"
-                        description="Lavender Dreams"
-                    />
-                    <MoodBoardItem
-                        color="#3498db"
-                        image="images/grass.jpg"
-                        description="Ocean Breeze"
-                    />
-                    <MoodBoardItem
-                        color="#2ecc71"
-                        image="images/ship.jpg"
-                        description="Green Nature"
-                    />
-                    <MoodBoardItem
-                        color="#e74c3c"
-                        image="images/santorini.jpg"
-                        description="Passionate Red"
-                    />
-                    <MoodBoardItem
-                        color="#95a5a6"
-                        image="images/pigeon.jpg"
-                        description="Minimal Vibes"
-                    />
+                <div>
+                    <h1 className="moodboard-heading">Destination Moodboard</h1>
+                    <div className="mood-board">
+                        <MoodBoardItem
+                            color="#2da64f"
+                            image="images/pathway.jpg"
+                            description="Carribean"
+                        />
+                        <MoodBoardItem
+                            color="#8e44ad"
+                            image="images/shore.jpg"
+                            description="Gawadar Beach"
+                        />
+                        <MoodBoardItem
+                            color="#3498db"
+                            image="images/grass.jpg"
+                            description="Cape Town"
+                        />
+                        <MoodBoardItem
+                            color="#bf3d7e"
+                            image="images/ship.jpg"
+                            description="Suez Canal"
+                        />
+                        <MoodBoardItem
+                            color="#e74c3c"
+                            image="images/santorini.jpg"
+                            description="Santorini"
+                        />
+                        <MoodBoardItem
+                            color="#95a5a6"
+                            image="images/pigeon.jpg"
+                            description="Istanbul"
+                        />
+                    </div>
                 </div>
             );
         }
