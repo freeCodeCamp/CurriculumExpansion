@@ -1,0 +1,36 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#color-picker-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+#pick-color-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #14183c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#pick-color-btn:hover {
+    background-color: #08131f;
+}
+
+input[type="color"] {
+    visibility: hidden;
+    position: absolute;
+}

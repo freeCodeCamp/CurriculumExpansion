@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Color Picker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        function MyApp() {
+            const [bgColor, setBgColor] = useState('#ffffff'); // Initial background color
+
+            const handleButtonClick = () => {
+                document.getElementById('color-input').click(); // Programmatically click the hidden color input
+            };
+
+            const handleColorChange = (event) => {
+                setBgColor(event.target.value); // Update background color when a color is selected
+            };
+
+            return (
+                <div id="color-picker-container" style={{ backgroundColor: bgColor }}>
+                    {/* Hidden color input */}
+                    <input
+                        id="color-input"
+                        type="color"
+                        value={bgColor}
+                        onChange={handleColorChange}
+                    />
+
+                    {/* Pick a color button */}
+                    <button id="pick-color-btn" onClick={handleButtonClick}>
+                        Pick a Color
+                    </button>
+                </div>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+    </script>
+</body>
+
+</html>
