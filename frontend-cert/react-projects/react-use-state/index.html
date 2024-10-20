@@ -16,19 +16,18 @@
         const { useState } = React;
 
         function MyApp() {
-            const [bgColor, setBgColor] = useState('#ffffff'); // Initial background color
+            const [bgColor, setBgColor] = useState('#ffffff'); 
 
             const handleButtonClick = () => {
-                document.getElementById('color-input').click(); // Programmatically click the hidden color input
+                document.getElementById('color-input').click(); 
             };
 
             const handleColorChange = (event) => {
-                setBgColor(event.target.value); // Update background color when a color is selected
+                setBgColor(event.target.value);
             };
 
             return (
                 <div id="color-picker-container" style={{ backgroundColor: bgColor }}>
-                    {/* Hidden color input */}
                     <input
                         id="color-input"
                         type="color"
@@ -36,7 +35,6 @@
                         onChange={handleColorChange}
                     />
 
-                    {/* Pick a color button */}
                     <button id="pick-color-btn" onClick={handleButtonClick}>
                         Pick a Color
                     </button>
