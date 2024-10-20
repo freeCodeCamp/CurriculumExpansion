@@ -10,9 +10,9 @@ Fulfill the user stories below and get all the tests to pass to complete the lab
 2. You should have a `MoodBoardItem` component that uses props and renders a `div` with the `class` of `mood-board-item`.
 3. The `mood-board-item` `div` should have its background color set to the `color` prop.
 4. The `MoodBoardItem` component should render an `img` element with the `src` attribute set to the `image` prop.
-5. The `MoodBoardItem` component should render an `h3` set to the `description` prop. It should have a `class` of `mood-board-text`.
+5. The `MoodBoardItem` component should render an `h3` set to the `description` prop. It should have a `className` of `mood-board-text`.
 6. You should define a `MoodBoard` component that:
-    - Renders an `h1` with a `class` of `moodboard-heading` and the text `Destination MoodBoard`.
+    - Renders an `h1` with a `className` of `moodboard-heading` and the text `Destination MoodBoard`.
     - Used the `MoodBoardItem` component to render a `MoodBoardItem`. 
     - Each `MoodBoardItem` should have the following props:
         - `color`.
