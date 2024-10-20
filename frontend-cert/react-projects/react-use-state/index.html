@@ -27,17 +27,17 @@
             };
 
             return (
-                <div id="color-picker-container" style={{ backgroundColor: bgColor }}>
+                   <div id="color-picker-container" style={{ backgroundColor: bgColor }}>
+                    <p className="stylep">
+                        Choose a color using the color input below:
+                    </p>
+
                     <input
                         id="color-input"
                         type="color"
                         value={bgColor}
                         onChange={handleColorChange}
                     />
-
-                    <button id="pick-color-btn" onClick={handleButtonClick}>
-                        Pick a Color
-                    </button>
                 </div>
             );
         }

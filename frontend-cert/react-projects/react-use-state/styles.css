@@ -31,6 +31,16 @@ html {
 }
 
 input[type="color"] {
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
+    margin-top: 50px;
+    height: 40px;
+}
+
+.stylep{
+    color: #14183c;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    
 }
