@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Reusable Footer Component</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Footer() {
+            return (
+                <footer className="footer">
+                    <div className="footer-section">
+                        <ul>
+                            <li><a href="#">Fitness Dashboard</a></li>
+                            <li><a href="#">Services</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Watch Videos</a></li>
+                            <li><a href="#">Discord</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <p>© 2024 Fitness Dashboard. All Rights Reserved.</p>
+                    <div className="footer-icons">
+                        <a href="#">&#x1F3AE;</a>
+                        <a href="#">&#x1F426;</a>
+                        <a href="#">&#x1F4BB;</a>
+                        <a href="#">&#x1F3C0;</a>
+                    </div>
+                </footer>
+            );
+        }
+
+        const container = document.getElementById("root");
+        const root = ReactDOM.createRoot(container);
+        root.render(<Footer />);
+    </script>
+</body>
+
+</html>
