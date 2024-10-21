@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mood Board</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function MoodBoardItem(props) {
+            return (
+                <div
+                    className="mood-board-item"
+                    style={{ backgroundColor: props.color }}
+                >
+                    <img src={props.image} alt="Mood" className="mood-board-image" />
+                    <h3 className="mood-board-text">{props.description}</h3>
+                </div>
+            );
+        }
+
+        function MoodBoard() {
+            return (
+                <div>
+                    <h1 className="moodboard-heading">Destination Moodboard</h1>
+                    <div className="mood-board">
+                        <MoodBoardItem
+                            color="#2da64f"
+                            image="images/pathway.jpg"
+                            description="Carribean"
+                        />
+                        <MoodBoardItem
+                            color="#8e44ad"
+                            image="images/shore.jpg"
+                            description="Gawadar Beach"
+                        />
+                        <MoodBoardItem
+                            color="#3498db"
+                            image="images/grass.jpg"
+                            description="Cape Town"
+                        />
+                        <MoodBoardItem
+                            color="#bf3d7e"
+                            image="images/ship.jpg"
+                            description="Suez Canal"
+                        />
+                        <MoodBoardItem
+                            color="#e74c3c"
+                            image="images/santorini.jpg"
+                            description="Santorini"
+                        />
+                        <MoodBoardItem
+                            color="#95a5a6"
+                            image="images/pigeon.jpg"
+                            description="Istanbul"
+                        />
+                    </div>
+                </div>
+            );
+        }
+
+        const container = document.getElementById("root");
+        const root = ReactDOM.createRoot(container);
+        root.render(<MoodBoard />);
+    </script>
+</body>
+
+</html>
