@@ -18,4 +18,4 @@ Fulfill the user stories below and get all the tests to pass to complete the lab
         - `color`.
         - `image`.
         - `description`.
-5. You should add atleast 3 `MoodBoardItem` components to the `MoodBoard` component.
+5. You should add at least 3 `MoodBoardItem` components to the `MoodBoard` component.
