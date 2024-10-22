@@ -17,11 +17,7 @@
 
         function MyApp() {
             const [bgColor, setBgColor] = useState('#ffffff'); 
-
-            const handleButtonClick = () => {
-                document.getElementById('color-input').click(); 
-            };
-
+            
             const handleColorChange = (event) => {
                 setBgColor(event.target.value);
             };

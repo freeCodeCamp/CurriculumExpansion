@@ -31,7 +31,6 @@ html {
 }
 
 input[type="color"] {
-    /* visibility: hidden; */
     position: absolute;
     margin-top: 50px;
     height: 40px;
