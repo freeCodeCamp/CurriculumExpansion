@@ -14,7 +14,6 @@
     <div id="root"></div>
     <script type="text/babel">
         function EventRSVPForm() {
-            // State for form fields
             const [formData, setFormData] = React.useState({
                 name: '',
                 email: '',
@@ -25,7 +24,6 @@
 
             const [submitted, setSubmitted] = React.useState(false);
 
-            // Handle form field changes
             function handleChange(event) {
                 const { name, value, type, checked } = event.target;
                 setFormData({
@@ -34,76 +32,69 @@
                 });
             }
 
-            // Handle form submission
             function handleSubmit(event) {
                 event.preventDefault();
                 setSubmitted(true);
             }
 
             return (
-                <div>
+                <div className="form-container">
                     <h2>Event RSVP Form</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                        
-                                            <label>
-                                Name:
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </label>
+                            <label>Name:</label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder="Your Name"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Email:</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="Your Email"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Number of Attendees:</label>
+                            <input
+                                type="number"
+                                name="attendees"
+                                value={formData.attendees || ''}
+                                onChange={handleChange}
+                                min="1"
+                                placeholder="Number of Attendees"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Dietary Preferences:</label>
+                            <input
+                                type="text"
+                                name="dietaryPreferences"
+                                value={formData.dietaryPreferences}
+                                onChange={handleChange}
+                                placeholder="Dietary Preferences (Optional)"
+                            />
                         </div>
                         <div className="form-group">
                             <label>
-                                Email:
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                Number of Attendees:
-                                <input
-                                    type="number"
-                                    name="attendees"
-                                    value={formData.attendees}
-                                    onChange={handleChange}
-                                    min="1"
-                                    required
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                Dietary Preferences:
-                                <input
-                                    type="text"
-                                    name="dietaryPreferences"
-                                    value={formData.dietaryPreferences}
-                                    onChange={handleChange}
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="bringingOthers"
-                                    checked={formData.bringingOthers}
-                                    onChange={handleChange}
-                                />
                                 Bringing additional guests?
                             </label>
-
+                            <input
+                                type="checkbox"
+                                name="bringingOthers"
+                                checked={formData.bringingOthers}
+                                onChange={handleChange}
+                            />
                         </div>
                         <button type="submit">Submit RSVP</button>
                     </form>
