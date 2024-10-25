@@ -1,0 +1,38 @@
+body {
+    font-family: 'Castoro Titling', cursive;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 30px;
+    color: #333;
+}
+
+h2 {
+    font-size: 25px;
+    color: #555;
+}
+
+p {
+    font-size: 16px;
+    color: #888;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #383f59;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #444;
+}

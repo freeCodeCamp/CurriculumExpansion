@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>OTP Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function generateOTP() {
+      return Math.floor(100000 + Math.random() * 900000);
+    }
+
+    function OTPGenerator() {
+      const [otp, setOtp] = React.useState(null);
+      const [secondsLeft, setSecondsLeft] = React.useState(5);
+      const [isCounting, setIsCounting] = React.useState(false);
+      const [hasGeneratedOtp, setHasGeneratedOtp] = React.useState(false); // Tracks if OTP has been generated at least once
+
+      // Function to generate OTP and start countdown
+      const handleGenerateOtp = () => {
+        setOtp(generateOTP());
+        setSecondsLeft(5); // Reset timer to 5 seconds
+        setIsCounting(true); // Start countdown
+        setHasGeneratedOtp(true); // Mark that OTP has been generated
+      };
+
+      React.useEffect(() => {
+        let timerId;
+        if (isCounting && secondsLeft > 0) {
+          timerId = setInterval(() => {
+            setSecondsLeft(prevSeconds => prevSeconds - 1);
+          }, 1000);
+        } else if (secondsLeft === 0) {
+          // Stop countdown when it reaches 0
+          setIsCounting(false);
+        }
+
+        // Cleanup the interval on unmount or when countdown stops
+        return () => clearInterval(timerId);
+      }, [isCounting, secondsLeft]); // Effect runs when isCounting or secondsLeft changes
+
+      return (
+        <div className="container">
+          <h1>OTP Generator</h1>
+          <h2>{otp ? otp : "Click 'Generate OTP' to get a code"}</h2>
+          {isCounting ? (
+            <p>Expires in: {secondsLeft} seconds</p>
+          ) : (
+            hasGeneratedOtp && <p>OTP expired. Click the button to generate a new OTP.</p>
+          )}
+          <button onClick={handleGenerateOtp}>
+            Generate OTP
+          </button>
+        </div>
+      );
+    }
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<OTPGenerator />);
+  </script>
+  <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+</body>
+
+</html>
