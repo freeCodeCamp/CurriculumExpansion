@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fCC Forum Leaderboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img
+          class="fcc-logo"
+          src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+          alt="freeCodeCamp logo"
+        />
+      </nav>
+      <h1 class="title">Latest Topics</h1>
+    </header>
+    <main>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th id="topics">Topics</th>
+              <th id="avatars">Avatars</th>
+              <th id="replies">Replies</th>
+              <th id="views">Views</th>
+              <th id="activity">Activity</th>
+            </tr>
+          </thead>
+          <tbody id="posts-container"></tbody>
+        </table>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
