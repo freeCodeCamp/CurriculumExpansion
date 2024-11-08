@@ -1,0 +1,48 @@
+* {
+    font-family: "Secular One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.board-row {
+    display: flex;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    margin: 5px;
+    background: #fff;
+    border: 1px solid #999;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
