@@ -14,7 +14,7 @@ In this lab, you will build a voting system that would use `Map` to create a pol
  
 - If the `option` does not already exist in the poll, it should be added to the poll with an empty `Set` as its value to track voters. You should also return the message `Option "<option>" added to the poll.`
 
-- If the `option` already exists, it should display the message `Option "<option>" already exists.`.
+- If the `option` already exists, it should return the message `Option "<option>" already exists.`.
 
 4. You should have a function `vote` that accepts two parameters, `option`(the option to vote for) and `voterId` (a unique ID for the voter).
 
