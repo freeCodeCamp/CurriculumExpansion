@@ -23,12 +23,12 @@ function vote(option, voterId) {
   }
 }
 
-// Display poll results
 function displayResults() {
-  console.log("Poll Results:");
-  for (let [option, voters] of poll.entries()) {
-    return `${option}: ${voters.size} votes`;
-  }
+    let results = "Poll Results:\n";
+    for (let [option, voters] of poll.entries()) {
+        results += `${option}: ${voters.size} votes\n`;
+    }
+    return results.trim();
 }
 
 // Example usage
