@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>
+      Build a Music Player App
+    </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="player">
+        <div class="player-bar">
+          <div class="parallel-lines">
+            <div></div>
+            <div></div>
+          </div>
+          <h1 class="fcc-title">freeCodeCamp</h1>
+          <div class="parallel-lines">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="player-content">
+          <div id="player-album-art">
+            <img
+              src="https://cdn.freecodecamp.org/curriculum/js-music-player/quincy-larson-album-art.jpg"
+              alt="song cover art"
+            />
+          </div>
+          <div class="player-display">
+            <div class="player-display-song-artist">
+              <p id="player-song-title"></p>
+              <p id="player-song-artist"></p>
+            </div>
+            <div class="player-buttons">
+              <button id="previous" class="previous" aria-label="Previous">
+                <svg
+                  width="24"
+                  height="19"
+                  viewBox="0 0 24 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                ><path d="M23.2248 0L7.03964 9.5L23.2248 19L23.2248 0Z" /><rect
+                    width="4.63633"
+                    height="18.5453"
+                    transform="matrix(-1 0 0 1 4.63633 0)"/></svg>
+              </button>
+              <button id="play" class="play" aria-label="Play">
+                <svg
+                  width="17"
+                  height="19"
+                  viewBox="0 0 17 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                > <path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z" /></svg>
+              </button>
+              <button id="pause" class="pause" aria-label="Pause">
+                <svg
+                  width="17"
+                  height="19"
+                  viewBox="0 0 17 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                ><path d="M0 6.54013e-07H4.75V19H0V6.54013e-07Z" /> <path d="M11.4 0H16.15V19H11.4V0Z" /></svg>
+              </button>
+              <button id="next" class="next" aria-label="Next">
+                <svg
+                  width="24"
+                  height="19"
+                  viewBox="0 0 24 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                ><path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z" /> <rect x="18.5885" width="4.63633" height="18.5453" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist">
+        <div class="playlist-bar">
+          <div class="parallel-lines">
+            <div></div>
+            <div></div>
+          </div>
+          <h2 class="playlist-title" id="playlist">Playlist</h2>
+          <div class="parallel-lines">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <ul id="playlist-songs"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
