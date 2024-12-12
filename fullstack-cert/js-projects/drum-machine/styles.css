@@ -1,0 +1,112 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3b3b5f;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+}
+
+/* Drum Pad Styles */
+.pad-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.drum-pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: #444;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.drum-pad.active {
+  background: #ffaa33;
+}
+
+/* Controls */
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.select {
+  width: 50px;
+  height: 20px;
+  background: #555;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.select .inner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #ffaa33;
+  border-radius: 50%;
+  top: 1px;
+}
+
+#display {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 1em;
+  padding: 8px;
+  background: #444;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Volume Slider */
+.volume-slider input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #ffaa33;
+  border-radius: 2px;
+}
+
+.volume-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
