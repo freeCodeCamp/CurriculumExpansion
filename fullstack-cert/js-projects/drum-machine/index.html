@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drum Machine</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div class="inner-container" id="drum-machine">
-    <!-- Pad Bank for Drum Pads -->
     <div class="pad-bank"></div>
 
     <div class="controls-container">
-      <!-- Power Control -->
       <div class="control power-control">
-        <p>Power</p>
+        <p>Power: <span id="power-status">On</span></p>
         <div class="select">
-          <div class="inner" style="float: right;"></div>
+          <div class="inner"></div>
         </div>
       </div>
 
       <!-- Display for Drum Pad Name and Volume -->
-      <p id="display">&nbsp;</p>
+      <p id="display"></p>
 
-      <!-- Volume Slider -->
       <div class="volume-slider">
-        <input type="range" min="0" max="1" step="0.01" value="0.3">
+        <input type="range" min="0" max="1" step="0.01" value="0.3" />
       </div>
 
-      <!-- Bank Control -->
       <div class="control bank-control">
-        <p>Bank</p>
+        <p>Bank: <span id="current-bank">Heater Kit</span></p>
         <div class="select">
-          <div class="inner" style="float: left;"></div>
+          <div class="inner"></div>
         </div>
       </div>
     </div>
   </div>
 
-  
   <script src="script.js"></script>
 </body>
+
 </html>
