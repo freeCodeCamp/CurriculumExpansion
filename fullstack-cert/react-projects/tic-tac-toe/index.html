@@ -1,127 +1,30 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-
-    <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      data-plugins="transform-modules-umd"
+      type="text/babel"
+      src="index.jsx"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-    
-</head>
-
-<body>
+  <body>
     <div id="root"></div>
-    <script type="text/babel">
-        // Square component
-        const Square = ({ value, onClick }) => {
-            return (
-                <button className="square" onClick={onClick}>
-                    {value}
-                </button>
-            );
-        };
-
-        // Main Board component
-        const Board = () => {
-            const [squares, setSquares] = React.useState(Array(9).fill(null));
-            const [isXNext, setIsXNext] = React.useState(true);
-            const winner = calculateWinner(squares);
-            const isDraw = squares.every(square => square !== null) && !winner;
-
-            const handleClick = (index) => {
-                if (squares[index] || winner || isDraw) return;
-                const nextSquares = squares.slice();
-                nextSquares[index] = isXNext ? 'X' : 'O';
-                setSquares(nextSquares);
-                setIsXNext(!isXNext);
-            };
-
-            const resetGame = () => {
-                setSquares(Array(9).fill(null));
-                setIsXNext(true);
-            };
-
-            const renderSquare = (index) => {
-                return <Square value={squares[index]} onClick={() => handleClick(index)} />;
-            };
-
-            return (
-                <div className="board">
-                    <h1>Tic-Tac-Toe</h1>
-                    <div className="status">
-                        {winner ? `Winner: ${winner}` : isDraw ? "It's a Draw!" : `Next Player: ${isXNext ? 'X' : 'O'}`}
-                    </div>
-                    <div className="board-row">
-                        {renderSquare(0)}
-                        {renderSquare(1)}
-                        {renderSquare(2)}
-                    </div>
-                    <div className="board-row">
-                        {renderSquare(3)}
-                        {renderSquare(4)}
-                        {renderSquare(5)}
-                    </div>
-                    <div className="board-row">
-                        {renderSquare(6)}
-                        {renderSquare(7)}
-                        {renderSquare(8)}
-                    </div>
-                    <button className="reset-button" onClick={resetGame}>Reset Game</button>
-                </div>
-            );
-        };
-
-        // Function to calculate the winner
-        const calculateWinner = (squares) => {
-            const lines = [
-                [0, 1, 2],
-                [3, 4, 5],
-                [6, 7, 8],
-                [0, 3, 6],
-                [1, 4, 7],
-                [2, 5, 8],
-                [0, 4, 8],
-                [2, 4, 6],
-            ];
-            for (let line of lines) {
-                const [a, b, c] = line;
-                if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-                    return squares[a];
-                }
-            }
-            return null;
-        };
-
-        // Main App component
-        const App = () => {
-            return (
-                <div className="App">
-                    <Board />
-                </div>
-            );
-        };
-
-        // Render the App
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    <script
+      data-plugins="transform-modules-umd"
+      type="text/babel"
+      data-presets="react"
+      data-type="module"
+    >
+      import { App } from './index.jsx';
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
-    <!--
-      Note: this page is a great way to try React but it's not suitable for production.
-      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
-
-      Read this page for starting a new React project with JSX:
-      https://react.dev/learn/start-a-new-react-project
-
-      Read this page for adding React with JSX to an existing project:
-      https://react.dev/learn/add-react-to-an-existing-project
-    -->
-</body>
-
+  </body>
 </html>
