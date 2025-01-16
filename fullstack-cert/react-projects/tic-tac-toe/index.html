@@ -1,30 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic-Tac-Toe</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script
-      data-plugins="transform-modules-umd"
-      type="text/babel"
-      src="index.jsx"
-    ></script>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script
-      data-plugins="transform-modules-umd"
-      type="text/babel"
-      data-presets="react"
-      data-type="module"
-    >
-      import { App } from './index.jsx';
-      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic-Tac-Toe</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script data-plugins="transform-modules-umd" type="text/babel" src="index.jsx"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script data-plugins="transform-modules-umd" type="text/babel" data-presets="react" data-type="module">
+    import { App } from './index.jsx';
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+
 </html>
