@@ -5,7 +5,7 @@ body {
     background-color: #f0f0f0;
 }
 
-.newspaper-layout {
+main {
     display: grid;
     grid-template-areas:
         "title title title"
@@ -23,28 +23,33 @@ body {
     text-align: justify;
 }
 
-.title {
+header {
     grid-area: title;
     background-color: #1B1B32;
     color: white;
     padding: 15px;
     text-align: center;
+}
+
+header h1 {
     font-size: 2.5rem;
     line-height: 1.3;
+    margin: 0;
+}
+
+.feature-article,
+.secondary-article {
+    background-color: #f9f9f9;
+    padding: 15px;
+    font-size: 1rem;
 }
 
 .feature-article {
     grid-area: feature-article;
-    background-color: #f9f9f9;
-    padding: 15px;
-    font-size: 1rem;
 }
 
 .secondary-article {
     grid-area: secondary-article;
-    background-color: #f9f9f9;
-    padding: 15px;
-    font-size: 1rem;
 }
 
 .small-article1,
@@ -67,17 +72,19 @@ body {
     grid-area: small-article3;
 }
 
-.cover-image {
+figure.cover-image {
     grid-area: cover-image;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ddd;
     padding: 15px;
+    margin: 0;
 }
 
 .cover-image img {
     max-width: 100%;
-    height: auto;
+    height: 350px;
+    width: 350px;
     border-radius: 5px;
 }
