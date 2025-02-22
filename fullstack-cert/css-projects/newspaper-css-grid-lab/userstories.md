@@ -12,7 +12,7 @@
 
 6. Each of the smaller articles should include an `h3` element for the article title and a `p` element for the article content.
 
-7. The `.newspaper-layout` should include a `article` element with the class `secondary-article` for an additional news section.
+7. The `.newspaper-layout` should include an `article` element with the class `secondary-article` for an additional news section.
 
 8. The `.newspaper-layout` should include a `figure` with the class `cover-image` to display an image that represents the newspaper's content.
 
