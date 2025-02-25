@@ -10,5 +10,3 @@
 10. Your `Board` component should render a status message that shows the current player or the winner, or indicate if there is a draw.
 11. Your `Board` component should render a grid of `Square` components for the 3x3 Tic-Tac-Toe board.
 12. You should create a `resetGame` function that resets the game state to its initial values when triggered.
-13. You should create and export an `App` component that renders the `Board` component.
-14. The `App` component should be rendered to the DOM inside a `div` with the class `App`.
