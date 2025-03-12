@@ -1,0 +1,41 @@
+body {
+    background-color: #edd5c9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    margin: 50px auto;
+}
+
+h2 {
+    margin-bottom: 16px;
+}
+
+input,
+select {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.conversion-display {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}
