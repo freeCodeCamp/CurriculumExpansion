@@ -1,10 +1,11 @@
-def vowel_counter():
-    vowels = {"a", "e", "i", "o", "u"}
-    user_input = input("Enter a word or sentence: ").lower()
+user_input = "Hello, World!"
 
+def vowel_counter(input):
+    vowels = {"a", "e", "i", "o", "u"}
+    
     found_vowels = set()
 
-    for char in user_input:
+    for char in input:
         if char in vowels:
             found_vowels.add(char)
 
@@ -13,4 +14,4 @@ def vowel_counter():
     else:
         print("No vowels found.")
 
-vowel_counter()
+vowel_counter(user_input)
