@@ -1,5 +1,5 @@
 1. Your should have a `section` element with the class `review`.
-2. Inside the section element, you should have an `h1` element for the movie title.
+2. Inside the `section` element, you should have an `h1` element for the movie title.
 3. Below the `h1` element, you should have an `img` element displaying the movie cover with an `alt` attribute describing the image.
 4. You should have a `p` element containing a brief movie description.
 5. You should have another `p` element to display the movie rating.
