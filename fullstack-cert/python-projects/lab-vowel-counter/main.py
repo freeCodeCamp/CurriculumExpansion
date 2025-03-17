@@ -1,17 +1,30 @@
-user_input = "Hello, World!"
+def login(users, max_attempts=3):
+    attempts = 0
 
-def vowel_counter(input):
-    vowels = {"a", "e", "i", "o", "u"}
-    
-    found_vowels = set()
+    while attempts < max_attempts:
+        user_input = input("Enter your username and password (format: username password): ").strip()
+        
+        username, password = user_input.split(" ", 1)
+        username = username.lower()
 
-    for char in input:
-        if char in vowels:
-            found_vowels.add(char)
+        if username in users and users[username] == password:
+            print("Login successful!")
+            return True
 
-    if found_vowels:
-        print(f"\nUnique vowels found: {' '.join(sorted(found_vowels))}")
-    else:
-        print("No vowels found.")
+        attempts += 1
+        remaining_attempts = max_attempts - attempts
+        
+        if remaining_attempts > 0:
+            print(f"Invalid username or password. {remaining_attempts} attempt(s) left.")
+        else:
+            print("Too many failed attempts. Access denied!")
 
-vowel_counter(user_input)
+    return False 
+
+user_data = {
+    "alice": "password123",
+    "bob": "securepass",
+    "admin": "admin123"
+}
+
+login(user_data)
