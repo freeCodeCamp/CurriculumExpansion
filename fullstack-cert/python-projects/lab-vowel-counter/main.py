@@ -13,7 +13,7 @@ def login(users, max_attempts=3):
 
         attempts += 1
         remaining_attempts = max_attempts - attempts
-        
+
         if remaining_attempts > 0:
             print(f"Invalid username or password. {remaining_attempts} attempt(s) left.")
         else:
@@ -22,8 +22,8 @@ def login(users, max_attempts=3):
     return False 
 
 user_data = {
-    "alice": "password123",
-    "bob": "securepass",
+    "Amy": "password123",
+    "Arnold": "securepass",
     "admin": "admin123"
 }
 

@@ -1,10 +1,22 @@
-1. You should create a variable named `user_input` that takes a string input from the user.
-1. You should define a function named `vowel_counter` that takes a single parameter.
-1. Inside the `vowel_counter` function, you should:
-    - Create a set named `vowels` that contains the vowels: `a`, `e`, `i`, `o`, and `u`.
-    - Create an empty set named `found_vowels`.
-    - Iterate over each character in the user input:
-        - If the character is in the `vowels` set, add it to the `found_vowels` set.
-    - If the `found_vowels` set is not empty, print the unique vowels found in the user input separated by a single space using the following format: `Unique vowels found: <found_vowels>`.
-    - If the `found_vowels` set is empty, print `No vowels found.`.
-1. You should call the `vowel_counter` function with a string argument atleast once.
+1. You should create a dictionary named `user_data` that stores usernames as keys and passwords as follows:
+
+```md
+    user_data = {
+    "Amy": "password123",
+    "Arnold": "securepass",
+    "admin": "admin123"
+}
+```
+
+2. You should define a function named `login` that takes two parameters: `users` (a dictionary) and `max_attempts` (an integer with a default value of `3`).
+
+3. Inside the `login` function, you should:
+
+    - Track the attempts made by the user and ensure that the user has a maximum of `3` attempts.
+    - Take a username and password from the user using the prompt `"Enter your username and password (format: username password): "`.
+    - Check if the entered username and password match a stored entry in the `users` dictionary.
+    - If the login attempt is successful, print `"Login successful!"` and return `True`.
+    - If the login attempt is unsuccessful, print `"Invalid username or password. X attempt(s) left."` if there are attempts remaining.
+    - If the user fails all login attempts, print `"Too many failed attempts. Access denied!"` and return `False`.
+
+4. You should call the `login` function with `user_data` as an argument at least once.
