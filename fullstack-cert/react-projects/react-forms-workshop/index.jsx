@@ -32,7 +32,7 @@ export const SuperheroForm = () => {
       <h2>Superhero Application Form</h2>
       <p>Please complete all fields</p>
 
-      <form method='post' action='https://superhero-form-demo.freecodecamp.org'>
+      <form method='post' action='https://superhero-application-form.freecodecamp.org'>
         <div className='section'>
           <label>
             Hero Name
