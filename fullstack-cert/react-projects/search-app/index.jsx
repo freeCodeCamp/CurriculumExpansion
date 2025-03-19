@@ -1,4 +1,3 @@
-// #1: Unoptimized version
 const { useState, useMemo, useCallback } = React; // See if we can convert to import statements on Learn
 
 const items = [
@@ -34,14 +33,15 @@ export const SearchApp = () => {
     });
   }, [query]);
 
-  // // Unoptimized event handler (new function created on every render)
+  // // Unoptimized event handler (new function created and used on every render)
   // const selectItem = (item) => {
   //   console.log(`Selecting: ${item}`);
   //   setSelectedItem(item);
   // };
 
-  // Optimized event handler function (new function only created when necessary,
-  // otherwise uses reference)
+  // Optimized event handler function (according to the React docs, React will always create)
+  // a new function, but `useCallback` will try to use a cached function reference whenever
+  // possible
   const selectItem = useCallback(
     (item) => {
       console.log(`Selecting: ${item}`);
@@ -50,41 +50,47 @@ export const SearchApp = () => {
     [selectedItem]
   );
 
-  // Logging to show when `selectItem` is recreated
+  // Logging to show when a new `selectItem` function
+  // is used
   if (prevSelectItem !== selectItem) {
-    console.log("selectItem was recreated");
+    console.log("New selectItem function");
     prevSelectItem = selectItem; // Update for next render
   } else {
-    console.log("selectItem is stable");
+    console.log("Current selectItem function");
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Search App</h1>
-      <label htmlFor="search">Search for an item:</label>
-      <input
-        id="search"
-        type="text"
-        placeholder="Search..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        aria-describedby="search-description"
-      />
-      <p id="search-description">Type to filter the list below.</p>
-      <ul>
-        {filteredItems.map((item) => (
-          <li key={item}>
-            {item} -{" "}
-            <button
-              onClick={() => selectItem(item)}
-              aria-label={`Select ${item}`}
-            >
-              Select
-            </button>
-          </li>
-        ))}
-      </ul>
-      <p>{selectedItem ? `Selected: ${selectedItem}` : "No item selected"}</p>
+      <form>
+        <label htmlFor="search">Search for an item:</label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Search..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          aria-describedby="search-description"
+        />
+        <p id="search-description">Type to filter the list below.</p>
+        <ul>
+          {filteredItems.map((item) => (
+            <li key={item}>
+              {item} -{" "}
+              <button
+                type="button"
+                onClick={() => selectItem(item)}
+                aria-label={`Select ${item}`}
+              >
+                Select
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p className="selected-item">
+          {selectedItem ? `Selected: ${selectedItem}` : "No item selected"}
+        </p>
+      </form>
     </div>
   );
 };
