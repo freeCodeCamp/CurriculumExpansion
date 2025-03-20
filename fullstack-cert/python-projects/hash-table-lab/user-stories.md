@@ -4,13 +4,14 @@
 
 3. The `hash` method should:
 
-- Take a string as a parameter and return a hashed value computed as the sum of the Unicode (ASCII) values of each character in the string. Use the `ord` function for this computation.
+- Take a string as a parameter.
+- Return a hashed value computed as the sum of the Unicode (ASCII) values of each character in the string. Use the `ord` function for this computation.
 
 4. The `add` method should:
 
-- Take key and value as parameters, and compute the hash of the key.
-- Verify if the key already exists in the hash table. If the key does not exist, it should intialize an empty dictionary inside the `collection` dictionary for the hash value.
-- Use the hashed value to store the key-value pair inside the `collection` dictionary.
+- Take a key-value pair as parameters and compute the hash of the key
+- Use the computed hashed value to store the key-value pair inside the collection dictionary. 
+- If multiple keys produce the same hash value, their key-value pairs should be stored in a nested dictionary under the same hash value.
 
 5. The `remove` method should:
 
