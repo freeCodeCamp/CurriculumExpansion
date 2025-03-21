@@ -1,44 +1,49 @@
+def is_valid_number(value):
+    return value.replace('.', '', 1).isdigit() 
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error! Division by zero."
+    return a / b
+
 print("Simple Calculator")
 
 while True:
-    print("\nSelect an operation:")
+    print("\nSelect operation:")
     print("1. Addition")
     print("2. Subtraction")
     print("3. Multiplication")
     print("4. Division")
-    print("Enter 'q' to quit")
-    
-    choice = input("Enter choice (1/2/3/4): ")
-    
-    if choice == 'q':
+    print("Enter 'q' to quit.")
+
+    choice = input("Enter choice (1/2/3/4): ").strip()
+
+    if choice.lower() == 'q':
         print("Exiting calculator. Goodbye!")
         break
-    
+
     if choice not in ('1', '2', '3', '4'):
-        print("Invalid input. Please try again.")
+        print("Invalid input. Please enter a number between 1 and 4.")
         continue
-    
-    try:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-    except ValueError:
-        print("Invalid number. Please enter numeric values.")
+
+    num1 = input("Enter first number: ").strip()
+    num2 = input("Enter second number: ").strip()
+
+    if not (is_valid_number(num1) and is_valid_number(num2)):
+        print("Invalid input. Please enter numeric values.")
         continue
-    
-    def add(a, b):
-        return a + b
-    
-    def subtract(a, b):
-        return a - b
-    
-    def multiply(a, b):
-        return a * b
-    
-    def divide(a, b):
-        if b == 0:
-            return "Cannot divide by zero"
-        return a / b
-    
+
+    num1, num2 = float(num1), float(num2)
+
     if choice == '1':
         print(f"Result: {add(num1, num2)}")
     elif choice == '2':
