@@ -15,12 +15,7 @@ Example inputs:
 How to find the check digit:
 - You don't have to know the detailed calculation logic in this lab. The functions `calculate_check_digit_10` and `calculate_check_digit_13` will take care of it.
 - The check digit for ISBN-10 codes can be a number from `0` to `9` or an uppercase letter `X`. 
-    - If `calculate_check_digit_10` returns `11`, the check digit should be `0`.
-    - If `calculate_check_digit_10` returns `10`, the check digit should be an uppercase letter `X`.
-    - If `calculate_check_digit_10` returns `1` to `9`, the check digit should be the same number.
 - The check digit for ISBN-13 codes can be a number from `0` to `9`. 
-    - If `calculate_check_digit_13` returns `10`, the check digit should be `0`.
-    - If `calculate_check_digit_13` returns `1` to `9`, the check digit should be the same number.
 
 Fulfill the user stories below and get all the tests to pass to complete the lab.
 
@@ -35,7 +30,6 @@ Fulfill the user stories below and get all the tests to pass to complete the lab
 1. You should fix the `IndexError` in the current code when the user enters a valid ISBN-10 code.
 1. Even if the user enters an incorrect ISBN code with characters other than numbers, the program should handle the `ValueError` that occurs without crashing.
 1. When the user enters an incorrect ISBN code with characters other than numbers, they should see a message `Invalid character was found.` in the console.
-1. You should fix the bug where the `validate_isbn_13()` function always outputs `Invalid ISBN Code.`, even for valid ISBN-13 codes.
 
 When you complete the project, the user should see the following messages depending on the values they enter.
 
