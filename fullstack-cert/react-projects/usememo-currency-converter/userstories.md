@@ -1,6 +1,5 @@
 **User Stories:**  
 
-1. You should create and export a `CurrencyConverter` component.  
 2. Your `CurrencyConverter` component should return a `div` with the class `container` as its top-level element.  
 3. Your `CurrencyConverter` component should render an `h2` element with the text `Currency Converter`.  
 4. Your `CurrencyConverter` component should render an `input` element to accept the amount to be converted.  

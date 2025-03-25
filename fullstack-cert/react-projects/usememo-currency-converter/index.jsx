@@ -1,3 +1,5 @@
+const { useMemo } = React;
+
 export default function CurrencyConverter() {
     const [amount, setAmount] = React.useState(1);
     const [currency, setCurrency] = React.useState("USD");
