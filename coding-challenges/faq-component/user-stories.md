@@ -1,11 +1,13 @@
-Fulfill the below user stories and get all of the tests to pass. Use whichever libraries or APIs you need. Give it your own personal style.
+A frequently asked questions page is a collection of commonly asked questions and answers. This will help users find answers to common queries quickly without needing to reach out to customer support for help. 
 
-- I want to see a list of frequently asked questions so that I can find answers to common issues.
+- I should see a list of frequently asked questions with answers. 
 
-- I can click on a question to reveal the answer so that I can read it when needed.
+- I can click on a question to reveal the answer.
 
 - I can click the question again to hide the answer so that the page remains clean and easy to navigate.
 
-- I want to see a visual cue (e.g., an arrow or highlight) when a question is expanded so that I know which question is currently active.
+- The first answer should be revealed by default while the others remain hidden. 
 
-- I want the expanding and collapsing of answers to be smooth so that the experience feels natural and user-friendly.
+- I should see a visual cue (e.g., an arrow or highlight) when a question is expanded so that I know which question is currently active.
+
+- The expanding and collapsing of answers should be smooth so the experience feels natural and user-friendly.
