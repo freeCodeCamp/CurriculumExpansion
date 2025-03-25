@@ -2,7 +2,7 @@ import string
 
 def caesar_cipher(text, shift, encrypt=True):
 
-    
+
     alphabet = string.ascii_lowercase
     
     if not encrypt:
@@ -22,7 +22,6 @@ else:
     text = input("Enter your message: ")
     shift = int(input("Enter the shift value (1-25): "))
 
-    process = lambda msg, sh: caesar_cipher(msg, sh, encrypt=(choice == 'e'))
-    
-    result = process(text, shift)
-    print("Result:", result)
+    encrypt = choice == 'e'
+    result = caesar_cipher(text, shift, encrypt)
+    print(result)
