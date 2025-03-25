@@ -23,8 +23,6 @@ class LinkedList:
         self.length += 1
 
     def remove(self, element):
-        if self.is_empty():
-            return
         previous_node = None
         current_node = self.head
         while current_node is not None and current_node.element != element:
