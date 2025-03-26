@@ -1,6 +1,6 @@
 const { useState, useEffect } = React;
 
-function LiveSearch() {
+function FruitsSearch() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
