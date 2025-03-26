@@ -12,9 +12,9 @@ function LiveSearch() {
 
     const timeoutId = setTimeout(async () => {
       try {
-        const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
+        const response = await fetch(`https://fruit-search.freecodecamp.rocks/api/fruits?q=${query}`);
         const data = await response.json();
-        setResults(data.map(item => item.show.name));
+        setResults(data.map(fruit => fruit.name));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -25,13 +25,15 @@ function LiveSearch() {
 
   return (
     <div id="search-container">
-      <input
-        id="search-input"
-        type="text"
-        placeholder="Search for TV shows..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <form>
+        <label htmlFor="search-input">Search for fruits:</label>
+        <input
+          id="search-input"
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </form>
       <div id="results">
         {results.length > 0 ? (
           results.map((item, index) => (
