@@ -1,18 +1,21 @@
-import string
-
 def caesar_cipher(text, shift, encrypt=True):
-
-
-    alphabet = string.ascii_lowercase
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
     
     if not encrypt:
         shift = -shift
     
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
-    translation_table = str.maketrans(alphabet + alphabet.upper(),
-                                      shifted_alphabet + shifted_alphabet.upper())
-    
-    return text.translate(translation_table)  
+    result = ""
+
+    for char in text:
+        if char.lower() in alphabet:
+            is_upper = char.isupper()
+            new_char = shifted_alphabet[alphabet.index(char.lower())]
+            result += new_char.upper() if is_upper else new_char
+        else:
+            result += char  
+
+    return result
 
 choice = input("Do you want to (E)ncrypt or (D)ecrypt? ").strip().lower()
 
