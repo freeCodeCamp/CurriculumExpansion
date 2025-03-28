@@ -4,10 +4,11 @@ const items = [
   "Apple",
   "Banana",
   "Orange",
-  "Grapes",
+  "Grape",
   "Mango",
   "Pineapple",
   "Strawberry",
+  "Blueberry",
 ];
 
 // Global variable to track `selectItem` across renders
