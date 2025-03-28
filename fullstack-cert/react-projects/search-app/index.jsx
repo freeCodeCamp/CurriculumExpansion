@@ -17,8 +17,6 @@ export const SearchApp = () => {
   const [query, setQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
 
-  console.log("Rendering App...");
-
   // // Unoptimized filtering (runs on every render)
   // console.log("Filtering items...");
   // const filteredItems = items.filter((item) => {
@@ -44,7 +42,7 @@ export const SearchApp = () => {
   // possible
   const selectItem = useCallback(
     (item) => {
-      console.log(`Selecting: ${item}`);
+      // console.log(`Selecting: ${item}`); // Can be removed / commented out in workshop step
       setSelectedItem(item);
     },
     [selectedItem]
