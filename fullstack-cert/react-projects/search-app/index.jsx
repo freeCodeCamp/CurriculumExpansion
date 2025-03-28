@@ -64,7 +64,7 @@ export const SearchApp = () => {
         <label htmlFor="search">Search for an item:</label>
         <input
           id="search"
-          type="text"
+          type="search"
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
