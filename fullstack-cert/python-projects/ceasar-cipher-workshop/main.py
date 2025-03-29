@@ -24,7 +24,10 @@ if choice not in ('e', 'd'):
 else:
     text = input("Enter your message: ")
     shift = int(input("Enter the shift value (1-25): "))
-
-    encrypt = choice == 'e'
-    result = caesar_cipher(text, shift, encrypt)
-    print(result)
+            
+    if shift < 1 or shift > 25:
+        print("Invalid shift value. Please enter a number between 1 and 25.")
+    else:
+        encrypt = choice == 'e'
+        result = caesar_cipher(text, shift, encrypt)
+        print(result)
