@@ -10,15 +10,16 @@ export function CurrencyConverter() {
     JPY: 110,
   };
 
-  const convertedAmount = React.useMemo(() => {
-    if (startCurrency === endCurrency) {
-      return amount.toFixed(2);
-    }
-    const startRate = exchangeRates[startCurrency];
-    const endRate = exchangeRates[endCurrency];
-    const converted = (amount * endRate) / startRate;
-    return converted.toFixed(2);
-  }, [amount, startCurrency, endCurrency]);
+  const convertedAmounts = React.useMemo(() => {
+    const converted = {};
+    Object.keys(exchangeRates).forEach((curr) => {
+      converted[curr] = (
+        (amount / exchangeRates[startCurrency]) *
+        exchangeRates[curr]
+      ).toFixed(2);
+    });
+    return converted;
+  }, [amount, startCurrency]);
 
   return (
     <main>
@@ -58,7 +59,8 @@ export function CurrencyConverter() {
         </select>
       </label>
       <p>
-        Converted Amount: <span>{convertedAmount}</span> {endCurrency}
+        Converted Amount: <span>{convertedAmounts[endCurrency]}</span>{" "}
+        {endCurrency}
       </p>
     </main>
   );
