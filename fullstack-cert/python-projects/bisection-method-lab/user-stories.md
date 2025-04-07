@@ -26,7 +26,7 @@ In this lab, you will create a function that uses the bisection method to find t
     - If it's too low, the algorithm should shift lower bound up to the mid value.
     - If it's too high, the algorithm should shift the higher bound down to the mid value.
 
-5. Within the `square_root_bisection` function, after the bisection loop, if no value meets the tolerance condition, it should print a failure message: `"Failed to converge within the [maximum]iterations"`.
+5. Within the `square_root_bisection` function, after the bisection loop, if no value meets the tolerance condition, it should print a failure message: `"Failed to converge within the [maximum] iterations"`.
 Otherwise, it should print the approximate square root with the message: `"The square root of [square_target] is approximately [root]"`
 
 6. At the end, the `square_root_bisection` function should return the computed root value.
