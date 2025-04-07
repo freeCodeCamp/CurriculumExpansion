@@ -12,7 +12,7 @@ Account number       4   5   3   9   1   4   8   8   0
 Double every other       ✔       ✔       ✔       ✔   x 
                      4   10  3   18  1   8   8   16  0  
 Sum 2-char digits    4    1  3    9  1   8   8    7  0
-Total Sum: 4 + 1 + 3 + 9 + 1 + 8 + 8 + 7 + 0 = 41
+Total Sum:           4 + 1 + 3 + 9 + 1 + 8 + 8 + 7 + 0 = 41
 ```
 
 - Since `41` is not a multiple of `10`, the number is invalid.
