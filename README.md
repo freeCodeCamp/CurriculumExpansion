@@ -2,10 +2,10 @@
 
 # freeCodeCamp.org's Project based Curriculum
 
-This repo is for the staff to add project prototypes for the new project based JavaScript and frontend libraries curriculum.
+This repo is for the staff to add lab and workshop prototypes for the new Full Stack Developer Certification. 
 
 ## Where can I read more about the new curriculum?
 
-You can read all about it in [Quincy's announcement](https://www.freecodecamp.org/forum/t/help-us-build-version-7-0-of-the-freecodecamp-curriculum/263546).
+Part of this new certification is live in beta. You can find it [here](https://www.freecodecamp.org/learn/full-stack-developer/).
 
-You can also see the new [Responsive Web Design course](https://www.freecodecamp.org/learn/2022/responsive-web-design/) on the [freeCodeCamp learn page](https://www.freecodecamp.org/learn/).
+You can read all about it in [Quincy's announcement](https://www.freecodecamp.org/news/freecodecamp-turns-10-major-curriculum-updates/).
