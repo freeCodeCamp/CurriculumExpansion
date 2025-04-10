@@ -1,66 +1,72 @@
 const { useState, useMemo, useCallback } = React; // See if we can convert to import statements on Learn
 
 const items = [
-  "Apple",
-  "Banana",
-  "Orange",
-  "Grape",
-  "Mango",
+  "Apples",
+  "Bananas",
+  "Strawberries",
+  "Blueberries",
+  "Mangoes",
   "Pineapple",
-  "Strawberry",
-  "Blueberry",
+  "Lettuce",
+  "Broccoli",
+  "Paper Towels",
+  "Dish Soap",
 ];
 
-// Global variable to track `selectItem` across renders
-let prevSelectItem = null;
+// Global variable to track `toggleItem` across renders
+let prevToggleItem = null;
 
-export const SearchApp = () => {
+export const ShoppingList = () => {
   const [query, setQuery] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   // // Unoptimized filtering (runs on every render)
   // console.log("Filtering items...");
-  // const filteredItems = items.filter((item) => {
-  //   return item.toLowerCase().includes(query.toLowerCase());
-  // });
+  // const filteredItems = items.filter((item) =>
+  //   item.toLowerCase().includes(query.toLowerCase())
+  // );
 
   // Optimized filtering (only runs when `query` changes)
   const filteredItems = useMemo(() => {
     console.log("Filtering items...");
-    return items.filter((item) => {
-      return item.toLowerCase().includes(query.toLowerCase());
-    });
+    return items.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
   }, [query]);
 
   // // Unoptimized event handler (new function created and used on every render)
-  // const selectItem = (item) => {
-  //   console.log(`Selecting: ${item}`);
-  //   setSelectedItem(item);
+  // const toggleItem = (item) => {
+  //   setSelectedItems((prev) =>
+  //     prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+  //   );
   // };
+
+  // console.log("New toggleItem function created");
 
   // Optimized event handler function (according to the React docs, React will always create)
   // a new function, but `useCallback` will try to use a cached function reference whenever
   // possible
-  const selectItem = useCallback(
+  const toggleItem = useCallback(
     (item) => {
-      // console.log(`Selecting: ${item}`); // Can be removed / commented out in workshop step
-      setSelectedItem(item);
+      setSelectedItems((prev) =>
+        prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+      );
     },
-    [selectedItem]
+    [setSelectedItems]
   );
 
-  // Logging to show when a new `selectItem` function
+  // Logging to show when a new `toggleItem` function
   // is used
-  if (prevSelectItem !== selectItem) {
-    console.log("New selectItem function");
-    prevSelectItem = selectItem; // Update for next render
+  if (prevToggleItem !== toggleItem) {
+    console.log("New toggleItem function");
+    prevToggleItem = toggleItem; // Update for next render
   } else {
-    console.log("Current selectItem function");
+    console.log("Current toggleItem function");
   }
 
   return (
     <div className="container">
-      <h1>Search App</h1>
+      <h1>Shopping List</h1>
       <form>
         <label htmlFor="search">Search for an item:</label>
         <input
@@ -73,22 +79,25 @@ export const SearchApp = () => {
         />
         <p id="search-description">Type to filter the list below.</p>
         <ul>
-          {filteredItems.map((item) => (
-            <li key={item}>
-              {item} -{" "}
-              <button
-                type="button"
-                onClick={() => selectItem(item)}
-                aria-label={`Select ${item}`}
+          {filteredItems.map((item) => {
+            const isChecked = selectedItems.includes(item);
+            return (
+              <li
+                key={item}
+                style={{ textDecoration: isChecked ? "line-through" : "none" }}
               >
-                Select
-              </button>
-            </li>
-          ))}
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleItem(item)}
+                  />
+                  {item}
+                </label>
+              </li>
+            );
+          })}
         </ul>
-        <p className="selected-item">
-          {selectedItem ? `Selected: ${selectedItem}` : "No item selected"}
-        </p>
       </form>
     </div>
   );
