@@ -1,33 +1,34 @@
 def caesar_cipher(text, shift, encrypt=True):
+    if not type(text) == str:
+        return "Text must be a string value."
+
+    if not type(shift) == int:
+        return "Shift must be an integer value."
+
+    if shift < 1 or shift > 25:
+        return "Shift must be an integer between 1 and 25."
+
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+
     if not encrypt:
         shift = -shift
-    
+
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
-    result = ""
 
-    for char in text:
-        if char.lower() in alphabet:
-            is_upper = char.isupper()
-            new_char = shifted_alphabet[alphabet.index(char.lower())]
-            result += new_char.upper() if is_upper else new_char
-        else:
-            result += char  
+    translation_table = str.maketrans(
+        alphabet + alphabet.upper(), shifted_alphabet + shifted_alphabet.upper()
+    )
+    return text.translate(translation_table)
 
-    return result
 
-choice = input("Do you want to (E)ncrypt or (D)ecrypt? ").strip().lower()
+def encrypt(text, shift):
+    return caesar_cipher(text, shift)
 
-if choice not in ('e', 'd'):
-    print("Invalid choice. Please enter 'E' for encryption or 'D' for decryption.")
-else:
-    text = input("Enter your message: ")
-    shift = int(input("Enter the shift value (1-25): "))
-            
-    if shift < 1 or shift > 25:
-        print("Invalid shift value. Please enter a number between 1 and 25.")
-    else:
-        encrypt = choice == 'e'
-        result = caesar_cipher(text, shift, encrypt)
-        print(result)
+
+def decrypt(text, shift):
+    return caesar_cipher(text, shift, encrypt=False)
+
+
+encrypted_text = "Pbhentr vf sbhaq va hayvxryl cynprf."
+decrypted_text = decrypt(encrypted_text, 13)
+print(decrypted_text)  # Courage is found in unlikely places.
