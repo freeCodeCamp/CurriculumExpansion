@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #ed8a19;
+  --light-grey: #efefef;
+  --white: #fff;
+}
+
+body {
+  background-color: var(--light-grey);
+}
+
+main {
+  background-color: var(--white);
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  main {
+    width: 30%;
+  }
+}
+
+.avg-review-container,
+.star-rating-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.avg-review-text {
+  font-weight: 600;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.half-filled-star .star-border {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+}
+
+.half-filled-star .star-fill {
+  fill: var(--gold);
+  mask-image: linear-gradient(to left, transparent 50%, var(--gold) 50%);
+}
+
+progress {
+  width: 250px;
+  height: 20px;
+  background-color: var(--gold);
+  border: 1px solid var(--light-grey);
+  border-radius: 45px;
+}
+
+/* Chrome and Safari */
+progress::-webkit-progress-bar {
+  background-color: var(--white);
+  border-radius: 45px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--gold);
+  border-radius: 45px;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+  background-color: var(--gold);
+}
