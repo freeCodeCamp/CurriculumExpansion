@@ -5,45 +5,44 @@ class GameCharacter:
         self.__mana = 50
         self.__level = 1
 
-    # Getter methods
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def get_health(self):
+    @property
+    def health(self):
         return self.__health
 
-    def get_mana(self):
+    @health.setter
+    def health(self, value):
+        if value < 0:
+            self.__health = 0
+        elif value > 100:
+            self.__health = 100
+        else:
+            self.__health = value
+
+    @property
+    def mana(self):
         return self.__mana
 
-    def get_level(self):
+    @mana.setter
+    def mana(self, value):
+        if value < 0:
+            self.__mana = 0
+        elif value > 50:
+            self.__mana = 50
+        else:
+            self.__mana = value
+
+    @property
+    def level(self):
         return self.__level
-
-    # Setter methods with validation
-    def take_damage(self, amount):
-        if amount > 0:
-            self.__health -= amount
-            self.__health = max(0, self.__health)  # prevent negative health
-
-    def heal(self, amount):
-        if amount > 0:
-            self.__health += amount
-            if self.__health > 100:
-                self.__health = 100
-
-    def use_mana(self, amount):
-        if 0 < amount <= self.__mana:
-            self.__mana -= amount
-
-    def regenerate_mana(self, amount):
-        if amount > 0:
-            self.__mana += amount
-            if self.__mana > 50:
-                self.__mana = 50
 
     def level_up(self):
         self.__level += 1
-        self.__health = 100
-        self.__mana = 50
+        self.health = 100
+        self.mana = 50
         print(f"{self.__name} leveled up to {self.__level}!")
 
     def status(self):
@@ -57,8 +56,8 @@ class GameCharacter:
 hero = GameCharacter("Kratos")
 hero.status()
 
-hero.take_damage(30)
-hero.use_mana(10)
+hero.health = hero.health - 30
+hero.mana = hero.mana - 10
 hero.status()
 
 hero.level_up()

@@ -1,28 +1,21 @@
-1. You should define a class named `GameCharacter` that represents a game character with stats like name, health, mana, and level.
-2. Inside the `__init__` method of the `GameCharacter` class, you should:
-    - Take `name` as a parameter.
-    - Initialize `__name` with the given name.
-    - Set default values for `__health` (100), `__mana` (50), and `__level` (1).
-    - Use double underscores (`__`) to make all attributes private.
-3. You should define getter methods to allow read-only access to the character's attributes:
-    - `get_name()` should return the character's name.
-    - `get_health()` should return the current health.
-    - `get_mana()` should return the current mana.
-    - `get_level()` should return the current level.
-4. You should define a method named `take_damage(amount)` that:
-    - Decreases the character’s health by `amount` only if the amount is greater than 0.
-    - Ensures the health does not go below 0.
-5. You should define a method named `heal(amount)` that:
-    - Increases the character’s health by `amount` only if the amount is greater than 0.
-    - Caps the maximum health at 100.
-6. You should define a method named `use_mana(amount)` that:
-    - Decreases the character’s mana by `amount` only if the amount is greater than 0 and less than or equal to the current mana.
-7. You should define a method named `regenerate_mana(amount)` that:
-    - Increases the character’s mana by `amount` only if the amount is greater than 0.
-    - Caps the maximum mana at 50.
-8. You should define a method named `level_up()` that:
-    - Increases the character’s level by 1.
-    - Resets health to 100 and mana to 50.
+1. Create a class named `GameCharacter` that represents a game character. The class should manage stats such as name, health, mana, and level. In the `__init__` method:
+    - Accept a parameter `name` and initialize the private attribute `__name` with it.
+    - Initialize `__health` to `100`, `__mana` to `50`, and `__level` to `1`.
+    - Use double underscores (`__`) to ensure that all attributes are private.
+2. Create a `name` property for read-only access to the character's name.
+3. For the `health` property:
+     - Define a getter that returns the current health.
+     - Define a setter that prevents health from being set below `0`, and caps the health at `100`.
+4. For the `mana` property:
+     - Define a getter that returns the current mana.
+     - Define a setter that prevents mana from being set below `0`, and caps the mana at `50`.
+5. Create a getter for `level` to return the character's current level.
+6. Define a method named `level_up()` that:
+    - Increases the character's level by 1.
+    - Resets health to `100` and mana to `50` using their corresponding property setters.
     - Prints a message showing the new level.
-9. You should define a method named `status()` that:
-    - Prints the character’s name, level, current health, and mana.
+7. Define a method named `status()` that prints:
+    - The character's name.
+    - The character's level.
+    - The character's current health.
+    - The character's current mana.
