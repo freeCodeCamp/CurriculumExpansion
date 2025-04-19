@@ -6,7 +6,18 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="default">
+  <body class="loading">
+    <!--Loading Screen-->
+    <div class="loading-container flex-col">
+      <div class="lds-ring spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class="loading-text">Loading weather data...</p>
+    </div>
+    <!--Default Screen-->
     <main>
       <div class="card-header flex-container">
         <div class="location">
