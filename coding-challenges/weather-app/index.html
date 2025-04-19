@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+      integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="denied-location">
     <!--Loading Screen-->
@@ -31,13 +38,13 @@
     <main>
       <div class="card-header flex-container">
         <div class="location">
-          <p class="city">New York City</p>
+          <p class="city"></p>
           <p class="current-location-text flex-container">
             <svg
               class="default-icon-styles"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
-              fill="#a8a7a7"
+              fill="#006400"
               version="1.1"
               viewBox="0 0 395.71 395.71"
               xml:space="preserve"
@@ -52,31 +59,15 @@
           </p>
         </div>
         <button class="temp-converter-btn flex-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M12 19C12.5523 19 13 18.5523 13 18C13 17.4477 12.5523 17 12 17C11.4477 17 11 17.4477 11 18C11 18.5523 11.4477 19 12 19Z"
-              fill="#000000"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M15 13.9997C16.2144 14.9119 17 16.3642 17 18C17 20.7614 14.7614 23 12 23C9.23858 23 7 20.7614 7 18C7 16.3642 7.78555 14.9119 9 13.9997V4C9 2.34315 10.3431 1 12 1C13.6569 1 15 2.34315 15 4V13.9997ZM13 4V15.1707C14.1652 15.5826 15 16.6938 15 18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18C9 16.6938 9.83481 15.5826 11 15.1707V4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4Z"
-              fill="#000000"
-            /></svg
-          >&deg;<span class="temp-type">C</span>
+          Convert to &deg;<span class="temp-type">F</span>
         </button>
       </div>
       <div class="temperature-container flex-col">
-        <div class="weather-icon-container"></div>
-        <p class="current-temp">22 &deg; C</p>
-        <p class="weather-descriptor">Sunny</p>
-        <small class="feel-like-temp">Feels like 24 &deg; C</small>
+        <i class="wi"></i>
+
+        <p class="current-temp"></p>
+        <p class="weather-descriptor"></p>
+        <small class="feel-like-temp"></small>
       </div>
       <div class="card-footer flex-container">
         <div class="humidity-container flex-container">
@@ -107,7 +98,7 @@
           </svg>
           <div class="humidity-text-and-temp">
             <p>Humidity</p>
-            <p>65%</p>
+            <p><span></span>%</p>
           </div>
         </div>
         <div class="wind-container flex-container">
@@ -127,7 +118,7 @@
           </svg>
           <div class="wind-text-and-description">
             <p>Wind</p>
-            <p>12 km/h</p>
+            <p><span></span> km/h</p>
           </div>
         </div>
       </div>
