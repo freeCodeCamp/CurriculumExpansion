@@ -9,7 +9,6 @@
 :root {
   --white: #fff;
   --transparent-white: rgba(255, 255, 255, 0.821);
-  --grey: #a8a7a7;
 }
 
 body {
@@ -30,15 +29,12 @@ body.default {
 main {
   border-radius: 10px;
   padding: 20px;
-}
-
-main.default-card-container {
   width: 90%;
   background-color: var(--transparent-white);
 }
 
 @media (min-width: 768px) {
-  main.default-card-container {
+  main {
     width: 50%;
   }
 }
@@ -46,6 +42,15 @@ main.default-card-container {
 .flex-container {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .city {
@@ -54,11 +59,46 @@ main.default-card-container {
   margin-bottom: 10px;
 }
 
-.current-location-text {
-  color: var(--grey);
-}
-
 .default-icon-styles {
   width: 20px;
   height: 20px;
+}
+
+.temp-converter-btn {
+  background-color: var(--white);
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.temp-converter-btn:hover {
+  background-color: #f8f4f4;
+}
+
+.temperature-container {
+  margin: 20px 0;
+  font-size: 1.3rem;
+}
+
+.current-temp {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+
+.weather-descriptor {
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.card-footer {
+  gap: 50px;
+  font-size: 1.1rem;
 }
