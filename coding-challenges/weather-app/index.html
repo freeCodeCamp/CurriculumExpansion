@@ -6,7 +6,7 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="loading">
+  <body class="denied-location">
     <!--Loading Screen-->
     <div class="loading-container flex-col">
       <div class="lds-ring spinner">
@@ -17,6 +17,16 @@
       </div>
       <p class="loading-text">Loading weather data...</p>
     </div>
+
+    <!--Denied Location Services Screen-->
+
+    <div class="denied-location-container">
+      <p class="error-msg">
+        Location access denied. Please enable location services.
+      </p>
+      <button class="try-again-btn">Try again</button>
+    </div>
+
     <!--Default Screen-->
     <main>
       <div class="card-header flex-container">
