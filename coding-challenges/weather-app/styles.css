@@ -37,7 +37,8 @@ body {
   color: var(--dark-gray);
 }
 
-.wi-rain {
+.wi-rain,
+.wi-cloud {
   color: var(--dark-blue);
 }
 

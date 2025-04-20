@@ -1,7 +1,3 @@
-// TODO: work on toggle celsius and fahrenheit logic
-// TODO: work on try again button logic
-let isCelsius = true;
-
 function getWeatherIcon(description) {
   const weatherIconEl = document.querySelector(".wi");
   // reset weather icons
@@ -11,7 +7,7 @@ function getWeatherIcon(description) {
     return subStrings.some((str) => text.includes(str));
   }
 
-  if (hasSomeKeywords(description, ["sunny", "clear", "sun"])) {
+  if (hasSomeKeywords(description, ["sunny", "sun"])) {
     weatherIconEl.classList.add("wi-day-sunny");
   } else if (hasSomeKeywords(description, ["rain", "rainy"])) {
     weatherIconEl.classList.add("wi-rain");
@@ -19,14 +15,45 @@ function getWeatherIcon(description) {
     weatherIconEl.classList.add("wi-cloudy");
   } else if (hasSomeKeywords(description, ["snow", "snowing", "snowy"])) {
     weatherIconEl.classList.add("wi-snow");
+  } else {
+    weatherIconEl.classList.add("wi-cloud");
   }
 }
 
+let isCelsius = true;
+
+const currTemp = document.querySelector(".current-temp");
+const feelsLikeTemp = document.querySelector(".feel-like-temp");
+
+function convertTemperature() {
+  function getConvertedTemp(curr) {
+    return isCelsius ? (curr * 9) / 5 + 32 : ((curr - 32) * 5) / 9;
+  }
+
+  let temp = Number(currTemp.textContent.split(" ")[0]);
+  let feelsLike = Number(feelsLikeTemp.textContent.split(" ")[2]);
+
+  const convertedTemp = getConvertedTemp(temp).toFixed(1);
+  const convertedFeelsLike = getConvertedTemp(feelsLike).toFixed(1);
+
+  isCelsius = !isCelsius;
+
+  const newUnit = isCelsius ? "C" : "F";
+
+  document.querySelector(".temp-converter-btn span").textContent = isCelsius
+    ? "F"
+    : "C";
+  currTemp.innerHTML = `${convertedTemp} &deg; ${newUnit}`;
+  feelsLikeTemp.innerHTML = `Feels like ${convertedFeelsLike} &deg; ${newUnit}`;
+}
+
+document
+  .querySelector(".temp-converter-btn")
+  .addEventListener("click", convertTemperature);
+
 function displayWeather(data) {
   const city = document.querySelector(".city");
-  const currTemp = document.querySelector(".current-temp");
   const weatherDescriptor = document.querySelector(".weather-descriptor");
-  const feelsLikeTemp = document.querySelector(".feel-like-temp");
   const humidityEl = document.querySelector(
     ".humidity-text-and-temp p:last-of-type span"
   );
@@ -48,14 +75,13 @@ function displayWeather(data) {
 
   city.textContent = name;
   getWeatherIcon(description);
-  currTemp.innerHTML = `${getRoundedResult(celsius)} &deg; C`;
+  currTemp.innerHTML = `${getRoundedResult(celsius).toFixed(1)} &deg; C`;
   weatherDescriptor.textContent = description;
   feelsLikeTemp.innerHTML = `Feels like ${getRoundedResult(
     celsiusFeelsLike
-  )} &deg; C`;
+  ).toFixed(1)} &deg; C`;
   humidityEl.textContent = humidity;
   windEl.textContent = getRoundedResult(speed);
-  console.log(data);
 }
 
 // Body background colors will switch between loading, default and denied-location classes
@@ -125,7 +151,6 @@ async function getWeatherData(position) {
 
 function failedToLoadData() {
   updateScreen("denied-location");
-  errorMsgPara.textContent = errorMsg;
 }
 
 // Check if the geolocation object is available or is not supported in the browser.
@@ -136,3 +161,8 @@ if (!("geolocation" in navigator) || !navigator.geolocation) {
   updateScreen("loading");
   navigator.geolocation.getCurrentPosition(getWeatherData, failedToLoadData);
 }
+
+document.querySelector(".try-again-btn").addEventListener("click", () => {
+  updateScreen("loading");
+  navigator.geolocation.getCurrentPosition(getWeatherData, failedToLoadData);
+});
