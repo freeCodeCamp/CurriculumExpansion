@@ -1,3 +1,13 @@
+# Updated Description
+
+Selection sort is another popular sorting algorithm taught in most computer science courses.
+
+This algorithm works by repeatedly finding the smallest element from the unsorted portion of the list and swapping it with the first unsorted element. It begins by selecting the minimum value in the entire list and swapping it with the first element. Then it moves to the second position, finds the smallest value in the remaining unsorted elements, and swaps it with the second element. This process continues, moving through the list one element at a time, until the entire list is sorted.
+
+Selection sort results in a quadratic time complexity in the best, average, and worst case scenarios. The space complexity will be constant `O(1)` because the sorting is done in place and a constant amount of memory is being used regardless of the size of the list.
+
+**Instructions**: Write a function `selection_sort` which takes a list of integers as input and returns that list of integers in sorted order from smallest to largest.
+
 # User Stories
 
 1. You should define a function named `selection_sort`.
