@@ -1,15 +1,15 @@
-def selection_sort(list):
-    for i in range(len(list)):
+def selection_sort(nums):
+    for i, _ in enumerate(nums):
         min_index = i
 
-        for j in range(i + 1, len(list)):
-            if list[j] < list[min_index]:
+        for j in range(i + 1, len(nums)):
+            if nums[j] < nums[min_index]:
                 min_index = j
 
         if min_index != i:
-            list[i], list[min_index] = list[min_index], list[i]
+            nums[i], nums[min_index] = nums[min_index], nums[i]
 
-    return list
+    return nums
 
 # Test cases shown to campers
 
