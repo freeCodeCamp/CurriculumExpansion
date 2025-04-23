@@ -6,7 +6,7 @@ def binary_search(search_list, value):
     low = 0
     high = len(search_list) - 1
 
-    while (low <= high):
+    while low <= high:
         mid = math.floor((low + high) / 2)
 
         if value == search_list[mid]:
@@ -21,7 +21,7 @@ def binary_search(search_list, value):
 
     return 'Value Not Found'
 
-# Test Cases
+# Possible Test Cases
 
 
 print(binary_search([1, 2, 3, 4, 5], 4))  # [3, 4]
