@@ -49,7 +49,7 @@ def check_values(patient_id, age, gender, diagnosis, medications, last_visit_id)
         and re.fullmatch(r"V\d+", last_visit_id),
     }
 
-    return {key: value for key, value in constraints.items() if not value}
+    return [key for key, value in constraints.items() if not value]
 
 
 def validate(data):
@@ -69,7 +69,7 @@ def validate(data):
             )
             return False
         invalid_records = check_values(**dictionary)
-        for key in invalid_records.keys():
+        for key in invalid_records:
             print(
                 f"Unexpected format '{key}: {dictionary.get(key)}' at position {index}."
             )
