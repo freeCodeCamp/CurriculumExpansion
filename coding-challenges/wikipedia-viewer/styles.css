@@ -83,7 +83,7 @@ button {
   background-color: var(--light-grey);
 }
 
-.default-empty-container {
+.results-container {
   width: 50%;
   text-align: center;
   margin: 30px auto 0;
@@ -98,7 +98,36 @@ button {
   stroke: var(--grey);
 }
 
-.default-empty-container p {
+.results-container p {
   color: var(--dark-grey);
   font-size: 1.1rem;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--white);
+  border: 2px solid var(--light-gray);
+  margin: 15px 0;
+}
+
+.card-title {
+  text-align: start;
+  margin-bottom: 10px;
+}
+
+.description-thumbnail-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.thumbnail {
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.description-thumbnail-container .description {
+  font-size: 1.2rem;
 }
