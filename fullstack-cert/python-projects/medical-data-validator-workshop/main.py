@@ -36,7 +36,9 @@ medical_records = [
 ]
 
 
-def check_values(patient_id, age, gender, diagnosis, medications, last_visit_id):
+def find_invalid_records(
+    patient_id, age, gender, diagnosis, medications, last_visit_id
+):
 
     constraints = {
         "patient_id": isinstance(patient_id, str) and re.fullmatch(r"P\d+", patient_id),
@@ -53,7 +55,9 @@ def check_values(patient_id, age, gender, diagnosis, medications, last_visit_id)
 
 
 def validate(data):
-    is_list_of_dicts = isinstance(data, list) and all(isinstance(i, dict) for i in data)
+    is_list_of_dicts = isinstance(data, (list, tuple)) and all(
+        isinstance(i, dict) for i in data
+    )
 
     if not is_list_of_dicts:
         return "Invalid format: expected a list of dictionaries."
@@ -68,7 +72,7 @@ def validate(data):
                 f"Invalid format: {dictionary} at position {index} has missing and/or invalid keys."
             )
             return False
-        invalid_records = check_values(**dictionary)
+        invalid_records = find_invalid_records(**dictionary)
         for key in invalid_records:
             print(
                 f"Unexpected format '{key}: {dictionary.get(key)}' at position {index}."
