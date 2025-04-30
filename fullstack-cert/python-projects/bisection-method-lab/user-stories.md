@@ -13,7 +13,7 @@ In this lab, you will create a function that uses the bisection method to find t
 
 2. Within the `square_root_bisection` function, you should first check the following conditions:
     - If the number is negative, you should raise a `ValueError` with the message `"Square root of negative number is not defined in real numbers"`.
-    - For numbers `0` and `1`, you should simply print the message: `"The square root of [number] is [number]"` and return the number itself as the square root.
+    - For numbers `0` and `1`, you should simply print the message: `The square root of [number] is [number]` and return the number itself as the square root.
 
 3. If the number is positive(other than `0` and `1`), you should initialize higher and lower bounds for the bisection method. You should crate the variables `low` and `high` to represent the lower and upper bounds of the search space. The lower bound should be `0` and the upper bound should the maximum of either `1` or the number itself.
 
