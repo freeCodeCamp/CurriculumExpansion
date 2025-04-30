@@ -1,7 +1,7 @@
-The Luhn algorithm- also known as the "modulus 10" or "mod 10" algorithm- is a simple checksum formula used to validate a variety of identification numbers, like credit card numbers. These are the steps to validate a number using the Luhn algorithm:
-- Set aside the right most digit (the check digit).
-- Excluding the last digit, start from the right most digit and double the value of every second digit.
-- If the product is greater than `9`, sum the digits of the products to get a single digit. Alternatively, you can subtract `9` from the product.
+The Luhn algorithm, also known as the "modulus 10" or "mod 10" algorithm, is a simple checksum formula used to validate a variety of identification numbers, like credit card numbers. These are the steps to validate a number using the Luhn algorithm:
+- Set aside the rightmost digit (the check digit).
+- Excluding the last digit, start from the rightmost digit and double the value of every second digit.
+- If the result of doubling a digit is greater than `9`, sum the digits to get a single digit. Alternatively, you can subtract `9` from the result.
 - Take the sum of all the digits including the check digit.
 - If the sum of all the digits is a multiple of `10`, then the number is valid; else it is not valid.
 
@@ -23,7 +23,7 @@ In this lab, you will build a credit card validator using the Luhn algorithm.
 
 1. You should define a function named `verify_card_number` to implement the Luhn algorithm for card number validation.
 
-1. The `verify_card_number` function should take a string of digits (representing a card number) as input and return a Boolean value indicating whether the card number is valid according to the Luhn algorithm.
+1. The `verify_card_number` function should take a string of digits (representing a card number) as input and return a boolean value indicating whether the card number is valid according to the Luhn algorithm.
 
 1. To implement the Luhn algorithm within the `verify_card_number` function, you should:
    - Start doubling every second digit from the right (excluding the check digit).
@@ -35,7 +35,7 @@ In this lab, you will build a credit card validator using the Luhn algorithm.
 
 1. In the `main` function:
    - You should remove any dashes or spaces from the card number before passing it to `verify_card_number`.
-   - If the result is valid, print `"VALID!"`; otherwise, print `"INVALID!"`.
+   - If the result is valid, print `VALID!`; otherwise, print `INVALID!`.
 
 When you complete the project, you should see the following messages depending on the values they enter.
 
