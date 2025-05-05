@@ -8,7 +8,7 @@ def binary_search(search_list, value):
         value_at_middle = search_list[mid]
         path_to_target.append(value_at_middle)
 
-        if value == search_list[mid]:
+        if value == value_at_middle:
             return path_to_target
         elif value > search_list[mid]:
             low = mid + 1
