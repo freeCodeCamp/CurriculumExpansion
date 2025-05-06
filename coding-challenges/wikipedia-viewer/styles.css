@@ -84,9 +84,14 @@ button {
 }
 
 .results-container {
-  width: 50%;
   text-align: center;
   margin: 30px auto 0;
+}
+
+@media (min-width: 768px) {
+  .results-container {
+    width: 50%;
+  }
 }
 
 .book-icon {
