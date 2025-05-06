@@ -129,5 +129,22 @@ button {
 }
 
 .description-thumbnail-container .description {
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+.read-more-link {
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error-msg,
+.empty-msg {
   font-size: 1.2rem;
 }
