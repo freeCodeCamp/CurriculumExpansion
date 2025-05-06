@@ -109,6 +109,8 @@ button {
   background-color: var(--white);
   border: 2px solid var(--light-gray);
   margin: 15px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
@@ -142,6 +144,9 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+  width: fit-content;
+  margin-top: 10px;
+  align-self: flex-end;
 }
 
 .error-msg,
