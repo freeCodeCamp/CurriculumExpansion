@@ -12,7 +12,7 @@ class Employee:
         self.__name = name
         self.__level = level
         if level not in Employee.__base_salaries:
-            raise ValueError(f"Invalid attribute '{level}' for 'level' field.")
+            raise ValueError(f"Invalid value '{level}' for 'level' field.")
         self.__salary = Employee.__base_salaries[level]
 
     def __str__(self):
@@ -46,7 +46,7 @@ class Employee:
             raise ValueError("Cannot give promotion to lower level.")
         self.__level = level
         salary_difference = new_salary - self.__salary
-        if salary_difference >= 0:
+        if salary_difference > 0:
             self.__salary = new_salary
         return f"{self.__name} promoted to {self.__level}."
 
