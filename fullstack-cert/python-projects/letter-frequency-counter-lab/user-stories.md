@@ -1,7 +1,13 @@
-1. You should define a function named `count_letters` that takes a `text` (a string representing the sentence to be analyzed) parameter.
-2. Inside the `count_letters` function:
-   - Convert the `text` to lowercase.
-   - Initialize an empty dictionary named `frequencies` to store letter counts.
-   - Use a `for` loop to iterate through each character in the string. If the character is a letter, update its count in the dictionary.
-   - After the loop, sort the letters alphabetically and print each letter with its corresponding count.
-3. You should prompt the user to enter a sentence using `Enter a sentence:`, and call the `count_letters` function with the user input.
+1. You should print a welcome message `"Number Pattern Generator"`.
+2. You should prompt the user to enter a positive number and store the result in a variable named `user_input`.
+3. You should define a function named `number_pattern` that takes a single parameter `n` (representing a positive integer).
+4. Inside the `number_pattern` function:
+   - Use a `for` loop that goes from 1 to `n` (inclusive).
+   - In each iteration, create a list of numbers from 1 to the current value of `i`.
+   - Convert each number in the list to a string and print them joined by a space.
+5. You should check if `user_input` contains only digits using the `isdigit()` method:
+   - If it does, convert `user_input` to an integer named `number`.
+   - Then check if `number` is greater than 0:
+     - If it is, call `number_pattern(number)` to display the pattern.
+     - If not, print `"Please enter a number greater than 0."`.
+   - If `user_input` is not numeric, print `"Invalid input. Please enter a numeric value."`.
