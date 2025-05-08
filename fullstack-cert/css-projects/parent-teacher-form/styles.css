@@ -1,4 +1,69 @@
 body {
-  background-color: darkblue;
+  background-color: MidnightBlue;
+  color: whitesmoke;
+}
+
+.container {
+  /* Provide brief explanation for hex code here and explain there will be a whole module on it later. */
+  background-color: #ffffff1a;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  box-shadow: 0 5px 15px black;
+}
+
+.center {
+  text-align: center;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+fieldset {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+fieldset legend {
+  font-size: 1.3rem;
+  /* Teach font-weight here */
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+/*explain to campers why not() is being used here*/
+label:not(.contact-method) {
+  display: block;
+  margin: 10px 0;
+}
+
+input,
+textarea {
+  background-color: #ffffff1a;
+}
+
+/* Would be a good teaching moment to have these styles initially in a
+input selector. Then show campers how that changes the layout and then 
+have them move it to this selector below.
+*/
+
+input:not(.contact-method-radio-btn) {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
+}
+
+input,
+input::placeholder,
+textarea {
   color: whitesmoke;
 }
