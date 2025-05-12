@@ -85,64 +85,29 @@ class User:
         self.inbox.delete_email(index)
 
 def main():
-    user1 = User("Alice")
-    user2 = User("Bob")
+    # Create users
+    alice = User("Alice")
+    bob = User("Bob")
 
-    users = {"1": user1, "2": user2}
+    # Send emails
+    alice.send_email(bob, "Hello", "Hi Bob, just saying hello!")
+    alice.send_email(bob, "Follow up", "Did you see my last email?")
+    bob.send_email(alice, "Re: Hello", "Hi Alice, yes I got your email.")
 
-    while True:
-        print("\nEmail Simulator")
-        print("Choose your user:")
-        print("1. Alice")
-        print("2. Bob")
-        print("3. Exit")
+    # Bob checks inbox
+    bob.check_inbox()
 
-        choice = input("Enter choice (1-3): ")
+    # Bob reads first email
+    bob.read_email(0)
 
-        if choice in users:
-            current_user = users[choice]
+    # Bob deletes second email
+    bob.delete_email(1)
 
-            print(f"\nWelcome, {current_user.name}!")
-            print("1. Check Inbox")
-            print("2. Read an Email")
-            print("3. Delete an Email")
-            print("4. Send an Email")
-            print("5. Back to User Menu")
+    # Bob checks inbox again
+    bob.check_inbox()
 
-            action = input("Choose an action (1-5): ")
-
-            if action == "1":
-                current_user.check_inbox()
-            elif action == "2":
-                if not current_user.inbox.emails:
-                    print("Your inbox is empty.\n")
-                else:
-                    current_user.check_inbox()
-                    idx = int(input("Enter email number to read: ")) - 1
-                    current_user.read_email(idx)
-
-            elif action == "3":
-                if not current_user.inbox.emails:
-                    print("Your inbox is empty.\n")
-                else:
-                    current_user.check_inbox()
-                    idx = int(input("Enter email number to delete: ")) - 1
-                    current_user.delete_email(idx)
-
-            elif action == "4":
-                to_user = user2 if current_user == user1 else user1
-                subject = input("Subject: ")
-                body = input("Body: ")
-                current_user.send_email(to_user, subject, body)
-            elif action == "5":
-                continue
-            else:
-                print("Invalid action.\n")
-        elif choice == "3":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice.\n")
+    # Alice checks inbox
+    alice.check_inbox()
 
 if __name__ == "__main__":
     main()
