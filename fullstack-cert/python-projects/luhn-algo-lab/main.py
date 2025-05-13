@@ -1,7 +1,9 @@
-
 def verify_card_number(card_number):
+    card_translation = str.maketrans({'-': '', ' ': ''})
+    translated_card_number = card_number.translate(card_translation)
+
     sum_of_odd_digits = 0
-    card_number_reversed = card_number[::-1]
+    card_number_reversed = translated_card_number[::-1]
     odd_digits = card_number_reversed[::2]
 
     for digit in odd_digits:
@@ -16,17 +18,10 @@ def verify_card_number(card_number):
         sum_of_even_digits += number
 
     total = sum_of_odd_digits + sum_of_even_digits
-    return total % 10 == 0
-
-def main():
-    card_number = '4111-1111-4555-1142'
-    
-    card_translation = str.maketrans({'-': '', ' ': ''})
-    translated_card_number = card_number.translate(card_translation)
-
-    if verify_card_number(translated_card_number):
+    if total % 10 == 0:
         print('VALID!')
     else:
         print('INVALID!')
 
-main()
+# Example usage
+verify_card_number('4111-1111-4555-1142')
