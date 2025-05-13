@@ -1,23 +1,23 @@
-def add_setting(settings):
-    key = input("Enter setting name to add: ").lower()
+def add_setting(settings, key_value):
+    key, value = key_value
+    key = key.lower()
     if key in settings:
         return f"Setting '{key}' already exists! Cannot add a new setting with this name."
     else:
-        value = input(f"Enter value for {key}: ")
         settings[key] = value
         return f"Setting '{key}' added with value '{value}' successfully!"
 
-def update_setting(settings):
-    key = input("Enter setting name to update: ").lower()
+def update_setting(settings, key_value):
+    key, value = key_value
+    key = key.lower()
     if key in settings:
-        value = input(f"Enter new value for {key}: ")
         settings[key] = value
         return f"Setting '{key}' updated to '{value}' successfully!"
     else:
         return f"Setting '{key}' does not exist! Cannot update a non-existing setting."
 
-def delete_setting(settings):
-    key = input("Enter setting name to delete: ").lower()
+def delete_setting(settings, key):
+    key = key.lower()
     if key in settings:
         del settings[key]
         return f"Setting '{key}' deleted successfully!"
@@ -33,39 +33,13 @@ def view_settings(settings):
             settings_str += f"{key.capitalize()}: {value}\n"
         return settings_str
 
-def main():
-    settings = {
-        "theme": "light",
-        "language": "English",
-        "notifications": "enabled"
-    }
+settings = {
+    "theme": "light",
+    "language": "English",
+    "notifications": "enabled"
+}
 
-    while True:
-        print("\nUser Configuration Settings Manager")
-        print("1. Add a New Setting")
-        print("2. Update a Setting")
-        print("3. Delete a Setting")
-        print("4. View Settings")
-        print("5. Exit")
-
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
-            result = add_setting(settings)
-            print(result)
-        elif choice == "2":
-            result = update_setting(settings)
-            print(result)
-        elif choice == "3":
-            result = delete_setting(settings)
-            print(result)
-        elif choice == "4":
-            result = view_settings(settings)
-            print(result)
-        elif choice == "5":
-            print("Exiting the program.")
-            break
-        else:
-            print("Invalid choice! Please select a valid option.")
-
-main()
+print(add_setting(settings, ("volume", "high")))
+print(update_setting(settings, ("theme", "dark")))
+print(delete_setting(settings, "language"))
+print(view_settings(settings))
