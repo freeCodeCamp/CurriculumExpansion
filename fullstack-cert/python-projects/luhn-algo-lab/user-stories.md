@@ -20,16 +20,17 @@ In this lab, you will build a credit card validator using the Luhn algorithm.
 
 ## User Stories
 
-1. You should define a function named `verify_card_number` that takes a string of digits (representing a card number) as input and returns `True` if the card number is valid according to the Luhn algorithm, and `False` otherwise.
+1. You should define a function named `verify_card_number` that takes a string of digits (representing a card number) and verifies whether it is valid according to the Luhn algorithm.
 
-1. Within the `verify_card_number` function:
-   - You should handle any dashes or spaces that may be present in the card number passed to `verify_card_number`.
-   - Print `VALID!` if the card number is valid; otherwise, print `INVALID!`.
+2. Within the `verify_card_number` function:
 
-When you complete the project, you should see the following messages depending on the values they enter.
+   - You should handle any dashes or spaces that may be present in the card number passed to it.
+   - Return `VALID!` if the card number is valid; otherwise, return `INVALID!`.
 
-| Card Number        | Message   |
-| ------------------ | --------- |
-| 453914889          | VALID!    |
-| 4111-1111-1111-1111| VALID!    |
-| 1234 5678 9012 3456| INVALID!  |
+When you complete the project, you should see the following messages depending on the input:
+
+| Card Number         | Message  |
+| ------------------- | -------- |
+| 453914889           | VALID!   |
+| 4111-1111-1111-1111 | VALID!   |
+| 1234 5678 9012 3456 | INVALID! |

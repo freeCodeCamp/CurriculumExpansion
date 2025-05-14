@@ -19,9 +19,9 @@ def verify_card_number(card_number):
 
     total = sum_of_odd_digits + sum_of_even_digits
     if total % 10 == 0:
-        print('VALID!')
+        return 'VALID!'
     else:
-        print('INVALID!')
+        return 'INVALID!'
 
 # Example usage
 verify_card_number('4111-1111-4555-1142')
