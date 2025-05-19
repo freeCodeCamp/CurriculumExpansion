@@ -1,0 +1,110 @@
+body {
+  background-color: MidnightBlue;
+  color: whitesmoke;
+}
+
+.container {
+  /* Provide brief explanation for hex code here and explain there will be a whole module on it later. */
+  background-color: #ffffff1a;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 10px 20px;
+/*Provide brief explanation of box-shadow to campers*/
+  box-shadow: 0 5px 15px black;
+}
+
+.center {
+  text-align: center;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+fieldset {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+fieldset legend {
+  font-size: 1.3rem;
+  /* Teach font-weight here */
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+/*explain to campers why :not() is being used here*/
+label:not(.contact-method) {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Would be a good teaching moment to have these styles initially in a
+input selector. Then show campers how that changes the layout and then 
+have them move it to this selector below.
+*/
+
+input:not(.contact-method-radio-btn),
+textarea {
+  background-color: #ffffff1a;
+  width: 95%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+input,
+input::placeholder,
+textarea {
+  color: whitesmoke;
+}
+
+.contact-method-radio-btn {
+  appearance: none; /* this was mentioned in lectures but make sure to reintroduce it here */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  /* not sure when vertical-align was taught. so teach it here */
+  vertical-align: bottom;
+}
+
+.contact-method-radio-btn::before {
+  display: block;
+  content: " ";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* make sure to teach all of these concepts */
+  /* maybe some of these came up in the greeting card workshop. double check first */
+  transform: translate(3px, 3px) scale(0);
+  transition: all 0.3s ease-in;
+}
+
+.contact-method-radio-btn:checked::before {
+  transform: translate(3px, 3px) scale(1);
+  background-color: lightgreen;
+}
+
+.submit-btn {
+  cursor: pointer;
+  background-color: royalblue;
+  color: whitesmoke;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  display: block;
+  margin: auto;
+}
+
+.submit-btn:hover {
+  background-color: midnightblue;
+}
