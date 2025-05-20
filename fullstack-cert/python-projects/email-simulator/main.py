@@ -12,9 +12,6 @@ class Email:
     def mark_as_read(self):
         self.read = True
 
-    def display_summary(self):
-        print(str(self))
-
     def display_full_email(self):
         self.mark_as_read()
         print("\n--- Email ---")
@@ -50,18 +47,18 @@ class Inbox:
     def read_email(self, index):
         if not self.emails:
             print("Inbox is empty.\n")
-        elif 0 <= index < len(self.emails):
+        try:
             self.emails[index].display_full_email()
-        else:
+        except IndexError:
             print("Invalid email number.\n")
 
     def delete_email(self, index):
         if not self.emails:
             print("Inbox is empty.\n")
-        elif 0 <= index < len(self.emails):
+        try:
             del self.emails[index]
             print("Email deleted.\n")
-        else:
+        except IndexError:
             print("Invalid email number.\n")
 
 class User:
