@@ -48,8 +48,7 @@ def shortest_path_matrix(matrix, nodes, start_label, target_label=''):
     for i, label in enumerate(nodes):
         if label == start_label or label not in targets:
             continue
-        print(f"Shortest path from {start_label} to {label}: {paths[i]} with distance {distance[i]}")
-        print(f"Path: {' -> '.join(paths[i])}")
+        print(f"Shortest path from {start_label} to {label}: {' -> '.join(paths[i])} (distance {distance[i]})")
     
     return distance, paths
             
