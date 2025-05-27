@@ -22,13 +22,23 @@ body {
 }
 
 main {
+  text-align: center;
+  padding: 10px;
+}
+
+.btn-container,
+button {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
+.btn-container {
+  flex-direction: column;
+}
+
 .emoji-btn {
+  width: 70%;
   cursor: pointer;
   color: var(--white);
   background-color: var(--light-purple);
@@ -39,11 +49,16 @@ main {
   );
   border: 3px solid var(--purple);
   border-radius: 8px;
-  width: 80%;
   padding: 10px;
   font-size: 1.5rem;
   margin: 10px 0;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .emoji-btn {
+    width: 30%;
+  }
 }
 
 .emoji-btn:hover {
@@ -57,7 +72,6 @@ main {
 }
 
 .description {
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1.4rem;
   margin: 20px 0;
 }
