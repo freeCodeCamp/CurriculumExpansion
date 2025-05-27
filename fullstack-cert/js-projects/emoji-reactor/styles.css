@@ -7,15 +7,57 @@
 }
 
 :root {
+  --light-grey: #efefef;
+  --white: #ffffff;
   --very-dark-blue: #0a0a23;
-  --golden--yellow-orange: #feac32;
-  --darker-golden-yellow: #e79d2d;
+  --light-purple: #a78bfa;
+  --very-light-purple: #c4b5fd;
+  --purple: #8b5cf6;
 }
 
-button {
+body {
+  background-color: var(--very-dark-blue);
+  color: var(--light-grey);
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji-btn {
   cursor: pointer;
-  color: var(--very-dark-blue);
-  background-color: var(--golden--yellow-orange);
-  background-image: linear-gradient(#fecc4c, #ffac33);
-  border: 3px solid var(--golden--yellow-orange);
+  color: var(--white);
+  background-color: var(--light-purple);
+  background-image: linear-gradient(
+    to bottom,
+    var(--very-light-purple),
+    var(--light-purple)
+  );
+  border: 3px solid var(--purple);
+  border-radius: 8px;
+  width: 80%;
+  padding: 10px;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.emoji-btn:hover {
+  background-color: var(--purple);
+  background-image: none;
+}
+
+.title {
+  margin-top: 15px;
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 20px 0;
 }

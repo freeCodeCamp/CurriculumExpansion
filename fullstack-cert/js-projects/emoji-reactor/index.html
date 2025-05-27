@@ -3,33 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joke Generator</title>
+    <title>Emoji Reactor</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main>
-      <h1>Emoji Reactor</h1>
-      <p>
-        How are you feeling today? Click on the any of the buttons that best
-        expresses your current emotion.
+      <h1 class="title">How are you feeling today?</h1>
+
+      <p class="description">
+        Click on the any of the buttons to rate your current emotion.
       </p>
 
       <div class="btn-container">
-        <button class="emoji-btn" aria-label="Smile">
+        <button id="happy-btn" class="emoji-btn" aria-label="Happy face emoji">
           <span role="img" aria-hidden="true">😊</span>
-          <span class="count">0</span>
+          <span class="count">0</span>/10
         </button>
-        <button class="emoji-btn" aria-label="Laugh">
-          <span role="img" aria-hidden="true">😆</span>
-          <span class="count">0</span>
+        <button id="sad-btn" class="emoji-btn" aria-label="Sad face emoji">
+          <span role="img" aria-hidden="true">😞</span>
+          <span class="count">0</span>/10
         </button>
-        <button class="emoji-btn" aria-label="Wow">
-          <span role="img" aria-hidden="true">😮</span>
-          <span class="count">0</span>
+        <button id="angry-btn" class="emoji-btn" aria-label="Angry face emoji">
+          <span role="img" aria-hidden="true">😡</span>
+          <span class="count">0</span>/10
         </button>
       </div>
-
-      <p class="output"></p>
     </main>
     <script src="./script.js"></script>
   </body>
