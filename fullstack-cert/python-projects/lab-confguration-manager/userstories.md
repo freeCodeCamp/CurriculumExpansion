@@ -6,36 +6,23 @@
        "notifications": "enabled"
    ```
 
-2. You should define a function named `add_setting` that takes the `settings` dictionary and a tuple `(key, value)` as parameters to add a new setting.
+1. You should define a function named `add_setting` that takes a dictionary of settings and a tuple containing a key-value pair as arguments.
+1. `add_setting(settings, (key, value))` should:
+    - Convert `key` to lowercase.
+    - If the `key` setting exists, return `Setting 'key' already exists! Cannot add a new setting with this name.`
+    - If the `key` setting doesn't exist, add the key-value pair to the `settings` dictionary and return `Setting 'key' added with value 'value' successfully!`
 
-3. Inside the `add_setting` function, you should:
+1. You should define a function named `update_setting` that takes the a dictionary of settings and a tuple containing a key-value pair as arguments.
+1. `update_setting(settings, (key, value))` should:
+    - Convert `key` to lowercase.
+    - If the `key` setting exists, update its value in the `settings` dictionary and return: `Setting 'key' updated to 'value' successfully!`
+    - If the `key` setting doesn't exist, return `Setting 'key' does not exist! Cannot update a non-existing setting.`
 
-   - Convert the provided key to lowercase.
-   - Check if the setting name already exists in the `settings` dictionary.
-
-     - If the setting exists, return: `"Setting '[key]' already exists! Cannot add a new setting with this name."`
-     - If the setting doesn't exist, add the key-value pair to the dictionary.
-     - Return a confirmation message in the format: `"Setting '[key]' added with value '[value]' successfully!"`
-
-4. You should define a function named `update_setting` that takes the `settings` dictionary and a tuple `(key_value)` as parameters to update an existing setting.
-
-5. Inside the `update_setting` function, you should:
-
-   - Convert the provided key to lowercase.
-   - Check if the setting exists in the `settings` dictionary.
-
-     - If the setting exists, update its value in the dictionary and return: `"Setting '[key]' updated to '[value]' successfully!"`
-     - If the setting does not exist, return: `"Setting '[key]' does not exist! Cannot update a non-existing setting."`
-
-6. You should define a function named `delete_setting` that takes the `settings` dictionary and a string `key` as parameters to delete a specific setting.
-
-7. Inside the `delete_setting` function, you should:
-
-   - Convert the provided key to lowercase.
-   - Check if the setting exists in the `settings` dictionary.
-
-     - If the setting exists, remove the key-value pair and return: `"Setting '[key]' deleted successfully!"`
-     - If the setting does not exist, return: `"Setting not found!"`
+1. You should define a function named `delete_setting` that takes the a dictionary of settings and a key as arguments.
+1. `delete_setting(settings, key)` should:
+    - Convert `key` to lowercase.
+    - If the `key` setting exists, remove the key-value pair from `settings` and return `Setting 'key' deleted successfully!`
+    - If the `key` setting does not exist, return `Setting not found!`
 
 8. You should define a function named `view_settings` that takes the `settings` dictionary as a parameter and returns a formatted string of current settings.
 
