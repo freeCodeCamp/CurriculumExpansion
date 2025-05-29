@@ -47,6 +47,7 @@ class Inbox:
     def read_email(self, index):
         if not self.emails:
             print("Inbox is empty.\n")
+            return
         try:
             self.emails[index].display_full_email()
         except IndexError:
@@ -55,6 +56,7 @@ class Inbox:
     def delete_email(self, index):
         if not self.emails:
             print("Inbox is empty.\n")
+            return
         try:
             del self.emails[index]
             print("Email deleted.\n")
