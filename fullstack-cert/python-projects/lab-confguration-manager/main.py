@@ -28,7 +28,7 @@ def view_settings(settings):
     if not settings:
         return "No settings available."
     else:
-        settings_str = "\nCurrent User Settings:\n"
+        settings_str = "Current User Settings:\n"
         for key, value in settings.items():
             settings_str += f"{key.capitalize()}: {value}\n"
         return settings_str
