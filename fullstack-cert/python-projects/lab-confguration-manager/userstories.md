@@ -30,11 +30,12 @@
 
    - Check if the `settings` dictionary contains values.
    - If the dictionary is empty, return: `"No settings available."`
-   - If the dictionary contains settings, return them in the following format:
+   - If the dictionary contains settings, return them in the following format while appending a new line at the end of the output:
 
     ```md
         Current User Settings:
         Theme: dark
         Notifications: enabled
         Volume: high
+
     ```
