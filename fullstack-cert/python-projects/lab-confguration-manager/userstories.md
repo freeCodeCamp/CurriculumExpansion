@@ -32,9 +32,9 @@
    - If the dictionary is empty, return: `"No settings available."`
    - If the dictionary contains settings, return them in the following format:
 
-   ```md
-   Current User Settings:
-   Theme: light
-   Language: English
-   Notifications: enabled
-   ```
+    ```md
+        Current User Settings:
+        Theme: dark
+        Notifications: enabled
+        Volume: high
+    ```
