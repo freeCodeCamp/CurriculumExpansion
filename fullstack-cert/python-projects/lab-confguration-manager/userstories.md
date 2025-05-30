@@ -24,13 +24,10 @@
     - If the `key` setting exists, remove the key-value pair from `settings` and return `Setting 'key' deleted successfully!`
     - If the `key` setting does not exist, return `Setting not found!`
 
-8. You should define a function named `view_settings` that takes the `settings` dictionary as a parameter and returns a formatted string of current settings.
-
-9. Inside the `view_settings` function, you should:
-
-   - Check if the `settings` dictionary contains values.
-   - If the dictionary is empty, return: `"No settings available."`
-   - If the dictionary contains settings, return them in the following format while appending a new line at the end of the output:
+1. You should define a function named `view_settings` that takes a dictionary of settings as argument.
+1. `view_settings(settings)` should:
+    - Return `"No settings available."` if the `settings` dictionary is empty.
+    - If the dictionary contains any settings, return them formatted as follows:
 
     ```md
         Current User Settings:
