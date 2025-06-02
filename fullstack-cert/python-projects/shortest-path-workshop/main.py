@@ -1,6 +1,3 @@
-nodes = ['A', 'B', 'C', 'D', 'E', 'F']
-index = {node: i for i, node in enumerate(nodes)}
-
 INF = float('inf')
 adj_matrix = [
     [0, 5, 3, INF, 11, INF],
@@ -11,15 +8,14 @@ adj_matrix = [
     [INF, 2, INF, 3, INF, 0]
 ]
 
-def shortest_path_matrix(matrix, nodes, start_label, target_label=''):
-    n = len(nodes)
-    start = nodes.index(start_label)
+def shortest_path_matrix(matrix, start_node, target_node=None):
+    n = len(matrix)
 
     distance = [INF] * n
-    distance[start] = 0
+    distance[start_node] = 0
 
     paths = [[] for _ in range(n)]
-    paths[start].append(start_label)
+    paths[start_node].append(start_node)
 
     visited = [False] * n
 
@@ -42,13 +38,15 @@ def shortest_path_matrix(matrix, nodes, start_label, target_label=''):
                 new_distance = distance[current] + weight
                 if new_distance < distance[neighbor]:
                     distance[neighbor] = new_distance
-                    paths[neighbor] = paths[current] + [nodes[neighbor]]
+                    paths[neighbor] = paths[current] + [neighbor]
 
-    targets = [target_label] if target_label else nodes
-    for i, label in enumerate(nodes):
-        if label == start_label or label not in targets:
+    targets = [target_node] if target_node is not None else range(n)
+    for i in targets:
+        if i == start_node or distance[i] == INF:
             continue
-        print(f"Shortest path from {start_label} to {label}: {' -> '.join(paths[i])} (distance {distance[i]})")
+        print(f"Shortest path from {start_node} to {i}: {' -> '.join(map(str, paths[i]))} (distance {distance[i]})")
     
     return distance, paths
-            
+
+# Example usage:
+shortest_path_matrix(adj_matrix, 0, 5)
