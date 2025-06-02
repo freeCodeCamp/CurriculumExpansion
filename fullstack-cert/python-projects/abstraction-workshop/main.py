@@ -19,7 +19,7 @@ class PercentageDiscount(DiscountStrategy):
         self.percent = percent
 
     def is_applicable(self, product: Product, user_tier: str) -> bool:
-        return True
+        return self.percent <= 70
 
     def apply_discount(self, product: Product) -> float:
         return product.price * (1 - self.percent / 100)
@@ -29,7 +29,7 @@ class FixedAmountDiscount(DiscountStrategy):
         self.amount = amount
 
     def is_applicable(self, product: Product, user_tier: str) -> bool:
-        return product.price > self.amount
+        return product.price*0.9 > self.amount
 
     def apply_discount(self, product: Product) -> float:
         return product.price - self.amount
