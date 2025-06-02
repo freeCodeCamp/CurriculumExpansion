@@ -3,13 +3,13 @@ def adjacency_list_to_matrix(adj_list):
     
     adj_matrix = [[0] * n for _ in range(n)]
 
-    for src_node, neighbors in adj_list.items():
-        for dest_node in neighbors:
+    for src_node, neighbors in adj_list.items(): 
+        for dest_node in neighbors: # 
             adj_matrix[src_node][dest_node] = 1
 
     return adj_matrix
 
-
+# Example usage
 adj_list = {
     0: [1, 2],
     1: [2],
