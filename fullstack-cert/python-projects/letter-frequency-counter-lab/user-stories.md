@@ -1,13 +1,5 @@
-1. You should print a welcome message `"Number Pattern Generator"`.
-2. You should prompt the user to enter a positive number and store the result in a variable named `user_input`.
-3. You should define a function named `number_pattern` that takes a single parameter `n` (representing a positive integer).
-4. Inside the `number_pattern` function:
-   - Use a `for` loop that goes from 1 to `n` (inclusive).
-   - In each iteration, create a list of numbers from 1 to the current value of `i`.
-   - Convert each number in the list to a string and print them joined by a space.
-5. You should check if `user_input` contains only digits using the `isdigit()` method:
-   - If it does, convert `user_input` to an integer named `number`.
-   - Then check if `number` is greater than 0:
-     - If it is, call `number_pattern(number)` to display the pattern.
-     - If not, print `"Please enter a number greater than 0."`.
-   - If `user_input` is not numeric, print `"Invalid input. Please enter a numeric value."`.
+1. You should define a function named `number_pattern` that takes a single parameter `n` (representing a positive integer).
+1. `number_pattern` should use a `for` loop.
+1. `number_pattern(n)` should return a string with all the integers starting from 1 up to `n` (included) separated by a space. For example, `number_pattern(4)` should return the string `1 2 3 4`.
+1. If the argument passed to the function is not an integer value, the function should return `Argument must be an integer value.`.
+1. If the argument passed to the function is less than 1, the function should return `Argument must be an integer greater than 0.`.
