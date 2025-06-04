@@ -26,13 +26,13 @@
 
 1. You should define a function named `view_settings` that takes a dictionary of settings as argument.
 1. `view_settings(settings)` should:
-    - Return `"No settings available."` if the `settings` dictionary is empty.
+    - Return `No settings available.` if the `settings` dictionary is empty.
     - If the dictionary contains any settings, return them formatted as follows:
 
     ```md
-        Current User Settings:
-        Theme: dark
-        Notifications: enabled
-        Volume: high
+Current User Settings:
+Theme: dark
+Notifications: enabled
+Volume: high
 
     ```
