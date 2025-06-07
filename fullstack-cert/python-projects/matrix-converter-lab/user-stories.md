@@ -1,8 +1,17 @@
 1. You should define a function named `adjacency_list_to_matrix` to convert an adjacency list to an adjacency matrix.
-2. The function should take one argument, `adj_list`, which is a dictionary representing the adjacency list of a graph.
-3. Inside the function:
-   - Determine the number of nodes based on the length of the dictionary.
-   - Initialize a 2D list of size n x n filled with 0s, where n is the number of nodes.
-   - Iterate through each source node and its neighbors in the adjacency list.
-   - Iterate through each neighbor of the source node and set the corresponding entry in the matrix to 1.
-   - The function should return the complete adjacency matrix.
+2. The function should take a dictionary representing the adjacency list of an unweighted graph as its argument.
+3. The function should:
+   - Convert the adjacency list to an adjacency matrix.
+   - Print each row in the adjacency matrix.
+   - Return the adjacency matrix.
+
+For example, `adjacency_list_to_matrix({0: [2], 1: [2, 3], 2: [0, 1, 3], 3: [1, 2]})` should print:
+
+```md
+[0, 0, 1, 0]
+[0, 0, 1, 1]
+[1, 1, 0, 1]
+[0, 1, 1, 0]
+```
+
+and return `[[0, 0, 1, 0], [0, 0, 1, 1], [1, 1, 0, 1], [0, 1, 1, 0]]`.
