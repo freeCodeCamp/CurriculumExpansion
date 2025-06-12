@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Shopping Cart Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <h1 class="text-center text-3xl my-8">Shopping Cart Page</h1>
+    <main
+      id="shopping-cart-container"
+      class="flex flex-col lg:flex-row items-center justify-evenly"
+    >
+      <div id="products-container" class="">
+        <div
+          class="card flex flex-col lg:flex-row justify-between items-center gap-12 rounded-lg border border-gray-200 p-4 my-8 bg-gray-800"
+        >
+          <h2 class="text-lg">Ludwig Supraphonic Snare Drum Chrome</h2>
+          <div class="btn-container">
+            <button
+              class="bg-gray-800 hover:bg-gray-700 border border-gray-200 py-1 px-2 rounded-md"
+              type="button"
+            >
+              -
+            </button>
+            <span class="quantity mx-2">2</span>
+            <button
+              class="bg-gray-800 hover:bg-gray-700 border border-gray-200 py-1 px-2 rounded-md"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+          <p class="price">$1398.00</p>
+          <a class="remove-link text-red-500 underline" href="#">Remove</a>
+        </div>
+        <div
+          class="card flex flex-col lg:flex-row justify-between items-center gap-12 rounded-lg border border-gray-200 p-4 my-8 bg-gray-800"
+        >
+          <h2 class="text-lg">Shure SM58S Mic With Switch Standard</h2>
+          <div class="btn-container">
+            <button
+              class="bg-gray-800 hover:bg-gray-700 border border-gray-200 py-1 px-2 rounded-md"
+              type="button"
+            >
+              -
+            </button>
+            <span class="quantity mx-2">1</span>
+            <button
+              class="bg-gray-800 hover:bg-gray-700 border border-gray-200 py-1 px-2 rounded-md"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+          <p class="price">$119.00</p>
+          <a class="remove-link text-red-500 underline" href="#">Remove</a>
+        </div>
+      </div>
+      <div
+        id="order-summary-container"
+        class="rounded-lg border border-gray-200 p-8 bg-gray-800"
+      >
+        <h2 class="text-2xl mb-4">Order Summary</h2>
+        <ul class="">
+          <li>
+            <span id="subtotal" class="font-semibold text-lg">Subtotal:</span>
+            <span>$1,517.00</span>
+          </li>
+          <li class="my-6">
+            <span id="shipping" class="font-semibold text-lg">Shipping:</span>
+            <span>Calculated in checkout </span>
+          </li>
+          <li>
+            <span id="total" class="font-semibold text-lg">Total:</span>
+            <span>$1,517.00 </span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
