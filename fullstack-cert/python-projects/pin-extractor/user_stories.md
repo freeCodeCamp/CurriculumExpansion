@@ -11,7 +11,12 @@ def pin_extractor(poem):
         secret_code += str(len(word))
     return secret_code
 
-    
+poem = """Stars and the moon
+shine in the sky
+white and bright
+until the end of the night"""
+
+pin_extractor(poem)
 ```
 
 and then from this update to being able to use this on a list of strings.
