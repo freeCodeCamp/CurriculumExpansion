@@ -7,8 +7,11 @@ def pin_extractor(poem):
     secret_code = ''
     lines = poem.split('\n')
     for i, line in enumerate(lines):
-        word = line.split(' ')[i]
-        secret_code += str(len(word))
+        words = line.split(' ')
+        if len(words) <= i:
+            secret_code += '0'
+        else:
+            secret_code += str(len(words[0]))
     return secret_code
 
 poem = """Stars and the moon
