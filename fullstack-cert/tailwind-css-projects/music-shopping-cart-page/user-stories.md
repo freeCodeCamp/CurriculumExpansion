@@ -9,7 +9,7 @@
    - An `h2` element with text representing the product name and a utility class of your choosing that sets the font size.
    - An element with a class called `quantity` and text for the number of cart items for that product.
    - An element with a class called `price` and text for the price.
-   - A link with a class called `remove-link` and the link text of `Remove`. Your link should have utility classes for red text of your choosing and an underline. The `href` value should be set to `#`.
+   - A `button` with a class called `remove-button`. Your `button` should have utility classes for red background color of your choosing and different red background color for the hover state.
 7. Inside your `#shopping-cart-container` element, you should have an element with an `id` called `order-summary-container`.
 8. Your `#order-summary-container` element should have the following styles:
    - A utility class of your choosing for rounded corners.
