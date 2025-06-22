@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher</title>
+</head>
+<body class="theme-light">  
+  <button
+    class="dropdown-btn"
+    id="themeSwitcherButton"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="themeDropdown"
+  >
+    Switch Theme ▾
+  </button>
+
+  <ul
+    class="dropdown-content"
+    id="themeDropdown"
+    role="menu"
+    aria-labelledby="themeSwitcherButton"
+    hidden
+  >
+    <li class="dropdown-item" id="theme-light" role="menuitem">Light</li>
+    <li class="dropdown-item" id="theme-dark" role="menuitem">Dark</li>
+    <li class="dropdown-item" id="theme-ocean" role="menuitem">Ocean</li>
+    <li class="dropdown-item" id="theme-nord" role="menuitem">Nord</li>
+  </ul>
+  
+  <div id="status" aria-live="polite"></div>
+  
+  <p>Magni rem natus quidem molestias deserunt. Tenetur nobis dicta dolorem tempora quo. Deleniti numquam reprehenderit in cupiditate. Voluptates enim aut corrupti itaque deleniti in quo. Animi nostrum aut ut. Incidunt ut sint quo totam saepe qui quia distinctio.</p>
+</body>
+</html>
