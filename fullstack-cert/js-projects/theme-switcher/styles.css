@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.dropdown-btn {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 12px;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+#status {
+  text-align: center;
+  min-height: 20px;
+}
+
+/* Themes */
+.theme-light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.theme-light .dropdown-btn {
+  background-color: #d3b3aa;
+  color: #000000;
+}
+
+.theme-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.theme-dark .dropdown-btn {
+  background-color: #4f4f4f;
+  color: #ffffff;
+}
+
+.theme-ocean {
+  background-color: #0077be;
+  color: #e0f7fa;
+}
+
+.theme-ocean .dropdown-btn {
+  background-color: #193e51;
+  color: #ffffff;
+}
+
+.theme-nord {
+  background-color: #2e3440;
+  color: #d8dee9;
+}
+
+.theme-nord .dropdown-btn {
+  background-color: #596680;
+  color: #ffffff;
+}
+
