@@ -15,9 +15,17 @@
 7. Define a method named `level_up()` that:
     - Increases the character's level by 1.
     - Resets health to `100` and mana to `50` using their corresponding property setters.
-    - Prints a message showing the new level.
+    - Prints a message in the form of `<name> leveled up to <level>!` (where `<name>` and `<level>` should be replaced by the character's name and new level, respectively).
 8. Define a `__str__()` method that returns a formatted string including:
     - The character's name.
     - The character's level.
     - The character's current health.
     - The character's current mana.
+   For example, a character named `Kratos`, right after the instantiation, should be represented as the following:
+
+   ```md
+    Name: Kratos
+    Level: 1
+    Health: 100
+    Mana: 50
+   ```
