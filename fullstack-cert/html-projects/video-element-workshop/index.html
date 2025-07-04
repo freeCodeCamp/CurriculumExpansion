@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Element Workshop</title>
+</head>
+<body>
+    <h1>Welcome to the Video Element Workshop</h1>
+    <video
+        width="640"
+        controls
+        autoplay
+        loop
+        muted
+        poster="http://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+        title="Looping flower video"
+        aria-label="Flower blooming in time-lapse video"
+      >
+        <source
+          src="http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://cdn.freecodecamp.org/curriculum/html-video-and-audio/video/flower.ogv"
+          type="video/ogg"
+        />
+        <!-- Fallback text for unsupported browsers -->
+        Your browser does not support the video tag. You can
+        <a href="https://cdn.freecodecamp.org/curriculum/labs/What is the map method and how does it work.mp4" download>
+          download the video here
+        </a>.
+      </video>
+</body>
+</html>
