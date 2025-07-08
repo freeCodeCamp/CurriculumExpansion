@@ -1,4 +1,4 @@
-The bisection method is a technique for finding the roots of a real-valued function. It works by narrowing down an interval where the square root lies until it converges to a value within a specified tolerance.
+The bisection method, also known as the binary search method, uses a binary search to find the roots of a real-valued function. It works by narrowing down an interval where the square root lies until it converges to a value within a specified tolerance.
 
 For example, if the tolerance is `0.01`, the bisection method will keep halving the interval until the difference between the upper and lower bounds is less than or equal to `0.01`.
 
