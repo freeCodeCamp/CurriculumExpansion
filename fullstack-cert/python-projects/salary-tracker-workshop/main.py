@@ -26,56 +26,51 @@ class Employee:
         return self.__name
 
     @name.setter
-    def name(self, value):
-        if not isinstance(value, str):
+    def name(self, new_name):
+        if not isinstance(new_name, str):
             raise TypeError("'name' must be a string.")
-        self.__name = value
+        self.__name = new_name
+        print(f"'name' updated to {self.name}.")
 
     @property
     def level(self):
         return self.__level
 
     @level.setter
-    def level(self, value):
-        if value not in Employee.__base_salaries:
-            raise ValueError(f"Invalid value '{value}' for 'level' field.")
-        self.__level = value
-        self.__salary = Employee.__base_salaries[value]
+    def level(self, new_level):
+        if new_level not in Employee.__base_salaries:
+            raise ValueError(f"Invalid value '{new_level}' for 'level' field.")
+        if new_level == self.level:
+            raise ValueError(f"'{self.level}' is already the selected level.")
+        if Employee.__base_salaries[new_level] < Employee.__base_salaries[self.level]:
+            raise ValueError(f"Cannot change to lower level.")
+        self.__level = new_level
+        self.__salary = Employee.__base_salaries[new_level]
+        print(f"'{self.name}' promoted to '{new_level}'.")
+
+    def demote(self):
+        if self.level == 'trainee':
+            raise ValueError("Cannot demote a trainee.")
+        keys = list(Employee.__base_salaries.keys())
+        new_level = keys[keys.index(self.level) - 1]
+        self.__level = new_level
+        print(f"'{self.name}' demoted to '{new_level}'.")
 
     @property
     def salary(self):
         return self.__salary
 
     @salary.setter
-    def salary(self, value):
-        if not isinstance(value, (int, float)) or value < 0:
-            raise ValueError('Salary must be a non-negative number.')
-        self.__salary = value
-
-    def raise_salary(self, amount):
-        if amount <= 0:
-            raise ValueError('Raise amount must be positive.')
-        self.salary += amount
-        return f'${amount} raise applied to {self.name}\'s salary.'
-
-    def give_promotion(self, level):
-        if level not in Employee.__base_salaries:
-            raise ValueError(f"Invalid value '{level}' for 'level' field.")
-        new_salary = Employee.__base_salaries[level]
-        if level == self.level:
-            raise ValueError(f"{self.level} is already the selected level.")
-        if new_salary < Employee.__base_salaries[self.level]:
-            raise ValueError('Cannot give promotion to lower level.')
-        self.level = level
-        salary_difference = new_salary - self.salary
-        if salary_difference > 0:
-            self.salary = new_salary
-        return f'{self.name} promoted to {self.level}.'
+    def salary(self, new_salary):
+        if not isinstance(new_salary, (int, float)) or new_salary <= Employee.__base_salaries[self.level]:
+            raise ValueError(f'Salary must be a higher than minimum salary ${Employee.__base_salaries[self.level]}.')
+        self.__salary = new_salary
+        print(f'Salary updated to ${self.salary}.')
 
 
 charlie_brown = Employee('Charlie Brown', 'trainee')
+print(charlie_brown)
 print(f'Base salary: ${charlie_brown.salary}')
-print(charlie_brown.raise_salary(150))
-print(f'Salary after raise: ${charlie_brown.salary}')
-print(charlie_brown.give_promotion('junior'))
+charlie_brown.salary += 150
+charlie_brown.level = 'junior'
 print(f'Salary after promotion: ${charlie_brown.salary}')
