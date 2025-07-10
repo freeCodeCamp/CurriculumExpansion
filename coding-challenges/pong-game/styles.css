@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #002e17;
+  color: #d3f9e4;
+  text-align: center;
+}
+
+.board {
+  border-radius: 14px;
+}
+
+.game-rules {
+  height: 15rem;
+  width: 15rem;
+  display: block;
+  background-color: #005430;
+}
+
+.hidden {
+  display: none;
+}
+
+.start-button {
+  background-color: #00a450;
+  color: #ffffff;
+}
+
+.reset-button {
+  background-color: #006537;
+  color: black;
+}
+
+.player-score {
+  color: #ffffff;
+  text-align: left;
+  font-size: 1.725em;
+}
+
+.computer-score {
+  color: #ffffff;
+  text-align: right;
+  justify-content: flex-end;
+  font-size: 1.725em;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.inline {
+  justify-content: space-between;
+  display: flex;
+}
+
+.green-border {
+  border: 3px solid green;
+}
+
+button {
+  font-weight: bold;
+  width: 6rem;
+  height: 3rem;
+}
