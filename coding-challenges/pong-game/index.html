@@ -1,29 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pong</title>
-  <link rel="stylesheet" href="./styles.css"/>
-</head>
-<body>
-  <h1>Pong Game</h1>
-  <div id="game-rules" class="game-rules center">
-    <h3>Pong Challenge</h3>
-    <p>Try to score against the unbeatable computer opponent!</p>
-    <p>Move your paddle with your mouse or touch</p>
-    <button id="start-game" class="start-button" onclick="startGame()">Start Game</button>
-  </div>
-  <div id="game" class="hidden">   
-      <p id="player-score"></p>
-      <p id="computer-score"></p>        
-    <div class="board center"> 
-    <div class="vertical_dotted_line"></div>     
-      <p class="player_1 paddle"></p>
-      <p class="player_2 paddle"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Pong Game</h1>
+    <div id="game-rules" class="game-rules center green-border">
+      <h3>Pong Challenge</h3>
+      <p>Try to score against the unbeatable computer opponent!</p>
+      <p>Move your paddle with your mouse or touch</p>
+      <br />
+      <button id="start-game" class="start-button" onclick="startGame()">
+        Start Game
+      </button>
     </div>
-    <button id="reset" class="reset-button">Reset Game</button>
-  </div>
-  <script src="./script.js"/> 
-</body>
+    <div id="game" class="hidden">
+      <div class="center inline">
+        <p id="player-score" class="player-score"></p>
+        <p id="computer-score" class="computer-score"></p>
+      </div>
+      <canvas
+        id="board"
+        class="board center green-border"
+        width="800"
+        height="400"
+      ></canvas>
+      <br />
+      <button id="reset" class="reset-button" onclick="resetGame()">
+        Reset Game
+      </button>
+    </div>
+    <script src="./script.js" />
+  </body>
 </html>

@@ -1,15 +1,204 @@
-let playerScore = 0; 
-let computerScore = 0; 
+let lastTime = 0;
+let delta = 1;
+let playerScore = 0;
+let computerScore = 0;
+const fps = 25;
 const playerOneScoreElement = document.querySelector("#player-score");
 const playerTwoScoreElement = document.querySelector("#computer-score");
+const playerOne = document.querySelector(".player_1");
+const canvas = document.getElementById("board");
+// @ts-ignore
+const ctx = canvas.getContext("2d");
+
+// Paddle Variables
+const paddleWidth = 10;
+const paddleHeight = 100;
+// @ts-ignore
+let paddle1Y = canvas?.height / 2 - paddleHeight / 2;
+// @ts-ignore
+let paddle2Y = canvas?.height / 2 - paddleHeight / 2;
+
+// Ball Variables
+const ballSize = 10;
+// @ts-ignore
+let ballX = canvas?.width / 2;
+// @ts-ignore
+let ballY = canvas?.height / 2;
+let ballSpeedX = 5;
+let ballSpeedY = 5;
 
 function startGame() {
   const gameRules = document.querySelector(".game-rules");
-  const game = document.querySelector("#game"); 
+  const game = document.querySelector("#game");
   gameRules?.classList.add("hidden");
-  game?.classList.remove("hidden"); 
+  game?.classList.remove("hidden");
   // @ts-ignore
   playerOneScoreElement.textContent = "Player:" + playerScore;
   // @ts-ignore
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
 }
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  // @ts-ignore
+  playerOneScoreElement.textContent = "Player:" + playerScore;
+  // @ts-ignore
+  playerTwoScoreElement.textContent = "Computer:" + computerScore;
+}
+
+// Draw Functions
+/**
+ * @param {number} x
+ * @param {number} y
+ * @param {number} width
+ * @param {number} height
+ * @param {string} color
+ */
+function drawRect(x, y, width, height, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x, y, width, height);
+}
+
+/**
+ * @param {number} x
+ * @param {number} y
+ * @param {number} radius
+ * @param {string} color
+ */
+function drawCircle(x, y, radius, color) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+  ctx.fill();
+}
+
+function drawSeparator() {
+  ctx.beginPath();
+  ctx.setLineDash([5, 15]);
+  // @ts-ignore
+  ctx.moveTo(canvas?.width / 2, 0);
+  // @ts-ignore
+  ctx.lineTo(canvas?.height, canvas?.width / 2);
+  ctx.strokeStyle = "#8dff41";
+
+  ctx.stroke();
+}
+
+function draw() {
+  // Clear Canvas
+  // @ts-ignore
+  drawRect(0, 0, canvas?.width, canvas?.height, "#005430");
+
+  drawSeparator();
+
+  // Draw Paddles
+  drawRect(0, paddle1Y, paddleWidth, paddleHeight, "#00df86");
+  drawRect(
+    // @ts-ignore
+    canvas?.width - paddleWidth,
+    paddle2Y,
+    paddleWidth,
+    paddleHeight,
+    "#00df86",
+  );
+
+  // Draw Ball
+  drawCircle(ballX, ballY, ballSize, "#92e84c");
+}
+
+function increasePlayerScore() {
+  playerScore++;
+  // @ts-ignore
+  playerOneScoreElement.textContent = "Player: " + playerScore.toString();
+}
+
+function increaseComputerScore() {
+  computerScore++;
+  // @ts-ignore
+  playerTwoScoreElement.textContent = "Computer: " + computerScore.toString();
+}
+
+// Update Function
+function update() {
+  // Move Ball
+  ballX += ballSpeedX;
+  ballY += ballSpeedY;
+
+  // Ball Collision with Top and Bottom Walls
+  // @ts-ignore
+  if (ballY - ballSize < 0 || ballY + ballSize > canvas?.height) {
+    ballSpeedY = -ballSpeedY;
+  }
+
+  // Ball Collision with Paddles
+  if (
+    (ballX - ballSize < paddleWidth &&
+      ballY > paddle1Y &&
+      ballY < paddle1Y + paddleHeight) ||
+    // @ts-ignore
+    (ballX + ballSize > canvas?.width - paddleWidth &&
+      ballY > paddle2Y &&
+      ballY < paddle2Y + paddleHeight)
+  ) {
+    ballSpeedX = -ballSpeedX;
+  }
+
+  // @ts-ignore
+  if (ballY > paddleHeight / 2 + paddle2Y) {
+    paddle2Y += 30 / 100;
+  }
+  // @ts-ignore
+  else if (ballY < paddleHeight / 2 + paddle2Y) {
+    paddle2Y -= 30 / 100;
+  }
+
+  // Ball Out of Bounds
+  // @ts-ignore
+
+  if (ballX - ballSize < 0) {
+    increaseComputerScore();
+    resetBall();
+  }
+  // @ts-ignore
+  else if (ballX + ballSize > canvas?.width) {
+    increasePlayerScore();
+    resetBall();
+  }
+}
+
+// Reset Ball Position
+function resetBall() {
+  // @ts-ignore
+  ballX = canvas?.width / 2;
+  // @ts-ignore
+  ballY = canvas?.height / 2;
+  ballSpeedX = -ballSpeedX;
+}
+
+document.addEventListener("keydown", (ev) => {
+  if (ev.key === "W" || ev.key === "ArrowUp") {
+    paddle1Y -= 30;
+  } else if (ev.key === "S" || ev.key === "ArrowDown") {
+    paddle1Y += 30;
+  }
+});
+
+// Game Loop
+/**
+ * @param {number | undefined} [currentTime]
+ */
+function gameLoop(currentTime) {
+  if (lastTime !== undefined && currentTime !== undefined) {
+    // @ts-ignore
+    delta = Math.round(currentTime - lastTime);
+    console.log(`Frame time: ${Math.round(delta)}ms`);
+    lastTime = currentTime;
+  }
+  draw();
+  update();
+  requestAnimationFrame(gameLoop);
+}
+
+// Start Game
+gameLoop();
