@@ -1,5 +1,6 @@
 let lastTime = 0;
 let delta = 1;
+let lastMoveTime = 0; 
 let playerScore = 0;
 let computerScore = 0;
 const fps = 25;
@@ -36,6 +37,7 @@ function startGame() {
   playerOneScoreElement.textContent = "Player:" + playerScore;
   // @ts-ignore
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
+  gameLoop(); 
 }
 
 function resetGame() {
@@ -145,12 +147,15 @@ function update() {
   }
 
   // @ts-ignore
-  if (ballY > paddleHeight / 2 + paddle2Y) {
-    paddle2Y += 30 / 100;
+  const paddle2Center = (paddleHeight / 2) + paddle2Y;
+  if (paddle2Center < ballY - 35 && lastMoveTime > 10) {
+    paddle2Y += 60;
+    lastMoveTime = 0; 
   }
   // @ts-ignore
-  else if (ballY < paddleHeight / 2 + paddle2Y) {
-    paddle2Y -= 30 / 100;
+  else if (paddle2Center > ballY + 35 && lastMoveTime > 10 ) {
+    paddle2Y -= 60;
+    lastMoveTime = 0; 
   }
 
   // Ball Out of Bounds
@@ -165,6 +170,7 @@ function update() {
     increasePlayerScore();
     resetBall();
   }
+  lastMoveTime++; 
 }
 
 // Reset Ball Position
@@ -178,9 +184,9 @@ function resetBall() {
 
 document.addEventListener("keydown", (ev) => {
   if (ev.key === "W" || ev.key === "ArrowUp") {
-    paddle1Y -= 30;
+    paddle1Y -= 60;
   } else if (ev.key === "S" || ev.key === "ArrowDown") {
-    paddle1Y += 30;
+    paddle1Y += 60;
   }
 });
 
@@ -200,5 +206,3 @@ function gameLoop(currentTime) {
   requestAnimationFrame(gameLoop);
 }
 
-// Start Game
-gameLoop();
