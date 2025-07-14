@@ -62,8 +62,10 @@ class Employee:
 
     @salary.setter
     def salary(self, new_salary):
-        if not isinstance(new_salary, (int, float)) or new_salary <= Employee.__base_salaries[self.level]:
-            raise ValueError(f'Salary must be a higher than minimum salary ${Employee.__base_salaries[self.level]}.')
+        if not isinstance(new_salary, (int, float)):
+            raise TypeError("'salary' must be a number.")
+        if new_salary <= Employee.__base_salaries[self.level]:
+            raise ValueError(f'Salary must be higher than minimum salary ${Employee.__base_salaries[self.level]}.')
         self.__salary = new_salary
         print(f'Salary updated to ${self.salary}.')
 
