@@ -6,30 +6,30 @@
     <title>Video Element Workshop</title>
 </head>
 <body>
-    <h1>Welcome to the Video Element Workshop</h1>
+    <h1>Video Element Workshop</h1>
     <video
         width="640"
         controls
-        autoplay
         loop
         muted
-        poster="http://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-        title="Looping flower video"
-        aria-label="Flower blooming in time-lapse video"
+        poster="https://cdn.freecodecamp.org/curriculum/labs/past-event2.jpg"
       >
         <source
-          src="http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+          src="https://cdn.freecodecamp.org/curriculum/labs/What is the map method and how does it work.mp4"
           type="video/mp4"
         />
         <source
-          src="https://cdn.freecodecamp.org/curriculum/html-video-and-audio/video/flower.ogv"
+          src="https://cdn.freecodecamp.org/curriculum/labs/mapmethod.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://cdn.freecodecamp.org/curriculum/labs/mapmethod.ogg"
           type="video/ogg"
         />
-        <!-- Fallback text for unsupported browsers -->
-        Your browser does not support the video tag. You can
-        <a href="https://cdn.freecodecamp.org/curriculum/labs/What is the map method and how does it work.mp4" download>
-          download the video here
-        </a>.
+        <source
+          src="https://cdn.freecodecamp.org/curriculum/labs/mapmethod.mov"
+          type="video/quicktime"
+        />
       </video>
 </body>
 </html>
