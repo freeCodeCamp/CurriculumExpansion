@@ -1,0 +1,28 @@
+html {
+  color-scheme: light dark;
+  font-family: system-ui;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-grid
+{
+  display:inline-flex;
+  flex-direction: row; 
+}
+
+.entry-form
+{
+  display:flex;
+  flex-direction: column; 
+}
+
+.flashcard
+{
+  width:20rem;
+  border-color: red;
+  text-align: center;
+  justify-content: center;
+}

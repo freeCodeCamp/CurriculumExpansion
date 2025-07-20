@@ -1,0 +1,15 @@
+{
+  "name": "parcel-vanilla-starter",
+  "private": true,
+  "version": "0.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "^2.15.4",
+    "@parcel/transformer-typescript-tsc": "^2.15.4",
+    "parcel": "^2.14.0"
+  }
+}
