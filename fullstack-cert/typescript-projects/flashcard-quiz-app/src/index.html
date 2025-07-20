@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Vanilla App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Flash Card Quiz App</h1>
+    <div id="current-card" class="flashcard">
+
+    </div>
+    <button onclick="flipCard()">Flip</button>
+    <button onclick="deleteCard()">Delete</button>
+    <div id="card-grid" class="card-grid">
+      <button class="card-icon">Sample</button>
+
+    </div>
+    <hr>
+    <div class="entry-form">
+      <label for="front-text">Front:</label>
+      <input id="front-text"/>
+      <br/>
+      <label for="back-text">Back:</label>
+      <input id="back-text"/> 
+      <br/>
+      <p id="entry-error" class="error"></p>
+      <button onclick="uploadNewCard()">Upload new flash card</button>
+    </div>
+  
+    <script src="script.ts"/>
+  </body>
+</html>
