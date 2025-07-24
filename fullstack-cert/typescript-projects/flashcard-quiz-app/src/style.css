@@ -26,3 +26,8 @@ html {
   text-align: center;
   justify-content: center;
 }
+
+.error
+{
+  color: red; 
+}

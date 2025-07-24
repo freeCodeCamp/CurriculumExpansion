@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "target": "es2016"
   }
 }
