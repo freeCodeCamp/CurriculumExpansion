@@ -17,8 +17,8 @@ body {
 .game-rules {
   height: 15rem;
   width: 15rem;
-  display: block;
   background-color: #005430;
+  border-radius: 2em;
 }
 
 .hidden {
@@ -67,4 +67,11 @@ button {
   font-weight: bold;
   width: 6rem;
   height: 3rem;
+  border-radius: 2em;
+}
+
+button:hover
+{
+  background-color: #d3f9e4;
+  cursor:pointer; 
 }

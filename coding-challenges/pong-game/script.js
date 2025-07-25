@@ -8,22 +8,23 @@ const playerOneScoreElement = document.querySelector("#player-score");
 const playerTwoScoreElement = document.querySelector("#computer-score");
 const playerOne = document.querySelector(".player_1");
 const canvas = document.getElementById("board");
-// @ts-ignore
+const startGameButton = document.getElementById("start-game");
+const resetGameButton = document.getElementById("reset"); 
 const ctx = canvas.getContext("2d");
 
 // Paddle Variables
 const paddleWidth = 10;
 const paddleHeight = 100;
-// @ts-ignore
+
 let paddle1Y = canvas?.height / 2 - paddleHeight / 2;
-// @ts-ignore
+
 let paddle2Y = canvas?.height / 2 - paddleHeight / 2;
 
 // Ball Variables
 const ballSize = 10;
-// @ts-ignore
+
 let ballX = canvas?.width / 2;
-// @ts-ignore
+
 let ballY = canvas?.height / 2;
 let ballSpeedX = 5;
 let ballSpeedY = 5;
@@ -33,9 +34,9 @@ function startGame() {
   const game = document.querySelector("#game");
   gameRules?.classList.add("hidden");
   game?.classList.remove("hidden");
-  // @ts-ignore
+  
   playerOneScoreElement.textContent = "Player:" + playerScore;
-  // @ts-ignore
+  
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
   gameLoop(); 
 }
@@ -43,9 +44,9 @@ function startGame() {
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
-  // @ts-ignore
+  
   playerOneScoreElement.textContent = "Player:" + playerScore;
-  // @ts-ignore
+  
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
 }
 
@@ -78,9 +79,9 @@ function drawCircle(x, y, radius, color) {
 function drawSeparator() {
   ctx.beginPath();
   ctx.setLineDash([5, 15]);
-  // @ts-ignore
+  
   ctx.moveTo(canvas?.width / 2, 0);
-  // @ts-ignore
+  
   ctx.lineTo(canvas?.height, canvas?.width / 2);
   ctx.strokeStyle = "#8dff41";
 
@@ -89,7 +90,6 @@ function drawSeparator() {
 
 function draw() {
   // Clear Canvas
-  // @ts-ignore
   drawRect(0, 0, canvas?.width, canvas?.height, "#005430");
 
   drawSeparator();
@@ -97,7 +97,6 @@ function draw() {
   // Draw Paddles
   drawRect(0, paddle1Y, paddleWidth, paddleHeight, "#00df86");
   drawRect(
-    // @ts-ignore
     canvas?.width - paddleWidth,
     paddle2Y,
     paddleWidth,
@@ -111,13 +110,11 @@ function draw() {
 
 function increasePlayerScore() {
   playerScore++;
-  // @ts-ignore
   playerOneScoreElement.textContent = "Player: " + playerScore.toString();
 }
 
 function increaseComputerScore() {
   computerScore++;
-  // @ts-ignore
   playerTwoScoreElement.textContent = "Computer: " + computerScore.toString();
 }
 
@@ -128,7 +125,6 @@ function update() {
   ballY += ballSpeedY;
 
   // Ball Collision with Top and Bottom Walls
-  // @ts-ignore
   if (ballY - ballSize < 0 || ballY + ballSize > canvas?.height) {
     ballSpeedY = -ballSpeedY;
   }
@@ -138,7 +134,6 @@ function update() {
     (ballX - ballSize < paddleWidth &&
       ballY > paddle1Y &&
       ballY < paddle1Y + paddleHeight) ||
-    // @ts-ignore
     (ballX + ballSize > canvas?.width - paddleWidth &&
       ballY > paddle2Y &&
       ballY < paddle2Y + paddleHeight)
@@ -146,26 +141,21 @@ function update() {
     ballSpeedX = -ballSpeedX;
   }
 
-  // @ts-ignore
   const paddle2Center = (paddleHeight / 2) + paddle2Y;
   if (paddle2Center < ballY - 35 && lastMoveTime > 10) {
     paddle2Y += 60;
     lastMoveTime = 0; 
   }
-  // @ts-ignore
   else if (paddle2Center > ballY + 35 && lastMoveTime > 10 ) {
     paddle2Y -= 60;
     lastMoveTime = 0; 
   }
 
   // Ball Out of Bounds
-  // @ts-ignore
-
   if (ballX - ballSize < 0) {
     increaseComputerScore();
     resetBall();
   }
-  // @ts-ignore
   else if (ballX + ballSize > canvas?.width) {
     increasePlayerScore();
     resetBall();
@@ -175,9 +165,7 @@ function update() {
 
 // Reset Ball Position
 function resetBall() {
-  // @ts-ignore
   ballX = canvas?.width / 2;
-  // @ts-ignore
   ballY = canvas?.height / 2;
   ballSpeedX = -ballSpeedX;
 }
@@ -196,13 +184,15 @@ document.addEventListener("keydown", (ev) => {
  */
 function gameLoop(currentTime) {
   if (lastTime !== undefined && currentTime !== undefined) {
-    // @ts-ignore
     delta = Math.round(currentTime - lastTime);
-    console.log(`Frame time: ${Math.round(delta)}ms`);
     lastTime = currentTime;
   }
   draw();
   update();
   requestAnimationFrame(gameLoop);
 }
+
+
+startGameButton?.addEventListener("click", startGame); 
+resetGameButton?.addEventListener("click", resetGame);
 
