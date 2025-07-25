@@ -171,12 +171,23 @@ function resetBall() {
 }
 
 document.addEventListener("keydown", (ev) => {
-  if (ev.key === "W" || ev.key === "ArrowUp") {
+  if ((ev.key === "W" || ev.key === "ArrowUp") && paddle1Y - paddleHeight > 0) {
     paddle1Y -= 60;
-  } else if (ev.key === "S" || ev.key === "ArrowDown") {
+  } else if ((ev.key === "S" || ev.key === "ArrowDown") && paddle1Y + paddleHeight < canvas?.height) {
     paddle1Y += 60;
   }
 });
+
+document.addEventListener("mousemove", (e) => {
+  if (e.movementY > e.y && paddle1Y - paddleHeight > 0)
+  {
+    paddle1Y -= 60;
+  }
+  else if(e.movementY < e.y && paddle1Y + paddleHeight < canvas?.height)
+  {
+    paddle1Y += 60;
+  }
+}); 
 
 // Game Loop
 /**
