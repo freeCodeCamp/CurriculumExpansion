@@ -25,16 +25,6 @@ body {
   display: none;
 }
 
-.start-button {
-  background-color: #00a450;
-  color: #ffffff;
-}
-
-.reset-button {
-  background-color: #006537;
-  color: black;
-}
-
 .player-score {
   color: #ffffff;
   text-align: left;
@@ -64,14 +54,13 @@ body {
 }
 
 button {
-  font-weight: bold;
-  width: 6rem;
-  height: 3rem;
-  border-radius: 2em;
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-button:hover
-{
-  background-color: #d3f9e4;
-  cursor:pointer; 
+button:hover {
+  background-color: #169247;
 }
