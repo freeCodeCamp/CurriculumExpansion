@@ -1,10 +1,32 @@
+import { ChangeEvent, EventHandler, useState } from 'react';
 import './App.css';
 
-export function App() {
+
+
+function Field({ labelText,onChange }: { labelText: string,onChange: EventHandler<ChangeEvent> }) {
   return (
     <>
-      <h1>Parcel React App</h1>
-      <p>Edit <code>src/App.tsx</code> to get started!</p>
+      <label>{labelText}  <input onChange={onChange}></input></label>
+    </>
+  );
+}
+
+
+export function App() {
+  const [value, setValue] = useState("");
+  function handleUpdateName(e: ChangeEvent)
+  {
+    setValue((e.target as HTMLInputElement).value);
+  }
+
+  return (
+    <>
+      <div>
+        <Field labelText='Name' onChange={handleUpdateName}/>
+      </div>
+      <div>
+      <p id="name">{value}</p>
+      </div>
     </>
   );
 }
