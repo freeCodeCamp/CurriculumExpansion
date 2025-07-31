@@ -1,8 +1,6 @@
-html {
-  color-scheme: light dark;
-  font-family: system-ui;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+body
+{
+  background-color: rgb(151, 81, 230);
+  color:white;
+  text-align: center;
 }
