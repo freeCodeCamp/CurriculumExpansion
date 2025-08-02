@@ -28,7 +28,7 @@ let ballX = canvas?.width / 2;
 let ballY = canvas?.height / 2;
 let ballSpeedX = 5;
 let ballSpeedY = 5;
-let showingWinScreen = false; 
+
 
 function startGame() {
   const gameRules = document.querySelector(".game-rules");
@@ -43,21 +43,18 @@ function startGame() {
 }
 
 function resetGame() {
-  playerScore = 0;
-  computerScore = 0;
-  
-  playerOneScoreElement.textContent = "Player:" + playerScore;
-  
-  playerTwoScoreElement.textContent = "Computer:" + computerScore;
-}
 
-function handleMouseClick(evt) {
-  if (showingWinScreen) {
-    playerScore = 0;
+  if (confirm("Reset the game?"))
+  {
+     playerScore = 0;
     computerScore = 0;
-    showingWinScreen = false;
+    
+    playerOneScoreElement.textContent = "Player:" + playerScore;
+    
+    playerTwoScoreElement.textContent = "Computer:" + computerScore;
   }
 }
+
 
 // Draw Functions
 /**
@@ -205,11 +202,6 @@ canvas.addEventListener('mousemove',
     paddle1Y = mousePos.y - (paddleHeight / 2);
     paddle1Y = Math.min(Math.max(0, paddle1Y), canvas?.height - paddleHeight); 
   });
-
-canvas.addEventListener('mousedown', handleMouseClick);
-
-
-
 
 // Game Loop
 /**
