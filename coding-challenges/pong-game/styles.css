@@ -1,13 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   background-color: #002e17;
   color: #d3f9e4;
   text-align: center;
+  font-size: 1.075em;
 }
 
 .board {
@@ -15,10 +10,11 @@ body {
 }
 
 .game-rules {
+  padding-top: 0.625rem;
   height: 15rem;
   width: 15rem;
   background-color: #005430;
-  border-radius: 2em;
+  border-radius: 2rem
 }
 
 .hidden {

@@ -28,6 +28,7 @@ let ballX = canvas?.width / 2;
 let ballY = canvas?.height / 2;
 let ballSpeedX = 5;
 let ballSpeedY = 5;
+let showingWinScreen = false; 
 
 function startGame() {
   const gameRules = document.querySelector(".game-rules");
@@ -48,6 +49,14 @@ function resetGame() {
   playerOneScoreElement.textContent = "Player:" + playerScore;
   
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
+}
+
+function handleMouseClick(evt) {
+  if (showingWinScreen) {
+    playerScore = 0;
+    computerScore = 0;
+    showingWinScreen = false;
+  }
 }
 
 // Draw Functions
@@ -178,16 +187,29 @@ document.addEventListener("keydown", (ev) => {
   }
 });
 
-document.addEventListener("mousemove", (e) => {
-  if (e.movementY > e.y && paddle1Y - paddleHeight > 0)
-  {
-    paddle1Y -= 60;
-  }
-  else if(e.movementY < e.y && paddle1Y + paddleHeight < canvas?.height)
-  {
-    paddle1Y += 60;
-  }
-}); 
+function calculateMousePos(evt) {
+  var rect = canvas.getBoundingClientRect();
+  var root = document.documentElement;
+  var mouseX = evt.clientX - rect.left - root.scrollLeft;
+  var mouseY = evt.clientY - rect.top - root.scrollTop;
+  return {
+    x: mouseX,
+    y: mouseY
+  };
+}
+
+
+canvas.addEventListener('mousemove',
+  function (evt) {
+    var mousePos = calculateMousePos(evt);
+    paddle1Y = mousePos.y - (paddleHeight / 2);
+    paddle1Y = Math.min(Math.max(0, paddle1Y), canvas?.height - paddleHeight); 
+  });
+
+canvas.addEventListener('mousedown', handleMouseClick);
+
+
+
 
 // Game Loop
 /**
