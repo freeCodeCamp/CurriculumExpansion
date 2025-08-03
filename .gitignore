@@ -1,3 +1,10 @@
-mongodb-movie-review-db/node_modules
+# Libraries 
+node_modules/
+
+# Parcel projects
+.parcel-cache/
+
+# Build Output
+dist/
 
 .DS_Store
