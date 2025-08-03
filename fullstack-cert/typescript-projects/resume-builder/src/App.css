@@ -6,3 +6,12 @@ html {
   justify-content: center;
   height: 100%;
 }
+
+.content
+{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:100%; 
+}
+

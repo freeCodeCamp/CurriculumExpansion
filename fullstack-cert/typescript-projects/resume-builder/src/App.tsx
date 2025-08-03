@@ -1,31 +1,112 @@
-import { ChangeEvent, EventHandler, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './App.css';
-
-
-
-function Field({ labelText,onChange }: { labelText: string,onChange: EventHandler<ChangeEvent> }) {
-  return (
-    <>
-      <label>{labelText}  <input onChange={onChange}></input></label>
-    </>
-  );
-}
+import { Field } from './Field';
 
 
 export function App() {
-  const [value, setValue] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [objective, setObjective] = useState("");
+  const [degree, setDegree] = useState("");
+  const [gradYear, setGradYear] = useState(0);
+
+
   function handleUpdateName(e: ChangeEvent)
   {
-    setValue((e.target as HTMLInputElement).value);
+    setName((e.target as HTMLInputElement).value);
   }
+
+  function handleUpdateEmail(e: ChangeEvent)
+  {
+    setEmail((e.target as HTMLInputElement).value);
+  }
+
+  function handleUpdatePhone(e: ChangeEvent) {
+    setPhone((e.target as HTMLInputElement).value);
+  }
+
+  function handleUpdateObjective(e: ChangeEvent) {
+    setObjective((e.target as HTMLInputElement).value);
+  }
+
+  function handleUpdateDegree(e: ChangeEvent) {
+    setDegree((e.target as HTMLInputElement).value);
+  }
+
+  function handleUpdateGradYear(e: ChangeEvent) {
+    const gradYear = parseInt((e.target as HTMLInputElement).value);
+    const cutOffYear = 1976; 
+    if (Number.isSafeInteger(gradYear) && gradYear > cutOffYear)
+    {
+      setGradYear(parseInt((e.target as HTMLInputElement).value));
+    }
+    else 
+    {
+      // TODO: add validation
+    }
+  }
+
 
   return (
     <>
-      <div>
-        <Field labelText='Name' onChange={handleUpdateName}/>
-      </div>
-      <div>
-      <p id="name">{value}</p>
+      <div className="content">
+        <h2>Personal Information</h2>
+        <form>
+          <Field
+            onChange={handleUpdateName}
+            labelText={"Name"}
+            fieldType={"text"}
+          ></Field>
+
+          <Field
+            onChange={handleUpdateEmail}
+            labelText={"Email"}
+            fieldType={"email"}
+          ></Field>
+          <Field
+            onChange={handleUpdatePhone}
+            labelText={"Phone"}
+            fieldType={"phone"}
+          ></Field>
+          <Field
+            onChange={handleUpdateObjective}
+            labelText={"Objective"}
+            fieldType={"text"}
+          ></Field>
+          <Field
+            onChange={handleUpdateDegree}
+            labelText={"Degree"}
+            fieldType={"text"}
+          ></Field>
+          <Field
+            onChange={handleUpdateGradYear}
+            labelText={"Degree"}
+            fieldType={"text"}
+          ></Field>
+        </form>
+        <article>
+          <label>
+            Name: <p id="name">{name}</p>
+          </label>
+          <label>
+            Email: <p id="email">{email}</p>
+          </label>
+          <label>
+            Email: <p id="phone">{phone}</p>
+          </label>
+          <label>
+            Objective: <p id="objective">{objective}</p>
+          </label>
+          <div>
+            <label>
+              Degree: <p id="degree">{degree}</p>
+            </label>
+            <label>
+              Year: <p id="gradYear">{gradYear}</p>
+            </label>
+          </div>
+        </article>
       </div>
     </>
   );
