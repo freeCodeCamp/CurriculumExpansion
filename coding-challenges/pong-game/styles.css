@@ -10,11 +10,17 @@ body {
 }
 
 .game-rules {
+  font-size: 1.2em;
   padding-top: 0.625rem;
-  height: 15rem;
-  width: 15rem;
   background-color: #005430;
   border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .game-rules {
+    width: 50% !important;
+  }
 }
 
 .hidden {
