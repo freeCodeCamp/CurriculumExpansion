@@ -1,0 +1,126 @@
+body {
+  background-color: #002e17;
+  color: #d3f9e4;
+  text-align: center;
+  font-size: 1.075em;
+}
+
+.board {
+  border-radius: 14px;
+}
+
+.game-rules {
+  font-size: 1.2em;
+  padding-top: 0.625rem;
+  background-color: #005430;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .game-rules {
+    width: 50% !important;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.player-score {
+  color: #ffffff;
+  text-align: left;
+  font-size: 1.725em;
+}
+
+.computer-score {
+  color: #ffffff;
+  text-align: right;
+  justify-content: flex-end;
+  font-size: 1.725em;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.inline {
+  justify-content: space-between;
+  display: flex;
+}
+
+.green-border {
+  border: 3px solid green;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #169247;
+}
+
+.reset-modal {
+  border: none;
+  border-radius: 1rem;
+  padding: 0;
+  background: transparent;
+  max-width: 400px;
+  width: 90%;
+}
+
+.reset-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: #005430;
+  color: #d3f9e4;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.confirm-btn:hover {
+  background-color: #b91c1c;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: #ffffff;
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
