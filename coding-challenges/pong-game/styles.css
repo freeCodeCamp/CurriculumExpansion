@@ -66,3 +66,61 @@ button {
 button:hover {
   background-color: #169247;
 }
+
+.reset-modal {
+  border: none;
+  border-radius: 1rem;
+  padding: 0;
+  background: transparent;
+  max-width: 400px;
+  width: 90%;
+}
+
+.reset-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: #005430;
+  color: #d3f9e4;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.confirm-btn:hover {
+  background-color: #b91c1c;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: #ffffff;
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}

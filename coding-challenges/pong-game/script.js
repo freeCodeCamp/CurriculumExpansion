@@ -2,11 +2,15 @@ let lastTime = 0;
 let delta = 1;
 let playerScore = 0;
 let computerScore = 0;
+let gameRunning = false;
 const playerOneScoreElement = document.querySelector("#player-score");
 const playerTwoScoreElement = document.querySelector("#computer-score");
 const canvas = document.getElementById("board");
 const startGameButton = document.getElementById("start-game");
 const resetGameButton = document.getElementById("reset");
+const resetModal = document.getElementById("reset-modal");
+const confirmResetButton = document.getElementById("confirm-reset");
+const cancelResetButton = document.getElementById("cancel-reset");
 const ctx = canvas.getContext("2d");
 
 // Paddle Variables
@@ -32,24 +36,33 @@ function startGame() {
   gameRules?.classList.add("hidden");
   game?.classList.remove("hidden");
 
-  playerOneScoreElement.textContent = "Player:" + playerScore;
+  playerOneScoreElement.textContent = "Player: " + playerScore;
 
-  playerTwoScoreElement.textContent = "Computer:" + computerScore;
+  playerTwoScoreElement.textContent = "Computer: " + computerScore;
+  gameRunning = true;
   gameLoop();
 }
 
 function resetGame() {
-  if (confirm("Reset the game?")) {
-    playerScore = 0;
-    computerScore = 0;
-
-    playerOneScoreElement.textContent = "Player:" + playerScore;
-
-    playerTwoScoreElement.textContent = "Computer:" + computerScore;
-  }
+  gameRunning = false;
+  resetModal.showModal();
 }
 
-// Draw Functions
+function confirmReset() {
+  playerScore = 0;
+  computerScore = 0;
+
+  playerOneScoreElement.textContent = "Player: " + playerScore;
+  playerTwoScoreElement.textContent = "Computer: " + computerScore;
+
+  resetModal.close();
+  gameRunning = true;
+}
+
+function cancelReset() {
+  resetModal.close();
+  gameRunning = true;
+} // Draw Functions
 /**
  * @param {number} x
  * @param {number} y
@@ -118,6 +131,8 @@ function increaseComputerScore() {
 }
 
 function update() {
+  if (!gameRunning) return;
+
   // Move Ball
   ballX += ballSpeedX;
   ballY += ballSpeedY;
@@ -207,3 +222,13 @@ function gameLoop(currentTime) {
 
 startGameButton?.addEventListener("click", startGame);
 resetGameButton?.addEventListener("click", resetGame);
+confirmResetButton?.addEventListener("click", confirmReset);
+cancelResetButton?.addEventListener("click", cancelReset);
+
+// Close modal when clicking outside of it
+resetModal?.addEventListener("click", (e) => {
+  if (e.target === resetModal) {
+    resetModal.close();
+    gameRunning = true;
+  }
+});
