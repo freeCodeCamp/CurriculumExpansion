@@ -1,6 +1,129 @@
-body
-{
-  background-color: rgb(151, 81, 230);
-  color:white;
-  text-align: center;
+
+:root {
+    /* Background Colors */
+    --bg-main: #0B0F1A;
+    --bg-card: #131622;
+    --bg-secondary: #232633;
+
+    /* Text Colors */
+    --text-primary: #F7E580;
+    --text-muted: #B8A880;
+    --text-dark: #0B0F1A;
+
+    /* Border Colors */
+    --border-main: #2A2D3A;
+    --border-input: #232633;
+
+    /* Accent Colors */
+    --accent-primary: #8080FF;
+    --accent-secondary: #B8A866;
+    --accent-mystic: #BF80FF;
+    --accent-light-cosmic: #B3B3FF;
+    --accent-light-gold: #F2D966;
+
+    /* Interactive Colors */
+    --focus-ring: #8080FF;
+    --destructive: #E53E3E;
+
+    /* Gradient Colors */
+    --gradient-cosmic-from: #8080FF;
+    --gradient-cosmic-to: #BF80FF;
+    --gradient-gold-from: #B8A866;
+    --gradient-gold-to: #F2D966;
+    --gradient-card-from: #131622;
+    --gradient-card-to: #1A1E2E;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color:var(--text-primary);
+    text-align: center;
+}
+
+
+#main_container{
+    padding:1rem;
+    width:100%;
+    height:auth;
+}
+
+h1{
+    color:var(--accent-mystic);
+    font-weight:700;
+    font-size:3rem;
+    padding-bottom:12px;
+
+}
+h2{
+    color:var(--accent-light-gold);
+    font-weight:700;
+    font-size:1.75rem;
+    margin:2rem 0;
+
+}
+p{
+    color:var(--accent-secondary);
+    font-size:1.8rem;
+    font-weight:1.75;
+}
+
+.btn_wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.5rem;
+    justify-content:center;
+}
+.btn{
+    color:var(--text-dark);
+    font-weight:600;
+    font-size:1.125rem;
+    padding:1rem 3rem;
+    cursor:pointer;
+    white-space:nowrap;
+   border-radius:.3em;
+    outline:none;
+    border:none
+    }
+.btn_singleCard{
+ background-image:linear-gradient(to right ,var(--gradient-cosmic-from), var(--gradient-cosmic-to))
+}
+
+.btn_threeCard{
+ color:var(--accent-light-gold);
+ background-image:linear-gradient(to right , var(--gradient-cosmic-to), var(--gradient-cosmic-from))
+}
+
+ .btn:hover{
+ background-image:linear-gradient(to right, var(--gradient-cosmic-to))
+}
+
+
+
+/* Small devices (phones in landscape, ≥ 600px) */
+@media screen and (min-width: 600px) {
+h1{
+        font-size:4.5rem;
+    }
+
+.btn_wrapper{
+    flex-direction:row;
+
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1200px) {
 }

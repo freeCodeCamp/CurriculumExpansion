@@ -1,16 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortune Telling App</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Fortune Telling App</h1>
-    <img id="fortune-image"/>
-    <h3 id="card-title"></h3>
-    <p id="card-description"></p>
-    <script src="script.ts"/>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fortune Telling App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!---->
+        <!-- <h1>Fortune Telling App</h1> -->
+        <!-- <img id="fortune-image"/> -->
+        <!-- <h3 id="card-title"></h3> -->
+        <!-- <p id="card-description"></p> -->
+        <!---->
+
+        <main id="main_container">
+
+            <!-- title start  -->
+            <div>
+                <h1>MyStic Tarot</h1>
+                <p>Discover the wisdom of the cards and unveil the mysteris of your path</p>
+            </div>
+            <!-- title start end -->
+
+
+            <!-- buttons start -->
+            <div  id="btn_title_container">
+
+
+               <!-- we will replace this title when card is being fetch  -->
+                <div class="title_wrapper">
+                    <h2>Choose Your Reading</h2>
+                </div>
+
+                <div class="btn_wrapper">
+                    <button class="btn btn_singleCard">Single Card Reading </button>
+                    <button class="btn btn_threeCard">Three Card Spread</button>
+
+                </div>
+            </div>
+            <!-- buttons end  -->
+
+        </main>
+
+
+        <script src="script.ts"/>
+</body>
 </html>
