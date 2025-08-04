@@ -117,7 +117,6 @@ function increaseComputerScore() {
   playerTwoScoreElement.textContent = "Computer: " + computerScore.toString();
 }
 
-// Update Function
 function update() {
   // Move Ball
   ballX += ballSpeedX;
@@ -129,15 +128,28 @@ function update() {
   }
 
   // Ball Collision with Paddles
+  // Left paddle collision
   if (
-    (ballX - ballSize < paddleWidth &&
-      ballY > paddle1Y &&
-      ballY < paddle1Y + paddleHeight) ||
-    (ballX + ballSize > canvas?.width - paddleWidth &&
-      ballY > paddle2Y &&
-      ballY < paddle2Y + paddleHeight)
+    ballX - ballSize <= paddleWidth &&
+    ballX - ballSize > 0 &&
+    ballY >= paddle1Y &&
+    ballY <= paddle1Y + paddleHeight &&
+    ballSpeedX < 0
   ) {
     ballSpeedX = -ballSpeedX;
+    ballX = paddleWidth + ballSize; // Move ball away from paddle
+  }
+
+  // Right paddle collision
+  if (
+    ballX + ballSize >= canvas?.width - paddleWidth &&
+    ballX + ballSize < canvas?.width &&
+    ballY >= paddle2Y &&
+    ballY <= paddle2Y + paddleHeight &&
+    ballSpeedX > 0
+  ) {
+    ballSpeedX = -ballSpeedX;
+    ballX = canvas?.width - paddleWidth - ballSize; // Move ball away from paddle
   }
 
   const paddle2Center = paddleHeight / 2 + paddle2Y;
@@ -157,29 +169,17 @@ function update() {
   }
 }
 
-// Reset Ball Position
 function resetBall() {
   ballX = canvas?.width / 2;
   ballY = canvas?.height / 2;
   ballSpeedX = -ballSpeedX;
 }
 
-document.addEventListener("keydown", (ev) => {
-  if ((ev.key === "W" || ev.key === "ArrowUp") && paddle1Y > 0) {
-    paddle1Y -= 8;
-  } else if (
-    (ev.key === "S" || ev.key === "ArrowDown") &&
-    paddle1Y + paddleHeight < canvas?.height
-  ) {
-    paddle1Y += 8;
-  }
-});
-
 function calculateMousePos(evt) {
-  var rect = canvas.getBoundingClientRect();
-  var root = document.documentElement;
-  var mouseX = evt.clientX - rect.left - root.scrollLeft;
-  var mouseY = evt.clientY - rect.top - root.scrollTop;
+  const rect = canvas.getBoundingClientRect();
+  const root = document.documentElement;
+  const mouseX = evt.clientX - rect.left - root.scrollLeft;
+  const mouseY = evt.clientY - rect.top - root.scrollTop;
   return {
     x: mouseX,
     y: mouseY,
@@ -187,7 +187,7 @@ function calculateMousePos(evt) {
 }
 
 canvas.addEventListener("mousemove", function (evt) {
-  var mousePos = calculateMousePos(evt);
+  const mousePos = calculateMousePos(evt);
   paddle1Y = mousePos.y - paddleHeight / 2;
   paddle1Y = Math.min(Math.max(0, paddle1Y), canvas?.height - paddleHeight);
 });
