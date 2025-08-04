@@ -1,6 +1,5 @@
 let lastTime = 0;
 let delta = 1;
-let lastMoveTime = 0;
 let playerScore = 0;
 let computerScore = 0;
 const playerOneScoreElement = document.querySelector("#player-score");
@@ -24,8 +23,8 @@ const ballSize = 10;
 let ballX = canvas?.width / 2;
 
 let ballY = canvas?.height / 2;
-let ballSpeedX = 5;
-let ballSpeedY = 5;
+let ballSpeedX = 3.5;
+let ballSpeedY = 3.5;
 
 function startGame() {
   const gameRules = document.querySelector(".game-rules");
@@ -142,12 +141,10 @@ function update() {
   }
 
   const paddle2Center = paddleHeight / 2 + paddle2Y;
-  if (paddle2Center < ballY - 35 && lastMoveTime > 10) {
-    paddle2Y += 60;
-    lastMoveTime = 0;
-  } else if (paddle2Center > ballY + 35 && lastMoveTime > 10) {
-    paddle2Y -= 60;
-    lastMoveTime = 0;
+  if (paddle2Center < ballY - 35) {
+    paddle2Y += 6;
+  } else if (paddle2Center > ballY + 35) {
+    paddle2Y -= 6;
   }
 
   // Ball Out of Bounds
@@ -158,7 +155,6 @@ function update() {
     increasePlayerScore();
     resetBall();
   }
-  lastMoveTime++;
 }
 
 // Reset Ball Position
@@ -169,13 +165,13 @@ function resetBall() {
 }
 
 document.addEventListener("keydown", (ev) => {
-  if ((ev.key === "W" || ev.key === "ArrowUp") && paddle1Y - paddleHeight > 0) {
-    paddle1Y -= 60;
+  if ((ev.key === "W" || ev.key === "ArrowUp") && paddle1Y > 0) {
+    paddle1Y -= 8;
   } else if (
     (ev.key === "S" || ev.key === "ArrowDown") &&
     paddle1Y + paddleHeight < canvas?.height
   ) {
-    paddle1Y += 60;
+    paddle1Y += 8;
   }
 });
 
