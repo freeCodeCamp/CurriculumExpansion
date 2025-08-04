@@ -127,7 +127,6 @@ function update() {
     ballSpeedY = -ballSpeedY;
   }
 
-  // Ball Collision with Paddles
   // Left paddle collision
   if (
     ballX - ballSize <= paddleWidth &&
@@ -137,7 +136,7 @@ function update() {
     ballSpeedX < 0
   ) {
     ballSpeedX = -ballSpeedX;
-    ballX = paddleWidth + ballSize; // Move ball away from paddle
+    ballX = paddleWidth + ballSize;
   }
 
   // Right paddle collision
@@ -149,7 +148,7 @@ function update() {
     ballSpeedX > 0
   ) {
     ballSpeedX = -ballSpeedX;
-    ballX = canvas?.width - paddleWidth - ballSize; // Move ball away from paddle
+    ballX = canvas?.width - paddleWidth - ballSize;
   }
 
   const paddle2Center = paddleHeight / 2 + paddle2Y;
