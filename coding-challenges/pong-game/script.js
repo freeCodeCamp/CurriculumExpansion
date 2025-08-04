@@ -1,6 +1,6 @@
 let lastTime = 0;
 let delta = 1;
-let lastMoveTime = 0; 
+let lastMoveTime = 0;
 let playerScore = 0;
 let computerScore = 0;
 const fps = 25;
@@ -9,7 +9,7 @@ const playerTwoScoreElement = document.querySelector("#computer-score");
 const playerOne = document.querySelector(".player_1");
 const canvas = document.getElementById("board");
 const startGameButton = document.getElementById("start-game");
-const resetGameButton = document.getElementById("reset"); 
+const resetGameButton = document.getElementById("reset");
 const ctx = canvas.getContext("2d");
 
 // Paddle Variables
@@ -29,32 +29,28 @@ let ballY = canvas?.height / 2;
 let ballSpeedX = 5;
 let ballSpeedY = 5;
 
-
 function startGame() {
   const gameRules = document.querySelector(".game-rules");
   const game = document.querySelector("#game");
   gameRules?.classList.add("hidden");
   game?.classList.remove("hidden");
-  
+
   playerOneScoreElement.textContent = "Player:" + playerScore;
-  
+
   playerTwoScoreElement.textContent = "Computer:" + computerScore;
-  gameLoop(); 
+  gameLoop();
 }
 
 function resetGame() {
-
-  if (confirm("Reset the game?"))
-  {
-     playerScore = 0;
+  if (confirm("Reset the game?")) {
+    playerScore = 0;
     computerScore = 0;
-    
+
     playerOneScoreElement.textContent = "Player:" + playerScore;
-    
+
     playerTwoScoreElement.textContent = "Computer:" + computerScore;
   }
 }
-
 
 // Draw Functions
 /**
@@ -85,9 +81,9 @@ function drawCircle(x, y, radius, color) {
 function drawSeparator() {
   ctx.beginPath();
   ctx.setLineDash([5, 15]);
-  
+
   ctx.moveTo(canvas?.width / 2, 0);
-  
+
   ctx.lineTo(canvas?.height, canvas?.width / 2);
   ctx.strokeStyle = "#8dff41";
 
@@ -107,7 +103,7 @@ function draw() {
     paddle2Y,
     paddleWidth,
     paddleHeight,
-    "#00df86",
+    "#00df86"
   );
 
   // Draw Ball
@@ -147,26 +143,24 @@ function update() {
     ballSpeedX = -ballSpeedX;
   }
 
-  const paddle2Center = (paddleHeight / 2) + paddle2Y;
+  const paddle2Center = paddleHeight / 2 + paddle2Y;
   if (paddle2Center < ballY - 35 && lastMoveTime > 10) {
     paddle2Y += 60;
-    lastMoveTime = 0; 
-  }
-  else if (paddle2Center > ballY + 35 && lastMoveTime > 10 ) {
+    lastMoveTime = 0;
+  } else if (paddle2Center > ballY + 35 && lastMoveTime > 10) {
     paddle2Y -= 60;
-    lastMoveTime = 0; 
+    lastMoveTime = 0;
   }
 
   // Ball Out of Bounds
   if (ballX - ballSize < 0) {
     increaseComputerScore();
     resetBall();
-  }
-  else if (ballX + ballSize > canvas?.width) {
+  } else if (ballX + ballSize > canvas?.width) {
     increasePlayerScore();
     resetBall();
   }
-  lastMoveTime++; 
+  lastMoveTime++;
 }
 
 // Reset Ball Position
@@ -179,7 +173,10 @@ function resetBall() {
 document.addEventListener("keydown", (ev) => {
   if ((ev.key === "W" || ev.key === "ArrowUp") && paddle1Y - paddleHeight > 0) {
     paddle1Y -= 60;
-  } else if ((ev.key === "S" || ev.key === "ArrowDown") && paddle1Y + paddleHeight < canvas?.height) {
+  } else if (
+    (ev.key === "S" || ev.key === "ArrowDown") &&
+    paddle1Y + paddleHeight < canvas?.height
+  ) {
     paddle1Y += 60;
   }
 });
@@ -191,17 +188,15 @@ function calculateMousePos(evt) {
   var mouseY = evt.clientY - rect.top - root.scrollTop;
   return {
     x: mouseX,
-    y: mouseY
+    y: mouseY,
   };
 }
 
-
-canvas.addEventListener('mousemove',
-  function (evt) {
-    var mousePos = calculateMousePos(evt);
-    paddle1Y = mousePos.y - (paddleHeight / 2);
-    paddle1Y = Math.min(Math.max(0, paddle1Y), canvas?.height - paddleHeight); 
-  });
+canvas.addEventListener("mousemove", function (evt) {
+  var mousePos = calculateMousePos(evt);
+  paddle1Y = mousePos.y - paddleHeight / 2;
+  paddle1Y = Math.min(Math.max(0, paddle1Y), canvas?.height - paddleHeight);
+});
 
 // Game Loop
 /**
@@ -217,7 +212,5 @@ function gameLoop(currentTime) {
   requestAnimationFrame(gameLoop);
 }
 
-
-startGameButton?.addEventListener("click", startGame); 
+startGameButton?.addEventListener("click", startGame);
 resetGameButton?.addEventListener("click", resetGame);
-
