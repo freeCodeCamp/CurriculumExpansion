@@ -108,7 +108,7 @@ h5{
     flex-direction:column;
     gap:5px;
     align-items:center;
-    justify-content:center:
+    justify-content:center;
 }
 
 
@@ -144,7 +144,7 @@ h5{
 }
 
 .btn_revil{
-    color: var(text-dark);
+    color: var(--text-dark);
     font-weight: 500;
     font-size: .875rem;
     line-height: 1.25rem;
@@ -157,7 +157,7 @@ h5{
     border:none;
     background-color:var(--gradient-gold-to);
     border-radius: 0.3rem;
-    margin:1rem:
+    margin:1rem;
 }
 
 .btn_revil:hover{
