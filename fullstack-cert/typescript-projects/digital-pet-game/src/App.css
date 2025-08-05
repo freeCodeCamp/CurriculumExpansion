@@ -6,3 +6,68 @@ html {
   justify-content: center;
   height: 100%;
 }
+
+.pet-shell {
+  position: relative;
+  width: 50%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.pet-shell img {
+  display: block;
+  width: 100%;
+}
+
+.pet-hud {
+  box-sizing: border-box;
+  position: absolute;
+  top: 24%;
+  left: 31%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 36.25%;
+  padding: 0px 5px;
+  background: green;
+}
+
+:root {
+  --ratio: 0.5;
+
+  --font1-sizeVW: 15vh;
+  --font1-sizeVH: calc(var(--ratio) * 3vw);
+}
+
+.pet-hud #pet-species {
+  font-size: 16;
+  font-family: "Tektur", sans-serif;
+  margin: 0;
+  background: black;
+}
+
+.pet-hud #happiness-meter {
+  background: red;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+.pet-sprite {
+  position: absolute;
+  top: 35%;
+  left: 32.7%;
+  width: 35%;
+}
+
+.pet-sprite img {
+  width: 100%;
+  height: 100%;
+}
+
+@media all and (max-width: 850px) {
+  .pet-hud #pet-species {
+    font-size: var(--font1-sizeVH);
+  }
+}
