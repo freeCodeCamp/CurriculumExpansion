@@ -187,14 +187,14 @@ h5{
     width:10rem;
     height:15rem;
     border:2px solid var(--accent-light-gold);
+ box-shadow: 0 0 7px var(--accent-light-gold);
     border-radius:.5rem;
     color:var(--accent-light-gold);
     cursor:pointer;
     z-index:1;
   transform:rotate(180deg);
- transition: transform 0.7s ease;
+ transition: transform 0.4s ease;
 }
-
 .card_front:hover{
   transform:rotate(0deg) translateY(-4%);
 }
@@ -223,6 +223,15 @@ h5{
 
 }
 
+.multiple_card{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    }
+
+
 
 /* Small devices (phones in landscape, ≥ 600px) */
 @media screen and (min-width: 600px) {
@@ -239,9 +248,10 @@ h5{
 padding:2rem;
 width:60%
     }
-
-
-
+.multiple_card{
+    gap:30px;
+    flex-direction:row;
+    }
     }
 
     @media screen and (min-width: 768px) {
