@@ -69,11 +69,48 @@ h2{
     margin:2rem 0;
 
 }
-p{
+h6{
     color:var(--accent-secondary);
     font-size:1.8rem;
     font-weight:1.75;
 }
+
+h5{
+    color:var(--text-muted);
+    font-size:1.1rem;
+}
+
+
+.fortune_description{
+    width:99%;
+    border:1px solid var(--accent-light-cosmic);
+    border-radius:.5rem;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:center;
+    margin:1rem auto;
+    padding:1rem;
+    h2{
+        margin:0;
+        padding-bottom:1rem;
+    }
+
+}
+
+.description_wrapper{
+    background-color:var(--border-input);
+    border-radius:.5rem;
+    color:var(--accent-secondary);
+    padding:2rem;
+    margin:1rem 0;
+    display:flex;  
+    flex-direction:column;
+    gap:5px;
+    align-items:center;
+    justify-content:center:
+}
+
 
 .btn_wrapper{
     display:flex;
@@ -89,41 +126,129 @@ p{
     padding:1rem 3rem;
     cursor:pointer;
     white-space:nowrap;
-   border-radius:.3em;
+    border-radius:.3em;
     outline:none;
     border:none
-    }
+}
 .btn_singleCard{
- background-image:linear-gradient(to right ,var(--gradient-cosmic-from), var(--gradient-cosmic-to))
+    background-image:linear-gradient(to right ,var(--gradient-cosmic-from), var(--gradient-cosmic-to))
 }
 
 .btn_threeCard{
- color:var(--accent-light-gold);
- background-image:linear-gradient(to right , var(--gradient-cosmic-to), var(--gradient-cosmic-from))
+    color:var(--accent-light-gold);
+    background-image:linear-gradient(to right , var(--gradient-cosmic-to), var(--gradient-cosmic-from))
 }
 
- .btn:hover{
- background-image:linear-gradient(to right, var(--gradient-cosmic-to))
+.btn:hover{
+    background-image:linear-gradient(to right, var(--gradient-cosmic-to))
 }
 
+.btn_revil{
+    color: var(text-dark);
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor:pointer;
+    outline:none;
+    border:none;
+    background-color:var(--gradient-gold-to);
+    border-radius: 0.3rem;
+    margin:1rem:
+}
+
+.btn_revil:hover{
+    background-color:var(--gradient-gold-from);
+}
+
+.hidden{
+    display:none;
+}
+
+
+.card_container{
+    position:relative;
+    width:100%;
+    height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+.card_front{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:center;
+    gap:15px;
+    width:10rem;
+    height:15rem;
+    border:2px solid var(--accent-light-gold);
+    border-radius:.5rem;
+    color:var(--accent-light-gold);
+    cursor:pointer;
+    z-index:1;
+  transform:rotate(180deg);
+ transition: transform 0.7s ease;
+}
+
+.card_front:hover{
+  transform:rotate(0deg) translateY(-4%);
+}
+
+.card_front span:nth-child(2){
+    font-size:1.3rem;
+}
+
+.card_front span:nth-child(1){
+    font-size:1.8rem;
+}
+
+
+
+.card_back{
+    display:flex;
+    align-items:center;
+    width:10rem;
+    height:15rem;
+    border:2px solid var(--gradient-cosmic-from);
+    border-radius:.5rem;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+}
 
 
 /* Small devices (phones in landscape, ≥ 600px) */
 @media screen and (min-width: 600px) {
-h1{
+    h1{
         font-size:4.5rem;
     }
 
-.btn_wrapper{
-    flex-direction:row;
+    .btn_wrapper{
+        flex-direction:row;
+    }
 
-}
 
-@media screen and (min-width: 768px) {
-}
+.fortune_description{
+padding:2rem;
+width:60%
+    }
 
-@media screen and (min-width: 992px) {
-}
 
-@media screen and (min-width: 1200px) {
-}
+
+    }
+
+    @media screen and (min-width: 768px) {
+    }
+
+    @media screen and (min-width: 992px) {
+    }
+
+    @media screen and (min-width: 1200px) {
+    }
