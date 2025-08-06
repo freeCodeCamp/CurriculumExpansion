@@ -11,12 +11,14 @@ html {
 {
   display:inline-flex;
   flex-direction: row; 
+
 }
 
 .entry-form
 {
   display:flex;
   flex-direction: column; 
+  
 }
 
 .flashcard
@@ -25,9 +27,24 @@ html {
   border-color: red;
   text-align: center;
   justify-content: center;
+  
 }
 
 .error
 {
   color: red; 
 }
+
+/*form input styles*/
+#front-text, #back-text {
+  width: auto;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#back-text {
+  width: auto;
+  height: 200px;
+}
+
+
