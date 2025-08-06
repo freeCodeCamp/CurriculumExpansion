@@ -67,8 +67,8 @@ h2{
     font-weight:700;
     font-size:1.75rem;
     margin:2rem 0;
-
 }
+
 h6{
     color:var(--accent-secondary);
     font-size:1.8rem;
@@ -143,7 +143,7 @@ h5{
     background-image:linear-gradient(to right, var(--gradient-cosmic-to))
 }
 
-.btn_revil{
+.btn_reveal{
     color: var(--text-dark);
     font-weight: 500;
     font-size: .875rem;
@@ -160,7 +160,7 @@ h5{
     margin:1rem;
 }
 
-.btn_revil:hover{
+.btn_reveal:hover{
     background-color:var(--gradient-gold-from);
 }
 
@@ -192,10 +192,15 @@ h5{
     color:var(--accent-light-gold);
     cursor:pointer;
     z-index:1;
-  transform:rotate(180deg);
- transition: transform 0.4s ease;
 }
-.card_front:hover{
+
+.reversed-card
+{
+    transform:rotate(180deg);
+  transition: transform 0.4s ease;
+}
+
+.reversed-card:hover{
   transform:rotate(0deg) translateY(-4%);
 }
 
