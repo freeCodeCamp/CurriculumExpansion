@@ -10,6 +10,6 @@
   "devDependencies": {
     "@parcel/config-default": "^2.15.4",
     "@parcel/transformer-typescript-tsc": "^2.15.4",
-    "parcel": "^2.14.0"
+    "parcel": "^2.15.4"
   }
 }
