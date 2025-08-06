@@ -1,70 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fortune Telling App</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <main id="main_container">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Telling App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="main_container">
+      <!-- title start  -->
+      <div>
+        <h1>MyStic Tarot</h1>
+        <h6>
+          Discover the wisdom of the cards and unveil the mysteris of your path
+        </h6>
+      </div>
+      <!-- title start end -->
 
-            <!-- title start  -->
-            <div>
-                <h1>MyStic Tarot</h1>
-                <h6>Discover the wisdom of the cards and unveil the mysteris of your path</h6>
-            </div>
-            <!-- title start end -->
+      <!-- buttons start -->
+      <div id="btn_title_container">
+        <!-- we will replace this title when card is being fetch  -->
+        <div class="title_wrapper">
+          <h2>Choose Your Reading</h2>
+          <h2 class="hidden">Shuffling the cosmic deck...</h2>
+        </div>
 
+        <div class="btn_wrapper">
+          <button class="btn btn_singleCard" id="btn-single-card">
+            Single Card Reading
+          </button>
+          <button class="btn btn_threeCard" id="btn-multiple-cards">
+            Three Card Spread
+          </button>
+        </div>
+      </div>
+      <!-- buttons end  -->
+       
+      <section class="fortune_container hidden">
+        <div class="single_card"></div>
 
-            <!-- buttons start -->
-            <div  id="btn_title_container">
+        <!-- multiple fortune card  start-->
+        <h2 class="hidden text">Past • Present • Future</h2>
+        <div class="multiple_card hidden"></div>
+        <!-- multiple fortune card  end -->
 
+        <!-- fortune description container start  -->
+        <div class="fortune_description">
+          <h2>The Devil</h2>
+          <h5>Personal transformation, fear of change, averting disaster.</h5>
 
-                <!-- we will replace this title when card is being fetch  -->
-                <div class="title_wrapper">
-                    <h2>Choose Your Reading</h2>
-                    <h2 class="hidden">Shuffling the cosmic deck...</h2>
-                </div>
+          <div class="description_wrapper">
+            <span>Description:</span>
+            <p>
+              The High Priestess sits between two pillars, guarding the
+              threshold to the unconscious mind. She represents intuitive wisdom
+              and the mysteries that lie beneath the surface of consciousness.
+            </p>
+          </div>
+        </div>
+        <!-- fortune description container end-->
 
-                <div class="btn_wrapper">
-                    <button class="btn btn_singleCard" id="btn-single-card">Single Card Reading </button>
-                    <button class="btn btn_threeCard" id="btn-multiple-cards">Three Card Spread</button>
-                </div>
-            </div>
-            <!-- buttons end  -->
-
-            <section class="fortune_container hidden">
-
-                <div class="single_card">
-                </div>
-
-
-                <!-- multiple fortune card  start-->
-                <h2 class="hidden text">Past • Present • Future</h2>
-                <div class="multiple_card hidden"> </div>
-                <!-- multiple fortune card  end -->
-
-                <!-- fortune description container start  -->
-                <div class="fortune_description">
-
-                    <h2> The Devil </h2>
-                    <h5> Personal transformation, fear of change, averting disaster. </h5>
-
-                    <div class="description_wrapper"> 
-                        <span>Description:</span>
-                        <p> The High Priestess sits between two pillars, guarding the threshold to the unconscious mind. She represents intuitive wisdom and the mysteries that lie beneath the surface of consciousness. </p> </div>
-
-
-                </div>
-                <!-- fortune description container end-->
-
-                <button  class="btn_reveal">New Reading</button>
-
-            </section>
-
-
-        </main>
-        <script src="script.ts"/>
-</body>
+        <button class="btn_reveal">New Reading</button>
+      </section>
+    </main>
+    <script src="script.ts" />
+  </body>
 </html>
