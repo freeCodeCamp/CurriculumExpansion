@@ -84,7 +84,7 @@ export function App() {
           Email: <p id="email">{email}</p>
         </label>
         <label>
-          Email: <p id="phone">{phone}</p>
+          Phone: <p id="phone">{phone}</p>
         </label>
         <label>
           Objective: <p id="objective">{objective}</p>
