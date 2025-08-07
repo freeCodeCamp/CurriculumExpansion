@@ -171,28 +171,23 @@ h5{
 
 .card_container{
     position:relative;
-    width:100%;
-    height:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-}
-.card_front{
-    display:flex;
-    align-items:center;
-    flex-direction:column;
-    justify-content:center;
-    gap:15px;
     width:10rem;
     height:15rem;
-    border:2px solid var(--accent-light-gold);
- box-shadow: 0 0 7px var(--accent-light-gold);
-    border-radius:.5rem;
-    color:var(--accent-light-gold);
-    cursor:pointer;
-    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-size: cover;
+    background-position: center;
+   background-repeat: no-repeat;
+   margin: 0 auto;
+   overflow: hidden;
+   border-radius: .5rem;
+   cursor: pointer;
+   border:2px solid var(--accent-light-gold);
+    box-shadow: 0 0 7px var(--accent-light-gold);
 }
+
+
 
 .reversed-card
 {
@@ -225,7 +220,7 @@ h5{
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-
+    cursor: pointer;
 }
 
 .multiple_card{
@@ -238,6 +233,12 @@ h5{
 
 
 
+
+
+.card-shield span{
+    opacity: 10;
+    z-index: 3;
+}
 /* Small devices (phones in landscape, ≥ 600px) */
 @media screen and (min-width: 600px) {
     h1{

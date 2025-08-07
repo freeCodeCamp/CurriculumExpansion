@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   const response = await fetch(dataUrl); 
   cardData = await response.json(); 
 
-
 }); 
 
 const HideElement = (...element:HTMLElement[]) => {
@@ -59,20 +58,17 @@ element.forEach(el => {
 }
 
 
-const cardTemplate = function (drawingType: string, cardName: string, value:number,  isReversed : boolean, shortName:string) {
+
+const cardTemplate_with_image = function (drawingType: string, cardName: string, value:number,  isReversed : boolean, shortName:string, img:string) {
   return `
  <div>
     <h2>${drawingType}</h2>
-    <div class="card_container " data-id=${shortName}>
-        <div class="card_front ${isReversed ? 'reversed-card' : ""}"> 
-            <span>${value}</span>
-            <span>${cardName}</span>
-            ${isReversed ? "<span>Reversed</span>" : ""}
+    <div class="card_container ${isReversed ? 'reversed-card' : ""}" data-id=${shortName} style="background-image: url(${apiURL}/${img})">
         </div>
-    </div>
     </div>
   `;
 };
+
 
 
 const ShowElement = (...element:HTMLElement[]) =>{
@@ -85,16 +81,17 @@ singleCardBtn.addEventListener("click", (e:Event) =>{
   HideElement(singleCardBtn, multipleCardsBtn, multiple_card, text, header_title);
   const isReversed = Math.round(Math.random()) + 1 === 1; 
   let chosenCardIndex = Math.round(Math.random() * cardData.cards.length - 1);
-  console.log(chosenCardIndex); 
-      let chosenCard = cardData.cards[chosenCardIndex]; 
+  let chosenCard = cardData.cards[chosenCardIndex]; 
+  console.log(chosenCard); 
 
   ShowElement(singleCard, fortuneContainer); 
-    singleCard.innerHTML = cardTemplate(
+    singleCard.innerHTML = cardTemplate_with_image(
       "Your card",
       chosenCard.name,
       chosenCard.value,
       isReversed ,
-      chosenCard.name_short
+      chosenCard.name_short,
+      chosenCard.img
     );
     multiple_card.innerHTML = "";
 })
@@ -105,7 +102,7 @@ multipleCardsBtn.addEventListener("click", (e: Event) => {
   ShowElement(multiple_card, fortuneContainer, text)
   HideElement(singleCard, singleCardBtn, multipleCardsBtn, header_title)
 
-  /// i am just adding to test how to multiple card look like we will change this later 
+  
   const cards = ["past", "future", "present"];
 
   const MultipleCards = `
@@ -114,7 +111,7 @@ multipleCardsBtn.addEventListener("click", (e: Event) => {
     const isReversed = (Math.round(Math.random()) + 1) === 1;
     let chosenCardIndex = Math.round(Math.random() * cardData.cards.length - 1); 
     let chosenCard = cardData.cards[chosenCardIndex]; 
-    return cardTemplate(itm, chosenCard.name, chosenCard.value, isReversed, chosenCard.name_short);
+    return cardTemplate_with_image(itm, chosenCard.name, chosenCard.value, isReversed, chosenCard.name_short, chosenCard.img);
   }).join('')}`
 
   multiple_card.innerHTML = MultipleCards
@@ -124,7 +121,7 @@ multipleCardsBtn.addEventListener("click", (e: Event) => {
 
 // new Reading button to just clear the reveal card
 newReadingBtn.addEventListener("click", (e:Event) =>{ 
- ShowElement( singleCardBtn ,multipleCardsBtn, header_title)
+    ShowElement( singleCardBtn ,multipleCardsBtn, header_title)
     HideElement(singleCard, multiple_card, fortuneContainer,fortune_description)
 
 })
