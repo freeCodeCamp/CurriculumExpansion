@@ -19,46 +19,68 @@ html {
   width: 100%;
 }
 
-.pet-hud {
-  box-sizing: border-box;
+.pet-screen {
+  background: #898a47;
   position: absolute;
   top: 24%;
   left: 31%;
+  width: 36.25%;
+  box-sizing: border-box;
+  padding: 2%;
+  aspect-ratio: 1;
+  border-radius: 3%;
+}
+
+.pet-hud {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 36.25%;
-  padding: 0px 5px;
-  background: green;
+  width: 100%;
+  margin-bottom: 8%;
 }
 
 :root {
   --ratio: 0.5;
-
-  --font1-sizeVW: 15vh;
-  --font1-sizeVH: calc(var(--ratio) * 3vw);
+  --pet-name_font-size: calc(var(--ratio) * 3vw);
 }
 
 .pet-hud #pet-species {
+  color: black;
   font-size: 16;
   font-family: "Tektur", sans-serif;
   margin: 0;
-  background: black;
 }
 
-.pet-hud #happiness-meter {
-  background: red;
+.pet-hud #happiness-icon {
   max-height: 90%;
   width: auto;
   height: auto;
 }
 
-.pet-sprite {
+.pet-buttons {
+  top: 72%;
+  left: 23.25%;
+  width: 53.5%;
+  height: 13.75%;
   position: absolute;
-  top: 35%;
-  left: 32.7%;
-  width: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pet-buttons .pet-button {
+  height: 75%;
+  aspect-ratio: 1;
+  background: #c2214a;
+  border-radius: 100%;
+  border-style: solid;
+  border-color: #870b04;
+  box-shadow: rgba(120, 25, 23, 0.2) 2px 2px 4px 2px;
+}
+
+.pet-buttons .pet-button.pet-buttons-center {
+  align-self: flex-end;
 }
 
 .pet-sprite img {
@@ -68,6 +90,6 @@ html {
 
 @media all and (max-width: 850px) {
   .pet-hud #pet-species {
-    font-size: var(--font1-sizeVH);
+    font-size: var(--pet-name_font-size);
   }
 }

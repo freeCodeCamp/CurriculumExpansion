@@ -1,14 +1,183 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createElement } from 'react';
 import './App.css';
 
-const ToyShell = new URL('assets/DigitalPetShell.webp', import.meta.url);
-const Heart = {
-  FULL: new URL('assets/Heart/00_heart_animated_1.png', import.meta.url),
-  MORE: new URL('assets/Heart/01_heart_animated_1.png', import.meta.url),
-  HALF: new URL('assets/Heart/02_heart_animated_1.png', import.meta.url),
-  LESS: new URL('assets/Heart/03_heart_animated_1.png', import.meta.url),
-  EMPTY: new URL('assets/Heart/04_heart_animated_1.png', import.meta.url),
+//TODO: Hopefully have a way to remove these SVG's from the file altogether and getting them onto the CDN. In my experience SVG's have always been a little strange and I'm not well versed enough to anticipate how FCC will handle them, so I'm just inlining them until that's clarified. Sorry for this mess!
+
+const ToyShell = new URL('assets/shells/rainbow.webp', import.meta.url);
+
+const StomachIconFULL  = new URL("./assets/stomach/stomach_FULL.svg", import.meta.url);
+const StomachIconHIGH  = new URL("./assets/stomach/stomach_HIGH.svg", import.meta.url);
+const StomachIconHALF  = new URL("./assets/stomach/stomach_HALF.svg", import.meta.url);
+const StomachIconLOW   = new URL("./assets/stomach/stomach_LOW.svg", import.meta.url);
+const StomachIconEMPTY = new URL("./assets/stomach/stomach_EMPTY.svg", import.meta.url);
+
+const BatteryIconFULL  = new URL("./assets/battery/battery-100-svgrepo-com.svg", import.meta.url);
+const BatteryIconHIGH  = new URL("./assets/battery/battery-75-svgrepo-com.svg", import.meta.url);
+const BatteryIconHALF  = new URL("./assets/battery/battery-50-svgrepo-com.svg", import.meta.url);
+const BatteryIconLOW   = new URL("./assets/battery/battery-25-svgrepo-com.svg", import.meta.url);
+const BatteryIconEMPTY = new URL("./assets/battery/battery-0-svgrepo-com.svg", import.meta.url);
+
+const audioError = new Audio('http://localhost:8000/Error.mp3');
+const audioBoop = new Audio('http://localhost:8000/Boop.mp3');
+
+const playAudio = (audio: HTMLAudioElement): void => {
+  audio.currentTime = 0;
+  audio.play();
+}
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
 };
+
+enum BatteryThreshold {
+  FULL = 100,
+  HIGH = 75,
+  HALF = 50,
+  LOW = 25,
+  EMPTY = 0,
+};
+
+const BatteryIconDict: EnumDictionary<BatteryThreshold, React.JSX.Element> = {
+  [BatteryThreshold.FULL]: <img src={BatteryIconFULL} />,
+  [BatteryThreshold.HIGH]: <img src={BatteryIconHIGH} />,
+  [BatteryThreshold.HALF]: <img src={BatteryIconHALF} />,
+  [BatteryThreshold.LOW]: <img src={BatteryIconLOW} />,
+  [BatteryThreshold.EMPTY]: <img src={BatteryIconEMPTY} />,
+};
+
+interface BatteryIconProps {
+  batteryThreshold: BatteryThreshold,
+};
+
+const BatteryIcon: React.FC<BatteryIconProps> = ({
+  batteryThreshold
+}): React.ReactElement => {
+  return (
+    <div>
+      { BatteryIconDict[batteryThreshold] }
+    </div>
+  );
+}
+
+enum HungerThreshold {
+  FULL = 100,
+  HIGH = 75,
+  HALF = 50,
+  LOW = 25,
+  EMPTY = 0,
+}
+
+const HungerIconDict: EnumDictionary<HungerThreshold, React.JSX.Element> = {
+  [HungerThreshold.FULL]: <img src={StomachIconFULL} />,
+  [HungerThreshold.HIGH]: <img src={StomachIconHIGH} />,
+  [HungerThreshold.HALF]: <img src={StomachIconHALF} />,
+  [HungerThreshold.LOW]: <img src={StomachIconLOW} />,
+  [HungerThreshold.EMPTY]: <img src={StomachIconEMPTY} />,
+};
+
+interface HungerIconProps {
+  hungerThreshold: HungerThreshold,
+};
+
+const HungerIcon: React.FC<HungerIconProps> = ({
+  hungerThreshold
+}): React.ReactElement => {
+  return (
+    <div>
+      {HungerIconDict[hungerThreshold]}
+    </div>
+  );
+}
+
+//TODO: I've got to study up on typescript more. I'd like to show off a more complex example 
+//  of how to represent a CSS type with typescript, so my initial thought was to create something 
+//  like colour. Long story short, this is a nightmare, and if it becomes a significant challenge 
+//  for me, I imagine it would be far too much for the learners at this point in their journey. 
+//  I'm leaving this for the time being while I sit on it, maybe there's an elegant, teachable 
+//  solution that I just haven't worked out yet, but I'm likely going to omit this entirely.
+//  Note that the primary sisue with this example is that if we make a type that tries to encompass
+//  all valid input for this type, Typescript states the union type is too complex to represent.
+type RGB = `rbg(${number}, ${number}, ${number})`;
+type RGBA = `rgba(${number}, ${number}, ${number})`;
+type HEX = `#${string}`;
+
+// Turns out I'm able to teach this with CSS units, if this is something we'd like to include.
+//  I'm of the opinion that this is simple enough conceptually to understand, and if we'd
+//  like to make it appear less imposing we could of course reduce the number of units covered.
+//  An example involving px, %, and possible vw/vh would be sufficient, without appearing to
+//  be as complex as the complete (I think) example of all css units.
+type CSSUnitAbsolute = "cm"|"mm"|"in"|"px"|"pt"|"pc";
+type CSSUnitRelative = "em"|"ex"|"ch"|"rem"|"vw"|"vh"|"vmin"|"vmax"|"%"
+type CSSUnit = CSSUnitAbsolute | CSSUnitRelative;
+type CSSDimension = `${number}${CSSUnit}`;
+
+interface HeartPathProps {
+  fill: string;
+  transform?: string;
+};
+
+const HeartPath: React.FC<HeartPathProps> = ({
+  fill, transform
+}): React.ReactElement => (
+  <path
+    fill={fill}
+    transform={transform}
+    d="M12 21s-6-4.35-9.33-8.22C-.5 7.39 3.24 1 8.4 4.28 10.08 5.32 12 7.5 12 7.5s1.92-2.18 3.6-3.22C20.76 1 24.5 7.39 21.33 12.78 18 16.65 12 21 12 21z" />
+);
+
+// Enumerators notably do not support being `extended`. It may be a good idea to have
+//  the learners start with a base `StatusThreshold` enum, and then have them modify
+//  one later into the lab such that they need to create a new enum to account for that
+//  case, and the new enum will, of course, need to be written from scratch.
+enum HappinessThreshold {
+  FULL = 100,
+  HIGH = 75,
+  HALF = 50,
+  LOW = 25,
+  EMPTY = 0,
+}
+
+interface HappinessIconProperties {
+  scale: number;
+  color: string;
+};
+
+const happinessIconPropertiesDict: Record<HappinessThreshold, HappinessIconProperties> = {
+  [HappinessThreshold.FULL]:  { scale: 1, color: "red" },
+  [HappinessThreshold.HIGH]:  { scale: 0.8, color: "red" },
+  [HappinessThreshold.HALF]:  { scale: 0.5, color: "red" },
+  [HappinessThreshold.LOW]:   { scale: 0.2, color: "red" },
+  [HappinessThreshold.EMPTY]: { scale: 0.1, color: "red" },
+}
+
+interface HappinessIconProps {
+  happinessThreshold: HappinessThreshold;
+};
+
+const getTransformForScale = (
+  scale: number, width: number, height: number,
+): string => {
+  let translateX: number = (width * (1 - scale)) / 2;
+  let translateY: number = (height * (1 - scale)) / 2;
+
+  return `translate(${translateX}, ${translateY}) scale(${scale})`;
+};
+
+const HappinessIcon: React.FC<HappinessIconProps> = ({
+  happinessThreshold,
+}): React.ReactElement => {
+  const { scale, color } = happinessIconPropertiesDict[happinessThreshold];
+  return (
+    <div id='happiness-icon'>
+      <svg width="20px" height="20px" viewBox="0 0 24 24" fill={"red"}>
+        <HeartPath fill={"black"} />
+        <g transform={getTransformForScale(scale, 24, 24)} >
+          <HeartPath fill={color}  />
+        </g>
+      </svg>
+    </div>
+  );
+}
 
 type Size = "Tiny"|"Small"|"Medium"|"Large"|"Huge"|"Gargantuan";
 type Type = any;
@@ -28,6 +197,7 @@ enum PetState {
   WALK = "Walk",
   TURN = "Turn",
   JUMP = "Jump",
+  BITE = "Attack_Bite",
 };
 
 interface MonsterImages {
@@ -38,6 +208,7 @@ interface MonsterImages {
   Walk: URL;
   Turn: URL;
   Jump: URL;
+  Attack_Bite: URL;
 }
 
 interface MonsterDetail {
@@ -82,13 +253,14 @@ const getMonsterDetail = async (monsterName: string) => {
 };
 
 const loadMonsterArt = (): MonsterImages => ({
-  Idle: new URL('assets/Idle.webp', import.meta.url),
-  Death: new URL('assets/Death.webp', import.meta.url),
-  Sleep: new URL('assets/Hide.webp', import.meta.url),
-  Wake: new URL('assets/Reveal.webp', import.meta.url),
-  Walk: new URL('assets/Walk.webp', import.meta.url),
-  Turn: new URL('assets/Turn.webp', import.meta.url),
-  Jump: new URL('assets/Jump.webp', import.meta.url),
+  Idle: new URL('assets/mimic/Idle.webp', import.meta.url),
+  Death: new URL('assets/mimic/Death.webp', import.meta.url),
+  Sleep: new URL('assets/mimic/Hide.webp', import.meta.url),
+  Wake: new URL('assets/mimic/Reveal.webp', import.meta.url),
+  Walk: new URL('assets/mimic/Walk.webp', import.meta.url),
+  Turn: new URL('assets/mimic/Turn.webp', import.meta.url),
+  Jump: new URL('assets/mimic/Jump.webp', import.meta.url),
+  Attack_Bite: new URL('assets/mimic/Attack_Bite.webp', import.meta.url),
 });
 
 
@@ -106,7 +278,17 @@ interface Pet
 
 const saveKey = "pet"
 
+enum Button {
+  LEFT,
+  CENTER,
+  RIGHT,
+}
+
 export function App()  {
+  //TODO: The pet has a lot of functionality tied to it that's currently
+  //  just inlined with the rest of the App. Do we want to break it into
+  //  a hook? Are learner's already expected to have enough React knowledge
+  //  to consider this or should we keep it simple with inlines?
   let [pet, setPet] = useState<Pet>({
     name: "",
     happiness: 100,
@@ -119,6 +301,10 @@ export function App()  {
   }); 
   const [fact, setFact] = useState("");
 
+  let [selectedAction, setSelectedAction] = useState<PetAction>(PetAction.PLAY);
+  let [menuVisible, setMenuVisible] = useState<boolean>(false);
+
+  //TODO: Implement with the FCC API once it's ready.
   useEffect(() => {
     getMonsterDetail("mimic")
       .then((monster: MonsterDetail) => {
@@ -135,56 +321,102 @@ export function App()  {
       setPet(pet => ({
         ...pet,
         happiness: Math.max(pet.happiness - 5, 0),
+        hunger: Math.min(pet.hunger + 5, 100),
       }));
     }, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    console.log(pet.happiness);
-  }, [pet]);
+  function handleButton(button: Button) {
+    if (!menuVisible) {
+      setMenuVisible(true);
+      return;
+    }
+    switch (button) {
+      case Button.LEFT:
+        break;
+      case Button.RIGHT:
+        break;
+      case Button.CENTER:
+        break;
+    }
+  }
+
+  function doAction(action: PetAction) {
+    if (pet.action !== PetAction.NONE) {
+      playAudio(audioError);
+      return;
+    }
+    playAudio(audioBoop);
+
+    const timer = setTimeout(() => {
+      setPet(pet => ({
+        ...pet,
+        state: PetState.IDLE,
+        action: PetAction.NONE,
+      }));
+
+      clearTimeout(timer);
+    },  2 * 1000);
+
+    switch (action) {
+      case PetAction.EAT:
+        feedPet();
+        break;
+      case PetAction.SLEEP:
+        restPet();
+        break;
+      case PetAction.PLAY:
+        playWithPet();
+        break;
+    }
+  }
 
   function feedPet() {
     // TODO: consider multiple food types if time permits
     const myFoodFill = 10;
-    setPet({
+    setPet(pet => ({
       ...pet,
       hunger: Math.max(pet.hunger - myFoodFill, 0),
-    });
+      state: PetState.BITE,
+      action: PetAction.EAT,
+    }));
     pet.hunger -= myFoodFill;
   }
 
   function playWithPet() {
     const myHappinessIncrease = 5;
     const energyDecrease = 5;
-    setPet({
+    setPet(pet => ({
       ...pet,
       happiness: Math.min(pet.happiness + myHappinessIncrease, 100),
       energy: Math.max(pet.energy - energyDecrease, 0),
       state: PetState.JUMP,
-    });
+      action: PetAction.PLAY,
+    }));
     fetchPetFact(); 
   }
 
   function restPet() {
-    const hungerDecrease = 5;
+    const hungerIncrease = 5;
     const energyIncrease = 5;
-    setPet({
+    setPet(pet => ({
       ...pet,
-      hunger: Math.max(pet.hunger - hungerDecrease, 0),
+      hunger: Math.min(pet.hunger + hungerIncrease, 100),
       energy: Math.min(pet.energy += energyIncrease, 100),
       state: PetState.SLEEP,
-    });
+      action: PetAction.SLEEP,
+    }));
   }
 
   function hungrierPet() {
     const hungerIncrease = 5;
-    setPet({
+    setPet(pet => ({
       ...pet,
       hunger: Math.min(pet.hunger += hungerIncrease, 100),
         state: PetState.WALK,
-    });
+    }));
   }
 
   function fetchPetFact() {
@@ -195,12 +427,40 @@ export function App()  {
     setFact(petFact.fact); 
   }
 
-  function getHeartIcon() {
-    if (pet.happiness >= 90) return Heart.FULL;
-    if (pet.happiness >= 75) return Heart.MORE;
-    if (pet.happiness >= 50) return Heart.HALF;
-    if (pet.happiness >= 10) return Heart.LESS;
-    return Heart.EMPTY;
+  function getEnergyThreshold() {
+    if (pet.energy >= 90) return BatteryThreshold.FULL;
+    if (pet.energy >= 75) return BatteryThreshold.HIGH;
+    if (pet.energy >= 50) return BatteryThreshold.HALF;
+    if (pet.energy > 10) return BatteryThreshold.LOW;
+    return BatteryThreshold.EMPTY;
+  }
+
+  function getHungerThreshold() {
+    if (pet.hunger > 90) return HungerThreshold.EMPTY;
+    if (pet.hunger >= 75) return HungerThreshold.LOW;
+    if (pet.hunger >= 50) return HungerThreshold.HALF;
+    if (pet.hunger > 10) return HungerThreshold.HIGH;
+    return HungerThreshold.FULL;
+  }
+
+  function getHappinessThreshold() {
+    if (pet.happiness >= 90) return HappinessThreshold.FULL;
+    if (pet.happiness >= 75) return HappinessThreshold.HIGH;
+    if (pet.happiness >= 50) return HappinessThreshold.HALF;
+    if (pet.happiness > 10) return HappinessThreshold.LOW;
+    return HappinessThreshold.EMPTY;
+  }
+
+  function pressLeft() {
+    doAction(PetAction.EAT);
+  }
+
+  function pressCenter() {
+    doAction(PetAction.PLAY);
+  }
+
+  function pressRight() {
+    doAction(PetAction.SLEEP);
   }
 
   function savePetData() {
@@ -215,14 +475,24 @@ export function App()  {
     <>
       <div className="pet-shell">
         <img src={ToyShell} />
-        <div className="pet-hud">
-          <p id="pet-species">MIMIC</p>
-          <img id="happiness-meter" src={getHeartIcon()} />
-          <div id="hunger-meter" />
-          <div id="energy-meter" />
+        <div className="pet-screen">
+          <div className="pet-hud">
+            <p id="pet-species">MIMIC</p>
+            <HappinessIcon happinessThreshold={getHappinessThreshold()} />
+            <HungerIcon hungerThreshold={getHungerThreshold()} />
+            <BatteryIcon batteryThreshold={getEnergyThreshold()} />
+          </div>
+          <div className="pet-sprite">
+            <img src={pet.images[pet.state]} />
+          </div>
         </div>
-        <div className="pet-sprite">
-          <img src={pet.images[pet.state]} />
+        <div className="pet-buttons">
+          <button onClick={pressLeft} className="pet-button pet-buttons-left" >
+          </button>
+          <button onClick={pressCenter} className="pet-button pet-buttons-center" >
+          </button>
+          <button onClick={pressRight} className="pet-button pet-buttons-right" >
+          </button>
         </div>
       </div>
       <h1>Digital Pet Game</h1>
