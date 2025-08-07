@@ -86,7 +86,41 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
 });
+class Game {
+  cards: Card[];
 
+  fetchCardsData() {
+    return fetch(
+      "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app/card_data.json",
+    )
+      .then((response) => response.json())
+      .then((data: Deck) => {
+        this.cards = data.cards; //populate cards member
+      })
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      });
+  }
+
+  constructor() {
+    this.fetchCardsData();
+  }
+
+  showFortune(e) {
+    //add here show fortune logic
+  }
+
+  singleCardSelected() {
+    //add here the single card logic
+  }
+
+  multipleCardSelected() {
+    //add here the multiple card logic
+  }
+}
+
+const game = new Game();
+// UTILS
 const HideElement = (...element: HTMLElement[]) => {
   element.forEach((el) => {
     el.classList.add("hidden");
@@ -113,6 +147,8 @@ const ShowElement = (...element: HTMLElement[]) => {
     el.classList.remove("hidden");
   });
 };
+
+// CLICK HANDLERS:
 // reveal card for single card
 singleCardBtn.addEventListener("click", (e: Event) => {
   HideElement(
