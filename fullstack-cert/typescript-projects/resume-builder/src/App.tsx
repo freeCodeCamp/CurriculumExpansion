@@ -1,7 +1,6 @@
-import { ChangeEvent, useState } from 'react';
-import './App.css';
-import { Field } from './Field';
-
+import { ChangeEvent, useState } from "react";
+import "./App.css";
+import { Field } from "./Field";
 
 export function App() {
   const [name, setName] = useState("");
@@ -11,14 +10,11 @@ export function App() {
   const [degree, setDegree] = useState("");
   const [gradYear, setGradYear] = useState(0);
 
-
-  function handleUpdateName(e: ChangeEvent)
-  {
+  function handleUpdateName(e: ChangeEvent) {
     setName((e.target as HTMLInputElement).value);
   }
 
-  function handleUpdateEmail(e: ChangeEvent)
-  {
+  function handleUpdateEmail(e: ChangeEvent) {
     setEmail((e.target as HTMLInputElement).value);
   }
 
@@ -36,17 +32,13 @@ export function App() {
 
   function handleUpdateGradYear(e: ChangeEvent) {
     const gradYear = parseInt((e.target as HTMLInputElement).value);
-    const cutOffYear = 1976; 
-    if (Number.isSafeInteger(gradYear) && gradYear > cutOffYear)
-    {
+    const cutOffYear = 1976;
+    if (Number.isSafeInteger(gradYear) && gradYear > cutOffYear) {
       setGradYear(parseInt((e.target as HTMLInputElement).value));
-    }
-    else 
-    {
+    } else {
       // TODO: add validation
     }
   }
-
 
   return (
     <>
