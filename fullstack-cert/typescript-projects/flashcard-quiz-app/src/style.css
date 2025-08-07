@@ -6,28 +6,34 @@ html {
   justify-content: center;
   height: 100%;
 }
-
+h1 {
+  text-align: center;
+}
 .card-grid
 {
   display:inline-flex;
   flex-direction: row; 
-
 }
 
 .entry-form
 {
   display:flex;
   flex-direction: column; 
-  
+  text-align: center;
 }
 
 .flashcard
 {
   width:20rem;
   border-color: red;
+  border-style: solid;
+  border-width: 1px;
   text-align: center;
   justify-content: center;
-  
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
 }
 
 .error
@@ -48,3 +54,7 @@ html {
 }
 
 
+#flashcard-body {
+  background-color: #13B4D4;
+  border-radius: 25px;
+}
