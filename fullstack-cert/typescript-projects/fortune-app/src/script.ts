@@ -38,6 +38,7 @@ const Cardtitle = getElement<HTMLElement>(".desc_title");
 const description = getElement<HTMLElement>(".description");
 const text = getElement<HTMLElement>(".text");
 
+
 // UTILS
 const HideElement = (...element: HTMLElement[]) => {
   element.forEach((el) => {
@@ -54,26 +55,6 @@ const ShowElement = (...element: HTMLElement[]) => {
 const getRandomItem = <T>(items: T[]): T => {
   const index = Math.floor(Math.random() * items.length - 1);
   return items[index];
-};
-
-function isCard(obj: any): obj is Card {
-  return (
-    (typeof obj?.name === "string" &&
-      typeof obj?.value === "string" &&
-      typeof obj?.name_short === "string" &&
-      typeof obj?.value_int === "number") ||
-    (typeof obj.value_int === "string" &&
-      typeof obj?.suit === "string" &&
-      typeof obj?.type === "string" &&
-      typeof obj?.img === "string" &&
-      typeof obj?.meaning_up === "string" &&
-      typeof obj?.meaning_rev === "string" &&
-      typeof obj?.desc === "string")
-  );
-}
-
-const isDeck = (data: any): data is Deck => {
-  return Array.isArray(data.cards) && data.cards.every(isCard);
 };
 
 const renderCard = function (
@@ -135,7 +116,7 @@ class Game {
   }
 
   multipleCardSelected() {
-    ShowElement(multiple_card, fortuneContainer, text);
+    ShowElement(multiple_card, fortuneContainer, text,);
     HideElement(singleCard, singleCardBtn, multipleCardsBtn, header_title);
 
     enum DrawingType {
@@ -163,7 +144,7 @@ class Game {
     multiple_card.innerHTML = MultipleCards;
   }
 
-  showFortune(e) {
+  showFortune(e:Event) {
     const target = e.target;
 
     if (!(target instanceof HTMLElement)) return;
@@ -193,7 +174,10 @@ class Game {
       multiple_card,
       fortuneContainer,
       fortune_description,
+      
     );
+
+    
   }
 }
 
