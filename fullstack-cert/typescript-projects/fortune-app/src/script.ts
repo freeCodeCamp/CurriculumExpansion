@@ -15,187 +15,155 @@ interface Deck {
   cards: Card[];
 }
 
-const getElement = <T>(selector: string): T => {
+const IMG_URL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
+
+// Utility to safely select DOM elements
+const getElement = <T extends HTMLElement>(selector: string): T => {
   const el = document.querySelector(selector);
   if (!el) throw new Error(`Element not found: ${selector}`);
   return el as T;
 };
 
-const IMG_URL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
+// Utility functions
+const hideElements = (...elements: HTMLElement[]) =>
+  elements.forEach((el) => el.classList.add("hidden"));
 
-// SELECTORS
-const singleCardBtn = getElement<HTMLElement>("#btn-single-card");
-const singleCard = getElement<HTMLElement>(".single_card");
-const multipleCardsBtn = getElement<HTMLElement>("#btn-multiple-cards");
-const multiple_card = getElement<HTMLElement>(".multiple_card");
-const fortuneContainer = getElement<HTMLElement>(".fortune_container");
-const fortune_description = getElement<HTMLElement>(".fortune_description");
-const newReadingBtn = getElement<HTMLElement>(".btn_reveal");
-const title = getElement<HTMLElement>(".title")!;
-const header_title = getElement<HTMLElement>(".header_title");
-const sub_title = getElement<HTMLElement>(".sub_title");
-const Cardtitle = getElement<HTMLElement>(".desc_title");
-const description = getElement<HTMLElement>(".description");
-const text = getElement<HTMLElement>(".text");
-
-
-// UTILS
-const HideElement = (...element: HTMLElement[]) => {
-  element.forEach((el) => {
-    el.classList.add("hidden");
-  });
-};
-
-const ShowElement = (...element: HTMLElement[]) => {
-  element.forEach((el) => {
-    el.classList.remove("hidden");
-  });
-};
+const showElements = (...elements: HTMLElement[]) =>
+  elements.forEach((el) => el.classList.remove("hidden"));
 
 const getRandomItem = <T>(items: T[]): T => {
-  const index = Math.floor(Math.random() * items.length - 1);
+  const index = Math.floor(Math.random() * items.length);
   return items[index];
 };
 
-const renderCard = function (
+const renderCard = (
   drawingType: string,
   isReversed: boolean,
   shortName: string,
   img: string,
-) {
-  return `
+): string => `
   <div>
     <h2>${drawingType}</h2>
-    <div class="card_container ${isReversed ? "reversed-card" : ""}" data-id=${shortName} style="background-image: url(${IMG_URL}/${img})">
+    <div class="card_container ${isReversed ? "reversed-card" : ""}" 
+         data-id="${shortName}" 
+         style="background-image: url(${IMG_URL}/${img})">
     </div>
   </div>
-  `;
-};
+`;
 
-// GAME CLASS
+enum DrawingType {
+  Past = "past",
+  Present = "present",
+  Future = "future",
+}
+
+// Element references
+const singleCardBtn = getElement<HTMLElement>("#btn-single-card");
+const singleCard = getElement<HTMLElement>(".single_card");
+const multipleCardsBtn = getElement<HTMLElement>("#btn-multiple-cards");
+const multipleCard = getElement<HTMLElement>(".multiple_card");
+const fortuneContainer = getElement<HTMLElement>(".fortune_container");
+const fortuneDescription = getElement<HTMLElement>(".fortune_description");
+const newReadingBtn = getElement<HTMLElement>(".btn_reveal");
+
+const title = getElement<HTMLElement>(".title");
+const headerTitle = getElement<HTMLElement>(".header_title");
+const subTitle = getElement<HTMLElement>(".sub_title");
+const cardTitle = getElement<HTMLElement>(".desc_title");
+const description = getElement<HTMLElement>(".description");
+const text = getElement<HTMLElement>(".text");
+
+// Game class
 class Game {
-  cards: Card[];
-
-  fetchCardsData() {
-    return fetch(
-      "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app/card_data.json",
-    )
-      .then((response) => response.json())
-      .then((data: Deck) => {
-        this.cards = data.cards; //populate cards member
-      })
-      .catch((error) => {
-        console.error("Error fetching cards:", error);
-      });
-  }
+  cards: Card[] = [];
 
   constructor() {
     this.fetchCardsData();
   }
 
+  async fetchCardsData() {
+    try {
+      const response = await fetch(
+        "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app/card_data.json",
+      );
+      const data: Deck = await response.json();
+      this.cards = data.cards;
+    } catch (error) {
+      console.error("Error fetching cards:", error);
+    }
+  }
+
   singleCardSelected() {
-    HideElement(
+    hideElements(
       singleCardBtn,
       multipleCardsBtn,
-      multiple_card,
+      multipleCard,
       text,
-      header_title,
+      headerTitle,
     );
-    const isReversed = Math.round(Math.random()) + 1 === 1;
 
-    let chosenCard = getRandomItem(this.cards);
+    const isReversed = Math.random() < 0.5;
+    const chosenCard = getRandomItem(this.cards);
 
-    ShowElement(singleCard, fortuneContainer);
     singleCard.innerHTML = renderCard(
       "Your card",
       isReversed,
       chosenCard.name_short,
       chosenCard.img,
     );
-    multiple_card.innerHTML = "";
+    multipleCard.innerHTML = "";
+
+    showElements(singleCard, fortuneContainer);
   }
 
   multipleCardSelected() {
-    ShowElement(multiple_card, fortuneContainer, text,);
-    HideElement(singleCard, singleCardBtn, multipleCardsBtn, header_title);
+    hideElements(singleCard, singleCardBtn, multipleCardsBtn, headerTitle);
+    showElements(multipleCard, fortuneContainer, text);
 
-    enum DrawingType {
-      Past = "past",
-      Present = "present",
-      Future = "future",
-    }
-    const cardTypes: DrawingType[] = [
-      DrawingType.Past,
-      DrawingType.Present,
-      DrawingType.Future,
-    ];
-
-    const MultipleCards = `
-  ${cardTypes
-    .map((itm) => {
-      // 1 for front, 2 for reversed
-      const isReversed = Math.round(Math.random()) + 1 === 1;
-
-      let chosenCard = getRandomItem(this.cards);
-      return renderCard(itm, isReversed, chosenCard.name_short, chosenCard.img);
-    })
-    .join("")}`;
-
-    multiple_card.innerHTML = MultipleCards;
+    multipleCard.innerHTML = Object.values(DrawingType)
+      .map((type) => {
+        const isReversed = Math.random() < 0.5;
+        const card = getRandomItem(this.cards);
+        return renderCard(type, isReversed, card.name_short, card.img);
+      })
+      .join("");
   }
 
-  showFortune(e:Event) {
-    const target = e.target;
+  showFortune(e: Event) {
+    const target = e.target as HTMLElement | null;
+    const cardElement = target?.closest(
+      ".card_container",
+    ) as HTMLElement | null;
 
-    if (!(target instanceof HTMLElement)) return;
+    if (!cardElement) return;
 
-    const cardElement = target.closest(".card_container");
+    const cardId = cardElement.getAttribute("data-id");
+    const foundCard = this.cards.find((card) => card.name_short === cardId);
 
-    if (!(cardElement instanceof HTMLElement)) return;
-
-    if (cardElement) {
-      const cardId = cardElement.getAttribute("data-id");
-      const FindElement = this.cards.find((el) => el.name_short == cardId);
-
-      if (FindElement) {
-        description.textContent = FindElement.desc;
-        Cardtitle.textContent = FindElement.name;
-        sub_title.textContent = FindElement.meaning_up;
-        title.textContent = FindElement.name;
-      }
-      ShowElement(fortune_description);
+    if (foundCard) {
+      cardTitle.textContent = foundCard.name;
+      description.textContent = foundCard.desc;
+      subTitle.textContent = foundCard.meaning_up;
+      title.textContent = foundCard.name;
+      showElements(fortuneDescription);
     }
   }
 
   newReading() {
-    ShowElement(singleCardBtn, multipleCardsBtn, header_title);
-    HideElement(
+    showElements(singleCardBtn, multipleCardsBtn, headerTitle);
+    hideElements(
       singleCard,
-      multiple_card,
+      multipleCard,
       fortuneContainer,
-      fortune_description,
-      
+      fortuneDescription,
     );
-
-    
   }
 }
 
 const game = new Game();
 
-// CLICK HANDLERS:
-// reveal card for single card
-singleCardBtn.addEventListener("click", game.singleCardSelected.bind(game));
-
-// reveal card for multiple
-multipleCardsBtn.addEventListener(
-  "click",
-  game.multipleCardSelected.bind(game),
-);
-
-// new Reading button to just clear the reveal card
-newReadingBtn.addEventListener("click", game.newReading);
-
-document.addEventListener("click", (e: Event) =>
-  game.showFortune.bind(game)(e),
-);
+// Event listeners
+singleCardBtn.addEventListener("click", () => game.singleCardSelected());
+multipleCardsBtn.addEventListener("click", () => game.multipleCardSelected());
+newReadingBtn.addEventListener("click", () => game.newReading());
+document.addEventListener("click", (e: Event) => game.showFortune(e));
