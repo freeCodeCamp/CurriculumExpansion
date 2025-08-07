@@ -21,12 +21,8 @@ const getElement = <T>(selector: string): T => {
   return el as T;
 };
 
-const singleCardBtn = document.getElementById(
-  "btn-single-card",
-) as HTMLButtonElement;
-const multipleCardsBtn = document.getElementById(
-  "btn-multiple-cards",
-) as HTMLButtonElement;
+const singleCardBtn = getElement<HTMLElement>("#btn-single-card");
+const multipleCardsBtn = getElement<HTMLElement>("#btn-multiple-cards");
 const fortuneContainer = getElement<HTMLElement>(".fortune_container");
 const fortune_description = getElement<HTMLElement>(".fortune_description");
 const multiple_card = getElement<HTMLElement>(".multiple_card");
@@ -37,7 +33,7 @@ const header_title = getElement<HTMLElement>(".header_title");
 const sub_title = getElement<HTMLElement>(".sub_title");
 const Cardtitle = getElement<HTMLElement>(".desc_title");
 const description = getElement<HTMLElement>(".description");
-const text = getElement<HTMLElement>(".text") as HTMLElement;
+const text = getElement<HTMLElement>(".text");
 
 const apiURL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
 
@@ -126,7 +122,7 @@ const HideElement = (...element: HTMLElement[]) => {
   });
 };
 
-const cardTemplate_with_image = function (
+const renderCard = function (
   drawingType: string,
   isReversed: boolean,
   shortName: string,
@@ -162,7 +158,7 @@ singleCardBtn.addEventListener("click", (e: Event) => {
   let chosenCard = getRandomItem(cardData.cards);
 
   ShowElement(singleCard, fortuneContainer);
-  singleCard.innerHTML = cardTemplate_with_image(
+  singleCard.innerHTML = renderCard(
     "Your card",
     isReversed,
     chosenCard.name_short,
@@ -194,7 +190,7 @@ multipleCardsBtn.addEventListener("click", (e: Event) => {
       const isReversed = Math.round(Math.random()) + 1 === 1;
 
       let chosenCard = getRandomItem(cardData.cards);
-      return cardTemplate_with_image(
+      return renderCard(
         itm,
         isReversed,
         chosenCard.name_short,
