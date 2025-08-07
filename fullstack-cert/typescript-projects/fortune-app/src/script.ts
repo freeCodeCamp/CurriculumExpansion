@@ -1,10 +1,10 @@
 interface Card {
   name: string;
-  value: number;
+  value: string | number ;
   name_short: string;
   value_int: number;
   suit: string;
-  type: boolean;
+  type: string;
   img: string;
   meaning_up: string;
   meaning_rev: string;
@@ -15,45 +15,76 @@ interface Deck {
   cards: Card[];
 }
 
-const singleCardBtn = document.getElementById(
-  "btn-single-card",
-) as HTMLButtonElement;
-const multipleCardsBtn = document.getElementById(
-  "btn-multiple-cards",
-) as HTMLButtonElement;
-const fortuneContainer = document.getElementsByClassName(
-  "fortune_container",
-)[0] as HTMLElement;
-const fortune_description = document.getElementsByClassName(
-  "fortune_description",
-)[0] as HTMLElement;
-const multiple_card = document.getElementsByClassName(
-  "multiple_card",
-)[0] as HTMLElement;
-const singleCard = document.getElementsByClassName(
-  "single_card",
-)[0] as HTMLElement;
-const newReadingBtn = document.getElementsByClassName(
-  "btn_reveal",
-)[0] as HTMLButtonElement;
-const title = document.querySelector(".title")! as HTMLElement;
-const header_title = document.querySelector(".header_title")! as HTMLElement;
-const sub_title = document.querySelector(".sub_title")! as HTMLElement;
-const Cardtitle = document.querySelector(".desc_title")! as HTMLSpanElement;
-const description = document.querySelector(".description")! as HTMLElement;
+const getElement =<T>(selector:string):T => {
+  const el = document.querySelector(selector) 
+  if (!el) throw new Error(`Element not found: ${selector}`);
+  return el as T
+}
+
+const singleCardBtn = document.getElementById("btn-single-card",) as HTMLButtonElement;
+const multipleCardsBtn = document.getElementById("btn-multiple-cards",) as HTMLButtonElement;
+const fortuneContainer = getElement<HTMLElement>(".fortune_container",);
+const fortune_description = getElement<HTMLElement>(".fortune_description",);
+const multiple_card = getElement<HTMLElement>(".multiple_card",);
+const singleCard = getElement<HTMLElement>(".single_card",);
+const newReadingBtn = getElement<HTMLElement>(".btn_reveal",);
+const title = getElement<HTMLElement>(".title")!;
+const header_title = getElement<HTMLElement>(".header_title") ;
+const sub_title = getElement<HTMLElement>(".sub_title") 
+const Cardtitle = getElement<HTMLElement>(".desc_title") 
+const description = getElement<HTMLElement>(".description") 
+const text = getElement<HTMLElement>(".text") as HTMLElement;
 
 const apiURL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
 
 const dataUrl = apiURL + "/card_data.json";
 
-const text = document.querySelector(".text") as HTMLElement;
+
+const getRandomItem =<T>(items:T[]):T =>{
+  const index  = Math.floor(Math.random() * items.length -1) 
+  return items[index]
+}
+
+function isCard(obj:any): obj is Card{
+  return (
+   typeof obj?.name === "string" &&
+    typeof obj?.value === "string" &&
+    typeof obj?.name_short === "string" &&
+    typeof obj?.value_int === "number" || typeof obj.value_int === "string"&&
+    typeof obj?.suit === "string" &&
+    typeof obj?.type === "string" &&
+    typeof obj?.img === "string" &&
+    typeof obj?.meaning_up === "string" &&
+    typeof obj?.meaning_rev === "string" &&
+    typeof obj?.desc === "string"
+
+  )
+}
+
+const isDeck = (data:any): data is Deck => {
+return  Array.isArray(data.cards) && data.cards.every(isCard)
+}
+
 
 let cardData: Deck = { cards: [] };
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // This is the logic for where the card is fetched and parsed
+  try {
   const response = await fetch(dataUrl);
-  cardData = await response.json();
+  const RowData: unknown = await response.json() 
+
+
+  // check row data type
+  if(isDeck(RowData)){
+    cardData = RowData
+  }else{
+    throw new Error("Response data does not match expected Deck format");
+  }
+
+  } catch (err) {
+      console.error(" Failed to load data:", err);
+  }
+
 });
 
 const HideElement = (...element: HTMLElement[]) => {
@@ -64,8 +95,6 @@ const HideElement = (...element: HTMLElement[]) => {
 
 const cardTemplate_with_image = function (
   drawingType: string,
-  cardName: string,
-  value: number,
   isReversed: boolean,
   shortName: string,
   img: string,
@@ -94,15 +123,12 @@ singleCardBtn.addEventListener("click", (e: Event) => {
     header_title,
   );
   const isReversed = Math.round(Math.random()) + 1 === 1;
-  let chosenCardIndex = Math.round(Math.random() * cardData.cards.length - 1);
-  let chosenCard = cardData.cards[chosenCardIndex];
-  console.log(chosenCard);
 
+  let chosenCard =getRandomItem(cardData.cards)
+  
   ShowElement(singleCard, fortuneContainer);
   singleCard.innerHTML = cardTemplate_with_image(
     "Your card",
-    chosenCard.name,
-    chosenCard.value,
     isReversed,
     chosenCard.name_short,
     chosenCard.img,
@@ -115,22 +141,23 @@ multipleCardsBtn.addEventListener("click", (e: Event) => {
   ShowElement(multiple_card, fortuneContainer, text);
   HideElement(singleCard, singleCardBtn, multipleCardsBtn, header_title);
 
-  const cards = ["past", "future", "present"];
+ enum DrawingType {
+  Past = "past",
+  Present = "present",
+  Future = "future"
+}
+  const cards:DrawingType[] =[DrawingType.Past, DrawingType.Present, DrawingType.Future];
 
   const MultipleCards = `
   ${cards
     .map((itm) => {
       // 1 for front, 2 for reversed
       const isReversed = Math.round(Math.random()) + 1 === 1;
-      let chosenCardIndex = Math.round(
-        Math.random() * cardData.cards.length - 1,
-      );
-      let chosenCard = cardData.cards[chosenCardIndex];
+
+       let chosenCard = getRandomItem(cardData.cards)
       return cardTemplate_with_image(
         itm,
-        chosenCard.name,
-        chosenCard.value,
-        isReversed,
+          isReversed,
         chosenCard.name_short,
         chosenCard.img,
       );
@@ -147,8 +174,13 @@ newReadingBtn.addEventListener("click", (e: Event) => {
 });
 
 document.addEventListener("click", (e: Event) => {
-  const target = e.target as HTMLElement;
-  const cardElement = target.closest(".card_container") as HTMLElement;
+  const target = e.target 
+
+  if(! (target instanceof HTMLElement)) return 
+
+  const cardElement = target.closest(".card_container");
+
+   if(!(cardElement instanceof HTMLElement)) return 
 
   if (cardElement) {
     const cardId = cardElement.getAttribute("data-id");
