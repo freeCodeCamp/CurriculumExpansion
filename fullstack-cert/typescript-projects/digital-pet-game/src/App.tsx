@@ -1,4 +1,4 @@
-import { useState, useEffect, createElement } from 'react';
+import { useState, useEffect, createElement, useRef } from 'react';
 import './App.css';
 
 //TODO: Hopefully have a way to remove these SVG's from the file altogether and getting them onto the CDN. In my experience SVG's have always been a little strange and I'm not well versed enough to anticipate how FCC will handle them, so I'm just inlining them until that's clarified. Sorry for this mess!
@@ -17,10 +17,19 @@ const BatteryIconHALF  = new URL("./assets/battery/battery-50-svgrepo-com.svg", 
 const BatteryIconLOW   = new URL("./assets/battery/battery-25-svgrepo-com.svg", import.meta.url);
 const BatteryIconEMPTY = new URL("./assets/battery/battery-0-svgrepo-com.svg", import.meta.url);
 
-const audioError = new Audio('http://localhost:8000/Error.mp3');
-const audioBoop = new Audio('http://localhost:8000/Boop.mp3');
+const AUDIO_ENABLED = false;
 
-const playAudio = (audio: HTMLAudioElement): void => {
+let audioError: HTMLAudioElement|null = null;
+let audioBoop: HTMLAudioElement|null = null;
+
+if (AUDIO_ENABLED) {
+  const audioError = new Audio('http://localhost:8000/Error.mp3');
+  const audioBoop = new Audio('http://localhost:8000/Boop.mp3');
+}
+
+const playAudio = (audio: HTMLAudioElement|null): void => {
+  if (!AUDIO_ENABLED || audio === null) return;
+
   audio.currentTime = 0;
   audio.play();
 }
@@ -187,7 +196,12 @@ enum PetAction {
   EAT,
   PLAY,
   SLEEP,
+  HALT,
 };
+
+enum MiscAction {
+  FACT,
+}
 
 enum PetState {
   IDLE = "Idle",
@@ -284,6 +298,75 @@ enum Button {
   RIGHT,
 }
 
+interface PetActionCarouselProps {
+  options: { name: string, action: PetAction|MiscAction }[];
+  buttonPressRegistrar: (callback: (buttonType: Button) => void) => void; 
+  doAction: (action: PetAction) => void;
+}
+
+const PetActionCarousel: React.FC<PetActionCarouselProps> = ({
+  options, buttonPressRegistrar, doAction,
+}): React.JSX.Element  => {
+  const VISIBLE_TIMEOUT = 5 * 1000;
+
+  const [selectedActionIdx, setSelectedActionIdx] = useState<number>(0);
+  const selectedActionIdxRef = useRef(selectedActionIdx);
+  useEffect(() => { selectedActionIdxRef.current = selectedActionIdx });
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const visibleRef = useRef<boolean>(isVisible);
+  useEffect(() => { visibleRef.current = isVisible });
+  const visibilityTimerRef = useRef<number>(-1);
+
+  const createVisiblityTimer = () => {
+    setIsVisible(true);
+    clearTimeout(visibilityTimerRef.current);
+    visibilityTimerRef.current = setTimeout(
+      () => {
+        setIsVisible(false);
+        visibilityTimerRef.current = -1;
+      }, VISIBLE_TIMEOUT
+    );
+  };
+
+  useEffect(() => {
+    buttonPressRegistrar((buttonType: Button) => {
+      createVisiblityTimer();
+      if (!visibleRef.current) {
+        return;
+      }
+      console.log(Button[buttonType]);
+
+      if (buttonType === Button.CENTER) {
+        doAction(options[selectedActionIdxRef.current].action);
+      }
+      setSelectedActionIdx(idx => {
+        switch(buttonType) {
+          case Button.LEFT:
+            let newLIdx = idx - 1;
+            if (newLIdx < 0) newLIdx = options.length - 1;
+            return newLIdx;
+          case Button.RIGHT:
+            let newRIdx = idx + 1;
+            if (newRIdx >= options.length) newRIdx = 0;
+            return newRIdx;
+          case Button.CENTER:
+            return idx;
+        }
+      });
+    });
+  }, []);
+
+  if (options?.length === 0) return <></>;
+
+  return (
+    <div className='action-carousel' >
+      <p>
+        { isVisible ? options[selectedActionIdx].name : "" }
+      </p>
+    </div>
+  );
+}
+
 export function App()  {
   //TODO: The pet has a lot of functionality tied to it that's currently
   //  just inlined with the rest of the App. Do we want to break it into
@@ -299,12 +382,27 @@ export function App()  {
     images: loadMonsterArt(),
     state: PetState.IDLE, 
   }); 
-  const [fact, setFact] = useState("");
+  let petRef = useRef<Pet>(pet);
+  useEffect(() => { petRef.current = pet }, [pet]);
 
-  let [selectedAction, setSelectedAction] = useState<PetAction>(PetAction.PLAY);
-  let [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [fact, setFact] = useState<string|null>("");
+  const [factVisible, setFactVisible] = useState(false);
 
-  //TODO: Implement with the FCC API once it's ready.
+  //TODO: I think this is almost definitely too complicated. I imagine we'll
+  //  revert and have each button assigned to a particular action if I can't
+  //  figure out a simpler implementation. We'll be one short of the "fun fact"
+  //  functionality, but we can just add a fourth button to the device.
+  const [buttonSubscribers, setButtonSubscribers] = useState<
+    ((button: Button) => void)[]
+  >([]);
+  const registerButtons = (callback: (button: Button) => void) => {
+    setButtonSubscribers([...buttonSubscribers, callback]);
+  }
+  const emitButtonPress = (button: Button) => {
+    buttonSubscribers.forEach(callback => callback(button));
+  }
+
+  //TODO: Integrate with the FCC API once it's ready.
   useEffect(() => {
     getMonsterDetail("mimic")
       .then((monster: MonsterDetail) => {
@@ -314,6 +412,7 @@ export function App()  {
           species: monster.name,
         });
       });
+    fetchPetFact();
   }, []);
 
   useEffect(() => {
@@ -328,53 +427,66 @@ export function App()  {
     return () => clearInterval(interval);
   }, []);
 
-  function handleButton(button: Button) {
-    if (!menuVisible) {
-      setMenuVisible(true);
-      return;
-    }
-    switch (button) {
-      case Button.LEFT:
-        break;
-      case Button.RIGHT:
-        break;
-      case Button.CENTER:
-        break;
-    }
-  }
-
-  function doAction(action: PetAction) {
-    if (pet.action !== PetAction.NONE) {
-      playAudio(audioError);
-      return;
-    }
-    playAudio(audioBoop);
-
-    const timer = setTimeout(() => {
+  const setPetActionTimeout = () => {
+    setTimeout(() => {
       setPet(pet => ({
         ...pet,
         state: PetState.IDLE,
         action: PetAction.NONE,
       }));
-
-      clearTimeout(timer);
     },  2 * 1000);
+  }
+
+  const setMiscFactTimeout = () => {
+    setTimeout(() => {
+      setPet(pet => ({
+        ...pet,
+        state: PetState.IDLE,
+        action: PetAction.NONE,
+      }));
+      setFactVisible(false);
+    },  10 * 1000);
+  }
+
+  function doAction(action: PetAction|MiscAction) {
+    if (petRef.current.action !== PetAction.NONE) {
+      playAudio(audioError);
+      return;
+    }
+    playAudio(audioBoop);
+
+    console.log(action);
+
 
     switch (action) {
       case PetAction.EAT:
+        setPetActionTimeout();
         feedPet();
         break;
       case PetAction.SLEEP:
+        setPetActionTimeout();
         restPet();
         break;
       case PetAction.PLAY:
+        setPetActionTimeout();
         playWithPet();
+        break;
+      case MiscAction.FACT:
+        setMiscFactTimeout();
+        setPet(pet => ({
+          ...pet,
+          action: PetAction.HALT,
+        }));
+        setFactVisible(true);
         break;
     }
   }
 
   function feedPet() {
-    // TODO: consider multiple food types if time permits
+    //TODO: consider multiple food types if time permits
+    //  The options here off the top of my head are a random
+    //  food item for each feeding, or another sub menu that
+    //  lets you choose the type of food.
     const myFoodFill = 10;
     setPet(pet => ({
       ...pet,
@@ -395,7 +507,7 @@ export function App()  {
       state: PetState.JUMP,
       action: PetAction.PLAY,
     }));
-    fetchPetFact(); 
+    fetchPetFact();
   }
 
   function restPet() {
@@ -404,7 +516,7 @@ export function App()  {
     setPet(pet => ({
       ...pet,
       hunger: Math.min(pet.hunger + hungerIncrease, 100),
-      energy: Math.min(pet.energy += energyIncrease, 100),
+      energy: Math.min(pet.energy + energyIncrease, 100),
       state: PetState.SLEEP,
       action: PetAction.SLEEP,
     }));
@@ -414,7 +526,7 @@ export function App()  {
     const hungerIncrease = 5;
     setPet(pet => ({
       ...pet,
-      hunger: Math.min(pet.hunger += hungerIncrease, 100),
+      hunger: Math.min(pet.hunger + hungerIncrease, 100),
         state: PetState.WALK,
     }));
   }
@@ -452,15 +564,17 @@ export function App()  {
   }
 
   function pressLeft() {
-    doAction(PetAction.EAT);
+    playAudio(audioBoop);
+    emitButtonPress(Button.LEFT);
   }
 
   function pressCenter() {
-    doAction(PetAction.PLAY);
+    emitButtonPress(Button.CENTER);
   }
 
   function pressRight() {
-    doAction(PetAction.SLEEP);
+    playAudio(audioBoop);
+    emitButtonPress(Button.RIGHT);
   }
 
   function savePetData() {
@@ -476,6 +590,10 @@ export function App()  {
       <div className="pet-shell">
         <img src={ToyShell} />
         <div className="pet-screen">
+          <div className="pet-fact" 
+            style={{ visibility: factVisible ? 'visible' : 'hidden' }}>
+            { fact }
+          </div>
           <div className="pet-hud">
             <p id="pet-species">MIMIC</p>
             <HappinessIcon happinessThreshold={getHappinessThreshold()} />
@@ -485,6 +603,15 @@ export function App()  {
           <div className="pet-sprite">
             <img src={pet.images[pet.state]} />
           </div>
+          <PetActionCarousel 
+            buttonPressRegistrar={registerButtons}
+            doAction={doAction}
+            options={[
+              { name: 'FEED', action: PetAction.EAT },
+              { name: 'PLAY', action: PetAction.PLAY },
+              { name: 'NAP', action: PetAction.SLEEP },
+              { name: 'FACT', action: MiscAction.FACT },
+            ]} />
         </div>
         <div className="pet-buttons">
           <button onClick={pressLeft} className="pet-button pet-buttons-left" >
