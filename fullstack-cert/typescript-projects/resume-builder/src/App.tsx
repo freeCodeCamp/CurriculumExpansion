@@ -42,62 +42,70 @@ export function App() {
 
   return (
     <div className="content">
-      <h2>Personal Information</h2>
-      <form>
-        <Field
-          onChange={handleUpdateName}
-          labelText={"Name"}
-          fieldType={"text"}
-        />
+      <header>
+        <h1>CV Builder</h1>
+      </header>
+      <main>
+        {/* Form Section */}
+        <h2>Personal Information</h2>
+        <form>
+          <Field
+            onChange={handleUpdateName}
+            labelText={"Name"}
+            fieldType={"text"}
+          />
 
-        <Field
-          onChange={handleUpdateEmail}
-          labelText={"Email"}
-          fieldType={"email"}
-        />
-        <Field
-          onChange={handleUpdatePhone}
-          labelText={"Phone"}
-          fieldType={"phone"}
-        />
-        <Field
-          onChange={handleUpdateObjective}
-          labelText={"Objective"}
-          fieldType={"text"}
-        />
-        <Field
-          onChange={handleUpdateDegree}
-          labelText={"Degree"}
-          fieldType={"text"}
-        />
-        <Field
-          onChange={handleUpdateGradYear}
-          labelText={"Degree"}
-          fieldType={"text"}
-        />
-      </form>
-      <article>
-        <label>
-          Name: <p id="name">{name}</p>
-        </label>
-        <label>
-          Email: <p id="email">{email}</p>
-        </label>
-        <label>
-          Phone: <p id="phone">{phone}</p>
-        </label>
-        <label>
-          Objective: <p id="objective">{objective}</p>
-        </label>
-        <div>
+          <Field
+            onChange={handleUpdateEmail}
+            labelText={"Email"}
+            fieldType={"email"}
+          />
+          <Field
+            onChange={handleUpdatePhone}
+            labelText={"Phone"}
+            fieldType={"phone"}
+          />
+          <Field
+            onChange={handleUpdateObjective}
+            labelText={"Objective"}
+            fieldType={"text"}
+          />
+          <Field
+            onChange={handleUpdateDegree}
+            labelText={"Degree"}
+            fieldType={"text"}
+          />
+          <Field
+            onChange={handleUpdateGradYear}
+            labelText={"Degree"}
+            fieldType={"text"}
+          />
+        </form>
+        {/* Previw Section */}
+        <article>
           <label>
-            Degree: <p id="degree">{degree}</p>
+            Name: <p id="name">{name}</p>
           </label>
           <label>
-            Year: <p id="gradYear">{gradYear}</p>
+            Email: <p id="email">{email}</p>
           </label>
-        </div>
-      </article>
+          <label>
+            Phone: <p id="phone">{phone}</p>
+          </label>
+          <label>
+            Objective: <p id="objective">{objective}</p>
+          </label>
+          <div>
+            <label>
+              Degree: <p id="degree">{degree}</p>
+            </label>
+            <label>
+              Year: <p id="gradYear">{gradYear}</p>
+            </label>
+          </div>
+        </article>
+      </main>
+      <footer></footer>
     </div>
   );
 }
