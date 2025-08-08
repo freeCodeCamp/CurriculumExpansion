@@ -1,10 +1,10 @@
-const cardDisplay = document.querySelector("#current-card"); 
-let currentCardIndex = -1;  
-let showingFront = true; 
-let currentCards: FlashCard[] = []; 
+const cardDisplay = document.querySelector("#current-card") as HTMLElement;
+const cardButtonsContainer = document.getElementById("card-buttons-container") as HTMLElement;
+let currentCardIndex = -1;
+let showingFront = true;
+let currentCards: FlashCard[] = [];
 
-interface FlashCard
-{
+interface FlashCard {
   frontText: string;
   backText: string;
 }
@@ -13,87 +13,119 @@ class InvalidUserInputError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "InvalidUserInputError";
-    Object.setPrototypeOf(this, InvalidUserInputError.prototype); 
+    Object.setPrototypeOf(this, InvalidUserInputError.prototype);
   }
 }
 
-function refresh() {
-  if (showingFront) {
-    cardDisplay.textContent = currentCards[currentCardIndex].backText;
-  } else {
-    cardDisplay.textContent = currentCards[currentCardIndex].frontText;
+function refresh(): void {
+  if (currentCardIndex < 0 || !currentCards[currentCardIndex]) {
+    cardDisplay.textContent = "No card selected. Add a new card to get started!";
+    return;
   }
+
+  const card = currentCards[currentCardIndex];
+  cardDisplay.textContent = showingFront ? card.frontText : card.backText;
+
+  Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    const button = child as HTMLElement;
+    if (i === currentCardIndex) {
+      button.style.backgroundColor = "var(--primary-hover-color)";
+      button.style.color = "white";
+    } else {
+      button.style.backgroundColor = "var(--primary-color)";
+    }
+  });
 }
 
-function flipCard() {
+function flipCard(): void {
+  if (currentCardIndex === -1) return;
   showingFront = !showingFront;
   refresh();
 }
 
-function deleteCard() {
-  const cardGrid = document.getElementById("card-grid");
-  if (currentCards.length > 1) {
-    currentCards.pop();
-    const currentChild = cardGrid.children[currentCards.length - 1]; 
-    cardGrid.removeChild(currentChild); 
-    currentCardIndex = currentCards.length - 1;
-  } else {
-    alert("No cards to delete");
+function deleteCard(): void {
+  if (currentCardIndex === -1) {
+    console.log("No card selected to delete.");
+    return;
   }
+
+  currentCards.splice(currentCardIndex, 1);
+  cardButtonsContainer.removeChild(cardButtonsContainer.children[currentCardIndex]);
+
+  Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    (child as HTMLButtonElement).onclick = () => {
+      currentCardIndex = i;
+      showingFront = true;
+      refresh();
+    };
+  });
+
+  if (currentCards.length === 0) {
+    currentCardIndex = -1;
+  } else {
+    currentCardIndex = Math.max(0, currentCardIndex - 1);
+  }
+
   refresh();
 }
 
-function uploadNewCard() {
-  const frontText = (
-    document.getElementById("front-text") as HTMLInputElement
-  ).value.trim();
-  const backText = (
-    document.getElementById("back-text") as HTMLInputElement
-  ).value.trim();
-  const errorElement = document.getElementById("entry-error");
-  errorElement.textContent = ""; // Removing any existing error messages
+function createCardButton(frontText: string, index: number): HTMLButtonElement {
+  const btn = document.createElement("button");
+  btn.innerText = frontText.length > 20 ? frontText.slice(0, 20) + "..." : frontText;
+  btn.onclick = () => {
+    currentCardIndex = index;
+    showingFront = true;
+    refresh();
+  };
+  return btn;
+}
+
+function uploadNewCard(): void {
+  const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
+  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
+  const errorElement = document.getElementById("entry-error") as HTMLParagraphElement;
+
+  const frontText = frontInput.value.trim();
+  const backText = backInput.value.trim();
+  errorElement.textContent = "";
+
   try {
-    if (frontText == "") {
-      throw new InvalidUserInputError("No front text provided");
-    }
+    if (!frontText) throw new InvalidUserInputError("Front text cannot be empty.");
+    if (!backText) throw new InvalidUserInputError("Back text cannot be empty.");
 
-    if (backText == "") {
-      throw new InvalidUserInputError("No back text provided");
-    }
-
-    const newCard: FlashCard = { frontText: frontText, backText: backText };
+    const newCard: FlashCard = { frontText, backText };
     currentCards.push(newCard);
-    currentCardIndex++;
+    const newIndex = currentCards.length - 1;
+    const cardBtn = createCardButton(frontText, newIndex);
+    cardButtonsContainer.appendChild(cardBtn);
+
+    currentCardIndex = newIndex;
+    showingFront = true;
     refresh();
 
-    const cardGrid = document.getElementById("card-grid");
-
-    const newButton: HTMLButtonElement = document.createElement("button");
-    newButton.innerText = frontText.substring(0, frontText.indexOf(" "));
-    newButton.value = currentCardIndex.toString();
-    newButton.onclick = function (e) {
-      const target = e.target as HTMLButtonElement;
-      currentCardIndex = parseInt(target.value);
-    };
-    cardGrid.appendChild(newButton);
+    frontInput.value = "";
+    backInput.value = "";
   } catch (ex) {
-    console.log(typeof ex); 
     if (ex instanceof InvalidUserInputError) {
-      errorElement.textContent = "UserInputError:" + ex.message;
+      errorElement.textContent = "⚠️ " + ex.message;
+    } else {
+      console.error("An unexpected error occurred:", ex);
     }
   }
 }
 
 document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  if (ev.key === "Enter") {
+  if (ev.key === " ") {
+    ev.preventDefault(); 
     flipCard();
   }
-}); 
+});
 
 document.addEventListener("DOMContentLoaded", () => {
-  (document.getElementById("front-text") as HTMLInputElement).value = "Sample front";
-  (document.getElementById("back-text") as HTMLInputElement).value = "Sample back";
+  const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
+  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
+
+  frontInput.value = "What is HTML?";
+  backInput.value = "A markup language for structuring web content.";
   uploadNewCard();
-  (document.getElementById("front-text") as HTMLInputElement).value = ""; 
-  (document.getElementById("back-text") as HTMLInputElement).value = "";
 });
