@@ -1,60 +1,144 @@
-html {
-  color-scheme: light dark;
-  font-family: system-ui;
+/*main colors*/
+:root {
+  --bg-color: #1a1d24;
+  --surface-color: #2c313a;
+  --primary-color: #00aaff;
+  --primary-hover-color: #0088cc;
+  --text-color: #e0e0e0;
+  --text-secondary-color: #a0a0a0;
+  --border-color: #444952;
+  --error-color: #ff4d4d;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  padding: 2rem;
 }
 h1 {
   text-align: center;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
 }
-.card-grid
-{
-  display:inline-flex;
-  flex-direction: row; 
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
 }
 
-.entry-form
-{
-  display:flex;
-  flex-direction: column; 
-  text-align: center;
+/*main app container*/
+#flashcard-body {
+  background-color: var(--surface-color);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
+/*flashcard styles*/
 
 .flashcard
 {
-  width:20rem;
-  border-color: red;
-  border-style: solid;
-  border-width: 1px;
-  text-align: center;
+  width: auto;
+  min-height: 150px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding-top: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  padding-left: 50px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+/*hover effect*/
+.flashcard:hover {
+  transform: translateY(-5px);
+}
+/*button styles*/
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-right: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+button:hover {
+  background-color: var(--primary-hover-color);
+}
+button:active {
+  transform: scale(0.98);
+}
+button.delete-bin {
+  background-color: #4a4e57;
+}
+button.delete-btn:hover {
+  background-color: #60656f;
+}
+
+/*form styles*/
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.entry-form label {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+}
+
+.entry-form textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+  min-height: 80px;
+}
+
+.entry-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.3);
 }
 
 .error
 {
-  color: red; 
-}
-
-/*form input styles*/
-#front-text, #back-text {
-  width: auto;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-#back-text {
-  width: auto;
-  height: 200px;
-}
-
-
-#flashcard-body {
-  background-color: #13B4D4;
-  border-radius: 25px;
+  color: var(--error-color);
+  text-align: center;
+  min-height: 1.2em;
 }
