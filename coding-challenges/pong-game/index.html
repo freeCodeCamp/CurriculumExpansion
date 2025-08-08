@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Pong Game</h1>
+    <div id="game-rules" class="game-rules center">
+      <p>Try to score against the unbeatable computer opponent!</p>
+      <p>Move your paddle with your mouse.</p>
+      <br />
+      <button id="start-game">Start Game</button>
+    </div>
+    <div id="game" class="hidden">
+      <div class="center inline">
+        <p id="player-score" class="player-score"></p>
+        <p id="computer-score" class="computer-score"></p>
+      </div>
+      <canvas
+        id="board"
+        class="board center green-border"
+        width="800"
+        height="400"
+      ></canvas>
+      <br />
+      <button id="reset">Reset Game</button>
+    </div>
+
+    <dialog id="reset-modal" class="reset-modal">
+      <div class="modal-content">
+        <h2>Reset Game?</h2>
+        <p>
+          Are you sure you want to reset the game? This will clear all scores.
+        </p>
+        <div class="modal-buttons">
+          <button id="confirm-reset" class="confirm-btn">Yes, reset</button>
+          <button id="cancel-reset" class="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
