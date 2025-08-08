@@ -114,13 +114,6 @@ function uploadNewCard(): void {
   }
 }
 
-document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  if (ev.key === " ") {
-    ev.preventDefault(); 
-    flipCard();
-  }
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
   const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
