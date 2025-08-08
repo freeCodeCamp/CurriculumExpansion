@@ -45,6 +45,7 @@ html {
 
   color: black;
   font-family: 'Tektur', sans-serif;
+  font-size: 14;
 }
 
 .pet-hud {
@@ -79,7 +80,8 @@ html {
   font-size: 22;
   font-family: "Tektur", sans-serif;
   text-align: center;
-  margin-top: 0px;
+  margin-top: -15%;
+  height: 25%;
 }
 
 .pet-buttons {

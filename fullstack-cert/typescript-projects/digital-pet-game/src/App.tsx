@@ -635,15 +635,6 @@ export function App()  {
       <button id="load-game" onClick={loadPetData}>
         Load
       </button>
-      <button id="feed-pet" onClick={feedPet}>
-        Feed Pet (5 decrease to hunger)
-      </button>
-      <button id="play-with-pet" onClick={playWithPet}>
-        Play with Pet (5 increase to happiness, 5 decrease to energy)
-      </button>
-      <button id="reset-pet" onClick={restPet}>
-        Tell pet to take a nap (5 increase to energy, 5 decrease to hunger)
-      </button>
       <button id="increase-hunger" onClick={hungrierPet}>
         TEST [INCREASE HUNGER 5]
       </button>
