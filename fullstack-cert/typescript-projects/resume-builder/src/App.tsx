@@ -1,9 +1,24 @@
 import { FileText, User } from "lucide-react";
 import { ChangeEvent, useState } from "react";
+import { CVData } from "./types/cv";
 import "./App.css";
 import { Field } from "./Field";
 
 export function App() {
+  const [cvData, setCVData] = useState<CVData>({
+    personalInfo: {
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      website: "",
+      linkedin: "",
+      summary: "",
+    },
+    experience: [],
+    education: [],
+    skills: [],
+  });
   const [showPreview, setShowPreview] = useState(true);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +64,7 @@ export function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <FileText className="w-8 h-8 text-blue-600 mr-3" />
-              <h1>CV Builder</h1>
+              <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
             </div>
           </div>
         </div>
