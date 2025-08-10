@@ -599,7 +599,7 @@ export function App() {
       </header>
       <div className="start-game-container">
         <div className="pet-shell">
-          <img src={ToyShell} />
+          {/*  <img src={ToyShell} />*/}
           <div className="pet-screen">
             <div
               className="pet-fact"
@@ -608,7 +608,7 @@ export function App() {
               {fact}
             </div>
             <div className="pet-hud">
-              <p id="pet-species">MIMIC</p>
+              <div id="pet-species">MIMIC</div>
               <HappinessIcon happinessThreshold={getHappinessThreshold()} />
               <HungerIcon hungerThreshold={getHungerThreshold()} />
               <BatteryIcon batteryThreshold={getEnergyThreshold()} />
@@ -652,7 +652,7 @@ export function App() {
                   id="pet-name"
                   required={true}
                   pattern="[A-Za-z0-9]{1,20}"
-                ></input>
+                />
               </p>
               <button id="set-name-btn" onClick={startGame}>
                 Start Game

@@ -3,9 +3,9 @@ html {
   font-family: system-ui;
   display: flex;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(135deg, #dbeafe 0%, #faf5ff 50%, #fce7f3 100%);
@@ -14,32 +14,33 @@ html {
 }
 
 header {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 .start-game-container {
-    background: rgba(255, 255, 255, 0.6);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
 }
 .pet-shell {
   position: relative;
   width: 50%;
   max-width: 400px;
   margin: auto;
+  height: 240px;
 }
 
 .pet-shell img {
   display: block;
-  width: 100%;
+  width: 25px;
 }
 
 .pet-screen {
-  background: #898a47;
+  /*background: #898a47;*/
   position: absolute;
   top: 24%;
   left: 31%;
@@ -55,7 +56,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  background: #898a47;
+  /* background: #898a47;*/
   width: 100%;
   height: 100%;
   border-radius: 3%;
@@ -63,7 +64,7 @@ header {
   padding: 4%;
 
   color: black;
-  font-family: 'Tektur', sans-serif;
+  font-family: "Tektur", sans-serif;
   font-size: 14;
 }
 
@@ -90,8 +91,6 @@ header {
 
 .pet-hud #happiness-icon {
   max-height: 90%;
-  width: auto;
-  height: auto;
 }
 
 .pet-screen .action-carousel {
