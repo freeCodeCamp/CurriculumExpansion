@@ -1,17 +1,17 @@
 html {
-  color-scheme: light dark;
   font-family: system-ui;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-.content
-{
-  display:flex;
+.content {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width:100%; 
+  width: 100%;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
