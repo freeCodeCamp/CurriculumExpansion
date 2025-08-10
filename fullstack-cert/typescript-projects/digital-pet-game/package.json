@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "rm -rf dist && parcel build && cp -r src/assets dist/assets "
   },
   "dependencies": {
     "@parcel/config-default": "^2.15.4",

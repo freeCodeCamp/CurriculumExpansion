@@ -1,21 +1,20 @@
-import { useState, useEffect, createElement, useRef } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import './App.css';
 
 //TODO: Hopefully have a way to remove these SVG's from the file altogether and getting them onto the CDN. In my experience SVG's have always been a little strange and I'm not well versed enough to anticipate how FCC will handle them, so I'm just inlining them until that's clarified. Sorry for this mess!
+const ToyShell = './assets/shells/rainbow.webp';
 
-const ToyShell = new URL('assets/shells/rainbow.webp', import.meta.url);
+const StomachIconFULL  = "./assets/stomach/stomach_FULL.svg";
+const StomachIconHIGH  = "./assets/stomach/stomach_HIGH.svg";
+const StomachIconHALF  = "./assets/stomach/stomach_HALF.svg";
+const StomachIconLOW   = "./assets/stomach/stomach_LOW.svg";
+const StomachIconEMPTY = "./assets/stomach/stomach_EMPTY.svg";
 
-const StomachIconFULL  = new URL("./assets/stomach/stomach_FULL.svg", import.meta.url);
-const StomachIconHIGH  = new URL("./assets/stomach/stomach_HIGH.svg", import.meta.url);
-const StomachIconHALF  = new URL("./assets/stomach/stomach_HALF.svg", import.meta.url);
-const StomachIconLOW   = new URL("./assets/stomach/stomach_LOW.svg", import.meta.url);
-const StomachIconEMPTY = new URL("./assets/stomach/stomach_EMPTY.svg", import.meta.url);
-
-const BatteryIconFULL  = new URL("./assets/battery/battery-100-svgrepo-com.svg", import.meta.url);
-const BatteryIconHIGH  = new URL("./assets/battery/battery-75-svgrepo-com.svg", import.meta.url);
-const BatteryIconHALF  = new URL("./assets/battery/battery-50-svgrepo-com.svg", import.meta.url);
-const BatteryIconLOW   = new URL("./assets/battery/battery-25-svgrepo-com.svg", import.meta.url);
-const BatteryIconEMPTY = new URL("./assets/battery/battery-0-svgrepo-com.svg", import.meta.url);
+const BatteryIconFULL  = "./assets/battery/battery-100-svgrepo-com.svg";
+const BatteryIconHIGH  = "./assets/battery/battery-75-svgrepo-com.svg";
+const BatteryIconHALF  = "./assets/battery/battery-50-svgrepo-com.svg";
+const BatteryIconLOW   = "./assets/battery/battery-25-svgrepo-com.svg";
+const BatteryIconEMPTY = "./assets/battery/battery-0-svgrepo-com.svg";
 
 const AUDIO_ENABLED = false;
 
@@ -215,14 +214,14 @@ enum PetState {
 };
 
 interface MonsterImages {
-  Idle: URL;
-  Death: URL;
-  Sleep: URL;
-  Wake: URL;
-  Walk: URL;
-  Turn: URL;
-  Jump: URL;
-  Attack_Bite: URL;
+  Idle: string;
+  Death: string;
+  Sleep: string;
+  Wake: string;
+  Walk: string;
+  Turn: string;
+  Jump: string;
+  Attack_Bite: string;
 }
 
 interface MonsterDetail {
@@ -246,6 +245,7 @@ interface MonstersList {
   results: MonsterSummary[];
 }
 
+// TODO: swap with Freecodecamp's api 
 const monstersBaseUri = 'https://www.dnd5eapi.co/api/2014/monsters/';
 
 const handleFetchErrors = (response: Response) => {
@@ -267,24 +267,24 @@ const getMonsterDetail = async (monsterName: string) => {
 };
 
 const loadMonsterArt = (): MonsterImages => ({
-  Idle: new URL('assets/mimic/Idle.webp', import.meta.url),
-  Death: new URL('assets/mimic/Death.webp', import.meta.url),
-  Sleep: new URL('assets/mimic/Hide.webp', import.meta.url),
-  Wake: new URL('assets/mimic/Reveal.webp', import.meta.url),
-  Walk: new URL('assets/mimic/Walk.webp', import.meta.url),
-  Turn: new URL('assets/mimic/Turn.webp', import.meta.url),
-  Jump: new URL('assets/mimic/Jump.webp', import.meta.url),
-  Attack_Bite: new URL('assets/mimic/Attack_Bite.webp', import.meta.url),
+  Idle: 'assets/mimic/Idle.webp',
+  Death: 'assets/mimic/Death.webp',
+  Sleep: 'assets/mimic/Hide.webp',
+  Wake: 'assets/mimic/Reveal.webp',
+  Walk: 'assets/mimic/Walk.webp',
+  Turn: 'assets/mimic/Turn.webp',
+  Jump: 'assets/mimic/Jump.webp',
+  Attack_Bite: 'assets/mimic/Attack_Bite.webp',
 });
 
 
 interface Pet
 {
-  name: String; 
+  name: string; 
   happiness: number; 
   hunger: number;
   energy: number; 
-  species: String; 
+  species: string; 
   action: PetAction;
   images: MonsterImages;
   state: PetState;
@@ -301,7 +301,7 @@ enum Button {
 interface PetActionCarouselProps {
   options: { name: string, action: PetAction|MiscAction }[];
   buttonPressRegistrar: (callback: (buttonType: Button) => void) => void; 
-  doAction: (action: PetAction) => void;
+  doAction: (action: PetAction|MiscAction) => void;
 }
 
 const PetActionCarousel: React.FC<PetActionCarouselProps> = ({
@@ -317,7 +317,7 @@ const PetActionCarousel: React.FC<PetActionCarouselProps> = ({
   useEffect(() => { visibleRef.current = isVisible });
   const visibilityTimerRef = useRef<number>(-1);
 
-  const createVisiblityTimer = () => {
+  const createVisibilityTimer = () => {
     setIsVisible(true);
     clearTimeout(visibilityTimerRef.current);
     visibilityTimerRef.current = setTimeout(
@@ -330,7 +330,7 @@ const PetActionCarousel: React.FC<PetActionCarouselProps> = ({
 
   useEffect(() => {
     buttonPressRegistrar((buttonType: Button) => {
-      createVisiblityTimer();
+      createVisibilityTimer();
       if (!visibleRef.current) {
         return;
       }
@@ -371,7 +371,7 @@ export function App()  {
   //TODO: The pet has a lot of functionality tied to it that's currently
   //  just inlined with the rest of the App. Do we want to break it into
   //  a hook? Are learner's already expected to have enough React knowledge
-  //  to consider this or should we keep it simple with inlines?
+  //  to consider this or should we keep it simple with in-lines?
   let [pet, setPet] = useState<Pet>({
     name: "",
     happiness: 100,
@@ -387,6 +387,7 @@ export function App()  {
 
   const [fact, setFact] = useState<string|null>("");
   const [factVisible, setFactVisible] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false); 
 
   //TODO: I think this is almost definitely too complicated. I imagine we'll
   //  revert and have each button assigned to a particular action if I can't
@@ -405,14 +406,14 @@ export function App()  {
   //TODO: Integrate with the FCC API once it's ready.
   useEffect(() => {
     getMonsterDetail("mimic")
-      .then((monster: MonsterDetail) => {
-        console.log(monster);
+      .then((monster: MonsterDetail) =>
+      {
         setPet({
           ...pet,
           species: monster.name,
         });
+        setFact("Mimics have an size of " + monster.size + " according to the DND 5E rule book.",);
       });
-    fetchPetFact();
   }, []);
 
   useEffect(() => {
@@ -422,7 +423,7 @@ export function App()  {
         happiness: Math.max(pet.happiness - 5, 0),
         hunger: Math.min(pet.hunger + 5, 100),
       }));
-    }, 5 * 60 * 1000);
+    }, 30 * 1000); // TODO : These things use minutes but it's taking too long
 
     return () => clearInterval(interval);
   }, []);
@@ -454,10 +455,6 @@ export function App()  {
       return;
     }
     playAudio(audioBoop);
-
-    console.log(action);
-
-
     switch (action) {
       case PetAction.EAT:
         setPetActionTimeout();
@@ -507,7 +504,6 @@ export function App()  {
       state: PetState.JUMP,
       action: PetAction.PLAY,
     }));
-    fetchPetFact();
   }
 
   function restPet() {
@@ -520,23 +516,6 @@ export function App()  {
       state: PetState.SLEEP,
       action: PetAction.SLEEP,
     }));
-  }
-
-  function hungrierPet() {
-    const hungerIncrease = 5;
-    setPet(pet => ({
-      ...pet,
-      hunger: Math.min(pet.hunger + hungerIncrease, 100),
-        state: PetState.WALK,
-    }));
-  }
-
-  function fetchPetFact() {
-    // TODO: Put actual fetch here
-    const petFact = JSON.parse(
-      '{"fact":"Mimics have a shape-changing ability and can polymorph into any object."}'
-    );
-    setFact(petFact.fact); 
   }
 
   function getEnergyThreshold() {
@@ -583,6 +562,22 @@ export function App()  {
 
   function loadPetData() {
     pet = JSON.parse(localStorage.getItem(saveKey) || "");
+    if (typeof pet !== 'undefined')
+    {
+      setPet(pet);
+      setGameStarted(true); 
+    }
+  }
+
+  function startGame()
+  {
+    const petName = (document.getElementById("pet-name") as HTMLInputElement).value;
+    
+    setPet({
+      ...pet,
+      name: petName
+    });
+    setGameStarted(true); 
   }
 
   return (
@@ -590,9 +585,11 @@ export function App()  {
       <div className="pet-shell">
         <img src={ToyShell} />
         <div className="pet-screen">
-          <div className="pet-fact" 
-            style={{ visibility: factVisible ? 'visible' : 'hidden' }}>
-            { fact }
+          <div
+            className="pet-fact"
+            style={{ visibility: factVisible ? "visible" : "hidden" }}
+          >
+            {fact}
           </div>
           <div className="pet-hud">
             <p id="pet-species">MIMIC</p>
@@ -603,31 +600,59 @@ export function App()  {
           <div className="pet-sprite">
             <img src={pet.images[pet.state]} />
           </div>
-          <PetActionCarousel 
+          <PetActionCarousel
             buttonPressRegistrar={registerButtons}
             doAction={doAction}
             options={[
-              { name: 'FEED', action: PetAction.EAT },
-              { name: 'PLAY', action: PetAction.PLAY },
-              { name: 'NAP', action: PetAction.SLEEP },
-              { name: 'FACT', action: MiscAction.FACT },
-            ]} />
+              { name: "FEED", action: PetAction.EAT },
+              { name: "PLAY", action: PetAction.PLAY },
+              { name: "NAP", action: PetAction.SLEEP },
+              { name: "FACT", action: MiscAction.FACT },
+            ]}
+          />
         </div>
         <div className="pet-buttons">
-          <button onClick={pressLeft} className="pet-button pet-buttons-left" >
-          </button>
-          <button onClick={pressCenter} className="pet-button pet-buttons-center" >
-          </button>
-          <button onClick={pressRight} className="pet-button pet-buttons-right" >
-          </button>
+          <button
+            onClick={pressLeft}
+            className="pet-button pet-buttons-left"
+          ></button>
+          <button
+            onClick={pressCenter}
+            className="pet-button pet-buttons-center"
+          ></button>
+          <button
+            onClick={pressRight}
+            className="pet-button pet-buttons-right"
+          ></button>
         </div>
       </div>
       <h1>Digital Pet Game</h1>
-      <h2>Pet Name: {pet.name}</h2>
-      <p id="pet-species">Species: {pet.species}</p>
-      <p id="happiness-meter">Happiness: {pet.happiness}</p>
-      <p id="hunger-meter">Hunger: {pet.hunger}</p>
-      <p id="energy-meter">Energy: {pet.energy}</p>
+
+      {!gameStarted ? (
+        <div id="start-questions">
+          <form>
+            <p>
+              What is your pet's name?{" "}
+              <input
+                id="pet-name"
+                required={true}
+                pattern="[A-Za-z0-9]{1,20}"
+               ></input>
+            </p>
+            <button id="set-name-btn" onClick={startGame}>
+              Start Game
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div id="hud">
+          <h2>Pet Name: {pet.name}</h2>
+          <p id="pet-species">Species: {pet.species}</p>
+          <p id="happiness-meter">Happiness: {pet.happiness}</p>
+          <p id="hunger-meter">Hunger: {pet.hunger}</p>
+          <p id="energy-meter">Energy: {pet.energy}</p>
+        </div>
+      )}
       <p id="pet-fact">Pet Fact: {fact}</p>
       <button id="save-game" onClick={savePetData}>
         Save
@@ -635,9 +660,7 @@ export function App()  {
       <button id="load-game" onClick={loadPetData}>
         Load
       </button>
-      <button id="increase-hunger" onClick={hungrierPet}>
-        TEST [INCREASE HUNGER 5]
-      </button>
+      <p>Hint: Double click each button to perform its action</p>
     </>
   );
 }
