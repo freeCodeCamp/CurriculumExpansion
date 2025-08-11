@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { CVData } from "./types/cv";
 import "./App.css";
 import { Field } from "./Field";
+import Header from "./components/Header";
 
 export function App() {
   const [cvData, setCVData] = useState<CVData>({
@@ -59,16 +60,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="bg-white shadow-sm border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <FileText className="w-8 h-8 text-blue-600 mr-3" />
-              <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
