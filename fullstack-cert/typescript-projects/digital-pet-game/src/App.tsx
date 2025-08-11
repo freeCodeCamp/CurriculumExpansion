@@ -121,15 +121,6 @@ export function App() {
   //  revert and have each button assigned to a particular action if I can't
   //  figure out a simpler implementation. We'll be one short of the "fun fact"
   //  functionality, but we can just add a fourth button to the device.
-  const [buttonSubscribers, setButtonSubscribers] = useState<
-    ((button: Button) => void)[]
-  >([]);
-  const registerButtons = (callback: (button: Button) => void) => {
-    setButtonSubscribers([...buttonSubscribers, callback]);
-  };
-  const emitButtonPress = (button: Button) => {
-    buttonSubscribers.forEach((callback) => callback(button));
-  };
 
   //TODO: Integrate with the FCC API once it's ready.
   useEffect(() => {
@@ -233,18 +224,6 @@ export function App() {
       state: PetState.SLEEP,
       action: PetAction.SLEEP,
     }));
-  }
-
-  function pressLeft() {
-    emitButtonPress(Button.LEFT);
-  }
-
-  function pressCenter() {
-    emitButtonPress(Button.CENTER);
-  }
-
-  function pressRight() {
-    emitButtonPress(Button.RIGHT);
   }
 
   function savePetData() {
