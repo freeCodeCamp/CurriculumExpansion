@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
+import { StatBar } from "./components/StatBar";
 
 const StomachIconFULL = "./assets/stomach/stomach_FULL.svg";
 const StomachIconHIGH = "./assets/stomach/stomach_HIGH.svg";
@@ -594,6 +595,7 @@ export function App() {
         <h1>Digital Pet Game</h1>
         <p>Take care of your virtual companion!</p>
       </header>
+
       <div className="start-game-container">
         <div className="pet-shell">
           <div className="pet-screen">
@@ -605,9 +607,11 @@ export function App() {
             </div>
             <div className="pet-hud">
               <div id="pet-species">MIMIC</div>
+              {/*
               <HappinessIcon happinessThreshold={getHappinessThreshold()} />
               <HungerIcon hungerThreshold={getHungerThreshold()} />
               <BatteryIcon batteryThreshold={getEnergyThreshold()} />
+              */}
             </div>
             <div className="pet-sprite">
               <img src={pet.images[pet.state]} />
@@ -623,6 +627,7 @@ export function App() {
               ]}
             />
           </div>
+
           <div className="pet-buttons">
             <button
               onClick={pressLeft}
@@ -638,7 +643,15 @@ export function App() {
             ></button>
           </div>
         </div>
+      </div>
 
+      <div className="stats-grid">
+        <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
+        <StatBar label="Happiness" value={pet.happiness} icon="😊" />
+        <StatBar label="Energy" value={pet.energy} icon="⚡" />
+      </div>
+
+      <div className="start-game-container">
         {!gameStarted ? (
           <div id="start-questions">
             <form>
