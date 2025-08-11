@@ -1,200 +1,41 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { StatBar } from "./components/StatBar";
+import * as catFacts from "./assets/cat-facts.json";
 
-const StomachIconFULL = "./assets/stomach/stomach_FULL.svg";
-const StomachIconHIGH = "./assets/stomach/stomach_HIGH.svg";
-const StomachIconHALF = "./assets/stomach/stomach_HALF.svg";
-const StomachIconLOW = "./assets/stomach/stomach_LOW.svg";
-const StomachIconEMPTY = "./assets/stomach/stomach_EMPTY.svg";
-
-const BatteryIconFULL = "./assets/battery/battery-100-svgrepo-com.svg";
-const BatteryIconHIGH = "./assets/battery/battery-75-svgrepo-com.svg";
-const BatteryIconHALF = "./assets/battery/battery-50-svgrepo-com.svg";
-const BatteryIconLOW = "./assets/battery/battery-25-svgrepo-com.svg";
-const BatteryIconEMPTY = "./assets/battery/battery-0-svgrepo-com.svg";
-
-const AUDIO_ENABLED = false;
-
-let audioError: HTMLAudioElement | null = null;
-let audioBoop: HTMLAudioElement | null = null;
-
-if (AUDIO_ENABLED) {
-  const audioError = new Audio("http://localhost:8000/Error.mp3");
-  const audioBoop = new Audio("http://localhost:8000/Boop.mp3");
+interface StatBarProps {
+  label: string;
+  value: number;
+  icon: string;
 }
 
-const playAudio = (audio: HTMLAudioElement | null): void => {
-  if (!AUDIO_ENABLED || audio === null) return;
-
-  audio.currentTime = 0;
-  audio.play();
-};
-
-type EnumDictionary<T extends string | symbol | number, U> = {
-  [K in T]: U;
-};
-
-enum BatteryThreshold {
-  FULL = 100,
-  HIGH = 75,
-  HALF = 50,
-  LOW = 25,
-  EMPTY = 0,
+function getStatColorClass(value: number): string {
+  if (value >= 70) return "high";
+  if (value >= 40) return "medium";
+  return "low";
 }
 
-const BatteryIconDict: EnumDictionary<BatteryThreshold, React.JSX.Element> = {
-  [BatteryThreshold.FULL]: <img src={BatteryIconFULL} />,
-  [BatteryThreshold.HIGH]: <img src={BatteryIconHIGH} />,
-  [BatteryThreshold.HALF]: <img src={BatteryIconHALF} />,
-  [BatteryThreshold.LOW]: <img src={BatteryIconLOW} />,
-  [BatteryThreshold.EMPTY]: <img src={BatteryIconEMPTY} />,
-};
+function StatBar({ label, value, icon }: StatBarProps) {
+  const colorClass = getStatColorClass(value);
 
-interface BatteryIconProps {
-  batteryThreshold: BatteryThreshold;
-}
-
-const BatteryIcon: React.FC<BatteryIconProps> = ({
-  batteryThreshold,
-}): React.ReactElement => {
-  return <div>{BatteryIconDict[batteryThreshold]}</div>;
-};
-
-enum HungerThreshold {
-  FULL = 100,
-  HIGH = 75,
-  HALF = 50,
-  LOW = 25,
-  EMPTY = 0,
-}
-
-const HungerIconDict: EnumDictionary<HungerThreshold, React.JSX.Element> = {
-  [HungerThreshold.FULL]: <img src={StomachIconFULL} />,
-  [HungerThreshold.HIGH]: <img src={StomachIconHIGH} />,
-  [HungerThreshold.HALF]: <img src={StomachIconHALF} />,
-  [HungerThreshold.LOW]: <img src={StomachIconLOW} />,
-  [HungerThreshold.EMPTY]: <img src={StomachIconEMPTY} />,
-};
-
-interface HungerIconProps {
-  hungerThreshold: HungerThreshold;
-}
-
-const HungerIcon: React.FC<HungerIconProps> = ({
-  hungerThreshold,
-}): React.ReactElement => {
-  return <div>{HungerIconDict[hungerThreshold]}</div>;
-};
-
-//TODO: I've got to study up on typescript more. I'd like to show off a more complex example
-//  of how to represent a CSS type with typescript, so my initial thought was to create something
-//  like colour. Long story short, this is a nightmare, and if it becomes a significant challenge
-//  for me, I imagine it would be far too much for the learners at this point in their journey.
-//  I'm leaving this for the time being while I sit on it, maybe there's an elegant, teachable
-//  solution that I just haven't worked out yet, but I'm likely going to omit this entirely.
-//  Note that the primary sisue with this example is that if we make a type that tries to encompass
-//  all valid input for this type, Typescript states the union type is too complex to represent.
-type RGB = `rbg(${number}, ${number}, ${number})`;
-type RGBA = `rgba(${number}, ${number}, ${number})`;
-type HEX = `#${string}`;
-
-// Turns out I'm able to teach this with CSS units, if this is something we'd like to include.
-//  I'm of the opinion that this is simple enough conceptually to understand, and if we'd
-//  like to make it appear less imposing we could of course reduce the number of units covered.
-//  An example involving px, %, and possible vw/vh would be sufficient, without appearing to
-//  be as complex as the complete (I think) example of all css units.
-type CSSUnitAbsolute = "cm" | "mm" | "in" | "px" | "pt" | "pc";
-type CSSUnitRelative =
-  | "em"
-  | "ex"
-  | "ch"
-  | "rem"
-  | "vw"
-  | "vh"
-  | "vmin"
-  | "vmax"
-  | "%";
-type CSSUnit = CSSUnitAbsolute | CSSUnitRelative;
-type CSSDimension = `${number}${CSSUnit}`;
-
-interface HeartPathProps {
-  fill: string;
-  transform?: string;
-}
-
-const HeartPath: React.FC<HeartPathProps> = ({
-  fill,
-  transform,
-}): React.ReactElement => (
-  <path
-    fill={fill}
-    transform={transform}
-    d="M12 21s-6-4.35-9.33-8.22C-.5 7.39 3.24 1 8.4 4.28 10.08 5.32 12 7.5 12 7.5s1.92-2.18 3.6-3.22C20.76 1 24.5 7.39 21.33 12.78 18 16.65 12 21 12 21z"
-  />
-);
-
-// Enumerators notably do not support being `extended`. It may be a good idea to have
-//  the learners start with a base `StatusThreshold` enum, and then have them modify
-//  one later into the lab such that they need to create a new enum to account for that
-//  case, and the new enum will, of course, need to be written from scratch.
-enum HappinessThreshold {
-  FULL = 100,
-  HIGH = 75,
-  HALF = 50,
-  LOW = 25,
-  EMPTY = 0,
-}
-
-interface HappinessIconProperties {
-  scale: number;
-  color: string;
-}
-
-const happinessIconPropertiesDict: Record<
-  HappinessThreshold,
-  HappinessIconProperties
-> = {
-  [HappinessThreshold.FULL]: { scale: 1, color: "red" },
-  [HappinessThreshold.HIGH]: { scale: 0.8, color: "red" },
-  [HappinessThreshold.HALF]: { scale: 0.5, color: "red" },
-  [HappinessThreshold.LOW]: { scale: 0.2, color: "red" },
-  [HappinessThreshold.EMPTY]: { scale: 0.1, color: "red" },
-};
-
-interface HappinessIconProps {
-  happinessThreshold: HappinessThreshold;
-}
-
-const getTransformForScale = (
-  scale: number,
-  width: number,
-  height: number,
-): string => {
-  let translateX: number = (width * (1 - scale)) / 2;
-  let translateY: number = (height * (1 - scale)) / 2;
-
-  return `translate(${translateX}, ${translateY}) scale(${scale})`;
-};
-
-const HappinessIcon: React.FC<HappinessIconProps> = ({
-  happinessThreshold,
-}): React.ReactElement => {
-  const { scale, color } = happinessIconPropertiesDict[happinessThreshold];
   return (
-    <div id="happiness-icon">
-      <svg width="20px" height="20px" viewBox="0 0 24 24" fill={"red"}>
-        <HeartPath fill={"black"} />
-        <g transform={getTransformForScale(scale, 24, 24)}>
-          <HeartPath fill={color} />
-        </g>
-      </svg>
+    <div className="stat-bar">
+      <div className="stat-header">
+        <div className="stat-label">
+          <span className="stat-icon">{icon}</span>
+          <span className="stat-name">{label}</span>
+        </div>
+        <span className="stat-value">{Math.round(value)}%</span>
+      </div>
+
+      <div className="stat-progress">
+        <div
+          className={`stat-fill ${colorClass}`}
+          style={{ width: `${value}%` }}
+        />
+      </div>
     </div>
   );
-};
-
-type Size = "Tiny" | "Small" | "Medium" | "Large" | "Huge" | "Gargantuan";
-type Type = any;
+}
 
 enum PetAction {
   NONE,
@@ -230,58 +71,10 @@ interface MonsterImages {
   Attack_Bite: string;
 }
 
-interface MonsterDetail {
-  index: string;
-  name: string;
-  size: Size;
-  type: Type;
-  alignment: string;
-  armor_class: any[];
-  images: MonsterImages;
-}
 
-interface MonsterSummary {
-  index: string;
-  name: string;
-  url: string;
-}
-
-interface MonstersList {
-  count: number;
-  results: MonsterSummary[];
-}
 
 // TODO: swap with Freecodecamp's api
-const monstersBaseUri = "https://www.dnd5eapi.co/api/2014/monsters/";
-
-const handleFetchErrors = (response: Response) => {
-  if (!response.ok) {
-    throw new Error("Error retrieving data: " + response.statusText);
-  }
-};
-
-const getMonsters = async () => {
-  const response = await fetch(monstersBaseUri);
-  handleFetchErrors(response);
-  return (await response.json()) as MonstersList;
-};
-
-const getMonsterDetail = async (monsterName: string) => {
-  const response = await fetch(`${monstersBaseUri}${monsterName}`);
-  handleFetchErrors(response);
-  return (await response.json()) as MonsterDetail;
-};
-
-const loadMonsterArt = (): MonsterImages => ({
-  Idle: "assets/mimic/Idle.webp",
-  Death: "assets/mimic/Death.webp",
-  Sleep: "assets/mimic/Hide.webp",
-  Wake: "assets/mimic/Reveal.webp",
-  Walk: "assets/mimic/Walk.webp",
-  Turn: "assets/mimic/Turn.webp",
-  Jump: "assets/mimic/Jump.webp",
-  Attack_Bite: "assets/mimic/Attack_Bite.webp",
-});
+//const apiUri = "https://www.dnd5eapi.co/api/2014/monsters/";
 
 interface Pet {
   name: string;
@@ -290,7 +83,6 @@ interface Pet {
   energy: number;
   species: string;
   action: PetAction;
-  images: MonsterImages;
   state: PetState;
 }
 
@@ -385,7 +177,6 @@ export function App() {
     energy: 100,
     species: "",
     action: PetAction.NONE,
-    images: loadMonsterArt(),
     state: PetState.IDLE,
   });
   let petRef = useRef<Pet>(pet);
@@ -413,17 +204,9 @@ export function App() {
 
   //TODO: Integrate with the FCC API once it's ready.
   useEffect(() => {
-    getMonsterDetail("mimic").then((monster: MonsterDetail) => {
-      setPet({
-        ...pet,
-        species: monster.name,
-      });
-      setFact(
-        "Mimics have an size of " +
-          monster.size +
-          " according to the DND 5E rule book.",
-      );
-    });
+    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1; 
+    const currentFact = catFacts[randomNumber];
+    setFact(currentFact); 
   }, []);
 
   useEffect(() => {
@@ -460,11 +243,6 @@ export function App() {
   };
 
   function doAction(action: PetAction | MiscAction) {
-    if (petRef.current.action !== PetAction.NONE) {
-      playAudio(audioError);
-      return;
-    }
-    playAudio(audioBoop);
     switch (action) {
       case PetAction.EAT:
         setPetActionTimeout();
@@ -528,32 +306,7 @@ export function App() {
     }));
   }
 
-  function getEnergyThreshold() {
-    if (pet.energy >= 90) return BatteryThreshold.FULL;
-    if (pet.energy >= 75) return BatteryThreshold.HIGH;
-    if (pet.energy >= 50) return BatteryThreshold.HALF;
-    if (pet.energy > 10) return BatteryThreshold.LOW;
-    return BatteryThreshold.EMPTY;
-  }
-
-  function getHungerThreshold() {
-    if (pet.hunger > 90) return HungerThreshold.EMPTY;
-    if (pet.hunger >= 75) return HungerThreshold.LOW;
-    if (pet.hunger >= 50) return HungerThreshold.HALF;
-    if (pet.hunger > 10) return HungerThreshold.HIGH;
-    return HungerThreshold.FULL;
-  }
-
-  function getHappinessThreshold() {
-    if (pet.happiness >= 90) return HappinessThreshold.FULL;
-    if (pet.happiness >= 75) return HappinessThreshold.HIGH;
-    if (pet.happiness >= 50) return HappinessThreshold.HALF;
-    if (pet.happiness > 10) return HappinessThreshold.LOW;
-    return HappinessThreshold.EMPTY;
-  }
-
   function pressLeft() {
-    playAudio(audioBoop);
     emitButtonPress(Button.LEFT);
   }
 
@@ -562,7 +315,6 @@ export function App() {
   }
 
   function pressRight() {
-    playAudio(audioBoop);
     emitButtonPress(Button.RIGHT);
   }
 
@@ -606,16 +358,14 @@ export function App() {
               {fact}
             </div>
             <div className="pet-hud">
-              <div id="pet-species">MIMIC</div>
+              <div id="pet-species">Cat</div>
               {/*
               <HappinessIcon happinessThreshold={getHappinessThreshold()} />
               <HungerIcon hungerThreshold={getHungerThreshold()} />
               <BatteryIcon batteryThreshold={getEnergyThreshold()} />
               */}
             </div>
-            <div className="pet-sprite">
-              <img src={pet.images[pet.state]} />
-            </div>
+            <p className="pet-sprite">🐱</p>
             <PetActionCarousel
               buttonPressRegistrar={registerButtons}
               doAction={doAction}

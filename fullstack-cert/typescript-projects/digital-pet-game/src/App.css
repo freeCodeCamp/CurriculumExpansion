@@ -202,8 +202,10 @@ header {
   align-self: flex-end;
 }
 
-.pet-sprite img {
-  width: 100%;
+.pet-sprite {
+  font-size:xxx-large;
+  margin-top: 2rem;
+  margin-right: 5rem; 
 }
 
 @media all and (max-width: 850px) {
