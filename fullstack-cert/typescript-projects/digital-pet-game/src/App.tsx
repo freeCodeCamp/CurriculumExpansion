@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
-//TODO: Hopefully have a way to remove these SVG's from the file altogether and getting them onto the CDN. In my experience SVG's have always been a little strange and I'm not well versed enough to anticipate how FCC will handle them, so I'm just inlining them until that's clarified. Sorry for this mess!
-const ToyShell = "./assets/shells/rainbow.webp";
-
 const StomachIconFULL = "./assets/stomach/stomach_FULL.svg";
 const StomachIconHIGH = "./assets/stomach/stomach_HIGH.svg";
 const StomachIconHALF = "./assets/stomach/stomach_HALF.svg";
@@ -599,7 +596,6 @@ export function App() {
       </header>
       <div className="start-game-container">
         <div className="pet-shell">
-          {/*  <img src={ToyShell} />*/}
           <div className="pet-screen">
             <div
               className="pet-fact"
