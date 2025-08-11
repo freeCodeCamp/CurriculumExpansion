@@ -42,7 +42,6 @@ enum PetAction {
   EAT,
   PLAY,
   SLEEP,
-  HALT,
 }
 
 enum MiscAction {
@@ -60,18 +59,6 @@ enum PetState {
   BITE = "Attack_Bite",
 }
 
-interface MonsterImages {
-  Idle: string;
-  Death: string;
-  Sleep: string;
-  Wake: string;
-  Walk: string;
-  Turn: string;
-  Jump: string;
-  Attack_Bite: string;
-}
-
-
 
 // TODO: swap with Freecodecamp's api
 //const apiUri = "https://www.dnd5eapi.co/api/2014/monsters/";
@@ -87,12 +74,6 @@ interface Pet {
 }
 
 const saveKey = "pet";
-
-enum Button {
-  LEFT,
-  CENTER,
-  RIGHT,
-}
 
 export function App() {
   //TODO: The pet has a lot of functionality tied to it that's currently
@@ -114,7 +95,6 @@ export function App() {
   }, [pet]);
 
   const [fact, setFact] = useState<string | null>("");
-  const [factVisible, setFactVisible] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
 
   //TODO: I think this is almost definitely too complicated. I imagine we'll
@@ -141,48 +121,16 @@ export function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const setPetActionTimeout = () => {
-    setTimeout(() => {
-      setPet((pet) => ({
-        ...pet,
-        state: PetState.IDLE,
-        action: PetAction.NONE,
-      }));
-    }, 2 * 1000);
-  };
-
-  const setMiscFactTimeout = () => {
-    setTimeout(() => {
-      setPet((pet) => ({
-        ...pet,
-        state: PetState.IDLE,
-        action: PetAction.NONE,
-      }));
-      setFactVisible(false);
-    }, 10 * 1000);
-  };
-
   function doAction(action: PetAction | MiscAction) {
     switch (action) {
       case PetAction.EAT:
-        setPetActionTimeout();
         feedPet();
         break;
       case PetAction.SLEEP:
-        setPetActionTimeout();
         restPet();
         break;
       case PetAction.PLAY:
-        setPetActionTimeout();
         playWithPet();
-        break;
-      case MiscAction.FACT:
-        setMiscFactTimeout();
-        setPet((pet) => ({
-          ...pet,
-          action: PetAction.HALT,
-        }));
-        setFactVisible(true);
         break;
     }
   }
@@ -259,20 +207,6 @@ export function App() {
       <div className="start-game-container">
         <div className="pet-shell">
           <div className="pet-screen">
-            <div
-              className="pet-fact"
-              style={{ visibility: factVisible ? "visible" : "hidden" }}
-            >
-              {fact}
-            </div>
-            <div className="pet-hud">
-              <div id="pet-species">Cat</div>
-              {/*
-              <HappinessIcon happinessThreshold={getHappinessThreshold()} />
-              <HungerIcon hungerThreshold={getHungerThreshold()} />
-              <BatteryIcon batteryThreshold={getEnergyThreshold()} />
-              */}
-            </div>
             <p className="pet-sprite">🐱</p>
           </div>
 
