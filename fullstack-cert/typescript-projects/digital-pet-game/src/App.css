@@ -196,6 +196,10 @@ header {
   border-style: solid;
   border-color: #870b04;
   box-shadow: rgba(120, 25, 23, 0.2) 2px 2px 4px 2px;
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
+  }
 }
 
 .pet-buttons .pet-button.pet-buttons-center {
@@ -203,9 +207,9 @@ header {
 }
 
 .pet-sprite {
-  font-size:xxx-large;
+  font-size: xxx-large;
   margin-top: 2rem;
-  margin-right: 5rem; 
+  margin-right: 5rem;
 }
 
 @media all and (max-width: 850px) {
