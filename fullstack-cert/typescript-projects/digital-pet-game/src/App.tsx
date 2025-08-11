@@ -94,77 +94,6 @@ enum Button {
   RIGHT,
 }
 
-interface PetActionCarouselProps {
-  options: { name: string; action: PetAction | MiscAction }[];
-  buttonPressRegistrar: (callback: (buttonType: Button) => void) => void;
-  doAction: (action: PetAction | MiscAction) => void;
-}
-
-const PetActionCarousel: React.FC<PetActionCarouselProps> = ({
-  options,
-  buttonPressRegistrar,
-  doAction,
-}): React.JSX.Element => {
-  const VISIBLE_TIMEOUT = 5 * 1000;
-
-  const [selectedActionIdx, setSelectedActionIdx] = useState<number>(0);
-  const selectedActionIdxRef = useRef(selectedActionIdx);
-  useEffect(() => {
-    selectedActionIdxRef.current = selectedActionIdx;
-  });
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const visibleRef = useRef<boolean>(isVisible);
-  useEffect(() => {
-    visibleRef.current = isVisible;
-  });
-  const visibilityTimerRef = useRef<number>(-1);
-
-  const createVisibilityTimer = () => {
-    setIsVisible(true);
-    clearTimeout(visibilityTimerRef.current);
-    visibilityTimerRef.current = setTimeout(() => {
-      setIsVisible(false);
-      visibilityTimerRef.current = -1;
-    }, VISIBLE_TIMEOUT);
-  };
-
-  useEffect(() => {
-    buttonPressRegistrar((buttonType: Button) => {
-      createVisibilityTimer();
-      if (!visibleRef.current) {
-        return;
-      }
-      console.log(Button[buttonType]);
-
-      if (buttonType === Button.CENTER) {
-        doAction(options[selectedActionIdxRef.current].action);
-      }
-      setSelectedActionIdx((idx) => {
-        switch (buttonType) {
-          case Button.LEFT:
-            let newLIdx = idx - 1;
-            if (newLIdx < 0) newLIdx = options.length - 1;
-            return newLIdx;
-          case Button.RIGHT:
-            let newRIdx = idx + 1;
-            if (newRIdx >= options.length) newRIdx = 0;
-            return newRIdx;
-          case Button.CENTER:
-            return idx;
-        }
-      });
-    });
-  }, []);
-
-  if (options?.length === 0) return <></>;
-
-  return (
-    <div className="action-carousel">
-      <p>{isVisible ? options[selectedActionIdx].name : ""}</p>
-    </div>
-  );
-};
-
 export function App() {
   //TODO: The pet has a lot of functionality tied to it that's currently
   //  just inlined with the rest of the App. Do we want to break it into
@@ -366,29 +295,19 @@ export function App() {
               */}
             </div>
             <p className="pet-sprite">🐱</p>
-            <PetActionCarousel
-              buttonPressRegistrar={registerButtons}
-              doAction={doAction}
-              options={[
-                { name: "FEED", action: PetAction.EAT },
-                { name: "PLAY", action: PetAction.PLAY },
-                { name: "NAP", action: PetAction.SLEEP },
-                { name: "FACT", action: MiscAction.FACT },
-              ]}
-            />
           </div>
 
           <div className="pet-buttons">
             <button
-              onClick={pressLeft}
+              onClick={() => doAction(PetAction.EAT)}
               className="pet-button pet-buttons-left"
             ></button>
             <button
-              onClick={pressCenter}
+              onClick={() => doAction(PetAction.PLAY)}
               className="pet-button pet-buttons-center"
             ></button>
             <button
-              onClick={pressRight}
+              onClick={() => doAction(PetAction.SLEEP)}
               className="pet-button pet-buttons-right"
             ></button>
           </div>
