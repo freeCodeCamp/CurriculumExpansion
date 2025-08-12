@@ -214,15 +214,15 @@ export function App() {
             <button
               onClick={() => doAction(PetAction.EAT)}
               className="pet-button pet-buttons-left"
-            ></button>
+            >EAT</button>
             <button
               onClick={() => doAction(PetAction.PLAY)}
               className="pet-button pet-buttons-center"
-            ></button>
+            >PLAY</button>
             <button
               onClick={() => doAction(PetAction.SLEEP)}
               className="pet-button pet-buttons-right"
-            ></button>
+            >SLEEP</button>
           </div>
         </div>
       </div>

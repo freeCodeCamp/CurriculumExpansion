@@ -192,7 +192,8 @@ header {
   height: 75%;
   aspect-ratio: 1;
   background: #c2214a;
-  border-radius: 100%;
+  color: white;
+  border-radius: 20%;
   border-style: solid;
   border-color: #870b04;
   box-shadow: rgba(120, 25, 23, 0.2) 2px 2px 4px 2px;
@@ -200,6 +201,7 @@ header {
     transform: scale(0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
   }
+  cursor: pointer;
 }
 
 .pet-buttons .pet-button.pet-buttons-center {
