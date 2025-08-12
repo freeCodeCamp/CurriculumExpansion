@@ -114,6 +114,23 @@ function uploadNewCard(): void {
   }
 }
 
+document.addEventListener("keydown", (ev: KeyboardEvent) => {
+    const frontInput = document.getElementById(
+      "front-text"
+    ) as HTMLTextAreaElement;
+    const backInput = document.getElementById(
+      "back-text"
+    ) as HTMLTextAreaElement;
+  if (
+    ev.key === "Enter" &&
+    document.activeElement !== frontInput &&
+    document.activeElement !== backInput
+  ) {
+    ev.preventDefault(); 
+    flipCard();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
   const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
