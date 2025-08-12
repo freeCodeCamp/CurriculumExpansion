@@ -44,24 +44,6 @@ enum PetAction {
   SLEEP,
 }
 
-enum MiscAction {
-  FACT,
-}
-
-enum PetState {
-  IDLE = "Idle",
-  DEATH = "Death",
-  SLEEP = "Sleep",
-  WAKE = "Wake",
-  WALK = "Walk",
-  TURN = "Turn",
-  JUMP = "Jump",
-  BITE = "Attack_Bite",
-}
-
-// TODO: swap with Freecodecamp's api
-//const apiUri = "https://www.dnd5eapi.co/api/2014/monsters/";
-
 interface Pet {
   name: string;
   happiness: number;
@@ -69,41 +51,41 @@ interface Pet {
   energy: number;
   species: string;
   action: PetAction;
-  state: PetState;
 }
 
-type PetMood =
-  | "happy"
-  | "excited"
-  | "content"
-  | "sad"
-  | "tired"
-  | "sick"
-  | "hungry";
+enum PetMood {
+  Happy,
+  Excited,
+  Content,
+  Sad,
+  Tired,
+  Sick,
+  Hungry,
+}
 
 export function calculatePetMood(pt: Pet): PetMood {
   debugger;
   const { hunger, happiness, energy /*health*/ } = pt;
 
-  //if (health < 30) return 'sick';
-  if (hunger < 20) return "hungry";
-  if (energy < 20) return "tired";
-  if (happiness < 30) return "sad";
-  if (happiness > 80 && energy > 70) return "excited";
-  if (happiness > 60) return "happy";
+  //if (health < 30) return PetMood.Sick;
+  if (hunger < 20) return PetMood.Hungry;
+  if (energy < 20) return PetMood.Tired;
+  if (happiness < 30) return PetMood.Sad;
+  if (happiness > 80 && energy > 70) return PetMood.Excited;
+  if (happiness > 60) return PetMood.Happy;
 
-  return "content";
+  return PetMood.Content;
 }
 
 export function getPetEmoji(mood: PetMood): string {
   const emojiMap: Record<PetMood, string> = {
-    happy: "😺", // grinning cat
-    excited: "😻", // heart-eyes cat
-    content: "😸", // smiling cat
-    sad: "😿", // crying cat
-    tired: "😽", // kissing cat (closest to sleepy)
-    sick: "🙀", // weary cat (looks unwell)
-    hungry: "😹", // joy cat (closest to hungry/funny)
+    [PetMood.Happy]: "😺", // grinning cat
+    [PetMood.Excited]: "😻", // heart-eyes cat
+    [PetMood.Content]: "😸", // smiling cat
+    [PetMood.Sad]: "😿", // crying cat
+    [PetMood.Tired]: "😽", // kissing cat (closest to sleepy)
+    [PetMood.Sick]: "🙀", // weary cat (looks unwell)
+    [PetMood.Hungry]: "😹", // joy cat (closest to hungry/funny)
   };
 
   return emojiMap[mood];
@@ -123,7 +105,6 @@ export function App() {
     energy: 100,
     species: "",
     action: PetAction.NONE,
-    state: PetState.IDLE,
   });
 
   let petRef = useRef<Pet>(pet);
@@ -158,7 +139,7 @@ export function App() {
     return () => clearInterval(interval);
   }, []);
 
-  function doAction(action: PetAction | MiscAction) {
+  function doAction(action: PetAction) {
     switch (action) {
       case PetAction.EAT:
         feedPet();
@@ -181,7 +162,6 @@ export function App() {
     setPet((pet) => ({
       ...pet,
       hunger: Math.max(pet.hunger - myFoodFill, 0),
-      state: PetState.BITE,
       action: PetAction.EAT,
     }));
     pet.hunger -= myFoodFill;
@@ -194,7 +174,6 @@ export function App() {
       ...pet,
       happiness: Math.min(pet.happiness + myHappinessIncrease, 100),
       energy: Math.max(pet.energy - energyDecrease, 0),
-      state: PetState.JUMP,
       action: PetAction.PLAY,
     }));
   }
@@ -206,7 +185,6 @@ export function App() {
       ...pet,
       hunger: Math.min(pet.hunger + hungerIncrease, 100),
       energy: Math.min(pet.energy + energyIncrease, 100),
-      state: PetState.SLEEP,
       action: PetAction.SLEEP,
     }));
   }
