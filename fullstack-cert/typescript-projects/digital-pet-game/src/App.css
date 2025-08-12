@@ -116,15 +116,13 @@ header {
 
 .pet-screen {
   /*background: #898a47;*/
-  position: absolute;
-  top: 24%;
-  left: 31%;
-  width: 36.25%;
-  height: 37.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   box-sizing: border-box;
-  padding: 2%;
-  aspect-ratio: 1;
-  border-radius: 3%;
+  padding: 4%;
 }
 
 .pet-fact {
@@ -147,7 +145,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   margin-bottom: 8%;
 }
@@ -208,8 +206,6 @@ header {
 
 .pet-sprite {
   font-size: xxx-large;
-  margin-top: 2rem;
-  margin-right: 5rem;
 }
 
 @media all and (max-width: 850px) {

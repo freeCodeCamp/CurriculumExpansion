@@ -59,7 +59,6 @@ enum PetState {
   BITE = "Attack_Bite",
 }
 
-
 // TODO: swap with Freecodecamp's api
 //const apiUri = "https://www.dnd5eapi.co/api/2014/monsters/";
 
@@ -71,6 +70,43 @@ interface Pet {
   species: string;
   action: PetAction;
   state: PetState;
+}
+
+type PetMood =
+  | "happy"
+  | "excited"
+  | "content"
+  | "sad"
+  | "tired"
+  | "sick"
+  | "hungry";
+
+export function calculatePetMood(pt: Pet): PetMood {
+  debugger;
+  const { hunger, happiness, energy /*health*/ } = pt;
+
+  //if (health < 30) return 'sick';
+  if (hunger < 20) return "hungry";
+  if (energy < 20) return "tired";
+  if (happiness < 30) return "sad";
+  if (happiness > 80 && energy > 70) return "excited";
+  if (happiness > 60) return "happy";
+
+  return "content";
+}
+
+export function getPetEmoji(mood: PetMood): string {
+  const emojiMap: Record<PetMood, string> = {
+    happy: "😺", // grinning cat
+    excited: "😻", // heart-eyes cat
+    content: "😸", // smiling cat
+    sad: "😿", // crying cat
+    tired: "😽", // kissing cat (closest to sleepy)
+    sick: "🙀", // weary cat (looks unwell)
+    hungry: "😹", // joy cat (closest to hungry/funny)
+  };
+
+  return emojiMap[mood];
 }
 
 const saveKey = "pet";
@@ -89,6 +125,7 @@ export function App() {
     action: PetAction.NONE,
     state: PetState.IDLE,
   });
+
   let petRef = useRef<Pet>(pet);
   useEffect(() => {
     petRef.current = pet;
@@ -104,9 +141,9 @@ export function App() {
 
   //TODO: Integrate with the FCC API once it's ready.
   useEffect(() => {
-    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1; 
+    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1;
     const currentFact = catFacts[randomNumber];
-    setFact(currentFact); 
+    setFact(currentFact);
   }, []);
 
   useEffect(() => {
@@ -207,7 +244,7 @@ export function App() {
       <div className="start-game-container">
         <div className="pet-shell">
           <div className="pet-screen">
-            <p className="pet-sprite">🐱</p>
+            <p className="pet-sprite">{getPetEmoji(calculatePetMood(pet))}</p>
           </div>
 
           <div className="pet-buttons">
