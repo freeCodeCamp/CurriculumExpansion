@@ -25,6 +25,9 @@ header {
   padding: 2rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Stats Grid */
@@ -102,11 +105,14 @@ header {
 }
 
 .pet-shell {
-  position: relative;
   width: 50%;
   max-width: 400px;
   margin: auto;
   height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pet-shell img {
@@ -115,16 +121,9 @@ header {
 }
 
 .pet-screen {
-  /*background: #898a47;*/
-  position: absolute;
-  top: 24%;
-  left: 31%;
-  width: 36.25%;
-  height: 37.5%;
-  box-sizing: border-box;
-  padding: 2%;
-  aspect-ratio: 1;
-  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pet-fact {
@@ -178,19 +177,15 @@ header {
 }
 
 .pet-buttons {
-  top: 72%;
-  left: 23.25%;
-  width: 53.5%;
-  height: 13.75%;
-  position: absolute;
+  width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
 .pet-buttons .pet-button {
-  height: 75%;
-  aspect-ratio: 1;
+  height: auto;
+  aspect-ratio: auto;
   background: #c2214a;
   color: white;
   border-radius: 20%;
@@ -202,6 +197,7 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
   }
   cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 
 .pet-buttons .pet-button.pet-buttons-center {
@@ -210,8 +206,6 @@ header {
 
 .pet-sprite {
   font-size: xxx-large;
-  margin-top: 2rem;
-  margin-right: 5rem;
 }
 
 @media all and (max-width: 850px) {
