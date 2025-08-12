@@ -184,8 +184,9 @@ header {
 }
 
 .pet-buttons .pet-button {
+  flex: 1;
+  min-width:80px;
   height: auto;
-  aspect-ratio: auto;
   background: #c2214a;
   color: white;
   border-radius: 20%;
@@ -196,6 +197,7 @@ header {
     transform: scale(0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
   }
+  text-align: center;
   cursor: pointer;
   padding: 0.5rem 1rem;
 }
