@@ -124,7 +124,10 @@ class Game {
       .map((type) => {
         const isReversed = Math.random() < 0.5;
         const card = getRandomItem(this.cards);
-        return renderCard(type, isReversed, card.name_short, card.img);
+        // use default image if the image is null 
+       const img:string = card.img ?? "default.png"
+        
+        return renderCard(type, isReversed, card.name_short, img);
       })
       .join("");
   }
