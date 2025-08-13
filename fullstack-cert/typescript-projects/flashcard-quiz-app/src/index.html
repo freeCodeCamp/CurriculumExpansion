@@ -1,54 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flash Card Quiz App</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="app-container">
       <div class="flashcard-panel">
         <div id="flashcard-body">
-            <h1>Flash Card Quiz App</h1>
-            <div class="flashcard-container">
-                <div id="current-card" class="flashcard">
-                </div>
-            </div>
+          <h1>Flash Card Quiz App</h1>
+          <div class="flashcard-container">
+            <div id="current-card" class="flashcard"></div>
+          </div>
         </div>
       </div>
 
       <div class="controls-panel">
         <h2>Controls</h2>
         <div class="card-actions">
-            <button onclick="flipCard()">Flip</button>
-            <button onclick="deleteCard()" class="delete-btn">Delete</button>
+          <button onclick="flipCard()">Flip</button>
+          <button onclick="deleteCard()" class="delete-btn">Delete</button>
         </div>
-        
-        <hr>
+
+        <hr />
 
         <h3>All Cards</h3>
-        <div id="card-buttons-container">
-        </div>
+        <div id="card-buttons-container"></div>
 
-        <hr>
+        <hr />
 
         <h3>Add a New Card</h3>
         <form class="entry-form" onsubmit="uploadNewCard(); return false;">
-            <label for="front-text">Front:</label>
-            <textarea id="front-text" required></textarea>
-            
-            <label for="back-text">Back:</label>
-            <textarea id="back-text" required></textarea>
-            
-            <p id="entry-error" class="error"></p>
+          <label for="front-text">Front:</label>
+          <textarea id="front-text" required></textarea>
 
-            <div class="button-group">
-                <button type="submit">Save new flash card</button>
-            </div>
+          <label for="back-text">Back:</label>
+          <textarea id="back-text" required></textarea>
+
+          <p id="entry-error" class="error"></p>
+
+          <div class="button-group">
+            <button type="submit">Save new flash card</button>
+          </div>
         </form>
       </div>
     </div>

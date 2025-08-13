@@ -1,5 +1,7 @@
 const cardDisplay = document.querySelector("#current-card") as HTMLElement;
-const cardButtonsContainer = document.getElementById("card-buttons-container") as HTMLElement;
+const cardButtonsContainer = document.getElementById(
+  "card-buttons-container",
+) as HTMLElement;
 let currentCardIndex = -1;
 let showingFront = true;
 let currentCards: FlashCard[] = [];
@@ -19,7 +21,8 @@ class InvalidUserInputError extends Error {
 
 function refresh(): void {
   if (currentCardIndex < 0 || !currentCards[currentCardIndex]) {
-    cardDisplay.textContent = "No card selected. Add a new card to get started!";
+    cardDisplay.textContent =
+      "No card selected. Add a new card to get started!";
     return;
   }
 
@@ -50,7 +53,9 @@ function deleteCard(): void {
   }
 
   currentCards.splice(currentCardIndex, 1);
-  cardButtonsContainer.removeChild(cardButtonsContainer.children[currentCardIndex]);
+  cardButtonsContainer.removeChild(
+    cardButtonsContainer.children[currentCardIndex],
+  );
 
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     (child as HTMLButtonElement).onclick = () => {
@@ -71,7 +76,8 @@ function deleteCard(): void {
 
 function createCardButton(frontText: string, index: number): HTMLButtonElement {
   const btn = document.createElement("button");
-  btn.innerText = frontText.length > 20 ? frontText.slice(0, 20) + "..." : frontText;
+  btn.innerText =
+    frontText.length > 20 ? frontText.slice(0, 20) + "..." : frontText;
   btn.onclick = () => {
     currentCardIndex = index;
     showingFront = true;
@@ -81,17 +87,23 @@ function createCardButton(frontText: string, index: number): HTMLButtonElement {
 }
 
 function uploadNewCard(): void {
-  const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
+  const frontInput = document.getElementById(
+    "front-text",
+  ) as HTMLTextAreaElement;
   const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
-  const errorElement = document.getElementById("entry-error") as HTMLParagraphElement;
+  const errorElement = document.getElementById(
+    "entry-error",
+  ) as HTMLParagraphElement;
 
   const frontText = frontInput.value.trim();
   const backText = backInput.value.trim();
   errorElement.textContent = "";
 
   try {
-    if (!frontText) throw new InvalidUserInputError("Front text cannot be empty.");
-    if (!backText) throw new InvalidUserInputError("Back text cannot be empty.");
+    if (!frontText)
+      throw new InvalidUserInputError("Front text cannot be empty.");
+    if (!backText)
+      throw new InvalidUserInputError("Back text cannot be empty.");
 
     const newCard: FlashCard = { frontText, backText };
     currentCards.push(newCard);
@@ -115,24 +127,24 @@ function uploadNewCard(): void {
 }
 
 document.addEventListener("keydown", (ev: KeyboardEvent) => {
-    const frontInput = document.getElementById(
-      "front-text"
-    ) as HTMLTextAreaElement;
-    const backInput = document.getElementById(
-      "back-text"
-    ) as HTMLTextAreaElement;
+  const frontInput = document.getElementById(
+    "front-text",
+  ) as HTMLTextAreaElement;
+  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
   if (
     ev.key === "Enter" &&
     document.activeElement !== frontInput &&
     document.activeElement !== backInput
   ) {
-    ev.preventDefault(); 
+    ev.preventDefault();
     flipCard();
   }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
+  const frontInput = document.getElementById(
+    "front-text",
+  ) as HTMLTextAreaElement;
   const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
 
   frontInput.value = "What is HTML?";
