@@ -16,15 +16,15 @@ class Movie:
             raise ValueError('Year must be 1888 or later')
         if duration <= 0:
             raise ValueError('Duration must be positive')
-    if not director or not director.strip(): 
-        raise ValueError('Director cannot be empty')
+        if not director or not director.strip():
+            raise ValueError('Director cannot be empty')
         self.title = title
         self.year = year
         self.director = director
         self.duration = duration
 
     def __str__(self):
-        return f"{self.title} ({self.year}) - {self.duration} min, {self.director}"
+        return f'{self.title} ({self.year}) - {self.duration} min, {self.director}'
 
 
 class TVSeries(Movie):
@@ -42,7 +42,7 @@ class TVSeries(Movie):
         self.total_episodes = total_episodes
 
     def __str__(self):
-        return f"{self.title} ({self.year}) - {self.seasons} seasons, {self.total_episodes} episodes, {self.duration} min avg, {self.director}"
+        return f'{self.title} ({self.year}) - {self.seasons} seasons, {self.total_episodes} episodes, {self.duration} min avg, {self.director}'
 
 
 class MediaCatalogue:
@@ -65,7 +65,7 @@ class MediaCatalogue:
         """Get only Movie instances."""
         return [item for item in self.items if type(item) is Movie]
 
-    def get_episodes(self):
+    def get_tv_series(self):
         """Get only TVSeries instances."""
         return [item for item in self.items if isinstance(item, TVSeries)]
 
@@ -78,20 +78,20 @@ class MediaCatalogue:
             return 'Media Catalogue (empty)'
 
         movies = self.get_movies()
-        episodes = self.get_episodes()
+        episodes = self.get_tv_series()
 
         result = f'Media Catalogue ({len(self.items)} items):\n\n'
 
         if movies:
             result += '=== MOVIES ===\n'
             for i, movie in enumerate(movies, 1):
-                result += f"{i}. {movie}\n"
+                result += f'{i}. {movie}\n'
             result += '\n'
 
         if episodes:
             result += '=== TV SERIES ===\n'
             for i, episode in enumerate(episodes, 1):
-                result += f"{i}. {episode}\n"
+                result += f'{i}. {episode}\n'
 
         return result.rstrip()
 
