@@ -17,6 +17,20 @@ header {
   text-align: center;
   margin-bottom: 2rem;
 }
+
+.pet-info {
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .start-game-container {
   background: rgba(255, 255, 255, 0.6);
   -webkit-backdrop-filter: blur(10px);
@@ -185,7 +199,7 @@ header {
 
 .pet-buttons .pet-button {
   flex: 1;
-  min-width:80px;
+  min-width: 80px;
   height: auto;
   background: #c2214a;
   color: white;

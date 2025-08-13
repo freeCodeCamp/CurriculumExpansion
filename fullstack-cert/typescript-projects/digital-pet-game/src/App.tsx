@@ -235,76 +235,83 @@ export function App() {
   }
 
   return (
-    <>
+    <div>
       <header>
         <h1>Digital Pet Game</h1>
         <p>Take care of your virtual companion!</p>
       </header>
+      <main>
+        <section className="pet-info">
+          <div className="pet-shell">
+            <div className="pet-screen">
+              <p className="pet-sprite">{getPetEmoji(calculatePetMood(pet))}</p>
+            </div>
 
-      <div className="start-game-container">
-        <div className="pet-shell">
-          <div className="pet-screen">
-            <p className="pet-sprite">{getPetEmoji(calculatePetMood(pet))}</p>
-          </div>
-
-          <div className="pet-buttons">
-            <button
-              onClick={() => doAction(PetAction.EAT)}
-              className="pet-button pet-buttons-left"
-            >EAT</button>
-            <button
-              onClick={() => doAction(PetAction.PLAY)}
-              className="pet-button pet-buttons-center"
-            >PLAY</button>
-            <button
-              onClick={() => doAction(PetAction.SLEEP)}
-              className="pet-button pet-buttons-right"
-            >SLEEP</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="stats-grid">
-        <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
-        <StatBar label="Happiness" value={pet.happiness} icon="😊" />
-        <StatBar label="Energy" value={pet.energy} icon="⚡" />
-      </div>
-
-      <div className="start-game-container">
-        {!gameStarted ? (
-          <div id="start-questions">
-            <form>
-              <p>
-                What is your pet's name?{" "}
-                <input
-                  id="pet-name"
-                  required={true}
-                  pattern="[A-Za-z0-9]{1,20}"
-                />
-              </p>
-              <button id="set-name-btn" onClick={startGame}>
-                Start Game
+            <div className="pet-buttons">
+              <button
+                onClick={() => doAction(PetAction.EAT)}
+                className="pet-button pet-buttons-left"
+              >
+                EAT
               </button>
-            </form>
+              <button
+                onClick={() => doAction(PetAction.PLAY)}
+                className="pet-button pet-buttons-center"
+              >
+                PLAY
+              </button>
+              <button
+                onClick={() => doAction(PetAction.SLEEP)}
+                className="pet-button pet-buttons-right"
+              >
+                SLEEP
+              </button>
+            </div>
           </div>
-        ) : (
-          <div id="hud">
-            <h2>Pet Name: {pet.name}</h2>
-            <p id="pet-species">Species: {pet.species}</p>
-            <p id="happiness-meter">Happiness: {pet.happiness}</p>
-            <p id="hunger-meter">Hunger: {pet.hunger}</p>
-            <p id="energy-meter">Energy: {pet.energy}</p>
-          </div>
-        )}
-        <p id="pet-fact">Pet Fact: {fact}</p>
-        <button id="save-game" onClick={savePetData}>
-          Save
-        </button>
-        <button id="load-game" onClick={loadPetData}>
-          Load
-        </button>
-        <p>Hint: Double click each button to perform its action</p>
-      </div>
-    </>
+        </section>
+
+        <section className="stats-grid">
+          <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
+          <StatBar label="Happiness" value={pet.happiness} icon="😊" />
+          <StatBar label="Energy" value={pet.energy} icon="⚡" />
+        </section>
+
+        <section className="start-game-container">
+          {!gameStarted ? (
+            <div id="start-questions">
+              <form>
+                <p>
+                  What is your pet's name?{" "}
+                  <input
+                    id="pet-name"
+                    required={true}
+                    pattern="[A-Za-z0-9]{1,20}"
+                  />
+                </p>
+                <button id="set-name-btn" onClick={startGame}>
+                  Start Game
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div id="hud">
+              <h2>Pet Name: {pet.name}</h2>
+              <p id="pet-species">Species: {pet.species}</p>
+              <p id="happiness-meter">Happiness: {pet.happiness}</p>
+              <p id="hunger-meter">Hunger: {pet.hunger}</p>
+              <p id="energy-meter">Energy: {pet.energy}</p>
+            </div>
+          )}
+          <p id="pet-fact">Pet Fact: {fact}</p>
+          <button id="save-game" onClick={savePetData}>
+            Save
+          </button>
+          <button id="load-game" onClick={loadPetData}>
+            Load
+          </button>
+          <p>Hint: Double click each button to perform its action</p>
+        </section>
+      </main>
+    </div>
   );
 }
