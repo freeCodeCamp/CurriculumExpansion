@@ -141,28 +141,29 @@ document.addEventListener("keydown", (ev: KeyboardEvent) => {
   }
 });
 
-
 interface Flashcard {
   question: string;
   answer: string;
   isAnswered?: boolean;
   isCorrect?: boolean;
 }
- interface CardDeck {
+interface CardDeck {
   name: string;
   cards: Flashcard[];
 }
 
-
 const cardDecks: Record<string, CardDeck> = {
   general: {
-    name: 'General Knowledge',
+    name: "General Knowledge",
     cards: [
-      { question: 'What is the capital of France?', answer: 'Paris' },
-      { question: 'Which planet is known as the Red Planet?', answer: 'Mars' },
-      { question: 'What is the largest mammal in the world?', answer: 'Blue whale' },
-      { question: 'In which year did the Titanic sink?', answer: '1912' },
-    ]
+      { question: "What is the capital of France?", answer: "Paris" },
+      { question: "Which planet is known as the Red Planet?", answer: "Mars" },
+      {
+        question: "What is the largest mammal in the world?",
+        answer: "Blue whale",
+      },
+      { question: "In which year did the Titanic sink?", answer: "1912" },
+    ],
   },
 };
 
@@ -171,9 +172,29 @@ const cardDecks: Record<string, CardDeck> = {
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
 class FlashcardGame {
-
+  private elements: {
+    flashcard: HTMLElement;
+    questionText: HTMLElement;
+    answerText: HTMLElement;
+    flipBtn: HTMLElement;
+  };
+  constructor() {
+    this.elements = {
+      flashcard: document.getElementById("flashcard")!,
+      questionText: document.getElementById("question-text")!,
+      answerText: document.getElementById("answer-text")!,
+      flipBtn: document.getElementById("flip-btn")!,
+    };
+    this.initializeEventListeners()
+  }
+  // Initialize the game by setting up the flashcard and event listeners
+  private initializeEventListeners(): void {
+    this.elements.flipBtn.addEventListener("click", () => this.flipCard());
+  }
+  private flipCard(): void {
+    this.elements.flashcard.classList.toggle("flipped");
+  }
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const frontInput = document.getElementById(
