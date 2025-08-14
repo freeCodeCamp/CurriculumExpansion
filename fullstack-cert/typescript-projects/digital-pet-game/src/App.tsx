@@ -214,32 +214,29 @@ export function App() {
         <p>Take care of your virtual companion!</p>
       </header>
 
-      <section className="start-game-container">
-        <div className="pet-shell">
-          <div className="pet-screen">
-            <p className="pet-sprite">{moodEmojiMap[calculatePetMood(pet)]}</p>
-          </div>
-
-            <div className="pet-buttons">
-              <button
-                onClick={() => doAction(PetAction.EAT)}
-                className="pet-button pet-buttons-left"
-              >
-                EAT
-              </button>
-              <button
-                onClick={() => doAction(PetAction.PLAY)}
-                className="pet-button pet-buttons-center"
-              >
-                PLAY
-              </button>
-              <button
-                onClick={() => doAction(PetAction.SLEEP)}
-                className="pet-button pet-buttons-right"
-              >
-                SLEEP
-              </button>
-            </div>
+      <section className="base-container game-container">
+        <div className="pet-screen">
+          <p className="pet-sprite">{moodEmojiMap[calculatePetMood(pet)]}</p>
+        </div>
+          <div className="pet-buttons">
+            <button
+              onClick={() => doAction(PetAction.EAT)}
+              className="pet-button pet-buttons-left"
+            >
+              EAT
+            </button>
+            <button
+              onClick={() => doAction(PetAction.PLAY)}
+              className="pet-button pet-buttons-center"
+            >
+              PLAY
+            </button>
+            <button
+              onClick={() => doAction(PetAction.SLEEP)}
+              className="pet-button pet-buttons-right"
+            >
+              SLEEP
+            </button>
           </div>
         </section>
 
@@ -249,7 +246,7 @@ export function App() {
           <StatBar label="Energy" value={pet.energy} icon="⚡" />
         </section>
 
-        <section className="start-game-container">
+        <section className="base-container info-panel">
           {!gameStarted ? (
             <form className="start-questions">
               <label htmlFor="pet-name" >
