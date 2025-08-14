@@ -2,6 +2,10 @@ const cardDisplay = document.querySelector("#current-card") as HTMLElement;
 const cardButtonsContainer = document.getElementById(
   "card-buttons-container",
 ) as HTMLElement;
+
+const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
+const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
+
 let currentCardIndex = -1;
 let showingFront = true;
 let currentCards: FlashCard[] = [];
@@ -87,10 +91,6 @@ function createCardButton(frontText: string, index: number): HTMLButtonElement {
 }
 
 function uploadNewCard(): void {
-  const frontInput = document.getElementById(
-    "front-text",
-  ) as HTMLTextAreaElement;
-  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
   const errorElement = document.getElementById(
     "entry-error",
   ) as HTMLParagraphElement;
@@ -147,9 +147,20 @@ interface Flashcard {
   isAnswered?: boolean;
   isCorrect?: boolean;
 }
+
 interface CardDeck {
   name: string;
   cards: Flashcard[];
+}
+
+interface GameState {
+  currentCardIndex: number;
+  isFlipped: boolean;
+  correctCount: number;
+  wrongCount: number;
+  gameStarted: boolean;
+  gameCompleted: boolean;
+  currentDeck: Flashcard[];
 }
 
 const cardDecks: Record<string, CardDeck> = {
@@ -172,6 +183,7 @@ const cardDecks: Record<string, CardDeck> = {
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
 class FlashcardGame {
+  private state: GameState;
   private elements: {
     flashcard: HTMLElement;
     questionText: HTMLElement;
@@ -179,13 +191,23 @@ class FlashcardGame {
     flipBtn: HTMLElement;
   };
   constructor() {
+    this.state = {
+      currentCardIndex: 0,
+      isFlipped: false,
+      correctCount: 0,
+      wrongCount: 0,
+      gameStarted: false,
+      gameCompleted: false,
+      currentDeck: [...cardDecks.general.cards],
+    };
+
     this.elements = {
       flashcard: document.getElementById("flashcard")!,
       questionText: document.getElementById("question-text")!,
       answerText: document.getElementById("answer-text")!,
       flipBtn: document.getElementById("flip-btn")!,
     };
-    this.initializeEventListeners()
+    this.initializeEventListeners();
   }
   // Initialize the game by setting up the flashcard and event listeners
   private initializeEventListeners(): void {
@@ -197,11 +219,6 @@ class FlashcardGame {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const frontInput = document.getElementById(
-    "front-text",
-  ) as HTMLTextAreaElement;
-  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
-
   frontInput.value = "What is HTML?";
   backInput.value = "A markup language for structuring web content.";
   uploadNewCard();
