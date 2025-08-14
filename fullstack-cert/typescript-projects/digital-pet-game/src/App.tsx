@@ -64,7 +64,6 @@ enum PetMood {
 }
 
 export function calculatePetMood(pt: Pet): PetMood {
-  debugger;
   const { hunger, happiness, energy /*health*/ } = pt;
 
   //if (health < 30) return PetMood.Sick;
@@ -209,76 +208,85 @@ export function App() {
   }
 
   return (
-    <>
+    <main>
       <header>
         <h1>Digital Pet Game</h1>
         <p>Take care of your virtual companion!</p>
       </header>
 
-      <div className="start-game-container">
+      <section className="start-game-container">
         <div className="pet-shell">
           <div className="pet-screen">
             <p className="pet-sprite">{moodEmojiMap[calculatePetMood(pet)]}</p>
           </div>
 
-          <div className="pet-buttons">
-            <button
-              onClick={() => doAction(PetAction.EAT)}
-              className="pet-button pet-buttons-left"
-            ></button>
-            <button
-              onClick={() => doAction(PetAction.PLAY)}
-              className="pet-button pet-buttons-center"
-            ></button>
-            <button
-              onClick={() => doAction(PetAction.SLEEP)}
-              className="pet-button pet-buttons-right"
-            ></button>
+            <div className="pet-buttons">
+              <button
+                onClick={() => doAction(PetAction.EAT)}
+                className="pet-button pet-buttons-left"
+              >
+                EAT
+              </button>
+              <button
+                onClick={() => doAction(PetAction.PLAY)}
+                className="pet-button pet-buttons-center"
+              >
+                PLAY
+              </button>
+              <button
+                onClick={() => doAction(PetAction.SLEEP)}
+                className="pet-button pet-buttons-right"
+              >
+                SLEEP
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div className="stats-grid">
-        <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
-        <StatBar label="Happiness" value={pet.happiness} icon="😊" />
-        <StatBar label="Energy" value={pet.energy} icon="⚡" />
-      </div>
+        <section className="stats-grid">
+          <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
+          <StatBar label="Happiness" value={pet.happiness} icon="😊" />
+          <StatBar label="Energy" value={pet.energy} icon="⚡" />
+        </section>
 
-      <div className="start-game-container">
-        {!gameStarted ? (
-          <div id="start-questions">
-            <form>
-              <p>
+        <section className="start-game-container">
+          {!gameStarted ? (
+            <form className="start-questions">
+              <label htmlFor="pet-name" >
                 What is your pet's name?{" "}
+              </label>
+              <div>
                 <input
                   id="pet-name"
+                  name="pet-name"
                   required={true}
                   pattern="[A-Za-z0-9]{1,20}"
                 />
-              </p>
-              <button id="set-name-btn" onClick={startGame}>
-                Start Game
-              </button>
+                <button id="set-name-btn" onClick={startGame}>
+                  Start Game
+                </button>
+              </div>
             </form>
+          ) : (
+            <div id="hud">
+              <h2>Pet Name: {pet.name}</h2>
+              <p id="pet-species">Species: {pet.species}</p>
+              <p id="happiness-meter">Happiness: {pet.happiness}</p>
+              <p id="hunger-meter">Hunger: {pet.hunger}</p>
+              <p id="energy-meter">Energy: {pet.energy}</p>
+            </div>
+          )}
+          <p id="pet-fact">Pet Fact: {fact}</p>
+          <div className="data-management" >
+            <button id="save-game" onClick={savePetData}>
+              Save
+            </button>
+            <button id="load-game" onClick={loadPetData}>
+              Load
+            </button>
           </div>
-        ) : (
-          <div id="hud">
-            <h2>Pet Name: {pet.name}</h2>
-            <p id="pet-species">Species: {pet.species}</p>
-            <p id="happiness-meter">Happiness: {pet.happiness}</p>
-            <p id="hunger-meter">Hunger: {pet.hunger}</p>
-            <p id="energy-meter">Energy: {pet.energy}</p>
-          </div>
-        )}
-        <p id="pet-fact">Pet Fact: {fact}</p>
-        <button id="save-game" onClick={savePetData}>
-          Save
-        </button>
-        <button id="load-game" onClick={loadPetData}>
-          Load
-        </button>
-        <p>Hint: Double click each button to perform its action</p>
-      </div>
-    </>
+          <p>Hint: Double click each button to perform its action</p>
+        </section>
+      </main>
   );
 }
