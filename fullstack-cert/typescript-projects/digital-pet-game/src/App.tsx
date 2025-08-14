@@ -218,72 +218,70 @@ export function App() {
         <div className="pet-screen">
           <p className="pet-sprite">{moodEmojiMap[calculatePetMood(pet)]}</p>
         </div>
-          <div className="pet-buttons">
-            <button
-              onClick={() => doAction(PetAction.EAT)}
-              className="pet-button pet-buttons-left"
-            >
-              EAT
-            </button>
-            <button
-              onClick={() => doAction(PetAction.PLAY)}
-              className="pet-button pet-buttons-center"
-            >
-              PLAY
-            </button>
-            <button
-              onClick={() => doAction(PetAction.SLEEP)}
-              className="pet-button pet-buttons-right"
-            >
-              SLEEP
-            </button>
-          </div>
-        </section>
+        <div className="pet-buttons">
+          <button
+            onClick={() => doAction(PetAction.EAT)}
+            className="pet-button pet-buttons-left"
+          >
+            EAT
+          </button>
+          <button
+            onClick={() => doAction(PetAction.PLAY)}
+            className="pet-button pet-buttons-center"
+          >
+            PLAY
+          </button>
+          <button
+            onClick={() => doAction(PetAction.SLEEP)}
+            className="pet-button pet-buttons-right"
+          >
+            SLEEP
+          </button>
+        </div>
+      </section>
 
-        <section className="stats-grid">
-          <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
-          <StatBar label="Happiness" value={pet.happiness} icon="😊" />
-          <StatBar label="Energy" value={pet.energy} icon="⚡" />
-        </section>
+      <section className="stats-grid">
+        <StatBar label="Hunger" value={pet.hunger} icon="🍽️" />
+        <StatBar label="Happiness" value={pet.happiness} icon="😊" />
+        <StatBar label="Energy" value={pet.energy} icon="⚡" />
+      </section>
 
-        <section className="base-container info-panel">
-          {!gameStarted ? (
-            <form className="start-questions">
-              <label htmlFor="pet-name" >
-                What is your pet's name?{" "}
-              </label>
-              <div>
-                <input
-                  id="pet-name"
-                  name="pet-name"
-                  required={true}
-                  pattern="[A-Za-z0-9]{1,20}"
-                />
-                <button id="set-name-btn" onClick={startGame}>
-                  Start Game
-                </button>
-              </div>
-            </form>
-          ) : (
-            <div id="hud">
-              <h2>Pet Name: {pet.name}</h2>
-              <p id="pet-species">Species: {pet.species}</p>
-              <p id="happiness-meter">Happiness: {pet.happiness}</p>
-              <p id="hunger-meter">Hunger: {pet.hunger}</p>
-              <p id="energy-meter">Energy: {pet.energy}</p>
+      <section className="base-container info-panel">
+        {!gameStarted ? (
+          <form className="start-questions">
+            <label htmlFor="pet-name">What is your pet's name? </label>
+            <div>
+              <input
+                id="pet-name"
+                name="pet-name"
+                required={true}
+                pattern="[A-Za-z0-9]{1,20}"
+              />
+              <button id="set-name-btn" onClick={startGame}>
+                Start Game
+              </button>
             </div>
-          )}
-          <p id="pet-fact">Pet Fact: {fact}</p>
-          <div className="data-management" >
-            <button id="save-game" onClick={savePetData}>
-              Save
-            </button>
-            <button id="load-game" onClick={loadPetData}>
-              Load
-            </button>
+          </form>
+        ) : (
+          <div id="hud">
+            <h2>Pet Name: {pet.name}</h2>
+            <p id="pet-species">Species: {pet.species}</p>
+            <p id="happiness-meter">Happiness: {pet.happiness}</p>
+            <p id="hunger-meter">Hunger: {pet.hunger}</p>
+            <p id="energy-meter">Energy: {pet.energy}</p>
           </div>
-          <p>Hint: Double click each button to perform its action</p>
-        </section>
-      </main>
+        )}
+        <p id="pet-fact">Pet Fact: {fact}</p>
+        <div className="data-management">
+          <button id="save-game" onClick={savePetData}>
+            Save
+          </button>
+          <button id="load-game" onClick={loadPetData}>
+            Load
+          </button>
+        </div>
+        <p>Hint: Double click each button to perform its action</p>
+      </section>
+    </main>
   );
 }
