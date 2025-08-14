@@ -141,6 +141,40 @@ document.addEventListener("keydown", (ev: KeyboardEvent) => {
   }
 });
 
+
+interface Flashcard {
+  question: string;
+  answer: string;
+  isAnswered?: boolean;
+  isCorrect?: boolean;
+}
+ interface CardDeck {
+  name: string;
+  cards: Flashcard[];
+}
+
+
+const cardDecks: Record<string, CardDeck> = {
+  general: {
+    name: 'General Knowledge',
+    cards: [
+      { question: 'What is the capital of France?', answer: 'Paris' },
+      { question: 'Which planet is known as the Red Planet?', answer: 'Mars' },
+      { question: 'What is the largest mammal in the world?', answer: 'Blue whale' },
+      { question: 'In which year did the Titanic sink?', answer: '1912' },
+    ]
+  },
+};
+
+// better to add a game class to encapsulate the game logic
+// This will help in managing the game state, current card, and user interactions.
+// This class can also handle the game flow, such as starting a new game, flipping cards
+// and checking answers, making the code more organized and maintainable.
+class FlashcardGame {
+
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const frontInput = document.getElementById(
     "front-text",
@@ -150,4 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
   frontInput.value = "What is HTML?";
   backInput.value = "A markup language for structuring web content.";
   uploadNewCard();
+
+  new FlashcardGame();
 });
