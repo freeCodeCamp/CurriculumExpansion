@@ -67,8 +67,8 @@ export function calculatePetMood(pt: Pet): PetMood {
   const { hunger, happiness, energy /*health*/ } = pt;
 
   //if (health < 30) return PetMood.Sick;
-  if (hunger < 20) return PetMood.Hungry;
-  if (energy < 20) return PetMood.Tired;
+  if (hunger > 70) return PetMood.Hungry;
+  if (energy < 30) return PetMood.Tired;
   if (happiness < 30) return PetMood.Sad;
   if (happiness > 80 && energy > 70) return PetMood.Excited;
   if (happiness > 60) return PetMood.Happy;
