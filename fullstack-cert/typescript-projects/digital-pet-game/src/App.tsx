@@ -77,19 +77,15 @@ export function calculatePetMood(pt: Pet): PetMood {
   return PetMood.Content;
 }
 
-export function getPetEmoji(mood: PetMood): string {
-  const emojiMap: Record<PetMood, string> = {
-    [PetMood.Happy]: "😺", // grinning cat
-    [PetMood.Excited]: "😻", // heart-eyes cat
-    [PetMood.Content]: "😸", // smiling cat
-    [PetMood.Sad]: "😿", // crying cat
-    [PetMood.Tired]: "😽", // kissing cat (closest to sleepy)
-    [PetMood.Sick]: "🙀", // weary cat (looks unwell)
-    [PetMood.Hungry]: "😹", // joy cat (closest to hungry/funny)
-  };
-
-  return emojiMap[mood];
-}
+const moodEmojiMap: Record<PetMood, string> = {
+  [PetMood.Happy]: "😺", // grinning cat
+  [PetMood.Excited]: "😻", // heart-eyes cat
+  [PetMood.Content]: "😸", // smiling cat
+  [PetMood.Sad]: "😿", // crying cat
+  [PetMood.Tired]: "😽", // kissing cat (closest to sleepy)
+  [PetMood.Sick]: "🙀", // weary cat (looks unwell)
+  [PetMood.Hungry]: "😹", // joy cat (closest to hungry/funny)
+};
 
 const saveKey = "pet";
 
@@ -222,7 +218,7 @@ export function App() {
       <div className="start-game-container">
         <div className="pet-shell">
           <div className="pet-screen">
-            <p className="pet-sprite">{getPetEmoji(calculatePetMood(pet))}</p>
+            <p className="pet-sprite">{moodEmojiMap[calculatePetMood(pet)]}</p>
           </div>
 
           <div className="pet-buttons">
