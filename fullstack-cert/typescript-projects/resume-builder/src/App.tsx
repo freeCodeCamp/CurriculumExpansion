@@ -6,6 +6,7 @@ import { Field } from "./Field";
 import Header from "./components/Header";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
 import { CVPreview } from "./components/CVPreview";
+import { ExperienceForm } from "./components/ExperienceForm";
 
 export function App() {
   const [cvData, setCVData] = useState<CVData>({
@@ -64,6 +65,10 @@ export function App() {
     setCVData((prev) => ({ ...prev, personalInfo }));
   };
 
+  const updateExperience = (experience: CVData["experience"]) => {
+    setCVData((prev) => ({ ...prev, experience }));
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
@@ -76,6 +81,10 @@ export function App() {
             <PersonalInfoForm
               data={cvData.personalInfo}
               onChange={updatePersonalInfo}
+            />
+            <ExperienceForm
+              data={cvData.experience}
+              onChange={updateExperience}
             />
           </div>
           {/* Preview Section */}
