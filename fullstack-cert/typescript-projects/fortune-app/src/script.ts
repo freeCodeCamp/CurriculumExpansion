@@ -96,6 +96,8 @@ class Game {
     multipleCard: HTMLElement;
     title: HTMLElement;
     newReadingBtn: HTMLElement;
+    fortuneContainer: HTMLElement;
+    fortuneDescription: HTMLElement;
   };
 
   constructor() {
@@ -106,6 +108,8 @@ class Game {
       multipleCard: getElement(".multiple_card")!,
       title: getElement(".title")!,
       newReadingBtn: getElement(".btn_reveal"),
+      fortuneContainer: getElement(".fortune_container"),
+      fortuneDescription: getElement(".fortune_description"),
     };
     this.fetchCardsData();
     this.initializeEventListeners();
@@ -157,7 +161,7 @@ class Game {
     );
     this.elements.multipleCard.innerHTML = "";
 
-    showElements(this.elements.singleCard, fortuneContainer);
+    showElements(this.elements.singleCard, this.elements.fortuneContainer);
   }
 
   multipleCardSelected() {
@@ -167,7 +171,11 @@ class Game {
       this.elements.multipleCardsBtn,
       headerTitle,
     );
-    showElements(this.elements.multipleCard, fortuneContainer, text);
+    showElements(
+      this.elements.multipleCard,
+      this.elements.fortuneContainer,
+      text,
+    );
 
     this.elements.multipleCard.innerHTML = Object.values(DrawingType)
       .map((type) => {
@@ -207,8 +215,8 @@ class Game {
     hideElements(
       this.elements.singleCard,
       this.elements.multipleCard,
-      fortuneContainer,
-      fortuneDescription,
+      this.elements.fortuneContainer,
+      this.elements.fortuneDescription,
     );
   }
 }
