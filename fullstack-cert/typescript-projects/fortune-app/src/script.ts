@@ -76,8 +76,6 @@ enum DrawingType {
 }
 
 // Element references
-const fortuneContainer = getElement<HTMLElement>(".fortune_container");
-const fortuneDescription = getElement<HTMLElement>(".fortune_description");
 
 const title = getElement<HTMLElement>(".title");
 const headerTitle = getElement<HTMLElement>(".header_title");
@@ -202,7 +200,7 @@ class Game {
       description.textContent = foundCard.desc;
       subTitle.textContent = foundCard.meaning_up;
       title.textContent = foundCard.name;
-      showElements(fortuneDescription);
+      showElements(this.elements.fortuneDescription);
     }
   }
 
