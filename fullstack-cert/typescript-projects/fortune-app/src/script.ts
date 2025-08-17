@@ -75,15 +75,6 @@ enum DrawingType {
   Future = "future",
 }
 
-// Element references
-
-const title = getElement<HTMLElement>(".title");
-const headerTitle = getElement<HTMLElement>(".header_title");
-const subTitle = getElement<HTMLElement>(".sub_title");
-const cardTitle = getElement<HTMLElement>(".desc_title");
-const description = getElement<HTMLElement>(".description");
-const text = getElement<HTMLElement>(".text");
-
 // Game class
 class Game {
   cards: Card[] = [];
@@ -96,6 +87,11 @@ class Game {
     newReadingBtn: HTMLElement;
     fortuneContainer: HTMLElement;
     fortuneDescription: HTMLElement;
+    headerTitle: HTMLElement;
+    subTitle: HTMLElement;
+    cardTitle: HTMLElement;
+    description: HTMLElement;
+    text: HTMLElement;
   };
 
   constructor() {
@@ -108,6 +104,11 @@ class Game {
       newReadingBtn: getElement(".btn_reveal"),
       fortuneContainer: getElement(".fortune_container"),
       fortuneDescription: getElement(".fortune_description"),
+      headerTitle: getElement<HTMLElement>(".header_title"),
+      subTitle: getElement<HTMLElement>(".sub_title"),
+      cardTitle: getElement<HTMLElement>(".desc_title"),
+      description: getElement<HTMLElement>(".description"),
+      text: getElement<HTMLElement>(".text"),
     };
     this.fetchCardsData();
     this.initializeEventListeners();
@@ -144,8 +145,8 @@ class Game {
       this.elements.singleCardBtn,
       this.elements.multipleCardsBtn,
       this.elements.multipleCard,
-      text,
-      headerTitle,
+      this.elements.text,
+      this.elements.headerTitle,
     );
 
     const isReversed = Math.random() < 0.5;
@@ -167,12 +168,12 @@ class Game {
       this.elements.singleCard,
       this.elements.singleCardBtn,
       this.elements.multipleCardsBtn,
-      headerTitle,
+      this.elements.headerTitle,
     );
     showElements(
       this.elements.multipleCard,
       this.elements.fortuneContainer,
-      text,
+      this.elements.text,
     );
 
     this.elements.multipleCard.innerHTML = Object.values(DrawingType)
@@ -196,10 +197,10 @@ class Game {
     const foundCard = this.cards.find((card) => card.name_short === cardId);
 
     if (foundCard) {
-      cardTitle.textContent = foundCard.name;
-      description.textContent = foundCard.desc;
-      subTitle.textContent = foundCard.meaning_up;
-      title.textContent = foundCard.name;
+      this.elements.cardTitle.textContent = foundCard.name;
+      this.elements.description.textContent = foundCard.desc;
+      this.elements.subTitle.textContent = foundCard.meaning_up;
+      this.elements.title.textContent = foundCard.name;
       showElements(this.elements.fortuneDescription);
     }
   }
@@ -208,7 +209,7 @@ class Game {
     showElements(
       this.elements.singleCardBtn,
       this.elements.multipleCardsBtn,
-      headerTitle,
+      this.elements.headerTitle,
     );
     hideElements(
       this.elements.singleCard,
