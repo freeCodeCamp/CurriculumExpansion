@@ -184,6 +184,9 @@ h5 {
   cursor: pointer;
   border: 2px solid var(--accent-light-gold);
   box-shadow: 0 0 7px var(--accent-light-gold);
+  img {
+    width: 100%;
+  }
 }
 
 .reversed-card {
@@ -256,4 +259,31 @@ h5 {
 }
 
 @media screen and (min-width: 1200px) {
+}
+/* Add to your CSS file (e.g., style.css) */
+.img-loader {
+  width: 80px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.img-loader:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card-img.hidden {
+  display: none;
 }

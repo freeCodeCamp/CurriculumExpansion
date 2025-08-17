@@ -1,3 +1,5 @@
+//import defaultImg from "bundle-text:./default.svg";
+const defaultImg = new URL("default.svg", import.meta.url);
 interface Card {
   name: string;
   value: string | number;
@@ -36,17 +38,33 @@ const getRandomItem = <T>(items: T[]): T => {
   return items[index];
 };
 
+const LOCAL_DEFAULT_IMG = defaultImg; // Place default.svg in your public or assets folder
+
 const renderCard = (
   drawingType: string,
   isReversed: boolean,
   shortName: string,
   img: string,
-): string => `
+): string =>
+  `
   <div>
     <h2>${drawingType}</h2>
-    <div class="card_container ${isReversed ? "reversed-card" : ""}" 
-         data-id="${shortName}" 
-         style="background-image: url(${IMG_URL}/${img})">
+    <div class="card_container ${isReversed ? "reversed-card" : ""}" data-id="${shortName}">
+      <div class="img-loader"></div>
+      <img 
+        src="${img ? `${IMG_URL}/${img}` : LOCAL_DEFAULT_IMG}"
+        class="card-img hidden"
+        onload="this.classList.remove('hidden');this.previousElementSibling.style.display='none';"
+        onerror="
+          if (!this.dataset.failed) {
+            this.dataset.failed = '1';
+            this.src='${LOCAL_DEFAULT_IMG}';
+          } else {
+            this.classList.remove('hidden');
+            this.previousElementSibling.style.display='none';
+          }
+        "
+      />
     </div>
   </div>
 `;
@@ -124,10 +142,9 @@ class Game {
       .map((type) => {
         const isReversed = Math.random() < 0.5;
         const card = getRandomItem(this.cards);
-        // use default image if the image is null 
-       const img:string = card.img ?? "default.png"
-        
-        return renderCard(type, isReversed, card.name_short, img);
+        // use default image if the image is null
+
+        return renderCard(type, isReversed, card.name_short, card.img);
       })
       .join("");
   }

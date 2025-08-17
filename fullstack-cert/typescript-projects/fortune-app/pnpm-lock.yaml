@@ -11,6 +11,9 @@ importers:
       '@parcel/config-default':
         specifier: 2.15.4
         version: 2.15.4(@parcel/core@2.15.4(@swc/helpers@0.5.17))(@swc/helpers@0.5.17)
+      '@parcel/transformer-svg':
+        specifier: ^2.15.4
+        version: 2.15.4(@parcel/core@2.15.4(@swc/helpers@0.5.17))
       '@parcel/transformer-typescript-tsc':
         specifier: 2.15.4
         version: 2.15.4(@parcel/core@2.15.4(@swc/helpers@0.5.17))(typescript@5.9.2)
