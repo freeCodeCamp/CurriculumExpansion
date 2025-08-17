@@ -76,13 +76,8 @@ enum DrawingType {
 }
 
 // Element references
-const singleCardBtn = getElement<HTMLElement>("#btn-single-card");
-const singleCard = getElement<HTMLElement>(".single_card");
-const multipleCardsBtn = getElement<HTMLElement>("#btn-multiple-cards");
-const multipleCard = getElement<HTMLElement>(".multiple_card");
 const fortuneContainer = getElement<HTMLElement>(".fortune_container");
 const fortuneDescription = getElement<HTMLElement>(".fortune_description");
-const newReadingBtn = getElement<HTMLElement>(".btn_reveal");
 
 const title = getElement<HTMLElement>(".title");
 const headerTitle = getElement<HTMLElement>(".header_title");
@@ -94,12 +89,29 @@ const text = getElement<HTMLElement>(".text");
 // Game class
 class Game {
   cards: Card[] = [];
+  private elements: {
+    singleCardBtn: HTMLElement;
+    singleCard: HTMLElement;
+    multipleCardsBtn: HTMLElement;
+    multipleCard: HTMLElement;
+    title: HTMLElement;
+    newReadingBtn: HTMLElement;
+  };
 
   constructor() {
+    this.elements = {
+      singleCardBtn: getElement("#btn-single-card")!,
+      singleCard: getElement(".single_card")!,
+      multipleCardsBtn: getElement("#btn-multiple-cards")!,
+      multipleCard: getElement(".multiple_card")!,
+      title: getElement(".title")!,
+      newReadingBtn: getElement(".btn_reveal"),
+    };
     this.fetchCardsData();
+    this.initializeEventListeners();
   }
 
-  async fetchCardsData() {
+  private async fetchCardsData() {
     try {
       const response = await fetch(
         "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app/card_data.json",
@@ -111,11 +123,25 @@ class Game {
     }
   }
 
+  private initializeEventListeners(): void {
+    // Event listeners
+    this.elements.singleCardBtn.addEventListener("click", () =>
+      this.singleCardSelected(),
+    );
+    this.elements.multipleCardsBtn.addEventListener("click", () =>
+      this.multipleCardSelected(),
+    );
+    this.elements.newReadingBtn.addEventListener("click", () =>
+      this.newReading(),
+    );
+    document.addEventListener("click", (e: Event) => this.showFortune(e));
+  }
+
   singleCardSelected() {
     hideElements(
-      singleCardBtn,
-      multipleCardsBtn,
-      multipleCard,
+      this.elements.singleCardBtn,
+      this.elements.multipleCardsBtn,
+      this.elements.multipleCard,
       text,
       headerTitle,
     );
@@ -123,27 +149,30 @@ class Game {
     const isReversed = Math.random() < 0.5;
     const chosenCard = getRandomItem(this.cards);
 
-    singleCard.innerHTML = renderCard(
+    this.elements.singleCard.innerHTML = renderCard(
       "Your card",
       isReversed,
       chosenCard.name_short,
       chosenCard.img,
     );
-    multipleCard.innerHTML = "";
+    this.elements.multipleCard.innerHTML = "";
 
-    showElements(singleCard, fortuneContainer);
+    showElements(this.elements.singleCard, fortuneContainer);
   }
 
   multipleCardSelected() {
-    hideElements(singleCard, singleCardBtn, multipleCardsBtn, headerTitle);
-    showElements(multipleCard, fortuneContainer, text);
+    hideElements(
+      this.elements.singleCard,
+      this.elements.singleCardBtn,
+      this.elements.multipleCardsBtn,
+      headerTitle,
+    );
+    showElements(this.elements.multipleCard, fortuneContainer, text);
 
-    multipleCard.innerHTML = Object.values(DrawingType)
+    this.elements.multipleCard.innerHTML = Object.values(DrawingType)
       .map((type) => {
         const isReversed = Math.random() < 0.5;
         const card = getRandomItem(this.cards);
-        // use default image if the image is null
-
         return renderCard(type, isReversed, card.name_short, card.img);
       })
       .join("");
@@ -170,10 +199,14 @@ class Game {
   }
 
   newReading() {
-    showElements(singleCardBtn, multipleCardsBtn, headerTitle);
+    showElements(
+      this.elements.singleCardBtn,
+      this.elements.multipleCardsBtn,
+      headerTitle,
+    );
     hideElements(
-      singleCard,
-      multipleCard,
+      this.elements.singleCard,
+      this.elements.multipleCard,
       fortuneContainer,
       fortuneDescription,
     );
@@ -181,9 +214,3 @@ class Game {
 }
 
 const game = new Game();
-
-// Event listeners
-singleCardBtn.addEventListener("click", () => game.singleCardSelected());
-multipleCardsBtn.addEventListener("click", () => game.multipleCardSelected());
-newReadingBtn.addEventListener("click", () => game.newReading());
-document.addEventListener("click", (e: Event) => game.showFortune(e));
