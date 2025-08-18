@@ -27,7 +27,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: "Inter", system-ui, sans-serif;
-  display: grid;
+
   place-items: center;
   min-height: 100vh;
   padding: 1rem;
@@ -46,7 +46,6 @@ h1 {
   gap: 2rem;
   width: 100%;
   max-width: 1200px;
-  align-items: flex-start;
 }
 
 .flashcard-panel {
@@ -72,24 +71,21 @@ hr {
   background-color: var(--surface-color);
   border-radius: 20px;
   padding: 2rem 2.5rem;
-  width: 100%;
   height: 500px;
   box-shadow: 0 10px 30px var(--shadow-color);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .flashcard-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-bottom: 1.5rem;
+  perspective: 1000px;
 }
 
 .flashcard {
-  width: 100%;
   height: 250px;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
@@ -102,6 +98,37 @@ hr {
   font-size: 2rem;
   transition: transform 0.2s ease-in-out;
   margin-bottom: 0;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  color: white;
 }
 
 .flashcard:hover {
@@ -119,8 +146,6 @@ hr {
 .card-actions {
   display: flex;
   gap: 1rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
 }
 
 #card-buttons-container {

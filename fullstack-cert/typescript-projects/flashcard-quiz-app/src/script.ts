@@ -31,7 +31,8 @@ function refresh(): void {
   }
 
   const card = currentCards[currentCardIndex];
-  cardDisplay.textContent = showingFront ? card.frontText : card.backText;
+  cardDisplay.querySelector('.card-front').textContent =  card.frontText 
+  cardDisplay.querySelector('.card-back').textContent = card.backText;
   // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     const button = child as HTMLElement;
