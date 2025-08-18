@@ -183,7 +183,7 @@ const cardDecks: Record<string, CardDeck> = {
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
 class FlashcardGame {
-  private state: GameState;
+  state: GameState;
   private elements: {
     flashcard: HTMLElement;
     questionText: HTMLElement;
@@ -219,9 +219,8 @@ class FlashcardGame {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  frontInput.value = "What is HTML?";
-  backInput.value = "A markup language for structuring web content.";
+  const game = new FlashcardGame();
+  frontInput.value = game.state.currentDeck[0].question;
+  backInput.value =  game.state.currentDeck[0].answer;
   uploadNewCard();
-
-  new FlashcardGame();
 });
