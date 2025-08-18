@@ -32,7 +32,7 @@ function refresh(): void {
 
   const card = currentCards[currentCardIndex];
   cardDisplay.textContent = showingFront ? card.frontText : card.backText;
-
+  // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     const button = child as HTMLElement;
     if (i === currentCardIndex) {
@@ -202,7 +202,7 @@ class FlashcardGame {
     };
 
     this.elements = {
-      flashcard: document.getElementById("flashcard")!,
+      flashcard: document.querySelector(".flashcard")!,
       questionText: document.getElementById("question-text")!,
       answerText: document.getElementById("answer-text")!,
       flipBtn: document.getElementById("flip-btn")!,
@@ -221,6 +221,6 @@ class FlashcardGame {
 document.addEventListener("DOMContentLoaded", () => {
   const game = new FlashcardGame();
   frontInput.value = game.state.currentDeck[0].question;
-  backInput.value =  game.state.currentDeck[0].answer;
+  backInput.value = game.state.currentDeck[0].answer;
   uploadNewCard();
 });

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "format": "prettier --write \"src/**/*.{ts,tsx,html}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,html,css}\""
   },
   "devDependencies": {
     "@parcel/config-default": "^2.15.4",

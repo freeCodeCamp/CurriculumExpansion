@@ -16,7 +16,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -25,7 +26,7 @@ html, body {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   display: grid;
   place-items: center;
   min-height: 100vh;
@@ -60,7 +61,6 @@ h1 {
   box-shadow: 0 10px 30px var(--shadow-color);
   border: 1px solid var(--border-color);
 }
-
 
 hr {
   border: none;
@@ -108,9 +108,6 @@ hr {
   transform: translateY(-5px);
 }
 
-
-
-
 .button-group {
   display: flex;
   gap: 1rem;
@@ -127,11 +124,11 @@ hr {
 }
 
 #card-buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 button {
@@ -140,11 +137,13 @@ button {
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
   width: 100%;
 }
 
@@ -185,7 +184,7 @@ button.delete-btn:hover {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   color: var(--text-color);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   resize: vertical;
   box-sizing: border-box;
@@ -211,7 +210,8 @@ button.delete-btn:hover {
     gap: 1.5rem;
   }
 
-  .flashcard-panel, .controls-panel {
+  .flashcard-panel,
+  .controls-panel {
     width: 100%;
     max-width: 700px;
   }
@@ -226,8 +226,9 @@ button.delete-btn:hover {
   body {
     padding: 0.5rem;
   }
-  
-  .controls-panel, #flashcard-body {
+
+  .controls-panel,
+  #flashcard-body {
     padding: 1.5rem;
   }
 
