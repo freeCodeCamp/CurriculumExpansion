@@ -26,7 +26,7 @@ interface Deck {
 }
 
 /** Base URL for remote images (PNG); used when cards provide an image path */
-const IMG_URL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
+const CDN_URL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
 
 /** Utility to safely select DOM elements; throws if selector is missing */
 const getElement = <T extends HTMLElement>(selector: string): T => {
@@ -69,7 +69,7 @@ const renderCard = (
     <div class="card_container ${isReversed ? "reversed-card" : ""}" data-id="${shortName}">
       <div class="img-loader"></div>
       <img 
-        src="${img ? `${IMG_URL}/${img}` : LOCAL_DEFAULT_IMG}"
+        src="${img ? `${CDN_URL}/${img}` : LOCAL_DEFAULT_IMG}"
         class="card-img hidden"
         onload="this.classList.remove('hidden');this.previousElementSibling.style.display='none';"
         onerror="
@@ -146,9 +146,7 @@ class Game {
    */
   private async fetchCardsData() {
     try {
-      const response = await fetch(
-        "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app/card_data.json",
-      );
+      const response = await fetch(`${CDN_URL}/card_data.json`);
       const data: Deck = await response.json();
       this.cards = data.cards;
     } catch (error) {
