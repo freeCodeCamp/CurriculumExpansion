@@ -1,6 +1,6 @@
 const cardDisplay = document.querySelector("#current-card") as HTMLElement;
 const cardButtonsContainer = document.getElementById(
-  "card-buttons-container",
+  "cards-list",
 ) as HTMLElement;
 
 const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
@@ -31,16 +31,15 @@ function refresh(): void {
   }
 
   const card = currentCards[currentCardIndex];
-  cardDisplay.querySelector('.card-front').textContent =  card.frontText 
-  cardDisplay.querySelector('.card-back').textContent = card.backText;
+  cardDisplay.querySelector(".card-front").textContent = card.frontText;
+  cardDisplay.querySelector(".card-back").textContent = card.backText;
   // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     const button = child as HTMLElement;
     if (i === currentCardIndex) {
-      button.style.backgroundColor = "var(--primary-hover-color)";
-      button.style.color = "white";
+      button.classList.add("selected");
     } else {
-      button.style.backgroundColor = "var(--primary-color)";
+      button.classList.remove("selected");
     }
   });
 }
@@ -187,10 +186,10 @@ class FlashcardGame {
   state: GameState;
   private elements: {
     flashcard: HTMLElement;
-    questionText: HTMLElement;
-    answerText: HTMLElement;
+    cardsList: HTMLElement;
     flipBtn: HTMLElement;
   };
+
   constructor() {
     this.state = {
       currentCardIndex: 0,
@@ -204,8 +203,7 @@ class FlashcardGame {
 
     this.elements = {
       flashcard: document.querySelector(".flashcard")!,
-      questionText: document.getElementById("question-text")!,
-      answerText: document.getElementById("answer-text")!,
+      cardsList: document.getElementById("cards-list")!,
       flipBtn: document.getElementById("flip-btn")!,
     };
     this.initializeEventListeners();
@@ -217,6 +215,7 @@ class FlashcardGame {
   private flipCard(): void {
     this.elements.flashcard.classList.toggle("flipped");
   }
+  private renderList(): void {}
 }
 
 document.addEventListener("DOMContentLoaded", () => {

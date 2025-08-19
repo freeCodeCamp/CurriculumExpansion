@@ -128,7 +128,6 @@ hr {
 
 .card-back {
   transform: rotateY(180deg);
-  color: white;
 }
 
 .flashcard:hover {
@@ -148,12 +147,19 @@ hr {
   gap: 1rem;
 }
 
-#card-buttons-container {
+#cards-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
   margin-top: 1rem;
+}
+
+.card {
+  color: var(--text-color);
+}
+.selected {
+  background: var(--primary-hover-color);
 }
 
 button {
