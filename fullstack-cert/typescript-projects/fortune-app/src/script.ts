@@ -124,14 +124,14 @@ class Game {
       multipleCardsBtn: getElement("#btn-multiple-cards")!,
       multipleCard: getElement(".multiple_card")!,
       title: getElement(".title")!,
-      newReadingBtn: getElement(".btn_reveal"),
-      fortuneContainer: getElement(".fortune_container"),
-      fortuneDescription: getElement(".fortune_description"),
-      headerTitle: getElement<HTMLElement>(".header_title"),
-      subTitle: getElement<HTMLElement>(".sub_title"),
-      cardTitle: getElement<HTMLElement>(".desc_title"),
-      description: getElement<HTMLElement>(".description"),
-      text: getElement<HTMLElement>(".text"),
+      newReadingBtn: getElement(".btn_reveal")!,
+      fortuneContainer: getElement(".fortune_container")!,
+      fortuneDescription: getElement(".fortune_description")!,
+      headerTitle: getElement(".header_title")!,
+      subTitle: getElement(".sub_title")!,
+      cardTitle: getElement(".desc_title")!,
+      description: getElement(".description")!,
+      text: getElement(".text")!,
     };
     // 2) Fetch data
     this.fetchCardsData();
