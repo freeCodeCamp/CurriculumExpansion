@@ -290,7 +290,6 @@ export function App() {
           </button>
           }
         </div>
-        <p>Hint: Double click each button to perform its action</p>
       </section>
     </main>
   );
