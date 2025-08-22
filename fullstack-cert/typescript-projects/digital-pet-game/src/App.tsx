@@ -280,15 +280,13 @@ export function App() {
         )}
         <p id="pet-fact">Pet Fact: {fact}</p>
         <div className="data-management">
-          { isGameStarted ?
+          { isGameStarted &&
           <button id="save-game" onClick={savePetData}>
             Save
-          </button>
-            :
+          </button> }
           <button id="load-game" onClick={loadPetData}>
             Load
           </button>
-          }
         </div>
       </section>
     </main>
