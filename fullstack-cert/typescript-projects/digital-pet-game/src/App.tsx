@@ -280,12 +280,15 @@ export function App() {
         )}
         <p id="pet-fact">Pet Fact: {fact}</p>
         <div className="data-management">
+          { isGameStarted ?
           <button id="save-game" onClick={savePetData}>
             Save
           </button>
+            :
           <button id="load-game" onClick={loadPetData}>
             Load
           </button>
+          }
         </div>
         <p>Hint: Double click each button to perform its action</p>
       </section>
