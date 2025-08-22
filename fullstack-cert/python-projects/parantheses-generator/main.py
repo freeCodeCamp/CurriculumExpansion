@@ -6,7 +6,7 @@ def gen_parentheses(pairs):
         return 'The number of pairs should be at least 1'
 
     # Each state is a tuple: (current_string, opens_used, closes_used)
-    queue = [("", 0, 0)]
+    queue = [('', 0, 0)]
     result = []
 
     # BFS traversal
