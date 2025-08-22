@@ -149,10 +149,6 @@ export function App() {
   }
 
   function feedPet() {
-    //TODO: consider multiple food types if time permits
-    //  The options here off the top of my head are a random
-    //  food item for each feeding, or another sub menu that
-    //  lets you choose the type of food.
     const myFoodFill = 10;
     setPet((pet) => ({
       ...pet,
