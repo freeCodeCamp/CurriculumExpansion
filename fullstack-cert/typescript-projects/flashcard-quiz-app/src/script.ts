@@ -1,10 +1,10 @@
-const cardDisplay = document.querySelector("#current-card") as HTMLElement;
-const cardButtonsContainer = document.getElementById(
+const cardDisplay = document.querySelector<HTMLElement>("#current-card");
+const cardButtonsContainer = document.getElementById<HTMLElement>(
   "cards-list",
-) as HTMLElement;
+);
 
-const frontInput = document.getElementById("front-text") as HTMLTextAreaElement;
-const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
+const frontInput = document.getElementById<HTMLTextAreaElement>("front-text");
+const backInput = document.getElementById<HTMLTextAreaElement>("back-text");
 
 let currentCardIndex = -1;
 let showingFront = true;
@@ -91,9 +91,9 @@ function createCardButton(frontText: string, index: number): HTMLButtonElement {
 }
 
 function uploadNewCard(): void {
-  const errorElement = document.getElementById(
+  const errorElement = document.getElementById<HTMLParagraphElement>(
     "entry-error",
-  ) as HTMLParagraphElement;
+  );
 
   const frontText = frontInput.value.trim();
   const backText = backInput.value.trim();
@@ -127,10 +127,10 @@ function uploadNewCard(): void {
 }
 
 document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  const frontInput = document.getElementById(
+  const frontInput = document.getElementById<HTMLTextAreaElement>(
     "front-text",
-  ) as HTMLTextAreaElement;
-  const backInput = document.getElementById("back-text") as HTMLTextAreaElement;
+  );
+  const backInput = document.getElementById<HTMLTextAreaElement>("back-text");
   if (
     ev.key === "Enter" &&
     document.activeElement !== frontInput &&
