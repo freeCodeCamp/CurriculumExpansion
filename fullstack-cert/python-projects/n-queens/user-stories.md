@@ -15,14 +15,14 @@ In this lab, you will implement the N-Queens problem solver using the depth-firs
 
 **User Stories:**
 
-1. You should have a function named `solve_n_queens`.
+1. You should have a function named `dfs_n_queens`.
 2. The function should accept exactly one argument: an integer `n`.
-3. If `n` is less than 1, the function should return an empty list (`[]`).
+3. If `n` is less than `1`, the function should return an empty list (`[]`).
 4. The function should return a list of solutions; each solution is itself a list of length `n`, where the element at index `i` is the column index (0-based) of the queen in row `i`.
 5. For `n = 1`, the function must return `[[0]]`.
 6. For `n = 2` or `n = 3`, the function must return `[]`.
-7. `solve_n_queens(1)` should return `[[0]]`.
-8. `solve_n_queens(2)` should return `[]`
-9. `solve_n_queens(4)` should return `[[1,3,0,2], [2,0,3,1]]`
-10. `solve_n_queens(5)` should return: `[[0, 2, 4, 1, 3], [0, 3, 1, 4, 2], [1, 3, 0, 2, 4], [1, 4, 2, 0, 3], [2, 0, 3, 1, 4], [2, 4, 1, 3, 0], [3, 0, 2, 4, 1], [3, 1, 4, 2, 0], [4, 1, 3, 0, 2], [4, 2, 0, 3, 1]]`
-11. `len(solve_n_queens(5))` should be `10`.
+7. `dfs_n_queens(1)` should return `[[0]]`.
+8. `dfs_n_queens(2)` should return `[]`
+9. `dfs_n_queens(4)` should return `[[1,3,0,2], [2,0,3,1]]`
+10. `dfs_n_queens(5)` should return: `[[0, 2, 4, 1, 3], [0, 3, 1, 4, 2], [1, 3, 0, 2, 4], [1, 4, 2, 0, 3], [2, 0, 3, 1, 4], [2, 4, 1, 3, 0], [3, 0, 2, 4, 1], [3, 1, 4, 2, 0], [4, 1, 3, 0, 2], [4, 2, 0, 3, 1]]`
+11. `len(dfs_n_queens(5))` should be `10`.
