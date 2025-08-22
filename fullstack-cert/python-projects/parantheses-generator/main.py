@@ -1,9 +1,9 @@
 def gen_parentheses(pairs):
     
     if not isinstance(pairs, int):
-        return "The number of pairs should be an integer"
+        return 'The number of pairs should be an integer'
     if pairs < 1:
-        return "The number of pairs should be at least 1"
+        return 'The number of pairs should be at least 1'
 
     # Each state is a tuple: (current_string, opens_used, closes_used)
     queue = [("", 0, 0)]
@@ -19,10 +19,10 @@ def gen_parentheses(pairs):
         else:
             # Add an opening parenthesis if we still can
             if opens_used < pairs:
-                queue.append((current + "(", opens_used + 1, closes_used))
+                queue.append((current + '(', opens_used + 1, closes_used))
             # Add a closing parenthesis if it stays balanced
             if closes_used < opens_used:
-                queue.append((current + ")", opens_used, closes_used + 1))
+                queue.append((current + ')', opens_used, closes_used + 1))
 
     return result
 
@@ -36,7 +36,7 @@ print(gen_parentheses(3))
 # Output: ['((()))', '(()())', '(())()', '()(())', '()()()']
 
 # Invalid type
-print(gen_parentheses("3"))
+print(gen_parentheses('3'))
 # Output: The number of pairs should be an integer
 
 # Out of range
