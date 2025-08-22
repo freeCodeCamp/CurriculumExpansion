@@ -72,7 +72,7 @@ function deleteCard(): void {
   if (currentCards.length === 0) {
     currentCardIndex = -1;
   } else {
-    currentCardIndex = Math.max(0, currentCardIndex - 1);
+    currentCardIndex = Math.min(Math.max(0, currentCardIndex - 1), cardButtonsContainer.children.length - 1); 
   }
 
   refresh();
@@ -202,9 +202,9 @@ class FlashcardGame {
     };
 
     this.elements = {
-      flashcard: document.querySelector(".flashcard")!,
-      cardsList: document.getElementById("cards-list")!,
-      flipBtn: document.getElementById("flip-btn")!,
+      flashcard: document.querySelector(".flashcard"),
+      cardsList: document.getElementById("cards-list"),
+      flipBtn: document.getElementById("flip-btn"),
     };
     this.initializeEventListeners();
   }
@@ -215,7 +215,6 @@ class FlashcardGame {
   private flipCard(): void {
     this.elements.flashcard.classList.toggle("flipped");
   }
-  private renderList(): void {}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
