@@ -50,7 +50,6 @@ interface Pet {
   hunger: number;
   energy: number;
   species: string;
-  action: PetAction;
 }
 
 enum PetMood {
@@ -64,9 +63,8 @@ enum PetMood {
 }
 
 export function calculatePetMood(pt: Pet): PetMood {
-  const { hunger, happiness, energy /*health*/ } = pt;
+  const { hunger, happiness, energy } = pt;
 
-  //if (health < 30) return PetMood.Sick;
   if (hunger > 70) return PetMood.Hungry;
   if (energy < 30) return PetMood.Tired;
   if (happiness < 30) return PetMood.Sad;
@@ -88,51 +86,37 @@ const moodEmojiMap: Record<PetMood, string> = {
 
 const saveKey = "pet";
 
-export function App() {
-  //TODO: The pet has a lot of functionality tied to it that's currently
-  //  just inlined with the rest of the App. Do we want to break it into
-  //  a hook? Are learner's already expected to have enough React knowledge
-  //  to consider this or should we keep it simple with in-lines?
+interface usePetProps {
+  isGameStarted: boolean;
+  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function usePet({
+  isGameStarted, setGameStarted,
+}: usePetProps) {
   let [pet, setPet] = useState<Pet>({
     name: "",
     happiness: 100,
     hunger: 0,
     energy: 100,
-    species: "",
-    action: PetAction.NONE,
+    species: "Cat",
   });
 
-  let petRef = useRef<Pet>(pet);
   useEffect(() => {
-    petRef.current = pet;
-  }, [pet]);
+    console.log("PLEASE BORTHER!");
+    if (!isGameStarted) return;
+    console.log("Excellent, Borther.");
 
-  const [fact, setFact] = useState<string | null>("");
-  const [gameStarted, setGameStarted] = useState(false);
-
-  //TODO: I think this is almost definitely too complicated. I imagine we'll
-  //  revert and have each button assigned to a particular action if I can't
-  //  figure out a simpler implementation. We'll be one short of the "fun fact"
-  //  functionality, but we can just add a fourth button to the device.
-
-  //TODO: Integrate with the FCC API once it's ready.
-  useEffect(() => {
-    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1;
-    const currentFact = catFacts[randomNumber];
-    setFact(currentFact);
-  }, []);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setPet((pet) => ({
         ...pet,
         happiness: Math.max(pet.happiness - 5, 0),
         hunger: Math.min(pet.hunger + 5, 100),
       }));
-    }, 30 * 1000); // TODO : These things use minutes but it's taking too long
+    }, 30 * 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isGameStarted]);
 
   function doAction(action: PetAction) {
     switch (action) {
@@ -153,7 +137,6 @@ export function App() {
     setPet((pet) => ({
       ...pet,
       hunger: Math.max(pet.hunger - myFoodFill, 0),
-      action: PetAction.EAT,
     }));
     pet.hunger -= myFoodFill;
   }
@@ -165,7 +148,6 @@ export function App() {
       ...pet,
       happiness: Math.min(pet.happiness + myHappinessIncrease, 100),
       energy: Math.max(pet.energy - energyDecrease, 0),
-      action: PetAction.PLAY,
     }));
   }
 
@@ -176,7 +158,6 @@ export function App() {
       ...pet,
       hunger: Math.min(pet.hunger + hungerIncrease, 100),
       energy: Math.min(pet.energy + energyIncrease, 100),
-      action: PetAction.SLEEP,
     }));
   }
 
@@ -192,14 +173,44 @@ export function App() {
     }
   }
 
+  return {
+    pet, doAction,
+    savePetData, loadPetData,
+    setName: (name: string) => setPet({...pet, name}),
+  };
+}
+
+export function App() {
+  const [isGameStarted, setGameStarted] = useState(false);
+
+  let {
+    pet, 
+    doAction,
+    savePetData, loadPetData,
+    setName,
+  } = usePet({ isGameStarted, setGameStarted });
+
+  let petRef = useRef<Pet>(pet);
+  useEffect(() => {
+    petRef.current = pet;
+  }, [pet]);
+
+  const [fact, setFact] = useState<string | null>("");
+
+  //TODO: Integrate with the FCC API once it's ready.
+  useEffect(() => {
+    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1;
+    const currentFact = catFacts[randomNumber];
+    setFact(currentFact);
+  }, []);
+
+
+
   function startGame() {
     const petName = (document.getElementById("pet-name") as HTMLInputElement)
       .value;
 
-    setPet({
-      ...pet,
-      name: petName,
-    });
+    setName(petName);
     setGameStarted(true);
   }
 
@@ -243,7 +254,7 @@ export function App() {
       </section>
 
       <section className="base-container info-panel">
-        {!gameStarted ? (
+        {!isGameStarted ? (
           <form className="start-questions">
             <label htmlFor="pet-name">What is your pet's name? </label>
             <div>

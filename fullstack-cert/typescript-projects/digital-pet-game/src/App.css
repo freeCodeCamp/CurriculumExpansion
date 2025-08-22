@@ -60,6 +60,10 @@ body {
   gap: 1rem;
 }
 
+.info-panel #hud p {
+  margin: 0rem;
+}
+
 .info-panel .start-questions div * {
   margin: 0 0.5rem 0 0;
 }
@@ -169,10 +173,4 @@ body {
 
 .data-management * {
   margin: 0 0.5rem 0 0;
-}
-
-@media all and (max-width: 850px) {
-  .pet-hud #pet-species {
-    font-size: var(--pet-name_font-size);
-  }
 }
