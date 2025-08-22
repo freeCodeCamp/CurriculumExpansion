@@ -206,6 +206,15 @@ class FlashcardGame {
       cardsList: document.getElementById("cards-list"),
       flipBtn: document.getElementById("flip-btn"),
     };
+
+    if (this.elements.flashcard === null || this.elements.cardsList === null || this.elements.flipBtn === null)
+    {
+      const newErrorElement = document.createElement("p"); 
+      newErrorElement.textContent = "DOM failed to hydrate, refresh the page";
+      document.body.appendChild(newErrorElement); 
+    }
+
+ 
     this.initializeEventListeners();
   }
   // Initialize the game by setting up the flashcard and event listeners
