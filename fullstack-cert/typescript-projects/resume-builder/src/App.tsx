@@ -1,13 +1,832 @@
-import { FileText, User } from "lucide-react";
 import { ChangeEvent, useState } from "react";
-import { CVData } from "./types/cv";
 import "./App.css";
-import { Field } from "./Field";
-import Header from "./components/Header";
-import { PersonalInfoForm } from "./components/PersonalInfoForm";
-import { CVPreview } from "./components/CVPreview";
-import { ExperienceForm } from "./components/ExperienceForm";
-import { EducationForm } from "./components/EducationForm";
+
+interface PersonalInfoFormProps {
+  data: PersonalInfo;
+  onChange: (data: PersonalInfo) => void;
+}
+
+export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
+  data,
+  onChange,
+}) => {
+  const handleChange = (field: keyof PersonalInfo, value: string) => {
+    onChange({ ...data, [field]: value });
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+      <h2 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
+        <img
+          src="https://unpkg.com/lucide-static@0.541.0/icons/User.svg"
+          className="w-5 h-5 mr-2 text-blue-600"
+        />
+        Personal Information
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="md:col-span-2">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            value={data.fullName}
+            onChange={(e) => handleChange("fullName", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="John Doe"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/Mail.svg"
+              className="w-4 h-4 mr-1"
+            />
+            Email *
+          </label>
+          <input
+            type="email"
+            value={data.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="john@example.com"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/Phone.svg"
+              className="w-4 h-4 mr-1"
+            />
+            Phone *
+          </label>
+          <input
+            type="tel"
+            value={data.phone}
+            onChange={(e) => handleChange("phone", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="+1 (555) 123-4567"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/MapPin.svg"
+              className="w-4 h-4 mr-1"
+            />
+            Location *
+          </label>
+          <input
+            type="text"
+            value={data.location}
+            onChange={(e) => handleChange("location", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="New York, NY"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/Globe.svg"
+              className="w-4 h-4 mr-1"
+            />
+            Website
+          </label>
+          <input
+            type="url"
+            value={data.website || ""}
+            onChange={(e) => handleChange("website", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="https://johndoe.com"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/LinkedIn.svg"
+              className="w-4 h-4 mr-1"
+            />
+            LinkedIn
+          </label>
+          <input
+            type="url"
+            value={data.linkedin || ""}
+            onChange={(e) => handleChange("linkedin", e.target.value)}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            placeholder="https://linkedin.com/in/johndoe"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            Professional Summary *
+          </label>
+          <textarea
+            value={data.summary}
+            onChange={(e) => handleChange("summary", e.target.value)}
+            rows={4}
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+            placeholder="A brief summary of your professional background and career objectives..."
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+interface ExperienceFormProps {
+  data: Experience[];
+  onChange: (data: Experience[]) => void;
+}
+
+export const ExperienceForm: React.FC<ExperienceFormProps> = ({
+  data,
+  onChange,
+}) => {
+  const addExperience = () => {
+    const newExperience: Experience = {
+      id: Date.now().toString(),
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      current: false,
+      description: "",
+    };
+    onChange([...data, newExperience]);
+  };
+
+  const updateExperience = (
+    id: string,
+    field: keyof Experience,
+    value: any,
+  ) => {
+    onChange(
+      data.map((exp) => (exp.id === id ? { ...exp, [field]: value } : exp)),
+    );
+  };
+
+  const removeExperience = (id: string) => {
+    onChange(data.filter((exp) => exp.id !== id));
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-slate-800 flex items-center">
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/briefcase.svg"
+            className="w-5 h-5 mr-2 text-blue-600"
+          />
+          Work Experience
+        </h2>
+        <button
+          onClick={addExperience}
+          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
+            className="w-4 h-4 mr-2"
+          />
+          Add Experience
+        </button>
+      </div>
+
+      <div className="space-y-6">
+        {data.map((experience) => (
+          <div
+            key={experience.id}
+            className="border border-slate-200 rounded-lg p-4 relative"
+          >
+            <button
+              onClick={() => removeExperience(experience.id)}
+              className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
+            >
+              <img
+                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
+                className="w-4 h-4"
+              />
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Company *
+                </label>
+                <input
+                  type="text"
+                  value={experience.company}
+                  onChange={(e) =>
+                    updateExperience(experience.id, "company", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="Company Name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Position *
+                </label>
+                <input
+                  type="text"
+                  value={experience.position}
+                  onChange={(e) =>
+                    updateExperience(experience.id, "position", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="Job Title"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+                  <img
+                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                    className="w-4 h-4 mr-1"
+                  />
+                  Start Date *
+                </label>
+                <input
+                  type="month"
+                  value={experience.startDate}
+                  onChange={(e) =>
+                    updateExperience(experience.id, "startDate", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+                  <img
+                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                    className="w-4 h-4 mr-1"
+                  />
+                  End Date
+                </label>
+                <input
+                  type="month"
+                  value={experience.endDate}
+                  onChange={(e) =>
+                    updateExperience(experience.id, "endDate", e.target.value)
+                  }
+                  disabled={experience.current}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-slate-100"
+                />
+                <div className="flex items-center mt-2">
+                  <input
+                    type="checkbox"
+                    id={`current-${experience.id}`}
+                    checked={experience.current}
+                    onChange={(e) => {
+                      updateExperience(
+                        experience.id,
+                        "current",
+                        e.target.checked,
+                      );
+                      if (e.target.checked) {
+                        updateExperience(experience.id, "endDate", "");
+                      }
+                    }}
+                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                  />
+                  <label
+                    htmlFor={`current-${experience.id}`}
+                    className="ml-2 text-sm text-slate-700"
+                  >
+                    Currently working here
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Description *
+              </label>
+              <textarea
+                value={experience.description}
+                onChange={(e) =>
+                  updateExperience(experience.id, "description", e.target.value)
+                }
+                rows={3}
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                placeholder="Describe your key responsibilities and achievements..."
+              />
+            </div>
+          </div>
+        ))}
+
+        {data.length === 0 && (
+          <div className="text-center py-8 text-slate-500">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/briefcase.svg"
+              className="w-12 h-12 mx-auto mb-4 opacity-50"
+            />
+            <p>No work experience added yet.</p>
+            <p className="text-sm">Click "Add Experience" to get started.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+interface EducationFormProps {
+  data: Education[];
+  onChange: (data: Education[]) => void;
+}
+
+export const EducationForm: React.FC<EducationFormProps> = ({
+  data,
+  onChange,
+}) => {
+  const addEducation = () => {
+    const newEducation: Education = {
+      id: Date.now().toString(),
+      institution: "",
+      degree: "",
+      field: "",
+      startDate: "",
+      endDate: "",
+      current: false,
+      gpa: "",
+    };
+    onChange([...data, newEducation]);
+  };
+
+  const updateEducation = (id: string, field: keyof Education, value: any) => {
+    onChange(
+      data.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu)),
+    );
+  };
+
+  const removeEducation = (id: string) => {
+    onChange(data.filter((edu) => edu.id !== id));
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-slate-800 flex items-center">
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/graduation-cap.svg"
+            className="w-5 h-5 mr-2 text-blue-600"
+          />
+          Education
+        </h2>
+        <button
+          onClick={addEducation}
+          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
+            className="w-4 h-4 mr-2"
+          />
+          Add Education
+        </button>
+      </div>
+
+      <div className="space-y-6">
+        {data.map((education) => (
+          <div
+            key={education.id}
+            className="border border-slate-200 rounded-lg p-4 relative"
+          >
+            <button
+              onClick={() => removeEducation(education.id)}
+              className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
+            >
+              <img
+                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
+                className="w-4 h-4"
+              />
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Institution *
+                </label>
+                <input
+                  type="text"
+                  value={education.institution}
+                  onChange={(e) =>
+                    updateEducation(education.id, "institution", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="University Name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Degree *
+                </label>
+                <input
+                  type="text"
+                  value={education.degree}
+                  onChange={(e) =>
+                    updateEducation(education.id, "degree", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="Bachelor's, Master's, etc."
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Field of Study *
+                </label>
+                <input
+                  type="text"
+                  value={education.field}
+                  onChange={(e) =>
+                    updateEducation(education.id, "field", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="Computer Science, etc."
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  GPA (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={education.gpa || ""}
+                  onChange={(e) =>
+                    updateEducation(education.id, "gpa", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="3.8/4.0"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+                  <img
+                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                    className="w-4 h-4 mr-1"
+                  />
+                  Start Date *
+                </label>
+                <input
+                  type="month"
+                  value={education.startDate}
+                  onChange={(e) =>
+                    updateEducation(education.id, "startDate", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
+                  <img
+                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                    className="w-4 h-4 mr-1"
+                  />
+                  End Date
+                </label>
+                <input
+                  type="month"
+                  value={education.endDate}
+                  onChange={(e) =>
+                    updateEducation(education.id, "endDate", e.target.value)
+                  }
+                  disabled={education.current}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-slate-100"
+                />
+                <div className="flex items-center mt-2">
+                  <input
+                    type="checkbox"
+                    id={`current-edu-${education.id}`}
+                    checked={education.current}
+                    onChange={(e) => {
+                      updateEducation(
+                        education.id,
+                        "current",
+                        e.target.checked,
+                      );
+                      if (e.target.checked) {
+                        updateEducation(education.id, "endDate", "");
+                      }
+                    }}
+                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                  />
+                  <label
+                    htmlFor={`current-edu-${education.id}`}
+                    className="ml-2 text-sm text-slate-700"
+                  >
+                    Currently studying
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {data.length === 0 && (
+          <div className="text-center py-8 text-slate-500">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/graduation-cap.svg"
+              className="w-12 h-12 mx-auto mb-4 opacity-50"
+            />
+            <p>No education added yet.</p>
+            <p className="text-sm">Click "Add Education" to get started.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export interface PersonalInfo {
+  fullName: string;
+  email: string;
+  phone: string;
+  location: string;
+  website?: string;
+  linkedin?: string;
+  summary: string;
+}
+
+export interface Experience {
+  id: string;
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  description: string;
+}
+
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  field: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  gpa?: string;
+}
+
+export interface Skill {
+  id: string;
+  name: string;
+  level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
+}
+
+export interface CVData {
+  personalInfo: PersonalInfo;
+  experience: Experience[];
+  education: Education[];
+  skills: Skill[];
+}
+
+interface CVPreviewProps {
+  data: CVData;
+}
+
+export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "";
+    const [year, month] = dateString.split("-");
+    const date = new Date(parseInt(year), parseInt(month) - 1);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+    });
+  };
+
+  const getSkillBars = (level: string) => {
+    const levels = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
+    const count = levels[level as keyof typeof levels] || 2;
+    return Array(4)
+      .fill(0)
+      .map((_, i) => (
+        <div
+          key={i}
+          className={`h-2 w-6 rounded-sm ${
+            i < count ? "bg-blue-600" : "bg-slate-200"
+          }`}
+        />
+      ));
+  };
+
+  return (
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-2">
+            {data.personalInfo.fullName || "Your Name"}
+          </h1>
+
+          <div className="flex flex-wrap justify-center gap-4 text-blue-100 text-sm mt-4">
+            {data.personalInfo.email && (
+              <div className="flex items-center">
+                <img
+                  src="https://unpkg.com/lucide-static@0.541.0/icons/Mail.svg"
+                  className="w-4 h-4 mr-1"
+                />
+                {data.personalInfo.email}
+              </div>
+            )}
+            {data.personalInfo.phone && (
+              <div className="flex items-center">
+                <img
+                  src="https://unpkg.com/lucide-static@0.541.0/icons/Phone.svg"
+                  className="w-4 h-4 mr-1"
+                />
+                {data.personalInfo.phone}
+              </div>
+            )}
+            {data.personalInfo.location && (
+              <div className="flex items-center">
+                <img
+                  src="https://unpkg.com/lucide-static@0.541.0/icons/map-pin.svg"
+                  className="w-4 h-4 mr-1"
+                />
+                {data.personalInfo.location}
+              </div>
+            )}
+            {data.personalInfo.website && (
+              <div className="flex items-center">
+                <img
+                  src="https://unpkg.com/lucide-static@0.541.0/icons/Globe.svg"
+                  className="w-4 h-4 mr-1"
+                />
+                {data.personalInfo.website.replace(/^https?:\/\//, "")}
+              </div>
+            )}
+            {data.personalInfo.linkedin && (
+              <div className="flex items-center">
+                <img
+                  src="https://unpkg.com/lucide-static@0.541.0/icons/LinkedIn.svg"
+                  className="w-4 h-4 mr-1"
+                />
+                LinkedIn
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="p-8">
+        {/* Professional Summary */}
+        {data.personalInfo.summary && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 border-b-2 border-blue-600 pb-2 mb-4">
+              Professional Summary
+            </h2>
+            <p className="text-slate-700 leading-relaxed">
+              {data.personalInfo.summary}
+            </p>
+          </section>
+        )}
+
+        {/* Work Experience */}
+        {data.experience.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 border-b-2 border-blue-600 pb-2 mb-6">
+              Work Experience
+            </h2>
+            <div className="space-y-6">
+              {data.experience.map((exp) => (
+                <div
+                  key={exp.id}
+                  className="relative pl-4 border-l-2 border-slate-200"
+                >
+                  <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-2 top-1"></div>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-800">
+                        {exp.position}
+                      </h3>
+                      <h4 className="text-lg text-blue-600 font-medium">
+                        {exp.company}
+                      </h4>
+                    </div>
+                    <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
+                      <img
+                        src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                        className="w-4 h-4 mr-1"
+                      />
+                      {formatDate(exp.startDate)} -{" "}
+                      {exp.current ? "Present" : formatDate(exp.endDate)}
+                    </div>
+                  </div>
+                  <p className="text-slate-700 leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Education */}
+        {data.education.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 border-b-2 border-blue-600 pb-2 mb-6">
+              Education
+            </h2>
+            <div className="space-y-6">
+              {data.education.map((edu) => (
+                <div
+                  key={edu.id}
+                  className="relative pl-4 border-l-2 border-slate-200"
+                >
+                  <div className="absolute w-3 h-3 bg-green-600 rounded-full -left-2 top-1"></div>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-800">
+                        {edu.degree} in {edu.field}
+                      </h3>
+                      <h4 className="text-lg text-green-600 font-medium">
+                        {edu.institution}
+                      </h4>
+                      {edu.gpa && (
+                        <p className="text-slate-600">GPA: {edu.gpa}</p>
+                      )}
+                    </div>
+                    <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
+                      <img
+                        src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+                        className="w-4 h-4 mr-1"
+                      />
+                      {formatDate(edu.startDate)} -{" "}
+                      {edu.current ? "Present" : formatDate(edu.endDate)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Skills */}
+        {data.skills.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-bold text-slate-800 border-b-2 border-blue-600 pb-2 mb-6">
+              Skills
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {data.skills.map((skill) => (
+                <div
+                  key={skill.id}
+                  className="flex items-center justify-between"
+                >
+                  <span className="font-medium text-slate-700">
+                    {skill.name}
+                  </span>
+                  <div className="flex items-center space-x-1 ml-4">
+                    {getSkillBars(skill.level)}
+                    <span className="text-xs text-slate-500 ml-2">
+                      {skill.level}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const Header = () => {
+  return (
+    <header className="bg-white shadow-sm border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
+              className="w-4 h-4 mr-1"
+            />
+            <img
+              src="https://unpkg.com/lucide-static@0.541.0/icons/file-text.svg"
+              className="w-8 h-8 text-blue-600 mr-3"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 export function App() {
   const [cvData, setCVData] = useState<CVData>({
