@@ -550,6 +550,152 @@ export const EducationForm: React.FC<EducationFormProps> = ({
   );
 };
 
+interface SkillsFormProps {
+  data: Skill[];
+  onChange: (data: Skill[]) => void;
+}
+
+export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
+  const addSkill = () => {
+    const newSkill: Skill = {
+      id: Date.now().toString(),
+      name: "",
+      level: "Intermediate",
+    };
+    onChange([...data, newSkill]);
+  };
+
+  const updateSkill = (id: string, field: keyof Skill, value: any) => {
+    onChange(
+      data.map((skill) =>
+        skill.id === id ? { ...skill, [field]: value } : skill,
+      ),
+    );
+  };
+
+  const removeSkill = (id: string) => {
+    onChange(data.filter((skill) => skill.id !== id));
+  };
+
+  const skillLevels: Skill["level"][] = [
+    "Beginner",
+    "Intermediate",
+    "Advanced",
+    "Expert",
+  ];
+
+  const getLevelColor = (level: Skill["level"]) => {
+    const colors = {
+      Beginner: "bg-yellow-100 text-yellow-800",
+      Intermediate: "bg-blue-100 text-blue-800",
+      Advanced: "bg-green-100 text-green-800",
+      Expert: "bg-purple-100 text-purple-800",
+    };
+    return colors[level];
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-slate-800 flex items-center">
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/zap.svg"
+            className="w-5 h-5 mr-2 text-blue-600"
+          />
+          Skills
+        </h2>
+        <button
+          onClick={addSkill}
+          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
+            className="w-4 h-4 mr-2"
+          />
+          Add Skill
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {data.map((skill) => (
+          <div
+            key={skill.id}
+            className="border border-slate-200 rounded-lg p-4 relative"
+          >
+            <button
+              onClick={() => removeSkill(skill.id)}
+              className="absolute top-3 right-3 text-red-500 hover:text-red-700 transition-colors"
+            >
+              <img
+                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
+                className="w-4 h-4"
+              />
+            </button>
+
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Skill Name *
+                </label>
+                <input
+                  type="text"
+                  value={skill.name}
+                  onChange={(e) =>
+                    updateSkill(skill.id, "name", e.target.value)
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="JavaScript, React, etc."
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Proficiency Level
+                </label>
+                <select
+                  value={skill.level}
+                  onChange={(e) =>
+                    updateSkill(
+                      skill.id,
+                      "level",
+                      e.target.value as Skill["level"],
+                    )
+                  }
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                >
+                  {skillLevels.map((level) => (
+                    <option key={level} value={level}>
+                      {level}
+                    </option>
+                  ))}
+                </select>
+                <div className="mt-2">
+                  <span
+                    className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${getLevelColor(skill.level)}`}
+                  >
+                    {skill.level}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {data.length === 0 && (
+        <div className="text-center py-8 text-slate-500">
+          <img
+            src="https://unpkg.com/lucide-static@0.541.0/icons/zap.svg"
+            className="w-12 h-12 mx-auto mb-4 opacity-50"
+          />
+          <p>No skills added yet.</p>
+          <p className="text-sm">Click "Add Skill" to get started.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export interface PersonalInfo {
   fullName: string;
   email: string;
@@ -879,6 +1025,8 @@ export function App() {
               onChange={updateExperience}
             />
             <EducationForm data={cvData.education} onChange={updateEducation} />
+
+            <SkillsForm data={cvData.skills} onChange={updateSkills} />
           </div>
           {/* Preview Section */}
           <article
