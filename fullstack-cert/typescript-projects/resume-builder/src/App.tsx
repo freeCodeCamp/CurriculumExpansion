@@ -75,7 +75,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
             <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/MapPin.svg"
+              src="https://unpkg.com/lucide-static@0.541.0/icons/map-pin.svg"
               className="w-4 h-4 mr-1"
             />
             Location *
