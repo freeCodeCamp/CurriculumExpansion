@@ -1,10 +1,10 @@
 const cardDisplay = document.querySelector<HTMLElement>("#current-card");
-const cardButtonsContainer = document.getElementById<HTMLElement>(
+const cardButtonsContainer = document.querySelector<HTMLElement>(
   "cards-list",
 );
 
-const frontInput = document.getElementById<HTMLTextAreaElement>("front-text");
-const backInput = document.getElementById<HTMLTextAreaElement>("back-text");
+const frontInput = document.querySelector<HTMLTextAreaElement>("front-text");
+const backInput = document.querySelector<HTMLTextAreaElement>("back-text");
 
 let currentCardIndex = -1;
 let showingFront = true;
@@ -91,7 +91,7 @@ function createCardButton(frontText: string, index: number): HTMLButtonElement {
 }
 
 function uploadNewCard(): void {
-  const errorElement = document.getElementById<HTMLParagraphElement>(
+  const errorElement = document.querySelector<HTMLParagraphElement>(
     "entry-error",
   );
 
@@ -127,10 +127,10 @@ function uploadNewCard(): void {
 }
 
 document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  const frontInput = document.getElementById<HTMLTextAreaElement>(
+  const frontInput = document.querySelector<HTMLTextAreaElement>(
     "front-text",
   );
-  const backInput = document.getElementById<HTMLTextAreaElement>("back-text");
+  const backInput = document.querySelector<HTMLTextAreaElement>("back-text");
   if (
     ev.key === "Enter" &&
     document.activeElement !== frontInput &&
@@ -203,8 +203,8 @@ class FlashcardGame {
 
     this.elements = {
       flashcard: document.querySelector(".flashcard"),
-      cardsList: document.getElementById("cards-list"),
-      flipBtn: document.getElementById("flip-btn"),
+      cardsList: document.querySelector("cards-list"),
+      flipBtn: document.querySelector("flip-btn"),
     };
 
     if (this.elements.flashcard === null || this.elements.cardsList === null || this.elements.flipBtn === null)
