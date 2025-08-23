@@ -844,42 +844,6 @@ export function App() {
     skills: [],
   });
   const [showPreview, setShowPreview] = useState(true);
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [objective, setObjective] = useState("");
-  const [degree, setDegree] = useState("");
-  const [gradYear, setGradYear] = useState(0);
-
-  function handleUpdateName(e: ChangeEvent) {
-    setFullName((e.target as HTMLInputElement).value);
-  }
-
-  function handleUpdateEmail(e: ChangeEvent) {
-    setEmail((e.target as HTMLInputElement).value);
-  }
-
-  function handleUpdatePhone(e: ChangeEvent) {
-    setPhone((e.target as HTMLInputElement).value);
-  }
-
-  function handleUpdateObjective(e: ChangeEvent) {
-    setObjective((e.target as HTMLInputElement).value);
-  }
-
-  function handleUpdateDegree(e: ChangeEvent) {
-    setDegree((e.target as HTMLInputElement).value);
-  }
-
-  function handleUpdateGradYear(e: ChangeEvent) {
-    const gradYear = parseInt((e.target as HTMLInputElement).value);
-    const cutOffYear = 1976;
-    if (Number.isSafeInteger(gradYear) && gradYear > cutOffYear) {
-      setGradYear(parseInt((e.target as HTMLInputElement).value));
-    } else {
-      // TODO: add validation
-    }
-  }
 
   const updatePersonalInfo = (personalInfo: CVData["personalInfo"]) => {
     setCVData((prev) => ({ ...prev, personalInfo }));
@@ -892,6 +856,11 @@ export function App() {
   const updateEducation = (education: CVData["education"]) => {
     setCVData((prev) => ({ ...prev, education }));
   };
+
+  const updateSkills = (skills: CVData["skills"]) => {
+    setCVData((prev) => ({ ...prev, skills }));
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
