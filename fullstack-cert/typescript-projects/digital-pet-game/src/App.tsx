@@ -84,16 +84,14 @@ const moodEmojiMap: Record<PetMood, string> = {
   [PetMood.Hungry]: "😹", // joy cat (closest to hungry/funny)
 };
 
-const saveKey = "pet";
+const STORAGE_KEY = "pet";
 
 interface usePetProps {
   isGameStarted: boolean;
   setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function usePet({
-  isGameStarted, setGameStarted,
-}: usePetProps) {
+function usePet({ isGameStarted, setGameStarted }: usePetProps) {
   let [pet, setPet] = useState<Pet>({
     name: "",
     happiness: 100,
@@ -162,11 +160,11 @@ function usePet({
   }
 
   function savePetData() {
-    localStorage.setItem(saveKey, JSON.stringify(pet));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(pet));
   }
 
   function loadPetData() {
-    pet = JSON.parse(localStorage.getItem(saveKey) || "");
+    pet = JSON.parse(localStorage.getItem(STORAGE_KEY) || "");
     if (typeof pet !== "undefined") {
       setPet(pet);
       setGameStarted(true);
@@ -174,21 +172,21 @@ function usePet({
   }
 
   return {
-    pet, doAction,
-    savePetData, loadPetData,
-    setName: (name: string) => setPet({...pet, name}),
+    pet,
+    doAction,
+    savePetData,
+    loadPetData,
+    setName: (name: string) => setPet({ ...pet, name }),
   };
 }
 
 export function App() {
   const [isGameStarted, setGameStarted] = useState(false);
 
-  let {
-    pet, 
-    doAction,
-    savePetData, loadPetData,
-    setName,
-  } = usePet({ isGameStarted, setGameStarted });
+  let { pet, doAction, savePetData, loadPetData, setName } = usePet({
+    isGameStarted,
+    setGameStarted,
+  });
 
   let petRef = useRef<Pet>(pet);
   useEffect(() => {
@@ -203,8 +201,6 @@ export function App() {
     const currentFact = catFacts[randomNumber];
     setFact(currentFact);
   }, []);
-
-
 
   function startGame() {
     const petName = (document.getElementById("pet-name") as HTMLInputElement)
@@ -280,10 +276,11 @@ export function App() {
         )}
         <p id="pet-fact">Pet Fact: {fact}</p>
         <div className="data-management">
-          { isGameStarted &&
-          <button id="save-game" onClick={savePetData}>
-            Save
-          </button> }
+          {isGameStarted && (
+            <button id="save-game" onClick={savePetData}>
+              Save
+            </button>
+          )}
           <button id="load-game" onClick={loadPetData}>
             Load
           </button>
