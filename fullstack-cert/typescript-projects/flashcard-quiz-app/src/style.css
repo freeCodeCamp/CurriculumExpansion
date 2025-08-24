@@ -126,6 +126,10 @@ hr {
   padding: 2rem;
 }
 
+.card-front {
+  transform: rotateY(0deg);
+}
+
 .card-back {
   transform: rotateY(180deg);
 }
