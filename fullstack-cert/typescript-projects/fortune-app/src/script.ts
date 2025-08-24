@@ -30,9 +30,9 @@ const CDN_URL = "https://cdn.freecodecamp.org/curriculum/typescript/tarot-app";
 
 /** Utility to safely select DOM elements; throws if selector is missing */
 const getElement = <T extends HTMLElement>(selector: string): T => {
-  const el = document.querySelector(selector);
+  const el = document.querySelector<T>(selector);
   if (!el) throw new Error(`Element not found: ${selector}`);
-  return el as T;
+  return el;
 };
 
 /** Utility: hide any number of elements by adding the hidden class */
@@ -119,19 +119,19 @@ class Game {
   constructor() {
     // 1) Cache DOM elements
     this.elements = {
-      singleCardBtn: getElement("#btn-single-card")!,
-      singleCard: getElement(".single_card")!,
-      multipleCardsBtn: getElement("#btn-multiple-cards")!,
-      multipleCard: getElement(".multiple_card")!,
-      title: getElement(".title")!,
-      newReadingBtn: getElement(".btn_reveal")!,
-      fortuneContainer: getElement(".fortune_container")!,
-      fortuneDescription: getElement(".fortune_description")!,
-      headerTitle: getElement(".header_title")!,
-      subTitle: getElement(".sub_title")!,
-      cardTitle: getElement(".desc_title")!,
-      description: getElement(".description")!,
-      text: getElement(".text")!,
+      singleCardBtn: getElement("#btn-single-card"),
+      singleCard: getElement(".single_card"),
+      multipleCardsBtn: getElement("#btn-multiple-cards"),
+      multipleCard: getElement(".multiple_card"),
+      title: getElement(".title"),
+      newReadingBtn: getElement(".btn_reveal"),
+      fortuneContainer: getElement(".fortune_container"),
+      fortuneDescription: getElement(".fortune_description"),
+      headerTitle: getElement(".header_title"),
+      subTitle: getElement(".sub_title"),
+      cardTitle: getElement(".desc_title"),
+      description: getElement(".description"),
+      text: getElement(".text"),
     };
     // 2) Fetch data
     this.fetchCardsData();
@@ -227,11 +227,14 @@ class Game {
    * Uses the card's data-id attribute to locate the matching card data.
    */
   showFortune(e: Event) {
-    const target = e.target as HTMLElement | null;
-    const cardElement = target?.closest(
-      ".card_container",
-    ) as HTMLElement | null;
-
+    const target = e.target
+    if(!(target instanceof  HTMLElement)){
+         throw new Error("target element is not correct");
+    }
+    const cardElement = target?.closest(".card_container") 
+   if(!(cardElement instanceof HTMLElement)){
+      throw new Error("Card element is not correct");
+   }
     if (!cardElement) return;
 
     const cardId = cardElement.getAttribute("data-id");
