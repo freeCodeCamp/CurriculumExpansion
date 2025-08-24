@@ -19,7 +19,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
       <h2 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
         <img
           src="https://unpkg.com/lucide-static@0.541.0/icons/User.svg"
-          className="w-5 h-5 mr-2 text-blue-600"
+          className="w-5 h-5 mr-2 text-blue-600 blue-filter"
         />
         Personal Information
       </h2>
@@ -182,7 +182,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/briefcase.svg"
-            className="w-5 h-5 mr-2 text-blue-600"
+            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
           />
           Work Experience
         </h2>
@@ -192,7 +192,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
         >
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2"
+            className="w-4 h-4 mr-2 white-filter"
           />
           Add Experience
         </button>
@@ -378,7 +378,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/graduation-cap.svg"
-            className="w-5 h-5 mr-2 text-blue-600"
+            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
           />
           Education
         </h2>
@@ -388,7 +388,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
         >
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2"
+            className="w-4 h-4 mr-2 white-filter"
           />
           Add Education
         </button>
@@ -600,7 +600,7 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/zap.svg"
-            className="w-5 h-5 mr-2 text-blue-600"
+            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
           />
           Skills
         </h2>
@@ -610,7 +610,7 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
         >
           <img
             src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2"
+            className="w-4 h-4 mr-2 white-filter"
           />
           Add Skill
         </button>
@@ -960,13 +960,10 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-              className="w-4 h-4 mr-1"
-            />
-            <img
               src="https://unpkg.com/lucide-static@0.541.0/icons/file-text.svg"
-              className="w-8 h-8 text-blue-600 mr-3"
+              className="w-8 h-8 text-blue-600 mr-3 blue-filter"
             />
+            <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
           </div>
         </div>
       </div>
