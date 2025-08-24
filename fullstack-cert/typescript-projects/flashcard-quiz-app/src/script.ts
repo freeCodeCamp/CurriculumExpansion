@@ -41,6 +41,7 @@ function refresh(): void {
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     if (!isButtonElement(child)) {
       console.warn(`Element {${child}} is not a button.`);
+      return;
     }
     const button = child as HTMLElement;
     if (i === currentCardIndex) {
