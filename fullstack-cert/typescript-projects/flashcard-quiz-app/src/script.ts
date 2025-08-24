@@ -39,6 +39,9 @@ function refresh(): void {
   cardDisplay.querySelector(".card-back").textContent = card.backText;
   // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    if (!isButtonElement(child)) {
+      console.warn(`Element {${child}} is not a button.`);
+    }
     const button = child as HTMLElement;
     if (i === currentCardIndex) {
       button.classList.add("selected");
@@ -66,6 +69,11 @@ function deleteCard(): void {
   );
 
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    if (!isButtonElement(child)) {
+      console.warn(`Element {${child}} is not a button.`);
+      return;
+    };
+
     (child as HTMLButtonElement).onclick = () => {
       currentCardIndex = i;
       showingFront = true;
