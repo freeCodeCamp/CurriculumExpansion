@@ -180,6 +180,11 @@ button {
     background-color 0.2s ease,
     transform 0.1s ease;
   width: 100%;
+  &#flip-btn {
+    align-self: center;
+    width: auto;
+    padding: 12px 40px;
+  }
 }
 
 button:hover {
