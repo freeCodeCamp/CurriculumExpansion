@@ -1,7 +1,5 @@
 const cardDisplay = document.querySelector<HTMLElement>("#current-card");
-const cardButtonsContainer = document.querySelector<HTMLElement>(
-  "#cards-list",
-);
+const cardButtonsContainer = document.querySelector<HTMLElement>("#cards-list");
 
 const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
@@ -25,7 +23,7 @@ class InvalidUserInputError extends Error {
 
 const isButtonElement = (element: unknown): element is HTMLButtonElement => {
   return element instanceof HTMLButtonElement;
-}
+};
 
 function refresh(): void {
   if (currentCardIndex < 0 || !currentCards[currentCardIndex]) {
@@ -39,6 +37,10 @@ function refresh(): void {
   cardDisplay.querySelector(".card-back").textContent = card.backText;
   // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    if (!isButtonElement(child)) {
+      console.warn(`Element {${child}} is not a button.`);
+      return;
+    }
     const button = child as HTMLElement;
     if (i === currentCardIndex) {
       button.classList.add("selected");
@@ -66,6 +68,11 @@ function deleteCard(): void {
   );
 
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
+    if (!isButtonElement(child)) {
+      console.warn(`Element {${child}} is not a button.`);
+      return;
+    }
+
     (child as HTMLButtonElement).onclick = () => {
       currentCardIndex = i;
       showingFront = true;
@@ -76,7 +83,10 @@ function deleteCard(): void {
   if (currentCards.length === 0) {
     currentCardIndex = -1;
   } else {
-    currentCardIndex = Math.min(Math.max(0, currentCardIndex - 1), cardButtonsContainer.children.length - 1); 
+    currentCardIndex = Math.min(
+      Math.max(0, currentCardIndex - 1),
+      cardButtonsContainer.children.length - 1,
+    );
   }
 
   refresh();
@@ -95,9 +105,8 @@ function createCardButton(frontText: string, index: number): HTMLButtonElement {
 }
 
 function uploadNewCard(): void {
-  const errorElement = document.querySelector<HTMLParagraphElement>(
-    "#entry-error",
-  );
+  const errorElement =
+    document.querySelector<HTMLParagraphElement>("#entry-error");
 
   const frontText = frontInput.value.trim();
   const backText = backInput.value.trim();
@@ -131,9 +140,7 @@ function uploadNewCard(): void {
 }
 
 document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  const frontInput = document.querySelector<HTMLTextAreaElement>(
-    "#front-text",
-  );
+  const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
   const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
   if (
     ev.key === "Enter" &&
@@ -211,14 +218,16 @@ class FlashcardGame {
       flipBtn: document.querySelector("#flip-btn"),
     };
 
-    if (this.elements.flashcard === null || this.elements.cardsList === null || this.elements.flipBtn === null)
-    {
-      const newErrorElement = document.createElement("p"); 
+    if (
+      this.elements.flashcard === null ||
+      this.elements.cardsList === null ||
+      this.elements.flipBtn === null
+    ) {
+      const newErrorElement = document.createElement("p");
       newErrorElement.textContent = "DOM failed to hydrate, refresh the page";
-      document.body.appendChild(newErrorElement); 
+      document.body.appendChild(newErrorElement);
     }
 
- 
     this.initializeEventListeners();
   }
   // Initialize the game by setting up the flashcard and event listeners
