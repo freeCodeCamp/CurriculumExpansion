@@ -199,6 +199,7 @@ class FlashcardGame {
     flashcard: HTMLElement;
     cardsList: HTMLElement;
     flipBtn: HTMLElement;
+    entryForm: HTMLFormElement;
   };
 
   constructor() {
@@ -216,12 +217,14 @@ class FlashcardGame {
       flashcard: document.querySelector(".flashcard"),
       cardsList: document.querySelector("#cards-list"),
       flipBtn: document.querySelector("#flip-btn"),
+      entryForm: document.querySelector(".entry-form"),
     };
 
     if (
       this.elements.flashcard === null ||
       this.elements.cardsList === null ||
-      this.elements.flipBtn === null
+      this.elements.flipBtn === null ||
+      this.elements.entryForm === null
     ) {
       const newErrorElement = document.createElement("p");
       newErrorElement.textContent = "DOM failed to hydrate, refresh the page";
@@ -233,6 +236,12 @@ class FlashcardGame {
   // Initialize the game by setting up the flashcard and event listeners
   private initializeEventListeners(): void {
     this.elements.flipBtn.addEventListener("click", () => this.flipCard());
+    
+    // Add form submit event listener
+    this.elements.entryForm.addEventListener("submit", (ev: SubmitEvent) => {
+      ev.preventDefault();
+      uploadNewCard();
+    });
   }
   private flipCard(): void {
     this.elements.flashcard.classList.toggle("flipped");
