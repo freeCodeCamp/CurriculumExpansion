@@ -1,6 +1,5 @@
 const cardDisplay = document.querySelector<HTMLElement>("#current-card");
 const cardButtonsContainer = document.querySelector<HTMLElement>("#cards-list");
-
 const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
 
@@ -49,8 +48,6 @@ function refresh(): void {
     }
   });
 }
-
-
 
 function deleteCard(): void {
   if (currentCardIndex === -1) {
@@ -233,6 +230,7 @@ class FlashcardGame {
     // Add delete button event listener
     this.elements.deleteBtn.addEventListener("click", () => deleteCard());
   }
+  // flips the `card` and shows the hidden side
   private flipCard(): void {
     this.elements.flashcard.classList.toggle("flipped");
   }
