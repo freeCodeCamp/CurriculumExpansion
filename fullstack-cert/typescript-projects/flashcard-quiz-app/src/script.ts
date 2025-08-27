@@ -135,18 +135,6 @@ function uploadNewCard(): void {
   }
 }
 
-document.addEventListener("keydown", (ev: KeyboardEvent) => {
-  const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
-  const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
-  if (
-    ev.key === "Enter" &&
-    document.activeElement !== frontInput &&
-    document.activeElement !== backInput
-  ) {
-    ev.preventDefault();
-   
-  }
-});
 
 interface Flashcard {
   question: string;
