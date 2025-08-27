@@ -7,7 +7,8 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   border: 2px solid #333;
-  width: 80%;
+  width: 70%;
+  height: auto;
   padding: 10px;
   margin: 20px auto;
   height: 400px;
@@ -21,8 +22,11 @@ h1 {
 }
 
 .box {
-  flex: 0 0 250px; /* After going thorugh order and flex-grow, tell campers to modify the third value here (flex-basis) to observe how flex-grow distribution changes due to different line breaks and remaining space */
-  height: 120px;
+  flex: 0 0 250px;
+  /*For flex-grow, start here and state that the first value reps the flex-grow proeprty for all the boxes (making the default 0, which they can override later)*/
+  /*To demonstrate flex-shrink, ask campers to change the second value here to 1 so they can see some boxes become smaller than the others, and that the default (which can be overriden in other boxes) is set here)*/
+  /* After going through order and flex-grow, tell campers to modify the third value here (flex-basis) to observe how flex-grow distribution changes due to different line breaks and remaining space */
+  max-height: 120px;
   color: #fff;
   border: 1px solid #000;
   display: flex;
@@ -41,13 +45,16 @@ h1 {
   order: 1; /* Use this to show campers that this would throw box 1 to the end, because every other box has an order of 0 at this point */
   flex-grow: 1; /* Use this on any box, to show that that box will grow if there's space on its line */
 }
+
 .box2 {
   background: #f4a261;
   order: 0; /* This will make box 2 stays in its position (the first on at this point) */
 }
+
 .box3 {
   background: #ffd166;
   order: 2; /* This will make box 3 appear after box 1 and after box 2, too */
+  flex-shrink: 3; /* Use this (with flex: 0 0 250px) to show campers that box 3 will shrink three times as much as other boxes if there's not enough space on its line */
 }
 
 .box4 {
@@ -58,6 +65,7 @@ h1 {
   background: #457b9d;
   order: 4; /* Make box 5 come after box 4 */
 }
+
 .box6 {
   background: #3f51b5;
   order: 5; /* Make box 6 come after box 5 */
