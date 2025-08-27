@@ -40,11 +40,10 @@ function refresh(): void {
       console.warn(`Element {${child}} is not a button.`);
       return;
     }
-    const button = child as HTMLElement;
     if (i === currentCardIndex) {
-      button.classList.add("selected");
+      child.classList.add("selected");
     } else {
-      button.classList.remove("selected");
+      child.classList.remove("selected");
     }
   });
 }
@@ -66,7 +65,7 @@ function deleteCard(): void {
       return;
     }
 
-    (child as HTMLButtonElement).onclick = () => {
+    child.onclick = () => {
       currentCardIndex = i;
       showingFront = true;
       refresh();
