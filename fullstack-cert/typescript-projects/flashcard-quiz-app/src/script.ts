@@ -50,11 +50,7 @@ function refresh(): void {
   });
 }
 
-function flipCard(): void {
-  if (currentCardIndex === -1) return;
-  showingFront = !showingFront;
-  refresh();
-}
+
 
 function deleteCard(): void {
   if (currentCardIndex === -1) {
@@ -148,7 +144,7 @@ document.addEventListener("keydown", (ev: KeyboardEvent) => {
     document.activeElement !== backInput
   ) {
     ev.preventDefault();
-    flipCard();
+   
   }
 });
 
