@@ -17,10 +17,10 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
   return (
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <h2 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
-        <img
-          src="https://unpkg.com/lucide-static@0.541.0/icons/User.svg"
-          className="w-5 h-5 mr-2 text-blue-600 blue-filter"
-        />
+        <i className="fa-solid fa-user w-4 h-3 mr-1" style={{ 
+          color: "rgb(37 99 235)",
+          fontSize: 16
+        }}></i>
         Personal Information
       </h2>
 
@@ -40,10 +40,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/Mail.svg"
-              className="w-4 h-4 mr-1"
-            />
+            <i className="fa-solid fa-envelope w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
             Email *
           </label>
           <input
@@ -57,10 +54,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/Phone.svg"
-              className="w-4 h-4 mr-1"
-            />
+            <i className="fa-solid fa-phone w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
             Phone *
           </label>
           <input
@@ -74,10 +68,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/map-pin.svg"
-              className="w-4 h-4 mr-1"
-            />
+            <i className="fa-solid fa-location-dot w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
             Location *
           </label>
           <input
@@ -91,10 +82,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/Globe.svg"
-              className="w-4 h-4 mr-1"
-            />
+            <i className="fa-solid fa-globe w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
             Website
           </label>
           <input
@@ -108,10 +96,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
         <div>
           <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/LinkedIn.svg"
-              className="w-4 h-4 mr-1"
-            />
+            <i className="fa-brands fa-linkedin w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
             LinkedIn
           </label>
           <input
@@ -180,20 +165,14 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/briefcase.svg"
-            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
-          />
+          <i className="fa-solid fa-briefcase w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
           Work Experience
         </h2>
         <button
           onClick={addExperience}
           className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2 white-filter"
-          />
+          <i className="fa-solid fa-plus w-4 h-3 mr-1" style={{ fontSize: 12 }}></i>
           Add Experience
         </button>
       </div>
@@ -208,10 +187,10 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
               onClick={() => removeExperience(experience.id)}
               className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
             >
-              <img
-                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
-                className="w-4 h-4"
-              />
+              <i className="fa-solid fa-trash w-4 h-4 mr-2" style={{ 
+                fontSize: 16,
+                color: 'black',
+              }}></i>
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -247,10 +226,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
 
               <div>
                 <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-                  <img
-                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                    className="w-4 h-4 mr-1"
-                  />
+                  <i className="fa-solid fa-calendar w-4 h-4 mr-1"></i>
                   Start Date *
                 </label>
                 <input
@@ -265,10 +241,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
 
               <div>
                 <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-                  <img
-                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                    className="w-4 h-4 mr-1"
-                  />
+                  <i className="fa-solid fa-calendar w-4 h-4 mr-1"></i>
                   End Date
                 </label>
                 <input
@@ -326,10 +299,9 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
 
         {data.length === 0 && (
           <div className="text-center py-8 text-slate-500">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/briefcase.svg"
-              className="w-12 h-12 mx-auto mb-4 opacity-50"
-            />
+            <i className="w12 h12 mx-auto mb-4 fa-solid fa-briefcase" style={{
+              fontSize: 40
+            }} ></i>
             <p>No work experience added yet.</p>
             <p className="text-sm">Click "Add Experience" to get started.</p>
           </div>
@@ -376,20 +348,14 @@ export const EducationForm: React.FC<EducationFormProps> = ({
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/graduation-cap.svg"
-            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
-          />
+          <i className="fa-solid fa-graduation-cap w-5 h-5 mr-2" style={{ fontSize: 16 }}></i>
           Education
         </h2>
         <button
           onClick={addEducation}
           className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2 white-filter"
-          />
+          <i className="fa-solid fa-plus w-4 h-3 mr-1" style={{ fontSize: 12 }}></i>
           Add Education
         </button>
       </div>
@@ -404,10 +370,10 @@ export const EducationForm: React.FC<EducationFormProps> = ({
               onClick={() => removeEducation(education.id)}
               className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
             >
-              <img
-                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
-                className="w-4 h-4"
-              />
+              <i className="fa-solid fa-trash w-4 h-4 mr-2" style={{ 
+                fontSize: 16,
+                color: 'black',
+              }}></i>
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -473,10 +439,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
 
               <div>
                 <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-                  <img
-                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                    className="w-4 h-4 mr-1"
-                  />
+                  <i className="fa-solid fa-calendar w-4 h-4 mr-1"></i>
                   Start Date *
                 </label>
                 <input
@@ -491,10 +454,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
 
               <div>
                 <label className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-                  <img
-                    src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                    className="w-4 h-4 mr-1"
-                  />
+                  <i className="fa-solid fa-calendar w-4 h-4 mr-1"></i>
                   End Date
                 </label>
                 <input
@@ -537,10 +497,9 @@ export const EducationForm: React.FC<EducationFormProps> = ({
 
         {data.length === 0 && (
           <div className="text-center py-8 text-slate-500">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/graduation-cap.svg"
-              className="w-12 h-12 mx-auto mb-4 opacity-50"
-            />
+            <i className="fa-solid fa-graduation-cap mb-4" style={{
+              fontSize: 38,
+            }}></i>
             <p>No education added yet.</p>
             <p className="text-sm">Click "Add Education" to get started.</p>
           </div>
@@ -598,20 +557,14 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/zap.svg"
-            className="w-5 h-5 mr-2 text-blue-600 blue-filter"
-          />
+          <i className="fa-solid fa-bolt w-5 h-5 mr-2 text-blue-600 blue-filter"></i>
           Skills
         </h2>
         <button
           onClick={addSkill}
           className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/plus.svg"
-            className="w-4 h-4 mr-2 white-filter"
-          />
+          <i className="fa-solid fa-plus w-4 h-3 mr-2" style={{ fontSize: 12 }}></i>
           Add Skill
         </button>
       </div>
@@ -626,10 +579,10 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
               onClick={() => removeSkill(skill.id)}
               className="absolute top-3 right-3 text-red-500 hover:text-red-700 transition-colors"
             >
-              <img
-                src="https://unpkg.com/lucide-static@0.541.0/icons/trash-2.svg"
-                className="w-4 h-4"
-              />
+              <i className="fa-solid fa-trash w-4 h-4 mr-2" style={{ 
+                fontSize: 16,
+                color: 'black',
+              }}></i>
             </button>
 
             <div className="space-y-3">
@@ -684,10 +637,9 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
 
       {data.length === 0 && (
         <div className="text-center py-8 text-slate-500">
-          <img
-            src="https://unpkg.com/lucide-static@0.541.0/icons/zap.svg"
-            className="w-12 h-12 mx-auto mb-4 opacity-50"
-          />
+          <i className="w-12 h-12 mx-auto mb-4 fa-solid fa-bolt" style={{
+            fontSize: 40
+          }}></i>
           <p>No skills added yet.</p>
           <p className="text-sm">Click "Add Skill" to get started.</p>
         </div>
@@ -782,46 +734,46 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
           <div className="flex flex-wrap justify-center gap-4 text-blue-100 text-sm mt-4">
             {data.personalInfo.email && (
               <div className="flex items-center">
-                <img
-                  src="https://unpkg.com/lucide-static@0.541.0/icons/Mail.svg"
-                  className="w-4 h-4 mr-1"
-                />
+                <i className="fa-solid fa-envelope w-4 h-4 mr-1" style={{
+                  fontSize: 15,
+                  color: 'black',
+                }}></i>
                 {data.personalInfo.email}
               </div>
             )}
             {data.personalInfo.phone && (
               <div className="flex items-center">
-                <img
-                  src="https://unpkg.com/lucide-static@0.541.0/icons/Phone.svg"
-                  className="w-4 h-4 mr-1"
-                />
+                <i className="fa-solid fa-phone w-4 h-4 mr-1" style={{ 
+                  fontSize: 15,
+                  color: 'black',
+                }}></i>
                 {data.personalInfo.phone}
               </div>
             )}
             {data.personalInfo.location && (
               <div className="flex items-center">
-                <img
-                  src="https://unpkg.com/lucide-static@0.541.0/icons/map-pin.svg"
-                  className="w-4 h-4 mr-1"
-                />
+                <i className="fa-solid fa-location-dot w-4 h-4 mr-1" style={{ 
+                  fontSize: 15,
+                  color: 'black',
+                }}></i>
                 {data.personalInfo.location}
               </div>
             )}
             {data.personalInfo.website && (
               <div className="flex items-center">
-                <img
-                  src="https://unpkg.com/lucide-static@0.541.0/icons/Globe.svg"
-                  className="w-4 h-4 mr-1"
-                />
+                <i className="fa-solid fa-globe w-4 h-4 mr-1" style={{
+                  fontSize: 15,
+                  color: 'black',
+                }}></i>
                 {data.personalInfo.website.replace(/^https?:\/\//, "")}
               </div>
             )}
             {data.personalInfo.linkedin && (
               <div className="flex items-center">
-                <img
-                  src="https://unpkg.com/lucide-static@0.541.0/icons/LinkedIn.svg"
-                  className="w-4 h-4 mr-1"
-                />
+                <i className="fa-brands fa-linkedin w-4 h-4 mr-1" style={{ 
+                  fontSize: 15,
+                  color: 'black',
+                }}></i>
                 LinkedIn
               </div>
             )}
@@ -865,10 +817,10 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
                       </h4>
                     </div>
                     <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
-                      <img
-                        src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                        className="w-4 h-4 mr-1"
-                      />
+                      <i className="fa-solid fa-calendar w-4 h-4 mr-" style={{
+                        color: 'black',
+                        fontSize: 16,
+                      }}></i>
                       {formatDate(exp.startDate)} -{" "}
                       {exp.current ? "Present" : formatDate(exp.endDate)}
                     </div>
@@ -908,10 +860,10 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
                       )}
                     </div>
                     <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
-                      <img
-                        src="https://unpkg.com/lucide-static@0.541.0/icons/Calendar.svg"
-                        className="w-4 h-4 mr-1"
-                      />
+                      <i className="fa-solid fa-calendar w-4 h-4 mr-" style={{
+                        color: 'black',
+                        fontSize: 16,
+                      }}></i>
                       {formatDate(edu.startDate)} -{" "}
                       {edu.current ? "Present" : formatDate(edu.endDate)}
                     </div>
@@ -959,10 +911,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <img
-              src="https://unpkg.com/lucide-static@0.541.0/icons/file-text.svg"
-              className="w-8 h-8 text-blue-600 mr-3 blue-filter"
-            />
+            <i className="fa-solid fa-file w-8 h-8 mr-3" style={{
+              color: 'black',
+              fontSize: 30,
+            }}></i>
             <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
           </div>
         </div>
