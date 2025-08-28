@@ -184,7 +184,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
               onClick={() => removeExperience(experience.id)}
               className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
             >
-              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px] text-[black]"></i>
+              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px]"></i>
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -362,7 +362,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
               onClick={() => removeEducation(education.id)}
               className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors"
             >
-              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px] text-[black]"></i>
+              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px]"></i>
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -486,7 +486,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
 
         {data.length === 0 && (
           <div className="text-center py-8 text-slate-500">
-            <i className="fa-solid fa-graduation-cap mb-4 font-[38px]"></i>
+            <i className="fa-solid fa-graduation-cap mb-4 text-[38px]"></i>
             <p>No education added yet.</p>
             <p className="text-sm">Click "Add Education" to get started.</p>
           </div>
@@ -566,7 +566,7 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
               onClick={() => removeSkill(skill.id)}
               className="absolute top-3 right-3 text-red-500 hover:text-red-700 transition-colors"
             >
-              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px] text-[black]"></i>
+              <i className="fa-solid fa-trash w-4 h-4 mr-2 text-[16px]"></i>
             </button>
 
             <div className="space-y-3">
