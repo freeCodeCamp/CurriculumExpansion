@@ -165,7 +165,10 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
-          <i className="fa-solid fa-briefcase w-4 h-4 mr-1" style={{ fontSize: 16 }}></i>
+          <i className="fa-solid fa-briefcase w-4 h-4 mr-1" style={{ 
+            fontSize: 16,
+            color: "rgb(37 99 235)",
+          }}></i>
           Work Experience
         </h2>
         <button
@@ -348,7 +351,10 @@ export const EducationForm: React.FC<EducationFormProps> = ({
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-800 flex items-center">
-          <i className="fa-solid fa-graduation-cap w-5 h-5 mr-2" style={{ fontSize: 16 }}></i>
+          <i className="fa-solid fa-graduation-cap w-5 h-5 mr-2" style={{ 
+            fontSize: 16,
+            color: "rgb(37 99 235)",
+          }}></i>
           Education
         </h2>
         <button
@@ -817,7 +823,7 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
                       </h4>
                     </div>
                     <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
-                      <i className="fa-solid fa-calendar w-4 h-4 mr-" style={{
+                      <i className="fa-solid fa-calendar w-4 h-4 mr-1" style={{
                         color: 'black',
                         fontSize: 16,
                       }}></i>
@@ -860,7 +866,7 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
                       )}
                     </div>
                     <div className="flex items-center text-slate-600 text-sm mt-1 md:mt-0">
-                      <i className="fa-solid fa-calendar w-4 h-4 mr-" style={{
+                      <i className="fa-solid fa-calendar w-4 h-4 mr-1" style={{
                         color: 'black',
                         fontSize: 16,
                       }}></i>
@@ -912,7 +918,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <i className="fa-solid fa-file w-8 h-8 mr-3" style={{
-              color: 'black',
+              color: "rgb(37 99 235)",
               fontSize: 30,
             }}></i>
             <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
