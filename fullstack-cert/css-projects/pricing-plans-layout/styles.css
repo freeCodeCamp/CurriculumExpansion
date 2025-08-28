@@ -31,7 +31,7 @@ p {
   background: rgb(247, 247, 247);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  flex: 0 0 200px; /* sets the initial flex-grow to 0, initial flex-shrink to 0, flex-basis: 200px */
+  flex: 0 0 200px; /* sets the initial flex-grow to 0, initial flex-shrink to 0, and flex-basis to 200px */
   text-align: center;
   transition: transform 0.3s ease;
   display: flex;
