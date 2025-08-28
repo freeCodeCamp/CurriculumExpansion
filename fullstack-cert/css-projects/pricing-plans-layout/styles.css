@@ -1,0 +1,129 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; /* controls vertical spacing if there are multiple rows */
+  border: 2px solid #000;
+  gap: 20px;
+  width: 80%;
+  max-width: 900px;
+  height: 70vh; /* Allows align-content effect to show */
+  padding: 0 20px;
+}
+
+.pricing-card {
+  background: rgb(247, 247, 247);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 0 0 200px; /* sets the initial flex-grow to 0, initial flex-shrink to 0, flex-basis: 200px */
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pricing-card:hover {
+  transform: scale(1.05);
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3e3e3e;
+  margin: 10px;
+  border-bottom: 1px solid #433d28;
+}
+
+.features {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.features li {
+  padding: 5px 0;
+  font-size: 0.95rem;
+}
+
+.check {
+  color: #219c54;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.cross {
+  color: crimson;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  background: #f1be32;
+  color: #000;
+  font-weight: bold;
+  border: 3px solid #eebe3a;
+  padding: 5px;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background: #f7c436;
+}
+
+/* flex order and flex-grow */
+.basic-plan {
+  order: 0; /* Makes basic plan comes first, even though it's second in the HTML */
+}
+.pro-plan {
+  order: 1; /* Makes pro plan comes second, even though it's first in the HTML */
+  flex-grow: 2; /* Makes pro plan 2x bigger than the others */
+  background: #f0f8ff;
+}
+.premium-plan {
+  order: 2; /* Needed to push premium plan to the last position, hence the biggest order value */
+}
+
+@media screen and (max-width: 1000px) {
+  .pricing-container {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  h1 {
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .pricing-container {
+    flex-direction: column;
+    height: auto; /* Adjust height for single column layout */
+  }
+
+  .pricing-card {
+    flex: 1 1 auto; /* Allow cards to grow and shrink naturally */
+    width: 100%; /* Make cards take full width */
+  }
+}
