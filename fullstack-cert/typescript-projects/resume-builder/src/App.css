@@ -11,17 +11,3 @@ html {
   flex-wrap: wrap;
   width: 100%;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* hack for make some svg icons blue */
-.blue-filter {
-  filter: invert(23%) sepia(97%) saturate(3000%) hue-rotate(200deg)
-    brightness(90%) contrast(100%);
-}
-/* hack for make some svg icons white */
-.white-filter {
-  filter: invert(100%);
-}
