@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 interface PersonalInfoFormProps {
@@ -881,6 +881,8 @@ const Header = () => {
   );
 };
 
+const STORAGE_KEY = "cvBuilderDataApp";
+
 export function App() {
   const [cvData, setCVData] = useState<CVData>({
     personalInfo: {
@@ -897,6 +899,23 @@ export function App() {
     skills: [],
   });
   const [showPreview, setShowPreview] = useState(true);
+
+  // Load data from localStorage on component mount
+  useEffect(() => {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData && JSON.parse(savedData)?.personalInfo?.fullName) {
+      try {
+        setCVData(JSON.parse(savedData));
+      } catch (error) {
+        console.error("Error loading saved CV data:", error);
+      }
+    }
+  }, []);
+
+  // Save data to localStorage whenever cvData changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cvData));
+  }, [cvData]);
 
   const updatePersonalInfo = (personalInfo: CVData["personalInfo"]) => {
     setCVData((prev) => ({ ...prev, personalInfo }));
