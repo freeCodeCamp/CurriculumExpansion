@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.feature-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.feature-card-container > * {
+  flex: 1 1 180px;
+}
+
+.feature-card {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  border-color: #f1be32;
+  box-shadow: 0 4px 12px rgba(255, 201, 53, 0.6);
+}
+
+.feature-card input[type='checkbox'] {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.feature-card input[type='checkbox']:checked {
+  /* Point out that accent-color changes the backfround of the check and changes the checkmark to black or white irrespective of the value applied. it's probably the property that bring something unique to styling checkboxes */
+  accent-color: #f1be32;
+}
+
+.feature-card h4 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    height: auto;
+  }
+}
