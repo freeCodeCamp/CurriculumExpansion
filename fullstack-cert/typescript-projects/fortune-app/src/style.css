@@ -95,11 +95,17 @@ h5 {
     margin: 0;
     padding-bottom: 1rem;
   }
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.9),
+    rgba(30, 41, 59, 0.9)
+  );
 }
 
 .description_wrapper {
-  background-color: var(--border-input);
+  background-color: rgba(88, 28, 135, 0.2);
   border-radius: 0.5rem;
+  border: 1px solid rgba(168, 85, 247, 0.2);
   color: var(--accent-secondary);
   padding: 2rem;
   margin: 1rem 0;
