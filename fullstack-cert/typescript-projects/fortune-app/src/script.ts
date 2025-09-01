@@ -66,7 +66,7 @@ const renderCard = (
   `
   <div>
     <h2>${drawingType}</h2>
-    <div class="card_container ${isReversed ? "reversed-card" : ""}" data-id="${shortName}">
+    <figure class="card_container ${isReversed ? "reversed-card" : ""}" data-id="${shortName}">
       <div class="img-loader"></div>
       <img 
         src="${img ? `${CDN_URL}/${img}` : LOCAL_DEFAULT_IMG}"
@@ -82,7 +82,7 @@ const renderCard = (
           }
         "
       />
-    </div>
+    </figure>
   </div>
 `;
 
@@ -186,7 +186,7 @@ class Game {
     const chosenCard = getRandomItem(this.cards);
 
     this.elements.singleCard.innerHTML = renderCard(
-      "Your card",
+      "Click the card and reveal the fortune",
       isReversed,
       chosenCard.name_short,
       chosenCard.img,
