@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flash Card Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="app-container">
+      <div class="flashcard-panel">
+        <div id="flashcard-body">
+          <h1>Flash Card Quiz App</h1>
+          <div class="flashcard-container">
+            <div class="flashcard">
+              <div class="card-inner" id="current-card">
+                <div class="card-front"></div>
+                <div class="card-back"></div>
+              </div>
+            </div>
+          </div>
+          <button id="flip-btn">Flip</button>
+        </div>
+      </div>
+
+      <div class="controls-panel">
+        <h2>Manage Cards</h2>
+        <div class="card-actions">
+          <button id="delete-btn" class="delete-btn">Delete</button>
+        </div>
+
+        <hr />
+
+        <h3>All Cards</h3>
+        <div id="cards-list"></div>
+
+        <hr />
+
+        <h3>Add a New Card</h3>
+        <form class="entry-form">
+          <label for="front-text">Front:</label>
+          <textarea id="front-text" required></textarea>
+
+          <label for="back-text">Back:</label>
+          <textarea id="back-text" required></textarea>
+
+          <p id="entry-error" class="error"></p>
+
+          <div class="button-group">
+            <button type="submit">Save new flash card</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="script.ts"></script>
+  </body>
+</html>
