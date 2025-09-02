@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Telling App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="main_container">
+      <!-- title start  -->
+      <header>
+        <h1>Mystic Tarot</h1>
+        <h6>
+          Discover the wisdom of the cards and unveil the mysteris of your path
+        </h6>
+      </header>
+      <!-- title start end -->
+
+      <!-- buttons start -->
+      <div id="btn_title_container">
+        <!-- we will replace this title when card is being fetch  -->
+        <div class="title_wrapper">
+          <h2 class="header_title">Choose Your Reading</h2>
+        </div>
+
+        <div class="btn_wrapper">
+          <button class="btn btn_singleCard" id="btn-single-card">
+            Single Card Reading
+          </button>
+          <button class="btn btn_threeCard" id="btn-multiple-cards">
+            Three Card Spread
+          </button>
+        </div>
+      </div>
+      <!-- buttons end  -->
+
+      <section class="fortune_container hidden">
+        <div class="single_card"></div>
+
+        <!-- multiple fortune card  start-->
+        <h2 class="hidden text">Click the card and reveal the fortune</h2>
+        <div class="multiple_card hidden"></div>
+        <!-- multiple fortune card  end -->
+
+        <!-- fortune description container start  -->
+        <div class="fortune_description hidden">
+          <h2 class="title"></h2>
+          <h5 class="sub_title"></h5>
+
+          <div class="description_wrapper">
+            <span class="desc_title">Description:</span>
+            <p class="description"></p>
+          </div>
+        </div>
+        <!-- fortune description container end-->
+
+        <button class="btn_reveal">New Reading</button>
+      </section>
+    </main>
+    <script src="script.ts" type="module" />
+  </body>
+</html>

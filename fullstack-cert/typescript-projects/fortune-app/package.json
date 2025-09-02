@@ -1,0 +1,21 @@
+{
+  "name": "parcel-vanilla-starter",
+  "private": true,
+  "version": "0.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "format": "prettier --write \"src/**/*.{ts,css}\""
+  },
+  "dependencies": {
+    "@parcel/config-default": "2.15.4",
+    "@parcel/transformer-svg": "^2.15.4",
+    "@parcel/transformer-typescript-tsc": "2.15.4"
+  },
+  "devDependencies": {
+    "parcel": "2.15.4",
+    "prettier": "^3.6.2"
+  },
+  "type": "module"
+}
