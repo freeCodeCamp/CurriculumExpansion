@@ -43,7 +43,6 @@ body {
 }
 
 .feature-card input[type='checkbox']:checked {
-  /* Point out that accent-color changes the backfround of the check and changes the checkmark to black or white irrespective of the value applied. it's probably the property that bring something unique to styling checkboxes */
   accent-color: #f1be32;
 }
 
