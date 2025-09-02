@@ -1,0 +1,13 @@
+html {
+  font-family: system-ui;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
