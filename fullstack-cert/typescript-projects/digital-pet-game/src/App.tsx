@@ -101,9 +101,7 @@ function usePet({ isGameStarted, setGameStarted }: usePetProps) {
   });
 
   useEffect(() => {
-    console.log("PLEASE BORTHER!");
     if (!isGameStarted) return;
-    console.log("Excellent, Borther.");
 
     const interval = setInterval(() => {
       setPet((pet) => ({
