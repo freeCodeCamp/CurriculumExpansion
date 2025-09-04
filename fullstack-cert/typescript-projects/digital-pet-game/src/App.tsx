@@ -62,6 +62,14 @@ enum PetMood {
   Hungry,
 }
 
+export const STAT_DECAY_RATES = {
+  hunger: 10,
+  happiness: 5,
+  energy: 5,
+};
+
+const UPDATE_INTERVAL = 30 * 1000; // 30 seconds
+
 export function calculatePetMood(pt: Pet): PetMood {
   const { hunger, happiness, energy } = pt;
 
@@ -90,8 +98,8 @@ interface usePetProps {
   isGameStarted: boolean;
   setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-function usePet({ isGameStarted, setGameStarted }: usePetProps) {
+// hook where all pet logic is handled
+function usePet({ isGameStarted }: usePetProps) {
   let [pet, setPet] = useState<Pet>({
     name: "",
     happiness: 100,
@@ -99,7 +107,7 @@ function usePet({ isGameStarted, setGameStarted }: usePetProps) {
     energy: 100,
     species: "Cat",
   });
-
+  // Auto-decay stats over time
   useEffect(() => {
     if (!isGameStarted) return;
 
@@ -109,7 +117,7 @@ function usePet({ isGameStarted, setGameStarted }: usePetProps) {
         happiness: Math.max(pet.happiness - 5, 0),
         hunger: Math.min(pet.hunger + 5, 100),
       }));
-    }, 30 * 1000);
+    }, UPDATE_INTERVAL);
 
     return () => clearInterval(interval);
   }, [isGameStarted]);
@@ -129,51 +137,32 @@ function usePet({ isGameStarted, setGameStarted }: usePetProps) {
   }
 
   function feedPet() {
-    const myFoodFill = 10;
     setPet((pet) => ({
       ...pet,
-      hunger: Math.max(pet.hunger - myFoodFill, 0),
+      hunger: Math.max(pet.hunger - STAT_DECAY_RATES.hunger, 0),
+      energy: Math.max(pet.energy + STAT_DECAY_RATES.energy, 0),
     }));
-    pet.hunger -= myFoodFill;
   }
 
   function playWithPet() {
-    const myHappinessIncrease = 5;
-    const energyDecrease = 5;
     setPet((pet) => ({
       ...pet,
-      happiness: Math.min(pet.happiness + myHappinessIncrease, 100),
-      energy: Math.max(pet.energy - energyDecrease, 0),
+      happiness: Math.min(pet.happiness + STAT_DECAY_RATES.happiness, 100),
+      energy: Math.max(pet.energy - STAT_DECAY_RATES.energy, 0),
     }));
   }
 
   function restPet() {
-    const hungerIncrease = 5;
-    const energyIncrease = 5;
     setPet((pet) => ({
       ...pet,
-      hunger: Math.min(pet.hunger + hungerIncrease, 100),
-      energy: Math.min(pet.energy + energyIncrease, 100),
+      hunger: Math.min(pet.hunger + STAT_DECAY_RATES.hunger, 100),
+      energy: Math.min(pet.energy + STAT_DECAY_RATES.energy, 100),
     }));
-  }
-
-  function savePetData() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(pet));
-  }
-
-  function loadPetData() {
-    pet = JSON.parse(localStorage.getItem(STORAGE_KEY) || "");
-    if (typeof pet !== "undefined") {
-      setPet(pet);
-      setGameStarted(true);
-    }
   }
 
   return {
     pet,
     doAction,
-    savePetData,
-    loadPetData,
     setName: (name: string) => setPet({ ...pet, name }),
   };
 }
@@ -181,15 +170,10 @@ function usePet({ isGameStarted, setGameStarted }: usePetProps) {
 export function App() {
   const [isGameStarted, setGameStarted] = useState(false);
 
-  let { pet, doAction, savePetData, loadPetData, setName } = usePet({
+  let { pet, doAction, setName } = usePet({
     isGameStarted,
     setGameStarted,
   });
-
-  let petRef = useRef<Pet>(pet);
-  useEffect(() => {
-    petRef.current = pet;
-  }, [pet]);
 
   const [fact, setFact] = useState<string | null>("");
 
@@ -257,12 +241,7 @@ export function App() {
       <section className="base-container info-panel">
         {!isGameStarted ? (
           <form className="start-questions">
-            <p id="pet-fact">
-              <b>Pet Fact:</b> {fact}
-            </p>
-
             <label htmlFor="pet-name">What is your pet's name?</label>
-
             <input
               id="pet-name"
               name="pet-name"
@@ -277,22 +256,11 @@ export function App() {
         ) : (
           <div id="hud">
             <p id="pet-species">Species: {pet.species}</p>
-            <p id="happiness-meter">Happiness: {pet.happiness}</p>
-            <p id="hunger-meter">Hunger: {pet.hunger}</p>
-            <p id="energy-meter">Energy: {pet.energy}</p>
+            <p id="pet-fact">
+              <b>Pet Fact:</b> {fact}
+            </p>
           </div>
         )}
-
-        <div className="data-management">
-          {isGameStarted && (
-            <button id="save-game" onClick={savePetData}>
-              Save
-            </button>
-          )}
-          <button id="load-game" onClick={loadPetData}>
-            Load
-          </button>
-        </div>
       </section>
     </main>
   );
