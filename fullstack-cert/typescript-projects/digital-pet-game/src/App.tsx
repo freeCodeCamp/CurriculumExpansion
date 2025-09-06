@@ -178,7 +178,7 @@ export function App() {
 
 
   useEffect(() => {
-    fetch("https://cat-fact-api.freecodecamp.rocks/api/catfacts/random").then(res => res.json()).then(
+    fetch("https://cat-facts-api.freecodecamp.rocks/api/catfacts/random").then(res => res.json()).then(
       fact =>setFact(fact));
   }, []);
 
