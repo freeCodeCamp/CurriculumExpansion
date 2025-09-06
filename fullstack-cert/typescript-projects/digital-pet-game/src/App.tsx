@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
-import * as catFacts from "./assets/cat-facts.json";
 
 interface StatBarProps {
   label: string;
@@ -177,11 +176,10 @@ export function App() {
 
   const [fact, setFact] = useState<string | null>("");
 
-  //TODO: Integrate with the FCC API once it's ready.
+
   useEffect(() => {
-    let randomNumber = Math.floor(Math.random() * catFacts.length) - 1;
-    const currentFact = catFacts[randomNumber];
-    setFact(currentFact);
+    fetch("https://cat-facts-api.freecodecamp.rocks/api/catfacts/random").then(res => res.json()).then(
+      fact =>setFact(fact));
   }, []);
 
   function startGame() {
