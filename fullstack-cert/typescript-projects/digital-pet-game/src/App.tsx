@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 interface StatBarProps {
@@ -178,8 +178,13 @@ export function App() {
 
 
   useEffect(() => {
-    fetch("https://cat-facts-api.freecodecamp.rocks/api/catfacts/random").then(res => res.json()).then(
-      fact =>setFact(fact));
+    fetch("https://cat-facts-api.freecodecamp.rocks/api/catfacts/random").then(
+      res => res.json()
+    ).then(
+      fact => setFact(fact)
+    ).catch(err => {
+      setFact("Sorry, we're not able to retrieve your cat fact right now!");
+    });
   }, []);
 
   function startGame() {
