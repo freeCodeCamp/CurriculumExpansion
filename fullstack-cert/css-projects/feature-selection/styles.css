@@ -33,10 +33,10 @@ body {
   box-shadow: 0 4px 12px rgba(255, 201, 53, 0.6);
 }
 
-.feature-card input[type="checkbox"] {
+.feature-card input[type='checkbox'] {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 5px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -48,13 +48,13 @@ body {
   transition: all 0.3s;
 }
 
-.feature-card input[type="checkbox"]:checked {
+.feature-card input[type='checkbox']:checked {
   background-color: #f1be32;
   border-color: #f1be32;
 }
 
-.feature-card input[type="checkbox"]:checked::after {
-  content: "✓";
+.feature-card input[type='checkbox']:checked::after {
+  content: '✓';
   display: block;
   text-align: center;
   font-weight: bold;
