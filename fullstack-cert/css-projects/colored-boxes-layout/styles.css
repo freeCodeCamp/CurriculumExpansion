@@ -34,7 +34,7 @@ h1 {
   align-items: center;
   margin: 10px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.125rem;
   border-radius: 5px;
   order: 0; /* Set an initial order of 0 for all elements at first */
 }
