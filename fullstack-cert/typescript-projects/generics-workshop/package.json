@@ -1,0 +1,20 @@
+{
+  "name": "generics-workshop",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "format": "prettier --write \"src/**/*.{ts,html,css}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "dependencies": {
+    "@parcel/config-default": "^2.15.4",
+    "@parcel/transformer-typescript-tsc": "^2.15.4",
+    "parcel": "^2.15.4",
+    "prettier": "^3.6.2"
+  }
+}
