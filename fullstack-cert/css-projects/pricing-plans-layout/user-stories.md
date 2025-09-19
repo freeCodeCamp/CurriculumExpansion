@@ -7,16 +7,7 @@
    - One of your `div` elements should have the class `basic-plan` in addition to the `pricing-card` class.
    - One of your `div` elements should have the class `premium-plan` in addition to the `pricing-card` class.
 
-1. Each `pricing-card` element should have an `h2` element with your choice text in them.
-1. Each `pricing-card` element should have a `p` element with your choice text in them.
-1. Each `pricing-card` element should have a `ul` element with the class `features`.
-1. Each `ul` element should have at least three `li` elements that represent a feature.
-1. Each `pricing-card` element should have an anchor link with a `href` of `#` and the text `Choose Plan`.
 1. Each `pricing-card` should have a `display` of `flex`, a `flex-direction` of `column`, a `justify-content` set to `space-between`, and a `flex` property of `0 0 200px`.
-1. Each `pricing-card` should have a hover state with a `transform` set to `scale(1.05)`
-1. Each `.price` element should have a `font-size` of `1.5rem`, a `margin` of `10px`, and a `border-bottom` of `1px solid #433d28`.
-1. Each `features` list should have a `list-style-type` of `none`, no padding, and a left-aligned text
-1. You should each anchor element according to your taste.
-1. The `basic-plan` `div` should have a `order` set to `0`.
-1. The `pro-plan` `div` should have a `order` set to `1` and a `flex-grow` set to `2`.
-1. The `premium-plan` `div` should have a `order` set to `2`.
+1. The `basic-plan` `div` should have an `order` set to `0`.
+1. The `pro-plan` `div` should have an `order` set to `1` and a `flex-grow` set to `2`.
+1. The `premium-plan` `div` should have an `order` set to `2`.
