@@ -1,8 +1,10 @@
-1. Create a class named `Planet` with an `__init__` method that takes `name`, `planet_type`, and `star` parameters.
-2. In the `__init__` method, add validation to check that none of the parameters are empty strings, and print an error message if any are empty.
-3. In the `__init__` method, create instance attributes `self.name`, `self.planet_type`, and `self.star` to store the parameter values.
-4. Create an `orbit` method that returns a string in the format `'{name} is orbiting around {star}...'`.
-5. Create a `__str__` method that returns a string in the format `'Planet: {name} | Type: {planet_type} | Star: {star}'`.
-6. Test your class by creating three Planet instances with different names, types, and stars.
-7. Call the `orbit` method on each planet and print the returned string.
-8. Print each planet object to see the `__str__` method output.
+1. You should create a class named `Planet`.
+1. The `Planet` class should have an `__init__` method that:
+   - Has four parameters: `self`, `name`, `planet_type`, and `star`.
+   - Prints the message `Error: name, planet type, and star should be non-empty strings` if any of the arguments passed in is either a non-string type or an empty string.
+   - Assigns the values passed in to the instance attributes `name`, `planet_type`, and `star`.
+1. The `Planet` class should have an `orbit` method that returns a string in the format `{name} is orbiting around {star}...`.
+1. The `Planet` class should have a `__str__` method that returns a string in the format `Planet: {name} | Type: {planet_type} | Star: {star}`.
+1. You should create three instances of the `Planet` class named `planet_1`, `planet_2`, and `planet_3`.
+1. You should print each planet object to see the `__str__` method output.
+1. You should call the `orbit` method on each planet object and print the result.
