@@ -15,16 +15,15 @@ class Planet:
         
 
 # Test the Planet class
-if __name__ == "__main__":
-    planet_1 = Planet('Earth', 'terrestrial', 'Sun')
-    planet_2 = Planet('Jupiter', 'gas giant', 'Sun')
-    planet_3 = Planet('Kepler-452b', 'super-Earth', 'Kepler-452')
+planet_1 = Planet('Earth', 'terrestrial', 'Sun')
+planet_2 = Planet('Jupiter', 'gas giant', 'Sun')
+planet_3 = Planet('Kepler-452b', 'super-Earth', 'Kepler-452')
 
-    print(planet_1.orbit()) # Earth is orbiting around Sun...
-    print(planet_1) # Planet: Earth | Type: terrestrial | Star: Sun
+print(planet_1.orbit()) # Earth is orbiting around Sun...
+print(planet_1) # Planet: Earth | Type: terrestrial | Star: Sun
 
-    print(planet_2.orbit()) # Jupiter is orbiting around Sun...
-    print(planet_2) # Planet: Jupiter | Type: gas giant | Star: Sun
+print(planet_2.orbit()) # Jupiter is orbiting around Sun...
+print(planet_2) # Planet: Jupiter | Type: gas giant | Star: Sun
 
-    print(planet_3.orbit()) # Kepler-452b is orbiting around Kepler-452...
-    print(planet_3) # Planet: Kepler-452b | Type: super-Earth | Star: Kepler-452
+print(planet_3.orbit()) # Kepler-452b is orbiting around Kepler-452...
+print(planet_3) # Planet: Kepler-452b | Type: super-Earth | Star: Kepler-452
