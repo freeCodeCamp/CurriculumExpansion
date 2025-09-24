@@ -8,8 +8,10 @@ let showingFront = true;
 let currentCards: FlashCard[] = [];
 
 interface FlashCard {
-  frontText: string;
-  backText: string;
+  questionText: string;
+  answerText: string;
+  isanswerTexted?: boolean;
+  isCorrect?: boolean;
 }
 
 class InvalidUserInputError extends Error {
@@ -32,8 +34,8 @@ function refresh(): void {
   }
 
   const card = currentCards[currentCardIndex];
-  cardDisplay.querySelector(".card-front").textContent = card.frontText;
-  cardDisplay.querySelector(".card-back").textContent = card.backText;
+  cardDisplay.querySelector(".card-front").textContent = card.questionText;
+  cardDisplay.querySelector(".card-back").textContent = card.answerText;
   // add correct background to current card
   Array.from(cardButtonsContainer.children).forEach((child, i) => {
     if (!isButtonElement(child)) {
@@ -84,10 +86,10 @@ function deleteCard(): void {
   refresh();
 }
 
-function createCardButton(frontText: string, index: number): HTMLButtonElement {
+function createCardButton(questionText: string, index: number): HTMLButtonElement {
   const btn = document.createElement("button");
   btn.innerText =
-    frontText.length > 20 ? frontText.slice(0, 20) + "..." : frontText;
+    questionText.length > 20 ? questionText.slice(0, 20) + "..." : questionText;
   btn.onclick = () => {
     currentCardIndex = index;
     showingFront = true;
@@ -100,20 +102,20 @@ function uploadNewCard(): void {
   const errorElement =
     document.querySelector<HTMLParagraphElement>("#entry-error");
 
-  const frontText = frontInput.value.trim();
-  const backText = backInput.value.trim();
+  const questionText = frontInput.value.trim();
+  const answerText = backInput.value.trim();
   errorElement.textContent = "";
 
   try {
-    if (!frontText)
+    if (!questionText)
       throw new InvalidUserInputError("Front text cannot be empty.");
-    if (!backText)
+    if (!answerText)
       throw new InvalidUserInputError("Back text cannot be empty.");
 
-    const newCard: FlashCard = { frontText, backText };
+    const newCard: FlashCard = { questionText, answerText };
     currentCards.push(newCard);
     const newIndex = currentCards.length - 1;
-    const cardBtn = createCardButton(frontText, newIndex);
+    const cardBtn = createCardButton(questionText, newIndex);
     cardButtonsContainer.appendChild(cardBtn);
 
     currentCardIndex = newIndex;
@@ -132,16 +134,9 @@ function uploadNewCard(): void {
 }
 
 
-interface Flashcard {
-  question: string;
-  answer: string;
-  isAnswered?: boolean;
-  isCorrect?: boolean;
-}
-
 interface CardDeck {
   name: string;
-  cards: Flashcard[];
+  cards: FlashCard[];
 }
 
 interface GameState {
@@ -151,20 +146,20 @@ interface GameState {
   wrongCount: number;
   gameStarted: boolean;
   gameCompleted: boolean;
-  currentDeck: Flashcard[];
+  currentDeck: FlashCard[];
 }
 
 const cardDecks: Record<string, CardDeck> = {
   general: {
     name: "General Knowledge",
     cards: [
-      { question: "What is the capital of France?", answer: "Paris" },
-      { question: "Which planet is known as the Red Planet?", answer: "Mars" },
+      { questionText: "What is the capital of France?", answerText: "Paris" },
+      { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
       {
-        question: "What is the largest mammal in the world?",
-        answer: "Blue whale",
+        questionText: "What is the largest mammal in the world?",
+        answerText: "Blue whale",
       },
-      { question: "In which year did the Titanic sink?", answer: "1912" },
+      { questionText: "In which year did the Titanic sink?", answerText: "1912" },
     ],
   },
 };
@@ -237,7 +232,7 @@ class FlashcardGame {
 
 document.addEventListener("DOMContentLoaded", () => {
   const game = new FlashcardGame();
-  frontInput.value = game.state.currentDeck[0].question;
-  backInput.value = game.state.currentDeck[0].answer;
+  frontInput.value = game.state.currentDeck[0].questionText;
+  backInput.value = game.state.currentDeck[0].answerText;
   uploadNewCard();
 });
