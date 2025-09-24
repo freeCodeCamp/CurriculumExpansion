@@ -1,3 +1,5 @@
+import { TypeIcon } from "lucide-react";
+
 const GetElements = <T extends HTMLElement>(selector:string): T => { 
  const el = document.getElementById(selector)
      if (!el) throw new Error(`Element not found: ${selector}`);
@@ -11,11 +13,11 @@ const propertyGroups = {
 };
 
 const propertyInputs = {
-    radius: GetElements<HTMLElement>('radius'),
-    width: GetElements<HTMLElement>('width'),
-    height: GetElements<HTMLElement>('height'),
-    base: GetElements<HTMLElement>('base'),
-    triangleHeight: GetElements<HTMLElement>('triangleHeight')
+    radius: GetElements<HTMLInputElement>('radius'),
+    width: GetElements<HTMLInputElement>('width'),
+    height: GetElements<HTMLInputElement>('height'),
+    base: GetElements<HTMLInputElement>('base'),
+    triangleHeight: GetElements<HTMLInputElement>('triangleHeight')
 };
 const resultCard = GetElements<HTMLElement>('resultCard');
 const resultName = GetElements<HTMLElement>('resultName');
@@ -34,41 +36,20 @@ const showElement = () => {
 }
 const chooseShape = (shapeType:string) => { 
     console.log(shapeType)
-    if(shapeType == "circle"){ 
-      Object.entries(propertyGroups).forEach(value => { 
-        if(value[0] != "circle"){ 
-         value[1].classList.add("hidden")
-        }
-        if(value[0] == "circle"){ 
-              value[1].classList.remove("hidden")
-        }
-      })
-    }else if(shapeType == "triangle"){ 
-    Object.entries(propertyGroups).forEach(value => { 
-        if(value[0] != "triangle"){ 
-         value[1].classList.add("hidden")
-        }
-        if(value[0] == "triangle"){ 
-              value[1].classList.remove("hidden")
+   
+      Object.entries(propertyGroups).forEach(([name, group]) => { 
+        if(name === shapeType){ 
+          group.classList.remove("hidden")
+        }else{ 
+          group.classList.add("hidden")
         }
       })
-
-
-    }else if (shapeType == "rectangle"){ 
-       Object.entries(propertyGroups).forEach(value => { 
-        if(value[0] != "rectangle"){ 
-         value[1].classList.add("hidden")
-        }
-        if(value[0] == "rectanble"){ 
-              value[1].classList.remove("hidden")
-        }
-      })
-    }
+    
+    
 }
-const calculateShape = () => { 
-
+const calculateShape = (shapeTypeSelect:string) => { 
+const type = shapeTypeSelect 
 }
-
 
 
 shapeTypeSelect.onchange = (e:Event) => { 
@@ -81,3 +62,11 @@ shapeTypeSelect.onchange = (e:Event) => {
     chooseShape(Val.value) 
 }
 
+  const handleInput =(e:Event) =>{ 
+    const input = e.target as HTMLInputElement
+    console.log("curretn value", input.value)
+ }
+
+  for (const [, input] of Object.entries(propertyInputs)) {
+  input.oninput = handleInput;
+}
