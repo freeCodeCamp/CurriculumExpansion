@@ -167,7 +167,7 @@ const cardDecks: Record<string, CardDeck> = {
 // better to add a game class to encapsulate the game logic
 // This will help in managing the game state, current card, and user interactions.
 // This class can also handle the game flow, such as starting a new game, flipping cards
-// and checking answerTexts, making the code more organized and maintainable.
+// and checking answers, making the code more organized and maintainable.
 class FlashcardGame {
   state: GameState;
   private elements: {
