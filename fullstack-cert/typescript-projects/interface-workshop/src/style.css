@@ -118,14 +118,14 @@
              height: 1.5rem;
              border-radius: 9999px;
         }
-        .result-text {
+        #result-text {
             flex-grow: 1;
         }
-        .result-text h3 {
+        #result-text h3 {
             font-size: 1.25rem;
             font-weight: 700;
         }
-        .result-text p {
+        #result-text p {
             color: #475569;
             text-transform: capitalize;
         }
