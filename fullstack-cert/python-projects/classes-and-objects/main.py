@@ -1,7 +1,7 @@
 class Planet:
     def __init__(self, name, planet_type, star):
         if not name or not planet_type or not star:
-            print("Error: Name, planet type, and star cannot be empty")
+            raise ValueError("Error: Name, planet type, and star cannot be empty")
             return
         self.name = name
         self.planet_type = planet_type
