@@ -129,19 +129,7 @@
             color: #475569;
             text-transform: capitalize;
         }
-        .result-area {
-            text-align: right;
-        }
-         .result-area .area-label {
-            font-size: 0.875rem;
-            color: #64748b;
-         }
-         .result-area .area-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-         }
-
-        /* --- Utility Classes --- */
+            /* --- Utility Classes --- */
         .hidden {
             display: none;
         }

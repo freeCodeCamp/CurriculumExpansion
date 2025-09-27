@@ -18,6 +18,8 @@ interface Triangle extends Shape {
   height: number;
 }
 type Shapes = Circle | Triangle | Rectangle 
+
+
 document.addEventListener("DOMContentLoaded", ()=>{ 
 
 const GetElements = <T extends HTMLElement>(selector:string): T => { 
@@ -40,8 +42,7 @@ const propertyInputs = {
     base: GetElements<HTMLInputElement>('base'),
     triangleHeight: GetElements<HTMLInputElement>('triangleHeight')
 };
-const resultCard = GetElements<HTMLElement>('resultCard');
-const resultArea = GetElements<HTMLElement>('resultArea');
+
 const resultText = GetElements<HTMLElement>('result-text');
 
 
@@ -61,7 +62,7 @@ const CalculateArea = (shape:Shapes):string =>{
     return `Area of Circle: ${(Math.PI * shape.radius ** 2).toFixed(2)}`;
     case 'rectangle':
       return `Area of Rectangle: ${shape.width * shape.height}`;
-    case 'triangle':
+      case 'triangle':
       return `Area of Triangle: ${0.5 * shape.base * shape.height}`;
       default: 
       const _nonExistant:never = shape 
@@ -72,8 +73,6 @@ const CalculateArea = (shape:Shapes):string =>{
 
 
 function updateResult() {
- 
-
   const shape = shapeTypeSelect.value;
 
   let result: string;
@@ -82,17 +81,17 @@ function updateResult() {
       type: "circle",
       radius: Number(propertyInputs.radius.value)
     });
-  } else if (shape === "triangle") {
-    result = CalculateArea({
-      type: "triangle",
-      base: Number(propertyInputs.base.value),
-      height: Number(propertyInputs.height.value)
-    });
-  } else {
+  } else  if (shape === "rectangle")  {
     result = CalculateArea({
       type: "rectangle",
       width: Number(propertyInputs.width.value),
       height: Number(propertyInputs.height.value)
+    });
+  } else  {
+    result = CalculateArea({
+      type: "triangle",
+      base: Number(propertyInputs.base.value),
+      height: Number(propertyInputs.triangleHeight.value)
     });
   }
 
@@ -101,6 +100,7 @@ function updateResult() {
 
 shapeTypeSelect.oninput = (e:Event) => { 
   e.preventDefault()
+  // clear inputs when shape type change 
    document.querySelectorAll("input").forEach(input => { 
     input.value = ""
   })
