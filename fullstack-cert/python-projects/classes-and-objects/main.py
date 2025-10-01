@@ -1,8 +1,10 @@
 class Planet:
     def __init__(self, name, planet_type, star):
-        if not name or not planet_type or not star:
-            raise ValueError("Error: Name, planet type, and star cannot be empty")
-            return
+        args = (name, planet_type, star)
+        if not all(isinstance(arg, str) for arg in args):
+            raise ValueError("Error: Name, planet type, and star must be strings")
+        if not all(args):
+            raise ValueError('name, planet_type, and star should be non-empty strings')
         self.name = name
         self.planet_type = planet_type
         self.star = star   # The star the planet orbits
