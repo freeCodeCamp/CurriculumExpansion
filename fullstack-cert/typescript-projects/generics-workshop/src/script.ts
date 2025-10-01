@@ -1,4 +1,4 @@
-class Bug<T> {
+abstract class Bug<T> {
   emoji: T;
   emojiElement: HTMLParagraphElement
   constructor(emojiElement: HTMLParagraphElement) {
