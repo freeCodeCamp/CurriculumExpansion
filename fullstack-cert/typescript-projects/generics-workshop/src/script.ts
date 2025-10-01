@@ -1,5 +1,5 @@
 abstract class Bug<T> {
-  emoji: T;
+  emoji!: T;
   emojiElement: HTMLParagraphElement
   constructor(emojiElement: HTMLParagraphElement) {
     this.emojiElement = emojiElement
