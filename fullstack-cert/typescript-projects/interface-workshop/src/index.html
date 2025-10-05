@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
     <title>Shape Manager</title>
 </head>
 <body>
@@ -37,28 +37,28 @@
                     <!-- Circle Properties -->
                     <div id="circleProps" class="form-group hidden">
                         <label for="radius" class="label">Radius</label>
-                        <input type="number" id="radius" placeholder="Enter radius" class="input">
+                        <input type="number" min="0"  id="radius" placeholder="Enter radius" class="input">
                     </div>
                     <!-- Rectangle Properties -->
                     <div id="rectangleProps" class="form-grid hidden">
                         <div class="form-group">
                             <label for="width" class="label">Width</label>
-                            <input type="number" id="width" placeholder="Width" class="input">
+                            <input type="number" min="0" id="width" placeholder="Width" class="input">
                         </div>
                         <div class="form-group">
                             <label for="height" class="label">Height</label>
-                            <input type="number" id="height" placeholder="Height" class="input">
+                            <input type="number" min="0" id="height" placeholder="Height" class="input">
                         </div>
                     </div>
                     <!-- Triangle Properties -->
                     <div id="triangleProps" class="form-grid hidden">
                         <div class="form-group">
                             <label for="base" class="label">Base</label>
-                            <input type="number" id="base" placeholder="Base" class="input">
+                            <input type="number" min="0" id="base" placeholder="Base" class="input">
                         </div>
                         <div class="form-group">
                             <label for="triangleHeight" class="label">Height</label>
-                            <input type="number" id="triangleHeight" placeholder="Height" class="input triangleHeight">
+                            <input type="number" min="0" id="triangleHeight" placeholder="Height" class="input triangleHeight">
                         </div>
                     </div>
                 </div>

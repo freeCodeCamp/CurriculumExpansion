@@ -71,6 +71,12 @@ const CalculateArea = (shape:Shapes):string =>{
   
 }
 
+const clearInput =() =>{ 
+ // clear inputs when shape type change 
+   document.querySelectorAll("input").forEach(input => { 
+    input.value = ""
+  })
+}
 
 function updateResult() {
   const shape = shapeTypeSelect.value;
@@ -100,10 +106,8 @@ function updateResult() {
 
 shapeTypeSelect.oninput = (e:Event) => { 
   e.preventDefault()
-  // clear inputs when shape type change 
-   document.querySelectorAll("input").forEach(input => { 
-    input.value = ""
-  })
+   // clear inputs when shape type change 
+  clearInput()
   const Val = e.currentTarget as HTMLSelectElement
   if(!Val){ 
     return "target value not found"
@@ -112,6 +116,11 @@ shapeTypeSelect.oninput = (e:Event) => {
  updateResult();  
 }
   const handleInput =(e:Event) =>{ 
+    const value = Number((e.target as HTMLInputElement).value)
+      if (value < 0){
+          alert("Negative values are not allowed.");
+    clearInput()
+ }
     updateResult();
  }
 
