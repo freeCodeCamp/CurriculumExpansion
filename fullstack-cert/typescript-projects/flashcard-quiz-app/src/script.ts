@@ -10,8 +10,6 @@ let currentCards: FlashCard[] = [];
 interface FlashCard {
   questionText: string;
   answerText: string;
-  isanswerTexted?: boolean;
-  isCorrect?: boolean;
 }
 
 class InvalidUserInputError extends Error {
@@ -135,23 +133,15 @@ function uploadNewCard(): void {
 
 
 interface CardDeck {
-  name: string;
   cards: FlashCard[];
 }
 
-interface GameState {
-  currentCardIndex: number;
-  isFlipped: boolean;
-  correctCount: number;
-  wrongCount: number;
-  gameStarted: boolean;
-  gameCompleted: boolean;
+interface FlashCardAppState {
   currentDeck: FlashCard[];
 }
 
 const cardDecks: Record<string, CardDeck> = {
   general: {
-    name: "General Knowledge",
     cards: [
       { questionText: "What is the capital of France?", answerText: "Paris" },
       { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
@@ -168,8 +158,8 @@ const cardDecks: Record<string, CardDeck> = {
 // This will help in managing the game state, current card, and user interactions.
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
-class FlashcardGame {
-  state: GameState;
+class FlashCardController {
+  state: FlashCardAppState;
   private elements: {
     flashcard: HTMLElement;
     cardsList: HTMLElement;
@@ -180,12 +170,6 @@ class FlashcardGame {
 
   constructor() {
     this.state = {
-      currentCardIndex: 0,
-      isFlipped: false,
-      correctCount: 0,
-      wrongCount: 0,
-      gameStarted: false,
-      gameCompleted: false,
       currentDeck: [...cardDecks.general.cards],
     };
 
@@ -231,7 +215,7 @@ class FlashcardGame {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const game = new FlashcardGame();
+  const game = new FlashCardController();
   frontInput.value = game.state.currentDeck[0].questionText;
   backInput.value = game.state.currentDeck[0].answerText;
   uploadNewCard();
