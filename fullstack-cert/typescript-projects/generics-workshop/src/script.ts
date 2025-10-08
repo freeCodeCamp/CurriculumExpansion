@@ -2,10 +2,10 @@ abstract class Bug<T> {
   emoji!: T;
   emojiElement: HTMLParagraphElement
   constructor(emojiElement: HTMLParagraphElement) {
-    this.emojiElement = emojiElement
+    this.emojiElement = emojiElement;
   }
 
-  render() {}
+  abstract render(): void;
 }
 
 class Bee extends Bug<string> {
@@ -14,7 +14,7 @@ class Bee extends Bug<string> {
     this.emoji = "🐝";
   }
 
-  render() {
+  override render() {
     this.emojiElement.innerText = this.emoji;
   }
 }
@@ -25,7 +25,7 @@ class Spider extends Bug<string> {
     this.emoji = "🕷️";
   }
 
-  render() {
+  override render() {
     this.emojiElement.innerText = this.emoji;
   }
 }
