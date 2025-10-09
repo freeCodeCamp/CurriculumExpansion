@@ -1,0 +1,43 @@
+/* Initial setup - Apply box model and remove default margins/padding */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: #f0f0f5;
+}
+
+/* Base styles for the Navbar (the main element to be flexed) */
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Styling for the list of links (the list items will be flex items) */
+.nav-links ul {
+    list-style: none;
+}
+
+/* Styling for individual links */
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    line-height: 1;
+}
