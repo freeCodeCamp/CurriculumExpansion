@@ -1,0 +1,23 @@
+{
+  "id": "66f7f2b1-5120-4e58-94f3-2194d216d00a",
+  "title": "Learn Flexbox by Building a Responsive Navigation Bar",
+  "challengeType": 0,
+  "dashedName": "learn-flexbox-by-building-a-responsive-navigation-bar",
+  "solutions": [],
+  "tests": [],
+  "description": "This is the second Flexbox project. You will build a responsive navigation bar to solidify your knowledge of flex properties like `justify-content`, `align-items`, and `flex-direction`.",
+  "order": 12,
+  "superBlock": "responsive-web-design",
+  "isComingSoon": false,
+  "isCashed": true,
+  "helpCategory": "HTML-CSS",
+  "forumTopicId": 123456,
+  "externalId": null,
+  "required": [],
+  "usesMultifileEditor": true,
+  "disableLoopProtection": true,
+  "disableRegexCheck": false,
+  "removeComments": true,
+  "videoUrl": "",
+  "time": "3 hours"
+}
