@@ -81,7 +81,7 @@ const clearInput =() =>{
 function updateResult() {
   const shape = shapeTypeSelect.value;
 
-  let result: string;
+  let result: string = "";
   if (shape === "circle") {
     result = CalculateArea({
       type: "circle",
@@ -93,14 +93,13 @@ function updateResult() {
       width: Number(propertyInputs.width.value),
       height: Number(propertyInputs.height.value)
     });
-  } else  {
+  } else if(shape === "triangle") {
     result = CalculateArea({
       type: "triangle",
       base: Number(propertyInputs.base.value),
       height: Number(propertyInputs.triangleHeight.value)
     });
   }
-
   resultText.textContent = result;
 }
 
@@ -117,10 +116,11 @@ shapeTypeSelect.oninput = (e:Event) => {
 }
   const handleInput =(e:Event) =>{ 
     const value = Number((e.target as HTMLInputElement).value)
-      if (value < 0){
+      if (value < 0)
+      {
           alert("Negative values are not allowed.");
-    clearInput()
- }
+        clearInput()
+      }
     updateResult();
  }
 
