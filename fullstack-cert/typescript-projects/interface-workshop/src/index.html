@@ -1,81 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Shape Manager</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <div class="text-center mb-8">
-            <h1>Shape Manager</h1>
-            <p class="subtitle">Calculate areas of geometric shapes</p>
+      <div class="text-center mb-8">
+        <h1>Shape Manager</h1>
+        <p class="subtitle">Calculate areas of geometric shapes</p>
+      </div>
+
+      <!-- Shape Calculator Form -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Shape Calculator</h2>
         </div>
+        <div class="card-content">
+          <div class="form-group">
+            <label for="shapeType" class="label">Shape Type</label>
+            <select id="shapeType" class="select">
+              <option value="">Select shape type</option>
+              <option value="circle">Circle</option>
+              <option value="rectangle">Rectangle</option>
+              <option value="triangle">Triangle</option>
+            </select>
+          </div>
 
-        <!-- Shape Calculator Form -->
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Shape Calculator</h2>
+          <!-- Dynamic Property Inputs -->
+          <div id="propertyInputs">
+            <!-- Circle Properties -->
+            <div id="circleProps" class="form-group hidden">
+              <label for="radius" class="label">Radius</label>
+              <input
+                type="number"
+                min="0"
+                id="radius"
+                placeholder="Enter radius"
+                class="input"
+              />
             </div>
-            <div class="card-content">
-
-                    <div class="form-group">
-                        <label for="shapeType" class="label">Shape Type</label>
-                        <select id="shapeType" class="select">
-                            <option value="">Select shape type</option>
-                            <option value="circle">Circle</option>
-                            <option value="rectangle">Rectangle</option>
-                            <option value="triangle">Triangle</option>
-                        </select>
-                   
-                </div>
-        
-                <!-- Dynamic Property Inputs -->
-                <div id="propertyInputs">
-                    <!-- Circle Properties -->
-                    <div id="circleProps" class="form-group hidden">
-                        <label for="radius" class="label">Radius</label>
-                        <input type="number" min="0"  id="radius" placeholder="Enter radius" class="input">
-                    </div>
-                    <!-- Rectangle Properties -->
-                    <div id="rectangleProps" class="form-grid hidden">
-                        <div class="form-group">
-                            <label for="width" class="label">Width</label>
-                            <input type="number" min="0" id="width" placeholder="Width" class="input">
-                        </div>
-                        <div class="form-group">
-                            <label for="height" class="label">Height</label>
-                            <input type="number" min="0" id="height" placeholder="Height" class="input">
-                        </div>
-                    </div>
-                    <!-- Triangle Properties -->
-                    <div id="triangleProps" class="form-grid hidden">
-                        <div class="form-group">
-                            <label for="base" class="label">Base</label>
-                            <input type="number" min="0" id="base" placeholder="Base" class="input">
-                        </div>
-                        <div class="form-group">
-                            <label for="triangleHeight" class="label">Height</label>
-                            <input type="number" min="0" id="triangleHeight" placeholder="Height" class="input triangleHeight">
-                        </div>
-                    </div>
-                </div>
+            <!-- Rectangle Properties -->
+            <div id="rectangleProps" class="form-grid hidden">
+              <div class="form-group">
+                <label for="width" class="label">Width</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="width"
+                  placeholder="Width"
+                  class="input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="height" class="label">Height</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="height"
+                  placeholder="Height"
+                  class="input"
+                />
+              </div>
             </div>
+            <!-- Triangle Properties -->
+            <div id="triangleProps" class="form-grid hidden">
+              <div class="form-group">
+                <label for="base" class="label">Base</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="base"
+                  placeholder="Base"
+                  class="input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="triangleHeight" class="label">Height</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="triangleHeight"
+                  placeholder="Height"
+                  class="input triangleHeight"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Current Calculation Result Card -->
-        <div id="resultCard" class="card ">
-            <div class="card-content result-card-content">
-                         <div id="result-text">
-                </div>
-                <div class="result-area">                
-                </div>
-            </div>
+      <!-- Current Calculation Result Card -->
+      <div id="resultCard" class="card">
+        <div class="card-content result-card-content">
+          <div id="result-text"></div>
+          <div class="result-area"></div>
         </div>
-
+      </div>
     </div>
     <script type="module" src="./script.ts"></script>
-</body>
+  </body>
 </html>
