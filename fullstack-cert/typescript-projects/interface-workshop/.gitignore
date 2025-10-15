@@ -1,0 +1,32 @@
+
+node_modules/
+.parcel-cache/
+
+
+
+.pnpm-store/
+
+# Parcel cache
+.cache/
+dist/
+
+
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+.gitpod.yml
