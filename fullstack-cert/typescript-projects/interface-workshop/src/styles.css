@@ -37,7 +37,6 @@ h1 {
   color: #475569;
 }
 
-/* --- Card Component --- */
 .card {
   background-color: white;
   border-radius: 0.75rem;
@@ -53,7 +52,7 @@ h1 {
 }
 
 .card-title {
-  font-size: 1.25rem; /* text-xl */
+  font-size: 1.25rem; 
   font-weight: 600;
 }
 
@@ -61,7 +60,6 @@ h1 {
   padding: 1.5rem;
 }
 
-/* --- Form Elements --- */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -103,7 +101,6 @@ h1 {
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
 }
 
-/* --- Result Card --- */
 .result-card-content {
   display: flex;
   align-items: center;
@@ -122,6 +119,7 @@ h1 {
   height: 1.5rem;
   border-radius: 9999px;
 }
+
 #result-text {
   flex-grow: 1;
 }
@@ -133,7 +131,20 @@ h1 {
   color: #475569;
   text-transform: capitalize;
 }
-/* --- Utility Classes --- */
+
 .hidden {
   display: none;
+}
+
+/* Hide the result card until a shape is selected */
+#result-card {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Add this class to show the result card */
+#result-card.visible {
+  display: block;
+  opacity: 1;
 }

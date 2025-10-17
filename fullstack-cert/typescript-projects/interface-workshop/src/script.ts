@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return el as T;
   };
 
-  const shapeTypeSelect = GetElements<HTMLSelectElement>("shapeType");
+  const shapeTypeSelect = GetElements<HTMLSelectElement>("shape-type");
   const propertyGroups = {
-    circle: GetElements<HTMLElement>("circleProps"),
-    rectangle: GetElements<HTMLElement>("rectangleProps"),
-    triangle: GetElements<HTMLElement>("triangleProps"),
+    circle: GetElements<HTMLElement>("circle-props"),
+    rectangle: GetElements<HTMLElement>("rectangle-props"),
+    triangle: GetElements<HTMLElement>("triangle-props"),
   };
 
   const propertyInputs = {
@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
     width: GetElements<HTMLInputElement>("width"),
     height: GetElements<HTMLInputElement>("height"),
     base: GetElements<HTMLInputElement>("base"),
-    triangleHeight: GetElements<HTMLInputElement>("triangleHeight"),
+    triangleHeight: GetElements<HTMLInputElement>("triangle-height"),
   };
 
   const resultText = GetElements<HTMLElement>("result-text");
+  const resultCard = GetElements<HTMLElement>("result-card");
 
   const chooseShape = (shapeType: string) => {
     Object.entries(propertyGroups).forEach(([name, group]) => {
@@ -51,6 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
         group.classList.add("hidden");
       }
     });
+  };
+
+  const toggleResultCard = (show: boolean) => {
+    if (show) {
+      resultCard.classList.add("visible");
+    } else {
+      resultCard.classList.remove("visible");
+    }
   };
 
   const CalculateArea = (shape: Shapes): string => {
@@ -107,6 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!Val) {
       return "target value not found";
     }
+    // show/hide the result card depending on whether a shape is selected
+    const hasSelection = Boolean(Val.value && Val.value !== "");
+    toggleResultCard(hasSelection);
     chooseShape(Val.value);
     updateResult();
   };
