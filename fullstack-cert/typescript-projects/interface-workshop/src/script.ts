@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const resultText = GetElements<HTMLElement>("result-text");
+  const resultCard = GetElements<HTMLElement>("result-card");
 
   const chooseShape = (shapeType: string) => {
     Object.entries(propertyGroups).forEach(([name, group]) => {
@@ -51,6 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
         group.classList.add("hidden");
       }
     });
+  };
+
+  const toggleResultCard = (show: boolean) => {
+    if (show) {
+      resultCard.classList.add("visible");
+    } else {
+      resultCard.classList.remove("visible");
+    }
   };
 
   const CalculateArea = (shape: Shapes): string => {
@@ -107,6 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!Val) {
       return "target value not found";
     }
+    // show/hide the result card depending on whether a shape is selected
+    const hasSelection = Boolean(Val.value && Val.value !== "");
+    toggleResultCard(hasSelection);
     chooseShape(Val.value);
     updateResult();
   };

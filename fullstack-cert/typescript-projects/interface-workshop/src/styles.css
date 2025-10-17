@@ -135,3 +135,16 @@ h1 {
 .hidden {
   display: none;
 }
+
+/* Hide the result card until a shape is selected */
+#result-card {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Add this class to show the result card */
+#result-card.visible {
+  display: block;
+  opacity: 1;
+}
