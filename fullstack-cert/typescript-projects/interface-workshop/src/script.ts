@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return el as T;
   };
 
-  const shapeTypeSelect = GetElements<HTMLSelectElement>("shapeType");
+  const shapeTypeSelect = GetElements<HTMLSelectElement>("shape-type");
   const propertyGroups = {
-    circle: GetElements<HTMLElement>("circleProps"),
-    rectangle: GetElements<HTMLElement>("rectangleProps"),
-    triangle: GetElements<HTMLElement>("triangleProps"),
+    circle: GetElements<HTMLElement>("circle-props"),
+    rectangle: GetElements<HTMLElement>("rectangle-props"),
+    triangle: GetElements<HTMLElement>("triangle-props"),
   };
 
   const propertyInputs = {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     width: GetElements<HTMLInputElement>("width"),
     height: GetElements<HTMLInputElement>("height"),
     base: GetElements<HTMLInputElement>("base"),
-    triangleHeight: GetElements<HTMLInputElement>("triangleHeight"),
+    triangleHeight: GetElements<HTMLInputElement>("triangle-height"),
   };
 
   const resultText = GetElements<HTMLElement>("result-text");
