@@ -253,14 +253,18 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                     id={`current-${experience.id}`}
                     checked={experience.current}
                     onChange={(e) => {
-                      updateExperience(
-                        experience.id,
-                        "current",
-                        e.target.checked,
+                      const checked = e.target.checked;
+                      onChange(
+                        data.map((exp) =>
+                          exp.id === experience.id
+                            ? {
+                                ...exp,
+                                current: checked,
+                                endDate: checked ? "" : exp.endDate,
+                              }
+                            : exp,
+                        ),
                       );
-                      if (e.target.checked) {
-                        updateExperience(experience.id, "endDate", "");
-                      }
                     }}
                     className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
@@ -461,14 +465,19 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                     id={`current-edu-${education.id}`}
                     checked={education.current}
                     onChange={(e) => {
-                      updateEducation(
-                        education.id,
-                        "current",
-                        e.target.checked,
+                      const checked = e.target.checked;
+                      // update both fields in a single change to avoid stale updates
+                      onChange(
+                        data.map((edu) =>
+                          edu.id === education.id
+                            ? {
+                                ...edu,
+                                current: checked,
+                                endDate: checked ? "" : edu.endDate,
+                              }
+                            : edu,
+                        ),
                       );
-                      if (e.target.checked) {
-                        updateEducation(education.id, "endDate", "");
-                      }
                     }}
                     className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
