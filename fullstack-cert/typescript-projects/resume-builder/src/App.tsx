@@ -436,7 +436,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                   Start Date *
                 </label>
                 <input
-                  type="month"
+                  type="date"
                   value={education.startDate}
                   onChange={(e) =>
                     updateEducation(education.id, "startDate", e.target.value)
@@ -451,7 +451,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                   End Date
                 </label>
                 <input
-                  type="month"
+                  type="date"
                   value={education.endDate}
                   onChange={(e) =>
                     updateEducation(education.id, "endDate", e.target.value)
@@ -685,7 +685,7 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data }) => {
             {data.personalInfo.linkedin && (
               <div className="flex items-center">
                 <i className="fa-brands fa-linkedin w-4 h-4 mr-1 text-[15px] text-white" />
-                LinkedIn
+                {data.personalInfo.linkedin.replace(/^https?:\/\//, "")}
               </div>
             )}
           </div>
