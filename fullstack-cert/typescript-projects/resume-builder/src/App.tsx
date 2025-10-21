@@ -813,7 +813,9 @@ const Header = ({
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <i className="fa-solid fa-file w-8 h-8 mr-1 text-[30px] text-[#2563EF]"></i>
-            <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
+            <h1 className="text-2xl font-bold text-slate-900">
+              Resume Builder
+            </h1>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -923,7 +925,7 @@ export function App() {
                   Live Preview
                 </h2>
                 <p className="text-sm text-slate-600">
-                  Your CV updates in real-time as you fill out the form.
+                  Your resume updates in real-time as you fill out the form.
                 </p>
               </div>
 
