@@ -4,7 +4,6 @@ const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
 
 let currentCardIndex = -1;
-let showingFront = true;
 let currentCards: FlashCard[] = [];
 
 interface FlashCard {
@@ -67,7 +66,6 @@ function deleteCard(): void {
 
     child.onclick = () => {
       currentCardIndex = i;
-      showingFront = true;
       refresh();
     };
   });
@@ -90,7 +88,6 @@ function createCardButton(questionText: string, index: number): HTMLButtonElemen
     questionText.length > 20 ? questionText.slice(0, 20) + "..." : questionText;
   btn.onclick = () => {
     currentCardIndex = index;
-    showingFront = true;
     refresh();
   };
   return btn;
@@ -117,7 +114,6 @@ function uploadNewCard(): void {
     cardButtonsContainer.appendChild(cardBtn);
 
     currentCardIndex = newIndex;
-    showingFront = true;
     refresh();
 
     frontInput.value = "";
