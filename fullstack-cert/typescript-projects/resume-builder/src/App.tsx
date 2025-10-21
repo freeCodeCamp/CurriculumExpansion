@@ -626,18 +626,18 @@ export interface Skill {
   name: string;
 }
 
-export interface CVData {
+export interface ResumeData {
   personalInfo: PersonalInfo;
   experience: Experience[];
   education: Education[];
   skills: Skill[];
 }
 
-interface CVPreviewProps {
-  data: CVData;
+interface ResumePreviewProps {
+  data: ResumeData;
 }
 
-export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
+export const ResumePreview: React.FC<ResumePreviewProps> = ({ data }) => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const [year, month] = dateString.split("-");
@@ -842,10 +842,10 @@ const Header = ({
   );
 };
 
-const STORAGE_KEY = "cvBuilderDataApp";
+const STORAGE_KEY = "resumeBuilderDataApp";
 
 export function App() {
-  const [cvData, setCVData] = useState<CVData>({
+  const [resumeData, setResumeData] = useState<ResumeData>({
     personalInfo: {
       fullName: "",
       email: "",
@@ -866,7 +866,7 @@ export function App() {
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData && JSON.parse(savedData)?.personalInfo?.fullName) {
       try {
-        setCVData(JSON.parse(savedData));
+        setResumeData(JSON.parse(savedData));
       } catch (error) {
         console.error("Error loading saved CV data:", error);
       }
@@ -875,23 +875,23 @@ export function App() {
 
   // Save data to localStorage whenever cvData changes
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cvData));
-  }, [cvData]);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeData));
+  }, [resumeData]);
 
-  const updatePersonalInfo = (personalInfo: CVData["personalInfo"]) => {
-    setCVData((prev) => ({ ...prev, personalInfo }));
+  const updatePersonalInfo = (personalInfo: ResumeData["personalInfo"]) => {
+    setResumeData((prev) => ({ ...prev, personalInfo }));
   };
 
-  const updateExperience = (experience: CVData["experience"]) => {
-    setCVData((prev) => ({ ...prev, experience }));
+  const updateExperience = (experience: ResumeData["experience"]) => {
+    setResumeData((prev) => ({ ...prev, experience }));
   };
 
-  const updateEducation = (education: CVData["education"]) => {
-    setCVData((prev) => ({ ...prev, education }));
+  const updateEducation = (education: ResumeData["education"]) => {
+    setResumeData((prev) => ({ ...prev, education }));
   };
 
-  const updateSkills = (skills: CVData["skills"]) => {
-    setCVData((prev) => ({ ...prev, skills }));
+  const updateSkills = (skills: ResumeData["skills"]) => {
+    setResumeData((prev) => ({ ...prev, skills }));
   };
 
   return (
@@ -904,16 +904,19 @@ export function App() {
             className={`space-y-8 ${showPreview ? "lg:block" : "block"} ${showPreview && "hidden lg:block"}`}
           >
             <PersonalInfoForm
-              data={cvData.personalInfo}
+              data={resumeData.personalInfo}
               onChange={updatePersonalInfo}
             />
             <ExperienceForm
-              data={cvData.experience}
+              data={resumeData.experience}
               onChange={updateExperience}
             />
-            <EducationForm data={cvData.education} onChange={updateEducation} />
+            <EducationForm
+              data={resumeData.education}
+              onChange={updateEducation}
+            />
 
-            <SkillsForm data={cvData.skills} onChange={updateSkills} />
+            <SkillsForm data={resumeData.skills} onChange={updateSkills} />
           </div>
           {/* Preview Section */}
           <article
@@ -930,7 +933,7 @@ export function App() {
               </div>
 
               <div className="bg-slate-100 rounded-lg p-4 max-h-[calc(100vh-12rem)] overflow-auto">
-                <CVPreview data={cvData} />
+                <ResumePreview data={resumeData} />
               </div>
             </div>
           </article>
