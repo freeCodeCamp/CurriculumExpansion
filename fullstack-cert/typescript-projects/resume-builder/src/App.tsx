@@ -466,7 +466,6 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                     checked={education.current}
                     onChange={(e) => {
                       const checked = e.target.checked;
-                      // update both fields in a single change to avoid stale updates
                       onChange(
                         data.map((edu) =>
                           edu.id === education.id
@@ -515,7 +514,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
     const newSkill: Skill = {
       id: Date.now().toString(),
       name: "",
-      level: "Intermediate",
     };
     onChange([...data, newSkill]);
   };
@@ -530,23 +528,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
 
   const removeSkill = (id: string) => {
     onChange(data.filter((skill) => skill.id !== id));
-  };
-
-  const skillLevels: Skill["level"][] = [
-    "Beginner",
-    "Intermediate",
-    "Advanced",
-    "Expert",
-  ];
-
-  const getLevelColor = (level: Skill["level"]) => {
-    const colors = {
-      Beginner: "bg-yellow-100 text-yellow-800",
-      Intermediate: "bg-blue-100 text-blue-800",
-      Advanced: "bg-green-100 text-green-800",
-      Expert: "bg-purple-100 text-purple-800",
-    };
-    return colors[level];
   };
 
   return (
@@ -592,36 +573,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   placeholder="JavaScript, React, etc."
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Proficiency Level
-                </label>
-                <select
-                  value={skill.level}
-                  onChange={(e) =>
-                    updateSkill(
-                      skill.id,
-                      "level",
-                      e.target.value as Skill["level"],
-                    )
-                  }
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
-                  {skillLevels.map((level) => (
-                    <option key={level} value={level}>
-                      {level}
-                    </option>
-                  ))}
-                </select>
-                <div className="mt-2">
-                  <span
-                    className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${getLevelColor(skill.level)}`}
-                  >
-                    {skill.level}
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -673,7 +624,6 @@ export interface Education {
 export interface Skill {
   id: string;
   name: string;
-  level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
 }
 
 export interface CVData {
@@ -696,21 +646,6 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
       year: "numeric",
       month: "short",
     });
-  };
-
-  const getSkillBars = (level: string) => {
-    const levels = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
-    const count = levels[level as keyof typeof levels] || 2;
-    return Array(4)
-      .fill(0)
-      .map((_, i) => (
-        <div
-          key={i}
-          className={`h-2 w-6 rounded-sm ${
-            i < count ? "bg-blue-600" : "bg-slate-200"
-          }`}
-        />
-      ));
   };
 
   return (
@@ -852,19 +787,10 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.skills.map((skill) => (
-                <div
-                  key={skill.id}
-                  className="flex items-center justify-between"
-                >
+                <div key={skill.id} className="">
                   <span className="font-medium text-slate-700">
                     {skill.name}
                   </span>
-                  <div className="flex items-center space-x-1 ml-4">
-                    {getSkillBars(skill.level)}
-                    <span className="text-xs text-slate-500 ml-2">
-                      {skill.level}
-                    </span>
-                  </div>
                 </div>
               ))}
             </div>
