@@ -1,5 +1,6 @@
-import { Motorcycle } from '../types/motorcycle';
+import { Motorcycle, Category } from '../types/motorcycle';
 import motorcyclesData from '../data/motorcycles.json';
+import categoriesData from '../data/categories.json';
 
 export class MotorcycleService {
   private static motorcycles: Motorcycle[] = motorcyclesData as Motorcycle[];
@@ -19,9 +20,10 @@ export class MotorcycleService {
     return this.motorcycles.find(motorcycle => motorcycle.id === id) || null;
   }
 
-  static getCategories(): string[] {
-    const uniqueCategories = [...new Set(this.motorcycles.map(m => m.category))];
-    return uniqueCategories.sort();
+  static getCategories(): Category[] {
+    // Return categories loaded from data/categories.json typed as Category[]
+    const categories = categoriesData as Category[];
+    return [...categories].sort();
   }
 
   static getManufacturers(): string[] {

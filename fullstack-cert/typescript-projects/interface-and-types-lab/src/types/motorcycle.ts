@@ -1,8 +1,16 @@
+export type Category = 
+  | 'Sport'
+  | 'Cruiser'
+  | 'Touring'
+  | 'Dirt'
+  | 'Standard'
+  | 'Electric';
+
 export interface Motorcycle {
   id: string;
   name: string;
   manufacturer: string;
-  category: string;
+  category: Category;
   price: number;
   image_url: string;
   description: string;
@@ -12,7 +20,7 @@ export interface Motorcycle {
 }
 
 export interface Filters {
-  category: string;
+  category: Category | '';
   manufacturer: string;
   minPrice: number;
   maxPrice: number;
