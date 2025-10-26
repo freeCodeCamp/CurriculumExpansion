@@ -111,11 +111,6 @@ class MotorcycleGalleryApp {
     // Setup motorcycle card event listeners
     const cardComponent = new MotorcycleCardComponent();
     cardComponent.setupEventListeners();
-    
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
   }
 
   private showLoading(show: boolean): void {
