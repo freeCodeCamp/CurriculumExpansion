@@ -38,6 +38,7 @@ class MotorcycleGalleryApp {
       const customEvent = event as CustomEvent<number>;
       this.currentPage = customEvent.detail;
       this.renderMotorcycles();
+      this.renderPagination();
     });
   }
  
