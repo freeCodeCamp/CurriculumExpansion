@@ -19,9 +19,4 @@ export interface Motorcycle {
   created_at: string;
 }
 
-export interface Filters {
-  category: Category | '';
-  manufacturer: string;
-  minPrice: number;
-  maxPrice: number;
-}
+
