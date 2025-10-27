@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability
+    url: https://contribute.freecodecamp.org/security
+    about: Please report security issues by following our security policy.
