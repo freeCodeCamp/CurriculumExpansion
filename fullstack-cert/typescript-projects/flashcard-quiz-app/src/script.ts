@@ -4,7 +4,15 @@ const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
 
 let currentCardIndex = -1;
-let currentCards: FlashCard[] = [];
+let currentCards: FlashCard[] = [
+  { questionText: "What is the capital of France?", answerText: "Paris" },
+  { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
+  {
+    questionText: "What is the largest mammal in the world?",
+    answerText: "Blue whale",
+  },
+  { questionText: "In which year did the Titanic sink?", answerText: "1912" },
+];
 
 interface FlashCard {
   questionText: string;
@@ -127,35 +135,11 @@ function uploadNewCard(): void {
   }
 }
 
-
-interface CardDeck {
-  cards: FlashCard[];
-}
-
-interface FlashCardAppState {
-  currentDeck: FlashCard[];
-}
-
-const cardDecks: Record<string, CardDeck> = {
-  general: {
-    cards: [
-      { questionText: "What is the capital of France?", answerText: "Paris" },
-      { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
-      {
-        questionText: "What is the largest mammal in the world?",
-        answerText: "Blue whale",
-      },
-      { questionText: "In which year did the Titanic sink?", answerText: "1912" },
-    ],
-  },
-};
-
 // better to add a game class to encapsulate the game logic
 // This will help in managing the game state, current card, and user interactions.
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
 class FlashCardController {
-  state: FlashCardAppState;
   private elements: {
     flashcard: HTMLElement;
     cardsList: HTMLElement;
@@ -165,10 +149,6 @@ class FlashCardController {
   };
 
   constructor() {
-    this.state = {
-      currentDeck: [...cardDecks.general.cards],
-    };
-
     this.elements = {
       flashcard: document.querySelector(".flashcard"),
       cardsList: document.querySelector("#cards-list"),
@@ -211,8 +191,5 @@ class FlashCardController {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const game = new FlashCardController();
-  frontInput.value = game.state.currentDeck[0].questionText;
-  backInput.value = game.state.currentDeck[0].answerText;
-  uploadNewCard();
+  // TODO: add cards from array at start 
 });
