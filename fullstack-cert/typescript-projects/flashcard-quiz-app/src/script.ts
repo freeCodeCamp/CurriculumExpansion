@@ -191,5 +191,10 @@ class FlashCardController {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // TODO: add cards from array at start 
+  for(let i = 0; i < currentCards.length; i++)
+  {
+    frontInput.value = currentCards[i].questionText;
+    backInput.value = currentCards[i].answerText;
+    uploadNewCard();
+  }
 });
