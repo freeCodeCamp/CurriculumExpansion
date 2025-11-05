@@ -5,13 +5,6 @@ const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
 
 let currentCardIndex = -1;
 let currentCards: FlashCard[] = [
-  { questionText: "What is the capital of France?", answerText: "Paris" },
-  { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
-  {
-    questionText: "What is the largest mammal in the world?",
-    answerText: "Blue whale",
-  },
-  { questionText: "In which year did the Titanic sink?", answerText: "1912" },
 ];
 
 interface FlashCard {
@@ -128,7 +121,7 @@ function uploadNewCard(): void {
     backInput.value = "";
   } catch (ex) {
     if (ex instanceof InvalidUserInputError) {
-      errorElement.textContent = "⚠️ " + ex.message;
+      errorElement.innerHTML = "\u26A0" + ex.message;
     } else {
       console.error("An unexpected error occurred:", ex);
     }
@@ -192,10 +185,7 @@ class FlashCardController {
 
 document.addEventListener("DOMContentLoaded", () => {
   new FlashCardController();
-  for(let i = 0; i < currentCards.length; i++)
-  {
-    frontInput.value = currentCards[i].questionText;
-    backInput.value = currentCards[i].answerText;
-    uploadNewCard();
-  }
+  frontInput.value = "What is the capital of France?";
+  backInput.value = "Paris";
+  uploadNewCard(); 
 });
