@@ -191,6 +191,7 @@ class FlashCardController {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  new FlashCardController();
   for(let i = 0; i < currentCards.length; i++)
   {
     frontInput.value = currentCards[i].questionText;
