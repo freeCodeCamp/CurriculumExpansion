@@ -121,7 +121,7 @@ function uploadNewCard(): void {
     backInput.value = "";
   } catch (ex) {
     if (ex instanceof InvalidUserInputError) {
-      errorElement.innerHTML = "\u26A0" + ex.message;
+      errorElement.innerHTML = "\u26A0 " + ex.message;
     } else {
       console.error("An unexpected error occurred:", ex);
     }
