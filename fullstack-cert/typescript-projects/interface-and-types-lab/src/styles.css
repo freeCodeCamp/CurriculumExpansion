@@ -916,3 +916,90 @@ body {
   font-weight: 700;
   color: #111827;
 }
+
+/* Additional utility classes for search input */
+.bg-gray-700 {
+  background-color: #374151;
+}
+
+.border-gray-600 {
+  border-color: #4b5563;
+}
+
+.placeholder-gray-400::placeholder {
+  color: #9ca3af;
+}
+
+.focus\:outline-none:focus {
+  outline: none;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+}
+
+.focus\:ring-orange-500:focus {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.transform {
+  transform: translateY(-50%);
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+  
+  .md\:items-center {
+    align-items: center;
+  }
+  
+  .md\:w-auto {
+    width: auto;
+  }
+}
