@@ -333,16 +333,6 @@ const motorcyclesData: Motorcycle[] = [
   }
 ];
 
-const categoriesData: Category[] = [
-  "Sport",
-  "Cruiser",
-  "Touring",
-  "Dirt",
-  "Standard",
-  "Adventure",
-  "Naked",
-  "Electric"
-];
 
 // MOTORCYCLE SERVICE
 class MotorcycleService {
@@ -353,28 +343,6 @@ class MotorcycleService {
     return [...this.motorcycles].sort((a, b) => 
       new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
-  }
-
-  static async getMotorcycleById(id: string): Promise<Motorcycle | null> {
-    await new Promise(resolve => setTimeout(resolve, 50));
-    return this.motorcycles.find(motorcycle => motorcycle.id === id) || null;
-  }
-
-  static getCategories(): Category[] {
-    return [...categoriesData].sort();
-  }
-
-  static getManufacturers(): string[] {
-    const uniqueManufacturers = [...new Set(this.motorcycles.map(m => m.manufacturer))];
-    return uniqueManufacturers.sort();
-  }
-
-  static getPriceRange(): { min: number; max: number } {
-    const prices = this.motorcycles.map(m => m.price);
-    return {
-      min: Math.min(...prices),
-      max: Math.max(...prices)
-    };
   }
 }
 
