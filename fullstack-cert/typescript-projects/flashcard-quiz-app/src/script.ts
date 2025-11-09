@@ -136,18 +136,18 @@ class FlashCardController {
   private elements: {
     flashcard: HTMLElement;
     cardsList: HTMLElement;
-    flipBtn: HTMLElement;
+    flipBtn: HTMLButtonElement;
     entryForm: HTMLFormElement;
     deleteBtn: HTMLButtonElement;
   };
 
   constructor() {
     this.elements = {
-      flashcard: document.querySelector(".flashcard"),
-      cardsList: document.querySelector("#cards-list"),
-      flipBtn: document.querySelector("#flip-btn"),
-      entryForm: document.querySelector(".entry-form"),
-      deleteBtn: document.querySelector("#delete-btn"),
+      flashcard: document.querySelector<HTMLElement>(".flashcard"),
+      cardsList: document.querySelector<HTMLElement>("#cards-list"),
+      flipBtn: document.querySelector<HTMLButtonElement>("#flip-btn"),
+      entryForm: document.querySelector<HTMLFormElement>(".entry-form"),
+      deleteBtn: document.querySelector<HTMLButtonElement>("#delete-btn"),
     };
 
     if (
