@@ -135,7 +135,6 @@ function uploadNewCard(): void {
 class FlashCardController {
   private elements: {
     flashcard: HTMLElement;
-    cardsList: HTMLElement;
     flipBtn: HTMLButtonElement;
     entryForm: HTMLFormElement;
     deleteBtn: HTMLButtonElement;
@@ -144,7 +143,6 @@ class FlashCardController {
   constructor() {
     this.elements = {
       flashcard: document.querySelector<HTMLElement>(".flashcard"),
-      cardsList: document.querySelector<HTMLElement>("#cards-list"),
       flipBtn: document.querySelector<HTMLButtonElement>("#flip-btn"),
       entryForm: document.querySelector<HTMLFormElement>(".entry-form"),
       deleteBtn: document.querySelector<HTMLButtonElement>("#delete-btn"),
@@ -152,7 +150,6 @@ class FlashCardController {
 
     if (
       this.elements.flashcard === null ||
-      this.elements.cardsList === null ||
       this.elements.flipBtn === null ||
       this.elements.entryForm === null ||
       this.elements.deleteBtn === null
