@@ -180,7 +180,7 @@ class FlashCardController {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (event: Event) => {
   new FlashCardController();
   frontInput.value = "What is the capital of France?";
   backInput.value = "Paris";
