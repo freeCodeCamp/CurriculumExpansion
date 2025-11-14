@@ -4,8 +4,7 @@ const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
 
 let currentCardIndex = -1;
-let currentCards: FlashCard[] = [
-];
+let currentCards: FlashCard[] = [];
 
 interface FlashCard {
   questionText: string;
@@ -164,7 +163,7 @@ class FlashCardController {
   // Initialize the game by setting up the flashcard and event listeners
   private initializeEventListeners(): void {
     this.elements.flipBtn.addEventListener("click", () => this.flipCard());
-    
+
     // Add form submit event listener
     this.elements.entryForm.addEventListener("submit", (ev: SubmitEvent) => {
       ev.preventDefault();
@@ -184,5 +183,5 @@ document.addEventListener("DOMContentLoaded", (event: Event) => {
   new FlashCardController();
   frontInput.value = "What is the capital of France?";
   backInput.value = "Paris";
-  uploadNewCard(); 
+  uploadNewCard();
 });
