@@ -1,10 +1,8 @@
 const express = require('express')
 const app = express()
 
-// Toggle maintenance mode here
 const maintenanceMode = true
 
-// Application-level middleware
 app.use((req, res, next) => {
   if (maintenanceMode) {
     return res.send('The server is currently under maintenance. Please try again later.')
