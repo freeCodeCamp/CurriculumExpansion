@@ -2,6 +2,7 @@ const cardDisplay = document.querySelector<HTMLElement>("#current-card");
 const cardButtonsContainer = document.querySelector<HTMLElement>("#cards-list");
 const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
+const errorElement = document.querySelector<HTMLParagraphElement>("#entry-error");
 
 let currentCardIndex = -1;
 let currentCards: FlashCard[] = [];
@@ -94,9 +95,6 @@ function createCardButton(questionText: string, index: number): HTMLButtonElemen
 }
 
 function uploadNewCard(): void {
-  const errorElement =
-    document.querySelector<HTMLParagraphElement>("#entry-error");
-
   const questionText = frontInput.value.trim();
   const answerText = backInput.value.trim();
   errorElement.textContent = "";
