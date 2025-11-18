@@ -16,7 +16,6 @@ class InvalidUserInputError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "InvalidUserInputError";
-    Object.setPrototypeOf(this, InvalidUserInputError.prototype);
   }
 }
 
