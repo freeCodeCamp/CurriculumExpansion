@@ -4,7 +4,6 @@ export type Category =
   | 'Cruiser'
   | 'Touring'
   | 'Dirt'
-  | 'Standard'
   | 'Adventure'
   | 'Naked'
   | 'Electric';
@@ -22,19 +21,11 @@ export interface Motorcycle {
   created_at: string;
 }
 
-export interface Filters {
-  category: Category | '';
-  manufacturer: string;
-  minPrice: number;
-  maxPrice: number;
-}
-
-
 
 // MOTORCYCLE SERVICE
 class MotorcycleService {
-  private static motorcycles: Motorcycle[];// = motorcyclesData;
-
+  private static motorcycles: Motorcycle[];
+  // load data from server
   static async getMotorcycles(): Promise<Motorcycle[]> {
     const result = await fetch(`https://cdn.freecodecamp.org/curriculum/labs/data/motorcycles.json`);
     this.motorcycles = await result.json()
