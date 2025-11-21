@@ -1,5 +1,6 @@
 # User Stories
- 
+In this lab, you will build a MotoShop - electronic motorcycle market.
+
 1. Start by defining the `Category` type. It should recieve only `Sport`, `Crusier` , `Touring`, `Dirt`, `Adventure`, `Naked`, `Electric` values (use type narrowing). 
 2. Create `Motorcycle` interface.
 At this interface, several additional properties need to be defined: `id`, `name`, `manufactorer`, `category`, `price`, `image_url`, `description`, `year`, `engine_cc`, `created_at`. 

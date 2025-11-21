@@ -1,5 +1,5 @@
 // TYPES
-export type Category = 
+type Category = 
   | 'Sport'
   | 'Cruiser'
   | 'Touring'
@@ -8,7 +8,7 @@ export type Category =
   | 'Naked'
   | 'Electric';
 
-export interface Motorcycle {
+interface Motorcycle {
   id: string;
   name: string;
   manufacturer: string;
@@ -96,7 +96,7 @@ class MotorcycleCardComponent {
 }
 
 // MAIN APPLICATION
-class MotorcycleGalleryApp {
+export class MotorcycleGalleryApp {
   private allMotorcycles: Motorcycle[] = [];
   private filteredMotorcycles: Motorcycle[] = [];
   private nameFilter: string = '';
