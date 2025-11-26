@@ -3,6 +3,10 @@
 		"prettier": "^3.6.2"
 	},
 	"dependencies": {
-		"lucide-react": "^0.539.0"
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
+		"express": "^5.1.0",
+		"lucide-react": "^0.539.0",
+		"morgan": "^1.10.1"
 	}
 }

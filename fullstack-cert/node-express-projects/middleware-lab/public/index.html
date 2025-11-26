@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Cleaner</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .error { color: red; font-weight: bold; border: 1px solid red; padding: 10px; margin-bottom: 15px; }
+        input[type="text"] { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        textarea { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>User Submission Form</h1>
+    <p>Test the middleware chain by providing different inputs.</p>
+
+    <div id="error-message"></div>
+
+    <form action="/submit" method="POST">
+        <label for="username">Username (Try using ALL CAPS or padding with spaces):</label>
+        <input type="text" id="username" name="username" placeholder="e.g.,   JOHN_DOE  " required>
+
+        <label for="comment">Comment (Try including a disallowed tag, like &lt;script&gt;):</label>
+        <textarea id="comment" name="comment" placeholder="e.g., Hi! <script>alert('XSS')</script>" required></textarea>
+
+        <button type="submit">Submit Data</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+
+        if (errorMessage) {
+            document.getElementById('error-message').innerHTML = 
+                `<div class="error">Validation Error: ${errorMessage}</div>`;
+        }
+    </script>
+</body>
+</html>
