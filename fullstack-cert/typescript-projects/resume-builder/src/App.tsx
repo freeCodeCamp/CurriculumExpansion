@@ -253,14 +253,18 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                     id={`current-${experience.id}`}
                     checked={experience.current}
                     onChange={(e) => {
-                      updateExperience(
-                        experience.id,
-                        "current",
-                        e.target.checked,
+                      const checked = e.target.checked;
+                      onChange(
+                        data.map((exp) =>
+                          exp.id === experience.id
+                            ? {
+                                ...exp,
+                                current: checked,
+                                endDate: checked ? "" : exp.endDate,
+                              }
+                            : exp,
+                        ),
                       );
-                      if (e.target.checked) {
-                        updateExperience(experience.id, "endDate", "");
-                      }
                     }}
                     className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
@@ -432,7 +436,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                   Start Date *
                 </label>
                 <input
-                  type="month"
+                  type="date"
                   value={education.startDate}
                   onChange={(e) =>
                     updateEducation(education.id, "startDate", e.target.value)
@@ -447,7 +451,7 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                   End Date
                 </label>
                 <input
-                  type="month"
+                  type="date"
                   value={education.endDate}
                   onChange={(e) =>
                     updateEducation(education.id, "endDate", e.target.value)
@@ -461,14 +465,18 @@ export const EducationForm: React.FC<EducationFormProps> = ({
                     id={`current-edu-${education.id}`}
                     checked={education.current}
                     onChange={(e) => {
-                      updateEducation(
-                        education.id,
-                        "current",
-                        e.target.checked,
+                      const checked = e.target.checked;
+                      onChange(
+                        data.map((edu) =>
+                          edu.id === education.id
+                            ? {
+                                ...edu,
+                                current: checked,
+                                endDate: checked ? "" : edu.endDate,
+                              }
+                            : edu,
+                        ),
                       );
-                      if (e.target.checked) {
-                        updateEducation(education.id, "endDate", "");
-                      }
                     }}
                     className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
@@ -506,7 +514,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
     const newSkill: Skill = {
       id: Date.now().toString(),
       name: "",
-      level: "Intermediate",
     };
     onChange([...data, newSkill]);
   };
@@ -521,23 +528,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
 
   const removeSkill = (id: string) => {
     onChange(data.filter((skill) => skill.id !== id));
-  };
-
-  const skillLevels: Skill["level"][] = [
-    "Beginner",
-    "Intermediate",
-    "Advanced",
-    "Expert",
-  ];
-
-  const getLevelColor = (level: Skill["level"]) => {
-    const colors = {
-      Beginner: "bg-yellow-100 text-yellow-800",
-      Intermediate: "bg-blue-100 text-blue-800",
-      Advanced: "bg-green-100 text-green-800",
-      Expert: "bg-purple-100 text-purple-800",
-    };
-    return colors[level];
   };
 
   return (
@@ -583,36 +573,6 @@ export const SkillsForm: React.FC<SkillsFormProps> = ({ data, onChange }) => {
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   placeholder="JavaScript, React, etc."
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Proficiency Level
-                </label>
-                <select
-                  value={skill.level}
-                  onChange={(e) =>
-                    updateSkill(
-                      skill.id,
-                      "level",
-                      e.target.value as Skill["level"],
-                    )
-                  }
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
-                  {skillLevels.map((level) => (
-                    <option key={level} value={level}>
-                      {level}
-                    </option>
-                  ))}
-                </select>
-                <div className="mt-2">
-                  <span
-                    className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${getLevelColor(skill.level)}`}
-                  >
-                    {skill.level}
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -664,21 +624,20 @@ export interface Education {
 export interface Skill {
   id: string;
   name: string;
-  level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
 }
 
-export interface CVData {
+export interface ResumeData {
   personalInfo: PersonalInfo;
   experience: Experience[];
   education: Education[];
   skills: Skill[];
 }
 
-interface CVPreviewProps {
-  data: CVData;
+interface ResumePreviewProps {
+  data: ResumeData;
 }
 
-export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
+export const ResumePreview: React.FC<ResumePreviewProps> = ({ data }) => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const [year, month] = dateString.split("-");
@@ -687,21 +646,6 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
       year: "numeric",
       month: "short",
     });
-  };
-
-  const getSkillBars = (level: string) => {
-    const levels = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
-    const count = levels[level as keyof typeof levels] || 2;
-    return Array(4)
-      .fill(0)
-      .map((_, i) => (
-        <div
-          key={i}
-          className={`h-2 w-6 rounded-sm ${
-            i < count ? "bg-blue-600" : "bg-slate-200"
-          }`}
-        />
-      ));
   };
 
   return (
@@ -741,7 +685,7 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
             {data.personalInfo.linkedin && (
               <div className="flex items-center">
                 <i className="fa-brands fa-linkedin w-4 h-4 mr-1 text-[15px] text-white" />
-                LinkedIn
+                {data.personalInfo.linkedin.replace(/^https?:\/\//, "")}
               </div>
             )}
           </div>
@@ -843,19 +787,10 @@ export const CVPreview: React.FC<CVPreviewProps> = ({ data }) => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.skills.map((skill) => (
-                <div
-                  key={skill.id}
-                  className="flex items-center justify-between"
-                >
+                <div key={skill.id} className="">
                   <span className="font-medium text-slate-700">
                     {skill.name}
                   </span>
-                  <div className="flex items-center space-x-1 ml-4">
-                    {getSkillBars(skill.level)}
-                    <span className="text-xs text-slate-500 ml-2">
-                      {skill.level}
-                    </span>
-                  </div>
                 </div>
               ))}
             </div>
@@ -878,7 +813,9 @@ const Header = ({
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <i className="fa-solid fa-file w-8 h-8 mr-1 text-[30px] text-[#2563EF]"></i>
-            <h1 className="text-2xl font-bold text-slate-900">CV Builder</h1>
+            <h1 className="text-2xl font-bold text-slate-900">
+              Resume Builder
+            </h1>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -905,10 +842,10 @@ const Header = ({
   );
 };
 
-const STORAGE_KEY = "cvBuilderDataApp";
+const STORAGE_KEY = "resumeBuilderDataApp";
 
 export function App() {
-  const [cvData, setCVData] = useState<CVData>({
+  const [resumeData, setResumeData] = useState<ResumeData>({
     personalInfo: {
       fullName: "",
       email: "",
@@ -929,7 +866,7 @@ export function App() {
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData && JSON.parse(savedData)?.personalInfo?.fullName) {
       try {
-        setCVData(JSON.parse(savedData));
+        setResumeData(JSON.parse(savedData));
       } catch (error) {
         console.error("Error loading saved CV data:", error);
       }
@@ -938,23 +875,23 @@ export function App() {
 
   // Save data to localStorage whenever cvData changes
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cvData));
-  }, [cvData]);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeData));
+  }, [resumeData]);
 
-  const updatePersonalInfo = (personalInfo: CVData["personalInfo"]) => {
-    setCVData((prev) => ({ ...prev, personalInfo }));
+  const updatePersonalInfo = (personalInfo: ResumeData["personalInfo"]) => {
+    setResumeData((prev) => ({ ...prev, personalInfo }));
   };
 
-  const updateExperience = (experience: CVData["experience"]) => {
-    setCVData((prev) => ({ ...prev, experience }));
+  const updateExperience = (experience: ResumeData["experience"]) => {
+    setResumeData((prev) => ({ ...prev, experience }));
   };
 
-  const updateEducation = (education: CVData["education"]) => {
-    setCVData((prev) => ({ ...prev, education }));
+  const updateEducation = (education: ResumeData["education"]) => {
+    setResumeData((prev) => ({ ...prev, education }));
   };
 
-  const updateSkills = (skills: CVData["skills"]) => {
-    setCVData((prev) => ({ ...prev, skills }));
+  const updateSkills = (skills: ResumeData["skills"]) => {
+    setResumeData((prev) => ({ ...prev, skills }));
   };
 
   return (
@@ -967,16 +904,19 @@ export function App() {
             className={`space-y-8 ${showPreview ? "lg:block" : "block"} ${showPreview && "hidden lg:block"}`}
           >
             <PersonalInfoForm
-              data={cvData.personalInfo}
+              data={resumeData.personalInfo}
               onChange={updatePersonalInfo}
             />
             <ExperienceForm
-              data={cvData.experience}
+              data={resumeData.experience}
               onChange={updateExperience}
             />
-            <EducationForm data={cvData.education} onChange={updateEducation} />
+            <EducationForm
+              data={resumeData.education}
+              onChange={updateEducation}
+            />
 
-            <SkillsForm data={cvData.skills} onChange={updateSkills} />
+            <SkillsForm data={resumeData.skills} onChange={updateSkills} />
           </div>
           {/* Preview Section */}
           <article
@@ -988,30 +928,17 @@ export function App() {
                   Live Preview
                 </h2>
                 <p className="text-sm text-slate-600">
-                  Your CV updates in real-time as you fill out the form.
+                  Your resume updates in real-time as you fill out the form.
                 </p>
               </div>
 
               <div className="bg-slate-100 rounded-lg p-4 max-h-[calc(100vh-12rem)] overflow-auto">
-                <CVPreview data={cvData} />
+                <ResumePreview data={resumeData} />
               </div>
             </div>
           </article>
         </div>
       </main>
-      <footer className="bg-white border-t border-slate-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-slate-600">
-            <p className="mb-2">
-              Built with React, TypeScript, and Tailwind CSS
-            </p>
-            <p className="text-sm">
-              Your CV data is automatically saved in your browser's local
-              storage.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
