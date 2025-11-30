@@ -2,6 +2,7 @@ const cardDisplay = document.querySelector<HTMLElement>("#current-card");
 const cardButtonsContainer = document.querySelector<HTMLElement>("#cards-list");
 const frontInput = document.querySelector<HTMLTextAreaElement>("#front-text");
 const backInput = document.querySelector<HTMLTextAreaElement>("#back-text");
+const errorElement = document.querySelector<HTMLParagraphElement>("#entry-error");
 
 let currentCardIndex = -1;
 let currentCards: FlashCard[] = [];
@@ -15,7 +16,6 @@ class InvalidUserInputError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "InvalidUserInputError";
-    Object.setPrototypeOf(this, InvalidUserInputError.prototype);
   }
 }
 
@@ -94,9 +94,6 @@ function createCardButton(questionText: string, index: number): HTMLButtonElemen
 }
 
 function uploadNewCard(): void {
-  const errorElement =
-    document.querySelector<HTMLParagraphElement>("#entry-error");
-
   const questionText = frontInput.value.trim();
   const answerText = backInput.value.trim();
   errorElement.textContent = "";
@@ -120,66 +117,35 @@ function uploadNewCard(): void {
     backInput.value = "";
   } catch (ex) {
     if (ex instanceof InvalidUserInputError) {
-      errorElement.textContent = "⚠️ " + ex.message;
+      errorElement.innerHTML = "\u26A0 " + ex.message;
     } else {
       console.error("An unexpected error occurred:", ex);
     }
   }
 }
 
-
-interface CardDeck {
-  cards: FlashCard[];
-}
-
-interface FlashCardAppState {
-  currentDeck: FlashCard[];
-}
-
-const cardDecks: Record<string, CardDeck> = {
-  general: {
-    cards: [
-      { questionText: "What is the capital of France?", answerText: "Paris" },
-      { questionText: "Which planet is known as the Red Planet?", answerText: "Mars" },
-      {
-        questionText: "What is the largest mammal in the world?",
-        answerText: "Blue whale",
-      },
-      { questionText: "In which year did the Titanic sink?", answerText: "1912" },
-    ],
-  },
-};
-
 // better to add a game class to encapsulate the game logic
 // This will help in managing the game state, current card, and user interactions.
 // This class can also handle the game flow, such as starting a new game, flipping cards
 // and checking answers, making the code more organized and maintainable.
 class FlashCardController {
-  state: FlashCardAppState;
   private elements: {
     flashcard: HTMLElement;
-    cardsList: HTMLElement;
-    flipBtn: HTMLElement;
+    flipBtn: HTMLButtonElement;
     entryForm: HTMLFormElement;
     deleteBtn: HTMLButtonElement;
   };
 
   constructor() {
-    this.state = {
-      currentDeck: [...cardDecks.general.cards],
-    };
-
     this.elements = {
-      flashcard: document.querySelector(".flashcard"),
-      cardsList: document.querySelector("#cards-list"),
-      flipBtn: document.querySelector("#flip-btn"),
-      entryForm: document.querySelector(".entry-form"),
-      deleteBtn: document.querySelector("#delete-btn"),
+      flashcard: document.querySelector<HTMLElement>(".flashcard"),
+      flipBtn: document.querySelector<HTMLButtonElement>("#flip-btn"),
+      entryForm: document.querySelector<HTMLFormElement>(".entry-form"),
+      deleteBtn: document.querySelector<HTMLButtonElement>("#delete-btn"),
     };
 
     if (
       this.elements.flashcard === null ||
-      this.elements.cardsList === null ||
       this.elements.flipBtn === null ||
       this.elements.entryForm === null ||
       this.elements.deleteBtn === null
@@ -194,7 +160,7 @@ class FlashCardController {
   // Initialize the game by setting up the flashcard and event listeners
   private initializeEventListeners(): void {
     this.elements.flipBtn.addEventListener("click", () => this.flipCard());
-    
+
     // Add form submit event listener
     this.elements.entryForm.addEventListener("submit", (ev: SubmitEvent) => {
       ev.preventDefault();
@@ -210,9 +176,9 @@ class FlashCardController {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const game = new FlashCardController();
-  frontInput.value = game.state.currentDeck[0].questionText;
-  backInput.value = game.state.currentDeck[0].answerText;
+document.addEventListener("DOMContentLoaded", (event: Event) => {
+  new FlashCardController();
+  frontInput.value = "What is the capital of France?";
+  backInput.value = "Paris";
   uploadNewCard();
 });
