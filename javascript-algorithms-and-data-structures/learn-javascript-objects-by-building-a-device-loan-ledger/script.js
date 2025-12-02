@@ -7,17 +7,44 @@ USER STORIES
 4. You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date.
 5. You should implement serializeLedger(ledger) and loadLedger(json) helpers for persistence.
 
-Status' can be: "checked out", "checked in", "overdue"
+Status' can be: "checked out", "checked in"
 
 */
 
 const equipmentLedger = {
     1: {
         type: "PC",
-        status: "",
+        status: "Checked Out",
         borrower: {
             name: "John Smith",
             email: "john@acme.org",
+        },
+        dueDate: "11/30/2025"
+    },
+    2: {
+        type: "Laptop",
+        status: "Checked In",
+        borrower: {
+            name: "",
+            email: "",
+        },
+        dueDate: ""
+    },
+    3: {
+        type: "Laptop",
+        status: "Checked Out",
+        borrower: {
+            name: "Quincy Larson",
+            email: "quincy@freecodecamp.org",
+        },
+        dueDate: "10/31/2025"
+    },
+    4: {
+        type: "iPad",
+        status: "Checked In",
+        borrower: {
+            name: "",
+            email: "",
         },
         dueDate: ""
     }
@@ -50,8 +77,12 @@ function checkinDevice(ledger, assetTag) {
 // You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date.
 function listOverdueDevices(ledger, today) {
     let overdueDevicesArray = [];
-
-    return 0;
+    const todayDate = new Date();
+    for (const device in ledger) {
+        if (device.dueDate < todayDate) {
+            overdueDevicesArray.push(device);
+        }
+    }
 }
 
 /*********************** 
