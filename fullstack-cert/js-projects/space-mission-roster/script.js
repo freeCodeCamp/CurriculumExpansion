@@ -4,12 +4,11 @@ const firstAstronaut = {
   id: 1,
   name: "Andy",
   role: "Commander",
-  evaEligible: true,
+  isEvaEligible: true,
   priority: 3
 };
 
 function addCrewMember(crew, astronaut) {
-
   for (let i = 0; i < crew.length; i++) {
     if (crew[i].id === astronaut.id) {
       throw new Error("Duplicate ID: " + astronaut.id);
@@ -23,15 +22,15 @@ function addCrewMember(crew, astronaut) {
 addCrewMember(squad, firstAstronaut);
 
 const remainingCrew = [
-  { id: 2, name: "Bart", role: "Pilot",     evaEligible: false, priority: 8 },
-  { id: 3, name: "Caroline", role: "Engineer", evaEligible: true,  priority: 4 },
-  { id: 4, name: "Diego", role: "Scientist",evaEligible: false, priority: 1 },
-  { id: 5, name: "Elise",   role: "Medic",     evaEligible: true, priority: 7 },
-  { id: 6, name: "Felix", role: "Navigator", evaEligible: true,  priority: 6 },
-  { id: 7, name: "Gertrude",   role: "Communications", evaEligible: false, priority: 4 },
-  { id: 8, name: "Hank",  role: "Mechanic", evaEligible: true,  priority: 2 },
-  { id: 9, name: "Irene",  role: "Specialist", evaEligible: true,  priority: 5 },
-  { id: 10, name: "Joan", role: "Technician", evaEligible: false, priority: 1 },
+  { id: 2, name: "Bart", role: "Pilot", isEvaEligible: false, priority: 8 },
+  { id: 3, name: "Caroline", role: "Engineer", isEvaEligible: true, priority: 4 },
+  { id: 4, name: "Diego", role: "Scientist", isEvaEligible: false, priority: 1 },
+  { id: 5, name: "Elise", role: "Medic", isEvaEligible: true, priority: 7 },
+  { id: 6, name: "Felix", role: "Navigator", isEvaEligible: true, priority: 6 },
+  { id: 7, name: "Gertrude", role: "Communications", isEvaEligible: false, priority: 4 },
+  { id: 8, name: "Hank", role: "Mechanic", isEvaEligible: true, priority: 2 },
+  { id: 9, name: "Irene", role: "Specialist", isEvaEligible: true, priority: 5 },
+  { id: 10, name: "Joan", role: "Technician", isEvaEligible: false, priority: 1 },
 ]; 
 
 for (let i = 0; i < remainingCrew.length; i++) {
@@ -39,7 +38,6 @@ for (let i = 0; i < remainingCrew.length; i++) {
 }
 
 function swapCrewMembers(crew, fromIndex, toIndex) {
-
   if (
     fromIndex < 0 || 
     toIndex < 0 ||
@@ -49,7 +47,7 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
     throw new Error("Invalid crew indices");
   }
 
-  // non -mutating copy of crew array
+  // non-mutating copy of crew array
   const updatedCrew = crew.slice();
 
   // swapping using splice
@@ -60,19 +58,17 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
   for (let i = 0; i < updatedCrew.length; i++) {
     console.log(updatedCrew[i].name);
   }
-
   return updatedCrew; 
 }
 
 updatedSquad = swapCrewMembers(squad, 2, 5);
 
 function getEVAReadyCrew(crew) {
-
   const eligible = [];
 
   // manual filter for EVA-eligible members
   for (let i = 0; i < crew.length; i++) {
-    if (crew[i].evaEligible === true) {
+    if (crew[i].isEvaEligible) {
       eligible.push(crew[i]);
     }
   }
@@ -87,18 +83,17 @@ function getEVAReadyCrew(crew) {
       }
     }
   }
-
   return eligible;
 }
 
 const evaReadySquad = getEVAReadyCrew(updatedSquad);
+
 console.log("EVA-Ready Crew:");
 for (let i = 0; i < evaReadySquad.length; i++) {
   console.log(evaReadySquad[i].name);
 }
 
 function chunkCrew(crew, size) {
-
   if (size < 1) {
     throw new Error("Chunk size must be >= 1");
   }
@@ -122,7 +117,6 @@ for (let i = 0; i < evaChunks.length; i++) {
 }
 
 function printCrewSummary(crew) {
-  
   const sorted = crew.slice();
 
   // manual sort by priority descending (bubble sort)
