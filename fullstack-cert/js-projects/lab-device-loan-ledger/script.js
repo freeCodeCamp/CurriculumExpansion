@@ -69,19 +69,40 @@ function checkinDevice(ledger, assetTag) {
     console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`);
 }
 
-// You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date.
+// You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date. Due date is in the mm/dd/yyyy format.
 function listOverdueDevices(ledger, today) {
+
+    //TODO: Fix for a cleaner solution to get year, month, and date (probably regex) to handle single digit months and days.
     let overdueDevicesArray = [];
-    const todayDate = new Date();
-    for (const device in ledger) {
-        if (device.dueDate < todayDate) {
-            overdueDevicesArray.push(device);
+    const todayYear = today.slice(6);
+    const todayMonth = today.slice(0, 2);
+    const todayDay = today.slice(3, 5);
+
+    for (let assetTag in ledger) {
+        if (ledger[assetTag].status === "Checked Out") {
+            const dueDateYear = ledger[assetTag].dueDate.slice(6);
+            const dueDateMonth = ledger[assetTag].dueDate.slice(0, 2);
+            const dueDateDay = ledger[assetTag].dueDate.slice(3, 5);
+
+            if (todayYear > dueDateYear) {
+                overdueDevicesArray.push(ledger[assetTag]);
+            } else if (todayYear === dueDateYear) {
+                if (todayMonth > dueDateMonth) {
+                    overdueDevicesArray.push(ledger[assetTag]);
+                } else if (todayMonth === dueDateMonth) {
+                    if (todayDay > dueDateDay) {
+                        overdueDevicesArray.push(ledger[assetTag]);
+                    }
+                }
+            }
         }
     }
+
+    return overdueDevicesArray
 }
 
 /*********************** 
- * HELPER FUNCTIONS ---
+ --- HELPER FUNCTIONS ---
 ************************/ 
 function serializeLedger(ledger) {
     ledger.stringify();
