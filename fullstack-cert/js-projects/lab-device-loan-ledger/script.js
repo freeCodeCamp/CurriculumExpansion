@@ -98,6 +98,8 @@ function listOverdueDevices(ledger, today) {
         }
     }
 
+    // TODO: Loop that continues to run until count of sorting switches reaches 0 to sort objects
+
     return overdueDevicesArray
 }
 
@@ -112,4 +114,16 @@ function serializeLedger(ledger) {
 function loadLedger(json) {
     json.parse();
     return 0;
+}
+
+function reformatDate(date) {
+    const datePartsArray = date.split("/");
+    const month = datePartsArray[0];
+    const day = datePartsArray[1];
+    const year = datePartsArray[2];
+
+    if (month < 10) { month = "0" + month; }
+    if (day < 10) { day = "0" + day; }
+
+    return year + month + day;
 }
