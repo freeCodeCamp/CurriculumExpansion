@@ -71,13 +71,13 @@ function checkinDevice(ledger, assetTag) {
 
 // You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date. Due date is in the mm/dd/yyyy format.
 function listOverdueDevices(ledger, today) {
-
     //TODO: Fix for a cleaner solution to get year, month, and date (probably regex) to handle single digit months and days.
     let overdueDevicesArray = [];
     const todayYear = today.slice(6);
     const todayMonth = today.slice(0, 2);
     const todayDay = today.slice(3, 5);
 
+    // Adding overdue ledger items to array
     for (let assetTag in ledger) {
         if (ledger[assetTag].status === "Checked Out") {
             const dueDateYear = ledger[assetTag].dueDate.slice(6);
@@ -98,7 +98,21 @@ function listOverdueDevices(ledger, today) {
         }
     }
 
-    // TODO: Loop that continues to run until count of sorting switches reaches 0 to sort objects
+    // Sorting overdue ledger items by dueDate
+    let flag = true;
+    while (flag === true) {
+        flag = false;
+        for (let i = 0; i < overdueDevicesArray.length - 1; i++) {
+            let current = overdueDevicesArray[i];
+            let next = overdueDevicesArray[i + 1];
+            let placeholder = current;
+            if (reformatDate(current.dueDate) > reformatDate(next.dueDate)) {
+                overdueDevicesArray[i] = next;
+                overdueDevicesArray[i + 1] = placeholder;
+                flag = true;
+            }
+        }
+    }
 
     return overdueDevicesArray
 }
@@ -116,14 +130,16 @@ function loadLedger(json) {
     return 0;
 }
 
+// Helper function to format date in a comparable way
 function reformatDate(date) {
     const datePartsArray = date.split("/");
-    const month = datePartsArray[0];
-    const day = datePartsArray[1];
+    let month = datePartsArray[0];
+    let day = datePartsArray[1];
     const year = datePartsArray[2];
 
     if (month < 10) { month = "0" + month; }
     if (day < 10) { day = "0" + day; }
 
-    return year + month + day;
+    const formattedDate = year + month + day;
+    return parseInt(formattedDate, 10);
 }
