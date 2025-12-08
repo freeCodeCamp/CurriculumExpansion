@@ -89,11 +89,11 @@ function listOverdueDevices(ledger, today) {
  * HELPER FUNCTIONS ---
 ************************/ 
 function serializeLedger(ledger) {
-    // code
+    ledger.stringify();
     return 0;
 }
 
 function loadLedger(json) {
-    // code
+    json.parse();
     return 0;
 }
