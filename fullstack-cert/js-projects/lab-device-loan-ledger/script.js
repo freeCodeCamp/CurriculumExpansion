@@ -1,20 +1,8 @@
-/*
-USER STORIES
-
-1. You should model the ledger as { [assetTag]: { type, status, borrower: { name, email }, dueDate } }.
-2. You should implement checkoutDevice(ledger, assetTag, borrower) that clones state, sets borrower info, and logs confirmations.
-3. You should implement checkinDevice(ledger, assetTag) that clears borrower info and updates status.
-4. You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date.
-5. You should implement serializeLedger(ledger) and loadLedger(json) helpers for persistence.
-
-Status' can be: "checked out", "checked in"
-
-*/
-
+// US-1: Creating a ledger per Github issue requirements
 const equipmentLedger = {
     1: {
         type: "PC",
-        status: "Checked Out",
+        status: "CheckedOut",
         borrower: {
             name: "John Smith",
             email: "john@acme.org",
@@ -23,7 +11,7 @@ const equipmentLedger = {
     },
     2: {
         type: "Laptop",
-        status: "Checked In",
+        status: "CheckedIn",
         borrower: {
             name: "",
             email: "",
@@ -32,7 +20,7 @@ const equipmentLedger = {
     },
     3: {
         type: "Laptop",
-        status: "Checked Out",
+        status: "CheckedOut",
         borrower: {
             name: "Quincy Larson",
             email: "quincy@freecodecamp.org",
@@ -41,7 +29,7 @@ const equipmentLedger = {
     },
     4: {
         type: "iPad",
-        status: "Checked In",
+        status: "CheckedIn",
         borrower: {
             name: "",
             email: "",
@@ -50,18 +38,18 @@ const equipmentLedger = {
     }
 }
 
-// You should implement checkoutDevice(ledger, assetTag, borrower) that clones state, sets borrower info, and logs confirmations.
+// US-2: This updates ledger item status to "CheckedOut" and updates user's name and email, logs result
 function checkoutDevice(ledger, assetTag, borrower) {
-    ledger[assetTag].status = 'Checked Out';
+    ledger[assetTag].status = 'CheckedOut';
     ledger[assetTag].borrower.name = borrower.name;
     ledger[assetTag].borrower.email = borrower.email;
 
     console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${ledger[assetTag].borrower.name}`);
 };
 
-// You should implement checkinDevice(ledger, assetTag) that clears borrower info and updates status.
+// US-3: This clears out all the borrower data and resets the status to "Checked In", logs result
 function checkinDevice(ledger, assetTag) {
-    ledger[assetTag].status = "Checked In";
+    ledger[assetTag].status = "CheckedIn";
     ledger[assetTag].borrower.name = "";
     ledger[assetTag].borrower.email = "";
     ledger[assetTag].dueDate = "";
@@ -69,36 +57,27 @@ function checkinDevice(ledger, assetTag) {
     console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`);
 }
 
-// You should implement listOverdueDevices(ledger, today) that returns an array of overdue entries sorted by due date. Due date is in the mm/dd/yyyy format.
+// US-4: Returns an array of overdue ledger entries sorted by the latest first
 function listOverdueDevices(ledger, today) {
-    //TODO: Fix for a cleaner solution to get year, month, and date (probably regex) to handle single digit months and days.
     let overdueDevicesArray = [];
-    const todayYear = today.slice(6);
-    const todayMonth = today.slice(0, 2);
-    const todayDay = today.slice(3, 5);
+    let todaysFormattedDate = reformatDate(today);
 
-    // Adding overdue ledger items to array
     for (let assetTag in ledger) {
-        if (ledger[assetTag].status === "Checked Out") {
-            const dueDateYear = ledger[assetTag].dueDate.slice(6);
-            const dueDateMonth = ledger[assetTag].dueDate.slice(0, 2);
-            const dueDateDay = ledger[assetTag].dueDate.slice(3, 5);
-
-            if (todayYear > dueDateYear) {
-                overdueDevicesArray.push(ledger[assetTag]);
-            } else if (todayYear === dueDateYear) {
-                if (todayMonth > dueDateMonth) {
-                    overdueDevicesArray.push(ledger[assetTag]);
-                } else if (todayMonth === dueDateMonth) {
-                    if (todayDay > dueDateDay) {
-                        overdueDevicesArray.push(ledger[assetTag]);
-                    }
-                }
+        if (ledger[assetTag].status === "CheckedOut") {
+            const item = ledger[assetTag];
+            
+            if (item.status !== "CheckedOut" || !item.dueDate) {
+                continue;
             }
-        }
+        
+            const dueDateFormatted = reformatDate(item.dueDate);
+        
+            if (dueDateFormatted < todaysFormattedDate) {
+                overdueDevicesArray.push(item);
+            }
+        }    
     }
 
-    // Sorting overdue ledger items by dueDate
     let flag = true;
     while (flag === true) {
         flag = false;
@@ -120,6 +99,7 @@ function listOverdueDevices(ledger, today) {
 /*********************** 
  --- HELPER FUNCTIONS ---
 ************************/ 
+// US-5: Helper functions that turn a JSON into a JS Object and vise-versa
 function serializeLedger(ledger) {
     ledger.stringify();
     return 0;
@@ -130,7 +110,7 @@ function loadLedger(json) {
     return 0;
 }
 
-// Helper function to format date in a comparable way
+// Helper function to format date in a comparable way. Used in listOverdueDevices().
 function reformatDate(date) {
     const datePartsArray = date.split("/");
     let month = datePartsArray[0];
