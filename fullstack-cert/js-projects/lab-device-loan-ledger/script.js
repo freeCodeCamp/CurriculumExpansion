@@ -52,17 +52,12 @@ const equipmentLedger = {
 
 // You should implement checkoutDevice(ledger, assetTag, borrower) that clones state, sets borrower info, and logs confirmations.
 function checkoutDevice(ledger, assetTag, borrower) {
-    let deviceDueDate = new Date();
-    deviceDueDate.setDate(deviceDueDate.getDate() + 14);        // sets date 14 days into the future
-    const dueDateMonth = deviceDueDate.getMonth() + 1;
-    const dueDateDay = deviceDueDate.getDate();
-    const dueDateYear = deviceDueDate.getFullYear();
-
     ledger[assetTag].status = 'Checked Out';
     ledger[assetTag].borrower.name = borrower.name;
     ledger[assetTag].borrower.email = borrower.email;
-    ledger[assetTag].dueDate = `${dueDateMonth}/${dueDateDay}/${dueDateYear}`;
-}
+
+    console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${ledger[assetTag].borrower.name}`);
+};
 
 // You should implement checkinDevice(ledger, assetTag) that clears borrower info and updates status.
 function checkinDevice(ledger, assetTag) {
