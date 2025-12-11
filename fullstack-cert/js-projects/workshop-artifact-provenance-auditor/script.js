@@ -320,7 +320,10 @@ function renderAuditReport(artifactId) {
   // Count contributors manually
   let contributorCount = 0;
   for (const curatorId in record.curatorContributions) {
-    contributorCount++;
+    // Count each curator
+    if (curatorId && record.curatorContributions[curatorId]) {
+      contributorCount++;
+    }
   }
   report += '- Total Contributors: ' + contributorCount + '\n';
   report += '- Audit Entries: ' + record.auditHistory.length + '\n\n';
