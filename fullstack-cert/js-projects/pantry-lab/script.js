@@ -1,65 +1,79 @@
 // --- parseShipment ---
-// rawData example: [
-//   "A12|Tomatoes|5|2025-01-10",
-//   "B44|Pasta|3|2026-03-02"
-// ]
+// Returns an array of unique items parsed from "sku|name|qty|expires"
 export function parseShipment(rawData = []) {
   if (!Array.isArray(rawData)) return [];
 
-  const seenSKUs = new Set();
+  const result = [];
+  const seenSKUs = [];
 
-  return rawData
-    .map(line => {
-      const [sku, name, qty, expires] = line.split("|");
+  for (let i = 0; i < rawData.length; i++) {
+    const line = rawData[i];
+    const parts = line.split("|");
 
-      // Skip duplicates
-      if (seenSKUs.has(sku)) return null;
-      seenSKUs.add(sku);
+    const sku = parts[0];
+    const name = parts[1];
+    const qty = Number(parts[2]);
+    const expires = parts[3];
 
-      return {
-        sku,
-        name,
-        qty: Number(qty),
-        expires
-      };
-    })
-    .filter(Boolean); // Remove null items
+    // check duplicates manually
+    let duplicate = false;
+    for (let j = 0; j < seenSKUs.length; j++) {
+      if (seenSKUs[j] === sku) {
+        duplicate = true;
+        break;
+      }
+    }
+    if (duplicate) continue;
+
+    seenSKUs.push(sku);
+
+    result.push({
+      sku: sku,
+      name: name,
+      qty: qty,
+      expires: expires
+    });
+  }
+
+  return result;
 }
 
 
 
 // --- planRestock ---
-// Returns actions like:
-// { type: "restock", item }
-// { type: "discard", item }
-// { type: "donate", item }
+// Uses manual loops and a basic string comparison for expiration
 export function planRestock(pantry = [], shipment = []) {
   const actions = [];
+  const now = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-  for (const item of shipment) {
-    // negative or zero quantity → discard
+  for (let i = 0; i < shipment.length; i++) {
+    const item = shipment[i];
+
+    // qty <= 0 → discard
     if (item.qty <= 0) {
-      actions.push({ type: "discard", item });
+      actions.push({ type: "discard", item: item });
       continue;
     }
 
-    const expiresTime = new Date(item.expires).getTime();
-    const now = Date.now();
-
-    // expired → discard
-    if (expiresTime < now) {
-      actions.push({ type: "discard", item });
+    // expired → discard (string compare works for YYYY-MM-DD)
+    if (item.expires < now) {
+      actions.push({ type: "discard", item: item });
       continue;
     }
 
-    // if SKU exists in pantry → restock
-    const exists = pantry.find(p => p.sku === item.sku);
+    // check if SKU exists in pantry
+    let found = false;
+    for (let j = 0; j < pantry.length; j++) {
+      if (pantry[j].sku === item.sku) {
+        found = true;
+        break;
+      }
+    }
 
-    if (exists) {
-      actions.push({ type: "restock", item });
+    if (found) {
+      actions.push({ type: "restock", item: item });
     } else {
-      // new SKU → donate
-      actions.push({ type: "donate", item });
+      actions.push({ type: "donate", item: item });
     }
   }
 
@@ -69,38 +83,75 @@ export function planRestock(pantry = [], shipment = []) {
 
 
 // --- groupByZone ---
-// Buckets actions by item.zone using reduce
+// NO reduce — uses simple loops
 export function groupByZone(actions = []) {
-  return actions.reduce((zones, action) => {
+  const zones = {};
+
+  for (let i = 0; i < actions.length; i++) {
+    const action = actions[i];
     const zone = action.item.zone || "general";
 
-    if (!zones[zone]) zones[zone] = [];
-    zones[zone].push(action);
+    if (!zones[zone]) {
+      zones[zone] = [];
+    }
 
-    return zones;
-  }, {});
+    zones[zone].push(action);
+  }
+
+  return zones;
 }
 
 
 
 // --- clonePantry ---
-// Deep copy so planning never mutates original pantry
-export function clonePantry(pantry) {
-  return JSON.parse(JSON.stringify(pantry));
+// Deep copy using manual loop
+export function clonePantry(pantry = []) {
+  const copy = [];
+
+  for (let i = 0; i < pantry.length; i++) {
+    const item = pantry[i];
+    const newItem = {
+      sku: item.sku,
+      name: item.name,
+      qty: item.qty,
+      expires: item.expires,
+      zone: item.zone
+    };
+    copy.push(newItem);
+  }
+
+  return copy;
 }
 
 
 
 // --- flagExpiring ---
-// Returns items expiring within X days, sorted by earliest expiration
+// String-based date comparison + manual sort
 export function flagExpiring(pantry = [], days = 0) {
-  const now = Date.now();
-  const limit = now + days * 24 * 60 * 60 * 1000;
+  const results = [];
 
-  return pantry
-    .filter(item => {
-      const expiresTime = new Date(item.expires).getTime();
-      return expiresTime <= limit;
-    })
-    .sort((a, b) => new Date(a.expires) - new Date(b.expires));
+  const now = new Date();
+  const limitDate = new Date(now.getTime() + days * 86400000);
+  const limit = limitDate.toISOString().slice(0, 10);
+
+  // get items within days
+  for (let i = 0; i < pantry.length; i++) {
+    const item = pantry[i];
+    if (item.expires <= limit) {
+      results.push(item);
+    }
+  }
+
+  // sort by soonest expiration
+  for (let a = 0; a < results.length; a++) {
+    for (let b = a + 1; b < results.length; b++) {
+      if (results[b].expires < results[a].expires) {
+        const temp = results[a];
+        results[a] = results[b];
+        results[b] = temp;
+      }
+    }
+  }
+
+  return results;
 }
