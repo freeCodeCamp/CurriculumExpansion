@@ -119,3 +119,33 @@ function findMissingTemps(readings) {
 
   return missing;
 }
+
+
+function summarizeTrends(readings) {
+  const HEAT_THRESHOLD = 38;
+  const COLD_THRESHOLD = 20;
+
+  const heatWaves = detectHeatWave(readings, HEAT_THRESHOLD);
+  const coldSnaps = detectColdSnap(readings, COLD_THRESHOLD);
+  const missing = findMissingTemps(readings);
+
+  if (heatWaves.length > 0) {
+    console.warn("Heat wave detected");
+  }
+
+  if (coldSnaps.length > 0) {
+    console.warn("Cold snap detected");
+  }
+
+  if (missing.length > 0) {
+    console.warn("Missing temperature readings");
+  }
+
+  return {
+    averageTemp: rollingAverage(readings),
+    heatWaves: heatWaves.length,
+    coldSnaps: coldSnaps.length,
+    missingReadings: missing.length
+  };
+}
+
