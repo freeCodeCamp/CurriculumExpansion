@@ -51,4 +51,22 @@ function rollingAverage(readings) {
 }
 
 
+function detectHeatWave(readings, threshold) {
+  const result = [];
+
+  for (const reading of readings) {
+    if (typeof reading.temp !== "number") {
+      continue;
+    }
+
+    if (reading.temp > threshold) {
+      result.push(reading);
+    }
+  }
+
+  return result;
+}
+
+
+
 
