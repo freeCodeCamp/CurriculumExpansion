@@ -1,23 +1,19 @@
-// --- parseShipment ---
-// Returns an array of unique items parsed from "sku|name|qty|expires"
-export function parseShipment(rawData = []) {
+function parseShipment(rawData) {
   if (!Array.isArray(rawData)) return [];
 
-  const result = [];
-  const seenSKUs = [];
+  var result = [];
+  var seenSKUs = [];
 
-  for (let i = 0; i < rawData.length; i++) {
-    const line = rawData[i];
-    const parts = line.split("|");
+  for (var i = 0; i < rawData.length; i++) {
+    var parts = rawData[i].split("|");
 
-    const sku = parts[0];
-    const name = parts[1];
-    const qty = Number(parts[2]);
-    const expires = parts[3];
+    var sku = parts[0];
+    var name = parts[1];
+    var qty = Number(parts[2]);
+    var expires = parts[3];
 
-    // check duplicates manually
-    let duplicate = false;
-    for (let j = 0; j < seenSKUs.length; j++) {
+    var duplicate = false;
+    for (var j = 0; j < seenSKUs.length; j++) {
       if (seenSKUs[j] === sku) {
         duplicate = true;
         break;
@@ -38,32 +34,19 @@ export function parseShipment(rawData = []) {
   return result;
 }
 
+function planRestock(pantry, shipment) {
+  var actions = [];
 
+  for (var i = 0; i < shipment.length; i++) {
+    var item = shipment[i];
 
-// --- planRestock ---
-// Uses manual loops and a basic string comparison for expiration
-export function planRestock(pantry = [], shipment = []) {
-  const actions = [];
-  const now = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-
-  for (let i = 0; i < shipment.length; i++) {
-    const item = shipment[i];
-
-    // qty <= 0 → discard
     if (item.qty <= 0) {
       actions.push({ type: "discard", item: item });
       continue;
     }
 
-    // expired → discard (string compare works for YYYY-MM-DD)
-    if (item.expires < now) {
-      actions.push({ type: "discard", item: item });
-      continue;
-    }
-
-    // check if SKU exists in pantry
-    let found = false;
-    for (let j = 0; j < pantry.length; j++) {
+    var found = false;
+    for (var j = 0; j < pantry.length; j++) {
       if (pantry[j].sku === item.sku) {
         found = true;
         break;
@@ -80,16 +63,12 @@ export function planRestock(pantry = [], shipment = []) {
   return actions;
 }
 
+function groupByZone(actions) {
+  var zones = {};
 
-
-// --- groupByZone ---
-// NO reduce — uses simple loops
-export function groupByZone(actions = []) {
-  const zones = {};
-
-  for (let i = 0; i < actions.length; i++) {
-    const action = actions[i];
-    const zone = action.item.zone || "general";
+  for (var i = 0; i < actions.length; i++) {
+    var action = actions[i];
+    var zone = action.item.zone || "general";
 
     if (!zones[zone]) {
       zones[zone] = [];
@@ -101,57 +80,37 @@ export function groupByZone(actions = []) {
   return zones;
 }
 
+function clonePantry(pantry) {
+  var copy = [];
 
-
-// --- clonePantry ---
-// Deep copy using manual loop
-export function clonePantry(pantry = []) {
-  const copy = [];
-
-  for (let i = 0; i < pantry.length; i++) {
-    const item = pantry[i];
-    const newItem = {
+  for (var i = 0; i < pantry.length; i++) {
+    var item = pantry[i];
+    copy.push({
       sku: item.sku,
       name: item.name,
       qty: item.qty,
       expires: item.expires,
       zone: item.zone
-    };
-    copy.push(newItem);
+    });
   }
 
   return copy;
 }
 
+var pantry = [
+  { sku: "A12", name: "Tomatoes", qty: 4, expires: "2025-01-10", zone: "fridge" },
+  { sku: "B44", name: "Pasta", qty: 2, expires: "2026-03-02", zone: "pantry" }
+];
 
+var rawShipment = [
+  "A12|Tomatoes|5|2025-01-10",
+  "C77|Rice|3|2026-01-01",
+  "C77|Rice|3|2026-01-01"
+];
 
-// --- flagExpiring ---
-// String-based date comparison + manual sort
-export function flagExpiring(pantry = [], days = 0) {
-  const results = [];
+var shipment = parseShipment(rawShipment);
+var pantryCopy = clonePantry(pantry);
+var actions = planRestock(pantryCopy, shipment);
+var grouped = groupByZone(actions);
 
-  const now = new Date();
-  const limitDate = new Date(now.getTime() + days * 86400000);
-  const limit = limitDate.toISOString().slice(0, 10);
-
-  // get items within days
-  for (let i = 0; i < pantry.length; i++) {
-    const item = pantry[i];
-    if (item.expires <= limit) {
-      results.push(item);
-    }
-  }
-
-  // sort by soonest expiration
-  for (let a = 0; a < results.length; a++) {
-    for (let b = a + 1; b < results.length; b++) {
-      if (results[b].expires < results[a].expires) {
-        const temp = results[a];
-        results[a] = results[b];
-        results[b] = temp;
-      }
-    }
-  }
-
-  return results;
-}
+console.log(grouped);
