@@ -94,7 +94,7 @@ function findMissingTemps(readings) {
     return [];
   }
 
-  const HOUR = 60 * 60 * 1000;
+  const hour = 60 * 60 * 1000;
   const missing = [];
 
   let current = readings[0].time;
@@ -110,23 +110,27 @@ function findMissingTemps(readings) {
       }
     }
 
-    if (found === false) {
+    if (!found) {
       missing.push(current);
     }
 
-    current += HOUR;
+    current += hour;
   }
 
   return missing;
 }
 
 
+// NOTE TO INSTRUCTOR:
+// This step uses `console.warn`.
+// Be sure to introduce and explain `console.warn`
+// earlier in the workshop before campers reach this step.
 function summarizeTrends(readings) {
-  const HEAT_THRESHOLD = 38;
-  const COLD_THRESHOLD = 20;
+  const heatThreshold = 38;
+  const coldThreshold = 20;
 
-  const heatWaves = detectHeatWave(readings, HEAT_THRESHOLD);
-  const coldSnaps = detectColdSnap(readings, COLD_THRESHOLD);
+  const heatWaves = detectHeatWave(readings, heatThreshold);
+  const coldSnaps = detectColdSnap(readings, coldThreshold);
   const missing = findMissingTemps(readings);
 
   if (heatWaves.length > 0) {
@@ -149,3 +153,5 @@ function summarizeTrends(readings) {
   };
 }
 
+const summary = summarizeTrends(temps);
+console.log("Temperature summary:", summary);
