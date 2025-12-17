@@ -87,3 +87,35 @@ function detectColdSnap(readings, threshold) {
 
   return result;
 }
+
+
+function findMissingTemps(readings) {
+  if (readings.length < 2) {
+    return [];
+  }
+
+  const HOUR = 60 * 60 * 1000;
+  const missing = [];
+
+  let current = readings[0].time;
+  let end = readings[readings.length - 1].time;
+
+  while (current <= end) {
+    let found = false;
+
+    for (let i = 0; i < readings.length; i++) {
+      if (readings[i].time === current) {
+        found = true;
+        break;
+      }
+    }
+
+    if (found === false) {
+      missing.push(current);
+    }
+
+    current += HOUR;
+  }
+
+  return missing;
+}
