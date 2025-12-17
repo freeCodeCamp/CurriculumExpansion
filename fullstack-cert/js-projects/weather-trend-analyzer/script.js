@@ -69,4 +69,21 @@ function detectHeatWave(readings, threshold) {
 
 
 
+function detectColdSnap(readings, threshold) {
+  const result = [];
+  let i = 0;
 
+  while (i < readings.length) {
+    const reading = readings[i];
+
+    if (typeof reading.temp === "number") {
+      if (reading.temp < threshold) {
+        result.push(reading);
+      }
+    }
+
+    i++;
+  }
+
+  return result;
+}
