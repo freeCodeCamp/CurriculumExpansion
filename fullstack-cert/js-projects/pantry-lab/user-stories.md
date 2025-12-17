@@ -1,6 +1,6 @@
 In this lab, you will build a small pantry management program using basic JavaScript concepts like arrays, objects, loops, and conditionals.
 
-You will simulate receiving a shipment of pantry items, deciding what to do with each item, and organizing the results for storage. This lab focuses on practicing core JavaScript logic rather than building a user interface.
+You will simulate receiving a shipment of pantry items, deciding what to do with each item, and organizing the results for storage. 
 
 
 1. You should implement parseShipment(rawData) that returns an array of { sku, name, qty, expires } objects.
