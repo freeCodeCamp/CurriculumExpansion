@@ -22,8 +22,8 @@ const equipmentLedger = {
         type: "Laptop",
         status: "CheckedOut",
         borrower: {
-            name: "Quincy Larson",
-            email: "quincy@freecodecamp.org",
+            name: "Jane Doe",
+            email: "jane@acme.org",
         },
         dueDate: "10/31/2025"
     },
@@ -44,7 +44,7 @@ function checkoutDevice(ledger, assetTag, borrower) {
     ledger[assetTag].borrower.name = borrower.name;
     ledger[assetTag].borrower.email = borrower.email;
 
-    console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${ledger[assetTag].borrower.name}`);
+    return `${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${ledger[assetTag].borrower.name}`;
 };
 
 // US-3: This clears out all the borrower data and resets the status to "Checked In", logs result
