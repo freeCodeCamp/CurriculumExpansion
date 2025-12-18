@@ -1,11 +1,11 @@
-def can_commute(distance_km, is_raining, has_bike, has_car, has_ride_share_app):
-    if not distance_km:
+def can_commute(distance_mi, is_raining, has_bike, has_car, has_ride_share_app):
+    if not distance_mi:
         return False
 
-    if distance_km <= 2:
+    if distance_mi <= 1:
         return not is_raining
 
-    elif distance_km <= 10:
+    elif distance_mi <= 6:
         return has_bike and not is_raining
 
     else:
