@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Input Cleaner</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        .error { color: red; font-weight: bold; border: 1px solid red; padding: 10px; margin-bottom: 15px; }
-        input[type="text"] { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
-        textarea { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
-        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            border: 1px solid red;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>User Submission Form</h1>
@@ -34,9 +65,10 @@
         const errorMessage = urlParams.get('error');
 
         if (errorMessage) {
-            document.getElementById('error-message').innerHTML = 
+            document.getElementById('error-message').innerHTML =
                 `<div class="error">Validation Error: ${errorMessage}</div>`;
         }
     </script>
 </body>
+
 </html>
