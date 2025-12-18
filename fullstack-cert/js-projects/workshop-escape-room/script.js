@@ -44,3 +44,15 @@ const inputValidator = () => {
 
   return username;
 }
+
+const keypad = {
+  1: {
+    isLocked: true,
+  },
+  2: {
+    isLocked: true,
+  },
+  3: {
+    isLocked: true,
+  }
+};
