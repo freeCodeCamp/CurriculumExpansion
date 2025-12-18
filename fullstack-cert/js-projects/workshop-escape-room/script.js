@@ -35,14 +35,22 @@ const patternMatch = (text, pattern) => {
   return false;
 }
 
-const inputValidator = () => {
-  const minUsernameSize = 3;
-  let username;
-  do {
-    username = prompt('Please enter a valid username');
-  } while (username.trim() === '' || username.length < minUsernameSize);
+const inputValidator = username => {
+  const minLength = 3;
+  const maxLength = 17;
+  const isValidInput = username =>
+    username.length >= minLength && username.length <= maxLength;
 
-  return username;
+  do {
+    if (isValidInput(username)) {
+      console.log('Valid username entered...proceed');
+      return true;
+    }
+  } while(username.trim() === '');
+
+  console.log('Invalid username. It should be between 3 and 17 characters');
+
+  return false;
 }
 
 const keypad = {
