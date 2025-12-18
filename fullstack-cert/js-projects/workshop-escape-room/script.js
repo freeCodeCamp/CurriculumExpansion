@@ -1,3 +1,15 @@
+const progressState = {
+  1: {
+    isSolved: false
+  },
+  2: {
+    isSolved: false
+  },
+  3: {
+    isSolved: false
+  },
+};
+
 const countdown = () => {
   const answerToLifeMeaningUniverse = 42;
   for (let i = 120; i > 0; i--) {
