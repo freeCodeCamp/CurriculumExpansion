@@ -22,3 +22,11 @@ const patternMatch = (text, pattern) => {
   }
   return false;
 }
+
+const inputValidator = () => {
+  const minUsernameSize = 3;
+  let username;
+  do {
+    username = prompt('Please enter a valid username');
+  } while (username.trim() === '' || username.length < minUsernameSize);
+}
