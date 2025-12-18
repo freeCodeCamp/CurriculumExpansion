@@ -29,4 +29,6 @@ const inputValidator = () => {
   do {
     username = prompt('Please enter a valid username');
   } while (username.trim() === '' || username.length < minUsernameSize);
+
+  return username;
 }
