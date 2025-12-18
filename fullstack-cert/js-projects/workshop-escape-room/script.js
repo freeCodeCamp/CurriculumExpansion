@@ -64,3 +64,26 @@ const keypad = {
     isLocked: true,
   }
 };
+
+const openDoor = keypad => {
+  if (countdown()) {
+    keypad[1].isLocked = false;
+    console.log('Clue 1 solved: keypad 1 unlocked');
+  }
+
+  if (patternMatch('freecodecampfccFREECODECAMP', 'fcc')) {
+    keypad[2].isLocked = false;
+    console.log('Clue 2 solved: keypad 2 unlocked');
+  }
+
+  if (inputValidator('fcc102014')) {
+    keypad[3].isLocked = false;
+    console.log('Clue 3 solved: keypad 3 unlocked');
+  }
+
+  if (Object.values(keypad).every(lock => lock.isLocked === false)) {
+    console.log('Congratulations! You have solved all the puzzles and can now exit!');
+  } else {
+    console.log('Access denied. One or more of the locks are still locked. Please check the progressState');
+  }
+}
