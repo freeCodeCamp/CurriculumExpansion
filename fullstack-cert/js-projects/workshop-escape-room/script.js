@@ -87,3 +87,5 @@ const openDoor = keypad => {
     console.log('Access denied. One or more of the locks are still locked. Please check the progressState');
   }
 }
+
+openDoor(keypad);
