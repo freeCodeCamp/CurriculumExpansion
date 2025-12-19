@@ -1,19 +1,21 @@
-1. You should define a function named `can_commute`.
-2. The `can_commute` function should accept the following five parameters:
+### Commuting Decision Logic (Script)
+**Objective:** Fulfil the user stories below and get all the tests to pass to complete the lab.
+1. You should create the following variables:
    * `distance_mi` (a number representing the distance to travel)
-   * `is_raining` (a boolean indicating whether it is raining)
-   * `has_bike` (a boolean indicating whether the person has a bike)
-   * `has_car` (a boolean indicating whether the person has a car)
-   * `has_ride_share_app` (a boolean indicating whether the person can use a ride-share service)
-3. If the distance is **less than or equal to 1 mile**:
-   * The function should return `True` only if it is **not raining**.
-   * Otherwise, it should return `False`.
-4. If the distance is **greater than 1 mile and less than or equal to 6 miles**:
-   * The function should return `True` only if the person has a bike **and** it is not raining.
-   * Otherwise, it should return `False`.
-5. If the distance is **greater than 6 miles**:
-   * The function should return `True` if the person has a car **or** has a ride-share app.
-   * Otherwise, it should return `False`.
-6. The function should use conditional statements (`if`, `elif`, and `else`) to evaluate the distance categories in order.
-7. If none of the conditions for commuting are met, the function should return `False`.
-8. If distance is 0 or a falsy value, the function should return False without evaluating any other conditions.
+   * `is_raining` (a boolean)
+   * `has_bike` (a boolean)
+   * `has_car` (a boolean)
+   * `has_ride_share_app` (a boolean)
+2. You should use conditional statements to determine whether commuting is possible based on the values of these variables.
+3. If `distance_mi` is `0` or a falsy value:
+   * You should print `False`.
+4. If the distance is **less than or equal to 1 mile**:
+   * You should print `True` only if it is **not raining**.
+   * Otherwise, you should print `False`.
+5. If the distance is **greater than 1 mile and less than or equal to 6 miles**:
+   * You should print `True` only if the person has a bike **and** it is not raining.
+   * Otherwise, you should print `False`.
+6. If the distance is **greater than 6 miles**:
+   * You should print `True` if the person has a car **or** has a ride-share app.
+   * Otherwise, you should print `False`.
+7. You should use `if`, `elif`, and `else` statements to evaluate the distance categories in order.
