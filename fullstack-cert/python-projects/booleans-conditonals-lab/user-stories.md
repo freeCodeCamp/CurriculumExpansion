@@ -18,4 +18,4 @@
 6. If the distance is **greater than 6 miles**:
    * You should print `True` if the person has a car **or** has a ride-share app.
    * Otherwise, you should print `False`.
-7. You should use `if`, `elif`, and `else` statements to evaluate the distance categories in order.
+7. You should use `if`, `elif`, and `else` statements to evaluate the distance categories in ascending order.
