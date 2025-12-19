@@ -31,14 +31,14 @@ def use_eggs(eggs, num_eggs):
 
         # Step 8, explain that returning in a function ends the function call and returns control
         # to the original call-site (below)
-        return eggs, False
+        return eggs
 
     # Step 9, compute the new value of eggs and return it
     # Opportunity to stop and note:
     # - But why do we need to accept "eggs" as a parameter? Why can't we just modify it?
     # - Q: Should we teach that `global` exists, but that it is generally considered bad practice?
     else:
-        return eggs - num_eggs, True
+        return eggs - num_eggs
 
 # Step 10, introduce calling a function and giving it arguments
 use_eggs(eggs, 1)
@@ -51,7 +51,8 @@ print(eggs)
 # Step 12, write a function that calls other functions
 def make_fried_egg(eggs):
     # Step 13, introduce calling a function and saving its return value
-    new_eggs, has_enough_eggs = use_eggs(eggs, 1)
+    new_eggs = use_eggs(eggs, 1)
+    has_enough_eggs = new_eggs < eggs
 
     # Step 14, review conditionals
     if has_enough_eggs:
