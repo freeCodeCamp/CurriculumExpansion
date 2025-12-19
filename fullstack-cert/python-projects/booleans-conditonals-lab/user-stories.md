@@ -7,7 +7,7 @@
    * `has_car` (a boolean  if the user is has a car)
    * `has_ride_share_app` (a boolean  if the user is has an app that allows them to request a ride)
 2. You should use conditional statements to determine whether commuting is possible based on the values of these variables.
-3. If `distance_mi` is `0` or a falsy value:
+3. If `distance_mi` is a falsy value:
    * You should print `False`.
 4. If the distance is **less than or equal to 1 mile**:
    * You should print `True` only if it is **not raining**.
