@@ -1,7 +1,7 @@
 ### Commuting Decision Logic (Script)
 **Objective:** Fulfil the user stories below and get all the tests to pass to complete the lab.
 1. You should create the following variables:
-   * `distance_mi` (a number representing the distance to travel)
+   * `distance_mi` (a number representing the distance to travel in miles)
    * `is_raining` (a boolean  representing if the user is currently experiencing rainy weather)
    * `has_bike` (a boolean representing if the user is has a bicycle)
    * `has_car` (a boolean  if the user is has a car)
@@ -18,4 +18,4 @@
 6. If the distance is **greater than 6 miles**:
    * You should print `True` if the person has a car **or** has a ride-share app.
    * Otherwise, you should print `False`.
-7. You should use `if`, `elif`, and `else` statements to evaluate the distance categories in ascending order.
+7. You should use `if`, `elif`, and `else` statements to evaluate the distance categories in  order.
