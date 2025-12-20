@@ -1,103 +1,89 @@
-const chilli = {
-  "red beans": {
-    calories: 49,
-    protein: 3,
-    carbs: 9,
-    fat: 0.2,
+const guild = {
+  nemo: {
+    gold: 31,
+    silver: 48,
+    reputation: 9,
+    experience: 198,
   },
-  "brown rice": {
-    calories: 444,
-    protein: 10,
-    carbs: 93,
-    fat: 4,
+  shamin: {
+    gold: 78,
+    silver: 64,
+    reputation: 12,
+    experience: 111,
   },
-  tomatoes: {
-    calories: 32,
-    protein: 2,
-    carbs: 7,
-    fat: 0.3,
+  ahlerich: {
+    gold: 41,
+    silver: 7,
+    reputation: 7,
+    experience: 70,
   },
-  "sweet peppers": {
-    calories: 25,
-    protein: 1,
-    carbs: 6,
-    fat: 0.2,
+  corlandus: {
+    gold: 81,
+    silver: 2,
+    reputation: 20,
+    experience: 220,
   },
-  onions: {
-    calories: 44,
-    protein: 1,
-    carbs: 10,
-    fat: 0.1,
+  pedro: {
+    gold: 34,
+    silver: 28,
+    reputation: 10,
+    experience: 179,
   },
-  corn: {
-    calories: 67,
-    protein: 2,
-    carbs: 15,
-    fat: 1,
-  },
-  chickpeas: {
-    calories: 106,
-    protein: 6,
-    carbs: 16,
-    fat: 2,
-  },
-  garlic: {
-    calories: 9,
-    protein: 1.44,
-    carbs: 7.38,
-    fat: 0.27,
+  morgat: {
+    gold: 36,
+    silver: 81,
+    reputation: 12,
+    experience: 82,
   },
 };
 
-function cloneDictionary(dictionary) {
-  return { ...dictionary };
+function cloneGuildData(object) {
+  return { ...object };
 }
 
-function addMealEntry(dictionary, entry) {
-  const macroKeys = ["calories", "protein", "carbs", "fat"];
+function addLootEntry(object, entry) {
+  const memberData = ["gold", "silver", "reputation", "experience"];
 
   if (
-    !Object.keys(entry).includes("ingredient") ||
-    typeof entry["ingredient"] !== "string"
+    !Object.keys(entry).includes("member") ||
+    typeof entry["member"] !== "string"
   ) {
-    return 'Entry must include a "ingredient" key, with a "string" value.';
+    return 'Entry must include a "member" key, with a "string" value (the guild member name).';
   }
-  for (const macroKey of macroKeys) {
+
+  for (const value of memberData) {
     if (
-      !Object.keys(entry).includes(macroKey) ||
-      typeof entry[macroKey] !== "number"
+      !Object.keys(entry).includes(value) ||
+      typeof entry[value] !== "number"
     ) {
-      return `Entry must include a "${macroKey}" key, with a "number" value.`;
+      return `Entry must include a "${value}" key, with a "number" value.`;
     }
   }
 
-  const clonedDictionary = cloneDictionary(dictionary);
-  const { ingredient } = entry;
-  const { calories, protein, carbs, fat } = entry;
+  const clonedGuildData = cloneGuildData(object);
+  const { member } = entry;
+  const { gold, silver, reputation, experience } = entry;
 
-  if (clonedDictionary[ingredient] === undefined) {
-    clonedDictionary[ingredient] = { calories, protein, carbs, fat };
-  }
-  dictionary = clonedDictionary;
-  return clonedDictionary;
+  clonedGuildData[member] = { gold, silver, reputation, experience };
+
+  return clonedGuildData;
 }
 
-function getIngredientTotals(dictionary, ingredient) {
-  if (!Object.keys(dictionary).includes(ingredient)) {
-    return `"${ingredient}" not found in the dictionary.`;
+function getMemberTotals(object, member) {
+  if (!Object.keys(object).includes(member)) {
+    return `"${ingredient}" not found in the guild roster.`;
   } else {
-    for (const clonedIngredient of Object.entries(dictionary)) {
-      if (clonedIngredient[0] === ingredient) {
-        return clonedIngredient;
-      }
-    }
+    return `${member}'s totals - gold: ${Object.values(object[member])[0]}, silver: ${Object.values(object[member])[1]} reputation: ${Object.values(object[member])[2]}, experience: ${Object.values(object[member])[3]}`;
   }
 }
 
-function listTopIngredients(dictionary, key, limit) {
-  const clonedDict = cloneDictionary(dictionary);
-  const ingredientsSortedPerMacro = Object.entries(clonedDict);
+function listTopMembers(object, key, limit) {
+  const membersSortedByValue = Object.entries(object);
+  let returnObject = {};
 
-  ingredientsSortedPerMacro.sort((a, b) => b[1][key] - a[1][key]);
-  return ingredientsSortedPerMacro.slice(0, limit);
+  membersSortedByValue.sort((a, b) => b[1][key] - a[1][key]);
+  for (let member of membersSortedByValue.slice(0, limit)) {
+    returnObject[member[0]] = member[1];
+  }
+  return returnObject;
 }
