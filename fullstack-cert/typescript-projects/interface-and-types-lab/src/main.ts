@@ -22,17 +22,13 @@ interface Motorcycle {
 }
 
 
-// MOTORCYCLE SERVICE
-class MotorcycleService {
-  private static motorcycles: Motorcycle[];
-  // load data from server
-  static async getMotorcycles(): Promise<Motorcycle[]> {
+async function fetchMotorcycles() :  Promise<Motorcycle[]> 
+{
     const result = await fetch(`https://cdn.freecodecamp.org/curriculum/labs/data/motorcycles.json`);
-    this.motorcycles = await result.json()
-    return [...this.motorcycles].sort((a, b) => 
+    const motorcycles = await result.json();
+    return [...motorcycles].sort((a, b) => 
       new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
-  }
 }
 
 // MOTORCYCLE CARD COMPONENT
@@ -114,7 +110,7 @@ export class MotorcycleGalleryApp {
   private async loadMotorcycles(): Promise<void> {
     this.showLoading(true);
     try {
-      const data = await MotorcycleService.getMotorcycles();
+      const data = await fetchMotorcycles();
       this.allMotorcycles = [...data];
       this.applyFilters();
     } catch (error) {
