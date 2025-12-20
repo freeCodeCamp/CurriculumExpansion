@@ -12,11 +12,11 @@ def take_inventory():
     # This should clarify that total_items is accessible only inside take_inventory
     total_items = eggs + flour + sugar
 
-    # Step 4, review printing and string concatenation referencing local and global scoped variables
-    print("The kitchen has", total_items, "total items:")
-    print("- ", eggs, "eggs")
-    print("- ", flour, "flour")
-    print("- ", sugar, "sugar")
+    # Step 4, review printing and f-strings referencing local and global scoped variables
+    print(f'The kitchen has {total_items} total items:')
+    print(f'- {eggs} eggs')
+    print(f'- {flour} flour')
+    print(f'- {sugar} sugar')
 
 # Step 5, call a function and immediately see results
 take_inventory()
@@ -27,7 +27,7 @@ take_inventory()
 def use_eggs(eggs, num_eggs):
     # Step 7, review conditionals and local/global scopes
     if num_eggs > eggs:
-        print("The kitchen does not have enough eggs.")
+        print('The kitchen does not have enough eggs.')
 
         # Step 8, explain that returning in a function ends the function call and returns control
         # to the original call-site (below)
@@ -35,10 +35,10 @@ def use_eggs(eggs, num_eggs):
 
     # Step 9, compute the new value of eggs and return it
     # Opportunity to stop and note:
-    # - But why do we need to accept "eggs" as a parameter? Why can't we just modify it?
+    # - But why do we need to accept `eggs` as a parameter? Why can't we just modify it?
     # - Q: Should we teach that `global` exists, but that it is generally considered bad practice?
-    else:
-        return eggs - num_eggs
+    print(f'{num_eggs} egg(s) used out of {eggs} available.')
+    return eggs - num_eggs
 
 # Step 10, introduce calling a function and giving it arguments
 use_eggs(eggs, 1)
@@ -56,9 +56,9 @@ def make_fried_egg(eggs):
 
     # Step 14, review conditionals
     if has_enough_eggs:
-        print("Made a fried egg. Yummy!")
+        print('Made a fried egg. Yummy!')
     else:
-        print("Could not make a fried egg. Not enough eggs!")
+        print('Could not make a fried egg. Not enough eggs!')
 
     # Step 15, return the new value of eggs 
     return new_eggs
