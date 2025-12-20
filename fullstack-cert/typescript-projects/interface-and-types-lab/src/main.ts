@@ -32,63 +32,44 @@ async function fetchMotorcycles() :  Promise<Motorcycle[]>
 }
 
 // MOTORCYCLE CARD COMPONENT
-class MotorcycleCardComponent {
-  render(motorcycle: Motorcycle): string {
-    return `
-      <div class="motorcycle-card">
-        <div class="motorcycle-card-image-container">
-          <img
-            src="${motorcycle.image_url}"
-            alt="${motorcycle.name}"
-            class="motorcycle-card-image"
-          />
-          <div class="motorcycle-card-year-badge">
-            ${motorcycle.year}
-          </div>
-        </div>
-        <div class="motorcycle-card-content">
-          <div class="motorcycle-card-header">
-            <div>
-              <h3 class="motorcycle-card-title">${motorcycle.name}</h3>
-              <p class="motorcycle-card-manufacturer">${motorcycle.manufacturer}</p>
-            </div>
-            <span class="motorcycle-card-category">
-              ${motorcycle.category}
-            </span>
-          </div>
-          <p class="motorcycle-card-description">${motorcycle.description}</p>
-          <div class="motorcycle-card-footer">
-            <div>
-              <p class="motorcycle-card-price">
-                $${motorcycle.price.toLocaleString()}
-              </p>
-              <p class="motorcycle-card-engine">${motorcycle.engine_cc}cc</p>
-            </div>
-            <button class="motorcycle-card-button" data-motorcycle-id="${motorcycle.id}">
-              View Details
-            </button>
-          </div>
+function renderMotorcycleCard(motorcycle: Motorcycle): string {
+  return `
+    <div class="motorcycle-card">
+      <div class="motorcycle-card-image-container">
+        <img
+          src="${motorcycle.image_url}"
+          alt="${motorcycle.name}"
+          class="motorcycle-card-image"
+        />
+        <div class="motorcycle-card-year-badge">
+          ${motorcycle.year}
         </div>
       </div>
-    `;
-  }
-
-  setupEventListeners(): void {
-    document.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (target.classList.contains('motorcycle-card-button')) {
-        const motorcycleId = target.getAttribute('data-motorcycle-id');
-        if (motorcycleId) {
-          this.onViewDetails(motorcycleId);
-        }
-      }
-    });
-  }
-
-  private onViewDetails(motorcycleId: string): void {
-    console.log('View details for motorcycle:', motorcycleId);
-    alert(`View details for motorcycle ID: ${motorcycleId}`);
-  }
+      <div class="motorcycle-card-content">
+        <div class="motorcycle-card-header">
+          <div>
+            <h3 class="motorcycle-card-title">${motorcycle.name}</h3>
+            <p class="motorcycle-card-manufacturer">${motorcycle.manufacturer}</p>
+          </div>
+          <span class="motorcycle-card-category">
+            ${motorcycle.category}
+          </span>
+        </div>
+        <p class="motorcycle-card-description">${motorcycle.description}</p>
+        <div class="motorcycle-card-footer">
+          <div>
+            <p class="motorcycle-card-price">
+              $${motorcycle.price.toLocaleString()}
+            </p>
+            <p class="motorcycle-card-engine">${motorcycle.engine_cc}cc</p>
+          </div>
+          <button class="motorcycle-card-button" data-motorcycle-id="${motorcycle.id}">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 // MAIN APPLICATION
@@ -144,7 +125,6 @@ export class MotorcycleGalleryApp {
   private render(): void {
     this.renderResultsCount();
     this.renderMotorcycles();
-    this.setupComponentEventListeners();
   }
 
   private renderResultsCount(): void {
@@ -171,15 +151,9 @@ export class MotorcycleGalleryApp {
     container.style.display = 'grid';
     container.innerHTML = this.filteredMotorcycles
       .map((motorcycle) => {
-        const cardComponent = new MotorcycleCardComponent();
-        return cardComponent.render(motorcycle);
+        renderMotorcycleCard(motorcycle);
       })
       .join('');
-  }
-
-  private setupComponentEventListeners(): void {
-    const cardComponent = new MotorcycleCardComponent();
-    cardComponent.setupEventListeners();
   }
 
   private showLoading(show: boolean): void {
