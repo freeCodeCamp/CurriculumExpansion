@@ -1,3 +1,5 @@
+price = 20
+
 def apply_discount(price, discount):
     # Validation steps
     if not isinstance(price, (int, float)):
