@@ -10,7 +10,7 @@ This lab reinforces how to use functions, scope, conditionals, and numeric opera
 
 4. If `discount` is not a number (`int` or `float`), the function should return the string `The discount should be a number`.
 
-5. If `price` is less than `0`, the function should return the string `The price should be at least 0`.
+5. If `price` is less than or equal to `0`, the function should return the string `The price should greater than 0`.
 
 6. If `discount` is less than `0` or greater than `100`, the function should return the string `The discount should be between 0 and 100`.
 
