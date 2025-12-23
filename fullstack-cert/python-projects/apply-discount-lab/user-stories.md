@@ -2,7 +2,7 @@
 
 This lab reinforces how to use functions, scope, conditionals, and numeric operations in Python by building a small discount calculator.
 
-1. You should declare a global price variable and assign it a positive numeric value (integer or floating point number).
+1. You should declare a global `price` variable and assign it a positive numeric value (integer or floating point number).
 
 2. You should define a function named `apply_discount`.
 
