@@ -23,9 +23,9 @@ print("Has .com: " + str(has_com))
 # PART 2: STRING METHODS - CASE CONVERSION
 # ========================================
 
-messy_name = "  SARAH DAVIS  "
+messy_name = "  sARaH dAVis  "
 
-messy_email = "  Sarah.Davis@COMPANY.COM  "
+messy_email = "  SARAH.DAVIS@COMPANY.COM  "
 
 clean_name = messy_name.strip().title()
 clean_email = messy_email.strip().lower()
