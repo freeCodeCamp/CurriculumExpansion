@@ -1,5 +1,3 @@
-// US-1: Creating a ledger string to function as a JSON object within the .js file
-// Campers will need to parse this string to turn into an object they can work with for the rest of the lab.
 const equipmentLedger = `{
     "1": {
         "type": "PC",
@@ -32,7 +30,7 @@ const equipmentLedger = `{
         "type": "iPad",
         "status": "CheckedIn",
         "borrower": {
-            "name": ""
+            "name": "",
             "email": ""
         },
         "dueDate": ""
@@ -43,7 +41,7 @@ const equipmentLedger = `{
 function checkoutDevice(ledger, assetTag, borrower) {
     const loadedLedger = loadLedger(ledger);
 
-    loadedLedger[assetTag].status = 'CheckedOut';
+    loadedLedger[assetTag].status = "CheckedOut";
     loadedLedger[assetTag].borrower.name = borrower.name;
     loadedLedger[assetTag].borrower.email = borrower.email;
 
@@ -52,6 +50,7 @@ function checkoutDevice(ledger, assetTag, borrower) {
     console.log(`${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`);
 };
 
+checkoutDevice(equipmentLedger, 2, {"name": "Aaron", "email": "aaron@gmail.com"});
 // US-3: This clears out all the borrower data and resets the status to "Checked In", logs result
 function checkinDevice(ledger, assetTag) {
     const loadedLedger = loadLedger(ledger);
@@ -112,13 +111,11 @@ function listOverdueDevices(ledger, today) {
 ************************/ 
 // US-5: Helper functions that turn a JSON into a JS Object and vise-versa
 function serializeLedger(ledger) {
-    ledger.stringify();
-    return 0;
+    return JSON.stringify(ledger);
 }
 
 function loadLedger(json) {
-    json.parse();
-    return 0;
+    return JSON.parse(json);
 }
 
 // Helper function to format date in a comparable way. Used in listOverdueDevices().
