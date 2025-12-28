@@ -1,60 +1,69 @@
-// US-1: Creating a ledger per Github issue requirements
-const equipmentLedger = {
-    1: {
-        type: "PC",
-        status: "CheckedOut",
-        borrower: {
-            name: "John Smith",
-            email: "john@acme.org",
+// US-1: Creating a ledger string to function as a JSON object within the .js file
+// Campers will need to parse this string to turn into an object they can work with for the rest of the lab.
+const equipmentLedger = `{
+    "1": {
+        "type": "PC",
+        "status": "CheckedOut",
+        "borrower": {
+            "name": "John Smith",
+            "email": "john@acme.org"
         },
-        dueDate: "11/30/2025"
+        "dueDate": "11/30/2025"
     },
-    2: {
-        type: "Laptop",
-        status: "CheckedIn",
-        borrower: {
-            name: "",
-            email: "",
+    "2": {
+        "type": "Laptop",
+        "status": "CheckedIn",
+        "borrower": {
+            "name": "",
+            "email": ""
         },
-        dueDate: ""
+        "dueDate": ""
     },
-    3: {
-        type: "Laptop",
-        status: "CheckedOut",
-        borrower: {
-            name: "Jane Doe",
-            email: "jane@acme.org",
+    "3": {
+        "type": "Laptop",
+        "status": "CheckedOut",
+        "borrower": {
+            "name": "Jane Doe",
+            "email": "jane@acme.org"
         },
-        dueDate: "10/31/2025"
+        "dueDate": "10/31/2025"
     },
-    4: {
-        type: "iPad",
-        status: "CheckedIn",
-        borrower: {
-            name: "",
-            email: "",
+    "4": {
+        "type": "iPad",
+        "status": "CheckedIn",
+        "borrower": {
+            "name": ""
+            "email": ""
         },
-        dueDate: ""
+        "dueDate": ""
     }
-}
+}`
 
 // US-2: This updates ledger item status to "CheckedOut" and updates user's name and email, logs result
 function checkoutDevice(ledger, assetTag, borrower) {
-    ledger[assetTag].status = 'CheckedOut';
-    ledger[assetTag].borrower.name = borrower.name;
-    ledger[assetTag].borrower.email = borrower.email;
+    const loadedLedger = loadLedger(equipmentLedger);
 
-    return `${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${ledger[assetTag].borrower.name}`;
+    loadedLedger[assetTag].status = 'CheckedOut';
+    loadedLedger[assetTag].borrower.name = borrower.name;
+    loadedLedger[assetTag].borrower.email = borrower.email;
+
+    serializeLedger(loadedLedger);
+
+    return `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`;
 };
 
 // US-3: This clears out all the borrower data and resets the status to "Checked In", logs result
 function checkinDevice(ledger, assetTag) {
-    ledger[assetTag].status = "CheckedIn";
-    ledger[assetTag].borrower.name = "";
-    ledger[assetTag].borrower.email = "";
-    ledger[assetTag].dueDate = "";
+    const loadedLedger = loadLedger(equipmentLedger);
 
-    console.log(`${ledger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`);
+    loadedLedger[assetTag].status = "CheckedIn";
+    loadedLedger[assetTag].borrower.name = "";
+    loadedLedger[assetTag].borrower.email = "";
+    loadedLedger[assetTag].dueDate = "";
+
+    serializeLedger(loadedLedger);
+
+    console.log(`${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`);
 }
 
 // US-4: Returns an array of overdue ledger entries sorted by the latest first
