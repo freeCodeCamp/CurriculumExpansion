@@ -18,7 +18,6 @@ const shuffledStoryFragments = [
   { id: 8, text: "So the Fox, who had consented to act as judge," },
   { id: 20, text: "but he could not overtake the Tortoise in time." },
   { id: 5, text: "I'll run you a race and prove it.\"" },
-  { id: 4, text: '"and I get there sooner than you think.' },
   { id: 6, text: "The Hare was much amused at the idea of running a race with the Tortoise,", },
   ,
   { id: 13, text: "until the Tortoise should catch up." },
