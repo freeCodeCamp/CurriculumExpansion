@@ -47,7 +47,7 @@ function checkoutDevice(ledger, assetTag, borrower) {
 
     serializeLedger(loadedLedger);
 
-    console.log(`${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`);
+    `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`;
 };
 
 checkoutDevice(equipmentLedger, 2, {"name": "Aaron", "email": "aaron@gmail.com"});
@@ -62,7 +62,7 @@ function checkinDevice(ledger, assetTag) {
 
     serializeLedger(loadedLedger);
 
-    console.log(`${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`);
+    return `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked in.`;
 }
 
 // US-4: Returns an array of overdue ledger entries sorted by the latest first
