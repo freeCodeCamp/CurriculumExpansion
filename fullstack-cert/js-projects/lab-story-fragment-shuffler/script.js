@@ -1,4 +1,4 @@
-const shuffledStoryFragments = [
+const shuffledFragments = [
   { id: 15,text: "and, after a time, passed the place where the Hare was sleeping.", },
   { id: 12, text: "he lay down beside the course to take a nap" },
   ,
@@ -26,9 +26,9 @@ const shuffledStoryFragments = [
   { id: 18, text: "the Tortoise was near the goal." },
 ];
 
-const removeEmptyFragments = (fragments) => {
+const compactFragments = (fragments) => {
   // guards against sparse arrays by ignoring empty elements and logging warnings
-  let fragmentsWithoutUndefinedElements = [];
+  let compacted = [];
 
   for (let i = 0; i < fragments.length; i++) {
     if (fragments[i] === undefined) {
@@ -36,35 +36,35 @@ const removeEmptyFragments = (fragments) => {
         `WARNING: The array contains an undefined element at index ${i}.`,
       );
     } else {
-      fragmentsWithoutUndefinedElements.push(fragments[i]);
+      compacted.push(fragments[i]);
     }
   }
 
-  return fragmentsWithoutUndefinedElements;
+  return compacted;
 };
 
-const shuffledStoryFragmentsWithoutEmptyElements = removeEmptyFragments(shuffledStoryFragments);
+const compactedShuffledFragments = compactFragments(shuffledFragments);
 
 const sortFragments = (fragments) => {
   // returns a new array ordered by id
-  let sortedFragments = [fragments.shift()];
+  let sorted = [fragments.shift()];
 
   for (const fragment of fragments) {
-    for (let i = 0; i < sortedFragments.length; i++) {
-      if (fragment.id < sortedFragments[i].id) {
-        sortedFragments.splice(i, 0, fragment);
+    for (let i = 0; i < sorted.length; i++) {
+      if (fragment.id < sorted[i].id) {
+        sorted.splice(i, 0, fragment);
         break;
-      } else if (i === sortedFragments.length - 1) {
-        sortedFragments.push(fragment);
+      } else if (i === sorted.length - 1) {
+        sorted.push(fragment);
         break;
       }
     }
   }
 
-  return sortedFragments;
+  return sorted;
 };
 
-const stortedStoryFragments = sortFragments(shuffledStoryFragmentsWithoutEmptyElements);
+const stortedFragments = sortFragments(compactedShuffledFragments);
 
 const validateFragments = (sortedFragments) => {
   // reports missing or duplicate IDs
@@ -77,35 +77,35 @@ const validateFragments = (sortedFragments) => {
   }
 };
 
-validateFragments(stortedStoryFragments);
+validateFragments(stortedFragments);
 
 const patchFragments = (sortedFragments) => {
   // returns an array without duplicate IDs and inserted missing IDs
-  let patchedFragments = [sortedFragments.shift()];
+  let patched = [sortedFragments.shift()];
   for (const currentFragment of sortedFragments) {
-    const previousFragment = patchedFragments.at(-1);
+    const previousFragment = patched.at(-1);
     if (currentFragment.id !== previousFragment.id) {
       const numberOfMissingIDs = currentFragment.id - 1 - previousFragment.id;
       for (let i = 1; i <= numberOfMissingIDs; i++) {
-        patchedFragments.push({id: previousFragment.id + i, text: "~~~~~~~ Missing stroy fragment ~~~~~~~"})
+        patched.push({id: previousFragment.id + i, text: "~~~~~~~ Missing stroy fragment ~~~~~~~"})
       }
-      patchedFragments.push(currentFragment);
+      patched.push(currentFragment);
     }
   }
 
-  return patchedFragments;
+  return patched;
 }
 
-const patchedStoryFragments = patchFragments(stortedStoryFragments);
+const patchedFragments = patchFragments(stortedFragments);
 
-const assembleStory = (sortedFragments) => {
+const assembleStory = (patchedFragments) => {
   // reduces ordered fragments into a single string separated by blank lines
-  let assembledStory = "";
-  for (const fragment of sortedFragments) {
-    assembledStory += fragment.text + "\n";
+  let assembled = "";
+  for (const fragment of patchedFragments) {
+    assembled += fragment.text + "\n";
   }
-  return assembledStory;
+  return assembled;
 };
 
 console.log("\nHere is the assembled story:\n")
-console.log(assembleStory(patchedStoryFragments));
+console.log(assembleStory(patchedFragments));
