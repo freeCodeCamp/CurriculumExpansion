@@ -47,7 +47,7 @@ function checkoutDevice(ledger, assetTag, borrower) {
 
     serializeLedger(loadedLedger);
 
-    `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`;
+    return `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`;
 };
 
 checkoutDevice(equipmentLedger, 2, {"name": "Aaron", "email": "aaron@gmail.com"});
