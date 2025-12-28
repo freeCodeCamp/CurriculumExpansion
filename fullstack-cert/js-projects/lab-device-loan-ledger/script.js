@@ -41,7 +41,7 @@ const equipmentLedger = `{
 
 // US-2: This updates ledger item status to "CheckedOut" and updates user's name and email, logs result
 function checkoutDevice(ledger, assetTag, borrower) {
-    const loadedLedger = loadLedger(equipmentLedger);
+    const loadedLedger = loadLedger(ledger);
 
     loadedLedger[assetTag].status = 'CheckedOut';
     loadedLedger[assetTag].borrower.name = borrower.name;
@@ -49,12 +49,12 @@ function checkoutDevice(ledger, assetTag, borrower) {
 
     serializeLedger(loadedLedger);
 
-    return `${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`;
+    console.log(`${loadedLedger[assetTag].type} with an asset tag of ${assetTag} has been checked out to ${loadedLedger[assetTag].borrower.name}`);
 };
 
 // US-3: This clears out all the borrower data and resets the status to "Checked In", logs result
 function checkinDevice(ledger, assetTag) {
-    const loadedLedger = loadLedger(equipmentLedger);
+    const loadedLedger = loadLedger(ledger);
 
     loadedLedger[assetTag].status = "CheckedIn";
     loadedLedger[assetTag].borrower.name = "";
@@ -68,12 +68,14 @@ function checkinDevice(ledger, assetTag) {
 
 // US-4: Returns an array of overdue ledger entries sorted by the latest first
 function listOverdueDevices(ledger, today) {
+    const loadedLedger = loadLedger(ledger);
+
     let overdueDevicesArray = [];
     let todaysFormattedDate = reformatDate(today);
 
-    for (let assetTag in ledger) {
-        if (ledger[assetTag].status === "CheckedOut") {
-            const item = ledger[assetTag];
+    for (let assetTag in loadedLedger) {
+        if (loadedLedger[assetTag].status === "CheckedOut") {
+            const item = loadedLedger[assetTag];
             
             if (item.status !== "CheckedOut" || !item.dueDate) {
                 continue;
