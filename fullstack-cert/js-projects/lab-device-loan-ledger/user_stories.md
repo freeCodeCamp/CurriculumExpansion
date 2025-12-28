@@ -24,5 +24,5 @@ Your ledger needs to satisfy the user stories below to be accepted by the servic
 1. You should model the ledger as `{ [assetTag]: { type, status, borrower: { name, email }, dueDate } }`.
 2. You should write a `checkoutDevice(ledger, assetTag, borrower)` function that copies the ledger object, sets `borrower` name and email address info, and returns a confirmation message.
 3. You should write a `checkinDevice(ledger, assetTag)` function that clears the borrower's name and email, as well as the `dueDate` property, and updates the device's `status`.
-4. You should write a `listOverdueDevices(ledger, today)` function that returns an array of overdue entries sorted by due date.
+4. You should write a `listOverdueDevices(ledger, today)` function that returns an array of overdue entries sorted by due date. Do not use the JavaScript Date object for this lab exercise.
 5. You should write `serializeLedger(ledger)` and `loadLedger(json)` helpers functions to load (convert) a JSON file into a JavaScript object, or save (serialize) a JavaScript object into a JSON object. _Hint: Refer back to your JSON lessons preceeding this lab if you need help._
