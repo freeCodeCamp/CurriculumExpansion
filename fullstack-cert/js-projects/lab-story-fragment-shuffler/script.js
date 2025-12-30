@@ -64,7 +64,7 @@ const sortFragments = (fragments) => {
   return sorted;
 };
 
-const stortedFragments = sortFragments(compactedShuffledFragments);
+const sortedFragments = sortFragments(compactedShuffledFragments);
 
 const validateFragments = (sortedFragments) => {
   // reports missing or duplicate IDs
@@ -77,7 +77,7 @@ const validateFragments = (sortedFragments) => {
   }
 };
 
-validateFragments(stortedFragments);
+validateFragments(sortedFragments);
 
 const patchFragments = (sortedFragments) => {
   // returns an array without duplicate IDs and inserted missing IDs
@@ -96,7 +96,7 @@ const patchFragments = (sortedFragments) => {
   return patched;
 }
 
-const patchedFragments = patchFragments(stortedFragments);
+const patchedFragments = patchFragments(sortedFragments);
 
 const assembleStory = (patchedFragments) => {
   // reduces ordered fragments into a single string separated by blank lines
