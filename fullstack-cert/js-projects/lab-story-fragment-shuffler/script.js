@@ -33,7 +33,7 @@ const compactFragments = (fragments) => {
   for (let i = 0; i < fragments.length; i++) {
     if (fragments[i] === undefined) {
       console.log(
-        `WARNING: The array contains an undefined element at index ${i}.`,
+        `WARNING: Undefined element in the array at index ${i}.`,
       );
     } else {
       compacted.push(fragments[i]);
@@ -70,9 +70,9 @@ const validateFragments = (sortedFragments) => {
   // reports missing or duplicate IDs
   for (let i = 0; i < sortedFragments.length - 1; i++) {
     if (sortedFragments[i].id === sortedFragments[i + 1].id) {
-      console.log(`The ID ${sortedFragments[i].id} has duplicates.`);
+      console.log(`WARNING: Duplicate objects with ID ${sortedFragments[i].id}.`);
     } else if (sortedFragments[i].id + 1 !== sortedFragments[i + 1].id) {
-      console.log(`The ID ${sortedFragments[i].id + 1} is missing.`);
+      console.log(`WARNING: Missing objects between ID ${sortedFragments[i].id} and ID ${sortedFragments[i + 1].id}.`);
     }
   }
 };
