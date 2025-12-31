@@ -19,6 +19,8 @@ elons_bill = 39.39
 my_bill = 64.21
 
 running_total += marks_bill
+print("After Mark's bill:", running_total)
+
 running_total += jeffs_bill
 running_total += elons_bill
 running_total += my_bill
@@ -26,10 +28,12 @@ running_total += my_bill
 # Step 4: Calculating the tip
 # The service was great, so we leave a 25% tip
 tip = running_total * 0.25
+print("Tip amount:", tip)
 
 # Step 5: Updating the total using augmented assignment
 # The += operator adds a value to a variable and updates it in place
 running_total += tip
+print("Total with tip:", running_total)
 
 # Step 6: Splitting the bill
 # Divide the total evenly among all friends
