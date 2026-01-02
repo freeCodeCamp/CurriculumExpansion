@@ -191,8 +191,8 @@ function drawDashboard(year) {
     .style('background-color', d => pieColors(d.key))
 
   legendRows.append('td')
-    .text(d => d.value)
-    .attr('align', 'left');
+    .text(d => d.value.toLocaleString())
+    .attr('align', 'left')
     .style('padding-left', '10px');
 }
 
