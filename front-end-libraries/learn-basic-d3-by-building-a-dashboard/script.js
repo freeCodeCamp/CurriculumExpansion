@@ -9,7 +9,13 @@ function drawDashboard(year) {
     tumblrColor = '#f6dd71',
     instagramColor = '#fd9b98';
 
-  const lineGraph = d3.select('.dashboard')
+
+  const container = d3.select('.dashboard')
+    .style('display', 'flex')
+    .style('flex-direction', 'row')
+    .style('gap', '40px');
+
+  const lineGraph = container
     .append('svg')
     .attr('width', svgWidth)
     .attr('height', svgHeight);
@@ -49,35 +55,30 @@ function drawDashboard(year) {
     .y(d => yScale(d.followers.twitter));
 
   lineGraph.append('path')
-    .attr('d', twitterLine(data))
+    .datum(data)
+    .attr('d', twitterLine)
     .attr('stroke', twitterColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
 
-  const tumblrLine = d3.line()
-    .x(d => xScale(d.year))
-    .y(d => yScale(d.followers.tumblr));
-
   lineGraph.append('path')
-    .attr('d', tumblrLine(data))
+    .datum(data)
+    .attr('d', tumblrLine)
     .attr('stroke', tumblrColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
-    
-  const instagramLine = d3.line()
-    .x(d => xScale(d.year))
-    .y(d => yScale(d.followers.instagram));
-  
-  lineGraph.append('path')
-    .attr('d', instagramLine(data))
+
+    lineGraph.append('path')
+    .datum(data)
+    .attr('d', instagramLine)
     .attr('stroke', instagramColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
 
   lineGraph.selectAll('twitter-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'twitter-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.twitter))
     .attr('r', 6)
@@ -88,8 +89,8 @@ function drawDashboard(year) {
 
   lineGraph.selectAll('tumblr-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'tumblr-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.tumblr))
     .attr('r', 6)
@@ -100,8 +101,8 @@ function drawDashboard(year) {
 
   lineGraph.selectAll('instagram-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'instagram-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.instagram))
     .attr('r', 6)
@@ -110,30 +111,33 @@ function drawDashboard(year) {
     .style('cursor', 'pointer')
     .on('mouseover', (event, d) => drawDashboard(d.year));
 
-  const rightDashboard = d3.select('.dashboard')
+  const rightDashboard = container
     .append('div');
+    .style('display', 'flex')
+    .style('flex-direction', 'column')
+    .style('align-items', 'center');
 
   const pieGraph = rightDashboard.append('svg')
     .attr('width', 200)
     .attr('height', 200)
-    .style('position', 'relative')
-    .style('left', '20px');
 
   const pieArc = d3.arc()
     .outerRadius(100)
     .innerRadius(0);
 
   const pieColors = d3.scaleOrdinal()
-    .domain(data[index].followers)
+    .domain(Object.keys(data[index].followers))
     .range([twitterColor, tumblrColor, instagramColor]);
 
   const pie = d3.pie()
     .value(d => d.value);
 
+  const pieData = Object.entries(data[index].followers).map(([key, value]) => ({key, value}));
+
   const pieGraphData = pieGraph.selectAll('pieSlices')
-    .data(pie(d3.entries(data[index].followers)))
-    .enter()
-    .append('g')
+    .data(pie(pieData))
+    .join('g')
+    .apattr('class', 'pie-slice')
     .attr('transform', 'translate(100, 100)');
 
   pieGraphData.append('path')
