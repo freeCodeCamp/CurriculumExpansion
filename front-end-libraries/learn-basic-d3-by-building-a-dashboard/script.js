@@ -42,7 +42,7 @@ function drawDashboard(year) {
     .style('text-anchor', 'end')
     .style('cursor', 'pointer')
     .style('font', d => d === year ? 'bold 10px verdana' : '10px verdana')
-    .on('mouseover', d => drawDashboard(d));
+    .on('mouseover', (event, d) => drawDashboard(d));
 
   const twitterLine = d3.line()
     .x(d => xScale(d.year))
@@ -84,7 +84,7 @@ function drawDashboard(year) {
     .attr('fill', d => d.year === year ? twitterColor : 'white')
     .attr('stroke', twitterColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
   lineGraph.selectAll('tumblr-circles')
     .data(data)
@@ -96,7 +96,7 @@ function drawDashboard(year) {
     .attr('fill', d => d.year === year ? tumblrColor : 'white')
     .attr('stroke', tumblrColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
   lineGraph.selectAll('instagram-circles')
     .data(data)
@@ -108,7 +108,7 @@ function drawDashboard(year) {
     .attr('fill', d => d.year === year ? instagramColor : 'white')
     .attr('stroke', instagramColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
   const rightDashboard = d3.select('.dashboard')
     .append('div');
