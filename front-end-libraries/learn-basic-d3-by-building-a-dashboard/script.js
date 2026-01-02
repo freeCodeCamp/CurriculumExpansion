@@ -134,13 +134,13 @@ function drawDashboard(year) {
 
   const pieData = Object.entries(data[index].followers).map(([key, value]) => ({key, value}));
 
-  const pieGraphData = pieGraph.selectAll('pieSlices')
+  const pieSlices = pieGraph.selectAll('pieSlices')
     .data(pie(pieData))
     .join('g')
     .apattr('class', 'pie-slice')
     .attr('transform', 'translate(100, 100)');
 
-  pieGraphData.append('path')
+  pieSlices.append('path')
     .attr('d', pieArc)
     .attr('fill', d => pieColors(d.data.key))
     .attr('stroke', 'white')
@@ -151,20 +151,19 @@ function drawDashboard(year) {
     .enter()
     .append('text')
     .text(d => {
-      const values = d3.values(data[index].followers);
-      const sum = d3.sum(values);
+      const sum = d3.sum(pieData, d => d.value);
       const percent = d.data.value/sum;
       return `${ Math.round(percent*100) }%`;
     })
     .attr('transform', d => `translate(${pieArc.centroid(d)})`)
     .style('text-anchor', 'middle')
-    .style('font', '10px verdana');
+    .style('font', '10px verdana')
+    .style ('fill', 'black');
 
   const legend = rightDashboard.append('table')
     .attr('width', 200)
     .attr('height', 120)
     .style('font', '12px verdana')
-    .style('position', 'relative')
     .style('top', '30px');
 
   const legendTitle = legend.append('thead')
@@ -172,18 +171,17 @@ function drawDashboard(year) {
     .append('th')
     .text(`${year} followers`)
     .attr('colspan', 3)
-    .style('position', 'relative')
-    .style('left', '20px');
+    .style('text-align', 'center');
 
   const legendRows = legend.append('tbody')
     .selectAll('tr')
-    .data(d3.entries(data[index].followers))
-    .enter()
-    .append('tr');
+    .data(pieData)
+    .join('tr');
 
   legendRows.append('td')
     .text(d => d.key)
-    .attr('align', 'right');
+    .attr('align', 'right')
+    .style('padding-right', '10px');
 
   legendRows.append('td')
     .attr('align', 'center')
@@ -195,6 +193,7 @@ function drawDashboard(year) {
   legendRows.append('td')
     .text(d => d.value)
     .attr('align', 'left');
+    .style('padding-left', '10px');
 }
 
 drawDashboard(2020);
