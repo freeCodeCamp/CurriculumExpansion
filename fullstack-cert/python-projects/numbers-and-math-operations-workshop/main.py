@@ -40,3 +40,9 @@ print("Total with tip:", running_total)
 each_pays = running_total / num_of_friends
 
 print("Each person pays:", each_pays)
+
+# Step 7: Rounding the final amount
+# Round the per-person cost to two decimal places
+each_pays = round(each_pays, 2)
+
+print("Each person pays:", each_pays)
