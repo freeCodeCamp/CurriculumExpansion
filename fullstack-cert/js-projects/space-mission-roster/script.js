@@ -15,7 +15,7 @@ function addCrewMember(crew, astronaut) {
     }
   }
   crew.push(astronaut);
-  console.log(`Added ${astronaut.name} as ${astronaut.role}.`);
+  console.log(`Added ${astronaut.name} as ${astronaut.role}`);
 }
 
 addCrewMember(squad, firstAstronaut);
@@ -108,8 +108,8 @@ for (let i = 0; i < EVAChunks.length; i++) {
 function printCrewSummary(crew) {
   const sorted = crew.slice();
   sortByPriorityDescending(sorted); 
-  for (let i = 0; i < sorted.length; i++) {
-    console.log(sorted[i].name);
+  for (const astronaut of sorted) {
+    console.log(astronaut.name)
   }
 }
 
