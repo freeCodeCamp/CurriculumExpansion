@@ -6,25 +6,25 @@
 function flattenPlaylists(playlists) {
     if (!Array.isArray(playlists)) return [];
 
-    return playlists.flatMap((playlist, playlistIndex) => {
-        // Handle edge case: empty or invalid sub-playlist
-        if (!Array.isArray(playlist)) return [];
+    const result = [];
 
-        const flattened = [];
-        for (var tracKIndex = 0; tracKIndex < playlist.length; tracKIndex++) {
-            var track = playlist[tracKIndex]
+    for (let i = 0; i < playlists.length; i++) {
+        const playlist = playlists[i];
+        if (!Array.isArray(playlist)) continue;
 
-            flattened.push({
+        for (let j = 0; j < playlist.length; j++) {
+            const track = playlist[j];
+            result.push ({
                 trackId: track.trackId,
                 artist: track.artist,
                 title: track.title,
                 votes: track.votes,
                 bpm: track.bpm,
-                source: [playlistIndex, tracKIndex]
+                source: [i, j]
             });
         }
-        return flattened;
-    });
+    }
+    return result;
 }
 
 /**
@@ -37,8 +37,8 @@ function scoreTracks(tracks) {
     const targetBpm = 120;
     const result = []
     
-    for (var i = 0; i < tracks.length; i++) {
-        var track = tracks[i]
+    for (let i = 0; i < tracks.length; i++) {
+        const track = tracks[i]
 
         result.push({
             trackId: track.trackId,
@@ -63,7 +63,7 @@ function dedupeTracks(tracks) {
     const seenTrackIds = [];
     const result = [];
 
-    for (var i = 0; i < tracks.length; i++) {
+    for (let i = 0; i < tracks.length; i++) {
         if (!seenTrackIds.includes(tracks[i].trackId)) {
             seenTrackIds.push(tracks[i].trackId);
             result.push(tracks[i]);
@@ -85,7 +85,7 @@ function enforceArtistQuota(tracks, maxPerArtist) {
     const artistCounts = [];
     const result = [];
 
-    for (var i = 0; i < tracks.length; i++) {
+    for (let i = 0; i < tracks.length; i++) {
         const artist = tracks[i].artist;
         const artistIndex = artists.indexOf(artist);
 
@@ -110,7 +110,7 @@ function enforceArtistQuota(tracks, maxPerArtist) {
 function buildSchedule(tracks) {
     const schedule = [];
 
-    for (var i = 0; i < tracks.length; i++) {
+    for (let i = 0; i < tracks.length; i++) {
         schedule.push({
             slot: i + 1, // slot starts at 1
             trackId: tracks[i].trackId
@@ -118,4 +118,18 @@ function buildSchedule(tracks) {
     }
 
     return schedule
+}
+
+/**
+ * Use all helper functions to produce a final schedule.
+ * @param {*} playlists 
+ * @param {*} maxPerArtist 
+ * @returns 
+ */
+function remixPlaylist(playlists, maxPerArtist) {
+    const flattened = flattenPlaylists(playlists);
+    const scored = scoreTracks(flattened)
+    const deduped = dedupeTracks(scored);
+    const limited = enforceArtistQuota(deduped, maxPerArtist)
+    return buildSchedule(limited)
 }
