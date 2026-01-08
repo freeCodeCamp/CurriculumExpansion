@@ -24,9 +24,7 @@ function drawDashboard(year, data) {
     console.error('Year not found:', year);
     return;
   }
-  
-  console.log('Found data at index:', index);
-  
+    
   
   const svgMargin = 60,
     svgWidth = 700,
