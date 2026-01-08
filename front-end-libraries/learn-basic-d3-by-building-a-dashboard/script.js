@@ -1,6 +1,30 @@
-function drawDashboard(year) {
+d3.json('https://raw.githubusercontent.com/meemeealm/cdn/refs/heads/main/build/curriculum/d3-data/data.json')
+  .then(function(data) {
+    console.log('Data loaded:', data);
+    
+    var lastYear = data[data.length - 1].year;
+    console.log('Using year:', lastYear);
+    
+    drawDashboard(lastYear, data);
+  })
+
+
+function drawDashboard(year, data) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year);
+  
+  var index = -1;
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].year === year) {
+      index = i;
+      break;
+    }
+  }
+  
+  if (index === -1) {
+    console.error('Year not found:', year);
+    return;
+  }
+    
   
   const svgMargin = 60,
     svgWidth = 700,
@@ -9,7 +33,13 @@ function drawDashboard(year) {
     tumblrColor = '#f6dd71',
     instagramColor = '#fd9b98';
 
-  const lineGraph = d3.select('.dashboard')
+
+  const container = d3.select('.dashboard')
+    .style('display', 'flex')
+    .style('flex-direction', 'row')
+    .style('gap', '40px');
+
+  const lineGraph = container
     .append('svg')
     .attr('width', svgWidth)
     .attr('height', svgHeight);
@@ -26,7 +56,7 @@ function drawDashboard(year) {
     .ticks(6, '~s');
 
   const xAxis = d3.axisBottom(xScale)
-    .tickFormat(d3.format(''))
+    .tickFormat(d3.format('d'))
     .tickPadding(10);
 
   lineGraph.append('g')
@@ -42,125 +72,128 @@ function drawDashboard(year) {
     .style('text-anchor', 'end')
     .style('cursor', 'pointer')
     .style('font', d => d === year ? 'bold 10px verdana' : '10px verdana')
-    .on('mouseover', d => drawDashboard(d));
+    .on('mouseover', (event, d) => drawDashboard(d, data));
 
   const twitterLine = d3.line()
     .x(d => xScale(d.year))
     .y(d => yScale(d.followers.twitter));
 
+  const tumblrLine = d3.line() 
+    .x(d => xScale(d.year)) 
+    .y(d => yScale(d.followers.tumblr));
+
+  const instagramLine = d3.line()
+  .x(d => xScale(d.year))
+  .y(d => yScale(d.followers.instagram));
+
   lineGraph.append('path')
-    .attr('d', twitterLine(data))
+    .datum(data)
+    .attr('d', twitterLine)
     .attr('stroke', twitterColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
 
-  const tumblrLine = d3.line()
-    .x(d => xScale(d.year))
-    .y(d => yScale(d.followers.tumblr));
-
   lineGraph.append('path')
-    .attr('d', tumblrLine(data))
+    .datum(data)
+    .attr('d', tumblrLine)
     .attr('stroke', tumblrColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
-    
-  const instagramLine = d3.line()
-    .x(d => xScale(d.year))
-    .y(d => yScale(d.followers.instagram));
-  
-  lineGraph.append('path')
-    .attr('d', instagramLine(data))
+
+    lineGraph.append('path')
+    .datum(data)
+    .attr('d', instagramLine)
     .attr('stroke', instagramColor)
     .attr('stroke-width', '3')
     .attr('fill', 'transparent');
 
   lineGraph.selectAll('twitter-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'twitter-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.twitter))
     .attr('r', 6)
     .attr('fill', d => d.year === year ? twitterColor : 'white')
     .attr('stroke', twitterColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
   lineGraph.selectAll('tumblr-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'tumblr-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.tumblr))
     .attr('r', 6)
     .attr('fill', d => d.year === year ? tumblrColor : 'white')
     .attr('stroke', tumblrColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
   lineGraph.selectAll('instagram-circles')
     .data(data)
-    .enter()
-    .append('circle')
+    .join('circle')
+    .attr('class', 'instagram-circle')
     .attr('cx', d => xScale(d.year))
     .attr('cy', d => yScale(d.followers.instagram))
     .attr('r', 6)
     .attr('fill', d => d.year === year ? instagramColor : 'white')
     .attr('stroke', instagramColor)
     .style('cursor', 'pointer')
-    .on('mouseover', d => drawDashboard(d.year));
+    .on('mouseover', (event, d) => drawDashboard(d.year));
 
-  const rightDashboard = d3.select('.dashboard')
-    .append('div');
+  const rightDashboard = container
+    .append('div')
+    .style('display', 'flex')
+    .style('flex-direction', 'column')
+    .style('align-items', 'center');
 
   const pieGraph = rightDashboard.append('svg')
     .attr('width', 200)
     .attr('height', 200)
-    .style('position', 'relative')
-    .style('left', '20px');
 
   const pieArc = d3.arc()
     .outerRadius(100)
     .innerRadius(0);
 
   const pieColors = d3.scaleOrdinal()
-    .domain(data[index].followers)
+    .domain(Object.keys(data[index].followers))
     .range([twitterColor, tumblrColor, instagramColor]);
 
   const pie = d3.pie()
     .value(d => d.value);
 
-  const pieGraphData = pieGraph.selectAll('pieSlices')
-    .data(pie(d3.entries(data[index].followers)))
-    .enter()
-    .append('g')
+  const pieData = Object.entries(data[index].followers).map(([key, value]) => ({key, value}));
+
+  const pieSlices = pieGraph.selectAll('pieSlices')
+    .data(pie(pieData))
+    .join('g')
+    .attr('class', 'pie-slice')
     .attr('transform', 'translate(100, 100)');
 
-  pieGraphData.append('path')
+  pieSlices.append('path')
     .attr('d', pieArc)
     .attr('fill', d => pieColors(d.data.key))
     .attr('stroke', 'white')
     .attr('stroke-width', 2);
     
-  pieGraphData.selectAll('pieSliceText')
-    .data(pie(d3.entries(data[index].followers)))
-    .enter()
-    .append('text')
-    .text(d => {
-      const values = d3.values(data[index].followers);
-      const sum = d3.sum(values);
-      const percent = d.data.value/sum;
-      return `${ Math.round(percent*100) }%`;
-    })
-    .attr('transform', d => `translate(${pieArc.centroid(d)})`)
-    .style('text-anchor', 'middle')
-    .style('font', '10px verdana');
+  pieSlices.append('text')
+  .text(d => {
+    const sum = d3.sum(pieData, d => d.value);
+    const percent = d.data.value / sum;
+    return `${Math.round(percent * 100)}%`;
+  })
+  .attr('transform', d => `translate(${pieArc.centroid(d)})`)
+  .style('text-anchor', 'middle')
+  .style('font', '10px verdana')
+  .style('fill', 'black');
+
 
   const legend = rightDashboard.append('table')
     .attr('width', 200)
     .attr('height', 120)
     .style('font', '12px verdana')
-    .style('position', 'relative')
     .style('top', '30px');
 
   const legendTitle = legend.append('thead')
@@ -168,18 +201,17 @@ function drawDashboard(year) {
     .append('th')
     .text(`${year} followers`)
     .attr('colspan', 3)
-    .style('position', 'relative')
-    .style('left', '20px');
+    .style('text-align', 'center');
 
   const legendRows = legend.append('tbody')
     .selectAll('tr')
-    .data(d3.entries(data[index].followers))
-    .enter()
-    .append('tr');
+    .data(pieData)
+    .join('tr');
 
   legendRows.append('td')
     .text(d => d.key)
-    .attr('align', 'right');
+    .attr('align', 'right')
+    .style('padding-right', '10px');
 
   legendRows.append('td')
     .attr('align', 'center')
@@ -189,8 +221,7 @@ function drawDashboard(year) {
     .style('background-color', d => pieColors(d.key))
 
   legendRows.append('td')
-    .text(d => d.value)
-    .attr('align', 'left');
+    .text(d => d.value.toLocaleString())
+    .attr('align', 'left')
+    .style('padding-left', '10px');
 }
-
-drawDashboard(2020);
