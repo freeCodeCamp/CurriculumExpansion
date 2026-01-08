@@ -1,6 +1,32 @@
-function drawDashboard(year) {
+d3.json('https://raw.githubusercontent.com/meemeealm/cdn/refs/heads/main/build/curriculum/d3-data/data.json')
+  .then(function(data) {
+    console.log('Data loaded:', data);
+    
+    var lastYear = data[data.length - 1].year;
+    console.log('Using year:', lastYear);
+    
+    drawDashboard(lastYear, data);
+  })
+
+
+function drawDashboard(year, data) {
   d3.select('.dashboard').html('');
-  const index = data.findIndex(d => d.year === year);
+  
+  var index = -1;
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].year === year) {
+      index = i;
+      break;
+    }
+  }
+  
+  if (index === -1) {
+    console.error('Year not found:', year);
+    return;
+  }
+  
+  console.log('Found data at index:', index);
+  
   
   const svgMargin = 60,
     svgWidth = 700,
@@ -32,7 +58,7 @@ function drawDashboard(year) {
     .ticks(6, '~s');
 
   const xAxis = d3.axisBottom(xScale)
-    .tickFormat(d3.format(''))
+    .tickFormat(d3.format('d'))
     .tickPadding(10);
 
   lineGraph.append('g')
@@ -48,11 +74,19 @@ function drawDashboard(year) {
     .style('text-anchor', 'end')
     .style('cursor', 'pointer')
     .style('font', d => d === year ? 'bold 10px verdana' : '10px verdana')
-    .on('mouseover', (event, d) => drawDashboard(d));
+    .on('mouseover', (event, d) => drawDashboard(d, data));
 
   const twitterLine = d3.line()
     .x(d => xScale(d.year))
     .y(d => yScale(d.followers.twitter));
+
+  const tumblrLine = d3.line() 
+    .x(d => xScale(d.year)) 
+    .y(d => yScale(d.followers.tumblr));
+
+  const instagramLine = d3.line()
+  .x(d => xScale(d.year))
+  .y(d => yScale(d.followers.instagram));
 
   lineGraph.append('path')
     .datum(data)
@@ -112,7 +146,7 @@ function drawDashboard(year) {
     .on('mouseover', (event, d) => drawDashboard(d.year));
 
   const rightDashboard = container
-    .append('div');
+    .append('div')
     .style('display', 'flex')
     .style('flex-direction', 'column')
     .style('align-items', 'center');
@@ -137,7 +171,7 @@ function drawDashboard(year) {
   const pieSlices = pieGraph.selectAll('pieSlices')
     .data(pie(pieData))
     .join('g')
-    .apattr('class', 'pie-slice')
+    .attr('class', 'pie-slice')
     .attr('transform', 'translate(100, 100)');
 
   pieSlices.append('path')
@@ -146,19 +180,17 @@ function drawDashboard(year) {
     .attr('stroke', 'white')
     .attr('stroke-width', 2);
     
-  pieGraphData.selectAll('pieSliceText')
-    .data(pie(d3.entries(data[index].followers)))
-    .enter()
-    .append('text')
-    .text(d => {
-      const sum = d3.sum(pieData, d => d.value);
-      const percent = d.data.value/sum;
-      return `${ Math.round(percent*100) }%`;
-    })
-    .attr('transform', d => `translate(${pieArc.centroid(d)})`)
-    .style('text-anchor', 'middle')
-    .style('font', '10px verdana')
-    .style ('fill', 'black');
+  pieSlices.append('text')
+  .text(d => {
+    const sum = d3.sum(pieData, d => d.value);
+    const percent = d.data.value / sum;
+    return `${Math.round(percent * 100)}%`;
+  })
+  .attr('transform', d => `translate(${pieArc.centroid(d)})`)
+  .style('text-anchor', 'middle')
+  .style('font', '10px verdana')
+  .style('fill', 'black');
+
 
   const legend = rightDashboard.append('table')
     .attr('width', 200)
@@ -195,5 +227,3 @@ function drawDashboard(year) {
     .attr('align', 'left')
     .style('padding-left', '10px');
 }
-
-drawDashboard(2020);
