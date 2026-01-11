@@ -1,0 +1,49 @@
+body {
+ font-family: Arial, sans-serif;
+ background: #fafafa;
+ padding: 20px;
+ margin: 0;
+ color: #333;
+}
+
+
+h1 {
+ text-align: center;
+ margin-bottom: 20px;
+}
+
+
+.buttons {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ margin-bottom: 25px;
+}
+
+
+button {
+ padding: 10px 16px;
+ font-size: 14px;
+ cursor: pointer;
+ border: none;
+ border-radius: 6px;
+ background: #ddd;
+ transition: background 0.2s ease-in-out;
+}
+
+
+button:hover {
+ background: #ccc;
+}
+
+
+button.active {
+ background-color: #4CAF50;
+ color: white;
+}
+
+
+.product-list {
+ max-width: 600px;
+ margin: 0 auto;
+}
