@@ -3,7 +3,6 @@ In this project, you will build a program that creates a single remix playlist f
 
 Each listener provides a list of songs they want to hear. Some songs may appear more than once, and some artists may show up too many times. Your job is to work through these playlists step by step: combine them into one list, score each song, remove duplicate songs, limit how often the same artist appears, and then create a final play order.
 
-This project will help you practice working with arrays, loops, and array indexing while solving a realistic problem using JavaScript.
 
 1. You should accept an array of playlists where each playlist is an array of `{ trackId, artist, title, votes, bpm }`.
 
@@ -15,6 +14,6 @@ This project will help you practice working with arrays, loops, and array indexi
 
 5. You should create `enforceArtistQuota(tracks, maxPerArtist)` that removes or reorders tracks exceeding the quota.
 
-6. You should create `buildSchedule(tracks)` that outputs an array of { slot, trackId } objects ready for broadcast.
+6. You should create `buildSchedule(tracks)` that outputs an array of `{ slot, trackId }` objects ready for broadcast.
 
 7. You should create `remixPlaylist(playlists, maxPerArtist)` that turns the original playlists into a final remix schedule. Use the functions you built earlier to complete this process.
