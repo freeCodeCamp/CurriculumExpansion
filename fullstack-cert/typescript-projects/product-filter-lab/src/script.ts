@@ -1,19 +1,27 @@
-interface Book {
+interface Item {
+  type: "book" | "electronics" | "clothing";
+  id: string;
+  price: number;
+}
+
+interface Book extends Item {
   type: "book";
   title: string;
   author: string;
 }
 
-interface Electronics {
+interface Electronics extends Item {
   type: "electronics";
+  item: string;
   model: string;
-  warranty: number;
+  warranty?: number;
 }
 
-interface Clothing {
+interface Clothing extends Item {
   type: "clothing";
+  item: string;
   brand: string;
-  size: "S" | "M" | "L";
+  size?: "S" | "M" | "L";
 }
 
 type Product = Book | Electronics | Clothing;
@@ -34,53 +42,55 @@ class Collection<T> {
 }
 
 function renderProduct(p: Product): string {
-  if (p.type === "book") {
+  const createProductCard = (id: string, content: string, price: number): string => {
     return `
-     <div class="item">
-       <strong>Book:</strong> ${p.title} by ${p.author}
+     <div class="item" id="${id}">
+       ${content}
+       <div class="price">$${price}</div>
      </div>
    `;
+  };
+
+  if (p.type === "book") {
+    const content = `<strong>Book:</strong> ${p.title} by ${p.author}`;
+    return createProductCard(p.id, content, p.price);
   }
 
   if (p.type === "electronics") {
-    return `
-     <div class="item">
-       <strong>Electronics:</strong> ${p.model} — Warranty: ${p.warranty} year(s)
-     </div>
-   `;
+    const warranty = p.warranty ? ` — Warranty: ${p.warranty} year(s)` : "";
+    const content = `<strong>Electronics:</strong> ${p.item} - ${p.model}${warranty}`;
+    return createProductCard(p.id, content, p.price);
   }
 
   if (p.type === "clothing") {
-    return `
-     <div class="item">
-       <strong>Clothing:</strong> ${p.brand} — Size ${p.size}
-     </div>
-   `;
+    const size = p.size ? ` — Size ${p.size}` : "";
+    const content = `<strong>Clothing:</strong> ${p.item} by ${p.brand}${size}`;
+    return createProductCard(p.id, content, p.price);
   }
-
 
   const _never: never = p;
   throw new Error(`Unknown product type: ${p}`);
 }
 
-// Sample Data
+
 const products = new Collection<Product>([
-  // Books
-  { type: "book", title: "1984", author: "George Orwell" },
-  { type: "book", title: "Brave New World", author: "Aldous Huxley" },
-  { type: "book", title: "Dune", author: "Frank Herbert" },
+  { id: "c1", type: "clothing", item: "Jacket", brand: "Northloom", size: "M", price: 89.99 },
+  { id: "e1", type: "electronics", item: "Tablet", model: "Pixelon Slate-A9", warranty: 2, price: 349.99 },
+  { id: "b1", type: "book", title: "Dune", author: "Frank Herbert", price: 14.99 },
 
+  { id: "e2", type: "electronics", item: "Smartphone", model: "NovaCore X1-Alpha", warranty: 2, price: 699.99 },
+  { id: "c2", type: "clothing", item: "Hoodie", brand: "CozyForge", size: "S", price: 49.99 },
+  { id: "b2", type: "book", title: "1984", author: "George Orwell", price: 9.99 },
 
-  // Electronics
-  { type: "electronics", model: "Smartphone X", warranty: 2 },
-  { type: "electronics", model: "Laptop Pro 15", warranty: 3 },
-  { type: "electronics", model: "Noise-Cancelling Headphones", warranty: 1 },
+  { id: "e3", type: "electronics", item: "Headphones", model: "EchoSphere Silent-7", price: 129.99 },
+  { id: "c3", type: "clothing", item: "Jeans", brand: "BlueWeave", size: "L", price: 59.99 },
+  { id: "e4", type: "electronics", item: "Laptop", model: "HexaBook Orion-15", warranty: 3, price: 1199.99 },
 
+  { id: "b3", type: "book", title: "Brave New World", author: "Aldous Huxley", price: 11.99 },
+  { id: "c4", type: "clothing", item: "T-Shirt", brand: "Fabricon", price: 19.99 },
+  { id: "e5", type: "electronics", item: "Smartwatch", model: "Chronex Pulse-Q", warranty: 1, price: 199.99 },
 
-  // Clothing
-  { type: "clothing", brand: "CottonWear", size: "M" },
-  { type: "clothing", brand: "UrbanStyle", size: "L" },
-  { type: "clothing", brand: "FitFlex", size: "S" }
+  { id: "b4", type: "book", title: "The Lord of the Rings", author: "J.R.R. Tolkien", price: 24.99 },
 ]);
 
 const output = document.getElementById("output");
