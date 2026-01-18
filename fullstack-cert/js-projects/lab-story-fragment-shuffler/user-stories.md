@@ -19,3 +19,4 @@ You'll work with a pre-filled array called `shuffledFragments` containing story 
 8. You should declare a variable named `patchedFragments` and assign it the result of calling `patchFragments` with the `sortedFragments` array.
 9. You should create a function named `assembleStory` that takes an array of sorted fragments as input and returns a single string with all fragment texts joined by newline characters.
 10. You should use `assembleStory` with your `patchedFragments` to display the complete story to the console.
+11. Your functions `compactFragments`, `sortFragments`, `validateFragments`, `patchFragments` and `assembleStory` should not mutate the array that they are called with.
