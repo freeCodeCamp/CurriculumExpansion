@@ -9,11 +9,11 @@ You'll work with a pre-filled array called `shuffledFragments` containing story 
 
 # User Stories
 
-1. You should create a function named `compactFragments` that takes an array of fragments as input, returns a new array with all undefined elements removed and logs a warning to the console for each undefined element found.
+1. You should create a function named `compactFragments` that takes an array of fragments, returns a new array with all undefined elements removed, and logs a warning to the console for each undefined element. Each warning logged by `compactFragments` should start with the prefix `[UNDEFINED_ELEMENT]`.
 2. You should declare a variable named `compactedShuffledFragments` and assign it the result of calling `compactFragments` with the `shuffeldFragments` array.
 3. You should create a function named `sortFragments` that takes an array of fragments as input and returns a new array sorted by the `id` property in ascending order. You should implement your own sorting algorithm without using JavaScript's built-in `sort` method.
 4. You should declare a variable named `stortedFragments` and assign it the result of calling `sortFragments` with the `compactedShuffledFragments` array.
-5. You should create a function named `validateFragments` that takes a sorted array of fragments as input and logs warnings for duplicate IDs (When two or more fragments have the same `id`) and missing IDs (When there are gaps in the sequence).
+5. You should create a function named `validateFragments` that accepts a sorted array of fragments. This function should log a warning for each duplicate `id`, when two or more fragments share the same `id`, and for each missing `id`, when there are gaps in the sequence between the lowest and highest `id`. The warnings should begin with the appropriate prefix: `[DUPLICATE_ID]` and `[MISSING_ID]`.
 6. You should call `validateFragments` with the `sortedFragments` array.
 7. You should create a function named `patchFragments` that takes a sorted array of fragments as input and returns a new array with duplicate fragments removed (keep only the first occurrence) and missing fragments filled in with placeholder objects. The placeholder format should be `{id: [missing_id], text: "~~~~~~~ Missing story fragment ~~~~~~~"}`.
 8. You should declare a variable named `patchedFragments` and assign it the result of calling `patchFragments` with the `sortedFragments` array.
