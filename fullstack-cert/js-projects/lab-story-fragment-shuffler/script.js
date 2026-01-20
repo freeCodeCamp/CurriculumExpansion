@@ -47,9 +47,10 @@ const compactedShuffledFragments = compactFragments(shuffledFragments);
 
 const sortFragments = (fragments) => {
   // returns a new array ordered by id
-  let sorted = [fragments.shift()];
+  const copiedFragments = [...fragments];
+  let sorted = [copiedFragments.shift()];
 
-  for (const fragment of fragments) {
+  for (const fragment of copiedFragments) {
     for (let i = 0; i < sorted.length; i++) {
       if (fragment.id < sorted[i].id) {
         sorted.splice(i, 0, fragment);
