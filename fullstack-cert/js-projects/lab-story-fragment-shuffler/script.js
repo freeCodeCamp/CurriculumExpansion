@@ -33,7 +33,7 @@ const compactFragments = (fragments) => {
   for (let i = 0; i < fragments.length; i++) {
     if (fragments[i] === undefined) {
       console.log(
-        `[UNDEFINED_ELEMENT] The uncompacted array contains an undefined element at index ${i}.`,
+        `[UNDEFINED_ELEMENT] Found undefined element at index ${i} in uncompacted array`,
       );
     } else {
       compacted.push(fragments[i]);
