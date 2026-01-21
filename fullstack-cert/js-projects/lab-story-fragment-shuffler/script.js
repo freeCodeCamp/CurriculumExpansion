@@ -27,17 +27,19 @@ const shuffledFragments = [
 ];
 
 const compactFragments = (fragments) => {
-  // guards against sparse arrays by ignoring empty elements and logging warnings
   let compacted = [];
+  let numberOfUndefined = 0;
 
-  for (let i = 0; i < fragments.length; i++) {
-    if (fragments[i] === undefined) {
-      console.log(
-        `[UNDEFINED_ELEMENT] Found undefined element at index ${i} in uncompacted array`,
-      );
+  for (const fragment of fragments) {
+    if (fragment === undefined) {
+      numberOfUndefined++;
     } else {
-      compacted.push(fragments[i]);
+      compacted.push(fragment);
     }
+  }
+
+  if (numberOfUndefined > 0) {
+    console.log(`[COMPACTED] Removed ${numberOfUndefined} undefined fragment(s).`);
   }
 
   return compacted;
@@ -46,20 +48,39 @@ const compactFragments = (fragments) => {
 const compactedShuffledFragments = compactFragments(shuffledFragments);
 
 const sortFragments = (fragments) => {
-  // returns a new array ordered by id
-  const copiedFragments = [...fragments];
-  let sorted = [copiedFragments.shift()];
+  let sorted = [...fragments];
 
-  for (const fragment of copiedFragments) {
-    for (let i = 0; i < sorted.length; i++) {
-      if (fragment.id < sorted[i].id) {
-        sorted.splice(i, 0, fragment);
-        break;
-      } else if (i === sorted.length - 1) {
-        sorted.push(fragment);
-        break;
+  for (let i = 0; i < sorted.length; i++) {
+    for (let j = i; j > 0; j--) {
+      if (sorted[j - 1].id > sorted[j].id) {
+        swap(sorted, j - 1, j);
       }
     }
+  }
+
+  function swap(array, index1, index2) {
+    [sorted[index1], sorted[index2]] = [sorted[index2], sorted[index1]];
+  }
+
+  return sorted;
+};
+
+const sortFragments2 = (fragments) => {
+  let sorted = [...fragments];
+  const n = sorted.length;
+
+  for (let i = 0; i < sorted.length - 1; i++) {
+    let indexOfMaxId = 0;
+    for (let j = 1; j < sorted.length - i; j++) {
+      if (sorted[j].id > sorted[indexOfMaxId].id) {
+        indexOfMaxId = j;
+      }
+    }
+    swap(sorted, indexOfMaxId, sorted.length - i - 1);
+  }
+
+  function swap(array, index1, index2) {
+    [sorted[index1], sorted[index2]] = [sorted[index2], sorted[index1]];
   }
 
   return sorted;
@@ -67,46 +88,63 @@ const sortFragments = (fragments) => {
 
 const sortedFragments = sortFragments(compactedShuffledFragments);
 
-const validateFragments = (sortedFragments) => {
-  // reports missing or duplicate IDs
-  for (let i = 0; i < sortedFragments.length - 1; i++) {
-    if (sortedFragments[i].id === sortedFragments[i + 1].id) {
-      console.log(`[DUPLICATE_ID] Duplicate fragment with ID ${sortedFragments[i].id}.`);
-    } else if (sortedFragments[i].id + 1 !== sortedFragments[i + 1].id) {
-      console.log(`[MISSING_ID] Missing objects between ID ${sortedFragments[i].id} and ID ${sortedFragments[i + 1].id}.`);
+const dedupeFragments = (sortedFragments) => {
+  const shallowCopy = [...sortedFragments];
+  let deduped = [shallowCopy.shift()];
+  let duplicates = [];
+  let currentIdOccurrence = 1;
+
+  for (const fragmentToInsert of shallowCopy) {
+    const previousFragment = deduped.at(-1);
+    if (fragmentToInsert.id === previousFragment.id) {
+      currentIdOccurrence++;
+    } else {
+      deduped.push(fragmentToInsert);
+
+      if (currentIdOccurrence > 1) {
+        duplicates.push({ id: previousFragment.id, occurrence: currentIdOccurrence });
+      }
+
+      currentIdOccurrence = 1;
     }
   }
+
+  for (const duplicate of duplicates) {
+    console.log(`[DEDUPED] Fragment #${duplicate.id} appeared ${duplicate.occurrence} times — kept first occurrence.`);
+  }
+
+  return deduped;
 };
 
-validateFragments(sortedFragments);
+const dedupedFragments = dedupeFragments(sortedFragments);
 
-const patchFragments = (sortedFragments) => {
-  // returns an array without duplicate IDs and inserted missing IDs
-  let patched = [sortedFragments.shift()];
-  for (const currentFragment of sortedFragments) {
-    const previousFragment = patched.at(-1);
-    if (currentFragment.id !== previousFragment.id) {
-      const numberOfMissingIDs = currentFragment.id - 1 - previousFragment.id;
-      for (let i = 1; i <= numberOfMissingIDs; i++) {
-        patched.push({id: previousFragment.id + i, text: "~~~~~~~ Missing stroy fragment ~~~~~~~"})
-      }
-      patched.push(currentFragment);
+const fillMissingFragments = (sortedFragments) => {
+  const shallowCopy = [...sortedFragments];
+  let filled = [shallowCopy.shift()];
+
+  for (const fragmentToInsert of shallowCopy) {
+    const previousFragment = filled.at(-1);
+    const numberOfMissingIDs = fragmentToInsert.id - 1 - previousFragment.id;
+    for (let i = 1; i <= numberOfMissingIDs; i++) {
+      const missingId = previousFragment.id + i;
+      filled.push({ id: missingId, text: "[...]" });
+      console.log(`[FILLED] Fragment #${missingId} missing — placeholder inserted.`)
     }
+    filled.push(fragmentToInsert);
   }
 
-  return patched;
-}
+  return filled;
+};
 
-const patchedFragments = patchFragments(sortedFragments);
+const filledFragments = fillMissingFragments(dedupedFragments);
 
-const assembleStory = (patchedFragments) => {
-  // reduces ordered fragments into a single string separated by blank lines
+const assembleStory = (sortedFragments) => {
   let assembled = "";
-  for (const fragment of patchedFragments) {
+  for (const fragment of sortedFragments) {
     assembled += fragment.text + "\n";
   }
   return assembled;
 };
 
-console.log("\nHere is the assembled story:\n")
-console.log(assembleStory(patchedFragments));
+console.log("\nHere is the assembled story:\n");
+console.log(assembleStory(filledFragments));
