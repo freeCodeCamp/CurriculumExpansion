@@ -1,11 +1,36 @@
 # Summary
 
-In this lab, you will restore a coherent narrative from shuffled, duplicated, or missing story fragments. 
+In this lab, you will restore a coherent narrative from shuffled, duplicated, or missing story fragments.
 
-You'll work with a pre-filled array called `shuffledFragments` containing story fragment objects. Each fragment object has the following properties:
+You'll work with arrays containing story fragment objects. Each fragment object has the following properties:
 
-- `id`: A positive integer indicating the fragment's position in the story
-- `text`: The actual story content
+| Property | Description | Example value |
+|-|-|-|
+| `id` | A positive integer indicating the fragment's position in the story | `3` | 
+| `text` | The actual story content | `"and I use Arch btw"` |
+
+Here is an example of an array containing story fragments: 
+
+```
+exampleArray = [
+{ id: 3, text: "\"and I use Arch btw.\"" }, 
+, 
+{ id: 1, text: "Naomi said:" }, 
+{ id: 3, text: "\"and I use Arch btw.\"" },
+]
+```
+
+After restoring the story from `exampleArray`, it would look like this:
+
+```
+Naomi said:
+[...]
+and I use Arch btw."
+```
+
+In this lab, you are provided with a prefilled array called `shuffledFragments`.
+
+**Objective**: Fulfill the user stories below and get all the tests to pass to complete the lab.
 
 # User Stories
 
