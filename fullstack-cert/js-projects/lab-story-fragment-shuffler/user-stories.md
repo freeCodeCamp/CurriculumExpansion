@@ -7,16 +7,16 @@ You'll work with arrays containing story fragment objects. Each fragment object 
 | Property | Description | Example value |
 |-|-|-|
 | `id` | A positive integer indicating the fragment's position in the story | `3` | 
-| `text` | The actual story content | `"and I use Arch btw"` |
+| `text` | The actual story content | `"and I use Arch btw.\""` |
 
 Here is an example of an array containing story fragments: 
 
 ```
 exampleArray = [
-{ id: 3, text: "\"and I use Arch btw.\"" }, 
+{ id: 3, text: "and I use Arch btw.\"" }, 
 , 
 { id: 1, text: "Naomi said:" }, 
-{ id: 3, text: "\"and I use Arch btw.\"" },
+{ id: 3, text: "and I use Arch btw.\"" },
 ]
 ```
 
