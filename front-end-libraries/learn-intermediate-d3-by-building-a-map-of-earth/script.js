@@ -3,7 +3,9 @@
 const mapPath = "./naturalEarth50TopoJSON.json";
 
 // 2017 world population data. Source: https://databank.worldbank.org
-const popPath = "./worldPopulation.csv";
+const popPath = await d3.csv(
+	"https://cdn.freecodecamp.org/curriculum/d3-world-pop-map//worldPopulation.csv",
+);
 
 // Setup
 const svgWidth = 1000;
