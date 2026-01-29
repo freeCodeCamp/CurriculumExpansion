@@ -32,3 +32,17 @@ function findMotif(sequence, motifLength) {
 
   return motifPositions
 }
+
+function detectMirror(sequence) {
+  const mirrorsBroken = []
+
+  for (let i = 0; i < Math.floor(sequence.length / 2); i++) {
+    const mirrorIndex = sequence.length - 1 - i
+
+    if (sequence[i] !== sequence[mirrorIndex]) {
+      mirrorsBroken.push(i)
+    }
+  }
+
+  return mirrorsBroken
+}
