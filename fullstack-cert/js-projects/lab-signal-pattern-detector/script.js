@@ -1,17 +1,6 @@
 function findMotif(sequence, motifLength) {
   const motifPositions = []
 
-  if (sequence.length <= 1) {
-    return []
-  }
-
-  if (motifLength <= 1) {
-    return []
-  }
-  if (sequence.length <= motifLength) {
-    return []
-  }
-
   for (let i = 0; i <= sequence.length - motifLength; i++) {
     for (let j = i + 1; j <= sequence.length - motifLength; j++) {
       let match = true
@@ -45,4 +34,18 @@ function detectMirror(sequence) {
   }
 
   return mirrorsBroken
+}
+
+function findMissingFrames(sequence, pattern) {
+  const missingFrames = []
+
+  for (let i = 0; i < sequence.length; i++) {
+    const expectedFrame = pattern[i % pattern.length]
+
+    if (sequence[i] !== expectedFrame) {
+      missingFrames.push(i)
+    }
+  }
+
+  return missingFrames
 }
