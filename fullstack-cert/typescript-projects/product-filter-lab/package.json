@@ -1,0 +1,22 @@
+{
+  "name": "product-filter-lab",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "tsc": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,html,css,json}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+  }
+}

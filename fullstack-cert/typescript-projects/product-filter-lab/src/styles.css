@@ -1,0 +1,128 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+  padding: 40px 20px;
+  margin: 0;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button.active {
+  background: #ff9800;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+  font-weight: 600;
+}
+
+#output {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.item strong {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0f4c75;
+  font-weight: 700;
+}
+
+.item > div:not(.price) {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.price {
+  margin-top: auto;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f4c75;
+  padding-top: 12px;
+  border-top: 2px solid #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  #output {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .item {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #output {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}
