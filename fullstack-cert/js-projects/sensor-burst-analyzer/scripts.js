@@ -21,11 +21,12 @@ const sensorBurst = [
 [55,14,39], 
 [0,0,0]                                 
 ]
-
-
+// sensorBurst includes bursts with inconsistent lengths. If the sample should be more consistent please let me know.
 
 function analyzeBurst(burst, windowSize) {
-  //start by calculating the lenght of the burst
+  //The function should return averages, mins, and maxes using sliding windows.
+
+  //the function start by calculating the lenght of the burst
   let num = burst.length;
   
   let windowSum = 0;
@@ -50,11 +51,11 @@ function analyzeBurst(burst, windowSize) {
       currentMax = Math.max(currentMax, burst[i])
       currentMin = Math.min(currentMin, burst[i])
   }
-  windowAverage = (windowSum / num) // at the end of the for loop windowSum is divided by num set at the begining
+  windowAverage = (windowSum / num) // at the end of the for loop windowSum is divided by num variable set at the begining
   return [currentMin,currentMax,windowAverage];
 }
 
-//Other cases, if the burst larger than window size, run a normal for loop for the starting subarray, annd then continue in a separated for loop. All the loops have a O(n) complexity (linear)
+//Other cases, if the burst larger than window size, run a normal for loop for the starting subarray, and then continue in a separated for loop. All the loops have a O(n) complexity (linear)
 
 //calculate the min, max and sum of the starting subarray.
   for (let i = 0; i < windowSize; i++) {
@@ -133,7 +134,7 @@ function detectSilence(burst, windowSize) {
 function summarizeSensorData(bursts){
 //You should create summarizeSensorData(bursts) that maps through all bursts, aggregates stats, and returns an array of summary objects.
 let num = bursts.length;
-let summarizedData = [[],[],[]]
+let summarizedData = {"min":[],"max":[],"avg":[]}
 
 for (let i=0; i < num; i++) {
 
@@ -144,12 +145,11 @@ for (let i=0; i < num; i++) {
 
   let sum = numbers.reduce((a, b) => a + b);
 
-  let avg = sum / burstLength
+  let avg =  Math.round(sum / burstLength * 100) / 100
 
-  summarizeData[0].push(min);
-  summarizeData[1].push(max);
-  summarizeData[2].push(avg);
-
+  summarizedData.min.push(min);
+  summarizedData.max.push(max);
+  summarizedData.avg.push(avg);
 }
 return summarizedData
 }
