@@ -62,6 +62,8 @@ const keypad = {
 };
 
 const openDoor = keypad => {
+  let isOpen = true;
+
   if (countdown()) {
     keypad[1].isLocked = false;
     console.log('Clue 1 solved: keypad 1 unlocked');
@@ -76,8 +78,17 @@ const openDoor = keypad => {
     keypad[3].isLocked = false;
     console.log('Clue 3 solved: keypad 3 unlocked');
   }
-
-  if (Object.values(keypad).every(lock => lock.isLocked === false)) {
+ 
+  checkKeypad: {
+    for (const lockNumber in keypad) {
+      if (keypad[lockNumber].isLocked) {
+        isOpen = false;
+        break checkKeypad;
+      }
+    }
+  }
+  
+  if (isOpen) {
     console.log('Congratulations! You have solved all the puzzles and can now exit!');
   } else {
     console.log('Access denied. One or more of the locks are still locked. Please check the progressState');
