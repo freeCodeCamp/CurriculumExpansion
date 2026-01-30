@@ -49,3 +49,13 @@ function findMissingFrames(sequence, pattern) {
 
   return missingFrames
 }
+
+function scanBinarySignalSequences(sequences, motifLength, pattern) {
+  return sequences.map((sequence) => {
+    return {
+      motifPositions: findMotif(sequence, motifLength),
+      mirrorsBroken: detectMirror(sequence),
+      missingFrames: findMissingFrames(sequence, pattern),
+    }
+  })
+}
