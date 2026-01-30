@@ -40,11 +40,13 @@ const inputValidator = () => {
   const minLength = 3;
   const maxLength = 17;
   const isValidLength = username =>
-    username.length >= minLength && username.length <= maxLength;
+     username.length >= minLength && username.length <= maxLength;
 
   do {
     username = prompt('Please enter a valid username:');
-  } while(username === '' && !isValidLength);
+  } while(username === '' || username === null);
+
+  return isValidLength(username);
 }
 
 const keypad = {
