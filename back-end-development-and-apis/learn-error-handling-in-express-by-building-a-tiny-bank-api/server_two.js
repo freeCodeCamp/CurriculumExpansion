@@ -2,28 +2,14 @@
 // so we don't need try/catch blocks in each route handler?
 
 const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
 const app = express();
+const { getAccounts, saveAccounts } = require('./db');
 
-const PORT = 7000;
+const PORT = 9000;
 app.use(express.json());
 
 // pretty-print JSON responses
 app.set('json spaces', 2);
-
-const DB_PATH = path.join(__dirname, 'accounts.json');
-
-// helper to read all accounts
-const getAccounts = async () => {
-  const data = await fs.readFile(DB_PATH, 'utf8');
-  return JSON.parse(data);
-};
-
-// helper function to save accounts
-const saveAccounts = async (accounts) => {
-  await fs.writeFile(DB_PATH, JSON.stringify(accounts, null, 2));
-};
 
 // root route
 app.get('/', (req, res) => {
