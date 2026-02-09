@@ -77,13 +77,8 @@ function getMemberTotals(object, member) {
   }
 }
 
-function listTopMembers(object, key, limit) {
-  const membersSortedByValue = Object.entries(object);
-  let returnObject = {};
-
-  membersSortedByValue.sort((a, b) => b[1][key] - a[1][key]);
-  for (let member of membersSortedByValue.slice(0, limit)) {
-    returnObject[member[0]] = member[1];
-  }
-  return returnObject;
+function listMembers(object) {
+  console.log(Object.entries(object));
 }
+
+listMembers(guild);
