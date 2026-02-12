@@ -29,14 +29,25 @@ const rawCatalogCards = [
 // step 1: parse a single catalog card
 // teaching: string split(), trim(), converting types
 function parseCard(rawString) {
-  // split by pipe delimiter and trim whitespace
-  const parts = rawString.split("|").map(part => part.trim());
+  // split by pipe delimiter
+  const parts = rawString.split("|");
 
-  // destructure the parts - teaching: array destructuring
-  const [title, author, year, location] = parts;
+  // trim whitespace from each part using a for loop
+  // teaching: for loop to process arrays
+  const trimmedParts = [];
+  for (let i = 0; i < parts.length; i++) {
+    trimmedParts.push(parts[i].trim());
+  }
+
+  // access each part by index
+  // teaching: array index access, fallback with ||
+  const title = trimmedParts[0];
+  const author = trimmedParts[1];
+  const year = trimmedParts[2];
+  const location = trimmedParts[3];
 
   // create and return object with normalized data
-  // teaching: object literals, converting string to number
+  // teaching: object literals, converting string to number, fallback values
   return {
     title: title || "Unknown",
     author: author || "Unknown",
@@ -46,24 +57,40 @@ function parseCard(rawString) {
 }
 
 // step 2: Parse entire catalog
-// teaching: map() to transform arrays
+// teaching: for loop to transform arrays, building new arrays with push()
 function parseCatalog(rawCards) {
-  return rawCards.map(card => parseCard(card));
+  const catalog = [];
+  for (let i = 0; i < rawCards.length; i++) {
+    const parsedCard = parseCard(rawCards[i]);
+    catalog.push(parsedCard);
+  }
+  return catalog;
 }
 
 // step 3: Find books by author (case-insensitive)
-// teaching: filter(), toLowerCase() for case-insensitive comparison, includes()
+// teaching: for loop for searching, toLowerCase() for case-insensitive comparison, includes()
 function findByAuthor(catalog, author) {
   const searchTerm = author.toLowerCase();
-  return catalog.filter(book =>
-    book.author.toLowerCase().includes(searchTerm)
-  );
+  const results = [];
+
+  for (let i = 0; i < catalog.length; i++) {
+    const book = catalog[i];
+    if (book.author.toLowerCase().includes(searchTerm)) {
+      results.push(book);
+    }
+  }
+
+  return results;
 }
 
 // step 4: Group books by decade
-// teaching: reduce() to build objects, decade calculation, dynamic object keys
+// teaching: for loop to build objects, decade calculation, dynamic object keys
 function groupByDecade(catalog) {
-  return catalog.reduce((grouped, book) => {
+  const grouped = {};
+
+  for (let i = 0; i < catalog.length; i++) {
+    const book = catalog[i];
+
     // skip books without valid years
     if (book.year === "Unknown") {
       // initialize "Unknown" group if it doesn't exist
@@ -71,7 +98,7 @@ function groupByDecade(catalog) {
         grouped["Unknown"] = [];
       }
       grouped["Unknown"].push(book);
-      return grouped;
+      continue;
     }
 
     // calculate decade: floor to nearest 10
@@ -86,8 +113,9 @@ function groupByDecade(catalog) {
     }
 
     grouped[decadeKey].push(book);
-    return grouped;
-  }, {});
+  }
+
+  return grouped;
 }
 
 // step 5: render a single catalog entry
@@ -148,26 +176,32 @@ function exportToJSON(catalog) {
 }
 
 // step 8: export catalog to CSV
-// teaching: CSV format, map() for transformation, join() for strings
+// teaching: CSV format, for loop for transformation, string concatenation
 function exportToCSV(catalog) {
   // create CSV header row
   const header = "Title,Author,Year,Location";
 
-  // transform each entry to CSV row
+  // transform each entry to CSV row using a for loop
   // teaching: handling commas in data, quotes in CSV format
-  const rows = catalog.map(entry => {
+  const rows = [];
+  for (let i = 0; i < catalog.length; i++) {
+    const entry = catalog[i];
     // wrap fields in quotes to handle commas in titles/authors
     const title = `"${entry.title}"`;
     const author = `"${entry.author}"`;
     const year = entry.year;
     const location = `"${entry.location}"`;
 
-    return `${title},${author},${year},${location}`;
-  });
+    rows.push(`${title},${author},${year},${location}`);
+  }
 
   // combine header and rows with newlines
   // teaching: join() to combine array into string
-  return [header, ...rows].join("\n");
+  let csv = header;
+  for (let i = 0; i < rows.length; i++) {
+    csv = csv + "\n" + rows[i];
+  }
+  return csv;
 }
 
 // DEMONSTRATION - following is a demo using all the functions
@@ -190,35 +224,38 @@ console.log();
 console.log("Searching for books by 'King'...");
 const kingBooks = findByAuthor(catalog, "king");
 console.log(`Found ${kingBooks.length} book(s):`);
-kingBooks.forEach(book => {
-  console.log(`  - ${book.title} (${book.year})`);
-});
+for (let i = 0; i < kingBooks.length; i++) {
+  console.log(`  - ${kingBooks[i].title} (${kingBooks[i].year})`);
+}
 console.log();
 
 // search by another author
 console.log("Searching for books by 'Asimov'...");
 const asimovBooks = findByAuthor(catalog, "asimov");
 console.log(`Found ${asimovBooks.length} book(s):`);
-asimovBooks.forEach(book => {
-  console.log(`  - ${book.title} by ${book.author}`);
-});
+for (let i = 0; i < asimovBooks.length; i++) {
+  console.log(`  - ${asimovBooks[i].title} by ${asimovBooks[i].author}`);
+}
 console.log();
 
 // group by decade
 console.log("Grouping books by decade...");
 const byDecade = groupByDecade(catalog);
 console.log("Decades represented:");
-Object.keys(byDecade).sort().forEach(decade => {
+const decadeKeys = Object.keys(byDecade).sort();
+for (let i = 0; i < decadeKeys.length; i++) {
+  const decade = decadeKeys[i];
   console.log(`  ${decade}: ${byDecade[decade].length} book(s)`);
-});
+}
 console.log();
 
 // display books from a specific decade
 console.log("Books from the 1980s:");
 if (byDecade["1980s"]) {
-  byDecade["1980s"].forEach(book => {
-    console.log(`  - ${book.title} (${book.year})`);
-  });
+  const books1980s = byDecade["1980s"];
+  for (let i = 0; i < books1980s.length; i++) {
+    console.log(`  - ${books1980s[i].title} (${books1980s[i].year})`);
+  }
 }
 console.log();
 
@@ -232,13 +269,13 @@ console.log("Validating catalog entries...");
 let validCount = 0;
 let invalidCount = 0;
 
-catalog.forEach(entry => {
-  if (validateEntry(entry)) {
+for (let i = 0; i < catalog.length; i++) {
+  if (validateEntry(catalog[i])) {
     validCount++;
   } else {
     invalidCount++;
   }
-});
+}
 
 console.log(`\nValidation complete: ${validCount} valid, ${invalidCount} with issues\n`);
 
@@ -263,7 +300,22 @@ console.log("CATALOG SUMMARY");
 console.log("═".repeat(60));
 console.log(`Total books: ${catalog.length}`);
 console.log(`Decades represented: ${Object.keys(byDecade).length}`);
-console.log(`Oldest book: ${Math.min(...catalog.filter(b => b.year !== "Unknown").map(b => b.year))}`);
-console.log(`Newest book: ${Math.max(...catalog.filter(b => b.year !== "Unknown").map(b => b.year))}`);
+
+// find oldest and newest books using a for loop
+let oldestYear = Infinity;
+let newestYear = 0;
+for (let i = 0; i < catalog.length; i++) {
+  const year = catalog[i].year;
+  if (year !== "Unknown") {
+    if (year < oldestYear) {
+      oldestYear = year;
+    }
+    if (year > newestYear) {
+      newestYear = year;
+    }
+  }
+}
+console.log(`Oldest book: ${oldestYear}`);
+console.log(`Newest book: ${newestYear}`);
 console.log("═".repeat(60));
 
