@@ -227,7 +227,6 @@ console.log(`Found ${kingBooks.length} book(s):`);
 for (let i = 0; i < kingBooks.length; i++) {
   console.log(`  - ${kingBooks[i].title} (${kingBooks[i].year})`);
 }
-console.log();
 
 // search by another author
 console.log("Searching for books by 'Asimov'...");
