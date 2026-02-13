@@ -254,7 +254,6 @@ if (byDecade["1980s"]) {
     console.log(`  - ${books1980s[i].title} (${books1980s[i].year})`);
   }
 }
-console.log();
 
 // render a formatted entry
 console.log("Formatted Catalog Entry:");
