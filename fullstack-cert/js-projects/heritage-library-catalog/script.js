@@ -235,7 +235,6 @@ console.log(`Found ${asimovBooks.length} book(s):`);
 for (let i = 0; i < asimovBooks.length; i++) {
   console.log(`  - ${asimovBooks[i].title} by ${asimovBooks[i].author}`);
 }
-console.log();
 
 // group by decade
 console.log("Grouping books by decade...");
