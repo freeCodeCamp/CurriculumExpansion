@@ -245,7 +245,6 @@ for (let i = 0; i < decadeKeys.length; i++) {
   const decade = decadeKeys[i];
   console.log(`  ${decade}: ${byDecade[decade].length} book(s)`);
 }
-console.log();
 
 // display books from a specific decade
 console.log("Books from the 1980s:");
