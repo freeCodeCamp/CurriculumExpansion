@@ -258,7 +258,6 @@ if (byDecade["1980s"]) {
 // render a formatted entry
 console.log("Formatted Catalog Entry:");
 console.log(renderEntry(catalog[0]));
-console.log();
 
 // validate entries and show warnings
 console.log("Validating catalog entries...");
