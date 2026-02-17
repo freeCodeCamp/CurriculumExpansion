@@ -1,4 +1,4 @@
-d3.json('https://raw.githubusercontent.com/meemeealm/cdn/refs/heads/main/build/curriculum/d3-dashboard-data/data.json')
+d3.json('https://github.com/freeCodeCamp/cdn/blob/main/build/curriculum/d3-dashboard-data/data.json')
   .then(function(data) {
     console.log('Data loaded:', data);
     
