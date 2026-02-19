@@ -1,47 +1,29 @@
 const express = require('express');
+const { PiggyError, BankBrokenError, WeakToolError } = require('./errors');
+const { 
+  getState, 
+  resetState, 
+  deposit,
+  hitPiggyBank 
+} = require('./piggy-bank-state');
+
 const app = express();
 const PORT = 9000;
 
 app.use(express.json());
 app.set('json spaces', 2);
 
-// --- Custom error classes ---
-class PiggyError extends Error {
-  constructor(message, status) {
-    super(message);
-    this.name = this.constructor.name;
-    this.status = status || 500;
-  }
-}
-
-class BankBrokenError extends PiggyError {
-  constructor(message = "The piggy bank is already broken!") {
-    super(message, 410); // 410 Gone
-  }
-}
-
-class WeakToolError extends PiggyError {
-  constructor(tool) {
-    super(`A '${tool}' is too weak. You need something heavy like a 'hammer'.`, 406); // Not Acceptable
-  }
-}
-
-// piggy bank state
-let piggyBank = {
-  balance: 1000,
-  integrity: 3, // represents hit points, needs 3 hits to break
-  isBroken: false
-};
-
 app.get('/', (req, res) => {
   res.json({
-    message: "Welcome to the Iron Piggy Bank API! Use /piggy-bank to inspect, /deposit to add money, /smash to break it open, and /reset to get a new piggy bank and /smash to break it open, and /reset to get a new piggy bank"
+    message: "Welcome to the Iron Piggy Bank API! Use /piggy-bank to inspect, /deposit to add money, /smash to break it open, and /reset to get a new piggy bank"
   });
 });
 
 // Route: inspect the bank
 app.get('/piggy-bank', (req, res) => {
-  if (piggyBank.isBroken) {
+  const state = getState();
+  
+  if (state.isBroken) {
     return res.json({
       status: "broken",
       message: "The piggy bank is in pieces. The money is gone.",
@@ -52,14 +34,14 @@ app.get('/piggy-bank', (req, res) => {
   res.json({
     status: "intact",
     message: "A solid iron piggy bank. You can hear coins inside.",
-    integrity: `${piggyBank.integrity}/3`,
-    approximateValue: "???" // you can't see the exact balance until you break it (integrity becoming 0/3)
+    integrity: `${state.integrity}/3`,
+    approximateValue: "???" // you can't see the exact balance until you break it
   });
 });
 
 // Route: deposit money (easy to deposit)
 app.post('/deposit', (req, res, next) => {
-  if (piggyBank.isBroken) {
+  if (getState().isBroken) {
     return next(new PiggyError("Cannot deposit into a broken piggy!", 400));
   }
 
@@ -69,25 +51,29 @@ app.post('/deposit', (req, res, next) => {
     return next(new PiggyError("You must deposit a positive amount", 400));
   }
 
-  piggyBank.balance += amount;
+  deposit(amount);
   res.json({ message: `Clink! You dropped $${amount} into the piggy.` });
 });
 
-// Route: withdraw (hard to withdraw)
+// Route: withdraw (throws an error because you can't just withdraw from a piggy bank)
 app.post('/withdraw', (req, res, next) => {
-  return next(new PiggyError("You cannot withdraw from a designated piggy bank. Try /smash instead.", 405));
+  return next(
+    new PiggyError("You cannot withdraw from a designated piggy bank. Try /smash instead.", 405)
+  );
 });
 
 // Route: smash (the actual way to get money)
 app.post('/smash', (req, res, next) => {
-  if (piggyBank.isBroken) {
+  if (getState().isBroken) {
     return next(new BankBrokenError());
   }
 
   const tool = req.headers['x-tool'];
 
   if (!tool) {
-    return next(new PiggyError("You need a tool to break this! Send an 'x-tool' header.", 400));
+    return next(
+      new PiggyError("You need a tool to break this! Send an 'x-tool' header.", 400)
+    );
   }
 
   if (tool !== 'hammer' && tool !== 'rock') {
@@ -95,31 +81,27 @@ app.post('/smash', (req, res, next) => {
   }
 
   // Success logic (hit the bank)
-  piggyBank.integrity -= 1;
+  const result = hitPiggyBank();
 
-  if (piggyBank.integrity > 0) {
+  if (!result.broken) {
     res.json({
       message: "CLANG! You made a dent.",
-      currentIntegrity: piggyBank.integrity,
+      currentIntegrity: result.integrity,
       status: "cracked"
     });
   } else {
     // Broken logic
-    const loot = piggyBank.balance;
-    piggyBank.isBroken = true;
-    piggyBank.balance = 0; // Empty the bank
-
     res.json({
       message: "CRASH! The piggy bank shatters into pieces!",
       event: "money_released",
-      amountRecovered: loot
+      amountRecovered: result.loot
     });
   }
 });
 
 // Route: reset the piggy bank
 app.post('/reset', (req, res) => {
-  piggyBank = { balance: 1000, integrity: 3, isBroken: false };
+  resetState();
   res.json({ message: "Piggy bank replaced with a new one." });
 });
 
