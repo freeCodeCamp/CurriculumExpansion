@@ -11,7 +11,8 @@ const firstAstronaut = {
 function addCrewMember(crew, astronaut) {
   for (let i = 0; i < crew.length; i++) {
     if (crew[i].id === astronaut.id) {
-      throw new Error("Duplicate ID: " + astronaut.id);
+      console.log("Duplicate ID: " + astronaut.id);
+      return;
     }
   }
   crew.push(astronaut);
@@ -43,7 +44,8 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
     fromIndex >= crew.length ||
     toIndex >= crew.length
   ) {
-    throw new Error("Invalid crew indices");
+    console.log("Invalid crew indices");
+    return;
   }
 
   const updatedCrew = crew.slice();
@@ -86,7 +88,8 @@ for (let i = 0; i < EVAReadySquad.length; i++) {
 
 function chunkCrew(crew, size) {
   if (size < 1) {
-    throw new Error("Chunk size must be >= 1");
+    console.log("Chunk size must be >= 1");
+    return;
   }
 
   const chunks = [];
