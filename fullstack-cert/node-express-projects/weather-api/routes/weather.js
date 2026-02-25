@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const router = express.Router();
 
 const BASE_URL = 'https://weather-proxy.freecodecamp.rocks/api/city';
@@ -11,10 +10,14 @@ router.get('/:city', async (req, res) => {
 
     try {
         // Step 1: Perform the machine-to-machine communication (GET request)
-        const response = await axios.get(apiUrl);
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error(`API responded with status ${response.status}`);
+        }
 
         // Step 2: Extract key data from the external JSON response
-        const apiData = response.data;
+        const apiData = await response.json();
         
         // This is the simplified data structure we will send back
         const weatherData = {
