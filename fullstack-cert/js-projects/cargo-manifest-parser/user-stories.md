@@ -1,4 +1,4 @@
-In this lab, you will normalize and validate cargo manifests that arrive as inconsistent JSON payloads. A cargo manifest is a document that typically lists goods being transported (for example, by ship or train) and includes details about those goods.
+In this lab, you will leverage JavaScript to normalize and validate cargo manifests. A cargo manifest is a document that typically lists goods being transported (for example, by ship or train) and includes details about those goods.
 
 Each cargo manifest will be represented as an object with the following structure:
 
@@ -7,7 +7,7 @@ Each cargo manifest will be represented as an object with the following structur
 containerId: 0,
 destination: "Monterey, California, USA",
 weight: 340.50,
-unit: "kg", 
+unit: "lb", 
 hazmat: false
 }
 ```
@@ -23,11 +23,10 @@ Note that each cargo manifest object should contain:
 
 **User Stories:**
 
-1. You should accept an array of manifest objects `{ containerId, destination, weight, unit, hazmat}`.
-2. You should implement the function `normalizeUnits(manifest)`, which converts a manifest object's weight to kilograms without mutating the source object (return a new object). Use the approximate conversion, 1 lb = 0.45 kg.
-3. You should implement the function `validateManifest(manifest)` with the following behavior:
-- If the input manifest is valid, return an empty object `{}`.
-- If any fields are invalid or missing, return an object describing those fields; specifically, `missingField: "Missing"` and `invalidField: "Invalid"`. Here is an example return where the original object is missing the `destination` field and has an invalid `weight` field: 
+1. You should implement the function `normalizeUnits(manifest)`, which converts a manifest object's weight to kilograms without mutating the source object (return a new object). Use the approximate conversion, 1 lb = 0.45 kg.
+2. You should implement the function `validateManifest(manifest)` with the following behavior:
+- If the manifest is valid (no missing or invalid fields), return an empty object `{}`.
+- If any of the input manifest's fields are invalid or missing, return an object describing those fields; specifically, `missingField: "Missing"` and `invalidField: "Invalid"`. Here is an example return where the original object is missing the `destination` field and has an invalid `weight` field: 
 ```js
  {
     destination: "Missing",
@@ -39,21 +38,6 @@ Note that each cargo manifest object should contain:
     - `weight` is not a positive number
     - `unit` is neither "kg" nor "lb"
     - `hazmat` is not a boolean
-4. You should implement the function `summarizeByDestination(manifests)`, which reduces an array of manifest objects into the following format: `{ destination: { totalWeight, hazmatCount } }`.
-- Example of a valid return: 
-```js
-{
-  "Monterey, California, USA": {
-    totalWeight: 1060.50,
-    hazmatCount: 4
-  },
-  "Austin, Texas, USA": {
-    totalWeight: 850.30,
-    hazmatCount: 3
-  }
-}
-```
-- `totalWeight` should be in kilograms.
-- `hazmatCount` should count only manifests where `hazmat` is true.
-5. You should implement the function `reportErrors(manifests)`, which accepts an array of manifest objects and logs validation errors for any that have missing or invalid fields.
-- Log failures to the console with the following format: `console.log("Validation error at container: " + containerId)`.
+3. You should implement the function `processManifest(manifest)`, which accepts a manifest object, and:
+  - If the manifest is valid, log `Validation success: ${containerId}`. Then, log the manifest's weight in kilograms in the following format `Total weight: ${weight} kg`.
+  - If the manifest is not valid, log: `Validation error: ${containerId}`. Then, log the object which is returned by calling `validateManifest()` on the original manifest.
