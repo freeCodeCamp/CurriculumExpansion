@@ -1,5 +1,5 @@
 function runSequence(config, cycles){
-	if (!config.phases || config.phases.length === 0) {
+        if (config.phases.length === 0) {
     	console.log("No phases found.");
     	return;
   	}
