@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "owner": "John Doe",
+    "balance": 1070
+  },
+  {
+    "id": 2,
+    "owner": "Jane Doe",
+    "balance": 760
+  },
+  {
+    "id": 3,
+    "owner": "Alan Smith",
+    "balance": 1170
+  }
+]
