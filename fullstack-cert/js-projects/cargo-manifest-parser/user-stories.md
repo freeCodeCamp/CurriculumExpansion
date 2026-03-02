@@ -4,11 +4,11 @@ Each cargo manifest will be represented as an object with the following structur
 
 ```js
 {
-containerId: 0,
-destination: "Monterey, California, USA",
-weight: 340.50,
-unit: "lb", 
-hazmat: false
+  containerId: 0,
+  destination: "Monterey, California, USA",
+  weight: 340.50,
+  unit: "lb", 
+  hazmat: false
 }
 ```
 
