@@ -43,18 +43,38 @@ const exampleConfig = {
 
 5. You should log `"Switching to [color] for [duration]s"` to the console during each valid phase, where `[color]` and `[duration]` are the values from the current phase object.
 
-6. You should detect invalid durations `(≤ 0)` within the phases and log `"Invalid phase detected"` before skipping to the next phase using `continue`.
+6. You should detect durations less than equal to `0` within the phases and log `"Invalid phase detected"` and skip to the next phase using `continue`.
 
-7. You should stop the entire simulation early if `config.fault` is set to `true`, using `break` to exit the outer cycle loop.
+7. You should stop the entire simulation early if `config.fault` is set to `true` and use `break` to exit the outer loop.
 
-8. You should handle the case where `config.phases` is empty by logging `"No phases found."` and returning early from `runSequence()`.
+8. You should handle the case where `config.phases` is empty by logging `"No phases found"` and `return` from `runSequence()`.
 
 9. You should have a function named `generateTimeline`.
 
 10. You should accept a `config` object as the first parameter and `cycles` as the second parameter to `generateTimeline()`.
 
-11. You should track the cumulative elapsed time across all phases and cycles, adding each phase's `duration` to the running total as you iterate.
+11. You should record the cumulative elapsed time after each phase and cycles into an array, adding each phase's `duration` to the running total as you iterate.
 
-12. You should record the cumulative elapsed time after each phase into an array.
+12. You should return the completed array of cumulative timestamps from `generateTimeline()`.
 
-13. You should return the completed array of cumulative timestamps from `generateTimeline()`.
+13. You should not make changes in the `config1`, `config2`, `config3`, and `config4` objects.
+
+14. `runSequence(config1, 1)` should log `Switching to green for 5s`, `Switching to yellow for 2s`, `Switching to red for 4s` in order.
+
+15. `runSequence(config1, 2)` should log `Switching to green for 5s`, `Switching to yellow for 2s`, `Switching to red for 4s`, `Switching to green for 5s`, `Switching to yellow for 2s`, `Switching to red for 4s` in order.
+
+16. `runSequence(config2, 1)` should log `Switching to red for 3s`, `Invalid phase detected`, `Switching to green for 6s` in order.
+
+17. `runSequence(config3, 3)` should log `Faulted phase!`.
+
+18. `runSequence(config4, 5)` should log `No phase found`.
+
+19. `generateTimeline(config1, 1)` should return `[5, 7, 11]`.
+
+20. `generateTimeline(config1, 2)` should return `[5, 7, 11, 16, 18, 22]`.
+
+21. `generateTimeline(config2, 2)` should return `[3, 1, 7, 10, 8, 14]`.
+
+22. `generateTimeline(config3, 1)` should return `[5, 7, 13]`.
+
+23. `generateTimeline(config4, 1)` should return `[]`.
