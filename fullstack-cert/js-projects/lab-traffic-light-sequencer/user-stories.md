@@ -41,16 +41,18 @@ const exampleConfig = {
 
 4. You should implement `runSequence(config, cycles)` using a `for` or `while` loop to iterate through each phase across the given number of cycles.
 
-5. You should log `"Switching to [color] for [duration]s"` to the console during each valid phase, where `[color]` and `[duration]` are the values from the current phase object.
+5. Your `runSequence()` function should:
 
-6. You should detect durations less than or equal to `0` within the phases and log `"Invalid phase detected"` and skip to the next phase using `continue`.
+- Log `Switching to [color] for [duration]s` for each valid phase.
 
-7. You should stop the entire simulation early if `config.fault` is set to `true` and use `break` to exit the outer loop.
+- Log `Invalid phase detected` and skip the phase if `duration <= 0`.
 
-8. You should handle the case where `config.phases` is empty by logging `"No phases found"` and `return` from `runSequence()`.
+- Log `Faulted phase!` and stop the simulation early if `config.fault` is set to `true`.
 
-9. You should have a function named `generateTimeline` and accept a `config` object as the first parameter and `cycles` as the second parameter.
+- Log `No phases found` and immediately `return` if `config.phases` is empty.
 
-10. You should record the cumulative elapsed time after each phase and cycles into an array, adding each phase's `duration` to the running total as you iterate.
+6. You should have a function named `generateTimeline` and accept a `config` object as the first parameter and `cycles` as the second parameter.
 
-11. You should return the completed array of cumulative timestamps from `generateTimeline()`.
+7. You should record the cumulative elapsed time after each phase and cycles into an array, adding each phase's `duration` to the running total as you iterate.
+
+8. You should return the completed array of cumulative timestamps from `generateTimeline()`.
