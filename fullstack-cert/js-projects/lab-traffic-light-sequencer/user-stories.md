@@ -37,7 +37,7 @@ const exampleConfig = {
 
 2. You should accept a `config` object as the first parameter to `runSequence()`. The `config` object contains a `fault` property and a `phases` array, where each phase has a `color` and a `duration` property.
 
-3. You should accept `cycles` as the second parameter to `runSequence()`.
+3. You should accept `cycles` as the second parameter to `runSequence()`, where `cycles` represents the maximum number of times the sequence can run before stopping.
 
 4. You should implement `runSequence(config, cycles)` using a `for` or `while` loop to iterate through each phase across the given number of cycles.
 
