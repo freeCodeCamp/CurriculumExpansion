@@ -25,6 +25,18 @@ const exampleConfig = {
 };
 ```
 
+You'll implement two functions named `runSequence()` and `generateTimeline()`.
+
+`runSequence(exampleConfig, 1)` should log:
+
+```md
+Switching to green for 5 s
+Switching to yellow for 2 s
+Switching to red for 4 s
+```
+
+And `generateTimeline(exampleConfig, 1)` should return the array `[5, 7, 11]`.
+
 **Objective**: Fulfill the user stories below and get all the tests to pass to complete the lab.
 
 # User Stories
@@ -44,5 +56,5 @@ const exampleConfig = {
 
 1. The `generateTimeline` function should:
 
-   - Record the cumulative elapsed time after each phase and cycles into an array, adding each phase's `duration` to the running total as you iterate.
+   - Record the cumulative elapsed time after each phase across the cycles into an array, adding each phase's `duration` to the running total as you iterate.
    - Return the array of cumulative timestamps.
