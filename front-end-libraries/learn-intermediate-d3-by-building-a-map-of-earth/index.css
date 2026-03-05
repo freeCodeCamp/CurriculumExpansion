@@ -1,0 +1,25 @@
+svg {
+  background-color: #ADD8E6;
+  cursor: grab;
+}
+
+svg:active {
+  cursor: grabbing;
+}
+
+.countries {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  background-color: #b8b8b8;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.label {
+  color: #0050A1;
+}
