@@ -50,7 +50,7 @@ function runSequence(config, cycles) {
 				console.log("Invalid phase detected");
 				continue;
 			}
-			console.log(`Switching to ${color} for ${duration}s`);
+			console.log(`Switching to ${color} for ${duration} s`);
 		}
 	}
 }
