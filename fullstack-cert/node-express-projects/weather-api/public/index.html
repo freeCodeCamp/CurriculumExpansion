@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Weather API Wrapper</h1>
+    <p>Test the dynamic route <code>GET /api/weather/:city</code>. **Supported cities: New York, Chicago, Los Angeles, Tokyo, London**.</p>
+    
+    <label for="cityInput">Enter City:</label>
+    <input type="text" id="cityInput" value="London">
+    <button onclick="fetchWeather()">Get Weather</button>
+    
+    <hr>
+    
+    <h2>Weather Data</h2>
+    <div id="weatherResult">
+        <p>Current City: <strong id="cityName">N/A</strong></p>
+        <p>Temperature: <strong id="temp">N/A</strong></p>
+        <p>Condition: <strong id="description">N/A</strong></p>
+        <p>Icon:</p>
+        <img id="weatherIcon" src="" alt="Weather Icon" style="display: none; width: 60px;">
+    </div>
+    
+    <h2>Raw JSON Response</h2>
+    <pre id="responseOutput">Click 'Get Weather' to see the data.</pre>
+
+    <script>
+        async function fetchWeather() {
+            const city = document.getElementById('cityInput').value.trim();
+            const output = document.getElementById('responseOutput');
+            const iconElement = document.getElementById('weatherIcon');
+
+            // Reset outputs
+            document.getElementById('cityName').textContent = 'Fetching...';
+            document.getElementById('temp').textContent = 'Fetching...';
+            document.getElementById('description').textContent = 'Fetching...';
+            iconElement.style.display = 'none';
+            output.textContent = "Fetching...";
+            
+            if (!city) {
+                output.textContent = JSON.stringify({ error: "Please enter a city" }, null, 2);
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/weather/${city}`);
+                const data = await response.json();
+                
+                // Display the raw JSON response
+                output.textContent = JSON.stringify(data, null, 2);
+
+                if (response.ok) {
+                    // Display the formatted data
+                    document.getElementById('cityName').textContent = data.city + ", " + data.country;
+                    document.getElementById('temp').textContent = `${data.temperature}°C`;
+                    document.getElementById('description').textContent = data.description;
+                    iconElement.src = data.iconUrl;
+                    iconElement.style.display = 'block';
+                } else {
+                    // Display API error message
+                    document.getElementById('cityName').textContent = 'ERROR';
+                    document.getElementById('temp').textContent = 'N/A';
+                    document.getElementById('description').textContent = data.hint || data.error;
+                }
+            } catch (error) {
+                // Network error
+                document.getElementById('cityName').textContent = 'ERROR';
+                output.textContent = JSON.stringify({ error: "Network error. Is the Express server running?" }, null, 2);
+            }
+        }
+    </script>
+</body>
+</html>
