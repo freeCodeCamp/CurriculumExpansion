@@ -1,61 +1,49 @@
-function findMotif(sequence, motifLength) {
-  const motifPositions = []
+function findRepeatedPhrases(words, phraseLength) {
+  const repeatedWordsIndecies = []
 
-  for (let i = 0; i <= sequence.length - motifLength; i++) {
-    for (let j = i + 1; j <= sequence.length - motifLength; j++) {
+  for (let i = 0; i <= words.length - phraseLength; i++) {
+    for (let j = i + 1; j <= words.length - phraseLength; j++) {
       let match = true
 
-      for (let k = 0; k < motifLength; k++) {
-        if (sequence[i + k] !== sequence[j + k]) {
+      for (let k = 0; k < phraseLength; k++) {
+        if (words[i + k] !== words[j + k]) {
           match = false
           break
         }
       }
 
       if (match) {
-        motifPositions.push(i)
+        repeatedWordsIndecies.push(i)
         break
       }
     }
   }
 
-  return motifPositions
+  return repeatedWordsIndecies
 }
 
-function detectMirror(sequence) {
-  const mirrorsBroken = []
+function findPalindromeBreaks(words) {
+  const palindromesBroken = []
 
-  for (let i = 0; i < Math.floor(sequence.length / 2); i++) {
-    const mirrorIndex = sequence.length - 1 - i
+  for (let i = 0; i < Math.floor(words.length / 2); i++) {
+    const palindromeIndex = words.length - 1 - i
 
-    if (sequence[i] !== sequence[mirrorIndex]) {
-      mirrorsBroken.push(i)
+    if (words[i] !== words[palindromeIndex]) {
+      palindromesBroken.push(i)
     }
   }
 
-  return mirrorsBroken
+  return palindromesBroken
 }
 
-function findMissingFrames(sequence, pattern) {
-  const missingFrames = []
+function analyseTexts(texts, phraseLength) {
+  let results = []
+  for (let i = 0; i < texts.length; i++) {
+    const repeatedPhrases = findRepeatedPhrases(texts[i], phraseLength)
+    const palindromeBreaks = findPalindromeBreaks(texts[i])
 
-  for (let i = 0; i < sequence.length; i++) {
-    const expectedFrame = pattern[i % pattern.length]
-
-    if (sequence[i] !== expectedFrame) {
-      missingFrames.push(i)
-    }
+    results.push({ repeatedPhrases, palindromeBreaks })
   }
 
-  return missingFrames
-}
-
-function scanBinarySignalSequences(sequences, motifLength, pattern) {
-  return sequences.map((sequence) => {
-    return {
-      motifPositions: findMotif(sequence, motifLength),
-      mirrorsBroken: detectMirror(sequence),
-      missingFrames: findMissingFrames(sequence, pattern),
-    }
-  })
+  return results
 }
