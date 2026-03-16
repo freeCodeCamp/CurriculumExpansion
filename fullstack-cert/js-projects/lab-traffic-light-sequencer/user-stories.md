@@ -25,18 +25,6 @@ const exampleConfig = {
 };
 ```
 
-You'll implement two functions named `runSequence()` and `generateTimeline()`.
-
-`runSequence(exampleConfig, 1)` should log:
-
-```md
-Switching to green for 5 s
-Switching to yellow for 2 s
-Switching to red for 4 s
-```
-
-And `generateTimeline(exampleConfig, 1)` should return the array `[5, 7, 11]`.
-
 **Objective**: Fulfill the user stories below and get all the tests to pass to complete the lab.
 
 # User Stories
@@ -45,16 +33,22 @@ And `generateTimeline(exampleConfig, 1)` should return the array `[5, 7, 11]`.
 
 1. You should implement `runSequence(config, cycles)` using a `for` or `while` loop to iterate through each phase across the given number of cycles.
 
-1. The `runSequence()` function should:
+1. The `runSequence` function should:
+  - Log `Switching to [color] for [duration] s` for each valid phase. Replace `[color]` and `[duration]` with the corresponding properties of the phase object.
+  - Log `Invalid phase detected` and skip the phase if `duration <= 0`.
+  - Log `Faulted phase!` and stop the simulation early if `config.fault` is set to `true`.
+  - Log `No phases found` and immediately return if `config.phases` is empty.
+  - For example, `runSequence(exampleConfig, 1)` should log:
 
-   - Log `Switching to [color] for [duration] s` for each valid phase. Replace `[color]` and `[duration]` with the corresponding properties of the phase object.
-   - Log `Invalid phase detected` and skip the phase if `duration <= 0`.
-   - Log `Faulted phase!` and stop the simulation early if `config.fault` is set to `true`.
-   - Log `No phases found` and immediately return if `config.phases` is empty.
-   
+  ```md
+  Switching to green for 5 s
+  Switching to yellow for 2 s
+  Switching to red for 4 s
+  ```
+
 1. You should have a function named `generateTimeline` with two parameters: `config` and `cycles`.
 
 1. The `generateTimeline` function should:
-
-   - Record the cumulative elapsed time after each phase across the cycles into an array, adding each phase's `duration` to the running total as you iterate.
-   - Return the array of cumulative timestamps.
+  - Record the cumulative elapsed time after each phase across the cycles into an array, adding each phase's `duration` to the running total as you iterate.
+  - Return the array of cumulative timestamps.
+  - For example, `generateTimeline(exampleConfig, 1)` should return the array `[5, 7, 11]`.
