@@ -1,42 +1,95 @@
-// Debugging checkout system
+// Debugging Task Tracker
 
-// Inside Editor
-// Data setup
-const user = "Alex";
+// Each task should look like: { text: string, completed: boolean }
+const tasks = [];
 
-const cart = [
-  { item: "Keyboard", price: 50, quantity: 1 },
-  { item: "Mouse", price: 25, quantity: 2 },
-  { item: "Monitor", price: 300, quantity: 1 }
-];
+const input = document.getElementById("task-input");
+const addBtn = document.getElementById("add-btn");
+const taskList = document.getElementById("task-list");
+const taskCount = document.getElementById("task-count");
 
-const stock = 2;
-const requestedQuantity = 3;
-const paymentSuccessful = false;
-
-// Checkout debugging logs
-// Clear old logs
+// Clear old logs to avoid confusion
 console.clear();
 
-// Group checkout logs
-console.groupCollapsed("Checkout Process");
+// Learners place a breakpoint here to inspect how the click event triggers logic
+addBtn.addEventListener("click", addTask);
 
-// Log user
-console.log("Current user:", user);
 
-// Display cart details in a table
-console.log("Cart contents:");
-console.table(cart);
+// Add tasks to the task array
+function addTask() {
+    /* Learners open DevTools and add watch expressions:
+    - tasks
+    - tasks.length
+    - input.value */
+    debugger;
 
-// Warn if requested quantity exceeds stock
-if (requestedQuantity > stock) {
-  console.warn("Requested quantity exceeds available stock.");
+    const text = input.value;
+
+    // Review throw statement
+    if (text.trim() === "") {
+        throw new Error("Task cannot be empty");
+    }
+
+    tasks.push({
+        text: text,
+        completed: false
+    });
+
+    // Inspect stored data structure
+    console.table(tasks);
+
+    renderTasks();
+    updateTaskCount();
+
+    input.value = "";
 }
 
-// Show error if payment fails
-if (!paymentSuccessful) {
-  console.error("Payment failed. Please try again.");
+
+// Render tasks to the page
+function renderTasks() {
+    // Group related logs for clarity
+    console.groupCollapsed("Rendering Tasks");
+
+    taskList.innerHTML = "";
+
+    // Revisit higher-order functions
+    tasks.forEach((task) => {
+        console.log("Rendering task:", task);
+
+        const li = document.createElement("li");
+        li.textContent = task.text;
+
+        /* Intentional Bug:
+        Learners inspect the DOM and notice the <li> is never appended.
+
+        Expected fix:
+        taskList.appendChild(li); */
+    });
+
+    console.groupEnd();
 }
 
-// Close the console group
-console.groupEnd();
+
+// Update the task counter
+function updateTaskCount() {
+    /* Intentional Bug:
+    Learners investigate incorrect UI state.
+
+    Expected fix:
+    total = tasks.length; */
+    const total = tasks.length + 1;
+
+    taskCount.textContent = `Total Tasks: ${total}`;
+}
+
+
+// Mark a task as completed
+/* Learners experiment with watch expressions:
+- tasks[index]
+- tasks.length */
+function markCompleted(index) {
+
+    tasks[index].completed = true;
+
+    renderTasks();
+}
