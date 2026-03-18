@@ -1,5 +1,5 @@
 function findRepeatedPhrases(words, phraseLength) {
-  const repeatedWordsIndecies = []
+  const repeatedWordsIndices = []
 
   for (let i = 0; i <= words.length - phraseLength; i++) {
     for (let j = i + 1; j <= words.length - phraseLength; j++) {
@@ -13,13 +13,13 @@ function findRepeatedPhrases(words, phraseLength) {
       }
 
       if (match) {
-        repeatedWordsIndecies.push(i)
+        repeatedWordsIndices.push(i)
         break
       }
     }
   }
 
-  return repeatedWordsIndecies
+  return repeatedWordsIndices
 }
 
 function findPalindromeBreaks(words) {
@@ -36,7 +36,7 @@ function findPalindromeBreaks(words) {
   return palindromesBroken
 }
 
-function analyseTexts(texts, phraseLength) {
+function analyzeTexts(texts, phraseLength) {
   let results = []
   for (let i = 0; i < texts.length; i++) {
     const repeatedPhrases = findRepeatedPhrases(texts[i], phraseLength)
