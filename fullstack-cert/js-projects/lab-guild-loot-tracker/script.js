@@ -1,4 +1,5 @@
-const guild = {
+// Creating the "guild" object could be 2 or 3 Steps (creating "guild" object and adding the first "guild member" object as the first property - rest of the "guild members" can be filled out between the next steps)
+let guild = {
   nemo: {
     gold: 31,
     silver: 48,
@@ -37,48 +38,85 @@ const guild = {
   },
 };
 
-function cloneGuildData(object) {
-  return { ...object };
+// `listMembers()` introduces `Object.entries()` static method (possibly also `Object.keys()` and `Object.values()`, depending on how long the description for each step is supposed to be)
+function listMembers(guildObject) {
+  const guildEntries = Object.entries(guildObject);
+
+  console.log(guildEntries);
 }
 
-function addLootEntry(object, entry) {
-  const memberData = ["gold", "silver", "reputation", "experience"];
+// 'getMemberTotals()` can be 4 steps (introduce `Object.keys()` method, write a guard clause using `if()/else` and `.includes()`, introduce `Object.values()`, return a string literal with the result) -
+function getMemberTotals(guildObject, member) {
+  const objectKeys = Object.keys(guildObject);
+
+  if (!objectKeys.includes(member)) {
+    return `"${member}" not found in the guild roster.`;
+  } else {
+    return `${member}'s totals\n gold: ${Object.values(guildObject[member])[0]},\n silver: ${Object.values(guildObject[member])[1]},\n reputation: ${Object.values(guildObject[member])[2]},\n experience: ${Object.values(guildObject[member])[3]}`;
+  }
+}
+
+// "cloneGuildData" can be broken into multiple (3?) steps to show that using the spread syntax creates a shallow copy of the object, for example #3 write the function and log it #4 assign the returned data to a variable, and change some of its values, then log both original and the copy to the console, #5 remove the variable and console.log() calls to continue
+function cloneGuildData(guildObject) {
+  return { ...guildObject };
+}
+
+function addLootEntry(guildObject, entry) {
+  const clonedGuildData = cloneGuildData(guildObject);
+  const { member, ...memberData } = entry;
+
+  if (typeof member !== "string") {
+    console.log(`Entry must include a "gold" key, with a "number" value.`);
+    return;
+  }
 
   if (
-    !Object.keys(entry).includes("member") ||
-    typeof entry["member"] !== "string"
+    !Object.keys(memberData).includes("gold") ||
+    typeof memberData["gold"] !== "number"
   ) {
-    return 'Entry must include a "member" key, with a "string" value (the guild member name).';
+    console.log('object must have a "gold" key!');
+  } else if (
+    !Object.keys(memberData).includes("silver") ||
+    typeof memberData["silver"] !== "number"
+  ) {
+    console.log(`Entry must include a "silver" key, with a "number" value.`);
+    return;
+  } else if (
+    !Object.keys(memberData).includes("reputation") ||
+    typeof memberData["reputation"] !== "number"
+  ) {
+    console.log(
+      `Entry must include a "reputation" key, with a "number" value.`,
+    );
+    return;
+  } else if (
+    !Object.keys(memberData).includes("experience") ||
+    typeof memberData["experience"] !== "number"
+  ) {
+    console.log(
+      `Entry must include a "experience" key, with a "number" value.`,
+    );
+    return;
   }
 
-  for (const value of memberData) {
-    if (
-      !Object.keys(entry).includes(value) ||
-      typeof entry[value] !== "number"
-    ) {
-      return `Entry must include a "${value}" key, with a "number" value.`;
-    }
-  }
+  clonedGuildData[member] = memberData;
 
-  const clonedGuildData = cloneGuildData(object);
-  const { member } = entry;
-  const { gold, silver, reputation, experience } = entry;
-
-  clonedGuildData[member] = { gold, silver, reputation, experience };
-
-  return clonedGuildData;
+  guild = clonedGuildData;
+  console.log("Guild roster updated");
+  return;
 }
 
-function getMemberTotals(object, member) {
-  if (!Object.keys(object).includes(member)) {
-    return `"${ingredient}" not found in the guild roster.`;
-  } else {
-    return `${member}'s totals - gold: ${Object.values(object[member])[0]}, silver: ${Object.values(object[member])[1]} reputation: ${Object.values(object[member])[2]}, experience: ${Object.values(object[member])[3]}`;
-  }
-}
-
-function listMembers(object) {
-  console.log(Object.entries(object));
-}
-
+//Test listMembers
 listMembers(guild);
+
+console.log(getMemberTotals(guild, "morgat"));
+
+addLootEntry(guild, {
+  member: "morgat",
+  gold: 1,
+  silver: 2,
+  reputation: 3,
+  experience: 4,
+});
+
+console.log(getMemberTotals(guild, "morgat"));
