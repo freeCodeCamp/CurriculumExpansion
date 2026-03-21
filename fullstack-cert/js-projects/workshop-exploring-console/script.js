@@ -1,95 +1,121 @@
-// Debugging Task Tracker
+// Debugging User Registration Form
 
-// Each task should look like: { text: string, completed: boolean }
-const tasks = [];
+// Step 1: Select DOM elements
+const nameInput = document.getElementById("name-input");
+const ageInput = document.getElementById("age-input");
+const btn = document.getElementById("submit-btn");
+const result = document.getElementById("result");
 
-const input = document.getElementById("task-input");
-const addBtn = document.getElementById("add-btn");
-const taskList = document.getElementById("task-list");
-const taskCount = document.getElementById("task-count");
-
-// Clear old logs to avoid confusion
+// Step 2: Clear browser console to check output
 console.clear();
 
-// Learners place a breakpoint here to inspect how the click event triggers logic
-addBtn.addEventListener("click", addTask);
+// Step 3: Inspect DOM elements
+console.dir(nameInput);
+console.dir(ageInput);
+
+// Step 4: Add event listener with a placeholder function
+btn.addEventListener("click", registerUser);
 
 
-// Add tasks to the task array
-function addTask() {
-    /* Learners open DevTools and add watch expressions:
-    - tasks
-    - tasks.length
-    - input.value */
-    debugger;
+function registerUser() {
+    // Step 5: Ensure the function runs on click
+    console.log("Button clicked");
 
-    const text = input.value;
+    // Step 6: Log user input
+    const name = nameInput.value;
+    const age = ageInput.value;
 
-    // Review throw statement
-    if (text.trim() === "") {
-        throw new Error("Task cannot be empty");
+    console.log("Name:", name);
+    console.log("Age:", age);
+
+    // Step 7: Intro to server-side validation
+    if (name === "") {
+        throw new Error("Name is required");
+    }
+    if (age === "") {
+        throw new Error("Age is required");
+    }
+}
+
+
+// Step 8: Fix UncaughtError with try...catch
+function registerUser() {
+    console.log("Button clicked");
+
+    const name = nameInput.value;
+    const age = ageInput.value;
+
+    console.log("Name:", name);
+    console.log("Age:", age);
+
+    try {
+        if (name === "") {
+            throw new Error("Name is required");
+        }
+        if (age === "") {
+            throw new Error("Age is required");
+        }
+
+        // Step 9: Validate age
+        if (age < 13) {
+            throw new Error("User must be at least 13 years old")
+        }
+
+        // Step 10: Feedback
+        result.textContent = "Registration successful";
+
+    } catch (error) {
+        console.error(error.message);
+        result.textContent = error.message;
     }
 
-    tasks.push({
-        text: text,
-        completed: false
-    });
+    // Step 11: Store user data
+    const user = {
+        name: name,
+        age: age
+    };
 
-    // Inspect stored data structure
-    console.table(tasks);
-
-    renderTasks();
-    updateTaskCount();
-
-    input.value = "";
+    // Step 12: Display in a table
+    console.table([user]);
 }
 
 
-// Render tasks to the page
-function renderTasks() {
-    // Group related logs for clarity
-    console.groupCollapsed("Rendering Tasks");
+// Step 13: Group the logs
+function registerUser() {
+    console.log("Button clicked");
 
-    taskList.innerHTML = "";
+    const name = nameInput.value;
+    const age = ageInput.value;
 
-    // Revisit higher-order functions
-    tasks.forEach((task) => {
-        console.log("Rendering task:", task);
+    // HERE
+    console.groupCollapsed("Register User");
 
-        const li = document.createElement("li");
-        li.textContent = task.text;
+    console.log("Name:", name);
+    console.log("Age:", age);
 
-        /* Intentional Bug:
-        Learners inspect the DOM and notice the <li> is never appended.
+    try {
+        if (name === "") {
+            throw new Error("Name is required");
+        }
+        if (age === "") {
+            throw new Error("Age is required");
+        }
+        if (age < 13) {
+            throw new Error("User must be at least 13 years old")
+        }
+        result.textContent = "Registration successful";
 
-        Expected fix:
-        taskList.appendChild(li); */
-    });
+    } catch (error) {
+        console.error(error.message);
+        result.textContent = error.message;
+    }
 
+    const user = {
+        name: name,
+        age: age
+    };
+    console.table([user]);
+    
+    // TO HERE
     console.groupEnd();
-}
-
-
-// Update the task counter
-function updateTaskCount() {
-    /* Intentional Bug:
-    Learners investigate incorrect UI state.
-
-    Expected fix:
-    total = tasks.length; */
-    const total = tasks.length + 1;
-
-    taskCount.textContent = `Total Tasks: ${total}`;
-}
-
-
-// Mark a task as completed
-/* Learners experiment with watch expressions:
-- tasks[index]
-- tasks.length */
-function markCompleted(index) {
-
-    tasks[index].completed = true;
-
-    renderTasks();
 }
