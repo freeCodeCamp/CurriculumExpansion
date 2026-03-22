@@ -74,7 +74,6 @@ Promise.all([getJSONData, getCSVData]).then(function (values) {
     .append("path")
     .attr("class", "countries")
     .attr("d", path)
-    // .style("stroke", "white")  // Moved to CSS
     .style("stroke-width", 0.5)
     .style("opacity", 0.75)
     .style("fill", (d) => {
