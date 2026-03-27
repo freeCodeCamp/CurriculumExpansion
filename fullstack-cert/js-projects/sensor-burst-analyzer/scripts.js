@@ -23,133 +23,57 @@ const sensorBurst = [
 ]
 // sensorBurst includes bursts with inconsistent lengths. If the sample should be more consistent please let me know.
 
-function analyzeBurst(burst, windowSize) {
-  //The function should return averages, mins, and maxes using sliding windows.
-
-  //the function start by calculating the lenght of the burst
-  let num = burst.length;
+function getWindow(burst, start, windowSize) {
+// uses slice to extract a window of readings
+  const sample = [...burst]
   
-  let windowSum = 0;
-  let windowAverage = 0;
-
-  let currentMin = burst[0]; //currentMin is set to the first value of the burst array and not 0 because the numers on the array could be all larger than 0.  
-  let currentMax = burst[0]; //currentMax is set to the first value of the burst array.
-
-
-  //First case: if there is an edge case. In this scenario a burst smaller than a window size, return an error message.
-  if (num < windowSize) {
-    
-    console.log("Invalid: burst smaller than windowSize");
-    return [null, null, null];
+  if (sample.length <= windowSize){
+    return "lecture is smaller than the window size"
+  } if (sample.length == 0){
+    return "lecture is empty"
+  }else {
+    return sample.slice(start, windowSize)
   }
 
-  //Second case: if the burst is the same size of the window size, run a normal for loop, with a O(n) complexity (linear)
-  if (num == windowSize) {
+}
+
+
+function detectSilence(burst) {
+// uses includes to check for zero readings
+  const sample = [...burst]
   
-    for (let i = 0; i < windowSize; i++) {
-      windowSum += burst[i];
-      currentMax = Math.max(currentMax, burst[i])
-      currentMin = Math.min(currentMin, burst[i])
+  if (sample.includes(0)== false){
+    return "all the readings are bigger than zero"
+  }else {
+    return sample.includes(0)
   }
-  windowAverage = (windowSum / num) // at the end of the for loop windowSum is divided by num variable set at the begining
-  return [currentMin,currentMax,windowAverage];
 }
 
-//Other cases, if the burst larger than window size, run a normal for loop for the starting subarray, and then continue in a separated for loop. All the loops have a O(n) complexity (linear)
-
-//calculate the min, max and sum of the starting subarray.
-  for (let i = 0; i < windowSize; i++) {
-    windowSum += burst[i];
-    currentMax = Math.max(currentMax, burst[i])
-    currentMin = Math.min(currentMin, burst[i])
-  }
-
-  //apply sliding window to the rest of the subarray
-  for (let j = windowSize; j < num; j++) {
-
-    windowSum += burst[j];
-    currentMax = Math.max(currentMax, burst[j])
-    currentMin = Math.min(currentMin, burst[j])
-}
-  windowAverage = (windowSum/num);
-
-  return [currentMin,currentMax,windowAverage];
+function findReading(burst, value) {
+//uses indexOf to locate a specific reading  
+  const sample = [...burst]
   
-}
-
-
-
-function detectSpikes(burst, threshold) {
-//You should create detectSpikes(burst, threshold) that uses some/every to flag bursts exceeding thresholds.
-
-let num = burst.length;
-let exceed = 0;
-
-for (let i = 0; i < num ; i++) {
-
-  if (burst[i] <= threshold) {
-  } else {
-    exceed += 1;
+  if (sample.indexOf(value)== -1){
+    return "value does not exist"
+  }else {
+    return sample.indexOf(value)
   }
 }
 
-if (exceed == num) {
-  return "every";
-}
-  return "some";
-}
+function replaceFaultyReading(burst, index, newValue) { 
+// uses splice to replace a reading
+  const sample = [...burst]
+  sample.splice(index, 1, newValue)
 
-
-
-function detectSilence(burst, windowSize) {
-//You should create detectSilence(burst, windowSize) that returns true if a full window contains zero readings.
-
-
-  //start by calculating the lenght of the burst
-  let num = burst.length;
-
-  //First case: if there is an edge case. In this scenario a burst smaller than a window size, return an error message.
-  if (num < windowSize) {
-    return "Invalid: burst smaller than windowSize";
-  }
-
-  let silence = 0;
-  for (let i = 0; i < windowSize ; i++) {
-
-    if (burst[i] > 0) {
-    } else {
-      silence += 1;
-    }
-  }
-
-  if (silence == windowSize) {
-    return true;
-  }
-    return false;
+  return sample
 
 }
 
+function mergeSensorData(dataset1, dataset2) { 
+// uses concat to combine two datasets
+  const array1 = [...dataset1]
+  const array2 = [...dataset2]
+  
+  return array1.concat(array2)
 
-
-function summarizeSensorData(bursts){
-//You should create summarizeSensorData(bursts) that maps through all bursts, aggregates stats, and returns an array of summary objects.
-let num = bursts.length;
-let summarizedData = {"min":[],"max":[],"avg":[]}
-
-for (let i=0; i < num; i++) {
-
-  let burstLength = bursts[i].length;
-  let numbers = bursts[i];
-  let min = Math.min(...numbers);
-  let max = Math.max(...numbers);
-
-  let sum = numbers.reduce((a, b) => a + b);
-
-  let avg =  Math.round(sum / burstLength * 100) / 100
-
-  summarizedData.min.push(min);
-  summarizedData.max.push(max);
-  summarizedData.avg.push(avg);
-}
-return summarizedData
 }
