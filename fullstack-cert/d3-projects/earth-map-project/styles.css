@@ -1,4 +1,32 @@
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1 {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+#map {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
 svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   background-color: #add8e6;
   cursor: grab;
 }
@@ -13,13 +41,32 @@ svg:active {
 
 .tooltip {
   position: absolute;
+  max-width: min(240px, calc(100vw - 32px));
   padding: 10px;
   color: #fff;
   background-color: #b8b8b8;
   opacity: 0;
   border-radius: 5px;
+  pointer-events: none;
 }
 
 .label {
   color: #0050a1;
+}
+
+footer {
+  width: min(100%, 1000px);
+  margin: 16px auto 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+
+  .tooltip {
+    font-size: 0.875rem;
+  }
 }

@@ -19,6 +19,8 @@ const idCode = "ADM0_A3";
 const svg = d3
   .select("#map")
   .append("svg")
+  .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
