@@ -1,3 +1,6 @@
+// Add console statements with function calls so campers can see what is going on while
+// they are building out the project.
+
 const sensorBurst = [
   [52, 77],
   [65, 99],
