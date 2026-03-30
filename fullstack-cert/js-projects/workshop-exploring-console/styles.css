@@ -1,31 +1,31 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 40px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 40px;
 }
 
 input {
-    display: block;
-    margin: 10px auto;
-    padding: 8px;
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
 }
 
 button {
-    padding: 8px 12px;
-    cursor: pointer;
-    border: 2px solid #ffac33;
-    background-image: linear-gradient(#fecc4c, #ffac33);
-    transition: all 0.1s ease-in-out;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 2px solid #ffac33;
+  background-image: linear-gradient(#fecc4c, #ffac33);
+  transition: all 0.1s ease-in-out;
 }
 
 button:hover {
-    background-image: linear-gradient(#ffcc4c);
+  background-image: linear-gradient(#ffcc4c);
 }
 
 button:active {
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); 
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 #result {
-    margin-top: 20px;
+  margin-top: 20px;
 }

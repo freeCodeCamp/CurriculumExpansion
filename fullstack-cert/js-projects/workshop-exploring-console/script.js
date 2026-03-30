@@ -16,106 +16,101 @@ console.dir(ageInput);
 // Step 4: Add event listener with a placeholder function
 btn.addEventListener("click", registerUser);
 
-
 function registerUser() {
-    // Step 5: Ensure the function runs on click
-    console.log("Button clicked");
+  // Step 5: Ensure the function runs on click
+  console.log("Button clicked");
 
-    // Step 6: Log user input
-    const name = nameInput.value;
-    const age = ageInput.value;
+  // Step 6: Log user input
+  const name = nameInput.value;
+  const age = ageInput.value;
 
-    console.log("Name:", name);
-    console.log("Age:", age);
+  console.log("Name:", name);
+  console.log("Age:", age);
 
-    // Step 7: Intro to server-side validation
-    if (name === "") {
-        throw new Error("Name is required");
-    }
-    if (age === "") {
-        throw new Error("Age is required");
-    }
+  // Step 7: Intro to server-side validation
+  if (name === "") {
+    throw new Error("Name is required");
+  }
+  if (age === "") {
+    throw new Error("Age is required");
+  }
 }
-
 
 // Step 8: Fix UncaughtError with try...catch
 function registerUser() {
-    console.log("Button clicked");
+  console.log("Button clicked");
 
-    const name = nameInput.value;
-    const age = ageInput.value;
+  const name = nameInput.value;
+  const age = ageInput.value;
 
-    console.log("Name:", name);
-    console.log("Age:", age);
+  console.log("Name:", name);
+  console.log("Age:", age);
 
-    try {
-        if (name === "") {
-            throw new Error("Name is required");
-        }
-        if (age === "") {
-            throw new Error("Age is required");
-        }
-
-        // Step 9: Validate age
-        if (age < 13) {
-            throw new Error("User must be at least 13 years old")
-        }
-
-        // Step 10: Feedback
-        result.textContent = "Registration successful";
-
-    } catch (error) {
-        console.error(error.message);
-        result.textContent = error.message;
+  try {
+    if (name === "") {
+      throw new Error("Name is required");
+    }
+    if (age === "") {
+      throw new Error("Age is required");
     }
 
-    // Step 11: Store user data
-    const user = {
-        name: name,
-        age: age
-    };
+    // Step 9: Validate age
+    if (age < 13) {
+      throw new Error("User must be at least 13 years old");
+    }
 
-    // Step 12: Display in a table
-    console.table([user]);
+    // Step 10: Feedback
+    result.textContent = "Registration successful";
+  } catch (error) {
+    console.error(error.message);
+    result.textContent = error.message;
+  }
+
+  // Step 11: Store user data
+  const user = {
+    name: name,
+    age: age,
+  };
+
+  // Step 12: Display in a table
+  console.table([user]);
 }
-
 
 // Step 13: Group the logs
 function registerUser() {
-    console.log("Button clicked");
+  console.log("Button clicked");
 
-    const name = nameInput.value;
-    const age = ageInput.value;
+  const name = nameInput.value;
+  const age = ageInput.value;
 
-    // HERE
-    console.groupCollapsed("Register User");
+  // HERE
+  console.groupCollapsed("Register User");
 
-    console.log("Name:", name);
-    console.log("Age:", age);
+  console.log("Name:", name);
+  console.log("Age:", age);
 
-    try {
-        if (name === "") {
-            throw new Error("Name is required");
-        }
-        if (age === "") {
-            throw new Error("Age is required");
-        }
-        if (age < 13) {
-            throw new Error("User must be at least 13 years old")
-        }
-        result.textContent = "Registration successful";
-
-    } catch (error) {
-        console.error(error.message);
-        result.textContent = error.message;
+  try {
+    if (name === "") {
+      throw new Error("Name is required");
     }
+    if (age === "") {
+      throw new Error("Age is required");
+    }
+    if (age < 13) {
+      throw new Error("User must be at least 13 years old");
+    }
+    result.textContent = "Registration successful";
+  } catch (error) {
+    console.error(error.message);
+    result.textContent = error.message;
+  }
 
-    const user = {
-        name: name,
-        age: age
-    };
-    console.table([user]);
-    
-    // TO HERE
-    console.groupEnd();
+  const user = {
+    name: name,
+    age: age,
+  };
+  console.table([user]);
+
+  // TO HERE
+  console.groupEnd();
 }
