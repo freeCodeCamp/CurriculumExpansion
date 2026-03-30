@@ -5,8 +5,8 @@ body {
   display: grid;
   place-items: start center;
   padding: 40px 16px;
-  background-color: #f8f8f8;
-  color: #1b1b1b;
+  background-color: #0a0a23;
+  color: #f5f6f7;
 }
 
 main {
@@ -24,10 +24,10 @@ form {
 
 fieldset {
   margin: 0;
-  padding: 1.25rem;
-  border: 1px solid #b3b3b3;
+  padding: 2.5rem;
+  border: 1px solid #3b3b4f;
   border-radius: 0.5rem;
-  background-color: #fff;
+  background-color: #1b1b32;
 }
 
 legend {
@@ -50,8 +50,14 @@ input {
   display: block;
   width: 100%;
   padding: 8px;
-  border: 1px solid #6b7280;
+  border: 1px solid #d0d0d5;
   border-radius: 0.25rem;
+  background-color: #0a0a23;
+  color: #f5f6f7;
+}
+
+input::placeholder {
+  color: #d0d0d5;
 }
 
 button {
@@ -65,7 +71,7 @@ button {
 
 input:focus-visible,
 button:focus-visible {
-  outline: 3px solid #0a66c2;
+  outline: 3px solid #99c9ff;
   outline-offset: 2px;
 }
 
@@ -80,7 +86,7 @@ button:active {
 #age-help {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
-  color: #4b5563;
+  color: #dfdfe2;
 }
 
 #result {
