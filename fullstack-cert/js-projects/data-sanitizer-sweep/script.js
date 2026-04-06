@@ -33,7 +33,6 @@ function Func_sanitizeLog(entry, blacklist){
     };
 
     return(sanitizedEntry.join(''));
-    //console.log("Before clean:" + entry + " | After clean:" + sanitizedEntry.join(''));
 };
 
 // This function parses entire array of logs
@@ -45,7 +44,7 @@ function cleanLogs(logs, blacklist){
     let sanitizedLogs = [];
     
     for(let i = 0; i < logs.length; i++){
-        //console.log(logs[i]);
+
         if(logs[i].includes(fatalError)){
             console.log((instanceAccumulator.sanitizedEntryCount/logs.length)*100)
             break;
@@ -62,11 +61,8 @@ function cleanLogs(logs, blacklist){
         };
     };
 
-    //console.log(instanceAccumulator.sanitizedEntryCount/logs.length);
     console.log(sanitizedLogs);
 };
-
-//sanitizeLog('Basketball plays',['a','B']);
 
 logs = [
   "INFO: Server started on port 3000",
@@ -86,14 +82,3 @@ logs = [
 blacklistedStrings = ['a','A','c','T'];
 
 cleanLogs(logs,blacklistedStrings);
-
-// Think I see how it goes I'm not suppose to complete all.
-/**
- * The way I see it is sanitizeLog is a very simple function.
- * It's suppose to be simple 
- * 
- * 1: Grab length of entire logs
- * 2: define fatal markers and informational lines
- * 3: cleanlogs repeatly run sanitizelog function to clean existing log.
- * 4: sanitizelog need to check for fatal marker and informational lines.
- */
