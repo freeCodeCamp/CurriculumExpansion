@@ -35,6 +35,15 @@ function Func_sanitizeLog(entry, blacklist){
     return(sanitizedEntry.join(''));
 };
 
+function printCustomMessage(entryCount, sanitizedCount, failureReason){
+    if(failureReason == ""){
+        console.log("Total Entry: " + entryCount + " Sanitized Entry Count: " + sanitizedCount + " finished sanitize logs process.");
+    }
+    else{
+        console.log("Sanitizing stopped Failure Reason: " + failureReason);
+    }
+}
+
 // This function parses entire array of logs
 function cleanLogs(logs, blacklist){
     let fatalError = '$'
@@ -46,7 +55,7 @@ function cleanLogs(logs, blacklist){
     for(let i = 0; i < logs.length; i++){
 
         if(logs[i].includes(fatalError)){
-            console.log((instanceAccumulator.sanitizedEntryCount/logs.length)*100)
+            printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "Fatal character occurred")
             break;
         }
         else if(logs[i].includes(informationalIndicator)){
@@ -61,7 +70,7 @@ function cleanLogs(logs, blacklist){
         };
     };
 
-    console.log(sanitizedLogs);
+    printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "")
 };
 
 logs = [
