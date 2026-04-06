@@ -20,7 +20,7 @@ let blacklistedStrings = [];
 
 // This function parses each individual log string.
 // This function will be repeatly called by cleanLogs until no strings left.
-function Func_sanitizeLog(entry, blacklist){
+function sanitizeLog(entry, blacklist){
     sanitizedEntry = [];
 
     for(let i = 0; i< entry.length; i++){
@@ -60,10 +60,10 @@ function cleanLogs(logs, blacklist){
         }
         else if(logs[i].includes(informationalIndicator)){
             instanceAccumulator.sanitizedEntryInc();
-            console.log("Information entry");
+            continue;
         }
         else{
-            tmpSanitized = Func_sanitizeLog(logs[i],blacklist);
+            tmpSanitized = sanitizeLog(logs[i],blacklist);
             sanitizedLogs.push(tmpSanitized);
 
             instanceAccumulator.sanitizedEntryInc();
@@ -81,7 +81,7 @@ logs = [
   "INFO: Scheduled job triggered at 08:00",
   "ERROR: Failed to connect to db, retry=3",
   "DEBUG: api_key=XYZ789 used in request",
-  "INFO: Cache cleared successfully",
+  "//INFO: Cache cleared successfully",
   "WARN: Disk usage at 92%, threshold=90%",
   "FATAL: System overload detected, shutting down",
   "DEBUG: token=def456$ refreshed for session",
