@@ -10,7 +10,7 @@ async function initialFetch() {
     const res = await fetch(
       "https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json",
     );
-    const authorDataArr = await res.json();
+    authorDataArr = await res.json();
     displayAuthors(authorDataArr.slice(startingIndex, endingIndex));
   } catch (err) {
     authorContainer.innerHTML =
