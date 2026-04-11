@@ -1,20 +1,3 @@
-// This falls under javascript loop block
-class accumulator {
-  #sanitizedEntryCount;
-  constructor(entryCount) {
-    this.entryCount = entryCount;
-    this.#sanitizedEntryCount = 0;
-  }
-
-  sanitizedEntryInc() {
-    this.#sanitizedEntryCount += 1;
-  }
-
-  get sanitizedEntryCount() {
-    return this.#sanitizedEntryCount;
-  }
-}
-
 let logs = [];
 let blacklistedStrings = [];
 
@@ -50,9 +33,9 @@ function printCustomMessage(entryCount, sanitizedCount, failureReason) {
 
 // This function parses entire array of logs
 function cleanLogs(logs, blacklist) {
+    let accumulator = 0;
   let fatalError = "$";
   let informationalIndicator = "//";
-  let instanceAccumulator = new accumulator(logs.length);
 
   let sanitizedLogs = [];
 
@@ -60,22 +43,22 @@ function cleanLogs(logs, blacklist) {
     if (logs[i].includes(fatalError)) {
       printCustomMessage(
         logs.length,
-        instanceAccumulator.sanitizedEntryCount,
+        accumulator,
         "Fatal character occurred",
       );
       break;
     } else if (logs[i].includes(informationalIndicator)) {
-      instanceAccumulator.sanitizedEntryInc();
+      accumulator += 1;
       continue;
     } else {
       tmpSanitized = sanitizeLog(logs[i], blacklist);
       sanitizedLogs.push(tmpSanitized);
 
-      instanceAccumulator.sanitizedEntryInc();
+      accumulator += 1;
     }
   }
 
-  printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "");
+  printCustomMessage(logs.length, accumulator, "");
 }
 
 logs = [
