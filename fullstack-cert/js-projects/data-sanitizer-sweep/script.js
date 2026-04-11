@@ -33,7 +33,7 @@ function printCustomMessage(entryCount, sanitizedCount, failureReason) {
 
 // This function parses entire array of logs
 function cleanLogs(logs, blacklist) {
-    let accumulator = 0;
+  let accumulator = 0;
   let fatalError = "$";
   let informationalIndicator = "//";
 
@@ -41,11 +41,7 @@ function cleanLogs(logs, blacklist) {
 
   for (let i = 0; i < logs.length; i++) {
     if (logs[i].includes(fatalError)) {
-      printCustomMessage(
-        logs.length,
-        accumulator,
-        "Fatal character occurred",
-      );
+      printCustomMessage(logs.length, accumulator, "Fatal character occurred");
       break;
     } else if (logs[i].includes(informationalIndicator)) {
       accumulator += 1;
