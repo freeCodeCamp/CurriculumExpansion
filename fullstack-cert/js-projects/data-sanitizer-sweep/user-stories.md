@@ -40,8 +40,12 @@ If sanitization of logs failed then output summary should also include a reason 
 1: You should accept an array of log strings.
 
 2: You should implement sanitizeLog(entry, blacklist) that loops over characters and replaces banned patterns.
+  -- entry: The individual strings in the array
+  -- blacklist: Currently an array of characters 
 
 3: You should implement cleanLogs(logs, blacklist) that uses continue to skip informational lines and break on fatal markers.
+  -- logs: The array of log strings
+  -- blacklist: Currently an array of characters 
 
 4: You should track counts of sanitized vs untouched entries inside an accumulator object.
 
