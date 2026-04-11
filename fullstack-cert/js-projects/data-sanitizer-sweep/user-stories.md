@@ -19,8 +19,6 @@ A log file is very useful for debugging issues of an application or backend serv
 
 Disallowed tokens are usually certain characters that causes error when being parsed. This can be any character depending on system. One example is ```$```. On the second last line in the above log file parsing that line with the disallow token should cause error.
 
-**Objective**: Please complete the lab as per the user story.
-
 **User story**
 
 1: You should accept an array of log strings.
