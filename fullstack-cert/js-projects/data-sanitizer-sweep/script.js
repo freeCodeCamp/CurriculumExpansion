@@ -1,18 +1,18 @@
 // This falls under javascript loop block
-class accumulator{
-    #sanitizedEntryCount;
-    constructor(entryCount){
-        this.entryCount = entryCount;
-        this.#sanitizedEntryCount = 0;
-    };
+class accumulator {
+  #sanitizedEntryCount;
+  constructor(entryCount) {
+    this.entryCount = entryCount;
+    this.#sanitizedEntryCount = 0;
+  }
 
-    sanitizedEntryInc(){
-        this.#sanitizedEntryCount += 1;
-    }
+  sanitizedEntryInc() {
+    this.#sanitizedEntryCount += 1;
+  }
 
-    get sanitizedEntryCount(){
-        return this.#sanitizedEntryCount;
-    }
+  get sanitizedEntryCount() {
+    return this.#sanitizedEntryCount;
+  }
 }
 
 let logs = [];
@@ -20,58 +20,63 @@ let blacklistedStrings = [];
 
 // This function parses each individual log string.
 // This function will be repeatly called by cleanLogs until no strings left.
-function sanitizeLog(entry, blacklist){
-    sanitizedEntry = [];
+function sanitizeLog(entry, blacklist) {
+  sanitizedEntry = [];
 
-    for(let i = 0; i< entry.length; i++){
-        if(blacklist.includes(entry[i])){
-            sanitizedEntry.push('#');
-        }
-        else{
-            sanitizedEntry.push(entry[i]);
-        }
-    };
-
-    return(sanitizedEntry.join(''));
-};
-
-function printCustomMessage(entryCount, sanitizedCount, failureReason){
-    if(failureReason == ""){
-        console.log("Total Entry: " + entryCount + " Sanitized Entry Count: " + sanitizedCount + " finished sanitize logs process.");
+  for (let i = 0; i < entry.length; i++) {
+    if (blacklist.includes(entry[i])) {
+      sanitizedEntry.push("#");
+    } else {
+      sanitizedEntry.push(entry[i]);
     }
-    else{
-        console.log("Sanitizing stopped Failure Reason: " + failureReason);
-    }
+  }
+
+  return sanitizedEntry.join("");
+}
+
+function printCustomMessage(entryCount, sanitizedCount, failureReason) {
+  if (failureReason == "") {
+    console.log(
+      "Total Entry: " +
+        entryCount +
+        " Sanitized Entry Count: " +
+        sanitizedCount +
+        " finished sanitize logs process.",
+    );
+  } else {
+    console.log("Sanitizing stopped Failure Reason: " + failureReason);
+  }
 }
 
 // This function parses entire array of logs
-function cleanLogs(logs, blacklist){
-    let fatalError = '$'
-    let informationalIndicator = '//';
-    let instanceAccumulator = new accumulator(logs.length);
+function cleanLogs(logs, blacklist) {
+  let fatalError = "$";
+  let informationalIndicator = "//";
+  let instanceAccumulator = new accumulator(logs.length);
 
-    let sanitizedLogs = [];
-    
-    for(let i = 0; i < logs.length; i++){
+  let sanitizedLogs = [];
 
-        if(logs[i].includes(fatalError)){
-            printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "Fatal character occurred")
-            break;
-        }
-        else if(logs[i].includes(informationalIndicator)){
-            instanceAccumulator.sanitizedEntryInc();
-            continue;
-        }
-        else{
-            tmpSanitized = sanitizeLog(logs[i],blacklist);
-            sanitizedLogs.push(tmpSanitized);
+  for (let i = 0; i < logs.length; i++) {
+    if (logs[i].includes(fatalError)) {
+      printCustomMessage(
+        logs.length,
+        instanceAccumulator.sanitizedEntryCount,
+        "Fatal character occurred",
+      );
+      break;
+    } else if (logs[i].includes(informationalIndicator)) {
+      instanceAccumulator.sanitizedEntryInc();
+      continue;
+    } else {
+      tmpSanitized = sanitizeLog(logs[i], blacklist);
+      sanitizedLogs.push(tmpSanitized);
 
-            instanceAccumulator.sanitizedEntryInc();
-        };
-    };
+      instanceAccumulator.sanitizedEntryInc();
+    }
+  }
 
-    printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "")
-};
+  printCustomMessage(logs.length, instanceAccumulator.sanitizedEntryCount, "");
+}
 
 logs = [
   "INFO: Server started on port 3000",
@@ -88,6 +93,6 @@ logs = [
   "ERROR: Null pointer exception in module auth",
 ];
 
-blacklistedStrings = ['a','A','c','T'];
+blacklistedStrings = ["a", "A", "c", "T"];
 
-cleanLogs(logs,blacklistedStrings);
+cleanLogs(logs, blacklistedStrings);
