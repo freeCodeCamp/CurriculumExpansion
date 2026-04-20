@@ -2,7 +2,7 @@ let logs = [];
 let blacklistedStrings = [];
 
 // This function parses each individual log string.
-// This function will be repeatly called by cleanLogs until no strings left.
+// This function will be repeatedly called by cleanLogs until no strings left.
 function sanitizeLog(entry, blacklist) {
   sanitizedEntry = [];
 
