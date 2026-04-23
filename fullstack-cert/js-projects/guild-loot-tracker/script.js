@@ -61,13 +61,16 @@ function listMembers(guildObject) {
 // 'getMemberTotals()` can be 4 steps (introduce `Object.keys()` method, write a guard clause using `if()/else` and `.includes()`, introduce `Object.values()`, return a string literal with the result) -
 function getMemberTotals(guildObject, member) {
   const objectKeys = Object.keys(guildObject);
-
-  if (!objectKeys.includes(member)) {
-    return `"${member}" not found in the guild roster.`;
-  } else {
-    return `${member}'s totals\n gold: ${Object.values(guildObject[member])[0]},\n silver: ${Object.values(guildObject[member])[1]},\n reputation: ${Object.values(guildObject[member])[2]},\n experience: ${Object.values(guildObject[member])[3]}`;
+  for (let i = 0; i < objectKeys.length; i++) {
+    if (objectKeys[i] === member) {
+      return guildObject[member];
+    }
   }
+  return false;
 }
+
+console.log(getMemberTotals(guild, "morgat"));
+console.log(getMemberTotals(guild, "francis"));
 
 // "cloneGuildData" can be broken into multiple (3?) steps to show that using the spread syntax creates a shallow copy of the object, for example #3 write the function and log it #4 assign the returned data to a variable, and change some of its values, then log both original and the copy to the console, #5 remove the variable and console.log() calls to continue
 function cloneGuildData(guildObject) {
@@ -132,4 +135,3 @@ addLootEntry(guild, {
   experience: 4,
 });
 
-console.log(getMemberTotals(guild, "morgat"));
