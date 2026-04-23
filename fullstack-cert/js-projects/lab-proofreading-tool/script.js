@@ -1,11 +1,3 @@
-/* ---Seeded Code--- */
-
-const text1 = ["level", "the", "cat", "sat", "the", "cat", "racecar"]; // contains palindromes, repeated phrases, and non-palindromes
-const text2 = ["hello", "world", "the", "cat", "sat"];
-const text3 = ["madam", "civic", "radar"];
-const text4 = [];
-
-/* ---Seeded Code--- */
 
 function isPalindrome(word) {
   const lower = word.toLowerCase();
@@ -50,7 +42,7 @@ function findRepeatedPhrases(words, phraseLength) {
   return result;
 }
 
-function analyseTexts(texts, phraseLength) {
+function analyzeTexts(texts, phraseLength) {
   const results = [];
   if (texts.length === 0) return results;
 
