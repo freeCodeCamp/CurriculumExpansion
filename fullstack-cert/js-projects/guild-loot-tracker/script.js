@@ -1,4 +1,6 @@
-// Creating the "guild" object could be 2 or 3 Steps (creating "guild" object and adding the first "guild member" object as the first property - rest of the "guild members" can be filled out between the next steps)
+// This will be a workshop for the Loops section, probably after the "Build a Profile Lookup" lab.
+ 
+// Creating the "guild" object could be 2 or 3 Steps (creating "guild" object itself and adding the first "guild member" object as the first property - rest of the "guild members" can be filled out somewhere between the next steps to avoid too much repetition).
 let guild = {
   nemo: {
     gold: 31,
@@ -37,6 +39,17 @@ let guild = {
     experience: 82,
   },
 };
+
+// 'listMemberNames()` introduces `Object.keys()` static method, and provides a list of current members of the guild. Could be 3 steps (1. create a function, 2. assign array returned by the `Object.keys()` to a variable + explanation of the method, )
+function listMemberNames(guildObject) {
+  console.log("Current Guild Members:");
+  const memberNames = Object.keys(guildObject);
+  for (let i = 0; i < memberNames.length; i++) {
+    console.log(`${i + 1}. ${memberNames[i]}`);
+  }
+}
+
+listMemberNames(guild);
 
 // `listMembers()` introduces `Object.entries()` static method (possibly also `Object.keys()` and `Object.values()`, depending on how long the description for each step is supposed to be)
 function listMembers(guildObject) {
