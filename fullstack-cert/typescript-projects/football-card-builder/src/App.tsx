@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import defaultPlayerImage from "url:./Pele.jpg";
+
+const POSITIONS = [
+  "GK",
+  "CB",
+  "LB",
+  "RB",
+  "CDM",
+  "CM",
+  "CAM",
+  "LW",
+  "RW",
+  "ST",
+  "CF"
+] as const;
+
+type Position = typeof POSITIONS[number];
 
 interface PlayerData {
   name: string;
   overallRating: number;
   position: string;
   club: string;
+  imageUrl: string;
   pac: number;
   sho: number;
   pas: number;
@@ -15,200 +31,304 @@ interface PlayerData {
   phy: number;
 }
 
-const POSITIONS = [
-  "GK", "CB", "LB", "RB", "CDM", "CM", "CAM", "LW", "RW", "ST", "CF",
-];
+const STORAGE_KEY = "football_player_card";
 
-const STAT_KEYS: Array<keyof PlayerData> = ["pac", "sho", "pas", "dri", "def", "phy"];
-
-function getPlayerTier(rating: number) {
-  if (rating >= 85) { 
-    return "Elite"; 
-  }
-
-  if (rating >= 75){ 
-    return "Gold";
-  
-  }
-  if (rating >= 65) { 
-    return "Silver"; 
-  }
-
-  return "Bronze";
+function getPlayerTier(rating: number): string {
+  if (rating >= 92) return "elite";
+  if (rating >= 85) return "gold";
+  if (rating >= 75) return "silver";
+  return "bronze";
 }
 
 function PlayerCard({ player }: { player: PlayerData }) {
-  const tier = getPlayerTier(player.overallRating);
-
   return (
-    <div className={`card-wrapper tier-${tier.toLowerCase()}`}>
-    <div className="card">
-      <div className="card-header">
-        <div>
-          <div className="card-rating">{player.overallRating}</div>
-          <div className="card-position">{player.position}</div>
-        </div>
-        <div className="card-header-right">
-          <div className="card-tier-badge">{tier.toUpperCase()}</div>
-          <div className="card-club">{player.club || "Club"}</div>
-        </div>
-      </div>
-
-      <div className="card-image-wrap">
-        <img src={defaultPlayerImage} alt="Player" className="card-image" />
-      </div>
-
-      <div className="card-name-strip">
-        <span className="card-name">{player.name || "PLAYER NAME"}</span>
-      </div>
-
-      <div className="card-stats">
-        <div className="stat-col">
-          {STAT_KEYS.slice(0, 3).map((key) => (
-            <div key={key} className="stat-row">
-              <span className="stat-value">{player[key]}</span>
-              <span className="stat-label">{key.toUpperCase()}</span>
+    <div className={`card-wrapper tier-${getPlayerTier(player.overallRating)}`}>
+      <div className="card">
+        <div className="card-header">
+          <div>
+            <div className="card-rating">{player.overallRating}</div>
+            <div className="card-position">{player.position}</div>
+          </div>
+          <div className="card-header-right">
+            <div className="card-tier-badge">
+              {getPlayerTier(player.overallRating).toUpperCase()}
             </div>
-          ))}
+            <div className="card-club">{player.club}</div>
+          </div>
         </div>
-        <div className="stat-divider" />
-        <div className="stat-col">
-          {STAT_KEYS.slice(3).map((key) => (
-            <div key={key} className="stat-row">
-              <span className="stat-value">{player[key]}</span>
-              <span className="stat-label">{key.toUpperCase()}</span>
+        <div className="card-image-wrap">
+          <img src={player.imageUrl} alt="Player" className="card-image" />
+        </div>
+        <div className="card-name-strip">
+          <span className="card-name">{player.name}</span>
+        </div>
+        <div className="card-stats">
+          <div className="stat-col">
+            <div className="stat-row">
+              <span className="stat-value">{player.pac}</span>
+              <span className="stat-label">PAC</span>
             </div>
-          ))}
+            <div className="stat-row">
+              <span className="stat-value">{player.sho}</span>
+              <span className="stat-label">SHO</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-value">{player.pas}</span>
+              <span className="stat-label">PAS</span>
+            </div>
+          </div>
+          <div className="stat-divider" />
+          <div className="stat-col">
+            <div className="stat-row">
+              <span className="stat-value">{player.dri}</span>
+              <span className="stat-label">DRI</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-value">{player.def}</span>
+              <span className="stat-label">DEF</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-value">{player.phy}</span>
+              <span className="stat-label">PHY</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
 
-export function App() {
-  const [player, setPlayer] = useState<PlayerData>(() => {
-    const saved = localStorage.getItem("footballCard");
+const defaultPlayer: PlayerData = {
+  name: "PELE",
+  overallRating: 98,
+  position: "ST",
+  club: "Santos FC",
+  imageUrl: "https://i.ibb.co/996kyTM0/Pele.jpg",
+  pac: 97,
+  sho: 98,
+  pas: 83,
+  dri: 99,
+  def: 41,
+  phy: 75,
+};
+
+function loadPlayer(): PlayerData {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      return JSON.parse(saved)
+      return {
+        ...defaultPlayer, 
+        ...JSON.parse(saved) 
+      }
     };
-    
-    return {
-      name: "",
-      overallRating: 75,
-      position: "ST",
-      club: "",
-      pac: 75,
-      sho: 75,
-      pas: 75,
-      dri: 75,
-      def: 75,
-      phy: 75,
-    };
-  });
+  } catch (error) {
+    console.log("Failed to load player data, using defaults:", error);
+  }
+  return defaultPlayer;
+}
+
+export const FootballPlayerCard = () => {
+  const [player, setPlayer] = useState<PlayerData>(loadPlayer);
 
   useEffect(() => {
-    localStorage.setItem("footballCard", JSON.stringify(player));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(player));
+    } catch (error) {
+      console.log("Failed to save player data:", error);
+    }
   }, [player]);
-
-  function handleChange(key: keyof PlayerData, value: string | number) {
-    setPlayer((prev) => ({ ...prev, [key]: value }));
-  }
-
-  const tier = getPlayerTier(player.overallRating);
 
   return (
     <div className="page">
       <header className="header">
         <div className="header-inner">
-          <h1 className="header-title">Football Card Builder</h1>
-          <p className="header-subtitle">Build your FIFA-style player card</p>
+          <p className="header-title">Football Card Builder</p>
+          <p className="header-subtitle">Customize your player card</p>
         </div>
       </header>
-
       <main className="main">
         <div className="layout">
           <div className="form-panel">
-            <h2 className="form-section-title">Player Info</h2>
-
-            <div className="form-group">
-              <label className="label">Player Name</label>
-              <input
-                className="input"
-                type="text"
-                placeholder="Pele"
-                value={player.name}
-                onChange={(e) => handleChange("name", e.target.value)}
-              />
-            </div>
-
-            <div className="form-row">
+            <div>
+              <p className="form-section-title">Player Info</p>
               <div className="form-group">
-                <label className="label">Overall Rating</label>
+                <label className="label" htmlFor="name">
+                  Name
+                </label>
                 <input
+                  id="name"
                   className="input"
-                  type="number"
-                  min={1}
-                  max={99}
-                  value={player.overallRating}
+                  type="text"
+                  value={player.name}
                   onChange={(e) =>
-                    handleChange("overallRating", Math.min(99, Math.max(1, Number(e.target.value) || 1)))
+                    setPlayer({ ...player, name: e.target.value })
+                  }
+                />
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label className="label" htmlFor="position">
+                    Position
+                  </label>
+                  <select
+                    id="position"
+                    className="input"
+                    value={player.position}
+                    onChange={(e) => 
+                      setPlayer({ ...player, position: e.target.value as Position })}
+                  >
+                    {POSITIONS.map(
+                      (pos) => (
+                        <option key={pos} value={pos}>
+                          {pos}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="overallRating">
+                    Overall
+                  </label>
+                  <input
+                    id="overallRating"
+                    className="input"
+                    type="number"
+                    value={player.overallRating}
+                    onChange={(e) =>
+                      setPlayer({
+                        ...player,
+                        overallRating: Number(e.target.value),
+                      })
+                    }
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="label" htmlFor="club">
+                  Club
+                </label>
+                <input
+                  id="club"
+                  className="input"
+                  type="text"
+                  value={player.club}
+                  onChange={(e) =>
+                    setPlayer({ ...player, club: e.target.value })
                   }
                 />
               </div>
               <div className="form-group">
-                <label className="label">Position</label>
-                <select
+                <label className="label" htmlFor="imageUrl">
+                  Image URL
+                </label>
+                <input
+                  id="imageUrl"
                   className="input"
-                  value={player.position}
-                  onChange={(e) => handleChange("position", e.target.value)}
-                >
-                  {POSITIONS.map((p) => (
-                    <option key={p} value={p}>{p}</option>
-                  ))}
-                </select>
+                  type="text"
+                  value={player.imageUrl}
+                  onChange={(e) =>
+                    setPlayer({ ...player, imageUrl: e.target.value })
+                  }
+                />
               </div>
             </div>
-
-            <div className="form-group">
-              <label className="label">Club Name</label>
-              <input
-                className="input"
-                type="text"
-                placeholder="Santos FC"
-                value={player.club}
-                onChange={(e) => handleChange("club", e.target.value)}
-              />
-            </div>
-
             <div>
-              <h2 className="form-section-title">Player Stats</h2>
+              <p className="form-section-title">Player Stats</p>
               <div className="stats-grid">
-                {STAT_KEYS.map((key) => (
-                  <div key={key} className="form-group">
-                    <label className="label">{key.toUpperCase()}</label>
-                    <input
-                      className="input"
-                      type="number"
-                      min={1}
-                      max={99}
-                      value={player[key]}
-                      onChange={(e) =>
-                        handleChange(key, Math.min(99, Math.max(1, Number(e.target.value) || 1)))
-                      }
-                    />
-                  </div>
-                ))}
+                <div className="form-group">
+                  <label className="label" htmlFor="pac">
+                    PAC
+                  </label>
+                  <input
+                    id="pac"
+                    className="input"
+                    type="number"
+                    value={player.pac}
+                    onChange={(e) =>
+                      setPlayer({ ...player, pac: Number(e.target.value) })
+                    }
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="sho">
+                    SHO
+                  </label>
+                  <input
+                    id="sho"
+                    className="input"
+                    type="number"
+                    value={player.sho}
+                    onChange={(e) =>
+                      setPlayer({ ...player, sho: Number(e.target.value) })
+                    }
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="pas">
+                    PAS
+                  </label>
+                  <input
+                    id="pas"
+                    className="input"
+                    type="number"
+                    value={player.pas}
+                    onChange={(e) =>
+                      setPlayer({ ...player, pas: Number(e.target.value) })
+                    }
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="dri">
+                    DRI
+                  </label>
+                  <input
+                    id="dri"
+                    className="input"
+                    type="number"
+                    value={player.dri}
+                    onChange={(e) =>
+                      setPlayer({ ...player, dri: Number(e.target.value) })
+                    }
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="def">
+                    DEF
+                  </label>
+                  <input
+                    id="def"
+                    className="input"
+                    type="number"
+                    value={player.def}
+                    onChange={(e) =>
+                      setPlayer({ ...player, def: Number(e.target.value) })
+                    }
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="label" htmlFor="phy">
+                    PHY
+                  </label>
+                  <input
+                    id="phy"
+                    className="input"
+                    type="number"
+                    value={player.phy}
+                    onChange={(e) =>
+                      setPlayer({ ...player, phy: Number(e.target.value) })
+                    }
+                  />
+                </div>
               </div>
             </div>
           </div>
-
           <div className="preview-panel">
-            <div>
-              <p className="preview-label">Live Preview</p>
-              <p className="preview-hint">Card updates live as you type</p>
-            </div>
-            <div className={`preview-box tier-${tier.toLowerCase()}`}>
+            <p className="preview-label">Live Preview</p>
+            <p className="preview-hint">Updates as you type</p>
+            <div
+              className={`preview-box tier-${getPlayerTier(player.overallRating)}`}
+            >
               <PlayerCard player={player} />
             </div>
           </div>
@@ -216,4 +336,4 @@ export function App() {
       </main>
     </div>
   );
-}
+};

@@ -1,11 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html,
 body {
   min-height: 100%;
@@ -87,10 +79,20 @@ body {
   gap: 4px;
 }
 
+.form-group select {
+  padding: 7px 12px;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+}
+
+.form-panel > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .label {
@@ -102,6 +104,7 @@ body {
 }
 
 .input {
+  box-sizing: border-box;
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
