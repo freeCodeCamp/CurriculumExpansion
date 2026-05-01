@@ -2,37 +2,37 @@
  
 // Creating the "guild" object could be 2 or 3 Steps (creating "guild" object itself and adding the first "guild member" object as the first property - rest of the "guild members" can be filled out somewhere between the next steps to avoid too much repetition).
 let guild = {
-  nemo: {
+  ethan: {
     gold: 31,
     silver: 48,
     reputation: 9,
     experience: 198,
   },
-  shamin: {
+  elara: {
     gold: 78,
     silver: 64,
     reputation: 12,
     experience: 111,
   },
-  ahlerich: {
+  brandon: {
     gold: 41,
     silver: 7,
     reputation: 7,
     experience: 70,
   },
-  corlandus: {
+  dylan: {
     gold: 81,
     silver: 2,
     reputation: 20,
     experience: 220,
   },
-  pedro: {
+  lucas: {
     gold: 34,
     silver: 28,
     reputation: 10,
     experience: 179,
   },
-  morgat: {
+  natalie: {
     gold: 36,
     silver: 81,
     reputation: 12,
@@ -84,7 +84,7 @@ function getMemberTotals(guildObject, member) {
   return false;
 }
 // Checks if `getMemberTotals()` works correctly - can be one of the steps and removed later
-console.log(getMemberTotals(guild, "morgat"));
+console.log(getMemberTotals(guild, "natalie"));
 console.log(getMemberTotals(guild, "francis"));
 
 // "cloneGuildData" can be broken into multiple (3?) steps to show that using the spread syntax creates a shallow copy of the object, for example #3 write the function and log it #4 assign the returned data to a variable, and change some of its values, then log both original and the copy to the console, #5 remove the variable and console.log() calls to continue
@@ -146,7 +146,7 @@ function addLootEntry(guildObject, entry) {
 }
 
 addLootEntry(guild, {
-  member: "morgat",
+  member: "natalie",
   gold: 1,
   silver: 2,
   reputation: 3,
