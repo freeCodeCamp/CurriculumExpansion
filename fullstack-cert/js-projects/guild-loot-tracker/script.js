@@ -43,12 +43,12 @@ let guild = {
 /* NOTE:
 This method seemed like a good addition before I refactored `listMembers()` - it still might be a good(?), isolated example of `Object.keys()` use, but otherwise seems slightly redundant.
 */
-// 'listMemberNames()` introduces `Object.keys()` static method, and provides a list of current members of the guild. Could be 3 steps (1. create a function, 2. assign array returned by the `Object.keys()` to a variable + explanation of the method, )
+// 'listMemberNames()` introduces `Object.keys()` static method, and provides a list of current members of the guild. Could be 3 steps (1. create a function, 2. assign the array returned by the `Object.keys()` to a variable + explanation of the method, 3. for loop and `console.log()`s)
 function listMemberNames(guildObject) {
   console.log("Current Guild Members:");
-  const memberNames = Object.keys(guildObject);
-  for (let i = 0; i < memberNames.length; i++) {
-    console.log(`${i + 1}. ${memberNames[i]}`);
+  const guildMembers = Object.keys(guildObject);
+  for (const member in guildMembers) {
+    console.log(`${parseInt(member) + 1}. ${guildMembers[member]}`);
   }
 }
 
@@ -57,14 +57,13 @@ listMemberNames(guild);
 // `listMembers()` introduces `Object.entries()` static method (possibly also `Object.keys()` and `Object.values()`, depending on how long the description for each step is supposed to be)
 function listMembers(guildObject) {
   console.log("Guild Member's Resources:");
-  // TODO: Simplify the loop iteration
   for(const member in guildObject) {
     // Use Object.keys() and Object.resources() to get a list of resources of each guild member
     const resourceNames = Object.keys(guildObject[member]);
     const resourceValues = Object.values(guildObject[member]);
     console.log(`${member}:`);
-    console.log(`${resourceNames[0]}\t${resourceNames[1]}\t${resourceNames[2]}\t${resourceNames[3]}`)
-    console.log(`${resourceValues[0]}\t${resourceValues[1]}\t${resourceValues[2]}\t\t${resourceValues[3]}`)
+    console.log(`${resourceNames[0]}\t${resourceNames[1]}\t${resourceNames[2]}\t${resourceNames[3]}`);
+    console.log(`${resourceValues[0]}\t${resourceValues[1]}\t${resourceValues[2]}\t\t${resourceValues[3]}`);
   }
 }
 
