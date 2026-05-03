@@ -107,31 +107,29 @@ function addLootEntry(guildObject, entry) {
     return;
   }
   // Check if the guildObject includes a record of the provided member
-  for (let i = 0; i < guildMemberNames.length; i++) {
-    if (guildMemberNames[i] === memberName) {
+  for (const guildMember in guildMemberNames) {
+    if (guildMemberNames[guildMember] === memberName) {
         // Now, we assign the member from the cloned data to a variable to make the loops more readable (we're not making a copy of the object! it could be worth pointing out the difference in the steps).
       const currentMemberTotals = getMemberTotals(clonedGuild, memberName);
       // We could check if the entry includes all of the required fields (the same as the existing member)
       // First we check if the new entry has all of the required resources:
       for (const resource in currentMemberTotals) {
-        // TODO: replace `Object.hasOwn() with a different method (going over the Object.keys() for example)
       if (!Object.hasOwn(newMemberTotals, resource)) {
         console.log(`Updated data is missing an entry for "${resource}"!`);
         return;
       } else if ( typeof newMemberTotals[resource] !== typeof currentMemberTotals[resource]){
-        console.log(`"${resource}" must be a "${typeof currentMemberTotals[resource]}" variable!`);
+        console.log(`"${resource}" must be a ${typeof currentMemberTotals[resource]}!`);
         return;
       }
-      // Assigning new values could be done outside of the loop, but on the other hand, it might be how we can show how cloning the current data can prevent against accidental mutation on case where someone provides incorrect input data more clearly (maybe?).
-      currentMemberTotals[resource] = newMemberTotals[resource];
-      }
       // Then, we check if the new entry has ONLY the required resources NOTE: (this one is probably unnecessary, I'm not sure if ALL of the resources should actually be required to make an update):
-      // TODO: Simplify the loop iteration
-      for (const resource in currentMemberTotals) {
+      for (const resource in newMemberTotals) {
         if (!Object.hasOwn(currentMemberTotals, resource)) {
           console.log(`Updated data has an unknown entry "${resource}!`);
           return;
         }
+      }
+      // Assigning new values could be done outside of the loop, but on the other hand, it might be how we can show how cloning the current data can prevent against accidental mutation on case where someone provides incorrect input data more clearly (maybe?).
+      currentMemberTotals[resource] = newMemberTotals[resource];
       }
       // Finally, now we're sure our input was correct, we can overwrite the old data.
       guild = clonedGuild;
