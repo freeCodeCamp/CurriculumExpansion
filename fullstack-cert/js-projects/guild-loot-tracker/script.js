@@ -1,5 +1,5 @@
 // This will be a workshop for the Loops section, probably after the "Build a Profile Lookup" lab.
- 
+
 // Creating the "guild" object could be 2 or 3 Steps (creating "guild" object itself and adding the first "guild member" object as the first property - rest of the "guild members" can be filled out somewhere between the next steps to avoid too much repetition).
 let guild = {
   ethan: {
@@ -57,10 +57,12 @@ listMemberNames(guild);
 // `listMembers()` introduces `Object.values()`
 function listMembers(guildObject) {
   console.log("Guild Member's Resources:");
-  for(const member in guildObject) {
+  for (const member in guildObject) {
     // Use Object.keys() and Object.resources() to get a list of resources of each guild member
-    const [gold, silver, reputation, experience] = Object.values(guildObject[member]);
-    
+    const [gold, silver, reputation, experience] = Object.values(
+      guildObject[member],
+    );
+
     console.log(`${member}:`);
     console.log("gold\tsilver\treputation\texperience");
     console.log(`${gold}\t${silver}\t${reputation}\t\t${experience}`);
@@ -68,7 +70,6 @@ function listMembers(guildObject) {
 }
 
 listMembers(guild);
-
 
 // 'getMemberTotals()` introduces `Object.entries() method
 function getMemberTotals(guildObject, member) {
@@ -94,11 +95,11 @@ function cloneGuildData(guildObject) {
 function addLootEntry(guildObject, entry) {
   // Use cloneGuildData() to prevent accidental mutations before committing the changes to the 'guild object'
   const clonedGuild = cloneGuildData(guildObject);
-  // Use `Object.keys() to get the guild member's 
+  // Use `Object.keys() to get the guild member's
   const guildMemberNames = Object.keys(guildObject);
   // Use spread operator to get the member's name and resources out of the "entry" argument
-  const { member: memberName, ...newMemberTotals} = entry;
-  // Check if the member's name exists, and is a string 
+  const { member: memberName, ...newMemberTotals } = entry;
+  // Check if the member's name exists, and is a string
   if (!memberName) {
     console.log("New entry must include a name of the guild member!");
     return;
@@ -109,27 +110,32 @@ function addLootEntry(guildObject, entry) {
   // Check if the guildObject includes a record of the provided member
   for (const guildMember in guildMemberNames) {
     if (guildMemberNames[guildMember] === memberName) {
-        // Now, we assign the member from the cloned data to a variable to make the loops more readable (we're not making a copy of the object! it could be worth pointing out the difference in the steps).
+      // Now, we assign the member from the cloned data to a variable to make the loops more readable (we're not making a copy of the object! it could be worth pointing out the difference in the steps).
       const currentMemberTotals = getMemberTotals(clonedGuild, memberName);
       // We could check if the entry includes all of the required fields (the same as the existing member)
       // First we check if the new entry has all of the required resources:
       for (const resource in currentMemberTotals) {
-      if (!Object.hasOwn(newMemberTotals, resource)) {
-        console.log(`Updated data is missing an entry for "${resource}"!`);
-        return;
-      } else if ( typeof newMemberTotals[resource] !== typeof currentMemberTotals[resource]){
-        console.log(`"${resource}" must be a ${typeof currentMemberTotals[resource]}!`);
-        return;
-      }
-      // Then, we check if the new entry has ONLY the required resources NOTE: (this one is probably unnecessary, I'm not sure if ALL of the resources should actually be required to make an update):
-      for (const resource in newMemberTotals) {
-        if (!Object.hasOwn(currentMemberTotals, resource)) {
-          console.log(`Updated data has an unknown entry "${resource}!`);
+        if (!Object.hasOwn(newMemberTotals, resource)) {
+          console.log(`Updated data is missing an entry for "${resource}"!`);
+          return;
+        } else if (
+          typeof newMemberTotals[resource] !==
+          typeof currentMemberTotals[resource]
+        ) {
+          console.log(
+            `"${resource}" must be a ${typeof currentMemberTotals[resource]}!`,
+          );
           return;
         }
-      }
-      // Assigning new values could be done outside of the loop, but on the other hand, it might be how we can show how cloning the current data can prevent against accidental mutation on case where someone provides incorrect input data more clearly (maybe?).
-      currentMemberTotals[resource] = newMemberTotals[resource];
+        // Then, we check if the new entry has ONLY the required resources NOTE: (this one is probably unnecessary, I'm not sure if ALL of the resources should actually be required to make an update):
+        for (const resource in newMemberTotals) {
+          if (!Object.hasOwn(currentMemberTotals, resource)) {
+            console.log(`Updated data has an unknown entry "${resource}!`);
+            return;
+          }
+        }
+        // Assigning new values could be done outside of the loop, but on the other hand, it might be how we can show how cloning the current data can prevent against accidental mutation on case where someone provides incorrect input data more clearly (maybe?).
+        currentMemberTotals[resource] = newMemberTotals[resource];
       }
       // Finally, now we're sure our input was correct, we can overwrite the old data.
       guild = clonedGuild;
