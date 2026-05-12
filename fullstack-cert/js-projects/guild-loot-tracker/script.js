@@ -54,16 +54,16 @@ function listMemberNames(guildObject) {
 
 listMemberNames(guild);
 
-// `listMembers()` introduces `Object.entries()` static method (possibly also `Object.keys()` and `Object.values()`, depending on how long the description for each step is supposed to be)
+// `listMembers()` introduces `Object.values()`
 function listMembers(guildObject) {
   console.log("Guild Member's Resources:");
   for(const member in guildObject) {
     // Use Object.keys() and Object.resources() to get a list of resources of each guild member
-    const resourceNames = Object.keys(guildObject[member]);
-    const resourceValues = Object.values(guildObject[member]);
+    const [gold, silver, reputation, experience] = Object.values(guildObject[member]);
+    
     console.log(`${member}:`);
-    console.log(`${resourceNames[0]}\t${resourceNames[1]}\t${resourceNames[2]}\t${resourceNames[3]}`);
-    console.log(`${resourceValues[0]}\t${resourceValues[1]}\t${resourceValues[2]}\t\t${resourceValues[3]}`);
+    console.log("gold\tsilver\treputation\texperience");
+    console.log(`${gold}\t${silver}\t${reputation}\t\t${experience}`);
   }
 }
 
