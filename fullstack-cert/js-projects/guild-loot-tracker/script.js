@@ -69,15 +69,15 @@ function listMembers(guildObject) {
 
 listMembers(guild);
 
-//TODO: bring the listTopMembers method back (now that the workshop is in the Loops section, sorting should be viable. In Theory. need to double-check that.)
 
-// 'getMemberTotals()` can be 4 steps (introduce `Object.keys()` method, write a guard clause using `if()/else` and `.includes()`, introduce `Object.values()`, return a string literal with the result) -
+// 'getMemberTotals()` introduces `Object.entries() method
 function getMemberTotals(guildObject, member) {
-  const memberNames = Object.keys(guildObject);
-  // TODO: Simplify the loop iteration
-  for (const name in memberNames) {
-    if (memberNames[name] === member) {
-      return guildObject[member];
+  const guildMembers = Object.entries(guildObject);
+
+  for (const guildMember of guildMembers) {
+    const [name, entry] = guildMember;
+    if (member === name) {
+      return entry;
     }
   }
   return false;
