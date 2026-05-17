@@ -1,0 +1,203 @@
+{
+    "Computer Science and Engineering": {
+        "Dept_code": "CSE",
+        "programs": [
+            {
+                "id": "CSE101",
+                "name": "Database Management System",
+                "buildingCode": "CSE",
+                "room": "402",
+                "instructors": [
+                    {
+                        "id": "INS001",
+                        "name": "Alejandro",
+                        "email": "alejandro@edu.com",
+                        "officeHours": "Sun-Tue 10AM-12PM"
+                    },
+                    {
+                        "id": "INS002",
+                        "name": "Kenji",
+                        "email": "kenji@edu.com",
+                        "officeHours": null
+                    }
+                ]
+            },
+            {
+                "id": "CSE102",
+                "name": "Data Structures and Algorithms",
+                "buildingCode": "CSE",
+                "room": "205",
+                "instructors": [
+                    {
+                        "id": "INS003",
+                        "name": "Fatima",
+                        "email": "fatima@edu.com",
+                        "officeHours": "Mon-Wed 2PM-4PM"
+                    },
+                    {
+                        "id": "INS004",
+                        "name": "Mei",
+                        "email": "mei@edu.com"
+                    }
+                ]
+            },
+            {
+                "id": "CSE103",
+                "name": "Operating Systems",
+                "buildingCode": "CSE",
+                "room": null,
+                "instructors": [
+                    {
+                        "id": "INS005",
+                        "name": "Dmitri",
+                        "email": "dmitri@edu.com",
+                        "officeHours": "Thu 11AM-1PM"
+                    }
+                ]
+            },
+            {
+                "id": "CSE104",
+                "name": "Computer Networks",
+                "buildingCode": "CSE",
+                "room": "510",
+                "instructors": []
+            }
+        ]
+    },
+    "Electrical and Electronic Engineering": {
+        "Dept_code": "EEE",
+        "programs": [
+            {
+                "id": "EEE101",
+                "name": "Digital Logic Design",
+                "buildingCode": "EEE",
+                "room": "101",
+                "instructors": [
+                    {
+                        "id": "INS006",
+                        "name": "Javier",
+                        "email": "javier@edu.com",
+                        "officeHours": "Sun 9AM-11AM"
+                    }
+                ]
+            },
+            {
+                "id": "EEE102",
+                "name": "Electronic Devices and Circuits",
+                "buildingCode": "EEE",
+                "room": "303",
+                "instructors": [
+                    {
+                        "id": "INS007",
+                        "name": "Isabella",
+                        "email": "isabella@edu.com",
+                        "officeHours": null
+                    },
+                    {
+                        "id": "INS008",
+                        "name": "Omar",
+                        "email": null,
+                        "officeHours": "Tue 3PM-5PM"
+                    }
+                ]
+            },
+            {
+                "id": "EEE103",
+                "name": "Power Systems",
+                "room": "404",
+                "instructors": [
+                    {
+                        "id": "INS009",
+                        "name": "Yuki",
+                        "email": "yuki@edu.com",
+                        "officeHours": "Mon 10AM-12PM"
+                    }
+                ]
+            }
+        ]
+    },
+    "Business Administration": {
+        "Dept_code": "BBA",
+        "programs": [
+            {
+                "id": "BBA101",
+                "name": "Financial Accounting",
+                "buildingCode": "BBA",
+                "room": "201",
+                "instructors": [
+                    {
+                        "id": "INS010",
+                        "name": "Sofia",
+                        "email": "sofia@edu.com",
+                        "officeHours": "Wed 1PM-3PM"
+                    }
+                ]
+            },
+            {
+                "id": "BBA102",
+                "name": "Marketing Principles",
+                "buildingCode": "BBA",
+                "room": "305",
+                "instructors": [
+                    {
+                        "id": "INS011",
+                        "name": "Mateo",
+                        "email": "mateo@edu.com"
+                    }
+                ]
+            },
+            {
+                "id": "BBA103",
+                "name": "Business Analytics",
+                "buildingCode": "BBA",
+                "room": null,
+                "instructors": []
+            }
+        ]
+    },
+    "Architecture": {
+        "Dept_code": "ARC",
+        "programs": [
+            {
+                "id": "ARC101",
+                "name": "Urban Design",
+                "buildingCode": "ARC",
+                "room": "601",
+                "instructors": [
+                    {
+                        "id": "INS012",
+                        "name": "Elena",
+                        "email": "elena@edu.com",
+                        "officeHours": "Thu 2PM-4PM"
+                    }
+                ]
+            },
+            {
+                "id": "ARC102",
+                "name": "Architectural Drawing",
+                "buildingCode": "ARC",
+                "room": "603",
+                "instructors": [
+                    {
+                        "id": "INS013",
+                        "name": "Santiago",
+                        "email": "santiago@edu.com",
+                        "officeHours": null
+                    }
+                ]
+            },
+            {
+                "id": "ARC103",
+                "name": "Landscape Planning",
+                "buildingCode": "ARC",
+                "instructors": [
+                    {
+                        "id": "INS014",
+                        "name": "Aisha",
+                        "email": "aisha@edu.com"
+                    }
+                ]
+            }
+        ]
+    }
+}
