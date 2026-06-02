@@ -8,7 +8,7 @@ const statusDisplay = document.getElementById('statusMessage');
 const bookInput = document.getElementById('bookTitleInput');
 const scanStatusDisplay = document.getElementById('scanStatus');
 
-const find_my_book = (title) => {
+const findBook = (title) => {
     if (title === "") {
         throw new Error("Search field cannot be empty");
     }
@@ -22,10 +22,8 @@ const find_my_book = (title) => {
 
 searchBtn.addEventListener('click', () => {
     try {
-        const result = find_my_book(bookInput.value);
-        if (result) {
-            statusDisplay.textContent = result;
-        }
+        const result = findBook(bookInput.value.trim());
+       statusDisplay.textContent = result
     } catch (err) {
         statusDisplay.textContent = err.message;
         console.error(err);
