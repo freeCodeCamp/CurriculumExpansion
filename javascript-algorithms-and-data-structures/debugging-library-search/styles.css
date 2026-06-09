@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input {
+    padding: 0.5rem;
+    width: 200px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+}
+
+#statusMessage {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    height: 1.5rem;
+}
