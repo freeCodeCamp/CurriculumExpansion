@@ -1,0 +1,64 @@
+{
+  "1": [
+    {
+      "id": 1,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "watched": false
+    },
+    {
+      "id": 3,
+      "title": "Matrix Reloaded 2024",
+      "genre": "Sci-fi",
+      "watched": false
+    }
+  ],
+  "2": [
+    {
+      "id": 1,
+      "title": "Mamma Mia!",
+      "genre": "Musical",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "The Notebook",
+      "genre": "Romance",
+      "watched": false
+    }
+  ],
+  "3": [
+    {
+      "id": 1,
+      "title": "Spider-Man: No Way Home",
+      "genre": "Action",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "Avengers: Endgame",
+      "genre": "Action",
+      "watched": false
+    }
+  ],
+  "4": [
+    {
+      "id": 1,
+      "title": "Frozen",
+      "genre": "Animation",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "Moana",
+      "genre": "Animation",
+      "watched": false
+    }
+  ]
+}

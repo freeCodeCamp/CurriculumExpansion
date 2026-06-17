@@ -1,0 +1,58 @@
+{
+  "1": [
+    {
+      "id": 1,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "watched": false
+    }
+  ],
+  "2": [
+    {
+      "id": 1,
+      "title": "Mamma Mia!",
+      "genre": "Musical",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "The Notebook",
+      "genre": "Romance",
+      "watched": false
+    }
+  ],
+  "3": [
+    {
+      "id": 2,
+      "title": "Avengers: Endgame",
+      "genre": "Action",
+      "watched": false
+    },
+    {
+      "id": 3,
+      "title": "Matrix World",
+      "genre": "Action",
+      "watched": false
+    }
+  ],
+  "4": [
+    {
+      "id": 1,
+      "title": "Frozen",
+      "genre": "Animation",
+      "watched": true
+    },
+    {
+      "id": 2,
+      "title": "Moana",
+      "genre": "Animation",
+      "watched": false
+    }
+  ]
+}
