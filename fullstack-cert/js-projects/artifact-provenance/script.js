@@ -1,146 +1,126 @@
-const provenanceRecords = [];
+const collection = [
+  {
+    id: 101,
+    title: "Golden Mask",
+    category: "Ceremonial",
+    curator: {
+      id: 201,
+      name: "Earl Sinclair",
+    },
+    locations: [
+      { gallery: "Hall A", year: 2020 },
+      { gallery: "Hall C", year: 2024 },
+    ],
+    tags: ["gold", "egypt"],
+    onDisplay: true,
+  },
+  {
+    id: 102,
+    title: "Bronze Tablet",
+    category: "Inscription",
+    curator: {
+      id: 202,
+      name: "Robert Sinclair",
+    },
+    locations: [{ gallery: "Archive Wing", year: 2019 }],
+    tags: ["bronze", "writing"],
+    onDisplay: false,
+  },
+];
 
-const record1 = {
-  artifactId: 101,
-  curatorName: "John Lennon",
-  ownerChain: [
-    { name: "Cairo Museum", from: 1923, to: 1965 },
-    { name: "Meridian Art Trust", from: 2001, to: null },
-  ],
-  notes: ["Verified with 1923 acquisition documents"],
-  priority: 1,
-};
+console.log("FIRST ARTIFACT");
+console.log(collection[0].title);
+console.log(collection[0].curator.name);
 
-const record2 = {
-  artifactId: 101,
-  curatorName: "Paul McCartney",
-  ownerChain: [{ name: "National Museum of Cairo", from: 1921, to: null }],
-  notes: ["Cross-referenced with British Museum archives"],
-  priority: 2,
-};
+console.log("---------");
 
-const record3 = {
-  artifactId: 102,
-  curatorName: "George Harrison",
-  ownerChain: [
-    { name: "Ottoman Archive", from: 1890, to: 1952 },
-    { name: "Kaplan Foundation", from: 1952, to: null },
-  ],
-  notes: ["Documented in 1952 foundation records"],
-  priority: 1,
-};
-
-const record4 = {
-  artifactId: 102,
-  curatorName: "Ringo Starr",
-  ownerChain: [
-    { name: "Ottoman Archive", from: 1890, to: 1952 },
-    { name: "Kaplan Foundation", from: 1952, to: null },
-  ],
-  notes: ["Verified against Istanbul university thesis, 2003"],
-  priority: 2,
-};
-
-provenanceRecords.push(record1, record2, record3, record4);
-
-function formatPeriod(period) {
-  return `${period.from}–${period.to || "present"}`;
+function getArtifactTitle(id) {
+  const artifact = collection.find((item) => item.id === id);
+  return artifact ? artifact.title : "Artifact not found";
 }
 
-function cloneSubmission(record) {
-  return {
-    curatorName: record.curatorName,
-    priority: record.priority,
-    ownerChain: structuredClone(record.ownerChain),
-    notes: structuredClone(record.notes),
-  };
+console.log("LOOKUP BY ID");
+console.log(getArtifactTitle(102));
+
+console.log("---------");
+
+function addTag(id, tag) {
+  const artifact = collection.find((item) => item.id === id);
+
+  if (artifact && !artifact.tags.includes(tag)) {
+    artifact.tags.push(tag);
+  }
 }
 
-function mergeProvenance(records) {
-  const [a, b] = records;
-  return {
-    artifactId: a.artifactId,
-    submissions: [cloneSubmission(a), cloneSubmission(b)],
-    notes: [...a.notes, ...b.notes],
-  };
+addTag(101, "royal");
+
+console.log("UPDATED TAGS");
+console.log(collection[0].tags);
+
+console.log("---------");
+
+function moveArtifact(id, gallery, year) {
+  const artifact = collection.find((item) => item.id === id);
+
+  if (artifact) {
+    artifact.locations.push({ gallery, year });
+  }
 }
 
-function detectConflicts(merged) {
-  const conflicts = [];
-  const [a, b] = merged.submissions;
+moveArtifact(102, "Hall B", 2026);
 
-  if (a.ownerChain.length !== b.ownerChain.length) {
-    conflicts.push({
-      field: "ownerChain.length",
-      explanation: `${a.curatorName} listed ${a.ownerChain.length} owners; ${b.curatorName} listed ${b.ownerChain.length}`,
-    });
+console.log("UPDATED LOCATIONS");
+console.log(collection[1].locations);
+
+console.log("---------");
+
+function toggleDisplayStatus(id) {
+  const artifact = collection.find((item) => item.id === id);
+
+  if (artifact) {
+    artifact.onDisplay = !artifact.onDisplay;
+  }
+}
+
+console.log("DISPLAY STATUS");
+console.log(collection[1].onDisplay);
+
+toggleDisplayStatus(102);
+
+console.log(collection[1].onDisplay);
+
+console.log("---------");
+
+function updateCurator(id, name) {
+  const artifact = collection.find((item) => item.id === id);
+
+  if (artifact) {
+    artifact.curator.name = name;
+  }
+}
+
+updateCurator(101, "Fran Sinclair");
+
+console.log("UPDATED CURATOR");
+console.log(collection[0].curator.name);
+
+console.log("---------");
+
+function buildSummary(id) {
+  const artifact = collection.find((item) => item.id === id);
+
+  if (!artifact) {
+    return "Artifact not found";
   }
 
-  const currentA = a.ownerChain[a.ownerChain.length - 1];
-  const currentB = b.ownerChain[b.ownerChain.length - 1];
-  if (currentA.name !== currentB.name) {
-    conflicts.push({
-      field: "currentOwner",
-      explanation: `${a.curatorName} ends at ${currentA.name}; ${b.curatorName} ends at ${currentB.name}`,
-    });
-  }
+  const currentLocation = artifact.locations[artifact.locations.length - 1];
 
-  return conflicts;
+  return `${artifact.title}
+Category: ${artifact.category}
+Curator: ${artifact.curator.name}
+Current Gallery: ${currentLocation.gallery}
+On Display: ${artifact.onDisplay}`;
 }
 
-function applyPriorityRules(merged, conflicts) {
-  const [a, b] = merged.submissions;
-
-  const lead = a.priority <= b.priority ? a : b;
-
-  return {
-    ...structuredClone(merged),
-    resolvedBy: lead.curatorName,
-    ownerChain: structuredClone(lead.ownerChain),
-    conflicts,
-  };
-}
-
-const resolvedReports = {};
-
-function renderAuditReport(artifactId) {
-  const report = resolvedReports[artifactId];
-  if (!report) {
-    return `No report found for artifact ${artifactId}`;
-  }
-
-  const owners = report.ownerChain
-    .map((period) => `- ${period.name} (${formatPeriod(period)})`)
-    .join("\n");
-
-  const conflicts = report.conflicts.length
-    ? report.conflicts.map((c) => `- **${c.field}:** ${c.explanation}`).join("\n")
-    : "- None";
-
-  return `## Provenance Report: ${artifactId}
-
-**Resolved by:** ${report.resolvedBy}
-**Conflicts detected:** ${report.conflicts.length}
-
-### Ownership Chain
-${owners}
-
-### Conflicts
-${conflicts}`;
-}
-
-console.log("ARTIFACT PROVENANCE RECONCILIATION\n");
-
-const merged1 = mergeProvenance(provenanceRecords.slice(0, 2));
-const conflicts1 = detectConflicts(merged1);
-const resolved1 = applyPriorityRules(merged1, conflicts1);
-resolvedReports[resolved1.artifactId] = resolved1;
-
-const merged2 = mergeProvenance(provenanceRecords.slice(2, 4));
-const conflicts2 = detectConflicts(merged2);
-const resolved2 = applyPriorityRules(merged2, conflicts2);
-resolvedReports[resolved2.artifactId] = resolved2;
-
-console.log(renderAuditReport(101));
-console.log();
-console.log(renderAuditReport(102));
+console.log("SUMMARY");
+console.log(buildSummary(101));
