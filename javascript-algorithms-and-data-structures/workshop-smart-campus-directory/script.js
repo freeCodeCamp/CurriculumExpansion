@@ -14,7 +14,9 @@ function normalizeDirectory(rawData) {
     // Convert object into iterable array
     const departmentEntries = Object.entries(rawData);
 
-    departmentEntries.forEach(([departmentName, departmentData], index) => {
+    for (let i = 0; i < departmentEntries.length; i++) {
+        const [departmentName, departmentData] = departmentEntries[i];
+        const index = i;
         // Generate department ID
         const departmentId = departmentData.Dept_code || `dept-${index + 1}`;
 
@@ -25,8 +27,9 @@ function normalizeDirectory(rawData) {
             programIds: [],
         };
 
-        // Loop through programs
-        departmentData.programs.forEach((program) => {
+        // Loop through programs - using for loop
+        for (let j = 0; j < departmentData.programs.length; j++) {
+            const program = departmentData.programs[j];
             programsById[program.id] = {
                 ...program,
                 departmentId,
@@ -34,8 +37,9 @@ function normalizeDirectory(rawData) {
 
             departmentsById[departmentId].programIds.push(program.id);
 
-            // Normalize instructors
-            program.instructors.forEach((instructor) => {
+            // Normalize instructors - using for loop
+            for (let k = 0; k < program.instructors.length; k++) {
+                const instructor = program.instructors[k];
                 instructorsById[instructor.id] = {
                     ...instructor,
                     programId: program.id,
@@ -46,9 +50,9 @@ function normalizeDirectory(rawData) {
                 if (instructor.email) {
                     instructorsByEmail[instructor.email] = instructor.id;
                 }
-            });
-        });
-    });
+            }
+        }
+    }
 
     return {
         departmentsById,
@@ -103,19 +107,32 @@ function getInstructorByEmail(email, normalizedData) {
 
 function listRoomsByBuilding(buildingCode, normalizedData) {
 
-    return Object.values(normalizedData.programsById)
-
-        .filter(program =>
-            program.buildingCode === buildingCode
-        )
-
-        .map(program => program.room)
-
-        .filter(room => room != null)
-
-        .sort((a, b) => a.localeCompare(b, undefined, {
-            numeric: true
-        }));
+    const programValues = Object.values(normalizedData.programsById);
+    const filteredPrograms = [];
+    
+    for (let i = 0; i < programValues.length; i++) {
+        const program = programValues[i];
+        if (program.buildingCode === buildingCode) {
+            filteredPrograms.push(program);
+        }
+    }
+    
+    const rooms = [];
+    for (let i = 0; i < filteredPrograms.length; i++) {
+        rooms.push(filteredPrograms[i].room);
+    }
+    
+    const validRooms = [];
+    for (let i = 0; i < rooms.length; i++) {
+        if (rooms[i] != null) {
+            validRooms.push(rooms[i]);
+        }
+    }
+    
+     // Sorting validRooms 
+    validRooms.sort();
+    
+    return validRooms;
 }
 
 // List rooms
@@ -129,26 +146,30 @@ function listRoomsByBuilding(buildingCode, normalizedData) {
 
 function renderDirectorySummary(normalizedData) {
 
-    const departments =
-        Object.keys(normalizedData.departmentsById).length;
+    const departmentKeys = Object.keys(normalizedData.departmentsById);
+    const departments = departmentKeys.length;
 
-    const programs =
-        Object.keys(normalizedData.programsById).length;
+    const programKeys = Object.keys(normalizedData.programsById);
+    const programs = programKeys.length;
 
-    const instructors =
-        Object.keys(normalizedData.instructorsById).length;
+    const instructorKeys = Object.keys(normalizedData.instructorsById);
+    const instructors = instructorKeys.length;
 
-    const missingOfficeHours =
-        Object.values(normalizedData.instructorsById)
-            .filter(instructor =>
-                instructor.officeHours == null
-            ).length;
+    const instructorValues = Object.values(normalizedData.instructorsById);
+    let missingOfficeHours = 0;
+    for (let i = 0; i < instructorValues.length; i++) {
+        if (instructorValues[i].officeHours == null) {
+            missingOfficeHours++;
+        }
+    }
 
-    const programsWithoutRooms =
-        Object.values(normalizedData.programsById)
-            .filter(program =>
-                program.room == null
-            ).length;
+    const programValues = Object.values(normalizedData.programsById);
+    let programsWithoutRooms = 0;
+    for (let i = 0; i < programValues.length; i++) {
+        if (programValues[i].room == null) {
+            programsWithoutRooms++;
+        }
+    }
 
     return `
 Campus Directory Summary
