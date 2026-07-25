@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "David Miller",
+    "username": "dad_miller",
+    "_password": "parent456",
+    "role": "parent",
+    "passwordHash": "$2a$10$V4nCDj9z1mpYmhilx43xy.Wl9whaKMmSMSpL4qXmrS.Z73JSq7vRe"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Miller",
+    "username": "mom_miller",
+    "_password": "parent123",
+    "role": "parent",
+    "passwordHash": "$2a$10$Dct9yQRohwdBoW1MEiWfnOnnVWIOQoWAeJllJwPv34r.xqIUFKKNG"
+  },
+  {
+    "id": 3,
+    "name": "Jake Miller",
+    "username": "jake_miller",
+    "_password": "child123",
+    "role": "child",
+    "passwordHash": "$2a$10$SWOT8Vt10NXOkmVsz/kYWeDT1qa0a.6VajRe.Gf9RcPZjV3oZLaou"
+  },
+  {
+    "id": 4,
+    "name": "Sophie Miller",
+    "username": "sophie_miller",
+    "_password": "child456",
+    "role": "child",
+    "passwordHash": "$2a$10$hqW9lPmajKUKJwBJ2ByMEeB4QewQ4VPYnxMPtwXZ2FFCZUdmaShOq"
+  }
+]
