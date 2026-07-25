@@ -1,8 +1,24 @@
-//this data will be fetched from CDN
-const fs = require("fs");
-const data = fs.readFileSync("data.json", "utf8");
-const rawData = JSON.parse(data);
-// console.log(rawData);
+// global rawData
+let rawData;
+
+// global normalizedData
+let normalizedData;
+
+const url =
+    "https://cdn.freecodecamp.org/curriculum/workshop-smart-campus-directory/data.json";
+
+async function loadData() {
+    const response = await fetch(url);
+    rawData = await response.json(); // assign globally
+    console.log(rawData);
+
+    normalizedData = normalizeDirectory(rawData); // assign globally
+
+    // Anything that depends on normalizedData runs here, after it's ready
+    console.log(renderDirectorySummary(normalizedData));
+}
+
+loadData();
 
 function normalizeDirectory(rawData) {
     // Lookup tables
@@ -62,38 +78,23 @@ function normalizeDirectory(rawData) {
     };
 }
 
-const normalizedData = normalizeDirectory(rawData);
-// console.log(normalizedData);
-
-
-
 function getInstructorByEmail(email, normalizedData) {
-
-    const instructorId =
-        normalizedData.instructorsByEmail[email];
+    const instructorId = normalizedData.instructorsByEmail[email];
 
     if (!instructorId) {
         return "Instructor not found";
     }
 
-    const instructor =
-        normalizedData.instructorsById[instructorId];
+    const instructor = normalizedData.instructorsById[instructorId];
 
-    const department =
-        normalizedData.departmentsById[
-        instructor?.departmentId
-        ];
+    const department = normalizedData.departmentsById[instructor?.departmentId];
 
     return {
         name: instructor?.name ?? "Unknown Instructor",
 
-        officeHours:
-            instructor?.officeHours ??
-            "Not Available",
+        officeHours: instructor?.officeHours ?? "Not Available",
 
-        department:
-            department?.name ??
-            "Unknown Department"
+        department: department?.name ?? "Unknown Department",
     };
 }
 
@@ -104,34 +105,32 @@ function getInstructorByEmail(email, normalizedData) {
 //     )
 // );
 
-
 function listRoomsByBuilding(buildingCode, normalizedData) {
-
     const programValues = Object.values(normalizedData.programsById);
     const filteredPrograms = [];
-    
+
     for (let i = 0; i < programValues.length; i++) {
         const program = programValues[i];
         if (program.buildingCode === buildingCode) {
             filteredPrograms.push(program);
         }
     }
-    
+
     const rooms = [];
     for (let i = 0; i < filteredPrograms.length; i++) {
         rooms.push(filteredPrograms[i].room);
     }
-    
+
     const validRooms = [];
     for (let i = 0; i < rooms.length; i++) {
         if (rooms[i] != null) {
             validRooms.push(rooms[i]);
         }
     }
-    
-     // Sorting validRooms 
+
+    // Sorting validRooms
     validRooms.sort();
-    
+
     return validRooms;
 }
 
@@ -143,9 +142,7 @@ function listRoomsByBuilding(buildingCode, normalizedData) {
 //     )
 // );
 
-
 function renderDirectorySummary(normalizedData) {
-
     const departmentKeys = Object.keys(normalizedData.departmentsById);
     const departments = departmentKeys.length;
 
@@ -181,9 +178,3 @@ Missing Office Hours: ${missingOfficeHours}
 Programs Without Rooms: ${programsWithoutRooms}
 `;
 }
-
-console.log(
-    renderDirectorySummary(
-        normalizedData
-    )
-);
