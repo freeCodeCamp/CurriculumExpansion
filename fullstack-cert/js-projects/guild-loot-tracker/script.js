@@ -38,7 +38,11 @@ function listMembers(guildObject) {
 
 listMembers(guild);
 
-console.log("");
+function logSeparator() {
+  console.log("-------------");
+}
+
+logSeparator();
 
 // `countMembers` can emphasize that `Object.keys` returns an array, properties of which can be accessed the same way as any other array. It can take 2 steps:
 //  1. log an empty string to the console to space out the output, create a new function returning the keys array length,
@@ -50,7 +54,7 @@ function countMembers(guildObject) {
 
 console.log(`Guild Members: ${countMembers(guild)}`);
 
-console.log("");
+logSeparator();
 
 // 'listGold()' introduces `Object.entries() method.
 //  1. create the function, log 'Gold Totals:', call the function and log the empty string,
@@ -70,7 +74,7 @@ function listGold(guildObject) {
 
 listGold(guild);
 
-console.log("");
+logSeparator();
 
 // 'getTotalGold()' introduces 'Object.values()' method:
 //  1. create a function, log the function and an empty string to the console,
@@ -91,7 +95,7 @@ function getTotalGold(guildObject) {
 
 console.log(`Total gold: ${getTotalGold(guild)}`);
 
-console.log("");
+logSeparator();
 
 // `getRichestMember` can be 4 or 5 steps, depending on how the workshop's pacing turns out:
 //  1. explain the function's purpose, create the `getRichestMember` function, and `console.log`s with function call and an empty string,
@@ -115,7 +119,7 @@ function getRichestMember(guildObject) {
 
 console.log(`Richest Member: ${getRichestMember(guild)}`);
 
-console.log("");
+logSeparator();
 
 // Since `listVeterans` and `getRichestMember` are built similarly (for loop + if statement), this will probably have very similar list of instructions (around 3 steps):
 //  1. explain the purpose of `listVeterans` function, create a function, function call and log an empty string,
@@ -134,7 +138,7 @@ function listVeterans(guildObject) {
 
 listVeterans(guild);
 
-console.log("");
+logSeparator();
 
 // `awardGold` can be 3 steps:
 //  1. create the function,
@@ -153,7 +157,7 @@ console.log("After awarding 10 gold");
 
 listGold(guild);
 
-console.log("");
+logSeparator();
 
 // `guildReport` can be broken down into 4 steps:
 //  1. create a new function,
