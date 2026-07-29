@@ -166,8 +166,8 @@ logSeparator();
 //  4. call the `guild` report function.
 
 function guildReport(guildObject) {
-  console.log("Guild Report:");
-  console.log("-------------");
+  console.log("Guild Report\n");
+  
   console.log(`Members: ${countMembers(guildObject)}`);
   console.log(`Total Gold: ${getTotalGold(guildObject)}`);
   console.log(`RichestMember: ${getRichestMember(guildObject)}`);
