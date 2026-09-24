@@ -87,7 +87,7 @@ def get_discount_rate(order, discount_codes):
     if discount_code is None:
         return 0.0
     if discount_code not in discount_codes:
-        raise ValueError(f'Invalid discount code: {discount_code}')
+        raise ValueError(f'Invalid discount code: {discount_code}.')
     return discount_codes[discount_code]
 
 def consume_discount_code(order, discount_codes):
