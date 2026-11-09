@@ -1,5 +1,5 @@
 # This workshop practices list comprehensions and lambda functions by building a function
-# that cleans temperature sensor readings and labels them compared to a given average temperature
+# that cleans temperature sensor readings and reports how far they are from a given average temperature
 # It comes right after the list comprehensions and lambda functions lectures
 
 # Step 1, create a list of readings and a variable for the average temperature
@@ -31,37 +31,47 @@ def analyze_temperatures(readings, average):
     # Then wrap the subtraction in round() with one decimal place to fix the output
     differences = [round(temperature - average, 1) for temperature in temperatures]
 
-    # Step 6, create the labels from the differences with a trailing if:
-    # labels = ['above' for difference in differences if difference > 0]
-    # Explain that a positive difference means the temperature is above the average,
-    # so the comprehension builds on the list from the previous step
-    # Print labels and point out that there are only 3 labels for 7 temperatures,
+    # Step 6, format the differences as text with a trailing if:
+    # difference_labels = [f'+{difference}°C' for difference in differences if difference > 0]
+    # Explain that positive numbers are printed without a sign, so the comprehension adds a +
+    # Print difference_labels and point out that there are only 3 labels for 7 temperatures,
     # because a trailing if leaves out the items that don't match the condition,
     # so there's no way to tell which temperature each label belongs to
 
     # Step 7, remove the trailing if and use the conditional expression
-    # 'above' if difference > 0 else 'below' before for instead,
-    # so that every temperature gets a label
+    # f'+{difference}°C' if difference > 0 else f'{difference}°C' before for instead,
+    # so that every difference gets a label
+    # Point out that negative numbers already have a - sign, so they only need the unit
 
     # Step 8, add a third label for the temperatures equal to the average
-    # by chaining a second conditional expression after else
+    # by chaining a second conditional expression after else, since +0.0°C or 0.0°C would read oddly
     # Explain that if the first condition is falsy, Python evaluates the next conditional expression
     # Split the expression over multiple lines inside the square brackets to keep it readable
-    labels = [
-        'above' if difference > 0
-        else 'below' if difference < 0
+    difference_labels = [
+        f'+{difference}°C' if difference > 0
+        else f'{difference}°C' if difference < 0
         else 'average'
         for difference in differences
     ]
 
-    # Step 9, remove the print() calls and return the average, the differences and the labels as a tuple
-    return (average, differences, labels)
+    # Step 9, pair each temperature with its difference label using map() and a lambda function with two parameters
+    # Explain that map() can take more than one iterable, and that it passes one item from each iterable
+    # to the function on every call, so the lambda needs one parameter per iterable
+    # Print report
+    report = list(map(
+        lambda temperature, difference_label: f'{temperature}°C ({difference_label})',
+        temperatures,
+        difference_labels
+    ))
+
+    # Step 10, remove the print() calls and return the average and the report as a tuple
+    return (average, report)
 
 
 # Step 3, call the function with readings and average_temperature
 
-# Step 10, unpack the returned tuple and print the average, the differences and the labels
-average, differences, labels = analyze_temperatures(readings, average_temperature)
-print(f'Average temperature: {average}')
-print(f'Differences: {differences}')
-print(f'Labels: {labels}')
+# Step 11, unpack the returned tuple, print the average,
+# then print the report with each line on its own line by joining it with '\n'
+average, report = analyze_temperatures(readings, average_temperature)
+print(f'Average temperature: {average}°C')
+print('\n'.join(report))
