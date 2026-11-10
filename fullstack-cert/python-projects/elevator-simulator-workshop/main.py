@@ -47,7 +47,7 @@ def run_elevator(requests, start_floor):
         print('All requests served')
 
     # Step 12, return the final floor and the floors travelled as a tuple
-    return (current_floor, floors_travelled)
+    return current_floor, floors_travelled
 
 
 # Step 4, call the function with [3, 7, 2] as the requests and 1 as the starting floor
