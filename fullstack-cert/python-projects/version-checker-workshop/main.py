@@ -52,20 +52,33 @@ def check_for_update(installed, releases):
 
 
 # Step 14, define a function to release a new version
-# Get the latest version with sorted() and unpack it into major, minor, and patch
-def release_version(releases, release_type):
-    major, minor, patch = sorted(releases, reverse=True)[0]
+# base_version is the version to bump; it defaults to None, meaning "bump the latest release"
+def release_version(releases, release_type, base_version=None):
+    # Step 15, when no base_version is given, fall back to the latest release
+    if base_version is None:
+        base_version = sorted(releases, reverse=True)[0]
+    # Step 16, otherwise make sure the given version actually exists in releases
+    elif base_version not in releases:
+        print(f'{base_version} is not a known release')
+        return releases
 
-    # Step 15, a major release increases the major number and resets the others to 0
+    major, minor, patch = base_version
+
+    # Step 17, a major release increases the major number and resets the others to 0
     if release_type == 'major':
         new_version = (major + 1, 0, 0)
-    # Step 16, add the minor and patch releases
+    # Step 18, add the minor and patch releases
     elif release_type == 'minor':
         new_version = (major, minor + 1, 0)
     else:
         new_version = (major, minor, patch + 1)
 
-    # Step 17, tuples are immutable, so you can't add an item to releases
+    # Step 19, if the computed version is already released, there's nothing to do
+    if new_version in releases:
+        print(f'{new_version} has already been released')
+        return releases
+
+    # Step 20, tuples are immutable, so you can't add an item to releases
     # Instead, create a new tuple with the + operator, which joins the elements of two tuples
     # new_version is a tuple itself, so releases + new_version would add 2, 3, and 0 as three separate elements
     # Wrap it in a single-element tuple, (new_version,), so it is added as one element
@@ -86,9 +99,21 @@ print(f'Latest version: {latest_version}')
 # Step 8 -> (2, 2, 1): up to date
 # Step 13 -> (2, 1, 0): minor update available, releases behind: 3
 
-# Step 18, release a new minor version, reassign releases, and check (2, 2, 1) again:
+# Step 21, release a new minor version based on the latest one, reassign releases, and check (2, 2, 1) again:
 # it's not the latest version anymore
 releases = release_version(releases, 'minor')
 status, latest_version = check_for_update((2, 2, 1), releases)
 print(f'Status: {status}')
 print(f'Latest version: {latest_version}')
+
+# Step 22, release a patch for the older 1.9 line instead of the latest version
+releases = release_version(releases, 'patch', (1, 9, 2))
+status, latest_version = check_for_update((1, 9, 2), releases)
+print(f'Status: {status}')
+print(f'Latest version: {latest_version}')
+
+# Step 23, try to release from a version that was never published: prints a message and returns releases unchanged
+releases = release_version(releases, 'patch', (3, 0, 0))
+
+# Step 24, try to release a version that already exists (2, 2, 1 already has a minor update): same, nothing changes
+releases = release_version(releases, 'minor', (2, 2, 0))
