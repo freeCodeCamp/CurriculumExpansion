@@ -70,8 +70,11 @@ def release_version(releases, release_type, base_version=None):
     # Step 18, add the minor and patch releases
     elif release_type == 'minor':
         new_version = (major, minor + 1, 0)
-    else:
+    elif release_type == 'patch':
         new_version = (major, minor, patch + 1)
+    else:
+        print(f'{release_type} is not a valid release type')
+        return releases
 
     # Step 19, if the computed version is already released, there's nothing to do
     if new_version in releases:
